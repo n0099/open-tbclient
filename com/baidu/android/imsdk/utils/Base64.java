@@ -4,7 +4,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class Base64 {
     private static final char[] legalChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
 

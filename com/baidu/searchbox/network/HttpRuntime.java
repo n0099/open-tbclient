@@ -1,9 +1,9 @@
 package com.baidu.searchbox.network;
 
-import com.baidu.tieba.q.f;
-/* loaded from: classes20.dex */
+import com.baidu.tieba.r.f;
+/* loaded from: classes19.dex */
 public class HttpRuntime {
     public static IHttpContext getHttpContext() {
-        return f.dGL();
+        return f.dGC();
     }
 }

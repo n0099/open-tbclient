@@ -1,5 +1,5 @@
 package com.baidu.ufosdk.ui;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public interface l {
     void a();
 

@@ -61,15 +61,15 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
         if (this.c != null) {
             if (this.b != null && message.arg1 == 0) {
                 if (com.baidu.platform.comapi.bikenavi.a.a.f2826a) {
-                    this.b.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.p.a.a.b().getString(R.raw.lottie_common_pull_refresh_1), com.baidu.platform.comapi.wnplatform.p.a.a.a(this.c, (int) R.drawable.abc_text_select_handle_right_mtrl_light));
+                    this.b.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.p.a.a.b().getString(R.raw.lottie_card_agree_1), com.baidu.platform.comapi.wnplatform.p.a.a.a(this.c, (int) R.drawable.abc_text_select_handle_right_mtrl_light));
                 } else {
-                    this.b.onGpsStatusChange(this.c.getResources().getString(R.raw.lottie_common_pull_refresh_1), this.c.getResources().getDrawable(R.drawable.abc_text_select_handle_right_mtrl_light));
+                    this.b.onGpsStatusChange(this.c.getResources().getString(R.raw.lottie_card_agree_1), this.c.getResources().getDrawable(R.drawable.abc_text_select_handle_right_mtrl_light));
                 }
             } else if (this.f3114a != null && message.arg1 == 0) {
                 if (com.baidu.platform.comapi.bikenavi.a.a.f2826a) {
-                    this.f3114a.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.p.a.a.b().getString(R.raw.lottie_common_pull_refresh_1), com.baidu.platform.comapi.wnplatform.p.a.a.a(this.c, (int) R.drawable.abc_text_select_handle_right_mtrl_light));
+                    this.f3114a.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.p.a.a.b().getString(R.raw.lottie_card_agree_1), com.baidu.platform.comapi.wnplatform.p.a.a.a(this.c, (int) R.drawable.abc_text_select_handle_right_mtrl_light));
                 } else {
-                    this.f3114a.onGpsStatusChange(this.c.getResources().getString(R.raw.lottie_common_pull_refresh_1), this.c.getResources().getDrawable(R.drawable.abc_text_select_handle_right_mtrl_light));
+                    this.f3114a.onGpsStatusChange(this.c.getResources().getString(R.raw.lottie_card_agree_1), this.c.getResources().getDrawable(R.drawable.abc_text_select_handle_right_mtrl_light));
                 }
             }
         }

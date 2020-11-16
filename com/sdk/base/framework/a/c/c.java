@@ -3,7 +3,7 @@ package com.sdk.base.framework.a.c;
 import java.util.concurrent.Executor;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public abstract class c<Params, Progress, Result> {
     private static final g b = new g((byte) 0);
     private static Executor c = new i();

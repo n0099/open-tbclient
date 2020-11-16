@@ -6,9 +6,9 @@ import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class FeedAdProgressText extends AppCompatTextView implements a {
-    private int mBe;
+    private int mBC;
     private int mColor;
     private int mMax;
     private int mProgress;
@@ -18,7 +18,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
         this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.mBe = 0;
+        this.mBC = 0;
         init(context);
     }
 
@@ -27,7 +27,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
         this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.mBe = 0;
+        this.mBC = 0;
         init(context);
     }
 
@@ -36,7 +36,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
         this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.mBe = 0;
+        this.mBC = 0;
         init(context);
     }
 
@@ -72,7 +72,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setButtonTextNightColor(int i) {
-        this.mBe = i;
+        this.mBC = i;
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
@@ -93,11 +93,11 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void onChangeSkinType() {
-        setTextColor(ap.getColor(R.color.cp_cont_d));
+        setTextColor(ap.getColor(R.color.CAM_X0109));
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void changeSkin() {
-        setTextColor(ap.getColor(R.color.cp_cont_d));
+        setTextColor(ap.getColor(R.color.CAM_X0109));
     }
 }

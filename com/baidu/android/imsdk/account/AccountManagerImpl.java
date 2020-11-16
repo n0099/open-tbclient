@@ -37,7 +37,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class AccountManagerImpl {
     private static Context mContext;
     private static volatile AccountManagerImpl mInstance;
@@ -237,7 +237,7 @@ public class AccountManagerImpl {
         Utility.writeLoginFlag(mContext, "5N", "startLoginServiceRunnable begin, loginType = " + i + "，needLogout :" + z);
         if (z) {
             LogUtils.d(TAG, "need logout before login");
-            if (a.azB) {
+            if (a.axQ) {
                 BIMManager.imLogoutByLcp(mContext);
                 startLoginService(i, str, str2, str3, str4, iLoginListener);
                 return;
@@ -319,7 +319,7 @@ public class AccountManagerImpl {
             Utility.clearCache(mContext);
             this.mToken = null;
         }
-        if (!a.azB) {
+        if (!a.axQ) {
             clearLoginParam(mContext);
             clearUid(mContext);
             disconnect(str);
@@ -407,7 +407,7 @@ public class AccountManagerImpl {
         if (i == 0) {
             noticeStateChanged(3);
             BIMManager.connectStatusNotify(0);
-            if (!a.azB) {
+            if (!a.axQ) {
                 Utility.sendConnectionStateBroadCast(mContext, 0);
             }
         } else {

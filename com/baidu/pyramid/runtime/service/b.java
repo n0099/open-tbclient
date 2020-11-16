@@ -1,5 +1,5 @@
 package com.baidu.pyramid.runtime.service;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface b<T> {
-    T ady();
+    T acP();
 }

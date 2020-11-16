@@ -14,27 +14,27 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.data.i;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b extends RecyclerView.Adapter<a> {
-    private d fTb;
+    private d fSI;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.b.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             i iVar = (i) view.getTag();
             if (iVar != null) {
-                if (!iVar.fmj) {
-                    b.this.fTb.EQ(iVar.fmk);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921507, iVar.fmk));
+                if (!iVar.flr) {
+                    b.this.fSI.Er(iVar.fls);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921507, iVar.fls));
                     return;
                 }
-                TiebaStatic.log(new aq("c13995").dR("fid", iVar.forumId).al("obj_source", b.this.mType));
+                TiebaStatic.log(new ar("c13995").dR("fid", iVar.forumId).ak("obj_source", b.this.mType));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921505, iVar));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921503));
             }
@@ -44,7 +44,7 @@ public class b extends RecyclerView.Adapter<a> {
     private int mType;
 
     public b(d dVar) {
-        this.fTb = dVar;
+        this.fSI = dVar;
     }
 
     public void setType(int i) {
@@ -69,23 +69,23 @@ public class b extends RecyclerView.Adapter<a> {
     public void onBindViewHolder(@NonNull a aVar, int i) {
         i iVar = (i) y.getItem(this.mDataList, i);
         if (iVar != null) {
-            aVar.fTd.setPlaceHolder(2);
-            aVar.fTd.setShowOval(true);
-            aVar.fTd.setShowOuterBorder(true);
-            aVar.fTd.setShowInnerBorder(false);
-            aVar.fTd.setStrokeColorResId(R.color.cp_border_a);
-            aVar.fTd.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            aVar.fTd.startLoad(iVar.bgP, 10, false);
-            aVar.fTe.setText(iVar.forumName);
-            ap.setViewTextColor(aVar.fTe, R.color.cp_cont_b);
+            aVar.fSK.setPlaceHolder(1);
+            aVar.fSK.setShowOval(true);
+            aVar.fSK.setShowOuterBorder(true);
+            aVar.fSK.setShowInnerBorder(false);
+            aVar.fSK.setStrokeColorResId(R.color.CAM_X0401);
+            aVar.fSK.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            aVar.fSK.startLoad(iVar.bfc, 10, false);
+            aVar.fSL.setText(iVar.forumName);
+            ap.setViewTextColor(aVar.fSL, R.color.CAM_X0105);
             if (iVar.level <= 0) {
-                aVar.fTf.setVisibility(8);
+                aVar.fSM.setVisibility(8);
             } else {
-                aVar.fTf.setVisibility(0);
-                ap.setImageResource(aVar.fTf, BitmapHelper.getGradeResourceIdInEnterForum(iVar.level));
+                aVar.fSM.setVisibility(0);
+                ap.setImageResource(aVar.fSM, BitmapHelper.getGradeResourceIdInEnterForum(iVar.level));
             }
-            aVar.fTg.setVisibility(iVar.fmi ? 0 : 8);
-            ap.setViewTextColor(aVar.fTg, R.color.cp_link_tip_a);
+            aVar.fSN.setVisibility(iVar.flq ? 0 : 8);
+            ap.setViewTextColor(aVar.fSN, R.color.CAM_X0302);
             aVar.itemView.setTag(iVar);
             ap.setBackgroundResource(aVar.itemView, R.drawable.forum_selected_view_bg);
             aVar.itemView.setOnClickListener(this.mClickListener);
@@ -98,19 +98,19 @@ public class b extends RecyclerView.Adapter<a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public class a extends RecyclerView.ViewHolder {
-        BarImageView fTd;
-        TextView fTe;
-        ImageView fTf;
-        TextView fTg;
+        BarImageView fSK;
+        TextView fSL;
+        ImageView fSM;
+        TextView fSN;
 
         public a(View view) {
             super(view);
-            this.fTd = (BarImageView) view.findViewById(R.id.cell_select_forum_img);
-            this.fTe = (TextView) view.findViewById(R.id.cell_select_forum_name);
-            this.fTf = (ImageView) view.findViewById(R.id.cell_select_forum_level);
-            this.fTg = (TextView) view.findViewById(R.id.cell_select_forum_lately);
+            this.fSK = (BarImageView) view.findViewById(R.id.cell_select_forum_img);
+            this.fSL = (TextView) view.findViewById(R.id.cell_select_forum_name);
+            this.fSM = (ImageView) view.findViewById(R.id.cell_select_forum_level);
+            this.fSN = (TextView) view.findViewById(R.id.cell_select_forum_lately);
         }
     }
 }

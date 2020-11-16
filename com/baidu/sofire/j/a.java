@@ -3,7 +3,7 @@ package com.baidu.sofire.j;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.sofire.o.b;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */

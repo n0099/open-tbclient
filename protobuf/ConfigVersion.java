@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class ConfigVersion extends Message {
     public static final String DEFAULT_PLUGIN = "";
     public static final String DEFAULT_SYNC = "";
@@ -33,7 +33,7 @@ public final class ConfigVersion extends Message {
         this.f5132plugin = builder.f5133plugin;
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public static final class Builder extends Message.Builder<ConfigVersion> {
 
         /* renamed from: plugin  reason: collision with root package name */

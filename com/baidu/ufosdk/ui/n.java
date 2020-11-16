@@ -6,7 +6,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.baidu.android.imsdk.internal.IMConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class n implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */

@@ -6,18 +6,18 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public ArrayList<SdkLiveInfoData> gjO;
+    public ArrayList<SdkLiveInfoData> gjv;
 
     public void parserJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("live_list")) != null && optJSONArray.length() > 0) {
-            this.gjO = new ArrayList<>(optJSONArray.length());
+            this.gjv = new ArrayList<>(optJSONArray.length());
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
                     sdkLiveInfoData.fromJson(optJSONObject);
-                    this.gjO.add(sdkLiveInfoData);
+                    this.gjv.add(sdkLiveInfoData);
                 }
             }
         }

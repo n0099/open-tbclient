@@ -102,5 +102,6 @@ public class SyncSwitch {
         SwitchManager.getInstance().registerSwitch(FlutterCrabReportEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(FlutterLifeCycleBugEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(UseHttpAutoRetrySwitch.class);
+        SwitchManager.getInstance().registerSwitch(OpenJsSdkSwitch.class);
     }
 }

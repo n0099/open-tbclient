@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.sapi2.SapiContext;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class IMSendQuizOptMsg extends Message {
     private static final String TAG = "IMSendQuizOptMsg";
     private int mAnsWer;

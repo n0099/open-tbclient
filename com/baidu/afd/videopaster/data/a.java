@@ -8,15 +8,15 @@ import com.baidu.tieba.lego.card.b.b;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.lego.card.b.b {
-    public boolean ZA;
-    public int ZB;
-    public int ZC;
-    private b.a ZF;
-    public String Zt;
-    public String Zu;
-    public int Zv;
-    public String Zw;
-    public String Zx;
+    public int ZA;
+    public String ZB;
+    public String ZC;
+    public String ZD;
+    public String ZE;
+    public boolean ZF;
+    public int ZG;
+    public int ZH;
+    private b.a ZK;
     public String Zy;
     public String Zz;
     public String adid;
@@ -24,20 +24,20 @@ public class a implements com.baidu.tieba.lego.card.b.b {
     public String picUrl;
     public String tplName;
     public String videoUrl;
-    private int Zs = 3;
-    public ArrayList<String> ZD = new ArrayList<>();
-    public ArrayList<String> ZE = new ArrayList<>();
+    private int Zx = 3;
+    public ArrayList<String> ZI = new ArrayList<>();
+    public ArrayList<String> ZJ = new ArrayList<>();
 
     public void ba(int i) {
-        this.Zs = i;
+        this.Zx = i;
     }
 
     public boolean isEmpty() {
-        return this.Zs == 2;
+        return this.Zx == 2;
     }
 
     public int rT() {
-        return this.Zs;
+        return this.Zx;
     }
 
     public boolean isValid() {
@@ -51,16 +51,16 @@ public class a implements com.baidu.tieba.lego.card.b.b {
     }
 
     public String rU() {
-        return StringUtils.isNull(this.Zy) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.Zy;
+        return StringUtils.isNull(this.ZD) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.ZD;
     }
 
     @Override // com.baidu.tieba.lego.card.b.b
     public b.a getParallelCharge() {
-        if (this.ZF == null) {
-            this.ZF = new b.a();
-            this.ZF.kEI = this.ZD;
-            this.ZF.kEJ = this.ZE;
+        if (this.ZK == null) {
+            this.ZK = new b.a();
+            this.ZK.kEX = this.ZI;
+            this.ZK.kEY = this.ZJ;
         }
-        return this.ZF;
+        return this.ZK;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.afx.callback;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class PlaySuccessInfo {
     public String mFilePath;
     public String mPrepareTime;

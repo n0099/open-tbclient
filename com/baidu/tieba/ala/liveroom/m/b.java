@@ -13,81 +13,81 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tieba.ala.liveroom.m.a;
 /* loaded from: classes4.dex */
 public class b {
-    private Activity bNY;
-    private CustomMessageListener bOa;
-    private a.InterfaceC0679a hiW;
-    private a hiY;
+    private Activity bMo;
+    private CustomMessageListener bMq;
+    private a.InterfaceC0679a hiD;
+    private a hiF;
 
     public b(Activity activity) {
-        this.bNY = activity;
-        WY();
+        this.bMo = activity;
+        Wp();
     }
 
     public void ev(String str, String str2) {
-        this.hiY = new a(this.bNY);
-        this.hiY.a(this.hiW);
-        this.hiY.WZ().setBackgroundColor(hW(str));
+        this.hiF = new a(this.bMo);
+        this.hiF.a(this.hiD);
+        this.hiF.Wq().setBackgroundColor(hQ(str));
         g gVar = new g();
-        gVar.y(this.bNY).a(this.hiY).a(this.hiY.WZ().getSchemeCallback());
-        com.baidu.live.view.web.a[] WX = gVar.WX();
-        for (com.baidu.live.view.web.a aVar : WX) {
-            this.hiY.WZ().addJavascriptInterface(aVar, aVar.getName());
+        gVar.x(this.bMo).a(this.hiF).a(this.hiF.Wq().getSchemeCallback());
+        com.baidu.live.view.web.a[] Wo = gVar.Wo();
+        for (com.baidu.live.view.web.a aVar : Wo) {
+            this.hiF.Wq().addJavascriptInterface(aVar, aVar.getName());
         }
-        if (!this.hiY.isShowing()) {
-            this.hiY.eu(str, str2);
+        if (!this.hiF.isShowing()) {
+            this.hiF.eu(str, str2);
         }
     }
 
     public void resume() {
-        if (this.hiY != null && this.hiY.isShowing() && this.hiY.WZ() != null) {
-            this.hiY.WZ().onResume();
+        if (this.hiF != null && this.hiF.isShowing() && this.hiF.Wq() != null) {
+            this.hiF.Wq().onResume();
         }
     }
 
     public void pause() {
-        if (this.hiY != null && this.hiY.isShowing() && this.hiY.WZ() != null) {
-            this.hiY.WZ().onPause();
+        if (this.hiF != null && this.hiF.isShowing() && this.hiF.Wq() != null) {
+            this.hiF.Wq().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.hiY != null) {
-            this.hiY.Xa();
+        if (this.hiF != null) {
+            this.hiF.Wr();
         }
     }
 
-    public void dI(int i) {
-        if (this.hiY != null && this.hiY.isShowing()) {
-            this.hiY.dI(i);
+    public void dE(int i) {
+        if (this.hiF != null && this.hiF.isShowing()) {
+            this.hiF.dE(i);
         }
     }
 
-    public void Ht() {
+    public void GK() {
         dismiss();
     }
 
     public void release() {
-        Ht();
-        MessageManager.getInstance().unRegisterListener(this.bOa);
-        this.bOa = null;
+        GK();
+        MessageManager.getInstance().unRegisterListener(this.bMq);
+        this.bMq = null;
     }
 
-    private void WY() {
-        if (this.bOa == null) {
-            this.bOa = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.m.b.1
+    private void Wp() {
+        if (this.bMq == null) {
+            this.bMq = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.m.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (b.this.hiY != null && b.this.hiY.isShowing()) {
-                        b.this.hiY.dismiss();
+                    if (b.this.hiF != null && b.this.hiF.isShowing()) {
+                        b.this.hiF.dismiss();
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.bOa);
+            MessageManager.getInstance().registerListener(this.bMq);
         }
     }
 
-    private int hW(String str) {
+    private int hQ(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -105,10 +105,10 @@ public class b {
     }
 
     public void a(a.InterfaceC0679a interfaceC0679a) {
-        this.hiW = interfaceC0679a;
+        this.hiD = interfaceC0679a;
     }
 
-    public a.InterfaceC0679a ccj() {
-        return this.hiW;
+    public a.InterfaceC0679a cbC() {
+        return this.hiD;
     }
 }

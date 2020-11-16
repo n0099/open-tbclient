@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.al.f;
 
 import android.support.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface c {
     @Nullable
-    b afQ();
+    b afi();
 }

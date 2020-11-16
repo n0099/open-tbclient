@@ -289,7 +289,7 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     @Override // com.baidu.adp.framework.client.socket.link.a
     public void a(k.a aVar) {
         byte[] bArr;
-        if (aVar != null && (bArr = aVar.QG) != null) {
+        if (aVar != null && (bArr = aVar.QH) != null) {
             this.mLastReceDataTime = System.currentTimeMillis();
             try {
                 com.baidu.adp.framework.client.socket.coder.c k = com.baidu.adp.framework.client.socket.coder.b.lx().k(bArr);

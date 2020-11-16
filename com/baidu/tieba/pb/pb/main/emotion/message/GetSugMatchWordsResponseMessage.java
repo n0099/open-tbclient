@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class GetSugMatchWordsResponseMessage extends JsonHttpResponsedMessage {
     private List<String> mData;
 

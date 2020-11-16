@@ -12,7 +12,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.bdprivate.extensions.e.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends aa {
     public c(j jVar) {
         super(jVar, "/swanAPI/guidePushSetting");

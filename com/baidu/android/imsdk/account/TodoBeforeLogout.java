@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.account;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public interface TodoBeforeLogout {
     void todo();
 }

@@ -1,5 +1,5 @@
 package com.baidu.rtc.camera.engine.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public interface b {
-    void H(float f);
+    void G(float f);
 }

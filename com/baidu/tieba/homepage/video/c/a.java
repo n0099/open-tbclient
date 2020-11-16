@@ -8,101 +8,100 @@ import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tieba.card.data.c;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.card.data.b;
 import com.baidu.tieba.card.n;
 import com.baidu.tieba.frs.l;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class a {
-    public static void a(AbsThreadDataSupport absThreadDataSupport, Context context, int i, boolean z, Rect rect) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bjZ() != null && context != null) {
-            bw bjZ = absThreadDataSupport.bjZ();
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bjZ, null, "video_tab", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(bjZ.getFid()));
+    public static void a(com.baidu.tbadk.core.data.a aVar, Context context, int i, boolean z, Rect rect) {
+        if (aVar != null && aVar.bjd() != null && context != null) {
+            bx bjd = aVar.bjd();
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bjd, null, "video_tab", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(bjd.getFid()));
             createFromThreadCfg.setFrom(PbActivityConfig.KEY_FROM_VIDEO_TAB);
-            createFromThreadCfg.setForumName(bjZ.bmE());
+            createFromThreadCfg.setForumName(bjd.blG());
             createFromThreadCfg.setStartFrom(i);
             createFromThreadCfg.setVideoOriginArea(rect);
-            if (absThreadDataSupport.bkc() != null) {
-                createFromThreadCfg.addLocateParam(absThreadDataSupport.bkc());
+            if (aVar.bjg() != null) {
+                createFromThreadCfg.addLocateParam(aVar.bjg());
             }
-            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && w(bjZ)) {
+            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && w(bjd)) {
                 createFromThreadCfg.setNeedPreLoad(true);
-                l.al(bjZ);
+                l.an(bjd);
             }
             createFromThreadCfg.setVideo_source("video_tab");
             createFromThreadCfg.setJumpGodReply(z);
-            n.IZ(bjZ.getTid());
+            n.IA(bjd.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
 
-    private static boolean w(bw bwVar) {
-        if (bwVar == null || bwVar.isShareThread) {
+    private static boolean w(bx bxVar) {
+        if (bxVar == null || bxVar.isShareThread) {
             return false;
         }
-        int i = bwVar.threadType;
+        int i = bxVar.threadType;
         if (i == 0 || i == 11 || i == 40) {
             return true;
         }
-        return bwVar.blk();
+        return bxVar.bkm();
     }
 
-    public static void n(c cVar) {
-        aq aI;
-        if (cVar != null && (aI = cVar.aI("c13583", true)) != null) {
-            a(cVar, aI);
+    public static void n(b bVar) {
+        ar aI;
+        if (bVar != null && (aI = bVar.aI("c13583", true)) != null) {
+            a(bVar, aI);
             TiebaStatic.log(aI);
         }
     }
 
-    public static void o(c cVar) {
-        aq aI;
-        if (cVar != null && (aI = cVar.aI("c13584", true)) != null) {
-            a(cVar, aI);
-            aI.al("obj_floor", cVar.position + 1);
+    public static void o(b bVar) {
+        ar aI;
+        if (bVar != null && (aI = bVar.aI("c13584", true)) != null) {
+            a(bVar, aI);
+            aI.ak("obj_floor", bVar.position + 1);
             TiebaStatic.log(aI);
         }
     }
 
-    public static void p(c cVar) {
-        aq aI;
-        if (cVar != null && (aI = cVar.aI("c13585", true)) != null) {
-            a(cVar, aI);
+    public static void p(b bVar) {
+        ar aI;
+        if (bVar != null && (aI = bVar.aI("c13585", true)) != null) {
+            a(bVar, aI);
             TiebaStatic.log(aI);
         }
     }
 
-    public static void q(c cVar) {
-        aq aI;
-        if (cVar != null && (aI = cVar.aI("c13586", true)) != null) {
-            a(cVar, aI);
+    public static void q(b bVar) {
+        ar aI;
+        if (bVar != null && (aI = bVar.aI("c13586", true)) != null) {
+            a(bVar, aI);
             TiebaStatic.log(aI);
         }
     }
 
-    public static void r(c cVar) {
-        aq aI;
-        if (cVar != null && (aI = cVar.aI("c13587", true)) != null) {
-            a(cVar, aI);
+    public static void r(b bVar) {
+        ar aI;
+        if (bVar != null && (aI = bVar.aI("c13587", true)) != null) {
+            a(bVar, aI);
             TiebaStatic.log(aI);
         }
     }
 
-    private static void a(c cVar, aq aqVar) {
-        if (cVar != null && cVar.bjZ() != null && aqVar != null) {
-            if (cVar.bjZ().getBaijiahaoData() != null) {
-                BaijiahaoData baijiahaoData = cVar.bjZ().getBaijiahaoData();
-                aqVar.al("obj_param5", 3);
-                aqVar.dR("obj_param4", baijiahaoData.oriUgcNid);
-                aqVar.dR("obj_param6", baijiahaoData.oriUgcVid);
+    private static void a(b bVar, ar arVar) {
+        if (bVar != null && bVar.bjd() != null && arVar != null) {
+            if (bVar.bjd().getBaijiahaoData() != null) {
+                BaijiahaoData baijiahaoData = bVar.bjd().getBaijiahaoData();
+                arVar.ak("obj_param5", 3);
+                arVar.dR("obj_param4", baijiahaoData.oriUgcNid);
+                arVar.dR("obj_param6", baijiahaoData.oriUgcVid);
                 return;
             }
-            aqVar.al("obj_param5", 1);
+            arVar.ak("obj_param5", 1);
         }
     }
 }

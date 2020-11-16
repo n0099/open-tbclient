@@ -5,55 +5,55 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class b implements q, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> fNF = new SparseArray<>();
-    private Object fNG;
-    private int fNH;
+    private static SparseArray<BdUniqueId> fNi = new SparseArray<>();
+    private Object fNj;
+    private int fNk;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return fNF.get(this.fNH);
+        return fNi.get(this.fNk);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object bHC() {
-        return this.fNG;
+    public Object bGV() {
+        return this.fNj;
     }
 
     public void aA(Object obj) {
-        this.fNG = obj;
+        this.fNj = obj;
     }
 
-    public int bHD() {
-        return this.fNH;
+    public int bGW() {
+        return this.fNk;
     }
 
-    public void sZ(int i) {
-        this.fNH = i;
+    public void tx(int i) {
+        this.fNk = i;
     }
 
     public static void bG(List<Integer> list) {
-        if (fNF.size() <= 0 && list != null) {
+        if (fNi.size() <= 0 && list != null) {
             for (Integer num : list) {
-                fNF.put(num.intValue(), BdUniqueId.gen());
+                fNi.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> bHE() {
+    public static List<BdUniqueId> bGX() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < fNF.size(); i++) {
-            arrayList.add(fNF.valueAt(i));
+        for (int i = 0; i < fNi.size(); i++) {
+            arrayList.add(fNi.valueAt(i));
         }
         return arrayList;
     }
 
     public static int n(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (fNF.size() == 0 || (indexOfValue = fNF.indexOfValue(bdUniqueId)) == -1 || fNF.size() <= indexOfValue) {
+        if (fNi.size() == 0 || (indexOfValue = fNi.indexOfValue(bdUniqueId)) == -1 || fNi.size() <= indexOfValue) {
             return -1;
         }
-        return fNF.keyAt(indexOfValue);
+        return fNi.keyAt(indexOfValue);
     }
 }

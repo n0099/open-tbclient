@@ -1,11 +1,11 @@
 package io.reactivex.internal.operators.flowable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public abstract class a<T, R> extends io.reactivex.g<R> {
-    protected final io.reactivex.g<T> pMK;
+    protected final io.reactivex.g<T> pOn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(io.reactivex.g<T> gVar) {
-        this.pMK = (io.reactivex.g) io.reactivex.internal.functions.a.l(gVar, "source is null");
+        this.pOn = (io.reactivex.g) io.reactivex.internal.functions.a.l(gVar, "source is null");
     }
 }

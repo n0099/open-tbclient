@@ -4,104 +4,104 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 import java.util.Arrays;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class f extends a {
-    private static boolean oOW = true;
+    private static boolean oQA = true;
     int mAlpha;
     long mStartTimeMs;
-    private final Drawable[] oOE;
-    int oOQ;
-    int oOR;
-    int[] oOS;
-    int[] oOT;
-    boolean[] oOU;
-    int oOV;
+    private final Drawable[] oQi;
+    int oQu;
+    int oQv;
+    int[] oQw;
+    int[] oQx;
+    boolean[] oQy;
+    int oQz;
 
     public f(Drawable[] drawableArr) {
         super(drawableArr);
         com.facebook.common.internal.g.d(drawableArr.length >= 1, "At least one layer required!");
-        this.oOE = drawableArr;
-        this.oOS = new int[drawableArr.length];
-        this.oOT = new int[drawableArr.length];
+        this.oQi = drawableArr;
+        this.oQw = new int[drawableArr.length];
+        this.oQx = new int[drawableArr.length];
         this.mAlpha = 255;
-        this.oOU = new boolean[drawableArr.length];
-        this.oOV = 0;
+        this.oQy = new boolean[drawableArr.length];
+        this.oQz = 0;
         resetInternal();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        if (this.oOV == 0) {
+        if (this.oQz == 0) {
             super.invalidateSelf();
         }
     }
 
-    public void elP() {
-        this.oOV++;
+    public void elN() {
+        this.oQz++;
     }
 
-    public void elQ() {
-        this.oOV--;
+    public void elO() {
+        this.oQz--;
         invalidateSelf();
     }
 
-    public void OE(int i) {
-        this.oOR = i;
-        if (this.oOQ == 1) {
-            this.oOQ = 0;
+    public void Ph(int i) {
+        this.oQv = i;
+        if (this.oQu == 1) {
+            this.oQu = 0;
         }
     }
 
     private void resetInternal() {
-        this.oOQ = 2;
-        Arrays.fill(this.oOS, 0);
-        this.oOS[0] = 255;
-        Arrays.fill(this.oOT, 0);
-        this.oOT[0] = 255;
-        Arrays.fill(this.oOU, false);
-        this.oOU[0] = true;
+        this.oQu = 2;
+        Arrays.fill(this.oQw, 0);
+        this.oQw[0] = 255;
+        Arrays.fill(this.oQx, 0);
+        this.oQx[0] = 255;
+        Arrays.fill(this.oQy, false);
+        this.oQy[0] = true;
     }
 
-    public void OF(int i) {
-        this.oOQ = 0;
-        this.oOU[i] = true;
+    public void Pi(int i) {
+        this.oQu = 0;
+        this.oQy[i] = true;
         invalidateSelf();
     }
 
-    public void OG(int i) {
-        this.oOQ = 0;
-        this.oOU[i] = false;
+    public void Pj(int i) {
+        this.oQu = 0;
+        this.oQy[i] = false;
         invalidateSelf();
     }
 
-    public void elR() {
-        this.oOQ = 0;
-        Arrays.fill(this.oOU, true);
+    public void elP() {
+        this.oQu = 0;
+        Arrays.fill(this.oQy, true);
         invalidateSelf();
     }
 
-    public void elS() {
-        this.oOQ = 2;
-        for (int i = 0; i < this.oOE.length; i++) {
-            this.oOT[i] = this.oOU[i] ? 255 : 0;
+    public void elQ() {
+        this.oQu = 2;
+        for (int i = 0; i < this.oQi.length; i++) {
+            this.oQx[i] = this.oQy[i] ? 255 : 0;
         }
         invalidateSelf();
     }
 
-    private boolean bk(float f) {
+    private boolean br(float f) {
         boolean z = true;
-        for (int i = 0; i < this.oOE.length; i++) {
-            this.oOT[i] = (int) (((this.oOU[i] ? 1 : -1) * 255 * f) + this.oOS[i]);
-            if (this.oOT[i] < 0) {
-                this.oOT[i] = 0;
+        for (int i = 0; i < this.oQi.length; i++) {
+            this.oQx[i] = (int) (((this.oQy[i] ? 1 : -1) * 255 * f) + this.oQw[i]);
+            if (this.oQx[i] < 0) {
+                this.oQx[i] = 0;
             }
-            if (this.oOT[i] > 255) {
-                this.oOT[i] = 255;
+            if (this.oQx[i] > 255) {
+                this.oQx[i] = 255;
             }
-            if (this.oOU[i] && this.oOT[i] < 255) {
+            if (this.oQy[i] && this.oQx[i] < 255) {
                 z = false;
             }
-            if (!this.oOU[i] && this.oOT[i] > 0) {
+            if (!this.oQy[i] && this.oQx[i] > 0) {
                 z = false;
             }
         }
@@ -111,26 +111,26 @@ public class f extends a {
     @Override // com.facebook.drawee.drawable.a, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         boolean z = true;
-        switch (this.oOQ) {
+        switch (this.oQu) {
             case 0:
-                System.arraycopy(this.oOT, 0, this.oOS, 0, this.oOE.length);
-                this.mStartTimeMs = elT();
-                if (oOW && this.oOR != 0) {
+                System.arraycopy(this.oQx, 0, this.oQw, 0, this.oQi.length);
+                this.mStartTimeMs = elR();
+                if (oQA && this.oQv != 0) {
                     r0 = 0.0f;
                 }
-                boolean bk = bk(r0);
-                this.oOQ = bk ? 2 : 1;
-                z = bk;
+                boolean br = br(r0);
+                this.oQu = br ? 2 : 1;
+                z = br;
                 break;
             case 1:
-                com.facebook.common.internal.g.checkState(this.oOR > 0);
-                boolean bk2 = bk(oOW ? ((float) (elT() - this.mStartTimeMs)) / this.oOR : 1.0f);
-                this.oOQ = bk2 ? 2 : 1;
-                z = bk2;
+                com.facebook.common.internal.g.checkState(this.oQv > 0);
+                boolean br2 = br(oQA ? ((float) (elR() - this.mStartTimeMs)) / this.oQv : 1.0f);
+                this.oQu = br2 ? 2 : 1;
+                z = br2;
                 break;
         }
-        for (int i = 0; i < this.oOE.length; i++) {
-            a(canvas, this.oOE[i], (this.oOT[i] * this.mAlpha) / 255);
+        for (int i = 0; i < this.oQi.length; i++) {
+            a(canvas, this.oQi[i], (this.oQx[i] * this.mAlpha) / 255);
         }
         if (!z) {
             invalidateSelf();
@@ -139,9 +139,9 @@ public class f extends a {
 
     private void a(Canvas canvas, Drawable drawable, int i) {
         if (drawable != null && i > 0) {
-            this.oOV++;
+            this.oQz++;
             drawable.mutate().setAlpha(i);
-            this.oOV--;
+            this.oQz--;
             drawable.draw(canvas);
         }
     }
@@ -159,7 +159,7 @@ public class f extends a {
         return this.mAlpha;
     }
 
-    protected long elT() {
+    protected long elR() {
         return SystemClock.uptimeMillis();
     }
 }

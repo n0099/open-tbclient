@@ -17,7 +17,7 @@ import com.baidu.sapi2.utils.SapiStatUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class ChinaTelecomSdkWrap {
 
     /* renamed from: a  reason: collision with root package name */
@@ -27,7 +27,7 @@ public class ChinaTelecomSdkWrap {
     private static String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface PreLoginCallback {
         void onError(int i);
 

@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
 import com.baidu.fsg.base.widget.SafeKeyBoardEditText;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class d implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */

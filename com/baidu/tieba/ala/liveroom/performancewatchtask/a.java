@@ -27,25 +27,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private TextView hrt;
-    private TextView hru;
-    private Runnable hrv = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.performancewatchtask.a.1
+    private TextView hra;
+    private TextView hrb;
+    private Runnable hrc = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.performancewatchtask.a.1
         @Override // java.lang.Runnable
         public void run() {
             a.this.hide();
         }
     };
-    HttpMessageListener hrw = new HttpMessageListener(1021221) { // from class: com.baidu.tieba.ala.liveroom.performancewatchtask.a.2
+    HttpMessageListener hrd = new HttpMessageListener(1021221) { // from class: com.baidu.tieba.ala.liveroom.performancewatchtask.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021221 && (httpResponsedMessage instanceof WatchFinishHttpResponseMessage) && !httpResponsedMessage.hasError()) {
-                c cgL = ((WatchFinishHttpResponseMessage) httpResponsedMessage).cgL();
-                if (cgL.isSuccess() && !TextUtils.isEmpty(cgL.taskId)) {
-                    if (a.this.hrw != null) {
-                        MessageManager.getInstance().unRegisterListener(a.this.hrw);
+                c cge = ((WatchFinishHttpResponseMessage) httpResponsedMessage).cge();
+                if (cge.isSuccess() && !TextUtils.isEmpty(cge.taskId)) {
+                    if (a.this.hrd != null) {
+                        MessageManager.getInstance().unRegisterListener(a.this.hrd);
                     }
-                    a.this.a(UbcStatisticLiveKey.KEY_ID_1396, "click", "task_succ", cgL.taskId, cgL.hrP);
+                    a.this.a(UbcStatisticLiveKey.KEY_ID_1396, "click", "task_succ", cge.taskId, cge.hrw);
                 }
             }
         }
@@ -60,21 +60,21 @@ public class a {
     public a(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.ala_watch_time_task, (ViewGroup) null);
-        this.hrt = (TextView) this.mRootView.findViewById(a.f.ala_content);
-        this.hru = (TextView) this.mRootView.findViewById(a.f.jump);
-        if (this.hrw != null) {
-            MessageManager.getInstance().registerListener(this.hrw);
+        this.hra = (TextView) this.mRootView.findViewById(a.f.ala_content);
+        this.hrb = (TextView) this.mRootView.findViewById(a.f.jump);
+        if (this.hrd != null) {
+            MessageManager.getInstance().registerListener(this.hrd);
         }
     }
 
     static {
-        bWu();
+        bVN();
     }
 
     public void showToast() {
         if (this.mDialog == null) {
             this.mDialog = new Dialog(this.mContext, a.i.PlayLevelDialog);
-            Pe();
+            Ov();
             this.mDialog.setContentView(this.mRootView);
         }
         if (!this.mDialog.isShowing()) {
@@ -83,7 +83,7 @@ public class a {
         }
     }
 
-    private void Pe() {
+    private void Ov() {
         this.mDialog.setCancelable(true);
         this.mDialog.setCanceledOnTouchOutside(true);
         Window window = this.mDialog.getWindow();
@@ -96,17 +96,17 @@ public class a {
         }
     }
 
-    public void wi(int i) {
+    public void wG(int i) {
         showToast();
         try {
-            this.hrt.postDelayed(this.hrv, i * 1000);
+            this.hra.postDelayed(this.hrc, i * 1000);
         } catch (Exception e) {
         }
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        if (this.hru != null) {
-            this.hru.setOnClickListener(onClickListener);
+        if (this.hrb != null) {
+            this.hrb.setOnClickListener(onClickListener);
         }
     }
 
@@ -114,11 +114,11 @@ public class a {
         this.mType = i;
         this.mUserId = j;
         this.mLiveInfo = alaLiveInfoData;
-        if (this.hrt != null) {
-            this.hrt.setText(str);
+        if (this.hra != null) {
+            this.hra.setText(str);
         }
-        if (this.hru != null) {
-            this.hru.setText(str2);
+        if (this.hrb != null) {
+            this.hrb.setText(str2);
         }
     }
 
@@ -140,7 +140,7 @@ public class a {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private static void bWu() {
+    private static void bVN() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021221, TbConfig.SERVER_QUANMIN_ADDRESS + "pubshow/task/Jumplivequizticket");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

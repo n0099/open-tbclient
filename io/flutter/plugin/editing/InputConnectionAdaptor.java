@@ -20,7 +20,7 @@ import android.view.inputmethod.InputMethodManager;
 import io.flutter.Log;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class InputConnectionAdaptor extends BaseInputConnection {
     private final boolean isSamsung;
     private int mBatchCount;

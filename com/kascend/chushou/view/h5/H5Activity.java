@@ -13,7 +13,7 @@ public class H5Activity extends BaseActivity {
     public static int d = 0;
     public String b;
     private String f;
-    private a pyi;
+    private a pzL;
 
     /* renamed from: a  reason: collision with root package name */
     public boolean f4232a = true;
@@ -29,9 +29,9 @@ public class H5Activity extends BaseActivity {
         h5Options.c = this.c;
         h5Options.b = this.f4232a;
         h5Options.f4233a = this.b;
-        this.pyi = a.a(h5Options);
+        this.pzL = a.a(h5Options);
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(a.f.fl_fragment, this.pyi);
+        beginTransaction.add(a.f.fl_fragment, this.pzL);
         beginTransaction.commitAllowingStateLoss();
     }
 
@@ -45,9 +45,9 @@ public class H5Activity extends BaseActivity {
         super.onNewIntent(intent);
         e.i(this.v, "onNewIntent");
         a(intent);
-        if (this.pyi != null) {
-            this.pyi.a(this.f4232a);
-            this.pyi.a(this.b);
+        if (this.pzL != null) {
+            this.pzL.a(this.f4232a);
+            this.pzL.a(this.b);
         }
     }
 
@@ -72,8 +72,8 @@ public class H5Activity extends BaseActivity {
 
     @Override // android.support.v7.app.AppCompatActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.pyi != null && this.pyi.a()) {
-            this.pyi.a(i, keyEvent);
+        if (i == 4 && this.pzL != null && this.pzL.a()) {
+            this.pzL.a(i, keyEvent);
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -84,8 +84,8 @@ public class H5Activity extends BaseActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         e.d(this.v, "onActivityResult");
         super.onActivityResult(i, i2, intent);
-        if (this.pyi != null) {
-            this.pyi.onActivityResult(i, i2, intent);
+        if (this.pzL != null) {
+            this.pzL.onActivityResult(i, i2, intent);
         }
     }
 
@@ -95,6 +95,6 @@ public class H5Activity extends BaseActivity {
         if (this.b != null && this.b.contains("bizCode")) {
             d--;
         }
-        this.pyi = null;
+        this.pzL = null;
     }
 }

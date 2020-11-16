@@ -1,7 +1,7 @@
 package com.sina.weibo.sdk.share;
 
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class TransResourceResult {
     WeiboMultiMessage message;
     boolean transDone;

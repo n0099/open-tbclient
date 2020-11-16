@@ -3,11 +3,11 @@ package com.baidu.cyberplayer.sdk.dlna;
 import com.baidu.cyberplayer.sdk.Keep;
 import java.util.Map;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public abstract class DlnaProvider {
 
     @Keep
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public interface DlnaSearchListener {
         void onDeviceChangeNotification(Map<String, Object> map);
 

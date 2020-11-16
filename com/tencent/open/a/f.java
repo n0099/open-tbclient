@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.a.d;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class f {
     protected a b = new a(c);
 

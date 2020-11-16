@@ -1,5 +1,5 @@
 package com.google.zxing;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public enum EncodeHintType {
     ERROR_CORRECTION,
     CHARACTER_SET,

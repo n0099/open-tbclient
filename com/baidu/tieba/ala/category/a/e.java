@@ -16,34 +16,34 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class e extends BaseAdapter {
-    private b guE;
-    private List<com.baidu.tieba.ala.category.b.d> guF;
-    private SparseArray<com.baidu.tieba.ala.category.b.d> guG = new SparseArray<>(3);
-    private Set<String> guH;
+    private b gul;
+    private List<com.baidu.tieba.ala.category.b.d> gum;
+    private SparseArray<com.baidu.tieba.ala.category.b.d> gun = new SparseArray<>(3);
+    private Set<String> guo;
     private final TbPageContext mPageContext;
 
     /* loaded from: classes4.dex */
     public interface b {
-        void bQL();
+        void bQe();
     }
 
     public e(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.guG.put(a.e.bg_tag_checked1, null);
-        this.guG.put(a.e.bg_tag_checked2, null);
-        this.guG.put(a.e.bg_tag_checked3, null);
-        this.guH = new HashSet();
+        this.gun.put(a.e.bg_tag_checked1, null);
+        this.gun.put(a.e.bg_tag_checked2, null);
+        this.gun.put(a.e.bg_tag_checked3, null);
+        this.guo = new HashSet();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.guF);
+        return ListUtils.getCount(this.gum);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     public IAdapterData getItem(int i) {
-        return (IAdapterData) ListUtils.getItem(this.guF, i);
+        return (IAdapterData) ListUtils.getItem(this.gum, i);
     }
 
     @Override // android.widget.Adapter
@@ -57,13 +57,13 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.item_ala_live_tag, viewGroup, false);
             aVar = new a();
-            aVar.guK = (TextView) view.findViewById(a.f.ala_live_tag_name_tv);
-            aVar.guK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.category.a.e.1
+            aVar.gur = (TextView) view.findViewById(a.f.ala_live_tag_name_tv);
+            aVar.gur.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.category.a.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    e.this.a((com.baidu.tieba.ala.category.b.d) e.this.guF.get(i), aVar);
-                    if (e.this.guE != null) {
-                        e.this.guE.bQL();
+                    e.this.a((com.baidu.tieba.ala.category.b.d) e.this.gum.get(i), aVar);
+                    if (e.this.gul != null) {
+                        e.this.gul.bQe();
                     }
                 }
             });
@@ -71,52 +71,52 @@ public class e extends BaseAdapter {
         } else {
             aVar = (a) view.getTag();
         }
-        com.baidu.tieba.ala.category.b.d dVar = this.guF.get(i);
-        aVar.guK.setText(a(dVar));
-        aVar.guK.setSelected(dVar.isChecked());
-        aVar.guK.setBackgroundResource(dVar.bQV());
+        com.baidu.tieba.ala.category.b.d dVar = this.gum.get(i);
+        aVar.gur.setText(a(dVar));
+        aVar.gur.setSelected(dVar.isChecked());
+        aVar.gur.setBackgroundResource(dVar.bQo());
         return view;
     }
 
     public void setTagList(List<com.baidu.tieba.ala.category.b.d> list) {
         if (!ListUtils.isEmpty(list)) {
-            this.guF = list;
-            bQO();
+            this.gum = list;
+            bQh();
             notifyDataSetChanged();
         }
     }
 
-    public List<String> bQM() {
+    public List<String> bQf() {
         ArrayList arrayList = new ArrayList();
-        int size = this.guG.size();
+        int size = this.gun.size();
         for (int i = 0; i < size; i++) {
-            if (this.guG.valueAt(i) != null) {
-                arrayList.add(this.guG.valueAt(i).bQU());
+            if (this.gun.valueAt(i) != null) {
+                arrayList.add(this.gun.valueAt(i).bQn());
             }
         }
         return arrayList;
     }
 
-    public Set<String> bQN() {
-        return this.guH;
+    public Set<String> bQg() {
+        return this.guo;
     }
 
     public void a(b bVar) {
-        this.guE = bVar;
+        this.gul = bVar;
     }
 
-    private void bQO() {
+    private void bQh() {
         int i;
         int i2 = 0;
-        for (com.baidu.tieba.ala.category.b.d dVar : this.guF) {
+        for (com.baidu.tieba.ala.category.b.d dVar : this.gum) {
             if (dVar != null) {
                 if (dVar.isChecked() && i2 < 3) {
-                    dVar.uo(this.guG.keyAt(i2));
-                    this.guG.put(dVar.bQV(), dVar);
-                    this.guH.add(dVar.bQU());
+                    dVar.uM(this.gun.keyAt(i2));
+                    this.gun.put(dVar.bQo(), dVar);
+                    this.guo.add(dVar.bQn());
                     i = i2 + 1;
                 } else {
-                    dVar.uo(a.e.bg_tag_unchecked);
+                    dVar.uM(a.e.bg_tag_unchecked);
                     i = i2;
                 }
                 i2 = i;
@@ -127,32 +127,32 @@ public class e extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.category.b.d dVar, a aVar) {
         if (!dVar.isChecked()) {
-            int bQP = bQP();
-            if (bQP == 0) {
+            int bQi = bQi();
+            if (bQi == 0) {
                 this.mPageContext.showToast(a.h.ala_live_tag_warning, true);
                 return;
             }
             dVar.setChecked(true);
-            dVar.uo(bQP);
-            this.guG.put(bQP, dVar);
+            dVar.uM(bQi);
+            this.gun.put(bQi, dVar);
         } else {
             dVar.setChecked(false);
-            this.guG.put(dVar.bQV(), null);
-            dVar.uo(a.e.bg_tag_unchecked);
+            this.gun.put(dVar.bQo(), null);
+            dVar.uM(a.e.bg_tag_unchecked);
         }
-        aVar.guK.setSelected(dVar.isChecked());
-        aVar.guK.setBackgroundResource(dVar.bQV());
+        aVar.gur.setSelected(dVar.isChecked());
+        aVar.gur.setBackgroundResource(dVar.bQo());
     }
 
-    private int bQP() {
-        if (this.guG.valueAt(0) == null) {
-            return this.guG.keyAt(0);
+    private int bQi() {
+        if (this.gun.valueAt(0) == null) {
+            return this.gun.keyAt(0);
         }
-        if (this.guG.valueAt(1) == null) {
-            return this.guG.keyAt(1);
+        if (this.gun.valueAt(1) == null) {
+            return this.gun.keyAt(1);
         }
-        if (this.guG.valueAt(2) == null) {
-            return this.guG.keyAt(2);
+        if (this.gun.valueAt(2) == null) {
+            return this.gun.keyAt(2);
         }
         return 0;
     }
@@ -162,15 +162,15 @@ public class e extends BaseAdapter {
             return "";
         }
         if (dVar.getScore() <= 0) {
-            return dVar.bQU();
+            return dVar.bQn();
         }
-        return dVar.bQU() + " " + (dVar.getScore() > 999 ? "999+" : String.valueOf(dVar.getScore()));
+        return dVar.bQn() + " " + (dVar.getScore() > 999 ? "999+" : String.valueOf(dVar.getScore()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class a {
-        private TextView guK;
+        private TextView gur;
 
         private a() {
         }

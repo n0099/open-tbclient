@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class SwanTaskDeadEvent implements Parcelable {
     public static final Parcelable.Creator<SwanTaskDeadEvent> CREATOR = new Parcelable.Creator<SwanTaskDeadEvent>() { // from class: com.baidu.swan.apps.model.SwanTaskDeadEvent.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -19,7 +19,7 @@ public class SwanTaskDeadEvent implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: jz */
+        /* renamed from: jv */
         public SwanTaskDeadEvent[] newArray(int i) {
             return new SwanTaskDeadEvent[i];
         }
@@ -71,16 +71,16 @@ public class SwanTaskDeadEvent implements Parcelable {
         return this.taskId;
     }
 
-    public String aCa() {
+    public String aBs() {
         return this.pageScheme;
     }
 
-    public ArrayList<Integer> aCb() {
+    public ArrayList<Integer> aBt() {
         return this.stackList;
     }
 
     @Nullable
-    public SparseArray<SwanTaskDeadEvent> aCc() {
+    public SparseArray<SwanTaskDeadEvent> aBu() {
         if (this.historyCache == null) {
             return null;
         }
@@ -106,7 +106,7 @@ public class SwanTaskDeadEvent implements Parcelable {
                     break;
                 }
                 if (sparseArray.valueAt(i2) != null) {
-                    sparseArray2.put(sparseArray.keyAt(i2), sparseArray.valueAt(i2).aCd());
+                    sparseArray2.put(sparseArray.keyAt(i2), sparseArray.valueAt(i2).aBv());
                 }
                 i = i2 + 1;
             }
@@ -115,7 +115,7 @@ public class SwanTaskDeadEvent implements Parcelable {
     }
 
     @NonNull
-    private String[] aCd() {
+    private String[] aBv() {
         StringBuilder sb = new StringBuilder();
         if (this.stackList != null) {
             int size = this.stackList.size();
@@ -126,7 +126,7 @@ public class SwanTaskDeadEvent implements Parcelable {
                 }
             }
         }
-        return new String[]{getAppId(), aCa(), sb.toString()};
+        return new String[]{getAppId(), aBs(), sb.toString()};
     }
 
     @Nullable

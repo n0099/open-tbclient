@@ -20,22 +20,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c implements b {
-    private b.a bRr;
-    private HttpMessageListener bea;
-    private HttpMessageListener beb;
+    private b.a bPH;
+    private HttpMessageListener bcp;
+    private HttpMessageListener bcq;
 
     public c() {
         registerListener();
     }
 
     public void a(b.a aVar) {
-        this.bRr = aVar;
+        this.bPH = aVar;
     }
 
     @Override // com.baidu.live.yuyingift.c.b
-    public void hy(String str) {
+    public void hs(String str) {
         com.baidu.live.yuyingift.message.a aVar = new com.baidu.live.yuyingift.message.a(str);
-        aVar.addParam("scene_from", s.UK());
+        aVar.addParam("scene_from", s.Ub());
         aVar.addParam("platform", "2");
         MessageManager.getInstance().sendMessage(aVar);
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_REQ, UbcStatConstant.ContentType.UBC_TYPE_GIFT_PACKAGE_LIST, UbcStatConstant.Page.VOICE_ROOM, null));
@@ -45,59 +45,59 @@ public class c implements b {
     public void a(String str, String str2, String str3, String str4, int i, int i2, String str5, String str6, long j) {
         an anVar = new an();
         anVar.c(str, str2, str3, str4, i, i2, str5, str6);
-        anVar.aVA = j;
-        anVar.aVC.put(Long.valueOf(j), Long.valueOf(i));
+        anVar.aTP = j;
+        anVar.aTR.put(Long.valueOf(j), Long.valueOf(i));
         MessageManager.getInstance().sendMessage(anVar);
     }
 
     @Override // com.baidu.live.yuyingift.c.b
     public void release() {
-        this.bRr = null;
+        this.bPH = null;
         unregisterListener();
     }
 
     private void registerListener() {
-        Jx();
-        Jy();
+        IO();
+        IP();
     }
 
     private void unregisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.bea);
-        MessageManager.getInstance().unRegisterListener(this.beb);
+        MessageManager.getInstance().unRegisterListener(this.bcp);
+        MessageManager.getInstance().unRegisterListener(this.bcq);
     }
 
-    private void Jx() {
-        this.bea = new HttpMessageListener(1031065) { // from class: com.baidu.live.yuyingift.c.c.1
+    private void IO() {
+        this.bcp = new HttpMessageListener(1031065) { // from class: com.baidu.live.yuyingift.c.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof GiftPackageListHttpResponsedMessage) {
                     GiftPackageListHttpResponsedMessage giftPackageListHttpResponsedMessage = (GiftPackageListHttpResponsedMessage) httpResponsedMessage;
-                    if (c.this.bRr != null) {
-                        c.this.bRr.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getError(), giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.Jp(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.Jq());
+                    if (c.this.bPH != null) {
+                        c.this.bPH.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getError(), giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.IG(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.IH());
                     }
                     c.this.a(giftPackageListHttpResponsedMessage);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bea);
+        MessageManager.getInstance().registerListener(this.bcp);
     }
 
-    private void Jy() {
-        this.beb = new HttpMessageListener(1031057) { // from class: com.baidu.live.yuyingift.c.c.2
+    private void IP() {
+        this.bcq = new HttpMessageListener(1031057) { // from class: com.baidu.live.yuyingift.c.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof YuyinGiftPackageConsumeHttpResponsedMessage) {
                     YuyinGiftPackageConsumeHttpResponsedMessage yuyinGiftPackageConsumeHttpResponsedMessage = (YuyinGiftPackageConsumeHttpResponsedMessage) httpResponsedMessage;
                     c.this.a(httpResponsedMessage, yuyinGiftPackageConsumeHttpResponsedMessage);
-                    if (c.this.bRr != null) {
-                        c.this.bRr.a(!yuyinGiftPackageConsumeHttpResponsedMessage.hasError() && yuyinGiftPackageConsumeHttpResponsedMessage.getError() == 0, yuyinGiftPackageConsumeHttpResponsedMessage.getError(), yuyinGiftPackageConsumeHttpResponsedMessage.getErrorString(), yuyinGiftPackageConsumeHttpResponsedMessage.aWy, yuyinGiftPackageConsumeHttpResponsedMessage.aWz);
+                    if (c.this.bPH != null) {
+                        c.this.bPH.a(!yuyinGiftPackageConsumeHttpResponsedMessage.hasError() && yuyinGiftPackageConsumeHttpResponsedMessage.getError() == 0, yuyinGiftPackageConsumeHttpResponsedMessage.getError(), yuyinGiftPackageConsumeHttpResponsedMessage.getErrorString(), yuyinGiftPackageConsumeHttpResponsedMessage.aUN, yuyinGiftPackageConsumeHttpResponsedMessage.aUO);
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.beb);
+        MessageManager.getInstance().registerListener(this.bcq);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -115,7 +115,7 @@ public class c implements b {
                     BdLog.e(e);
                     jSONObject = jSONObject3;
                 }
-            } else if (giftPackageListHttpResponsedMessage.Jp() == null || giftPackageListHttpResponsedMessage.Jp().isEmpty() || giftPackageListHttpResponsedMessage.getCategoryList() == null || giftPackageListHttpResponsedMessage.getCategoryList().isEmpty()) {
+            } else if (giftPackageListHttpResponsedMessage.IG() == null || giftPackageListHttpResponsedMessage.IG().isEmpty() || giftPackageListHttpResponsedMessage.getCategoryList() == null || giftPackageListHttpResponsedMessage.getCategoryList().isEmpty()) {
                 JSONObject jSONObject4 = new JSONObject();
                 try {
                     jSONObject4.put(PushMessageHelper.ERROR_TYPE, "list_empty");
@@ -129,9 +129,9 @@ public class c implements b {
                 jSONObject = null;
             }
             if (jSONObject != null) {
-                if (!TextUtils.isEmpty(giftPackageListHttpResponsedMessage.Jr())) {
+                if (!TextUtils.isEmpty(giftPackageListHttpResponsedMessage.II())) {
                     try {
-                        jSONObject.put("req_loc", giftPackageListHttpResponsedMessage.Jr());
+                        jSONObject.put("req_loc", giftPackageListHttpResponsedMessage.II());
                         jSONObject2.put("result", jSONObject);
                     } catch (JSONException e3) {
                         e3.printStackTrace();

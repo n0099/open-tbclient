@@ -12,7 +12,7 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class ReflectUtils {
 
     /* renamed from: a  reason: collision with root package name */
@@ -370,7 +370,7 @@ public final class ReflectUtils {
         return this.b ? (Class) this.f1522a : this.f1522a.getClass();
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public class NULL {
         public NULL() {
         }

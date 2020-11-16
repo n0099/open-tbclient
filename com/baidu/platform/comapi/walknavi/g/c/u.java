@@ -26,7 +26,7 @@ class u implements Runnable {
                 c cVar = this.f3047a.b;
                 String str = this.f3047a.f3046a;
                 context3 = this.f3047a.b.l;
-                cVar.a(str, com.baidu.platform.comapi.wnplatform.p.a.a.b(context3, R.raw.lottie_common_pull_refresh_2), 4);
+                cVar.a(str, com.baidu.platform.comapi.wnplatform.p.a.a.b(context3, R.raw.lottie_card_agree_2), 4);
                 return;
             }
             return;

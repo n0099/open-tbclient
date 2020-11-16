@@ -5,7 +5,7 @@ import android.annotation.TargetApi;
 import android.content.ClipData;
 import android.content.Context;
 import android.text.ClipboardManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public abstract class al {
     protected static Context sTheApp;
 
@@ -18,7 +18,7 @@ public abstract class al {
         return c.hasHoneycomb() ? new a() : new b();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     private static class b extends al {
         private static ClipboardManager sInstance = null;
 
@@ -38,7 +38,7 @@ public abstract class al {
     }
 
     @TargetApi(11)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     private static class a extends al {
         private static android.content.ClipboardManager sInstance = null;
         private static ClipData sClipData = null;

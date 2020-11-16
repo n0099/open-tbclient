@@ -2,27 +2,27 @@ package com.baidu.swan.apps.ac.c.b;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public String cDK;
-    public String cDL;
-    public String cvk;
-    public String dkG;
-    public String dkH;
-    public String dkI;
-    public String dkJ;
-    public com.baidu.swan.apps.api.c.b dkK;
+    public String cCa;
+    public String cCb;
+    public String cty;
+    public String diZ;
+    public String dja;
+    public String djb;
+    public String djc;
+    public com.baidu.swan.apps.api.c.b djd;
     public JSONObject pageParams;
 
-    public boolean aEs() {
-        return (this.dkK == null || this.dkK.isSuccess()) ? false : true;
+    public boolean aDK() {
+        return (this.djd == null || this.djd.isSuccess()) ? false : true;
     }
 
-    public boolean aEt() {
-        return (TextUtils.isEmpty(this.dkG) || TextUtils.isEmpty(this.dkI) || TextUtils.isEmpty(this.dkJ) || TextUtils.isEmpty(this.cDK) || TextUtils.isEmpty(this.cDL)) ? false : true;
+    public boolean aDL() {
+        return (TextUtils.isEmpty(this.diZ) || TextUtils.isEmpty(this.djb) || TextUtils.isEmpty(this.djc) || TextUtils.isEmpty(this.cCa) || TextUtils.isEmpty(this.cCb)) ? false : true;
     }
 
     public String toString() {
-        return "SwanPluginFunPageModel{providerAppKey='" + this.dkG + "', providerRootPath='" + this.dkI + "', providerVersion='" + this.dkJ + "', componentId='" + this.cDK + "', cb='" + this.cvk + "', pageParams=" + this.pageParams + ", swanApiResult=" + (this.dkK == null ? null : this.dkK.toJsonString()) + '}';
+        return "SwanPluginFunPageModel{providerAppKey='" + this.diZ + "', providerRootPath='" + this.djb + "', providerVersion='" + this.djc + "', componentId='" + this.cCa + "', cb='" + this.cty + "', pageParams=" + this.pageParams + ", swanApiResult=" + (this.djd == null ? null : this.djd.toJsonString()) + '}';
     }
 }

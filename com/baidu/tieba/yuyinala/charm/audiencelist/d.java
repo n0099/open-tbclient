@@ -10,9 +10,9 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class d extends BdBaseModel<YuyinALaAudiencesActivity> {
-    private HttpMessageListener gwB;
-    private b nRG;
-    private a nRH;
+    private HttpMessageListener gwi;
+    private b nTj;
+    private a nTk;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -23,7 +23,7 @@ public class d extends BdBaseModel<YuyinALaAudiencesActivity> {
 
     public d(TbPageContext<YuyinALaAudiencesActivity> tbPageContext, a aVar) {
         super(tbPageContext);
-        this.gwB = new HttpMessageListener(1031031) { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.d.1
+        this.gwi = new HttpMessageListener(1031031) { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -33,22 +33,22 @@ public class d extends BdBaseModel<YuyinALaAudiencesActivity> {
                     b bVar = null;
                     if (httpResponsedMessage instanceof OnlineListHttpResponseMessage) {
                         OnlineListHttpResponseMessage onlineListHttpResponseMessage = (OnlineListHttpResponseMessage) httpResponsedMessage;
-                        j = onlineListHttpResponseMessage.bRp();
-                        bVar = onlineListHttpResponseMessage.dXk();
+                        j = onlineListHttpResponseMessage.bQI();
+                        bVar = onlineListHttpResponseMessage.dXj();
                     }
                     if (error == 0) {
-                        d.this.nRG = bVar;
-                        if (d.this.nRH != null) {
-                            d.this.nRH.a(j, d.this.nRG);
+                        d.this.nTj = bVar;
+                        if (d.this.nTk != null) {
+                            d.this.nTk.a(j, d.this.nTj);
                         }
-                    } else if (d.this.nRH != null) {
-                        d.this.nRH.t(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    } else if (d.this.nTk != null) {
+                        d.this.nTk.t(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.nRH = aVar;
-        MessageManager.getInstance().registerListener(this.gwB);
+        this.nTk = aVar;
+        MessageManager.getInstance().registerListener(this.gwi);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031031, TbConfig.SERVER_ADDRESS + "ala/audio/live/getAudienceInfo");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -58,14 +58,14 @@ public class d extends BdBaseModel<YuyinALaAudiencesActivity> {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void Vh(String str) {
+    public void US(String str) {
         HttpMessage httpMessage = new HttpMessage(1031031);
         httpMessage.addParam("live_id", str);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gwB);
+        MessageManager.getInstance().unRegisterListener(this.gwi);
         MessageManager.getInstance().unRegisterTask(1031031);
         cancelMessage();
     }

@@ -2,7 +2,7 @@ package com.facebook.drawee.drawable;
 
 import android.graphics.drawable.Drawable;
 import javax.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class e {
     public static void d(Drawable drawable, Drawable drawable2) {
         if (drawable2 != null && drawable != null && drawable != drawable2) {
@@ -16,7 +16,7 @@ public class e {
 
     public static void a(Drawable drawable, d dVar) {
         if (drawable != null && dVar != null) {
-            dVar.p(drawable);
+            dVar.q(drawable);
         }
     }
 
@@ -29,7 +29,7 @@ public class e {
         }
     }
 
-    public static int dT(int i, int i2) {
+    public static int dU(int i, int i2) {
         if (i2 != 255) {
             if (i2 == 0) {
                 return i & 16777215;
@@ -39,7 +39,7 @@ public class e {
         return i;
     }
 
-    public static int OD(int i) {
+    public static int Pg(int i) {
         int i2 = i >>> 24;
         if (i2 == 255) {
             return -1;

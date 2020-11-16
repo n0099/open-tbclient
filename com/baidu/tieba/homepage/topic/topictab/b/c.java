@@ -2,14 +2,15 @@ package com.baidu.tieba.homepage.topic.topictab.b;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
-public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId jLa = BdUniqueId.gen();
-    public int inm = R.dimen.tbds16;
-    public int jLb = R.color.cp_bg_line_c;
+import com.baidu.tieba.card.data.BaseCardInfo;
+/* loaded from: classes21.dex */
+public class c extends BaseCardInfo {
+    public static final BdUniqueId jLL = BdUniqueId.gen();
+    public int iob = R.dimen.tbds16;
+    public int eHJ = R.color.CAM_X0204;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jLa;
+        return jLL;
     }
 }

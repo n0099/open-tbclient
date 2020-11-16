@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import com.baidubce.auth.BceCredentials;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class ListMultipartUploadsRequest extends GenericBucketRequest {
     private String delimiter;
     private String keyMarker;

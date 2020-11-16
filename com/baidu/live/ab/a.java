@@ -7,49 +7,49 @@ public interface a {
 
     /* renamed from: com.baidu.live.ab.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0168a {
+    public interface InterfaceC0166a {
         void J(Object obj);
 
-        void Ql();
+        void PC();
 
-        void Qm();
+        void PD();
 
-        int Qn();
+        int PE();
 
-        int Qo();
+        int PF();
 
-        int Qp();
+        int PG();
 
         int getImMsgListViewHeight();
     }
 
-    void Qj();
+    void PA();
 
-    void Qk();
+    void PB();
 
-    void a(InterfaceC0168a interfaceC0168a);
+    void a(InterfaceC0166a interfaceC0166a);
 
     void a(com.baidu.live.g.a aVar);
 
     void a(com.baidu.live.liveroom.b.a aVar);
 
-    void cx(boolean z);
+    void cz(boolean z);
 
-    void fe(int i);
+    void fa(int i);
 
-    void ff(int i);
+    void fb(int i);
 
     void onDestroy();
 
     void onKeyboardVisibilityChanged(boolean z);
 
+    void q(ViewGroup viewGroup);
+
+    void r(ViewGroup viewGroup);
+
+    void s(ViewGroup viewGroup);
+
     void setLiveShowInfo(w wVar);
 
     void setStickerCanOperate(boolean z);
-
-    void u(ViewGroup viewGroup);
-
-    void v(ViewGroup viewGroup);
-
-    void w(ViewGroup viewGroup);
 }

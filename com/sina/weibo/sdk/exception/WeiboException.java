@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.exception;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class WeiboException extends RuntimeException {
     private static final long serialVersionUID = 475022994858770424L;
 

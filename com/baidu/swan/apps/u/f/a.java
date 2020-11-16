@@ -15,15 +15,15 @@ import com.baidu.swan.games.l.a;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import java.io.File;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean pK(@Nullable String str) {
+    public static boolean pE(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return m(com.baidu.swan.pms.database.a.bbh().ym(str));
+        return m(com.baidu.swan.pms.database.a.baA().yh(str));
     }
 
     public static boolean a(@Nullable PMSAppInfo pMSAppInfo, @Nullable Bundle bundle) {
@@ -32,38 +32,38 @@ public class a {
         if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId) || pMSAppInfo.versionCode == 0 || bundle == null || pMSAppInfo.appCategory == 1) {
             return false;
         }
-        File bN = d.C0464d.bN(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
-        if (bN.exists()) {
+        File bM = d.C0462d.bM(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
+        if (bM.exists()) {
             String string = bundle.getString("mPage");
             if (TextUtils.isEmpty(string)) {
-                boolean exists = new File(bN, "app.json").exists();
-                c.bn("SwanAppLaunchUtils", "checkSwanAppPageDirExist app.json exists: " + exists);
+                boolean exists = new File(bM, "app.json").exists();
+                c.bm("SwanAppLaunchUtils", "checkSwanAppPageDirExist app.json exists: " + exists);
                 return exists;
             }
-            String uv = ai.uv(string);
-            int lastIndexOf = uv.lastIndexOf(File.separator);
+            String uq = ai.uq(string);
+            int lastIndexOf = uq.lastIndexOf(File.separator);
             if (lastIndexOf >= 0) {
-                uv = uv.substring(0, lastIndexOf);
+                uq = uq.substring(0, lastIndexOf);
             }
-            boolean exists2 = new File(bN, uv).exists();
+            boolean exists2 = new File(bM, uq).exists();
             if (exists2) {
-                if (new File(bN, "app.json").exists()) {
+                if (new File(bM, "app.json").exists()) {
                     return true;
                 }
-                int lastIndexOf2 = uv.lastIndexOf(File.separator);
+                int lastIndexOf2 = uq.lastIndexOf(File.separator);
                 while (true) {
                     if (lastIndexOf2 < 0) {
-                        str = uv;
+                        str = uq;
                         z = false;
                         break;
                     }
-                    uv = uv.substring(0, lastIndexOf2);
-                    if (new File(bN, uv + File.separator + "app.json").exists()) {
-                        str = uv;
+                    uq = uq.substring(0, lastIndexOf2);
+                    if (new File(bM, uq + File.separator + "app.json").exists()) {
+                        str = uq;
                         z = true;
                         break;
                     }
-                    lastIndexOf2 = uv.lastIndexOf(File.separator);
+                    lastIndexOf2 = uq.lastIndexOf(File.separator);
                 }
                 if (DEBUG) {
                     Log.d("SwanAppLaunchUtils", "isInDependentPkg=" + z + ", pagePath=" + str);
@@ -83,29 +83,29 @@ public class a {
             return false;
         }
         if (pMSAppInfo.appCategory == 1) {
-            return a.c.bN(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode)).exists();
+            return a.c.bM(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode)).exists();
         }
-        return d.z(d.C0464d.bN(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode)));
+        return d.z(d.C0462d.bM(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode)));
     }
 
     public static boolean a(PMSAppInfo pMSAppInfo, String str) {
         if (pMSAppInfo == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        String uv = ai.uv(str);
-        if (uv.lastIndexOf(File.separator) != -1) {
-            uv = uv.substring(0, uv.lastIndexOf(File.separator));
+        String uq = ai.uq(str);
+        if (uq.lastIndexOf(File.separator) != -1) {
+            uq = uq.substring(0, uq.lastIndexOf(File.separator));
         }
-        return d.M(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), uv).exists();
+        return d.M(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), uq).exists();
     }
 
     public static String b(PMSAppInfo pMSAppInfo, String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String uv = ai.uv(str);
-        String str2 = uv;
-        int lastIndexOf = uv.lastIndexOf(File.separator);
+        String uq = ai.uq(str);
+        String str2 = uq;
+        int lastIndexOf = uq.lastIndexOf(File.separator);
         while (lastIndexOf != -1) {
             str2 = str2.substring(0, lastIndexOf);
             if (!d.N(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), str2)) {
@@ -129,21 +129,21 @@ public class a {
             }
             com.baidu.swan.pms.c.d.c cVar = new com.baidu.swan.pms.c.d.c(string, i);
             if (bundle.containsKey("pms_update_expect_pkg_ver")) {
-                cVar.mW(bundle.getInt("pms_update_expect_pkg_ver"));
+                cVar.mS(bundle.getInt("pms_update_expect_pkg_ver"));
             }
             if (DEBUG) {
-                Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i), Integer.valueOf(cVar.bca())));
+                Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i), Integer.valueOf(cVar.bbt())));
             }
-            cVar.yA("4");
+            cVar.yv("4");
             com.baidu.swan.pms.c.a(cVar, new e(string) { // from class: com.baidu.swan.apps.u.f.a.1
                 @Override // com.baidu.swan.pms.a.g, com.baidu.swan.pms.a.d
-                public void br(String str, String str2) {
-                    super.br(str, str2);
-                    if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.cNd != null) {
-                        this.cNd.add(new UbcFlowEvent(str2));
+                public void bq(String str, String str2) {
+                    super.bq(str, str2);
+                    if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.cLt != null) {
+                        this.cLt.add(new UbcFlowEvent(str2));
                     }
                 }
-            }.ik(3));
+            }.ig(3));
         }
     }
 }

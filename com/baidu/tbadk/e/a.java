@@ -4,136 +4,136 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.e.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class a {
-    private static b euC = null;
-    private static a euD = null;
-    private static boolean euE = false;
-    private static String euF = "";
-    private static transient List<String> euG = new ArrayList(5);
+    private static b esW = null;
+    private static a esX = null;
+    private static boolean esY = false;
+    private static String esZ = "";
+    private static transient List<String> eta = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (euD == null) {
+        if (esX == null) {
             synchronized (a.class) {
-                if (euD == null) {
-                    euD = new a();
-                    euC = b.c(baseFragmentActivity);
+                if (esX == null) {
+                    esX = new a();
+                    esW = b.c(baseFragmentActivity);
                 }
             }
-        } else if (euC != null) {
-            euC.a(baseFragmentActivity.getPageContext());
+        } else if (esW != null) {
+            esW.a(baseFragmentActivity.getPageContext());
         }
-        if (euE && euC != null) {
-            euC.biG();
-            euC.biH();
-            euE = false;
+        if (esY && esW != null) {
+            esW.bia();
+            esW.bib();
+            esY = false;
         }
-        return euD;
+        return esX;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        biD();
+        bhX();
         if (z) {
-            biz();
+            bhT();
         }
         if (z2) {
-            biA();
+            bhU();
         }
-        ir(z3);
+        it(z3);
         a(aVar);
     }
 
-    public void biz() {
-        biD();
-        if (euC != null) {
-            euC.biG();
-            euE = false;
+    public void bhT() {
+        bhX();
+        if (esW != null) {
+            esW.bia();
+            esY = false;
         }
     }
 
-    public void biA() {
-        biD();
-        if (euC != null) {
-            euC.biH();
-            euE = false;
+    public void bhU() {
+        bhX();
+        if (esW != null) {
+            esW.bib();
+            esY = false;
         }
     }
 
-    public void ir(boolean z) {
-        biD();
-        if (euC != null) {
-            euC.ir(z);
+    public void it(boolean z) {
+        bhX();
+        if (esW != null) {
+            esW.it(z);
         }
     }
 
     public void a(b.a aVar) {
-        biD();
-        if (euC != null) {
-            euC.c(aVar);
+        bhX();
+        if (esW != null) {
+            esW.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        biD();
-        if (euC != null) {
-            if (euC.biE()) {
-                euC.c(aVar);
+        bhX();
+        if (esW != null) {
+            if (esW.bhY()) {
+                esW.c(aVar);
             }
-            euC.biF();
+            esW.bhZ();
         }
     }
 
     public void a(int i, b.a aVar) {
-        biD();
-        if (euC != null) {
-            if (euC.biE()) {
-                euC.c(aVar);
+        bhX();
+        if (esW != null) {
+            if (esW.bhY()) {
+                esW.c(aVar);
             }
-            euC.nJ(i);
+            esW.nF(i);
         }
     }
 
-    public void biB() {
-        biD();
-        if (euC != null) {
-            euC.biB();
-            euE = true;
+    public void bhV() {
+        bhX();
+        if (esW != null) {
+            esW.bhV();
+            esY = true;
         }
     }
 
     public void resetContext() {
-        biD();
-        if (euC != null) {
-            euC.resetContext();
+        bhX();
+        if (esW != null) {
+            esW.resetContext();
         }
     }
 
-    public void biC() {
-        biD();
+    public void bhW() {
+        bhX();
         resetContext();
-        biB();
+        bhV();
     }
 
-    private void biD() {
-        if (euC == null) {
+    private void bhX() {
+        if (esW == null) {
         }
     }
 
     public static void resetAll() {
         try {
-            if (euC != null) {
-                if (euD != null) {
-                    euD.biC();
+            if (esW != null) {
+                if (esX != null) {
+                    esX.bhW();
                 }
-                euC.removeCallBack();
-                euC.biI();
-                euC = null;
+                esW.removeCallBack();
+                esW.bic();
+                esW = null;
             }
-            if (euD != null) {
-                euD = null;
+            if (esX != null) {
+                esX = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

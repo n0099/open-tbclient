@@ -17,21 +17,21 @@ import rx.internal.util.InternalObservableUtils;
 import rx.internal.util.ScalarSynchronousObservable;
 import rx.internal.util.UtilityFunctions;
 import rx.schedulers.Schedulers;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public class d<T> {
-    final a<T> qdy;
+    final a<T> qfb;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public interface a<T> extends rx.functions.b<j<? super T>> {
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public interface b<R, T> extends rx.functions.f<j<? super R>, j<? super T>> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(a<T> aVar) {
-        this.qdy = aVar;
+        this.qfb = aVar;
     }
 
     public static <T> d<T> a(a<T> aVar) {
@@ -39,10 +39,10 @@ public class d<T> {
     }
 
     public final <R> d<R> a(b<? extends R, ? super T> bVar) {
-        return a((a) new rx.internal.operators.e(this.qdy, bVar));
+        return a((a) new rx.internal.operators.e(this.qfb, bVar));
     }
 
-    public static <T> d<T> eFo() {
+    public static <T> d<T> eFp() {
         return EmptyObservableHolder.instance();
     }
 
@@ -50,8 +50,8 @@ public class d<T> {
         return a((a) new OnSubscribeFromIterable(iterable));
     }
 
-    public static <T> d<T> cd(T t) {
-        return ScalarSynchronousObservable.cl(t);
+    public static <T> d<T> ce(T t) {
+        return ScalarSynchronousObservable.cm(t);
     }
 
     public static <T> d<T> n(Iterable<? extends d<? extends T>> iterable) {
@@ -59,10 +59,10 @@ public class d<T> {
     }
 
     public static <T> d<T> a(d<? extends d<? extends T>> dVar) {
-        return dVar.getClass() == ScalarSynchronousObservable.class ? ((ScalarSynchronousObservable) dVar).f(UtilityFunctions.eGf()) : (d<T>) dVar.a((b<? extends R, ? super Object>) OperatorMerge.Bn(false));
+        return dVar.getClass() == ScalarSynchronousObservable.class ? ((ScalarSynchronousObservable) dVar).f(UtilityFunctions.eGg()) : (d<T>) dVar.a((b<? extends R, ? super Object>) OperatorMerge.Bu(false));
     }
 
-    public static <T> d<T> eFp() {
+    public static <T> d<T> eFq() {
         return NeverObservableHolder.instance();
     }
 
@@ -83,15 +83,15 @@ public class d<T> {
     }
 
     public final d<T> a(rx.functions.b<? super Throwable> bVar) {
-        return a((a) new rx.internal.operators.c(this, new rx.internal.util.a(Actions.eFC(), bVar, Actions.eFC())));
+        return a((a) new rx.internal.operators.c(this, new rx.internal.util.a(Actions.eFD(), bVar, Actions.eFD())));
     }
 
     public final d<T> b(rx.functions.b<? super T> bVar) {
-        return a((a) new rx.internal.operators.c(this, new rx.internal.util.a(bVar, Actions.eFC(), Actions.eFC())));
+        return a((a) new rx.internal.operators.c(this, new rx.internal.util.a(bVar, Actions.eFD(), Actions.eFD())));
     }
 
     public final d<T> a(rx.functions.a aVar) {
-        return a((a) new rx.internal.operators.c(this, new rx.internal.util.a(Actions.eFC(), Actions.e(aVar), aVar)));
+        return a((a) new rx.internal.operators.c(this, new rx.internal.util.a(Actions.eFD(), Actions.e(aVar), aVar)));
     }
 
     public final d<T> b(rx.functions.f<? super T, Boolean> fVar) {
@@ -128,15 +128,15 @@ public class d<T> {
         return b(InternalObservableUtils.isInstanceOf(cls)).O(cls);
     }
 
-    public final d<T> eFq() {
-        return (d<T>) a((b) m.eFO());
+    public final d<T> eFr() {
+        return (d<T>) a((b) m.eFP());
     }
 
-    public final rx.observables.a<T> eFr() {
+    public final rx.observables.a<T> eFs() {
         return OperatorReplay.e(this);
     }
 
-    public final rx.observables.a<T> RN(int i) {
+    public final rx.observables.a<T> Sq(int i) {
         return OperatorReplay.a(this, i);
     }
 
@@ -151,19 +151,19 @@ public class d<T> {
         return OperatorReplay.a(this, j, timeUnit, gVar);
     }
 
-    public final d<T> eFs() {
+    public final d<T> eFt() {
         return rx.internal.operators.g.b(this);
     }
 
-    public final k eFh() {
-        return b(new rx.internal.util.b(Actions.eFC(), InternalObservableUtils.ERROR_NOT_IMPLEMENTED, Actions.eFC()));
+    public final k eFi() {
+        return b(new rx.internal.util.b(Actions.eFD(), InternalObservableUtils.ERROR_NOT_IMPLEMENTED, Actions.eFD()));
     }
 
     public final k c(rx.functions.b<? super T> bVar) {
         if (bVar == null) {
             throw new IllegalArgumentException("onNext can not be null");
         }
-        return b(new rx.internal.util.b(bVar, InternalObservableUtils.ERROR_NOT_IMPLEMENTED, Actions.eFC()));
+        return b(new rx.internal.util.b(bVar, InternalObservableUtils.ERROR_NOT_IMPLEMENTED, Actions.eFD()));
     }
 
     public final k a(rx.functions.b<? super T> bVar, rx.functions.b<Throwable> bVar2) {
@@ -173,7 +173,7 @@ public class d<T> {
         if (bVar2 == null) {
             throw new IllegalArgumentException("onError can not be null");
         }
-        return b(new rx.internal.util.b(bVar, bVar2, Actions.eFC()));
+        return b(new rx.internal.util.b(bVar, bVar2, Actions.eFD()));
     }
 
     public final k a(e<? super T> eVar) {
@@ -189,13 +189,13 @@ public class d<T> {
     public final k a(j<? super T> jVar) {
         try {
             jVar.onStart();
-            rx.c.c.a(this, this.qdy).call(jVar);
+            rx.c.c.a(this, this.qfb).call(jVar);
             return rx.c.c.b(jVar);
         } catch (Throwable th) {
             rx.exceptions.a.J(th);
             try {
                 jVar.onError(rx.c.c.aa(th));
-                return rx.subscriptions.e.eGY();
+                return rx.subscriptions.e.eGZ();
             } catch (Throwable th2) {
                 rx.exceptions.a.J(th2);
                 OnErrorFailedException onErrorFailedException = new OnErrorFailedException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
@@ -213,7 +213,7 @@ public class d<T> {
         if (jVar == null) {
             throw new IllegalArgumentException("subscriber can not be null");
         }
-        if (dVar.qdy == null) {
+        if (dVar.qfb == null) {
             throw new IllegalStateException("onSubscribe function can not be null.");
         }
         jVar.onStart();
@@ -221,7 +221,7 @@ public class d<T> {
             jVar = new rx.b.c(jVar);
         }
         try {
-            rx.c.c.a(dVar, dVar.qdy).call(jVar);
+            rx.c.c.a(dVar, dVar.qfb).call(jVar);
             return rx.c.c.b(jVar);
         } catch (Throwable th) {
             rx.exceptions.a.J(th);
@@ -237,7 +237,7 @@ public class d<T> {
                     throw onErrorFailedException;
                 }
             }
-            return rx.subscriptions.e.eGY();
+            return rx.subscriptions.e.eGZ();
         }
     }
 

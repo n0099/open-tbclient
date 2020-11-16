@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0673a hhw;
-    private boolean hhx;
+    private InterfaceC0673a hhd;
+    private boolean hhe;
     private Context mContext;
-    public List<af> hhv = new ArrayList();
-    private int gex = -1;
+    public List<af> hhc = new ArrayList();
+    private int ged = -1;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.exclusive.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -26,31 +26,31 @@ public class a extends BaseAdapter {
 
     public a(Context context, boolean z) {
         this.mContext = context;
-        this.hhx = z;
+        this.hhe = z;
     }
 
-    public void vC(int i) {
-        this.gex = i;
+    public void wa(int i) {
+        this.ged = i;
         notifyDataSetChanged();
     }
 
     public void a(InterfaceC0673a interfaceC0673a) {
-        this.hhw = interfaceC0673a;
+        this.hhd = interfaceC0673a;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hhv == null) {
+        if (this.hhc == null) {
             return 0;
         }
-        return this.hhv.size();
+        return this.hhc.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vD */
+    /* renamed from: wb */
     public af getItem(int i) {
-        return (af) ListUtils.getItem(this.hhv, i);
+        return (af) ListUtils.getItem(this.hhc, i);
     }
 
     @Override // android.widget.Adapter
@@ -60,8 +60,8 @@ public class a extends BaseAdapter {
 
     public void setDatas(List<af> list) {
         if (!ListUtils.isEmpty(list)) {
-            this.hhv.clear();
-            this.hhv.addAll(list);
+            this.hhc.clear();
+            this.hhc.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -71,7 +71,7 @@ public class a extends BaseAdapter {
         g gVar;
         View inflate;
         if (view == null) {
-            if (this.hhx) {
+            if (this.hhe) {
                 inflate = LayoutInflater.from(this.mContext).inflate(a.g.ala_exclusive_scene_item, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mContext).inflate(a.g.ala_exclusive_scene_land_item, (ViewGroup) null);
@@ -82,19 +82,19 @@ public class a extends BaseAdapter {
         } else {
             gVar = (g) view.getTag();
         }
-        final af afVar = this.hhv.get(i);
-        if (this.gex == i) {
-            gVar.a(afVar, true, this.hhx);
+        final af afVar = this.hhc.get(i);
+        if (this.ged == i) {
+            gVar.a(afVar, true, this.hhe);
         } else {
-            gVar.a(afVar, false, this.hhx);
+            gVar.a(afVar, false, this.hhe);
         }
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.exclusive.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.gex = i;
+                a.this.ged = i;
                 a.this.notifyDataSetChanged();
-                if (a.this.hhw != null) {
-                    a.this.hhw.a(view2, i, afVar);
+                if (a.this.hhd != null) {
+                    a.this.hhd.a(view2, i, afVar);
                 }
             }
         });

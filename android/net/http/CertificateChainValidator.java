@@ -2,7 +2,7 @@ package android.net.http;
 
 import java.io.IOException;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class CertificateChainValidator {
     CertificateChainValidator() {
         throw new RuntimeException("Stub!");

@@ -8,27 +8,27 @@ import com.baidu.swan.games.l.a;
 import com.baidu.swan.pms.model.g;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static String nt(String str) {
-        return bE(str, "swan_sub_package_zip");
+    public static String nn(String str) {
+        return bD(str, "swan_sub_package_zip");
+    }
+
+    public static String bB(String str, String str2) {
+        return nn(d.C0462d.bM(str, str2).getPath());
+    }
+
+    public static String no(String str) {
+        return bD(str, "swan_sub_package_zip");
     }
 
     public static String bC(String str, String str2) {
-        return nt(d.C0464d.bN(str, str2).getPath());
+        return no(a.c.bM(str, str2).getPath());
     }
 
-    public static String nu(String str) {
-        return bE(str, "swan_sub_package_zip");
-    }
-
-    public static String bD(String str, String str2) {
-        return nu(a.c.bN(str, str2).getPath());
-    }
-
-    private static String bE(String str, String str2) {
+    private static String bD(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
@@ -46,7 +46,7 @@ public class b {
         if (gVar == null || TextUtils.isEmpty(gVar.appId)) {
             return false;
         }
-        return h(new File(gVar.filePath), new File(d.C0464d.bN(gVar.appId, String.valueOf(gVar.versionCode)).getPath(), gVar.pkgName));
+        return h(new File(gVar.filePath), new File(d.C0462d.bM(gVar.appId, String.valueOf(gVar.versionCode)).getPath(), gVar.pkgName));
     }
 
     public static boolean h(File file, File file2) {
@@ -69,7 +69,7 @@ public class b {
         } else {
             a.b B = com.baidu.swan.apps.r.a.a.B(file);
             if (B.type != -1) {
-                unzipFile = com.baidu.swan.apps.r.a.a.a(B.cXx, file2, B.type).isSuccess;
+                unzipFile = com.baidu.swan.apps.r.a.a.a(B.cVN, file2, B.type).isSuccess;
             } else {
                 unzipFile = com.baidu.swan.c.d.unzipFile(file.getAbsolutePath(), file2.getAbsolutePath());
             }
@@ -91,6 +91,6 @@ public class b {
         if (list == null || list.isEmpty()) {
             return false;
         }
-        return list.get(0).ehL;
+        return list.get(0).egd;
     }
 }

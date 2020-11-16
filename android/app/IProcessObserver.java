@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes12.dex */
+/* loaded from: classes9.dex */
 public interface IProcessObserver extends IInterface {
     void onForegroundActivitiesChanged(int i, int i2, boolean z) throws RemoteException;
 
@@ -13,7 +13,7 @@ public interface IProcessObserver extends IInterface {
 
     void onProcessDied(int i, int i2) throws RemoteException;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Stub extends Binder implements IProcessObserver {
         private static final String DESCRIPTOR = "android.app.IProcessObserver";
         static final int TRANSACTION_onForegroundActivitiesChanged = 1;
@@ -63,7 +63,7 @@ public interface IProcessObserver extends IInterface {
             }
         }
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes9.dex */
         private static class Proxy implements IProcessObserver {
             private IBinder mRemote;
 

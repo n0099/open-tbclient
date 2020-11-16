@@ -1,9 +1,9 @@
 package com.baidu.live.gift;
 /* loaded from: classes4.dex */
 public interface ad {
-    void Ht();
+    void GK();
 
-    void hk(String str);
+    void he(String str);
 
     void release();
 }

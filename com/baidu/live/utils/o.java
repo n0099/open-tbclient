@@ -10,15 +10,15 @@ public class o {
         return context.getResources().getDimensionPixelOffset(a.d.sdk_ds248);
     }
 
-    public static int v(Activity activity) {
+    public static int u(Activity activity) {
         return ScreenHelper.getRealScreenWidth(activity);
     }
 
-    public static int w(Activity activity) {
-        return (v(activity) * 9) / 16;
+    public static int v(Activity activity) {
+        return (u(activity) * 9) / 16;
     }
 
-    public static int x(Activity activity) {
-        return aI(activity) + w(activity);
+    public static int w(Activity activity) {
+        return aI(activity) + v(activity);
     }
 }

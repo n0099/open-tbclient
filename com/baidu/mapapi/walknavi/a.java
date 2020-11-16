@@ -1,6 +1,6 @@
 package com.baidu.mapapi.walknavi;
 
-import com.baidu.f.a.d;
+import com.baidu.g.a.d;
 import com.baidu.mapapi.walknavi.adapter.IWRoutePlanListener;
 import com.baidu.mapapi.walknavi.controllers.WNavigatorWrapper;
 import com.baidu.mapapi.walknavi.model.WalkRoutePlanError;
@@ -34,7 +34,7 @@ class a implements b {
         com.baidu.mapapi.walknavi.controllers.a.a aVar;
         c cVar;
         d Q = com.baidu.platform.comapi.walknavi.b.a().Q();
-        if (Q == null || !Q.vN() || Q.wu() == null || !Q.wu().hasStart() || Q.wu().wF() == null || Q.wu().wF().xh() != 2 || !Q.wu().wF().wZ() || Q.wu().wF().wY() == null) {
+        if (Q == null || !Q.vM() || Q.wt() == null || !Q.wt().hasStart() || Q.wt().wE() == null || Q.wt().wE().xg() != 2 || !Q.wt().wE().wY() || Q.wt().wE().wX() == null) {
             this.f2170a.onRoutePlanFail(WalkRoutePlanError.PARSE_FAIL);
             return;
         }

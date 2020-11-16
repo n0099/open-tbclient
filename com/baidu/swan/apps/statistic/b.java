@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import com.baidu.swan.ubc.Flow;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static void onEvent(String str, JSONObject jSONObject) {
         com.baidu.swan.ubc.e.onEvent(str, jSONObject);
@@ -23,42 +23,42 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a sT(String str) {
-        return new a(com.baidu.swan.ubc.e.yU(str));
+    public static a sO(String str) {
+        return new a(com.baidu.swan.ubc.e.yP(str));
     }
 
     public static void a(@NonNull a aVar, String str, String str2) {
-        Flow aKb = aVar.aKb();
-        if (aKb != null) {
-            aKb.addEvent(str, str2);
+        Flow aJt = aVar.aJt();
+        if (aJt != null) {
+            aJt.addEvent(str, str2);
         }
     }
 
     public static void a(@NonNull a aVar, String str, String str2, long j) {
-        Flow aKb = aVar.aKb();
-        if (aKb != null) {
-            aKb.addEvent(str, str2, j);
+        Flow aJt = aVar.aJt();
+        if (aJt != null) {
+            aJt.addEvent(str, str2, j);
         }
     }
 
     public static void b(@NonNull a aVar) {
-        Flow aKb = aVar.aKb();
-        if (aKb != null) {
-            aKb.cancel();
+        Flow aJt = aVar.aJt();
+        if (aJt != null) {
+            aJt.cancel();
         }
     }
 
     public static void c(@NonNull a aVar) {
-        Flow aKb = aVar.aKb();
-        if (aKb != null) {
-            aKb.end();
+        Flow aJt = aVar.aJt();
+        if (aJt != null) {
+            aJt.end();
         }
     }
 
     public static void a(@NonNull a aVar, String str) {
-        Flow aKb = aVar.aKb();
-        if (aKb != null) {
-            aKb.setValueWithDuration(str);
+        Flow aJt = aVar.aJt();
+        if (aJt != null) {
+            aJt.setValueWithDuration(str);
         }
     }
 }

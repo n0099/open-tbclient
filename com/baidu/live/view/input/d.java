@@ -8,20 +8,20 @@ public interface d {
 
     /* loaded from: classes4.dex */
     public interface a {
-        boolean LM();
+        boolean LE();
 
-        int LR();
+        boolean Ld();
 
-        boolean Mn();
+        int Li();
 
-        void WS();
+        void Wj();
 
-        void WT();
+        void Wk();
     }
 
-    void Ht();
+    void GK();
 
-    List<String> OT();
+    List<String> Ok();
 
     void a(a aVar);
 
@@ -31,7 +31,7 @@ public interface d {
 
     void d(TbPageContext tbPageContext);
 
-    void hn(String str);
+    void hh(String str);
 
     void release();
 }

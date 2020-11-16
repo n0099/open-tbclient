@@ -1,5 +1,5 @@
 package com.baidu.tieba.video.meida;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */

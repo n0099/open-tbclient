@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class ShareSDKImageView extends TbClipImageView {
     private int mDefaultBgId;
     private int mDefaultId;
@@ -20,7 +20,7 @@ public class ShareSDKImageView extends TbClipImageView {
     public ShareSDKImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mDefaultId = R.drawable.pic_share_link;
-        this.mDefaultBgId = R.color.cp_cont_e;
+        this.mDefaultBgId = R.color.CAM_X0110;
         init();
     }
 

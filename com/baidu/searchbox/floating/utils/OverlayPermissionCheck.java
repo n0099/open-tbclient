@@ -6,7 +6,7 @@ import android.provider.Settings;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public final class OverlayPermissionCheck {
     public static final OverlayPermissionCheck INSTANCE = new OverlayPermissionCheck();
 

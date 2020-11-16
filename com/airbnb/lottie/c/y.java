@@ -4,7 +4,7 @@ import android.graphics.PointF;
 import android.util.JsonReader;
 import android.util.JsonToken;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class y implements aj<PointF> {
     public static final y GZ = new y();
 

@@ -7,27 +7,27 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
     public String activityName;
-    public String gSg;
-    public List<b> gxS;
+    public String gRN;
+    public List<b> gxz;
     public String mTitle;
 
     public void parseData(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.mTitle = jSONObject.optString("title");
             this.activityName = jSONObject.optString("mainTitle");
-            this.gSg = jSONObject.optString("content");
+            this.gRN = jSONObject.optString("content");
             JSONArray optJSONArray = jSONObject.optJSONArray("gifts");
             if (optJSONArray != null) {
-                this.gxS = new ArrayList();
+                this.gxz = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     b bVar = new b();
                     bVar.icon = optJSONObject.optString("giftUrl");
                     bVar.name = optJSONObject.optString("giftName");
                     bVar.type = optJSONObject.optString("type");
-                    bVar.gSh = optJSONObject.optString("color");
+                    bVar.gRO = optJSONObject.optString("color");
                     bVar.content = optJSONObject.optString("description");
-                    this.gxS.add(bVar);
+                    this.gxz.add(bVar);
                 }
             }
         }

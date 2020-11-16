@@ -1,15 +1,15 @@
 package com.baidu.swan.gamecenter.c;
-/* loaded from: classes20.dex */
+/* loaded from: classes19.dex */
 public class e {
-    private static volatile d dQj;
+    private static volatile d dOB;
 
-    public static synchronized d aSu() {
+    public static synchronized d aRM() {
         d dVar;
         synchronized (e.class) {
-            if (dQj == null) {
-                dQj = new d();
+            if (dOB == null) {
+                dOB = new d();
             }
-            dVar = dQj;
+            dVar = dOB;
         }
         return dVar;
     }

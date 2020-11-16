@@ -7,96 +7,96 @@ import com.baidu.swan.apps.core.h.a;
 import com.baidu.swan.apps.core.turbo.d;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
 import com.baidu.swan.apps.y.f;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final boolean djH;
-    private static volatile boolean djI;
-    private static volatile a djJ;
+    public static final boolean dhX;
+    private static volatile boolean dhY;
+    private static volatile a dhZ;
 
     static {
-        djH = !ProcessUtils.isMainProcess() && com.baidu.swan.apps.t.a.awD().agX();
-        djI = false;
+        dhX = !ProcessUtils.isMainProcess() && com.baidu.swan.apps.t.a.avV().agp();
+        dhY = false;
     }
 
     public static void init() {
-        if (!djI) {
+        if (!dhY) {
             if (DEBUG) {
-                Log.d("SwanAbSwitchCache", "SwanAbSwitchCache-init:" + ProcessUtils.getCurProcessName() + ":" + djH);
+                Log.d("SwanAbSwitchCache", "SwanAbSwitchCache-init:" + ProcessUtils.getCurProcessName() + ":" + dhX);
             }
-            aDS();
-            aDT();
-            djI = true;
+            aDk();
+            aDl();
+            dhY = true;
         }
     }
 
-    private static void aDS() {
-        a.b.anB();
-        a.C0426a.aqV();
-        com.baidu.swan.apps.t.a.awD().agr();
-        com.baidu.swan.apps.core.i.a.aqY();
-        com.baidu.swan.apps.ap.b.aMa();
-        d.aEh();
+    private static void aDk() {
+        a.b.amT();
+        a.C0424a.aqn();
+        com.baidu.swan.apps.t.a.avV().afJ();
+        com.baidu.swan.apps.core.i.a.aqq();
+        com.baidu.swan.apps.ap.b.aLs();
+        d.aDz();
         d.a.isEnable();
-        d.C0434d.agy();
+        d.C0432d.afQ();
         d.c.g(true);
     }
 
-    private static void aDT() {
-        aDU();
+    private static void aDl() {
+        aDm();
     }
 
-    private static a aDU() {
-        if (djJ == null) {
+    private static a aDm() {
+        if (dhZ == null) {
             synchronized (a.class) {
-                if (djJ == null) {
-                    djJ = new a();
+                if (dhZ == null) {
+                    dhZ = new a();
                     if (DEBUG) {
                         Log.d("SwanAbSwitchCache", "getAbSwitchHolder:init.");
                     }
                 }
             }
         }
-        return djJ;
+        return dhZ;
     }
 
-    public static boolean aDV() {
-        return djI;
+    public static boolean aDn() {
+        return dhY;
     }
 
-    public static boolean aDW() {
-        return djH && djI && djJ != null;
+    public static boolean aDo() {
+        return dhX && dhY && dhZ != null;
     }
 
-    public static boolean aCy() {
-        return aDU().djN;
+    public static boolean aBQ() {
+        return aDm().die;
     }
 
-    public static boolean ave() {
-        return aDU().djO;
+    public static boolean auw() {
+        return aDm().dif;
     }
 
     public static boolean getNgWebViewHeightSwitch() {
-        return aDU().djP;
+        return aDm().dig;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        private final int djK;
-        private final long djL;
-        private final boolean djM;
-        private final boolean djN;
-        private final boolean djO;
-        private final boolean djP;
+        private final int dia;
+        private final long dib;
+        private final boolean dic;
+        private final boolean die;
+        private final boolean dif;
+        private final boolean dig;
 
         private a() {
-            this.djK = com.baidu.swan.apps.t.a.awD().agY();
-            this.djL = com.baidu.swan.apps.t.a.awD().agK();
-            this.djM = com.baidu.swan.apps.t.a.awD().agG();
-            this.djN = f.aCy();
-            this.djO = com.baidu.swan.apps.framework.c.ave();
-            this.djP = PullToRefreshBase.getNgWebViewHeightSwitch();
+            this.dia = com.baidu.swan.apps.t.a.avV().agq();
+            this.dib = com.baidu.swan.apps.t.a.avV().agc();
+            this.dic = com.baidu.swan.apps.t.a.avV().afY();
+            this.die = f.aBQ();
+            this.dif = com.baidu.swan.apps.framework.c.auw();
+            this.dig = PullToRefreshBase.getNgWebViewHeightSwitch();
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.asus.msa.sdid;
 
 import android.os.IInterface;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public interface a extends IInterface {
     void a();
 

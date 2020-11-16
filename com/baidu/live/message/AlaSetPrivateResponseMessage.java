@@ -7,9 +7,9 @@ public class AlaSetPrivateResponseMessage extends JsonHttpResponsedMessage {
         super(1021047);
     }
 
-    public boolean Og() {
+    public boolean Nx() {
         if (getOrginalMessage() instanceof g) {
-            return ((g) getOrginalMessage()).Og();
+            return ((g) getOrginalMessage()).Nx();
         }
         return false;
     }

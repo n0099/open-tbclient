@@ -10,21 +10,21 @@ import com.tb.airbnb.lottie.LottieAnimationView;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class AlaLivePriseGuideView extends LinearLayout {
-    private ArrayList<LottieAnimationView> hjE;
-    private LottieAnimationView hjF;
+    private ArrayList<LottieAnimationView> hjl;
+    private LottieAnimationView hjm;
     private boolean isShowing;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public AlaLivePriseGuideView(Context context) {
         super(context);
-        this.hjE = new ArrayList<>();
+        this.hjl = new ArrayList<>();
         initUI();
     }
 
-    public boolean ccD() {
-        if (this.hjF != null) {
-            this.hjF.cancelAnimation();
-            this.hjF = null;
+    public boolean cbW() {
+        if (this.hjm != null) {
+            this.hjm.cancelAnimation();
+            this.hjm = null;
         }
         if (getParent() != null) {
             ((ViewGroup) getParent()).removeView(this);
@@ -40,11 +40,11 @@ public class AlaLivePriseGuideView extends LinearLayout {
         LottieAnimationView lottieAnimationView;
         int i = 0;
         while (true) {
-            if (i >= this.hjE.size()) {
+            if (i >= this.hjl.size()) {
                 lottieAnimationView = null;
                 break;
             }
-            lottieAnimationView = this.hjE.get(i);
+            lottieAnimationView = this.hjl.get(i);
             if (!lottieAnimationView.isAnimating()) {
                 break;
             }
@@ -80,7 +80,7 @@ public class AlaLivePriseGuideView extends LinearLayout {
                 lottieAnimationView2.setImageAssetsFolder("/");
                 lottieAnimationView2.setAnimation("praise_click_guide.json");
                 addView(lottieAnimationView2);
-                this.hjE.add(lottieAnimationView2);
+                this.hjl.add(lottieAnimationView2);
                 lottieAnimationView = lottieAnimationView2;
             } catch (Exception e) {
                 Log.i("DetailPraise", e.getMessage());
@@ -91,7 +91,7 @@ public class AlaLivePriseGuideView extends LinearLayout {
             lottieAnimationView.bringToFront();
             lottieAnimationView.loop(true);
             lottieAnimationView.playAnimation();
-            this.hjF = lottieAnimationView;
+            this.hjm = lottieAnimationView;
             this.isShowing = true;
         }
     }

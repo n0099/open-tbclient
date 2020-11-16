@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.CmdQueueMsg;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class DBManager extends DBBase {
     private static final String TAG = "DBManager";
     private static volatile DBManager mInstance = null;
@@ -90,7 +90,7 @@ public class DBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     public class CmdQueueMsgParse implements CursorParse {
         CmdQueueMsg msg = null;
 

@@ -5,10 +5,10 @@ import io.reactivex.internal.util.ExceptionHelper;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class e implements io.reactivex.disposables.b, a {
     volatile boolean disposed;
-    List<io.reactivex.disposables.b> pMn;
+    List<io.reactivex.disposables.b> pNQ;
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
@@ -16,8 +16,8 @@ public final class e implements io.reactivex.disposables.b, a {
             synchronized (this) {
                 if (!this.disposed) {
                     this.disposed = true;
-                    List<io.reactivex.disposables.b> list = this.pMn;
-                    this.pMn = null;
+                    List<io.reactivex.disposables.b> list = this.pNQ;
+                    this.pNQ = null;
                     gM(list);
                 }
             }
@@ -35,10 +35,10 @@ public final class e implements io.reactivex.disposables.b, a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    List list = this.pMn;
+                    List list = this.pNQ;
                     if (list == null) {
                         list = new LinkedList();
-                        this.pMn = list;
+                        this.pNQ = list;
                     }
                     list.add(bVar);
                     return true;
@@ -65,7 +65,7 @@ public final class e implements io.reactivex.disposables.b, a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    List<io.reactivex.disposables.b> list = this.pMn;
+                    List<io.reactivex.disposables.b> list = this.pNQ;
                     if (list != null && list.remove(bVar)) {
                         z = true;
                     }

@@ -41,7 +41,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public final class Utility {
     private static final String ALGORITHM_NAME = "AES";
     private static final String API_KEY = "BD_IM_API_KEY";
@@ -52,7 +52,7 @@ public final class Utility {
     private static int mDisableRestapi = 0;
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     public interface DeleteItem {
         void deleteItem(Context context, Long l);
     }

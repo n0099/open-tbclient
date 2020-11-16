@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ugc.model;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class AtUserInfoItem {
     public String nickname;
     public String uk;

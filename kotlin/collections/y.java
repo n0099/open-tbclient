@@ -8,21 +8,21 @@ import java.util.List;
 import java.util.NoSuchElementException;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class y extends x {
 
     @kotlin.h
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable pSc;
+        final /* synthetic */ Iterable pTF;
 
         public a(Iterable iterable) {
-            this.pSc = iterable;
+            this.pTF = iterable;
         }
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return this.pSc.iterator();
+            return this.pTF.iterator();
         }
     }
 
@@ -91,7 +91,7 @@ public class y extends x {
 
     public static final <T> HashSet<T> f(Iterable<? extends T> iterable) {
         kotlin.jvm.internal.q.n(iterable, "receiver$0");
-        return (HashSet) o.a(iterable, new HashSet(af.Rs(o.a(iterable, 12))));
+        return (HashSet) o.a(iterable, new HashSet(af.RV(o.a(iterable, 12))));
     }
 
     public static final <T> List<T> g(Iterable<? extends T> iterable) {
@@ -99,9 +99,9 @@ public class y extends x {
         if (iterable instanceof Collection) {
             switch (((Collection) iterable).size()) {
                 case 0:
-                    return o.eBx();
+                    return o.eBy();
                 case 1:
-                    return o.bU(iterable instanceof List ? ((List) iterable).get(0) : iterable.iterator().next());
+                    return o.bV(iterable instanceof List ? ((List) iterable).get(0) : iterable.iterator().next());
                 default:
                     return o.q((Collection) iterable);
             }

@@ -13,40 +13,40 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.g;
 import rx.internal.util.RxThreadFactory;
 import rx.k;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class a extends rx.g implements h {
-    static final C1106a qhA;
-    private static final long qhy;
-    final ThreadFactory pPp;
-    final AtomicReference<C1106a> pPq = new AtomicReference<>(qhA);
-    private static final TimeUnit pPK = TimeUnit.SECONDS;
-    static final c qhz = new c(RxThreadFactory.NONE);
+    private static final long qjc;
+    static final C1109a qje;
+    final ThreadFactory pQS;
+    final AtomicReference<C1109a> pQT = new AtomicReference<>(qje);
+    private static final TimeUnit pRn = TimeUnit.SECONDS;
+    static final c qjd = new c(RxThreadFactory.NONE);
 
     static {
-        qhz.unsubscribe();
-        qhA = new C1106a(null, 0L, null);
-        qhA.shutdown();
-        qhy = Integer.getInteger("rx.io-scheduler.keepalive", 60).intValue();
+        qjd.unsubscribe();
+        qje = new C1109a(null, 0L, null);
+        qje.shutdown();
+        qjc = Integer.getInteger("rx.io-scheduler.keepalive", 60).intValue();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.internal.schedulers.a$a  reason: collision with other inner class name */
-    /* loaded from: classes16.dex */
-    public static final class C1106a {
-        private final long pPN;
-        private final ConcurrentLinkedQueue<c> pPO;
-        private final ScheduledExecutorService pPQ;
-        private final Future<?> pPR;
-        private final ThreadFactory pPp;
-        private final rx.subscriptions.b qhB;
+    /* loaded from: classes14.dex */
+    public static final class C1109a {
+        private final ThreadFactory pQS;
+        private final long pRq;
+        private final ConcurrentLinkedQueue<c> pRr;
+        private final ScheduledExecutorService pRt;
+        private final Future<?> pRu;
+        private final rx.subscriptions.b qjf;
 
-        C1106a(final ThreadFactory threadFactory, long j, TimeUnit timeUnit) {
+        C1109a(final ThreadFactory threadFactory, long j, TimeUnit timeUnit) {
             ScheduledFuture<?> scheduledFuture;
             ScheduledExecutorService scheduledExecutorService = null;
-            this.pPp = threadFactory;
-            this.pPN = timeUnit != null ? timeUnit.toNanos(j) : 0L;
-            this.pPO = new ConcurrentLinkedQueue<>();
-            this.qhB = new rx.subscriptions.b();
+            this.pQS = threadFactory;
+            this.pRq = timeUnit != null ? timeUnit.toNanos(j) : 0L;
+            this.pRr = new ConcurrentLinkedQueue<>();
+            this.qjf = new rx.subscriptions.b();
             if (timeUnit != null) {
                 ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new ThreadFactory() { // from class: rx.internal.schedulers.a.a.1
                     @Override // java.util.concurrent.ThreadFactory
@@ -61,45 +61,45 @@ public final class a extends rx.g implements h {
                 scheduledFuture = newScheduledThreadPool.scheduleWithFixedDelay(new Runnable() { // from class: rx.internal.schedulers.a.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        C1106a.this.eAV();
+                        C1109a.this.eAW();
                     }
-                }, this.pPN, this.pPN, TimeUnit.NANOSECONDS);
+                }, this.pRq, this.pRq, TimeUnit.NANOSECONDS);
             } else {
                 scheduledFuture = null;
             }
-            this.pPQ = scheduledExecutorService;
-            this.pPR = scheduledFuture;
+            this.pRt = scheduledExecutorService;
+            this.pRu = scheduledFuture;
         }
 
-        c eFT() {
-            if (this.qhB.isUnsubscribed()) {
-                return a.qhz;
+        c eFU() {
+            if (this.qjf.isUnsubscribed()) {
+                return a.qjd;
             }
-            while (!this.pPO.isEmpty()) {
-                c poll = this.pPO.poll();
+            while (!this.pRr.isEmpty()) {
+                c poll = this.pRr.poll();
                 if (poll != null) {
                     return poll;
                 }
             }
-            c cVar = new c(this.pPp);
-            this.qhB.add(cVar);
+            c cVar = new c(this.pQS);
+            this.qjf.add(cVar);
             return cVar;
         }
 
         void a(c cVar) {
-            cVar.m605if(now() + this.pPN);
-            this.pPO.offer(cVar);
+            cVar.ii(now() + this.pRq);
+            this.pRr.offer(cVar);
         }
 
-        void eAV() {
-            if (!this.pPO.isEmpty()) {
+        void eAW() {
+            if (!this.pRr.isEmpty()) {
                 long now = now();
-                Iterator<c> it = this.pPO.iterator();
+                Iterator<c> it = this.pRr.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.eAW() <= now) {
-                        if (this.pPO.remove(next)) {
-                            this.qhB.a(next);
+                    if (next.eAX() <= now) {
+                        if (this.pRr.remove(next)) {
+                            this.qjf.a(next);
                         }
                     } else {
                         return;
@@ -114,76 +114,76 @@ public final class a extends rx.g implements h {
 
         void shutdown() {
             try {
-                if (this.pPR != null) {
-                    this.pPR.cancel(true);
+                if (this.pRu != null) {
+                    this.pRu.cancel(true);
                 }
-                if (this.pPQ != null) {
-                    this.pPQ.shutdownNow();
+                if (this.pRt != null) {
+                    this.pRt.shutdownNow();
                 }
             } finally {
-                this.qhB.unsubscribe();
+                this.qjf.unsubscribe();
             }
         }
     }
 
     public a(ThreadFactory threadFactory) {
-        this.pPp = threadFactory;
+        this.pQS = threadFactory;
         start();
     }
 
     @Override // rx.internal.schedulers.h
     public void start() {
-        C1106a c1106a = new C1106a(this.pPp, qhy, pPK);
-        if (!this.pPq.compareAndSet(qhA, c1106a)) {
-            c1106a.shutdown();
+        C1109a c1109a = new C1109a(this.pQS, qjc, pRn);
+        if (!this.pQT.compareAndSet(qje, c1109a)) {
+            c1109a.shutdown();
         }
     }
 
     @Override // rx.internal.schedulers.h
     public void shutdown() {
-        C1106a c1106a;
+        C1109a c1109a;
         do {
-            c1106a = this.pPq.get();
-            if (c1106a == qhA) {
+            c1109a = this.pQT.get();
+            if (c1109a == qje) {
                 return;
             }
-        } while (!this.pPq.compareAndSet(c1106a, qhA));
-        c1106a.shutdown();
+        } while (!this.pQT.compareAndSet(c1109a, qje));
+        c1109a.shutdown();
     }
 
     @Override // rx.g
     public g.a createWorker() {
-        return new b(this.pPq.get());
+        return new b(this.pQT.get());
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     static final class b extends g.a implements rx.functions.a {
-        private final C1106a qhF;
-        private final c qhG;
-        private final rx.subscriptions.b qhE = new rx.subscriptions.b();
+        private final C1109a qjj;
+        private final c qjk;
+        private final rx.subscriptions.b qji = new rx.subscriptions.b();
         final AtomicBoolean once = new AtomicBoolean();
 
-        b(C1106a c1106a) {
-            this.qhF = c1106a;
-            this.qhG = c1106a.eFT();
+        b(C1109a c1109a) {
+            this.qjj = c1109a;
+            this.qjk = c1109a.eFU();
         }
 
         @Override // rx.k
         public void unsubscribe() {
             if (this.once.compareAndSet(false, true)) {
-                this.qhG.c(this);
+                this.qjk.c(this);
             }
-            this.qhE.unsubscribe();
+            this.qji.unsubscribe();
         }
 
         @Override // rx.functions.a
         public void call() {
-            this.qhF.a(this.qhG);
+            this.qjj.a(this.qjk);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.qhE.isUnsubscribed();
+            return this.qji.isUnsubscribed();
         }
 
         @Override // rx.g.a
@@ -193,10 +193,10 @@ public final class a extends rx.g implements h {
 
         @Override // rx.g.a
         public k a(final rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            if (this.qhE.isUnsubscribed()) {
-                return rx.subscriptions.e.eGY();
+            if (this.qji.isUnsubscribed()) {
+                return rx.subscriptions.e.eGZ();
             }
-            ScheduledAction b = this.qhG.b(new rx.functions.a() { // from class: rx.internal.schedulers.a.b.1
+            ScheduledAction b = this.qjk.b(new rx.functions.a() { // from class: rx.internal.schedulers.a.b.1
                 @Override // rx.functions.a
                 public void call() {
                     if (!b.this.isUnsubscribed()) {
@@ -204,29 +204,28 @@ public final class a extends rx.g implements h {
                     }
                 }
             }, j, timeUnit);
-            this.qhE.add(b);
-            b.addParent(this.qhE);
+            this.qji.add(b);
+            b.addParent(this.qji);
             return b;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public static final class c extends g {
-        private long pPU;
+        private long pRx;
 
         c(ThreadFactory threadFactory) {
             super(threadFactory);
-            this.pPU = 0L;
+            this.pRx = 0L;
         }
 
-        public long eAW() {
-            return this.pPU;
+        public long eAX() {
+            return this.pRx;
         }
 
-        /* renamed from: if  reason: not valid java name */
-        public void m605if(long j) {
-            this.pPU = j;
+        public void ii(long j) {
+            this.pRx = j;
         }
     }
 }

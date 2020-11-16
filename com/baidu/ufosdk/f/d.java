@@ -2,7 +2,7 @@ package com.baidu.ufosdk.f;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */

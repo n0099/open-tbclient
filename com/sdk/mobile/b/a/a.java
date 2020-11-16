@@ -10,7 +10,7 @@ import com.sdk.base.framework.a.i;
 import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.f.h.g;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
@@ -22,7 +22,7 @@ public class a<T> {
     private int f;
     private CallBack<T> g;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes8.dex */
     public final class d implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */

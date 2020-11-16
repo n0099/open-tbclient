@@ -2,7 +2,7 @@ package com.baidu.ar.auth;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class FeatureCodes {
     public static final int ADVANCE_BEAUTY = 1600;
     public static final int BASIC_BEAUTY = 1000;

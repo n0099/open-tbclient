@@ -4,20 +4,20 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public interface c extends IInterface {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public static abstract class a extends Binder implements c {
 
         /* renamed from: com.baidu.sofire.k.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes15.dex */
-        static class C0360a implements c {
+        /* loaded from: classes9.dex */
+        static class C0358a implements c {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f3656a;
 
-            C0360a(IBinder iBinder) {
+            C0358a(IBinder iBinder) {
                 this.f3656a = iBinder;
             }
 
@@ -62,7 +62,7 @@ public interface c extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0360a(iBinder) : (c) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0358a(iBinder) : (c) queryLocalInterface;
         }
 
         @Override // android.os.Binder

@@ -47,7 +47,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class MediaSessionCompat {
     static final String ACTION_ARGUMENT_CAPTIONING_ENABLED = "android.support.v4.media.session.action.ARGUMENT_CAPTIONING_ENABLED";
     static final String ACTION_ARGUMENT_EXTRAS = "android.support.v4.media.session.action.ARGUMENT_EXTRAS";
@@ -87,7 +87,7 @@ public class MediaSessionCompat {
     private final MediaSessionImpl mImpl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface MediaSessionImpl {
         String getCallingPackage();
 
@@ -138,14 +138,14 @@ public class MediaSessionCompat {
         void setShuffleMode(int i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface OnActiveChangeListener {
         void onActiveChanged();
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public @interface SessionFlags {
     }
 
@@ -357,7 +357,7 @@ public class MediaSessionCompat {
         return playbackStateCompat;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Callback {
         private CallbackHandler mCallbackHandler = null;
         final Object mCallbackObj;
@@ -521,7 +521,7 @@ public class MediaSessionCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public class CallbackHandler extends Handler {
             private static final int MSG_MEDIA_PLAY_PAUSE_KEY_DOUBLE_TAP_TIMEOUT = 1;
 
@@ -538,7 +538,7 @@ public class MediaSessionCompat {
         }
 
         @RequiresApi(21)
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         private class StubApi21 implements MediaSessionCompatApi21.Callback {
             StubApi21() {
             }
@@ -680,7 +680,7 @@ public class MediaSessionCompat {
         }
 
         @RequiresApi(23)
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         private class StubApi23 extends StubApi21 implements MediaSessionCompatApi23.Callback {
             StubApi23() {
                 super();
@@ -693,7 +693,7 @@ public class MediaSessionCompat {
         }
 
         @RequiresApi(24)
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         private class StubApi24 extends StubApi23 implements MediaSessionCompatApi24.Callback {
             StubApi24() {
                 super();
@@ -721,7 +721,7 @@ public class MediaSessionCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class Token implements Parcelable {
         public static final Parcelable.Creator<Token> CREATOR = new Parcelable.Creator<Token>() { // from class: android.support.v4.media.session.MediaSessionCompat.Token.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -816,7 +816,7 @@ public class MediaSessionCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class QueueItem implements Parcelable {
         public static final Parcelable.Creator<QueueItem> CREATOR = new Parcelable.Creator<QueueItem>() { // from class: android.support.v4.media.session.MediaSessionCompat.QueueItem.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -911,7 +911,7 @@ public class MediaSessionCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class ResultReceiverWrapper implements Parcelable {
         public static final Parcelable.Creator<ResultReceiverWrapper> CREATOR = new Parcelable.Creator<ResultReceiverWrapper>() { // from class: android.support.v4.media.session.MediaSessionCompat.ResultReceiverWrapper.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -950,7 +950,7 @@ public class MediaSessionCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class MediaSessionImplBase implements MediaSessionImpl {
         static final int RCC_PLAYSTATE_NONE = 0;
         final AudioManager mAudioManager;
@@ -1530,7 +1530,7 @@ public class MediaSessionCompat {
             this.mControllerCallbacks.finishBroadcast();
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         class MediaSessionStub extends IMediaSession.Stub {
             MediaSessionStub() {
             }
@@ -1832,7 +1832,7 @@ public class MediaSessionCompat {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         private static final class Command {
             public final String command;
             public final Bundle extras;
@@ -1846,7 +1846,7 @@ public class MediaSessionCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public class MessageHandler extends Handler {
             private static final int KEYCODE_MEDIA_PAUSE = 127;
             private static final int KEYCODE_MEDIA_PLAY = 126;
@@ -2078,7 +2078,7 @@ public class MediaSessionCompat {
     }
 
     @RequiresApi(18)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     static class MediaSessionImplApi18 extends MediaSessionImplBase {
         private static boolean sIsMbrPendingIntentSupported = true;
 
@@ -2158,7 +2158,7 @@ public class MediaSessionCompat {
     }
 
     @RequiresApi(19)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     static class MediaSessionImplApi19 extends MediaSessionImplApi18 {
         MediaSessionImplApi19(Context context, String str, ComponentName componentName, PendingIntent pendingIntent) {
             super(context, str, componentName, pendingIntent);
@@ -2212,7 +2212,7 @@ public class MediaSessionCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     static class MediaSessionImplApi21 implements MediaSessionImpl {
         boolean mCaptioningEnabled;
         private boolean mDestroyed = false;
@@ -2421,7 +2421,7 @@ public class MediaSessionCompat {
             return MediaSessionCompatApi24.getCallingPackage(this.mSessionObj);
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         class ExtraSession extends IMediaSession.Stub {
             ExtraSession() {
             }

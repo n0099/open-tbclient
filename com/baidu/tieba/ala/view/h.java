@@ -29,105 +29,105 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 /* loaded from: classes4.dex */
 public class h {
-    private long fZh;
-    private String fZj;
-    private boolean fZk;
-    private AlaLastLiveroomInfo gaY;
-    private TextView hCp;
-    private TextView hMi;
-    private TextView hMj;
-    private HeadImageView hMk;
-    private LottieAnimationView hMl;
-    private TextView hMm;
-    private com.baidu.tieba.ala.data.h hMn;
+    private long fYO;
+    private String fYQ;
+    private boolean fYR;
+    private AlaLastLiveroomInfo gaF;
+    private TextView hBW;
+    private TextView hLP;
+    private TextView hLQ;
+    private HeadImageView hLR;
+    private LottieAnimationView hLS;
+    private TextView hLT;
+    private com.baidu.tieba.ala.data.h hLU;
     private Context mContext;
     private View mRootView;
 
     public h(Context context, View view, String str, long j, boolean z, AlaLastLiveroomInfo alaLastLiveroomInfo) {
         this.mContext = context;
         this.mRootView = view;
-        this.fZj = str;
-        this.fZh = j;
-        this.fZk = z;
-        this.gaY = alaLastLiveroomInfo;
-        this.hCp = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_name);
-        this.hMj = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
-        this.hMi = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_rank_info);
-        this.hMk = (HeadImageView) this.mRootView.findViewById(a.f.ala_rank_list_header);
-        this.hMk.setIsRound(true);
-        this.hMk.setAutoChangeStyle(false);
-        this.hMm = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_header_pendent);
-        this.hMl = (LottieAnimationView) this.mRootView.findViewById(a.f.rank_live_anim);
+        this.fYQ = str;
+        this.fYO = j;
+        this.fYR = z;
+        this.gaF = alaLastLiveroomInfo;
+        this.hBW = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_name);
+        this.hLQ = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
+        this.hLP = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_rank_info);
+        this.hLR = (HeadImageView) this.mRootView.findViewById(a.f.ala_rank_list_header);
+        this.hLR.setIsRound(true);
+        this.hLR.setAutoChangeStyle(false);
+        this.hLT = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_header_pendent);
+        this.hLS = (LottieAnimationView) this.mRootView.findViewById(a.f.rank_live_anim);
     }
 
     public void a(com.baidu.tieba.ala.data.h hVar, final int i) {
         if (hVar != null) {
-            this.hMn = hVar;
-            this.hCp.setText(this.hMn.getName_show());
-            this.hMk.startLoad(this.hMn.avatar, 12, false);
-            if (this.hMn.eEI == 1) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hMl.getLayoutParams();
-                if (this.hMn.rank == 1 && TextUtils.equals("charm_day", this.fZj)) {
+            this.hLU = hVar;
+            this.hBW.setText(this.hLU.getName_show());
+            this.hLR.startLoad(this.hLU.avatar, 12, false);
+            if (this.hLU.eDa == 1) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hLS.getLayoutParams();
+                if (this.hLU.rank == 1 && TextUtils.equals("charm_day", this.fYQ)) {
                     layoutParams.setMargins(BdUtilHelper.dip2px(this.mContext, 19.0f), BdUtilHelper.dip2px(this.mContext, 37.0f), BdUtilHelper.dip2px(this.mContext, 19.0f), 0);
                     layoutParams.width = BdUtilHelper.dip2px(this.mContext, 14.0f);
                     layoutParams.height = BdUtilHelper.dip2px(this.mContext, 14.0f);
-                    this.hMl.setAnimation("anchor_living.json");
+                    this.hLS.setAnimation("anchor_living.json");
                 } else {
                     layoutParams.setMargins(BdUtilHelper.dip2px(this.mContext, 35.0f), BdUtilHelper.dip2px(this.mContext, 35.0f), BdUtilHelper.dip2px(this.mContext, 0.0f), 0);
                     layoutParams.width = BdUtilHelper.dip2px(this.mContext, 12.0f);
                     layoutParams.height = BdUtilHelper.dip2px(this.mContext, 12.0f);
-                    this.hMl.setAnimation("rank_list_living.json");
+                    this.hLS.setAnimation("rank_list_living.json");
                 }
-                this.hMl.setVisibility(0);
-                this.hMl.loop(true);
-                this.hMl.playAnimation();
+                this.hLS.setVisibility(0);
+                this.hLS.loop(true);
+                this.hLS.playAnimation();
             } else {
-                this.hMl.setVisibility(8);
+                this.hLS.setVisibility(8);
             }
-            int i2 = this.hMn.rank;
+            int i2 = this.hLU.rank;
             if (i2 == 1) {
-                this.hMj.setText("");
-                this.hMj.setBackgroundResource(a.e.sdk_icon_live_list_first);
+                this.hLQ.setText("");
+                this.hLQ.setBackgroundResource(a.e.sdk_icon_live_list_first);
             } else if (i2 == 2) {
-                this.hMj.setText("");
-                this.hMj.setBackgroundResource(a.e.sdk_icon_live_list_second);
+                this.hLQ.setText("");
+                this.hLQ.setBackgroundResource(a.e.sdk_icon_live_list_second);
             } else if (i2 == 3) {
-                this.hMj.setText("");
-                this.hMj.setBackgroundResource(a.e.sdk_icon_live_list_third);
+                this.hLQ.setText("");
+                this.hLQ.setBackgroundResource(a.e.sdk_icon_live_list_third);
             } else {
-                this.hMj.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_cp_cont_d));
+                this.hLQ.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_cp_cont_d));
                 if (i2 >= 100) {
-                    this.hMj.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize28));
+                    this.hLQ.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize28));
                 } else {
-                    this.hMj.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize32));
+                    this.hLQ.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize32));
                 }
-                this.hMj.setText(String.valueOf(i2));
-                this.hMj.setBackgroundResource(a.c.sdk_transparent);
+                this.hLQ.setText(String.valueOf(i2));
+                this.hLQ.setBackgroundResource(a.c.sdk_transparent);
             }
-            if (i2 == 1 && TextUtils.equals("charm_day", this.fZj)) {
-                this.hMm.setVisibility(0);
+            if (i2 == 1 && TextUtils.equals("charm_day", this.fYQ)) {
+                this.hLT.setVisibility(0);
             } else {
-                this.hMm.setVisibility(8);
+                this.hLT.setVisibility(8);
             }
-            if (ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME.equals(this.fZj)) {
-                double d = JavaTypesHelper.toDouble(this.hMn.point, 0.0d);
+            if (ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME.equals(this.fYQ)) {
+                double d = JavaTypesHelper.toDouble(this.hLU.point, 0.0d);
                 DecimalFormat decimalFormat = new DecimalFormat("#.0");
                 decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
-                this.hMi.setText(String.format(this.mContext.getString(a.h.ala_rank_list_game_point), decimalFormat.format(d)));
+                this.hLP.setText(String.format(this.mContext.getString(a.h.ala_rank_list_game_point), decimalFormat.format(d)));
             } else {
-                long j = JavaTypesHelper.toLong(this.hMn.point, 0L);
-                if (SdkStaticKeys.RANK_TYPE_FLOWER.equals(this.fZj)) {
-                    this.hMi.setText(String.format(this.mContext.getString(a.h.ala_rank_list_flower_point), StringHelper.numFormatOver10000(j)));
-                } else if (SdkStaticKeys.RANK_TYPE_CHARM.equals(this.fZj)) {
-                    this.hMi.setText(String.format(this.mContext.getString(a.h.ala_rank_list_charm_point), com.baidu.live.utils.j.formatTosepara(j)));
-                } else if ("hot".equals(this.fZj)) {
-                    this.hMi.setText(String.format(this.mContext.getString(a.h.ala_rank_list_hot_point), com.baidu.live.utils.j.formatTosepara(j)));
-                } else if ("pk".equals(this.fZj)) {
-                    this.hMi.setText(String.format(this.mContext.getString(a.h.ala_rank_list_game_point), com.baidu.live.utils.j.formatTosepara(j)));
-                } else if ("guard".equals(this.fZj)) {
-                    this.hMi.setText(String.format(this.mContext.getString(a.h.ala_rank_list_game_point), com.baidu.live.utils.j.formatTosepara(j)));
-                } else if ("charm_day".equals(this.fZj) || "hour".equals(this.fZj)) {
-                    this.hMi.setText(String.format(this.mContext.getString(a.h.ala_rank_list_charm_hour), StringHelper.formatForHourRankValue(j)));
+                long j = JavaTypesHelper.toLong(this.hLU.point, 0L);
+                if (SdkStaticKeys.RANK_TYPE_FLOWER.equals(this.fYQ)) {
+                    this.hLP.setText(String.format(this.mContext.getString(a.h.ala_rank_list_flower_point), StringHelper.numFormatOver10000(j)));
+                } else if (SdkStaticKeys.RANK_TYPE_CHARM.equals(this.fYQ)) {
+                    this.hLP.setText(String.format(this.mContext.getString(a.h.ala_rank_list_charm_point), com.baidu.live.utils.j.formatTosepara(j)));
+                } else if ("hot".equals(this.fYQ)) {
+                    this.hLP.setText(String.format(this.mContext.getString(a.h.ala_rank_list_hot_point), com.baidu.live.utils.j.formatTosepara(j)));
+                } else if ("pk".equals(this.fYQ)) {
+                    this.hLP.setText(String.format(this.mContext.getString(a.h.ala_rank_list_game_point), com.baidu.live.utils.j.formatTosepara(j)));
+                } else if ("guard".equals(this.fYQ)) {
+                    this.hLP.setText(String.format(this.mContext.getString(a.h.ala_rank_list_game_point), com.baidu.live.utils.j.formatTosepara(j)));
+                } else if ("charm_day".equals(this.fYQ) || "hour".equals(this.fYQ)) {
+                    this.hLP.setText(String.format(this.mContext.getString(a.h.ala_rank_list_charm_hour), StringHelper.formatForHourRankValue(j)));
                 }
             }
             if (TbadkCoreApplication.getInst().isNotMobileBaidu()) {
@@ -135,25 +135,25 @@ public class h {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913104, new HourRankItemData("author", null, i + 2)));
-                        if (h.this.hMn == null || h.this.hMn.eEI != 1 || h.this.hMn.live_id <= 0 || h.this.hMn.live_id == h.this.fZh || h.this.fZk) {
-                            if (h.this.hMn != null && (h.this.mContext instanceof Activity)) {
+                        if (h.this.hLU == null || h.this.hLU.eDa != 1 || h.this.hLU.live_id <= 0 || h.this.hLU.live_id == h.this.fYO || h.this.fYR) {
+                            if (h.this.hLU != null && (h.this.mContext instanceof Activity)) {
                                 Intent intent = ((Activity) h.this.mContext).getIntent();
                                 long longExtra = intent.getLongExtra(TbEnum.SystemMessage.KEY_USER_ID, 0L);
                                 String stringExtra = intent.getStringExtra("group_id");
                                 String stringExtra2 = intent.getStringExtra("live_id");
                                 boolean booleanExtra = intent.getBooleanExtra("live_owner_flag", false);
                                 String stringExtra3 = intent.getStringExtra("live_owner_uid");
-                                if (longExtra == h.this.hMn.user_id) {
+                                if (longExtra == h.this.hLU.user_id) {
                                     stringExtra3 = longExtra + "";
                                 }
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(h.this.mContext, h.this.hMn.user_id + "", h.this.hMn.user_name, h.this.hMn.avatar, 0, 0, null, null, 0L, 0L, 0L, 0, stringExtra, stringExtra2, booleanExtra, stringExtra3, null, h.this.hMn.getName_show(), "")));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(h.this.mContext, h.this.hLU.user_id + "", h.this.hLU.user_name, h.this.hLU.avatar, 0, 0, null, null, 0L, 0L, 0L, 0, stringExtra, stringExtra2, booleanExtra, stringExtra3, null, h.this.hLU.getName_show(), "")));
                                 return;
                             }
                             return;
                         }
                         AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(h.this.mContext);
-                        alaLiveRoomActivityConfig.addExtraByLiveId(h.this.hMn.live_id, "", "live_sdk");
-                        alaLiveRoomActivityConfig.addLastLiveInfoParams(h.this.gaY);
+                        alaLiveRoomActivityConfig.addExtraByLiveId(h.this.hLU.live_id, "", "live_sdk");
+                        alaLiveRoomActivityConfig.addLastLiveInfoParams(h.this.gaF);
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, alaLiveRoomActivityConfig));
                     }
                 });
@@ -162,24 +162,24 @@ public class h {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913104, new HourRankItemData("author", null, i + 2)));
-                        if (h.this.hMn == null || h.this.hMn.eEI != 1 || h.this.hMn.live_id <= 0 || h.this.hMn.live_id == h.this.fZh || h.this.fZk || !com.baidu.live.aa.a.PQ().bod.aML) {
-                            if (h.this.hMn != null && (h.this.mContext instanceof Activity)) {
+                        if (h.this.hLU == null || h.this.hLU.eDa != 1 || h.this.hLU.live_id <= 0 || h.this.hLU.live_id == h.this.fYO || h.this.fYR || !com.baidu.live.aa.a.Ph().bms.aLa) {
+                            if (h.this.hLU != null && (h.this.mContext instanceof Activity)) {
                                 Intent intent = ((Activity) h.this.mContext).getIntent();
                                 long longExtra = intent.getLongExtra(TbEnum.SystemMessage.KEY_USER_ID, 0L);
                                 String stringExtra = intent.getStringExtra("group_id");
                                 String stringExtra2 = intent.getStringExtra("live_id");
                                 boolean booleanExtra = intent.getBooleanExtra("live_owner_flag", false);
                                 String stringExtra3 = intent.getStringExtra("live_owner_uid");
-                                if (longExtra == h.this.hMn.user_id) {
+                                if (longExtra == h.this.hLU.user_id) {
                                     stringExtra3 = longExtra + "";
                                 }
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(h.this.mContext, h.this.hMn.user_id + "", h.this.hMn.user_name, h.this.hMn.avatar, 0, 0, null, null, 0L, 0L, 0L, 0, stringExtra, stringExtra2, booleanExtra, stringExtra3, null, h.this.hMn.getName_show(), "")));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(h.this.mContext, h.this.hLU.user_id + "", h.this.hLU.user_name, h.this.hLU.avatar, 0, 0, null, null, 0L, 0L, 0L, 0, stringExtra, stringExtra2, booleanExtra, stringExtra3, null, h.this.hLU.getName_show(), "")));
                                 return;
                             }
                             return;
                         }
                         AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(h.this.mContext);
-                        alaLiveRoomActivityConfig.addExtraByLiveId(h.this.hMn.live_id, "", "live_sdk");
+                        alaLiveRoomActivityConfig.addExtraByLiveId(h.this.hLU.live_id, "", "live_sdk");
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, alaLiveRoomActivityConfig));
                     }
                 });

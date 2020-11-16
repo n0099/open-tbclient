@@ -6,7 +6,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */

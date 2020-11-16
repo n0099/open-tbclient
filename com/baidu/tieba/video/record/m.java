@@ -1,18 +1,18 @@
 package com.baidu.tieba.video.record;
 
 import android.animation.Animator;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public abstract class m implements Animator.AnimatorListener {
-    protected boolean nvG = false;
+    protected boolean nwN = false;
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationStart(Animator animator) {
-        this.nvG = false;
+        this.nwN = false;
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationCancel(Animator animator) {
-        this.nvG = true;
+        this.nwN = true;
     }
 
     @Override // android.animation.Animator.AnimatorListener

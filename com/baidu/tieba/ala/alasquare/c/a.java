@@ -2,110 +2,110 @@ package com.baidu.tieba.ala.alasquare.c;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private static a gom;
-    private List<aq> fQJ;
+    private static a gnT;
+    private List<ar> fQs;
 
-    public static a bPC() {
-        if (gom == null) {
+    public static a bOV() {
+        if (gnT == null) {
             synchronized (a.class) {
-                if (gom == null) {
-                    gom = new a();
+                if (gnT == null) {
+                    gnT = new a();
                 }
             }
         }
-        return gom;
+        return gnT;
     }
 
-    public void e(aq aqVar) {
-        if (aqVar != null) {
-            if (this.fQJ == null) {
-                this.fQJ = new ArrayList();
+    public void e(ar arVar) {
+        if (arVar != null) {
+            if (this.fQs == null) {
+                this.fQs = new ArrayList();
             }
-            if (this.fQJ != null) {
-                this.fQJ.add(aqVar);
+            if (this.fQs != null) {
+                this.fQs.add(arVar);
             }
         }
     }
 
-    public void Gy(String str) {
+    public void FZ(String str) {
         if (str != null) {
-            if (this.fQJ == null) {
-                this.fQJ = new ArrayList();
+            if (this.fQs == null) {
+                this.fQs = new ArrayList();
             }
-            if (this.fQJ != null) {
-                this.fQJ.add(new aq(str));
+            if (this.fQs != null) {
+                this.fQs.add(new ar(str));
             }
         }
     }
 
-    public void bMp() {
-        if (y.getCount(this.fQJ) != 0) {
-            for (aq aqVar : this.fQJ) {
-                if (aqVar != null) {
-                    TiebaStatic.log(aqVar);
+    public void bLI() {
+        if (y.getCount(this.fQs) != 0) {
+            for (ar arVar : this.fQs) {
+                if (arVar != null) {
+                    TiebaStatic.log(arVar);
                 }
             }
-            this.fQJ.clear();
+            this.fQs.clear();
         }
     }
 
-    public void lN(boolean z) {
-        if (y.getCount(this.fQJ) != 0) {
-            for (aq aqVar : this.fQJ) {
-                if (aqVar != null) {
+    public void lO(boolean z) {
+        if (y.getCount(this.fQs) != 0) {
+            for (ar arVar : this.fQs) {
+                if (arVar != null) {
                     int i = 0;
                     if (z) {
                         i = 1;
                     }
-                    if (!aqVar.getParams().contains(TiebaInitialize.Params.OBJ_PARAM2)) {
-                        aqVar.al(TiebaInitialize.Params.OBJ_PARAM2, i);
+                    if (!arVar.getParams().contains(TiebaInitialize.Params.OBJ_PARAM2)) {
+                        arVar.ak(TiebaInitialize.Params.OBJ_PARAM2, i);
                     }
-                    TiebaStatic.log(aqVar);
+                    TiebaStatic.log(arVar);
                 }
             }
-            this.fQJ.clear();
+            this.fQs.clear();
         }
     }
 
-    public aq a(int i, String str, int i2, String str2, bw bwVar) {
-        if (bwVar == null) {
+    public ar a(int i, String str, int i2, String str2, bx bxVar) {
+        if (bxVar == null) {
             return null;
         }
         String str3 = "";
-        if (bwVar.bmU() != null && !StringUtils.isNull(bwVar.bmU().appId)) {
-            str3 = bwVar.bmU().appId;
+        if (bxVar.blW() != null && !StringUtils.isNull(bxVar.blW().appId)) {
+            str3 = bxVar.blW().appId;
         }
-        aq aqVar = new aq(str);
-        aqVar.al("obj_type", 1);
-        aqVar.w("obj_id", S(bwVar));
-        aqVar.dR("tid", bwVar.getId());
-        aqVar.dR(TiebaInitialize.Params.OBJ_PARAM3, str3);
-        aqVar.al("entryid", i2);
-        aqVar.dR("name", str2);
-        aqVar.al("is_small_follow", i);
-        return aqVar;
+        ar arVar = new ar(str);
+        arVar.ak("obj_type", 1);
+        arVar.w("obj_id", U(bxVar));
+        arVar.dR("tid", bxVar.getId());
+        arVar.dR(TiebaInitialize.Params.OBJ_PARAM3, str3);
+        arVar.ak("entryid", i2);
+        arVar.dR("name", str2);
+        arVar.ak("is_small_follow", i);
+        return arVar;
     }
 
-    private long S(bw bwVar) {
-        if (bwVar == null || bwVar.bmU() == null) {
+    private long U(bx bxVar) {
+        if (bxVar == null || bxVar.blW() == null) {
             return -1L;
         }
-        return bwVar.bmU().live_id;
+        return bxVar.blW().live_id;
     }
 
     public void c(String str, int i, int i2, String str2) {
-        aq aqVar = new aq(str);
-        aqVar.al("obj_source", i);
-        aqVar.al("obj_type", i2);
-        aqVar.dR("tid", str2);
-        TiebaStatic.log(aqVar);
+        ar arVar = new ar(str);
+        arVar.ak("obj_source", i);
+        arVar.ak("obj_type", i2);
+        arVar.dR("tid", str2);
+        TiebaStatic.log(arVar);
     }
 }

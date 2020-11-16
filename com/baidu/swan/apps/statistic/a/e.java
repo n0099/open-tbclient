@@ -5,11 +5,11 @@ import android.text.TextUtils;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected JSONObject dAh;
-    protected JSONObject dAi;
+    protected JSONObject dyA;
+    protected JSONObject dyB;
     public String mAppId;
     public String mFrom = "swan";
     public String mPage;
@@ -34,16 +34,16 @@ public class e {
             }
             jSONObject.put("source", this.mSource);
             if (!TextUtils.isEmpty(this.mPage)) {
-                this.mPage = com.baidu.swan.apps.statistic.g.ta(this.mPage);
+                this.mPage = com.baidu.swan.apps.statistic.g.sV(this.mPage);
                 jSONObject.put("page", this.mPage);
             }
-            if (this.dAh == null) {
-                this.dAh = new JSONObject();
+            if (this.dyA == null) {
+                this.dyA = new JSONObject();
             }
             if (!TextUtils.isEmpty(this.mAppId)) {
-                this.dAh.put("appid", this.mAppId);
+                this.dyA.put("appid", this.mAppId);
             }
-            jSONObject.put("ext", this.dAh);
+            jSONObject.put("ext", this.dyA);
             return jSONObject;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -53,16 +53,16 @@ public class e {
         }
     }
 
-    public void cg(JSONObject jSONObject) {
+    public void ca(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.dAh == null) {
-                this.dAh = new JSONObject();
+            if (this.dyA == null) {
+                this.dyA = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.dAh.put(next, jSONObject.opt(next));
+                    this.dyA.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -72,10 +72,10 @@ public class e {
         }
     }
 
-    public void tm(String str) {
+    public void th(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                cg(new JSONObject(str));
+                ca(new JSONObject(str));
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -84,20 +84,20 @@ public class e {
         }
     }
 
-    public void ch(JSONObject jSONObject) {
+    public void cb(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.dAh == null) {
-                this.dAh = new JSONObject();
+            if (this.dyA == null) {
+                this.dyA = new JSONObject();
             }
-            this.dAi = this.dAh.optJSONObject("extlog");
-            if (this.dAi == null) {
-                this.dAi = new JSONObject();
+            this.dyB = this.dyA.optJSONObject("extlog");
+            if (this.dyB == null) {
+                this.dyB = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.dAi.put(next, jSONObject.opt(next));
+                    this.dyB.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -105,7 +105,7 @@ public class e {
                 }
             }
             try {
-                this.dAh.put("extlog", this.dAi);
+                this.dyA.put("extlog", this.dyB);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
@@ -115,11 +115,11 @@ public class e {
     }
 
     public void u(@NonNull String str, Object obj) {
-        if (this.dAh == null) {
-            this.dAh = new JSONObject();
+        if (this.dyA == null) {
+            this.dyA = new JSONObject();
         }
         try {
-            this.dAh.put(str, obj);
+            this.dyA.put(str, obj);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -127,12 +127,12 @@ public class e {
         }
     }
 
-    public JSONObject aKv() {
-        if (this.dAh == null) {
+    public JSONObject aJN() {
+        if (this.dyA == null) {
             return null;
         }
         try {
-            return new JSONObject(this.dAh.toString());
+            return new JSONObject(this.dyA.toString());
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

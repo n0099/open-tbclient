@@ -6,7 +6,7 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class ForEachWhileObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
     private static final long serialVersionUID = -4403180040475402120L;
     boolean done;

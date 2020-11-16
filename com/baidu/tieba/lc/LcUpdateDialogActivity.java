@@ -27,42 +27,42 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity> implements View.OnClickListener {
-    private TextView dGm;
-    private TextView efP;
-    private View kCA;
-    private TextView kCB;
-    private Download kCC;
-    private String kCt;
-    private ClientUpdateInfo kCw;
-    private LinearLayout kCx;
-    private LinearLayout kCy;
-    private View kCz;
+    private TextView dEF;
+    private TextView eei;
+    private String kCI;
+    private ClientUpdateInfo kCL;
+    private LinearLayout kCM;
+    private LinearLayout kCN;
+    private View kCO;
+    private View kCP;
+    private TextView kCQ;
+    private Download kCR;
     private TextView mDescView;
     private PermissionJudgePolicy mPermissionJudgement;
     private TextView mTitleView;
     private int mSkinType = 3;
-    private long kCD = -1;
+    private long kCS = -1;
     private BroadcastReceiver mReceiver = new BroadcastReceiver() { // from class: com.baidu.tieba.lc.LcUpdateDialogActivity.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            LcUpdateDialogActivity.this.kCC = (Download) intent.getSerializableExtra("download");
-            if (LcUpdateDialogActivity.this.kCC != null && LcUpdateDialogActivity.this.kCC.mSourceKey != null && LcUpdateDialogActivity.this.kCC.mSourceKey.contains(LcUpdateDialogActivity.this.getApplicationContext().getPackageName())) {
-                LcUpdateDialogActivity.this.kCD = LcUpdateDialogActivity.this.kCC.mId;
+            LcUpdateDialogActivity.this.kCR = (Download) intent.getSerializableExtra("download");
+            if (LcUpdateDialogActivity.this.kCR != null && LcUpdateDialogActivity.this.kCR.mSourceKey != null && LcUpdateDialogActivity.this.kCR.mSourceKey.contains(LcUpdateDialogActivity.this.getApplicationContext().getPackageName())) {
+                LcUpdateDialogActivity.this.kCS = LcUpdateDialogActivity.this.kCR.mId;
                 if (DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE.equals(intent.getAction())) {
                     int intExtra = intent.getIntExtra("progress", 0);
-                    LcUpdateDialogActivity.this.dGm.setVisibility(0);
-                    LcUpdateDialogActivity.this.dGm.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.lc_app_downloading), String.valueOf(intExtra)));
+                    LcUpdateDialogActivity.this.dEF.setVisibility(0);
+                    LcUpdateDialogActivity.this.dEF.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.lc_app_downloading), String.valueOf(intExtra)));
                 } else if (DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE.equals(intent.getAction())) {
-                    TbadkCoreApplication.saveClientId(LcUpdateDialogActivity.this, String.valueOf(LcUpdateDialogActivity.this.kCD));
-                    TbadkCoreApplication.setClientId(String.valueOf(LcUpdateDialogActivity.this.kCD));
-                    if (DownloadState.FINISH == LcUpdateDialogActivity.this.kCC.getState()) {
-                        String str = LcUpdateDialogActivity.this.kCC.mSavedPath + "/" + LcUpdateDialogActivity.this.kCC.mFileName;
+                    TbadkCoreApplication.saveClientId(LcUpdateDialogActivity.this, String.valueOf(LcUpdateDialogActivity.this.kCS));
+                    TbadkCoreApplication.setClientId(String.valueOf(LcUpdateDialogActivity.this.kCS));
+                    if (DownloadState.FINISH == LcUpdateDialogActivity.this.kCR.getState()) {
+                        String str = LcUpdateDialogActivity.this.kCR.mSavedPath + "/" + LcUpdateDialogActivity.this.kCR.mFileName;
                         LcUpdateDialogActivity.this.finish();
-                    } else if (DownloadState.DOWNLOADING != LcUpdateDialogActivity.this.kCC.getState() && DownloadState.PAUSE != LcUpdateDialogActivity.this.kCC.getState() && DownloadState.CANCEL == LcUpdateDialogActivity.this.kCC.getState()) {
-                        Toast.makeText(LcUpdateDialogActivity.this.getApplicationContext(), LcUpdateDialogActivity.this.kCC.mFileName + ": 已删除", 1).show();
+                    } else if (DownloadState.DOWNLOADING != LcUpdateDialogActivity.this.kCR.getState() && DownloadState.PAUSE != LcUpdateDialogActivity.this.kCR.getState() && DownloadState.CANCEL == LcUpdateDialogActivity.this.kCR.getState()) {
+                        Toast.makeText(LcUpdateDialogActivity.this.getApplicationContext(), LcUpdateDialogActivity.this.kCR.mFileName + ": 已删除", 1).show();
                     }
                 } else if (DownloadManager.ACTION_DOWNLOAD_MERGE_STATUS.equals(intent.getAction())) {
-                    if (DownloadState.MEAGESTART == LcUpdateDialogActivity.this.kCC.getState() || DownloadState.MEAGEEND != LcUpdateDialogActivity.this.kCC.getState()) {
+                    if (DownloadState.MEAGESTART == LcUpdateDialogActivity.this.kCR.getState() || DownloadState.MEAGEEND != LcUpdateDialogActivity.this.kCR.getState()) {
                     }
                 } else if ("com.baidu.clientupdate.RSA.STATUS_FAIL".equals(intent.getAction())) {
                     Toast.makeText(LcUpdateDialogActivity.this.getApplicationContext(), "安装包存在被劫持风险，已删除", 1).show();
@@ -84,33 +84,33 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
-            this.kCw = (ClientUpdateInfo) bundle.getSerializable(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA);
-            this.kCt = bundle.getString(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_APKMD5RSA);
+            this.kCL = (ClientUpdateInfo) bundle.getSerializable(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA);
+            this.kCI = bundle.getString(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_APKMD5RSA);
             return;
         }
         Intent intent = getIntent();
         if (intent != null) {
-            this.kCw = (ClientUpdateInfo) intent.getSerializableExtra(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA);
-            this.kCt = intent.getStringExtra(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_APKMD5RSA);
+            this.kCL = (ClientUpdateInfo) intent.getSerializableExtra(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA);
+            this.kCI = intent.getStringExtra(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_APKMD5RSA);
         }
     }
 
     private void initView() {
-        this.kCx = (LinearLayout) findViewById(R.id.lc_update_trans_bg);
-        this.kCy = (LinearLayout) findViewById(R.id.lc_update_bg);
+        this.kCM = (LinearLayout) findViewById(R.id.lc_update_trans_bg);
+        this.kCN = (LinearLayout) findViewById(R.id.lc_update_bg);
         this.mTitleView = (TextView) findViewById(R.id.lc_update_title);
         this.mDescView = (TextView) findViewById(R.id.lc_update_desc);
-        this.kCz = findViewById(R.id.lc_update_content_divider);
-        this.efP = (TextView) findViewById(R.id.lc_update_cancel);
-        this.kCA = findViewById(R.id.lc_update_button_divider);
-        this.kCB = (TextView) findViewById(R.id.lc_update_confirm);
-        this.dGm = (TextView) findViewById(R.id.lc_update_progress);
-        this.kCx.setBackgroundColor(Color.parseColor("#A8000000"));
-        if (this.kCw != null) {
-            this.mDescView.setText(this.kCw.mChangelog);
+        this.kCO = findViewById(R.id.lc_update_content_divider);
+        this.eei = (TextView) findViewById(R.id.lc_update_cancel);
+        this.kCP = findViewById(R.id.lc_update_button_divider);
+        this.kCQ = (TextView) findViewById(R.id.lc_update_confirm);
+        this.dEF = (TextView) findViewById(R.id.lc_update_progress);
+        this.kCM.setBackgroundColor(Color.parseColor("#A8000000"));
+        if (this.kCL != null) {
+            this.mDescView.setText(this.kCL.mChangelog);
         }
-        this.efP.setOnClickListener(this);
-        this.kCB.setOnClickListener(this);
+        this.eei.setOnClickListener(this);
+        this.kCQ.setOnClickListener(this);
     }
 
     private void registerReceiver() {
@@ -125,13 +125,13 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.efP) {
+        if (view == this.eei) {
             finish();
-        } else if (view == this.kCB && update()) {
+        } else if (view == this.kCQ && update()) {
             showToast(R.string.download_begin_tip);
             finish();
         }
-        if (this.kCC != null) {
+        if (this.kCR != null) {
         }
     }
 
@@ -151,7 +151,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         }
         Intent intent = new Intent(getPageContext().getPageActivity(), TiebaLcUpdateService.class);
         intent.addFlags(268435456);
-        intent.putExtra(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA, this.kCw);
+        intent.putExtra(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA, this.kCL);
         getPageContext().getPageActivity().startService(intent);
         return true;
     }
@@ -159,11 +159,11 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (this.kCw != null) {
-            bundle.putSerializable(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA, this.kCw);
+        if (this.kCL != null) {
+            bundle.putSerializable(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA, this.kCL);
         }
-        if (!TextUtils.isEmpty(this.kCt)) {
-            bundle.putString(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_APKMD5RSA, this.kCt);
+        if (!TextUtils.isEmpty(this.kCI)) {
+            bundle.putString(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_APKMD5RSA, this.kCI);
         }
     }
 
@@ -183,24 +183,24 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         if (i != this.mSkinType) {
             this.mSkinType = i;
             super.onChangeSkinType(i);
-            ap.setBackgroundResource(this.kCy, R.drawable.dialog_background);
-            ap.setViewTextColor(this.mTitleView, R.color.cp_cont_b);
-            ap.setViewTextColor(this.mDescView, R.color.cp_cont_b);
-            ap.setBackgroundColor(this.kCz, R.color.cp_bg_line_c);
-            ap.setViewTextColor(this.efP, R.color.cp_link_tip_a);
-            ap.setBackgroundResource(this.efP, R.drawable.dialog_left_button_selector);
-            ap.setBackgroundColor(this.kCA, R.color.cp_bg_line_c);
-            ap.setViewTextColor(this.kCB, R.color.cp_link_tip_a);
-            ap.setBackgroundResource(this.kCB, R.drawable.dialog_right_button_selector);
-            ap.setViewTextColor(this.dGm, R.color.cp_link_tip_a);
-            ap.setBackgroundColor(this.dGm, R.color.cp_bg_line_k);
+            ap.setBackgroundResource(this.kCN, R.drawable.dialog_background);
+            ap.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
+            ap.setViewTextColor(this.mDescView, R.color.CAM_X0105);
+            ap.setBackgroundColor(this.kCO, R.color.CAM_X0204);
+            ap.setViewTextColor(this.eei, R.color.CAM_X0302);
+            ap.setBackgroundResource(this.eei, R.drawable.dialog_left_button_selector);
+            ap.setBackgroundColor(this.kCP, R.color.CAM_X0204);
+            ap.setViewTextColor(this.kCQ, R.color.CAM_X0302);
+            ap.setBackgroundResource(this.kCQ, R.drawable.dialog_right_button_selector);
+            ap.setViewTextColor(this.dEF, R.color.CAM_X0302);
+            ap.setBackgroundColor(this.dEF, R.color.CAM_X0211);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelDownload(this.kCD);
+        ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelDownload(this.kCS);
         ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelAutoCheckUpdate();
         unregisterReceiver(this.mReceiver);
         super.onDestroy();

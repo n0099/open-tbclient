@@ -9,7 +9,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c extends aa {
     public c(j jVar) {
         super(jVar, "/swanAPI/updateTextarea");
@@ -28,22 +28,22 @@ public class c extends aa {
         com.baidu.swan.apps.console.c.i("UpdateTextAreaAction", "UpdateTextAreaAction updateParams: " + optParamsAsJo);
         String optString = optParamsAsJo.optString("slaveId");
         String optString2 = optParamsAsJo.optString("inputId");
-        com.baidu.swan.apps.component.components.textarea.a aVar = (com.baidu.swan.apps.component.components.textarea.a) com.baidu.swan.apps.component.container.a.bl(optString, optString2);
+        com.baidu.swan.apps.component.components.textarea.a aVar = (com.baidu.swan.apps.component.components.textarea.a) com.baidu.swan.apps.component.container.a.bk(optString, optString2);
         if (aVar == null) {
             String str = "can't find textarea component:#" + optString2;
             com.baidu.swan.apps.console.c.e("UpdateTextAreaAction", str);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
             return false;
         }
-        com.baidu.swan.apps.component.components.textarea.b bVar = (com.baidu.swan.apps.component.components.textarea.b) aVar.akR();
-        bVar.ba(optParamsAsJo);
+        com.baidu.swan.apps.component.components.textarea.b bVar = (com.baidu.swan.apps.component.components.textarea.b) aVar.akj();
+        bVar.aU(optParamsAsJo);
         com.baidu.swan.apps.component.b.c a2 = aVar.a((com.baidu.swan.apps.component.components.textarea.a) bVar);
         if (!a2.isSuccess()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, a2.msg);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        aVar.mm(optString2);
+        aVar.mg(optString2);
         return true;
     }
 }

@@ -10,14 +10,14 @@ public interface c {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void UR();
+        void Ui();
 
-        void US();
+        void Uj();
     }
 
-    void QM();
+    void Qd();
 
-    boolean QW();
+    boolean Qn();
 
     void a(a aVar);
 

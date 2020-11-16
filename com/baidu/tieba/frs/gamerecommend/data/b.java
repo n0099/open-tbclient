@@ -1,13 +1,13 @@
 package com.baidu.tieba.frs.gamerecommend.data;
 
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b {
     public Integer floor;
-    public List<bw> sub_nodes = new ArrayList();
+    public List<bx> sub_nodes = new ArrayList();
     public String title;
     public Integer type;
 

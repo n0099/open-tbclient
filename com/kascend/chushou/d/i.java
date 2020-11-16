@@ -14,7 +14,7 @@ import org.webrtc.MediaStreamTrack;
 /* loaded from: classes6.dex */
 public final class i {
     @Nullable
-    public static Uri Yv(@Nullable String str) {
+    public static Uri Yg(@Nullable String str) {
         if (str != null) {
             return Uri.parse(str);
         }
@@ -29,11 +29,11 @@ public final class i {
         return uri.getScheme();
     }
 
-    public static boolean af(@Nullable Uri uri) {
+    public static boolean ag(@Nullable Uri uri) {
         return "file".equals(a(uri));
     }
 
-    public static boolean ag(@Nullable Uri uri) {
+    public static boolean ah(@Nullable Uri uri) {
         return "content".equals(a(uri));
     }
 
@@ -67,10 +67,10 @@ public final class i {
                 }
                 return null;
             }
-        } else if (ag(uri)) {
+        } else if (ah(uri)) {
             return a(context, uri, null, null);
         } else {
-            if (af(uri)) {
+            if (ag(uri)) {
                 return uri.getPath();
             }
             return null;

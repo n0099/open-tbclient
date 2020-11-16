@@ -11,22 +11,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class c {
-    private OvalActionButton jaA;
+    private OvalActionButton jbm;
     private TbPageContext<?> mPageContext;
     private String mPostContent;
     private String mTopicId;
 
     public c(OvalActionButton ovalActionButton, TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.jaA = ovalActionButton;
-        this.jaA.setIsCircle(true);
-        this.jaA.setHasShadow(false);
-        this.jaA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.controller.c.1
+        this.jbm = ovalActionButton;
+        this.jbm.setIsCircle(true);
+        this.jbm.setHasShadow(false);
+        this.jbm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.controller.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.cLZ();
+                c.this.cLG();
             }
         });
     }
@@ -35,12 +35,12 @@ public class c {
         this.mTopicId = str;
     }
 
-    public void DP(String str) {
+    public void Do(String str) {
         this.mPostContent = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cLZ() {
+    public void cLG() {
         WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.mPageContext.getPageActivity(), 9, "0", null, null, null, 0, null, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, null, 0);
         writeActivityConfig.setTopicId(String.valueOf(this.mTopicId));
         writeActivityConfig.getIntent().putExtra("from", "topic_detail");

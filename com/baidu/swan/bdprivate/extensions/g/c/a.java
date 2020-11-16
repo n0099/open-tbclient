@@ -19,7 +19,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
@@ -42,7 +42,7 @@ public class a {
         return 0;
     }
 
-    public static int aOG() {
+    public static int aNY() {
         String networkClass = SwanAppNetworkUtils.getNetworkClass();
         if ("wifi".equals(networkClass)) {
             return 1;
@@ -60,7 +60,7 @@ public class a {
     }
 
     @Nullable
-    public static String uZ(String str) {
+    public static String uU(String str) {
         try {
             Cipher cipher = Cipher.getInstance(e.p);
             cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), e.q), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
@@ -75,7 +75,7 @@ public class a {
                     e2.printStackTrace();
                 }
             }
-            va(jSONObject.toString());
+            uV(jSONObject.toString());
             return null;
         }
     }
@@ -85,7 +85,7 @@ public class a {
         boolean z;
         int i;
         if (aVar != null && bVar != null) {
-            String str = TextUtils.isEmpty(bVar.dJI) ? "unknown" : bVar.dJI;
+            String str = TextUtils.isEmpty(bVar.dIa) ? "unknown" : bVar.dIa;
             switch (str.hashCode()) {
                 case -1395470197:
                     if (str.equals("bd09ll")) {
@@ -136,18 +136,18 @@ public class a {
                     i = -1;
                     break;
             }
-            aVar.dJz.coordType = i;
-            aVar.dJz.latitude = bVar.latitude;
-            aVar.dJz.longitude = bVar.longitude;
+            aVar.dHR.coordType = i;
+            aVar.dHR.latitude = bVar.latitude;
+            aVar.dHR.longitude = bVar.longitude;
         }
     }
 
-    public static void va(String str) {
+    public static void uV(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
             }
-            new c.a(10003).sX(str).sW(com.baidu.swan.apps.runtime.e.aHw()).atR();
+            new c.a(10003).sS(str).sR(com.baidu.swan.apps.runtime.e.aGO()).atj();
         }
     }
 }

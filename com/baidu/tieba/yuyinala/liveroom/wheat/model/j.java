@@ -12,22 +12,22 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaOnLineHttpResponseMess
 /* loaded from: classes4.dex */
 public class j extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a ohp;
+    private a oiS;
     private HttpMessageListener messageListener = new HttpMessageListener(1031036) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.j.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaOnLineHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == j.this.bou && j.this.ohp != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaOnLineHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == j.this.bmJ && j.this.oiS != null) {
                 AlaOnLineHttpResponseMessage alaOnLineHttpResponseMessage = (AlaOnLineHttpResponseMessage) httpResponsedMessage;
                 if (alaOnLineHttpResponseMessage.getError() != 0 || !alaOnLineHttpResponseMessage.isSuccess()) {
-                    j.this.ohp.onFail(alaOnLineHttpResponseMessage.getError(), alaOnLineHttpResponseMessage.getErrorString());
+                    j.this.oiS.onFail(alaOnLineHttpResponseMessage.getError(), alaOnLineHttpResponseMessage.getErrorString());
                 } else {
-                    j.this.ohp.a(alaOnLineHttpResponseMessage);
+                    j.this.oiS.a(alaOnLineHttpResponseMessage);
                 }
             }
         }
     };
-    private BdUniqueId bou = BdUniqueId.gen();
+    private BdUniqueId bmJ = BdUniqueId.gen();
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -37,14 +37,14 @@ public class j extends BdBaseModel {
     }
 
     public j(TbPageContext tbPageContext, a aVar) {
-        setUniqueId(this.bou);
+        setUniqueId(this.bmJ);
         this.mPageContext = tbPageContext;
-        this.ohp = aVar;
-        bhs();
+        this.oiS = aVar;
+        bgL();
         registerListener(this.messageListener);
     }
 
-    private void bhs() {
+    private void bgL() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031036, TbConfig.SERVER_ADDRESS + "ala/audio/link/isOnLine");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);

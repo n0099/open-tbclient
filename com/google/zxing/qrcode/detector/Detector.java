@@ -12,7 +12,7 @@ import com.google.zxing.common.PerspectiveTransform;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.qrcode.decoder.Version;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class Detector {
     private final BitMatrix image;
     private ResultPointCallback resultPointCallback;

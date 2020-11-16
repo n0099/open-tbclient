@@ -2,13 +2,13 @@ package com.facebook.c;
 
 import com.baidu.android.util.devices.RomUtils;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class c {
-    public static final c oSA = new c(RomUtils.UNKNOWN, null);
+    public static final c oUd = new c(RomUtils.UNKNOWN, null);
     private final String mName;
-    private final String oSB;
+    private final String oUe;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public interface a {
         int getHeaderSize();
 
@@ -18,7 +18,7 @@ public class c {
 
     public c(String str, @Nullable String str2) {
         this.mName = str;
-        this.oSB = str2;
+        this.oUe = str2;
     }
 
     public String toString() {

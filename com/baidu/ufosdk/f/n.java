@@ -9,7 +9,7 @@ import android.text.style.ImageSpan;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class n extends Handler {
 
     /* renamed from: a  reason: collision with root package name */

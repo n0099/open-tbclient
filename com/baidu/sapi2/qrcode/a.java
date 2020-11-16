@@ -1,5 +1,5 @@
 package com.baidu.sapi2.qrcode;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */

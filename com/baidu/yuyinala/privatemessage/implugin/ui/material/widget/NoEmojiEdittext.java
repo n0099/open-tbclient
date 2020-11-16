@@ -10,46 +10,46 @@ import android.widget.EditText;
 /* loaded from: classes4.dex */
 public class NoEmojiEdittext extends EditText {
     private Context mContext;
-    private int oBS;
-    private String oBT;
-    private boolean oBU;
+    private int oDw;
+    private String oDx;
+    private boolean oDy;
 
     public NoEmojiEdittext(Context context) {
         super(context);
         this.mContext = context;
-        dsz();
+        drZ();
     }
 
     public NoEmojiEdittext(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        dsz();
+        drZ();
     }
 
     public NoEmojiEdittext(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        dsz();
+        drZ();
     }
 
-    private void dsz() {
+    private void drZ() {
         addTextChangedListener(new TextWatcher() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.NoEmojiEdittext.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (!NoEmojiEdittext.this.oBU) {
-                    NoEmojiEdittext.this.oBS = NoEmojiEdittext.this.getSelectionEnd();
-                    NoEmojiEdittext.this.oBT = charSequence.toString();
+                if (!NoEmojiEdittext.this.oDy) {
+                    NoEmojiEdittext.this.oDw = NoEmojiEdittext.this.getSelectionEnd();
+                    NoEmojiEdittext.this.oDx = charSequence.toString();
                 }
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 try {
-                    if (NoEmojiEdittext.this.oBU) {
-                        NoEmojiEdittext.this.oBU = false;
-                    } else if (i3 >= 2 && NoEmojiEdittext.this.oBS + i3 <= charSequence.length() && NoEmojiEdittext.containsEmoji(charSequence.subSequence(NoEmojiEdittext.this.oBS, NoEmojiEdittext.this.oBS + i3).toString())) {
-                        NoEmojiEdittext.this.oBU = true;
-                        NoEmojiEdittext.this.setText(NoEmojiEdittext.this.oBT);
+                    if (NoEmojiEdittext.this.oDy) {
+                        NoEmojiEdittext.this.oDy = false;
+                    } else if (i3 >= 2 && NoEmojiEdittext.this.oDw + i3 <= charSequence.length() && NoEmojiEdittext.containsEmoji(charSequence.subSequence(NoEmojiEdittext.this.oDw, NoEmojiEdittext.this.oDw + i3).toString())) {
+                        NoEmojiEdittext.this.oDy = true;
+                        NoEmojiEdittext.this.setText(NoEmojiEdittext.this.oDx);
                         Editable text = NoEmojiEdittext.this.getText();
                         if (text instanceof Spannable) {
                             Selection.setSelection(text, text.length());

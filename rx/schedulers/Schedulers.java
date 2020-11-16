@@ -9,23 +9,23 @@ import rx.internal.schedulers.d;
 import rx.internal.schedulers.e;
 import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> qdL = new AtomicReference<>();
-    private final g qjU;
-    private final g qjV;
-    private final g qjW;
+    private static final AtomicReference<Schedulers> qfo = new AtomicReference<>();
+    private final g qlx;
+    private final g qly;
+    private final g qlz;
 
-    private static Schedulers eGI() {
+    private static Schedulers eGJ() {
         Schedulers schedulers;
         while (true) {
-            schedulers = qdL.get();
+            schedulers = qfo.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (qdL.compareAndSet(null, schedulers)) {
+                if (qfo.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.eGK();
+                schedulers.eGL();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g eGz = f.eGu().eGz();
-        g eGD = eGz.eGD();
-        if (eGD != null) {
-            this.qjU = eGD;
-        } else {
-            this.qjU = rx.c.g.eGA();
-        }
-        g eGE = eGz.eGE();
+        rx.c.g eGA = f.eGv().eGA();
+        g eGE = eGA.eGE();
         if (eGE != null) {
-            this.qjV = eGE;
+            this.qlx = eGE;
         } else {
-            this.qjV = rx.c.g.eGB();
+            this.qlx = rx.c.g.eGB();
         }
-        g eGF = eGz.eGF();
+        g eGF = eGA.eGF();
         if (eGF != null) {
-            this.qjW = eGF;
+            this.qly = eGF;
         } else {
-            this.qjW = rx.c.g.eGC();
+            this.qly = rx.c.g.eGC();
+        }
+        g eGG = eGA.eGG();
+        if (eGG != null) {
+            this.qlz = eGG;
+        } else {
+            this.qlz = rx.c.g.eGD();
         }
     }
 
     public static g immediate() {
-        return e.qia;
+        return e.qjE;
     }
 
     public static g trampoline() {
-        return j.qiz;
+        return j.qkc;
     }
 
     public static g newThread() {
-        return c.k(eGI().qjW);
+        return c.k(eGJ().qlz);
     }
 
     public static g computation() {
-        return c.i(eGI().qjU);
+        return c.i(eGJ().qlx);
     }
 
     public static g io() {
-        return c.j(eGI().qjV);
+        return c.j(eGJ().qly);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = qdL.getAndSet(null);
+        Schedulers andSet = qfo.getAndSet(null);
         if (andSet != null) {
-            andSet.eGK();
+            andSet.eGL();
         }
     }
 
     public static void start() {
-        Schedulers eGI = eGI();
-        eGI.eGJ();
-        synchronized (eGI) {
-            d.qhY.start();
+        Schedulers eGJ = eGJ();
+        eGJ.eGK();
+        synchronized (eGJ) {
+            d.qjC.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers eGI = eGI();
-        eGI.eGK();
-        synchronized (eGI) {
-            d.qhY.shutdown();
-        }
-    }
-
-    synchronized void eGJ() {
-        if (this.qjU instanceof h) {
-            ((h) this.qjU).start();
-        }
-        if (this.qjV instanceof h) {
-            ((h) this.qjV).start();
-        }
-        if (this.qjW instanceof h) {
-            ((h) this.qjW).start();
+        Schedulers eGJ = eGJ();
+        eGJ.eGL();
+        synchronized (eGJ) {
+            d.qjC.shutdown();
         }
     }
 
     synchronized void eGK() {
-        if (this.qjU instanceof h) {
-            ((h) this.qjU).shutdown();
+        if (this.qlx instanceof h) {
+            ((h) this.qlx).start();
         }
-        if (this.qjV instanceof h) {
-            ((h) this.qjV).shutdown();
+        if (this.qly instanceof h) {
+            ((h) this.qly).start();
         }
-        if (this.qjW instanceof h) {
-            ((h) this.qjW).shutdown();
+        if (this.qlz instanceof h) {
+            ((h) this.qlz).start();
+        }
+    }
+
+    synchronized void eGL() {
+        if (this.qlx instanceof h) {
+            ((h) this.qlx).shutdown();
+        }
+        if (this.qly instanceof h) {
+            ((h) this.qly).shutdown();
+        }
+        if (this.qlz instanceof h) {
+            ((h) this.qlz).shutdown();
         }
     }
 }

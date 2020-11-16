@@ -17,50 +17,50 @@ public class m extends d {
     public View mContentView;
     private Context mContext;
     public View mConvertView;
-    public ImageView owA;
-    public ImageView owx;
-    public TextView owy;
-    AnimationDrawable owz;
+    public ImageView oyb;
+    public TextView oyc;
+    AnimationDrawable oyd;
+    public ImageView oye;
 
     @SuppressLint({"InflateParams"})
     public m(Context context, LayoutInflater layoutInflater, boolean z) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_receive_audio_item, (ViewGroup) null);
-        this.owy = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_audio_length);
-        this.owx = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_audio);
+        this.oyc = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_audio_length);
+        this.oyb = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_audio);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
-        this.owA = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_audio_status);
-        this.lZI = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
-        this.ovu = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
+        this.oye = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_audio_status);
+        this.maa = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
+        this.owY = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
         if (true == z) {
-            this.owA.setVisibility(4);
+            this.oye.setVisibility(4);
         } else {
-            this.owA.setVisibility(0);
+            this.oye.setVisibility(0);
         }
-        this.ovq = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.ovt = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.iPP = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
+        this.owU = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.owX = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.iQC = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
         this.mContentView.setTag(this);
         this.mConvertView.setTag(this);
     }
 
     public void startAnim() {
-        this.owA.setVisibility(4);
-        this.owx.setImageDrawable(null);
-        this.owx.setBackgroundResource(ThemeManager.L(this.mContext, a.C0197a.bd_im_anim_playing_left));
-        this.owz = (AnimationDrawable) this.owx.getBackground();
-        this.owz.setOneShot(false);
-        if (!this.owz.isRunning()) {
-            this.owz.start();
+        this.oye.setVisibility(4);
+        this.oyb.setImageDrawable(null);
+        this.oyb.setBackgroundResource(ThemeManager.L(this.mContext, a.C0195a.bd_im_anim_playing_left));
+        this.oyd = (AnimationDrawable) this.oyb.getBackground();
+        this.oyd.setOneShot(false);
+        if (!this.oyd.isRunning()) {
+            this.oyd.start();
         }
     }
 
     public void stopAnim() {
-        if (this.owz != null && this.owz.isRunning()) {
-            this.owz.stop();
+        if (this.oyd != null && this.oyd.isRunning()) {
+            this.oyd.stop();
         }
-        this.owx.setImageResource(ThemeManager.L(this.mContext, a.e.bd_im_speck_left_3));
-        this.owx.setBackgroundResource(0);
+        this.oyb.setImageResource(ThemeManager.L(this.mContext, a.e.bd_im_speck_left_3));
+        this.oyb.setBackgroundResource(0);
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.d
@@ -80,16 +80,16 @@ public class m extends d {
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.d
     public void b(Context context, ChatMsg chatMsg) {
         AudioMsg audioMsg = (AudioMsg) chatMsg;
-        this.owy.setText(String.format(context.getString(a.h.bd_im_audio_length), Integer.valueOf(audioMsg.getDuration())));
+        this.oyc.setText(String.format(context.getString(a.h.bd_im_audio_length), Integer.valueOf(audioMsg.getDuration())));
         this.mContentView.setMinimumWidth(a.c(context.getResources().getDimension(a.d.bd_im_audio_msg_min_width), audioMsg.getDuration()));
         if (chatMsg.isClicked()) {
-            this.owA.setVisibility(4);
+            this.oye.setVisibility(4);
         } else {
-            this.owA.setVisibility(0);
+            this.oye.setVisibility(0);
         }
-        efn();
+        efl();
     }
 
-    private void efn() {
+    private void efl() {
     }
 }

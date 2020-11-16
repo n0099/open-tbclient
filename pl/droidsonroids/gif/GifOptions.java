@@ -4,7 +4,7 @@ import android.support.annotation.IntRange;
 import android.support.annotation.Nullable;
 import pl.droidsonroids.gif.annotations.Beta;
 @Beta
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class GifOptions {
     boolean inIsOpaque;
     char inSampleSize;

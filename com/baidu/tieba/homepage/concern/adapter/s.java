@@ -1,236 +1,151 @@
 package com.baidu.tieba.homepage.concern.adapter;
 
-import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.CompoundButton;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.card.ak;
+import com.baidu.card.am;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.as;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.view.HeadPendantClickableView;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.view.DynamicUserLikeButton;
-import java.util.List;
-/* loaded from: classes22.dex */
-public class s extends RecyclerView.Adapter<a> {
-    private com.baidu.tbadk.h.f<MetaData> aiM;
-    private BdUniqueId faC;
-    private boolean jww;
-    private Context mContext;
-    private List<MetaData> mData;
-    private TbPageContext mPageContext;
-    private int mSkinType = 3;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import java.util.ArrayList;
+/* loaded from: classes21.dex */
+public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.a.a, am<com.baidu.tieba.homepage.concern.a.a>> implements com.baidu.tieba.a.f {
+    private String ahw;
+    private com.baidu.adp.widget.ListView.v alH;
+    public BdUniqueId fsa;
+    private NEGFeedBackView.a gSL;
+    private TbPageContext<?> mPageContext;
 
-    public void setOnItemCoverListener(com.baidu.tbadk.h.f<MetaData> fVar) {
-        this.aiM = fVar;
-    }
-
-    public s(Context context) {
-        this.mContext = context;
-    }
-
-    public void setData(List<MetaData> list) {
-        this.mData = list;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: B */
-    public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new a(LayoutInflater.from(this.mContext).inflate(R.layout.concern_recommend_item, (ViewGroup) null));
-    }
-
-    @Override // android.support.v7.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        if (this.mData == null) {
-            return 0;
-        }
-        return this.mData.size();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: a */
-    public void onBindViewHolder(a aVar, int i) {
-        MetaData metaData;
-        if (aVar != null && this.mData != null && (metaData = this.mData.get(i)) != null) {
-            aVar.qO(metaData.isNewGod());
-            a(metaData, aVar);
-            c(metaData, aVar);
-            e(metaData, aVar);
-            b(metaData, aVar);
-            if (this.aiM != null) {
-                this.aiM.b(aVar.itemView, metaData, i, i);
+    public s(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.gSL = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.adapter.s.1
+            @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
+            public void onNEGFeedbackWindowShow(as asVar) {
             }
-            aVar.onChangeSkinType(this.mSkinType);
-        }
-    }
 
-    private void a(final MetaData metaData, final a aVar) {
-        aVar.jwC.setData(metaData, true);
-        aVar.jwC.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.adapter.s.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                aq aqVar = new aq("c13566");
-                aqVar.al("obj_locate", 2);
-                TiebaStatic.log(aqVar);
-                s.this.d(metaData, aVar);
+            @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
+            public void onCheckedChanged(as asVar, CompoundButton compoundButton, boolean z) {
             }
-        });
-    }
 
-    private void b(final MetaData metaData, a aVar) {
-        aVar.jwD.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.homepage.concern.adapter.s.2
-            @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
-            public void cv(View view) {
-                if (metaData != null) {
-                    if (metaData.getIsLike()) {
-                        TiebaStatic.log(new aq("c13571"));
-                        return;
-                    }
-                    aq aqVar = new aq("c13566");
-                    aqVar.al("obj_locate", 1);
-                    aqVar.w("obj_id", TbadkCoreApplication.getCurrentAccountId());
-                    aqVar.dR("obj_param1", metaData.getUserId());
-                    TiebaStatic.log(aqVar);
+            @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
+            public void onNEGFeedbackConfirm(ArrayList<Integer> arrayList, String str, as asVar) {
+                if (arrayList != null && asVar != null) {
+                    CustomMessage customMessage = new CustomMessage(2921425, s.this.mPageContext.getUniqueId());
+                    CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921425);
+                    customResponsedMessage.setOrginalMessage(customMessage);
+                    MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+                    new a().execute(new Integer[0]);
+                    TiebaStatic.log(new ar("c13572"));
                 }
             }
-        });
-        com.baidu.tbadk.core.view.userLike.c cVar = aVar.ajW;
-        if (cVar != null) {
-            cVar.l(this.faC);
-            cVar.a(metaData);
-        }
-    }
-
-    private void c(final MetaData metaData, final a aVar) {
-        if (metaData != null && aVar != null) {
-            String str = "";
-            if (!StringUtils.isNull(metaData.getName_show())) {
-                str = metaData.getName_show();
-            } else if (metaData.getBaijiahaoInfo() != null && !StringUtils.isNull(metaData.getBaijiahaoInfo().name)) {
-                str = metaData.getBaijiahaoInfo().name;
-            }
-            aVar.ewx.setText(str);
-            if (metaData.isNewGod()) {
-                ap.setViewTextColor(aVar.ewx, R.color.cp_cont_h);
-            }
-            aVar.ewx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.adapter.s.3
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (metaData != null && !StringUtils.isNull(metaData.getUserId())) {
-                        aq aqVar = new aq("c13566");
-                        aqVar.al("obj_locate", 2);
-                        TiebaStatic.log(aqVar);
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(s.this.mContext, metaData.getUserId(), metaData.getName_show())));
-                        s.this.d(metaData, aVar);
-                    }
-                }
-            });
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(MetaData metaData, a aVar) {
-        if (this.aiM != null) {
-            this.aiM.a(aVar.itemView, metaData, aVar.getAdapterPosition(), aVar.getItemId());
-        }
-    }
-
-    private void e(MetaData metaData, a aVar) {
-        if (metaData != null && aVar != null) {
-            String str = "";
-            if (metaData.isBaijiahaoUser()) {
-                str = metaData.getBaijiahaoInfo().auth_desc;
-                if (at.isEmpty(str)) {
-                    str = "";
-                }
-            } else if (metaData.isNewGod()) {
-                String fieldName = metaData.getNewGodData().getFieldName();
-                if (!at.isEmpty(fieldName)) {
-                    str = fieldName + TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
-                } else {
-                    str = "";
-                }
-            }
-            aVar.jwB.setText(str);
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        this.mSkinType = i;
-    }
-
-    public void setHasBorder(boolean z) {
-        this.jww = z;
-    }
-
-    /* loaded from: classes22.dex */
-    public class a extends RecyclerView.ViewHolder {
-        public com.baidu.tbadk.core.view.userLike.c ajW;
-        public TextView ewx;
-        public TextView jwB;
-        public HeadPendantClickableView jwC;
-        public DynamicUserLikeButton jwD;
-        private boolean jwE;
-        public LinearLayout mContainer;
-
-        public a(View view) {
-            super(view);
-            this.jwE = false;
-            this.mContainer = (LinearLayout) view.findViewById(R.id.concern_container);
-            this.jwC = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
-            this.jwC.getHeadView().setIsRound(true);
-            this.jwC.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.jwC.getHeadView().setDefaultResource(17170445);
-            this.jwC.getHeadView().setDefaultErrorResource(R.drawable.icon_default_avatar100);
-            this.jwC.getHeadView().setPlaceHolder(2);
-            this.jwC.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(s.this.mContext, R.dimen.tbds1));
-            this.jwC.getHeadView().setBorderColor(ap.getColor(R.color.cp_border_a));
-            this.ewx = (TextView) view.findViewById(R.id.concern_user_name);
-            this.jwB = (TextView) view.findViewById(R.id.concern_user_desc);
-            this.jwD = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
-            this.jwD.setUseNewStyle(true);
-            this.ajW = new com.baidu.tbadk.core.view.userLike.c(s.this.mPageContext, this.jwD);
-        }
-
-        public void onChangeSkinType(int i) {
-            if (!this.jwE) {
-                ap.setViewTextColor(this.ewx, R.color.cp_cont_b);
-            } else {
-                ap.setViewTextColor(this.ewx, R.color.cp_cont_h);
-            }
-            ap.setViewTextColor(this.jwB, R.color.cp_cont_d);
-            this.jwD.onChangeSkinType(i);
-            if (s.this.jww) {
-                com.baidu.tbadk.core.util.e.a.brO().pj(0).po(R.color.cp_bg_line_j).pq(com.baidu.adp.lib.util.l.getDimens(s.this.mContext, R.dimen.tbds1)).ab(com.baidu.adp.lib.util.l.getDimens(s.this.mContext, R.dimen.tbds10)).bk(this.mContainer);
-            }
-        }
-
-        public void qO(boolean z) {
-            this.jwE = z;
-        }
-    }
-
-    public void setPageContext(TbPageContext tbPageContext) {
+        };
         this.mPageContext = tbPageContext;
     }
 
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.faC = bdUniqueId;
+    public void a(com.baidu.adp.widget.ListView.v vVar) {
+        this.alH = vVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: aR */
+    public am c(ViewGroup viewGroup) {
+        ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
+        com.baidu.tieba.homepage.concern.view.a aVar2 = new com.baidu.tieba.homepage.concern.view.a(this.mPageContext, this.fsa);
+        aVar2.setHasBorder(true);
+        aVar.c(aVar2);
+        aVar.tV().bx(0);
+        aVar.tV().bz(0);
+        aVar.tV().by(0);
+        aVar.tV().bv(0);
+        am amVar = new am(aVar.a(BaseCardInfo.SupportType.FULL, viewGroup, this.alH));
+        amVar.setPageId(this.fsa);
+        com.baidu.card.ab aN = amVar.aN(false);
+        aN.a(this.gSL);
+        aN.setAutoProcess(false);
+        aN.setHeadText(this.mContext.getString(R.string.concern_recommend_dialog_title));
+        aN.aK(true);
+        aN.agS = true;
+        return amVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.a.a aVar, am<com.baidu.tieba.homepage.concern.a.a> amVar) {
+        if (aVar == null || amVar == null || amVar.getView() == null) {
+            return null;
+        }
+        ar arVar = new ar("c13565");
+        arVar.ak("obj_source", aVar.bkQ() ? 1 : 2);
+        com.baidu.tieba.card.t.cnT().e(arVar);
+        amVar.tW().setPosition(i);
+        if (amVar.tW() instanceof com.baidu.tieba.a.e) {
+            amVar.tW().setPage(this.ahw);
+        }
+        amVar.b((am<com.baidu.tieba.homepage.concern.a.a>) aVar);
+        amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return amVar.getView();
+    }
+
+    /* loaded from: classes21.dex */
+    private class a extends BdAsyncTask<Integer, Integer, String> {
+        private com.baidu.tbadk.core.util.aa mNetwork;
+
+        private a() {
+            this.mNetwork = null;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(Integer... numArr) {
+            try {
+                this.mNetwork = new com.baidu.tbadk.core.util.aa();
+                this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
+                this.mNetwork.addPostData("dislike_from", "concernpage");
+                this.mNetwork.addPostData("dislike_type", "1");
+                this.mNetwork.bqa().bqH().mIsNeedTbs = true;
+                return this.mNetwork.postNetData();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            super.onPostExecute((a) str);
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            super.cancel(true);
+            if (this.mNetwork != null) {
+                this.mNetwork.cancelNetConnect();
+                this.mNetwork = null;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.a.f
+    public void EA(String str) {
+        this.ahw = str;
     }
 }

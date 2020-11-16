@@ -9,131 +9,131 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class v {
-    private RelativeLayout bET;
-    private com.baidu.tieba.pb.data.f lqP;
-    private com.baidu.tbadk.editortools.pb.h ltf;
-    private PbFakeFloorModel ltg;
-    private String lth;
-    private String lti;
-    private NewWriteModel.d ltj;
-    private View.OnClickListener ltk;
+    private RelativeLayout bDi;
+    private com.baidu.tieba.pb.data.f lre;
+    private NewWriteModel.d ltA;
+    private View.OnClickListener ltB;
+    private com.baidu.tbadk.editortools.pb.h ltw;
+    private PbFakeFloorModel ltx;
+    private String lty;
+    private String ltz;
     private TbPageContext mPageContext;
 
     public v(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
         this.mPageContext = tbPageContext;
-        this.bET = relativeLayout;
-        this.ltg = pbFakeFloorModel;
+        this.bDi = relativeLayout;
+        this.ltx = pbFakeFloorModel;
     }
 
-    public void dkf() {
-        if (this.ltf != null) {
-            this.ltf.bAF();
-            if (StringUtils.isNull(this.lth)) {
-                this.ltf.onDestory();
+    public void djC() {
+        if (this.ltw != null) {
+            this.ltw.bzV();
+            if (StringUtils.isNull(this.lty)) {
+                this.ltw.onDestory();
             }
-            this.ltf.bzx().bzK();
+            this.ltw.byN().bza();
         }
     }
 
     public void setPbData(com.baidu.tieba.pb.data.f fVar) {
-        this.lqP = fVar;
+        this.lre = fVar;
     }
 
-    public void dkg() {
-        if (this.ltf != null && this.ltf.bzx() != null) {
-            this.ltf.bzx().bxU();
+    public void djD() {
+        if (this.ltw != null && this.ltw.byN() != null) {
+            this.ltw.byN().bxk();
         }
     }
 
-    public boolean dkh() {
-        if (this.ltf == null || this.ltf.bzx() == null) {
+    public boolean djE() {
+        if (this.ltw == null || this.ltw.byN() == null) {
             return false;
         }
-        return this.ltf.bzx().bzB();
+        return this.ltw.byN().byR();
     }
 
     private void aW(String str, boolean z) {
-        if (this.bET != null && this.ltf == null) {
+        if (this.bDi != null && this.ltw == null) {
             com.baidu.tbadk.editortools.pb.i iVar = new com.baidu.tbadk.editortools.pb.i(z);
             iVar.setHintText(str);
-            this.ltf = (com.baidu.tbadk.editortools.pb.h) iVar.ei(this.mPageContext.getPageActivity());
-            this.ltf.a(this.mPageContext);
-            this.ltf.b(this.ltg);
-            this.ltf.setFrom(1);
-            if (this.lqP != null) {
-                this.ltf.setThreadData(this.lqP.dik());
+            this.ltw = (com.baidu.tbadk.editortools.pb.h) iVar.ei(this.mPageContext.getPageActivity());
+            this.ltw.a(this.mPageContext);
+            this.ltw.b(this.ltx);
+            this.ltw.setFrom(1);
+            if (this.lre != null) {
+                this.ltw.setThreadData(this.lre.dhH());
             }
-            this.ltf.bzx().kb(true);
-            this.ltf.bzx().setOnCancelClickListener(this.ltk);
-            this.ltf.j(this.mPageContext);
-            dki();
-            this.ltf.b(this.ltj);
+            this.ltw.byN().kc(true);
+            this.ltw.byN().setOnCancelClickListener(this.ltB);
+            this.ltw.j(this.mPageContext);
+            djF();
+            this.ltw.b(this.ltA);
         }
     }
 
     public void h(String str, String str2, String str3, boolean z) {
-        this.lth = str2;
-        if (this.ltf == null) {
+        this.lty = str2;
+        if (this.ltw == null) {
             aW(str3, z);
         } else {
-            this.ltf.b(this.ltg);
-            if (StringUtils.isNull(this.lth)) {
-                this.ltf.j(this.mPageContext);
+            this.ltw.b(this.ltx);
+            if (StringUtils.isNull(this.lty)) {
+                this.ltw.j(this.mPageContext);
             }
         }
-        this.ltf.setReplyId(str);
-        this.ltf.DV(str2);
-        this.ltf.DW(this.lti);
-        if (this.ltf.bAt()) {
-            this.ltf.a((PostWriteCallBackData) null);
+        this.ltw.setReplyId(str);
+        this.ltw.Du(str2);
+        this.ltw.Dv(this.ltz);
+        if (this.ltw.bzJ()) {
+            this.ltw.a((PostWriteCallBackData) null);
         }
     }
 
-    private void dki() {
-        if (this.bET != null && this.ltf != null && this.ltf.bzx() != null) {
+    private void djF() {
+        if (this.bDi != null && this.ltw != null && this.ltw.byN() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            this.bET.addView(this.ltf.bzx(), layoutParams);
+            this.bDi.addView(this.ltw.byN(), layoutParams);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.ltf != null) {
-            this.ltf.onActivityResult(i, i2, intent);
+        if (this.ltw != null) {
+            this.ltw.onActivityResult(i, i2, intent);
         }
     }
 
     public void onStop() {
-        if (this.ltf != null) {
-            this.ltf.onStop();
+        if (this.ltw != null) {
+            this.ltw.onStop();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.ltf != null && this.ltf.bzx() != null) {
-            this.ltf.bzx().onChangeSkinType(i);
+        if (this.ltw != null && this.ltw.byN() != null) {
+            this.ltw.byN().onChangeSkinType(i);
         }
     }
 
     public void a(NewWriteModel.d dVar) {
-        this.ltj = dVar;
-        if (this.ltf != null) {
-            this.ltf.b(dVar);
+        this.ltA = dVar;
+        if (this.ltw != null) {
+            this.ltw.b(dVar);
         }
     }
 
-    public com.baidu.tbadk.editortools.pb.h dkj() {
-        return this.ltf;
+    public com.baidu.tbadk.editortools.pb.h djG() {
+        return this.ltw;
     }
 
-    public void Px(String str) {
-        this.lti = str;
+    public void OT(String str) {
+        this.ltz = str;
     }
 
-    public void U(View.OnClickListener onClickListener) {
-        this.ltk = onClickListener;
+    public void T(View.OnClickListener onClickListener) {
+        this.ltB = onClickListener;
     }
 }

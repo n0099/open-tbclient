@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.xiaomi.clientreport.data.Config;
 import com.xiaomi.push.ix;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class r {
     public static <T extends ix<T, ?>> void a(Context context, Config config) {
         if (config == null) {
@@ -18,6 +18,6 @@ public class r {
         intent.putExtra("action_cr_perf_frequency", config.getPerfUploadFrequency());
         intent.putExtra("action_cr_event_en", config.isEventEncrypted());
         intent.putExtra("action_cr_max_file_size", config.getMaxFileLength());
-        aq.a(context).m86a(intent);
+        aq.a(context).m89a(intent);
     }
 }

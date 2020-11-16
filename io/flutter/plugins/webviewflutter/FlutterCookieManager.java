@@ -6,7 +6,7 @@ import android.webkit.ValueCallback;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 class FlutterCookieManager implements MethodChannel.MethodCallHandler {
     private final MethodChannel methodChannel;
 

@@ -19,7 +19,7 @@ public class d extends AbsDelegateAdapter<e, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
-    /* renamed from: cP */
+    /* renamed from: cL */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_type_item_layout, viewGroup, false));
     }
@@ -38,23 +38,23 @@ public class d extends AbsDelegateAdapter<e, a> {
                 string = eVar.title;
                 break;
         }
-        aVar.mBT.setText(string);
+        aVar.mCq.setText(string);
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds16);
         if (i != 0) {
-            aVar.mBT.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds48), 0, dimensionPixelSize);
+            aVar.mCq.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds48), 0, dimensionPixelSize);
         } else {
-            aVar.mBT.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
+            aVar.mCq.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
         }
         return view;
     }
 
     /* loaded from: classes4.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private TextView mBT;
+        private TextView mCq;
 
         private a(View view) {
             super(view);
-            this.mBT = (TextView) view.findViewById(a.f.ala_recommend_live_type);
+            this.mCq = (TextView) view.findViewById(a.f.ala_recommend_live_type);
         }
     }
 }

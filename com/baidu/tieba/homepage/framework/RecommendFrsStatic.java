@@ -9,7 +9,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
 import com.baidu.tieba.homepage.personalize.bigday.BigdayActivity;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class RecommendFrsStatic {
     public static String Tag = "tag";
 

@@ -10,9 +10,9 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class a extends com.google.gson.stream.a {
-    private static final Reader pdV = new Reader() { // from class: com.google.gson.internal.bind.a.1
+    private static final Reader pfy = new Reader() { // from class: com.google.gson.internal.bind.a.1
         @Override // java.io.Reader
         public int read(char[] cArr, int i, int i2) throws IOException {
             throw new AssertionError();
@@ -23,18 +23,18 @@ public final class a extends com.google.gson.stream.a {
             throw new AssertionError();
         }
     };
-    private static final Object pdW = new Object();
-    private Object[] pdX;
-    private int pdY;
-    private String[] pdZ;
-    private int[] pea;
+    private static final Object pfz = new Object();
+    private Object[] pfA;
+    private int pfB;
+    private String[] pfC;
+    private int[] pfD;
 
     public a(JsonElement jsonElement) {
-        super(pdV);
-        this.pdX = new Object[32];
-        this.pdY = 0;
-        this.pdZ = new String[32];
-        this.pea = new int[32];
+        super(pfy);
+        this.pfA = new Object[32];
+        this.pfB = 0;
+        this.pfC = new String[32];
+        this.pfD = new int[32];
         push(jsonElement);
     }
 
@@ -42,7 +42,7 @@ public final class a extends com.google.gson.stream.a {
     public void esU() throws IOException {
         a(JsonToken.BEGIN_ARRAY);
         push(((JsonArray) esX()).iterator());
-        this.pea[this.pdY - 1] = 0;
+        this.pfD[this.pfB - 1] = 0;
     }
 
     @Override // com.google.gson.stream.a
@@ -50,9 +50,9 @@ public final class a extends com.google.gson.stream.a {
         a(JsonToken.END_ARRAY);
         esY();
         esY();
-        if (this.pdY > 0) {
-            int[] iArr = this.pea;
-            int i = this.pdY - 1;
+        if (this.pfB > 0) {
+            int[] iArr = this.pfD;
+            int i = this.pfB - 1;
             iArr[i] = iArr[i] + 1;
         }
     }
@@ -68,9 +68,9 @@ public final class a extends com.google.gson.stream.a {
         a(JsonToken.END_OBJECT);
         esY();
         esY();
-        if (this.pdY > 0) {
-            int[] iArr = this.pea;
-            int i = this.pdY - 1;
+        if (this.pfB > 0) {
+            int[] iArr = this.pfD;
+            int i = this.pfB - 1;
             iArr[i] = iArr[i] + 1;
         }
     }
@@ -83,12 +83,12 @@ public final class a extends com.google.gson.stream.a {
 
     @Override // com.google.gson.stream.a
     public JsonToken esW() throws IOException {
-        if (this.pdY == 0) {
+        if (this.pfB == 0) {
             return JsonToken.END_DOCUMENT;
         }
         Object esX = esX();
         if (esX instanceof Iterator) {
-            boolean z = this.pdX[this.pdY - 2] instanceof JsonObject;
+            boolean z = this.pfA[this.pfB - 2] instanceof JsonObject;
             Iterator it = (Iterator) esX;
             if (!it.hasNext()) {
                 return z ? JsonToken.END_OBJECT : JsonToken.END_ARRAY;
@@ -119,7 +119,7 @@ public final class a extends com.google.gson.stream.a {
             } else if (esX instanceof JsonNull) {
                 return JsonToken.NULL;
             } else {
-                if (esX == pdW) {
+                if (esX == pfz) {
                     throw new IllegalStateException("JsonReader is closed");
                 }
                 throw new AssertionError();
@@ -128,15 +128,15 @@ public final class a extends com.google.gson.stream.a {
     }
 
     private Object esX() {
-        return this.pdX[this.pdY - 1];
+        return this.pfA[this.pfB - 1];
     }
 
     private Object esY() {
-        Object[] objArr = this.pdX;
-        int i = this.pdY - 1;
-        this.pdY = i;
+        Object[] objArr = this.pfA;
+        int i = this.pfB - 1;
+        this.pfB = i;
         Object obj = objArr[i];
-        this.pdX[this.pdY] = null;
+        this.pfA[this.pfB] = null;
         return obj;
     }
 
@@ -151,7 +151,7 @@ public final class a extends com.google.gson.stream.a {
         a(JsonToken.NAME);
         Map.Entry entry = (Map.Entry) ((Iterator) esX()).next();
         String str = (String) entry.getKey();
-        this.pdZ[this.pdY - 1] = str;
+        this.pfC[this.pfB - 1] = str;
         push(entry.getValue());
         return str;
     }
@@ -163,9 +163,9 @@ public final class a extends com.google.gson.stream.a {
             throw new IllegalStateException("Expected " + JsonToken.STRING + " but was " + esW + ete());
         }
         String asString = ((JsonPrimitive) esY()).getAsString();
-        if (this.pdY > 0) {
-            int[] iArr = this.pea;
-            int i = this.pdY - 1;
+        if (this.pfB > 0) {
+            int[] iArr = this.pfD;
+            int i = this.pfB - 1;
             iArr[i] = iArr[i] + 1;
         }
         return asString;
@@ -175,9 +175,9 @@ public final class a extends com.google.gson.stream.a {
     public boolean nextBoolean() throws IOException {
         a(JsonToken.BOOLEAN);
         boolean asBoolean = ((JsonPrimitive) esY()).getAsBoolean();
-        if (this.pdY > 0) {
-            int[] iArr = this.pea;
-            int i = this.pdY - 1;
+        if (this.pfB > 0) {
+            int[] iArr = this.pfD;
+            int i = this.pfB - 1;
             iArr[i] = iArr[i] + 1;
         }
         return asBoolean;
@@ -187,9 +187,9 @@ public final class a extends com.google.gson.stream.a {
     public void etb() throws IOException {
         a(JsonToken.NULL);
         esY();
-        if (this.pdY > 0) {
-            int[] iArr = this.pea;
-            int i = this.pdY - 1;
+        if (this.pfB > 0) {
+            int[] iArr = this.pfD;
+            int i = this.pfB - 1;
             iArr[i] = iArr[i] + 1;
         }
     }
@@ -205,9 +205,9 @@ public final class a extends com.google.gson.stream.a {
             throw new NumberFormatException("JSON forbids NaN and infinities: " + asDouble);
         }
         esY();
-        if (this.pdY > 0) {
-            int[] iArr = this.pea;
-            int i = this.pdY - 1;
+        if (this.pfB > 0) {
+            int[] iArr = this.pfD;
+            int i = this.pfB - 1;
             iArr[i] = iArr[i] + 1;
         }
         return asDouble;
@@ -221,9 +221,9 @@ public final class a extends com.google.gson.stream.a {
         }
         long asLong = ((JsonPrimitive) esX()).getAsLong();
         esY();
-        if (this.pdY > 0) {
-            int[] iArr = this.pea;
-            int i = this.pdY - 1;
+        if (this.pfB > 0) {
+            int[] iArr = this.pfD;
+            int i = this.pfB - 1;
             iArr[i] = iArr[i] + 1;
         }
         return asLong;
@@ -237,9 +237,9 @@ public final class a extends com.google.gson.stream.a {
         }
         int asInt = ((JsonPrimitive) esX()).getAsInt();
         esY();
-        if (this.pdY > 0) {
-            int[] iArr = this.pea;
-            int i = this.pdY - 1;
+        if (this.pfB > 0) {
+            int[] iArr = this.pfD;
+            int i = this.pfB - 1;
             iArr[i] = iArr[i] + 1;
         }
         return asInt;
@@ -247,24 +247,24 @@ public final class a extends com.google.gson.stream.a {
 
     @Override // com.google.gson.stream.a, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.pdX = new Object[]{pdW};
-        this.pdY = 1;
+        this.pfA = new Object[]{pfz};
+        this.pfB = 1;
     }
 
     @Override // com.google.gson.stream.a
     public void etc() throws IOException {
         if (esW() == JsonToken.NAME) {
             esZ();
-            this.pdZ[this.pdY - 2] = "null";
+            this.pfC[this.pfB - 2] = "null";
         } else {
             esY();
-            if (this.pdY > 0) {
-                this.pdZ[this.pdY - 1] = "null";
+            if (this.pfB > 0) {
+                this.pfC[this.pfB - 1] = "null";
             }
         }
-        if (this.pdY > 0) {
-            int[] iArr = this.pea;
-            int i = this.pdY - 1;
+        if (this.pfB > 0) {
+            int[] iArr = this.pfD;
+            int i = this.pfB - 1;
             iArr[i] = iArr[i] + 1;
         }
     }
@@ -282,20 +282,20 @@ public final class a extends com.google.gson.stream.a {
     }
 
     private void push(Object obj) {
-        if (this.pdY == this.pdX.length) {
-            Object[] objArr = new Object[this.pdY * 2];
-            int[] iArr = new int[this.pdY * 2];
-            String[] strArr = new String[this.pdY * 2];
-            System.arraycopy(this.pdX, 0, objArr, 0, this.pdY);
-            System.arraycopy(this.pea, 0, iArr, 0, this.pdY);
-            System.arraycopy(this.pdZ, 0, strArr, 0, this.pdY);
-            this.pdX = objArr;
-            this.pea = iArr;
-            this.pdZ = strArr;
+        if (this.pfB == this.pfA.length) {
+            Object[] objArr = new Object[this.pfB * 2];
+            int[] iArr = new int[this.pfB * 2];
+            String[] strArr = new String[this.pfB * 2];
+            System.arraycopy(this.pfA, 0, objArr, 0, this.pfB);
+            System.arraycopy(this.pfD, 0, iArr, 0, this.pfB);
+            System.arraycopy(this.pfC, 0, strArr, 0, this.pfB);
+            this.pfA = objArr;
+            this.pfD = iArr;
+            this.pfC = strArr;
         }
-        Object[] objArr2 = this.pdX;
-        int i = this.pdY;
-        this.pdY = i + 1;
+        Object[] objArr2 = this.pfA;
+        int i = this.pfB;
+        this.pfB = i + 1;
         objArr2[i] = obj;
     }
 
@@ -303,18 +303,18 @@ public final class a extends com.google.gson.stream.a {
     public String getPath() {
         StringBuilder append = new StringBuilder().append('$');
         int i = 0;
-        while (i < this.pdY) {
-            if (this.pdX[i] instanceof JsonArray) {
+        while (i < this.pfB) {
+            if (this.pfA[i] instanceof JsonArray) {
                 i++;
-                if (this.pdX[i] instanceof Iterator) {
-                    append.append('[').append(this.pea[i]).append(']');
+                if (this.pfA[i] instanceof Iterator) {
+                    append.append('[').append(this.pfD[i]).append(']');
                 }
-            } else if (this.pdX[i] instanceof JsonObject) {
+            } else if (this.pfA[i] instanceof JsonObject) {
                 i++;
-                if (this.pdX[i] instanceof Iterator) {
+                if (this.pfA[i] instanceof Iterator) {
                     append.append('.');
-                    if (this.pdZ[i] != null) {
-                        append.append(this.pdZ[i]);
+                    if (this.pfC[i] != null) {
+                        append.append(this.pfC[i]);
                     }
                 }
             }

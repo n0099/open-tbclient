@@ -59,7 +59,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class FeedbackInputActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
@@ -92,7 +92,7 @@ public class FeedbackInputActivity extends Activity {
     private final int N = R.string.abc_action_bar_up_description;
     private final int O = R.string.abc_action_menu_overflow_description;
     private final int P = R.string.abc_action_mode_done;
-    private final int Q = R.string.abc_font_family_display_3_material;
+    private final int Q = R.string.A_X12;
     private final int R = R.string.search_menu_title;
     private final int S = R.string.abc_searchview_description_clear;
     private final int T = R.string.abc_searchview_description_query;
@@ -107,7 +107,7 @@ public class FeedbackInputActivity extends Activity {
     private final int ac = R.id.TAG_GIFT_VIEW_HOLDER;
     private final int ad = R.id.abstract_img_layout;
     private final int ae = R.string.abc_searchview_description_search;
-    private final int af = R.string.abc_font_family_display_4_material;
+    private final int af = R.string.A_X13;
     private final int ag = R.id.abstract_text;
     private final int ah = R.id.action_bar_spinner;
     private final int ai = R.string.abc_toolbar_collapse_description;
@@ -1086,7 +1086,7 @@ public class FeedbackInputActivity extends Activity {
         this.J.setTextColor(com.baidu.ufosdk.b.v);
         this.J.setTextSize(13.0f);
         this.J.setGravity(17);
-        this.J.setId(R.string.abc_font_family_display_3_material);
+        this.J.setId(R.string.A_X12);
         this.J.setBackgroundColor(com.baidu.ufosdk.b.z);
         RelativeLayout.LayoutParams layoutParams10 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams10.addRule(11);
@@ -1097,7 +1097,7 @@ public class FeedbackInputActivity extends Activity {
         linearLayout2.setOrientation(0);
         linearLayout2.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), null, "ufo_back_layout_press.png"));
         linearLayout2.setClickable(true);
-        linearLayout2.setId(R.string.abc_font_family_display_4_material);
+        linearLayout2.setId(R.string.A_X13);
         ImageView imageView = new ImageView(this);
         imageView.setId(R.string.abc_searchview_description_search);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);

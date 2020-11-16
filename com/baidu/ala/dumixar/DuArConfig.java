@@ -4,7 +4,7 @@ import com.baidu.minivideo.arface.b;
 import com.baidu.minivideo.arface.c;
 import java.io.File;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class DuArConfig {
     private static DuArConfig sInstance;
     public String apiKey;

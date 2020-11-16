@@ -2,7 +2,7 @@ package kascend.core.utils;
 
 import android.support.media.ExifInterface;
 import java.security.Provider;
-/* loaded from: classes18.dex */
+/* loaded from: classes9.dex */
 public final class CryptoProvider extends Provider {
     public CryptoProvider() {
         super("Crypto", 1.0d, "HARMONY (SHA1 digest; SecureRandom; SHA1withDSA signature)");

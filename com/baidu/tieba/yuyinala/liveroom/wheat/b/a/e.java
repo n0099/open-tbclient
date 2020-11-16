@@ -7,46 +7,46 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.yuyinala.liveroom.wheat.c.o;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
-    private com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a odq;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a oeT;
 
     public e(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.odq = new com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a(tbPageContext);
+        this.oeT = new com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a(tbPageContext);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
     public void a(w wVar, AlaWheatInfoData alaWheatInfoData, int i, int i2) {
         super.a(wVar, alaWheatInfoData, i, i2);
-        this.odq.a(wVar, alaWheatInfoData, i, i2);
+        this.oeT.a(wVar, alaWheatInfoData, i, i2);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    protected void VD(String str) {
-        this.odq.VD(str);
+    protected void Vo(String str) {
+        this.oeT.Vo(str);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    protected void VE(String str) {
-        if (dYU()) {
-            dZb();
-        } else if (dYV()) {
-            if (o.dZA().dYS()) {
-                if (o.dZA().iV(str)) {
-                    if (o.dZA().iX(str)) {
-                        dZa();
+    protected void Vp(String str) {
+        if (dYT()) {
+            dZa();
+        } else if (dYU()) {
+            if (o.dZz().dYR()) {
+                if (o.dZz().iP(str)) {
+                    if (o.dZz().iR(str)) {
+                        dYZ();
                         return;
                     } else {
                         showToast(a.h.yuyin_not_allow_switchwheat_text);
                         return;
                     }
                 }
+                dYY();
+            } else if (o.dZz().iR(str)) {
                 dYZ();
-            } else if (o.dZA().iX(str)) {
-                dZa();
-            } else if (o.dZA().VQ(str)) {
+            } else if (o.dZz().VB(str)) {
                 showToast(a.h.yuyin_not_allow_switchwheat_text);
             } else {
-                dYZ();
+                dYY();
             }
         }
     }

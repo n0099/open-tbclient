@@ -10,23 +10,23 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class d extends TBSpecificationButtonConfig {
-    private boolean eQh;
+    private boolean ePl;
 
     public d() {
-        this.eZl = true;
-        this.eZe = R.color.cp_cont_a;
-        this.eZg = R.color.cp_link_tip_a;
-        this.eQh = false;
+        this.eYt = true;
+        this.eYm = R.color.CAM_X0101;
+        this.eYo = R.color.CAM_X0302;
+        this.ePl = false;
         this.minWidth = this.minHeight;
-        this.eZp = this.eZo;
+        this.eYx = this.eYw;
     }
 
-    public void qm(@ColorRes int i) {
-        this.eZe = i;
-        this.eZg = R.color.cp_btn_j;
-        this.eQh = false;
-        if (this.eZs != null) {
-            this.eZs.btj();
+    public void qK(@ColorRes int i) {
+        this.eYm = i;
+        this.eYo = R.color.CAM_X0904;
+        this.ePl = false;
+        if (this.eYA != null) {
+            this.eYA.bsz();
         }
     }
 
@@ -37,38 +37,38 @@ public class d extends TBSpecificationButtonConfig {
     }
 
     public void a(@DrawableRes int i, TBSpecificationButtonConfig.IconType iconType) {
-        this.eZh[0] = i;
-        this.eZi = iconType;
+        this.eYp[0] = i;
+        this.eYq = iconType;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable ag(float f) {
-        return aj(f);
-    }
-
-    private Drawable aj(float f) {
-        return this.eQh ? ah(f) : ak(f);
+    public Drawable ah(float f) {
+        return ak(f);
     }
 
     private Drawable ak(float f) {
+        return this.ePl ? ai(f) : al(f);
+    }
+
+    private Drawable al(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(ap.getColor(this.ajq, this.eZg));
+        gradientDrawable.setColor(ap.getColor(this.ajv, this.eYo));
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);
         return gradientDrawable;
     }
 
-    private Drawable ah(float f) {
+    private Drawable ai(float f) {
         GradientDrawable gradientDrawable;
-        int color = ap.getColor(this.ajq, this.eZg);
-        int[] iArr = {com.baidu.tieba.tbadkCore.c.Jt(color), color};
+        int color = ap.getColor(this.ajv, this.eYo);
+        int[] iArr = {com.baidu.tieba.tbadkCore.c.JV(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
-            gradientDrawable.setOrientation(this.eZr);
+            gradientDrawable.setOrientation(this.eYz);
             gradientDrawable.setColors(iArr);
         } else {
-            gradientDrawable = new GradientDrawable(this.eZr, iArr);
+            gradientDrawable = new GradientDrawable(this.eYz, iArr);
         }
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);

@@ -2,7 +2,7 @@ package com.baidu.ubc;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class af {
     public static String toMd5(byte[] bArr, boolean z) {
         try {

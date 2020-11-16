@@ -9,7 +9,7 @@ import android.net.NetworkRequest;
 import android.os.Build;
 import cn.com.chinatelecom.account.api.CtAuth;
 import java.net.InetAddress;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class d extends cn.com.chinatelecom.account.api.b.a {
     private static final String b = d.class.getSimpleName();
     private a f;
@@ -19,7 +19,7 @@ public class d extends cn.com.chinatelecom.account.api.b.a {
     private long g = 0;
     private long h = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes16.dex */
     public interface a {
         void a();
 

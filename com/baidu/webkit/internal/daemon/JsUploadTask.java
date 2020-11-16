@@ -12,7 +12,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class JsUploadTask implements INoProGuard {
     private static final int CONN_TIMEOUT = 5000;
     private static final int READ_TIMEOUT = 10000;
@@ -70,7 +70,7 @@ public class JsUploadTask implements INoProGuard {
     private static JumpType mFirstJumpType = JumpType.DefaultJump;
     private static JumpType mLastJumpType = JumpType.DefaultJump;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public enum JumpType {
         DefaultJump,
         JsJump,

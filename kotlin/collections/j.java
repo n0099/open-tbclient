@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class j extends i {
     public static final boolean a(byte[] bArr, byte b) {
         kotlin.jvm.internal.q.n(bArr, "receiver$0");
@@ -52,7 +52,7 @@ public class j extends i {
     public static final List<Byte> a(byte[] bArr, kotlin.b.h hVar) {
         kotlin.jvm.internal.q.n(bArr, "receiver$0");
         kotlin.jvm.internal.q.n(hVar, "indices");
-        return hVar.isEmpty() ? o.eBx() : f.av(f.s(bArr, hVar.eCb().intValue(), hVar.eCc().intValue() + 1));
+        return hVar.isEmpty() ? o.eBy() : f.av(f.s(bArr, hVar.eCc().intValue(), hVar.eCd().intValue() + 1));
     }
 
     public static final kotlin.b.h aw(byte[] bArr) {
@@ -76,18 +76,18 @@ public class j extends i {
 
     public static final <T> HashSet<T> P(T[] tArr) {
         kotlin.jvm.internal.q.n(tArr, "receiver$0");
-        return (HashSet) f.a(tArr, new HashSet(af.Rs(tArr.length)));
+        return (HashSet) f.a(tArr, new HashSet(af.RV(tArr.length)));
     }
 
     public static final <T> Set<T> Q(T[] tArr) {
         kotlin.jvm.internal.q.n(tArr, "receiver$0");
         switch (tArr.length) {
             case 0:
-                return al.eBE();
+                return al.eBF();
             case 1:
-                return al.bV(tArr[0]);
+                return al.bW(tArr[0]);
             default:
-                return (Set) f.a(tArr, new LinkedHashSet(af.Rs(tArr.length)));
+                return (Set) f.a(tArr, new LinkedHashSet(af.RV(tArr.length)));
         }
     }
 }

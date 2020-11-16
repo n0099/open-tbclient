@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class ARAuthFacade implements l {
     public static final int AUTH_TYPE_AIP = 1;
     public static final int AUTH_TYPE_AR_SERVER = 2;

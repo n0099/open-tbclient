@@ -5,93 +5,93 @@ import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.data.l;
-import com.baidu.tieba.card.data.m;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private BdTypeRecyclerView Xe;
-    private f jMp;
-    private b jMq;
-    private d jMr;
-    private e jMs;
-    private c jMt;
-    private LinkedList<com.baidu.adp.widget.ListView.a> jzU = new LinkedList<>();
+    private BdTypeRecyclerView Xi;
+    private LinkedList<com.baidu.adp.widget.ListView.a> jAQ = new LinkedList<>();
+    private f jMZ;
+    private b jNa;
+    private d jNb;
+    private e jNc;
+    private c jNd;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.Xe = bdTypeRecyclerView;
-        LY();
+        this.Xi = bdTypeRecyclerView;
+        Lp();
     }
 
-    private void LY() {
-        this.jMp = new f(this.mPageContext, l.ibz);
-        this.jMq = new b(this.mPageContext, m.eDW);
-        this.jMr = new d(this.mPageContext, l.ibG);
-        this.jMs = new e(this.mPageContext, l.ibE);
-        this.jMt = new c(this.mPageContext, l.eDE);
-        this.jMp.a(this.Xe);
-        this.jMq.a(this.Xe);
-        this.jMr.a(this.Xe);
-        this.jMs.a(this.Xe);
-        this.jMt.a(this.Xe);
-        this.jzU.add(this.jMp);
-        this.jzU.add(this.jMq);
-        this.jzU.add(this.jMr);
-        this.jzU.add(this.jMs);
-        this.jzU.add(this.jMt);
-        this.Xe.addAdapters(this.jzU);
+    private void Lp() {
+        this.jMZ = new f(this.mPageContext, k.icq);
+        this.jNa = new b(this.mPageContext, l.eCo);
+        this.jNb = new d(this.mPageContext, k.icx);
+        this.jNc = new e(this.mPageContext, k.icv);
+        this.jNd = new c(this.mPageContext, k.eBW);
+        this.jMZ.a(this.Xi);
+        this.jNa.a(this.Xi);
+        this.jNb.a(this.Xi);
+        this.jNc.a(this.Xi);
+        this.jNd.a(this.Xi);
+        this.jAQ.add(this.jMZ);
+        this.jAQ.add(this.jNa);
+        this.jAQ.add(this.jNb);
+        this.jAQ.add(this.jNc);
+        this.jAQ.add(this.jNd);
+        this.Xi.addAdapters(this.jAQ);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Xe != null) {
-            this.Xe.getListAdapter().notifyDataSetChanged();
+        if (this.Xi != null) {
+            this.Xi.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.jMp != null) {
-            this.jMp.setPageUniqueId(bdUniqueId);
+        if (this.jMZ != null) {
+            this.jMZ.setPageUniqueId(bdUniqueId);
         }
-        if (this.jMq != null) {
-            this.jMq.setPageUniqueId(bdUniqueId);
+        if (this.jNa != null) {
+            this.jNa.setPageUniqueId(bdUniqueId);
         }
-        if (this.jMr != null) {
-            this.jMr.setPageUniqueId(bdUniqueId);
+        if (this.jNb != null) {
+            this.jNb.setPageUniqueId(bdUniqueId);
         }
-        if (this.jMs != null) {
-            this.jMs.setPageUniqueId(bdUniqueId);
+        if (this.jNc != null) {
+            this.jNc.setPageUniqueId(bdUniqueId);
         }
-        if (this.jMt != null) {
-            this.jMt.setPageUniqueId(bdUniqueId);
+        if (this.jNd != null) {
+            this.jNd.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void setData(List<q> list) {
-        this.Xe.setData(list);
+        this.Xi.setData(list);
     }
 
     public List<q> getDataList() {
-        if (this.Xe != null) {
-            return this.Xe.getData();
+        if (this.Xi != null) {
+            return this.Xi.getData();
         }
         return null;
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.jMs != null) {
-            this.jMs.setEventCallback(aVar);
+        if (this.jNc != null) {
+            this.jNc.setEventCallback(aVar);
         }
-        if (this.jMp != null) {
-            this.jMp.setEventCallback(aVar);
+        if (this.jMZ != null) {
+            this.jMZ.setEventCallback(aVar);
         }
     }
 
     public void onPause() {
-        if (this.jMq != null) {
-            this.jMq.onPause();
+        if (this.jNa != null) {
+            this.jNa.onPause();
         }
     }
 
@@ -99,8 +99,8 @@ public class a {
     }
 
     public void b(com.baidu.tieba.homepage.personalize.model.e eVar) {
-        if (this.jMq != null) {
-            this.jMq.b(eVar);
+        if (this.jNa != null) {
+            this.jNa.b(eVar);
         }
     }
 }

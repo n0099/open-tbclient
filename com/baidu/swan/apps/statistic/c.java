@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.ap.p;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
     private c() {
     }
@@ -30,14 +30,14 @@ public class c {
                     jSONObject.put("page", aVar.page);
                 }
                 boolean isEmpty = TextUtils.isEmpty(aVar.appId);
-                boolean isEmpty2 = TextUtils.isEmpty(aVar.dzA);
+                boolean isEmpty2 = TextUtils.isEmpty(aVar.dxT);
                 if (!isEmpty || !isEmpty2) {
                     JSONObject jSONObject2 = new JSONObject();
                     if (!isEmpty) {
                         jSONObject2.put("appid", aVar.appId);
                     }
                     if (!isEmpty2) {
-                        jSONObject2.put("info", aVar.dzA);
+                        jSONObject2.put("info", aVar.dxT);
                     }
                     jSONObject.put("ext", jSONObject2);
                 }
@@ -45,7 +45,7 @@ public class c {
                     @Override // java.lang.Runnable
                     public void run() {
                         b.onEvent("777", jSONObject);
-                        com.baidu.swan.apps.console.c.bn("SwanAppBusinessUbc", jSONObject.toString());
+                        com.baidu.swan.apps.console.c.bm("SwanAppBusinessUbc", jSONObject.toString());
                     }
                 }, "SwanAppBusinessUbcRunnable");
             } catch (JSONException e) {
@@ -56,43 +56,43 @@ public class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         private String appId;
-        private String dzA;
-        private c dzz = new c();
-        private String from = "swan";
+        private String dxT;
         private String page;
         private String source;
         private String type;
         private String value;
+        private c dxS = new c();
+        private String from = "swan";
 
         public a(int i) {
             this.type = String.valueOf(i);
         }
 
-        public a sU(String str) {
+        public a sP(String str) {
             this.source = str;
             return this;
         }
 
-        public a sV(String str) {
+        public a sQ(String str) {
             this.page = str;
             return this;
         }
 
-        public a sW(String str) {
+        public a sR(String str) {
             this.appId = str;
             return this;
         }
 
-        public a sX(String str) {
-            this.dzA = str;
+        public a sS(String str) {
+            this.dxT = str;
             return this;
         }
 
-        public void atR() {
-            this.dzz.a(this);
+        public void atj() {
+            this.dxS.a(this);
         }
     }
 }

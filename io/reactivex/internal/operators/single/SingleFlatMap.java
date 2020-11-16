@@ -6,7 +6,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class SingleFlatMap<T, R> extends w<R> {
     final h<? super T, ? extends aa<? extends R>> mapper;
     final aa<? extends T> source;
@@ -16,7 +16,7 @@ public final class SingleFlatMap<T, R> extends w<R> {
         this.source.a(new SingleFlatMapCallback(yVar, this.mapper));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class SingleFlatMapCallback<T, R> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = 3258103020495908596L;
         final y<? super R> actual;
@@ -62,19 +62,19 @@ public final class SingleFlatMap<T, R> extends w<R> {
             this.actual.onError(th);
         }
 
-        /* loaded from: classes17.dex */
+        /* loaded from: classes5.dex */
         static final class a<R> implements y<R> {
             final y<? super R> actual;
-            final AtomicReference<io.reactivex.disposables.b> pMC;
+            final AtomicReference<io.reactivex.disposables.b> pOf;
 
             a(AtomicReference<io.reactivex.disposables.b> atomicReference, y<? super R> yVar) {
-                this.pMC = atomicReference;
+                this.pOf = atomicReference;
                 this.actual = yVar;
             }
 
             @Override // io.reactivex.y
             public void onSubscribe(io.reactivex.disposables.b bVar) {
-                DisposableHelper.replace(this.pMC, bVar);
+                DisposableHelper.replace(this.pOf, bVar);
             }
 
             @Override // io.reactivex.y

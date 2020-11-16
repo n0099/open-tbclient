@@ -17,21 +17,21 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.editvideo.data.MusicData;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class c extends BaseAdapter {
-    private e eIz;
+    private e eGT;
     private List<MusicData> mList;
-    public int nnL;
-    public String nnM;
+    public int noU;
+    public String noV;
 
     public c(e eVar) {
-        this.eIz = eVar;
+        this.eGT = eVar;
     }
 
     public void setData(List<MusicData> list) {
         if (list != null) {
             this.mList = list;
-            TK(this.nnM);
+            Tv(this.noV);
             notifyDataSetChanged();
         }
     }
@@ -65,19 +65,19 @@ public class c extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.eIz.getPageActivity()).inflate(R.layout.layout_music_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.eGT.getPageActivity()).inflate(R.layout.layout_music_item, (ViewGroup) null);
             aVar = new a();
-            aVar.nmS = (TbImageView) view.findViewById(R.id.music_image);
-            aVar.nmV = (TextView) view.findViewById(R.id.music_title);
-            aVar.nmU = view.findViewById(R.id.music_loading);
-            aVar.nmS.setDrawerType(1);
-            aVar.nmS.setIsRound(true);
-            aVar.nmS.setDefaultBgResource(R.color.transparent);
-            aVar.nmS.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
-            aVar.nmS.setDefaultResource(R.drawable.bg_video_cloudmusic);
-            aVar.nmS.setBorderWidth(l.getDimens(this.eIz.getPageActivity(), R.dimen.ds4));
-            aVar.nmS.setBorderColor(ap.getColor(R.color.cp_link_tip_a));
-            aVar.nmS.setConrers(15);
+            aVar.nnZ = (TbImageView) view.findViewById(R.id.music_image);
+            aVar.noc = (TextView) view.findViewById(R.id.music_title);
+            aVar.nob = view.findViewById(R.id.music_loading);
+            aVar.nnZ.setDrawerType(1);
+            aVar.nnZ.setIsRound(true);
+            aVar.nnZ.setDefaultBgResource(R.color.transparent);
+            aVar.nnZ.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
+            aVar.nnZ.setDefaultResource(R.drawable.bg_video_cloudmusic);
+            aVar.nnZ.setBorderWidth(l.getDimens(this.eGT.getPageActivity(), R.dimen.ds4));
+            aVar.nnZ.setBorderColor(ap.getColor(R.color.CAM_X0302));
+            aVar.nnZ.setConrers(15);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -86,49 +86,49 @@ public class c extends BaseAdapter {
         if (musicData != null) {
             switch (musicData.editMusicType) {
                 case 1:
-                    aVar.nmS.startLoad(String.valueOf(R.drawable.icon_video_mute), 24, false);
+                    aVar.nnZ.startLoad(String.valueOf(R.drawable.icon_video_mute), 24, false);
                     break;
                 case 2:
-                    aVar.nmS.startLoad(String.valueOf(R.drawable.icon_video_cloudmusic), 24, false);
+                    aVar.nnZ.startLoad(String.valueOf(R.drawable.icon_video_cloudmusic), 24, false);
                     break;
                 default:
-                    aVar.nmS.startLoad(musicData.img, 10, false);
+                    aVar.nnZ.startLoad(musicData.img, 10, false);
                     break;
             }
-            aVar.nmU.setVisibility(4);
-            aVar.nmV.setTextColor(ap.getColor(R.color.cp_cont_j));
-            aVar.nmV.setText(musicData.name);
-            b(aVar.nmV, l.getDimens(this.eIz.getPageActivity(), R.dimen.ds120), musicData.name);
-            if (i == this.nnL) {
-                aVar.nmS.setDrawBorder(true);
+            aVar.nob.setVisibility(4);
+            aVar.noc.setTextColor(ap.getColor(R.color.CAM_X0107));
+            aVar.noc.setText(musicData.name);
+            a(aVar.noc, l.getDimens(this.eGT.getPageActivity(), R.dimen.ds120), musicData.name);
+            if (i == this.noU) {
+                aVar.nnZ.setDrawBorder(true);
             } else {
-                aVar.nmS.setDrawBorder(false);
+                aVar.nnZ.setDrawBorder(false);
             }
             if (i == 0) {
-                view.setPadding(l.getDimens(this.eIz.getPageActivity(), R.dimen.ds34), l.getDimens(this.eIz.getPageActivity(), R.dimen.ds44), 0, 0);
+                view.setPadding(l.getDimens(this.eGT.getPageActivity(), R.dimen.ds34), l.getDimens(this.eGT.getPageActivity(), R.dimen.ds44), 0, 0);
             } else if (i == this.mList.size() - 1) {
-                view.setPadding(l.getDimens(this.eIz.getPageActivity(), R.dimen.ds34), l.getDimens(this.eIz.getPageActivity(), R.dimen.ds44), l.getDimens(this.eIz.getPageActivity(), R.dimen.ds34), 0);
+                view.setPadding(l.getDimens(this.eGT.getPageActivity(), R.dimen.ds34), l.getDimens(this.eGT.getPageActivity(), R.dimen.ds44), l.getDimens(this.eGT.getPageActivity(), R.dimen.ds34), 0);
             } else {
-                view.setPadding(l.getDimens(this.eIz.getPageActivity(), R.dimen.ds28), l.getDimens(this.eIz.getPageActivity(), R.dimen.ds44), 0, 0);
+                view.setPadding(l.getDimens(this.eGT.getPageActivity(), R.dimen.ds28), l.getDimens(this.eGT.getPageActivity(), R.dimen.ds44), 0, 0);
             }
-            if (this.eIz.getPageActivity() instanceof BaseActivity) {
-                ((BaseActivity) this.eIz.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                ((BaseActivity) this.eIz.getPageActivity()).getLayoutMode().onModeChanged(view);
-            } else if (this.eIz.getPageActivity() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) this.eIz.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                ((BaseFragmentActivity) this.eIz.getPageActivity()).getLayoutMode().onModeChanged(view);
+            if (this.eGT.getPageActivity() instanceof BaseActivity) {
+                ((BaseActivity) this.eGT.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                ((BaseActivity) this.eGT.getPageActivity()).getLayoutMode().onModeChanged(view);
+            } else if (this.eGT.getPageActivity() instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) this.eGT.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                ((BaseFragmentActivity) this.eGT.getPageActivity()).getLayoutMode().onModeChanged(view);
             }
         }
         return view;
     }
 
-    public void KG(int i) {
-        this.nnL = i;
+    public void Lj(int i) {
+        this.noU = i;
         notifyDataSetChanged();
     }
 
-    public void TK(String str) {
-        this.nnM = str;
+    public void Tv(String str) {
+        this.noV = str;
         if (!TextUtils.isEmpty(str) && this.mList != null) {
             int i = -1;
             for (int i2 = 0; i2 < this.mList.size(); i2++) {
@@ -139,17 +139,17 @@ public class c extends BaseAdapter {
             if (i == -1) {
                 i = 1;
             }
-            this.nnL = i;
+            this.noU = i;
         }
     }
 
-    public int dOU() {
-        return this.nnL;
+    public int dOT() {
+        return this.noU;
     }
 
-    public void b(TextView textView, int i, String str) {
+    public void a(TextView textView, int i, String str) {
         if (i > 0) {
-            float dimens = l.getDimens(this.eIz.getPageActivity(), R.dimen.fontsize24);
+            float dimens = l.getDimens(this.eGT.getPageActivity(), R.dimen.fontsize24);
             TextPaint textPaint = new TextPaint();
             textPaint.setTextSize(dimens);
             while (textPaint.measureText(str) > i) {
@@ -160,11 +160,11 @@ public class c extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes22.dex */
     public class a {
-        public TbImageView nmS;
-        public View nmU;
-        public TextView nmV;
+        public TbImageView nnZ;
+        public View nob;
+        public TextView noc;
 
         public a() {
         }

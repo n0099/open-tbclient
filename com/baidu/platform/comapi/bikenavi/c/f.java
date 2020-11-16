@@ -4,7 +4,7 @@ import com.baidu.platform.comapi.bikenavi.c.b;
 import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
-public class f implements a.InterfaceC0293a {
+public class f implements a.InterfaceC0291a {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ b f2835a;
@@ -14,7 +14,7 @@ public class f implements a.InterfaceC0293a {
         this.f2835a = bVar;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0293a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0291a
     public void a() {
         b.a aVar;
         b.a aVar2;

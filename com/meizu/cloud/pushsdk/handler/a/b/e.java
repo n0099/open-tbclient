@@ -7,7 +7,7 @@ import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
@@ -18,7 +18,7 @@ public class e {
     private int e = -1;
     private String f = "";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */

@@ -3,20 +3,20 @@ package com.baidu.tieba.videoplay.editor;
 import android.content.Context;
 import android.widget.EditText;
 import com.baidu.tbadk.editortools.m;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class c extends m {
-    private EditText fpZ;
+    private EditText fpg;
 
     public c(Context context) {
         super(context, (String) null, 28);
-        this.fok = false;
-        this.foj = 3;
-        this.fnp = new VideoPlayInputContainer(context);
-        this.fpZ = ((VideoPlayInputContainer) this.fnp).getInputView();
-        this.fol = new int[]{4, 24, 3, 9, 6};
+        this.fns = false;
+        this.fnr = 3;
+        this.fmx = new VideoPlayInputContainer(context);
+        this.fpg = ((VideoPlayInputContainer) this.fmx).getInputView();
+        this.fnt = new int[]{4, 24, 3, 9, 6};
     }
 
     public EditText getInputView() {
-        return this.fpZ;
+        return this.fpg;
     }
 }

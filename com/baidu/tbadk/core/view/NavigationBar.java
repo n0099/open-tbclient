@@ -102,7 +102,7 @@ public class NavigationBar extends RelativeLayout {
         this.mTopPadding = 0;
         this.mNavHeight = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds88);
         this.mFixedNavHeight = 0;
-        this.mBottomLineColor = R.color.cp_bg_line_c;
+        this.mBottomLineColor = R.color.CAM_X0204;
         this.mNavIsShow = true;
         this.mNavAnimatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -141,7 +141,7 @@ public class NavigationBar extends RelativeLayout {
         this.mTopPadding = 0;
         this.mNavHeight = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds88);
         this.mFixedNavHeight = 0;
-        this.mBottomLineColor = R.color.cp_bg_line_c;
+        this.mBottomLineColor = R.color.CAM_X0204;
         this.mNavIsShow = true;
         this.mNavAnimatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -180,7 +180,7 @@ public class NavigationBar extends RelativeLayout {
         this.mTopPadding = 0;
         this.mNavHeight = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds88);
         this.mFixedNavHeight = 0;
-        this.mBottomLineColor = R.color.cp_bg_line_c;
+        this.mBottomLineColor = R.color.CAM_X0204;
         this.mNavIsShow = true;
         this.mNavAnimatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -579,7 +579,7 @@ public class NavigationBar extends RelativeLayout {
         textView.setText(str);
         if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            int dimension = (int) getResources().getDimension(R.dimen.ds20);
+            int dimension = (int) getResources().getDimension(R.dimen.M_H_X003);
             if (z) {
                 layoutParams.setMargins(dimension, dimension, dimension, dimension);
             } else {
@@ -588,7 +588,7 @@ public class NavigationBar extends RelativeLayout {
             textView.setLayoutParams(layoutParams);
         } else if (ControlAlign.HORIZONTAL_LEFT == controlAlign) {
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
-            int dimension2 = (int) getResources().getDimension(R.dimen.ds20);
+            int dimension2 = (int) getResources().getDimension(R.dimen.M_H_X003);
             if (z) {
                 layoutParams2.setMargins(dimension2, dimension2, dimension2, dimension2);
             } else {
@@ -659,17 +659,17 @@ public class NavigationBar extends RelativeLayout {
         if (this.mIsCorner) {
             ap.setBackgroundResource(this, R.drawable.nav_bg_corner_shape, i);
         } else {
-            ap.setBackgroundColor(this, R.color.cp_bg_line_h, i);
+            ap.setBackgroundColor(this, R.color.CAM_X0207, i);
         }
         ap.setBackgroundColor(this.mBottomLine, this.mBottomLineColor, i);
         onBackBtnOnChangeSkin(i);
-        ap.setNavbarTitleColor(this.mTextTitle, R.color.cp_cont_b, R.color.s_navbar_title_color);
-        ap.setNavbarTitleColor(this.mCenterText, R.color.cp_cont_b, R.color.s_navbar_title_color);
+        ap.setNavbarTitleColor(this.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        ap.setNavbarTitleColor(this.mCenterText, R.color.CAM_X0105, R.color.s_navbar_title_color);
         if (this.mRegisterView != null) {
-            ap.setViewTextColor(this.mRegisterView, R.color.cp_cont_f, 1);
+            ap.setViewTextColor(this.mRegisterView, R.color.CAM_X0106, 1);
         }
         if (this.mLoginView != null) {
-            ap.setViewTextColor(this.mLoginView, R.color.cp_cont_f, 1);
+            ap.setViewTextColor(this.mLoginView, R.color.CAM_X0106, 1);
         }
         initPadding();
         if (eVar instanceof TbPageContext) {
@@ -689,9 +689,9 @@ public class NavigationBar extends RelativeLayout {
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
             ap.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
         } else if (this.mIsClose) {
-            SvgManager.brn().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bqB().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         } else {
-            SvgManager.brn().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+            SvgManager.bqB().a(this.mBackImageView, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
         }
     }
 
@@ -702,9 +702,9 @@ public class NavigationBar extends RelativeLayout {
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
             ap.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
         } else if (this.mIsClose) {
-            SvgManager.brn().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, i2, (SvgManager.SvgResourceStateType) null);
+            SvgManager.bqB().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, i2, (SvgManager.SvgResourceStateType) null);
         } else {
-            SvgManager.brn().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, i2, (SvgManager.SvgResourceStateType) null);
+            SvgManager.bqB().a(this.mBackImageView, R.drawable.ic_icon_pure_topbar_return40_svg, i2, (SvgManager.SvgResourceStateType) null);
         }
     }
 
@@ -712,7 +712,7 @@ public class NavigationBar extends RelativeLayout {
         if (i < 0) {
             i = TbadkCoreApplication.getInst().getSkinType();
         }
-        ap.setViewTextColor(this.mCenterText, R.color.cp_cont_b, 1, i);
+        ap.setViewTextColor(this.mCenterText, R.color.CAM_X0105, 1, i);
     }
 
     public ImageView getBackImageView() {

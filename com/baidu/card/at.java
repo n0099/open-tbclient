@@ -11,24 +11,24 @@ import com.baidu.card.b;
 import com.baidu.card.view.RoundCornerFrameLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
-public abstract class at extends b<AbsThreadDataSupport> implements com.baidu.tieba.play.e {
-    private static final int aio = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds88);
-    private static int aip = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
-    private static int aiq = aip - aio;
-    private static int air = aiq / 2;
-    private static int ais = aiq / 3;
-    protected AbsThreadDataSupport afI;
-    private final View.OnClickListener aiA;
-    private a.b aiB;
-    private boolean aik;
-    protected RoundCornerFrameLayout aiw;
-    protected com.baidu.tieba.play.operableVideoView.a aix;
-    private String aiy;
-    private BdUniqueId aiz;
+/* loaded from: classes20.dex */
+public abstract class at extends b<com.baidu.tbadk.core.data.a> implements com.baidu.tieba.play.e {
+    private static int aiA;
+    private static final int air;
+    private static int ais;
+    private static int aiy;
+    private static int aiz;
+    protected com.baidu.tbadk.core.data.a afN;
+    protected RoundCornerFrameLayout aiB;
+    protected com.baidu.tieba.play.operableVideoView.a aiC;
+    private String aiD;
+    private BdUniqueId aiE;
+    private final View.OnClickListener aiF;
+    private a.b aiG;
+    private boolean ain;
     private String mFrom;
     private int mLastScreenWidth;
     private final View.OnClickListener mOnClickListener;
@@ -37,15 +37,23 @@ public abstract class at extends b<AbsThreadDataSupport> implements com.baidu.ti
 
     protected abstract com.baidu.tieba.play.operableVideoView.a tH();
 
+    static {
+        air = com.baidu.tbadk.a.d.bhw() ? com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X007) * 2 : (com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2;
+        ais = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
+        aiy = ais - air;
+        aiz = aiy / 2;
+        aiA = aiy / 3;
+    }
+
     public at(Context context) {
         super(context);
         this.mLastScreenWidth = 0;
-        this.aik = false;
-        this.aiA = new View.OnClickListener() { // from class: com.baidu.card.at.3
+        this.ain = false;
+        this.aiF = new View.OnClickListener() { // from class: com.baidu.card.at.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (at.this.afG != null) {
-                    at.this.afG.a(at.this.afI);
+                if (at.this.afL != null) {
+                    at.this.afL.a(at.this.afN);
                 }
             }
         };
@@ -53,33 +61,33 @@ public abstract class at extends b<AbsThreadDataSupport> implements com.baidu.ti
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (at.this.tB() != null) {
-                    at.this.tB().a(view, at.this.afI);
+                    at.this.tB().a(view, at.this.afN);
                 }
             }
         };
-        this.aiB = new a.b() { // from class: com.baidu.card.at.5
+        this.aiG = new a.b() { // from class: com.baidu.card.at.5
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0097a c0097a) {
-                if (c0097a.getActionType() == 1) {
-                    com.baidu.tieba.card.n.a(at.this.mTitle, at.this.afI.bjZ().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
-                } else if (c0097a.getActionType() == 2) {
-                    if (at.this.aix != null) {
-                        at.this.aix.bTA();
+            public boolean a(a.C0096a c0096a) {
+                if (c0096a.getActionType() == 1) {
+                    com.baidu.tieba.card.n.a(at.this.mTitle, at.this.afN.bjd().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                } else if (c0096a.getActionType() == 2) {
+                    if (at.this.aiC != null) {
+                        at.this.aiC.bST();
                     }
-                } else if (c0097a.getActionType() == 3) {
-                    if (at.this.aix != null) {
-                        at.this.aix.dsl();
+                } else if (c0096a.getActionType() == 3) {
+                    if (at.this.aiC != null) {
+                        at.this.aiC.drL();
                     }
-                } else if (c0097a.getActionType() == 6) {
-                    if (at.this.aix != null) {
-                        return at.this.aix.dxB();
+                } else if (c0096a.getActionType() == 6) {
+                    if (at.this.aiC != null) {
+                        return at.this.aiC.dxb();
                     }
-                } else if (c0097a.getActionType() == 7) {
-                    if (at.this.aiw != null) {
-                        at.this.aiw.aO(((Boolean) c0097a.ud()).booleanValue());
+                } else if (c0096a.getActionType() == 7) {
+                    if (at.this.aiB != null) {
+                        at.this.aiB.aQ(((Boolean) c0096a.ud()).booleanValue());
                     }
-                } else if (c0097a.getActionType() == 8 && at.this.aix != null && (c0097a.ud() instanceof Boolean)) {
-                    return at.this.aix.re(((Boolean) c0097a.ud()).booleanValue());
+                } else if (c0096a.getActionType() == 8 && at.this.aiC != null && (c0096a.ud() instanceof Boolean)) {
+                    return at.this.aiC.rh(((Boolean) c0096a.ud()).booleanValue());
                 }
                 return false;
             }
@@ -89,12 +97,12 @@ public abstract class at extends b<AbsThreadDataSupport> implements com.baidu.ti
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public void tA() {
-        a(1, this.aiB);
-        a(2, this.aiB);
-        a(3, this.aiB);
-        a(6, this.aiB);
-        a(7, this.aiB);
-        a(8, this.aiB);
+        a(1, this.aiG);
+        a(2, this.aiG);
+        a(3, this.aiG);
+        a(6, this.aiG);
+        a(7, this.aiG);
+        a(8, this.aiG);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -103,14 +111,12 @@ public abstract class at extends b<AbsThreadDataSupport> implements com.baidu.ti
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
             this.mTitle = (TextView) this.mRootView.findViewById(R.id.video_seg_title);
-            this.aiw = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
-            com.baidu.tbadk.a.b.a.d(this.aiw, R.dimen.tbds28, R.dimen.tbds14);
-            com.baidu.tbadk.a.b.a.a(this.mTitle, R.dimen.tbds7, R.dimen.tbds10);
-            this.aix = tH();
-            this.aix.dwP().setBackgroundResource(R.color.transparent);
-            this.aix.setUniqueId(this.aiz);
-            this.aix.setFrom(this.mFrom);
-            this.aix.setStageType(this.aiy);
+            this.aiB = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
+            this.aiC = tH();
+            this.aiC.dwp().setBackgroundResource(R.color.transparent);
+            this.aiC.setUniqueId(this.aiE);
+            this.aiC.setFrom(this.mFrom);
+            this.aiC.setStageType(this.aiD);
         }
         return this.mRootView;
     }
@@ -118,179 +124,184 @@ public abstract class at extends b<AbsThreadDataSupport> implements com.baidu.ti
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void H(AbsThreadDataSupport absThreadDataSupport) {
+    public void H(com.baidu.tbadk.core.data.a aVar) {
         boolean z;
         boolean z2;
+        boolean z3 = true;
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
         if (equipmentWidth != this.mLastScreenWidth) {
-            aip = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
-            aiq = aip - aio;
-            air = aiq / 2;
-            ais = aiq / 3;
+            ais = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
+            aiy = ais - air;
+            aiz = aiy / 2;
+            aiA = aiy / 3;
             this.mLastScreenWidth = equipmentWidth;
         }
-        this.afI = absThreadDataSupport;
-        if (this.afI != null && this.afI.bjZ() != null && this.afI.bjZ().bmS() != null) {
-            this.aix.setData(absThreadDataSupport.bjZ());
-            final ViewGroup.LayoutParams layoutParams = this.aiw.getLayoutParams();
+        this.afN = aVar;
+        if (this.afN != null && this.afN.bjd() != null && this.afN.bjd().blU() != null) {
+            this.aiC.setData(aVar.bjd());
+            final ViewGroup.LayoutParams layoutParams = this.aiB.getLayoutParams();
             int i = layoutParams.width;
             int i2 = layoutParams.height;
-            if (this.afI.bjZ().bmS().is_vertical.intValue() == 1) {
-                int i3 = (air / 9) * 16;
-                int i4 = ais;
-                int intValue = this.afI.bjZ().bmS().video_width.intValue();
-                int intValue2 = this.afI.bjZ().bmS().video_height.intValue();
-                layoutParams.width = air;
-                boolean z3 = i != layoutParams.width;
+            if (this.afN.bjd().blU().is_vertical.intValue() == 1) {
+                int i3 = (aiz / 9) * 16;
+                int i4 = aiA;
+                int intValue = this.afN.bjd().blU().video_width.intValue();
+                int intValue2 = this.afN.bjd().blU().video_height.intValue();
+                layoutParams.width = aiz;
+                boolean z4 = i != layoutParams.width;
                 if (intValue == 0 || intValue2 == 0) {
                     layoutParams.height = i3;
                     if (i2 != layoutParams.height) {
                         z2 = true;
-                        z = com.baidu.tbadk.a.b.a.a(layoutParams, z2, this.aix, i, i2);
+                        z = com.baidu.tbadk.a.b.a.a(layoutParams, z2, this.aiC, i, i2);
                     }
-                    z2 = z3;
-                    z = com.baidu.tbadk.a.b.a.a(layoutParams, z2, this.aix, i, i2);
+                    z2 = z4;
+                    z = com.baidu.tbadk.a.b.a.a(layoutParams, z2, this.aiC, i, i2);
                 } else {
-                    int i5 = (int) (((intValue2 * 1.0f) / intValue) * air);
+                    int i5 = (int) (((intValue2 * 1.0f) / intValue) * aiz);
                     if (i5 >= i4) {
                         i4 = i5 > i3 ? i3 : i5;
                     }
                     layoutParams.height = i4;
                     if (i2 != layoutParams.height) {
                         z2 = true;
-                        z = com.baidu.tbadk.a.b.a.a(layoutParams, z2, this.aix, i, i2);
+                        z = com.baidu.tbadk.a.b.a.a(layoutParams, z2, this.aiC, i, i2);
                     }
-                    z2 = z3;
-                    z = com.baidu.tbadk.a.b.a.a(layoutParams, z2, this.aix, i, i2);
+                    z2 = z4;
+                    z = com.baidu.tbadk.a.b.a.a(layoutParams, z2, this.aiC, i, i2);
                 }
             } else {
-                layoutParams.width = aiq;
-                layoutParams.height = (aiq / 16) * 9;
+                layoutParams.width = aiy;
+                layoutParams.height = (aiy / 16) * 9;
                 z = (i2 == layoutParams.height && i == layoutParams.width) ? false : true;
             }
             if (z) {
-                if (this.afI.bjZ().bmS().is_vertical.intValue() == 1) {
-                    this.aiw.setLayoutParams(layoutParams);
-                    this.aiw.post(new Runnable() { // from class: com.baidu.card.at.1
+                if (this.afN.bjd().blU().is_vertical.intValue() == 1) {
+                    this.aiB.setLayoutParams(layoutParams);
+                    this.aiB.post(new Runnable() { // from class: com.baidu.card.at.1
                         @Override // java.lang.Runnable
                         public void run() {
                         }
                     });
                 } else {
-                    this.aiw.post(new Runnable() { // from class: com.baidu.card.at.2
+                    this.aiB.post(new Runnable() { // from class: com.baidu.card.at.2
                         @Override // java.lang.Runnable
                         public void run() {
                             layoutParams.width = at.this.mRootView.getWidth();
                             layoutParams.height = (at.this.mRootView.getWidth() / 16) * 9;
-                            at.this.aiw.setLayoutParams(layoutParams);
+                            at.this.aiB.setLayoutParams(layoutParams);
                         }
                     });
                 }
             }
-            if (this.afI.bjZ().bow()) {
+            if (this.afN.bjd().bnA()) {
                 this.mTitle.setMaxLines(5);
-                ay.a(this.mTitle, this.afI.bjZ(), aiq, this.aik);
+                az.a(this.mTitle, this.afN.bjd(), aiy, this.ain);
             } else {
                 this.mTitle.setMaxLines(2);
-                ay.a(this.mTitle, this.afI.bjZ(), 0, this.aik);
+                az.a(this.mTitle, this.afN.bjd(), 0, this.ain);
             }
-            if (this.afG != null) {
-                this.aix.ad(this.aiA);
+            if (this.mTitle != null && this.mTitle.getVisibility() == 0) {
+                z3 = false;
+            }
+            az.a(this.aiB, z3, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+            if (this.afL != null) {
+                this.aiC.ac(this.aiF);
             }
             if (tB() != null) {
-                this.aix.setAfterClickListener(this.mOnClickListener);
+                this.aiC.setAfterClickListener(this.mOnClickListener);
             }
         }
     }
 
     public void a(b.a aVar) {
-        this.afG = aVar;
+        this.afL = aVar;
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.afI != null && this.afI.bjZ() != null) {
-            com.baidu.tieba.card.n.a(this.mTitle, this.afI.bjZ().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
-            this.aiw.onChangeSkinType(i);
-            this.aiw.setBackgroundColor(com.baidu.tbadk.core.util.ap.getColor(R.color.cp_bg_line_j));
+        if (this.afN != null && this.afN.bjd() != null) {
+            com.baidu.tieba.card.n.a(this.mTitle, this.afN.bjd().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            this.aiB.onChangeSkinType(i);
+            this.aiB.setBackgroundColor(com.baidu.tbadk.core.util.ap.getColor(R.color.CAM_X0209));
         }
     }
 
     public void setVideoStatData(com.baidu.tieba.play.o oVar) {
-        if (this.aix != null) {
-            this.aix.b(oVar);
+        if (this.aiC != null) {
+            this.aiC.b(oVar);
         }
     }
 
     public com.baidu.tieba.play.operableVideoView.a uc() {
-        return this.aix;
+        return this.aiC;
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlayStarted() {
-        return this.aix.isPlaying();
+        return this.aiC.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlaying() {
-        return this.aix.isPlaying();
+        return this.aiC.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isFullScreen() {
-        if (this.aix == null) {
+        if (this.aiC == null) {
             return false;
         }
-        return this.aix.isFullScreen();
+        return this.aiC.isFullScreen();
     }
 
     @Override // com.baidu.tieba.play.e
     public void startPlay() {
         if ((this.mContext instanceof com.baidu.tbadk.core.util.f.b) && ((com.baidu.tbadk.core.util.f.b) this.mContext).videoNeedPreload()) {
-            this.aix.startPlay();
+            this.aiC.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public void stopPlay() {
-        this.aix.stopPlay();
+        this.aiC.stopPlay();
     }
 
     @Override // com.baidu.tieba.play.e
     public View getVideoContainer() {
-        return this.aiw;
+        return this.aiB;
     }
 
     @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        if (this.afI == null || this.afI.bjZ() == null) {
+        if (this.afN == null || this.afN.bjd() == null) {
             return null;
         }
-        return this.afI.bjZ().getVideoUrl();
+        return this.afN.bjd().getVideoUrl();
     }
 
     public void setFrom(String str) {
         this.mFrom = str;
-        if (this.aix != null) {
-            this.aix.setFrom(str);
+        if (this.aiC != null) {
+            this.aiC.setFrom(str);
         }
     }
 
     public void setStageType(String str) {
-        this.aiy = str;
-        if (this.aix != null) {
-            this.aix.setStageType(str);
+        this.aiD = str;
+        if (this.aiC != null) {
+            this.aiC.setStageType(str);
         }
     }
 
     @Override // com.baidu.card.b
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aiz = bdUniqueId;
+        this.aiE = bdUniqueId;
     }
 
     @Override // com.baidu.tieba.play.e
     public int getCurrentPosition() {
-        return this.aix.getCurrentPosition();
+        return this.aiC.getCurrentPosition();
     }
 
     public void onResume() {
@@ -300,6 +311,6 @@ public abstract class at extends b<AbsThreadDataSupport> implements com.baidu.ti
     }
 
     public void setNeedFrsTabName(boolean z) {
-        this.aik = z;
+        this.ain = z;
     }
 }

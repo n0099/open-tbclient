@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.SurfaceTexture;
 import android.util.Log;
 import android.view.Surface;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
     private SurfaceTexture dy;

@@ -33,32 +33,32 @@ import com.baidu.tieba.yuyinala.liveroom.roomcard.h;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d extends Dialog {
-    private TextView abj;
+    private TextView abo;
     private Context context;
-    private int fdv;
-    private boolean gBq;
-    private ImageView lff;
+    private int fcD;
+    private boolean gAX;
+    private ImageView lfw;
     private String mLiveId;
     private String mRoomId;
     private ViewGroup mRootView;
     private TextView mTvTitle;
-    private h nTv;
-    private ViewGroup nVY;
-    private TextView nVZ;
-    private TextView nVj;
-    private TbImageView nWa;
-    private CheckBox nWb;
-    private RelativeLayout nWc;
-    private RedPacketView nWd;
-    private String nWe;
-    private String nWf;
-    private String nWg;
-    private String nWh;
-    private String nWi;
-    private String nWj;
-    private boolean nWk;
-    private b nWl;
-    private Handler nWm;
+    private h nUY;
+    private TextView nWM;
+    private ViewGroup nXB;
+    private TextView nXC;
+    private TbImageView nXD;
+    private CheckBox nXE;
+    private RelativeLayout nXF;
+    private RedPacketView nXG;
+    private String nXH;
+    private String nXI;
+    private String nXJ;
+    private String nXK;
+    private String nXL;
+    private String nXM;
+    private boolean nXN;
+    private b nXO;
+    private Handler nXP;
 
     public d(@NonNull Context context) {
         super(context);
@@ -71,28 +71,28 @@ public class d extends Dialog {
         setContentView(a.g.dialog_redpacket_yuyin);
         setCanceledOnTouchOutside(false);
         this.mRootView = (ViewGroup) findViewById(a.f.red_packget_root);
-        this.nVZ = (TextView) findViewById(a.f.tv_time);
-        this.nVY = (ViewGroup) findViewById(a.f.background_view);
-        this.lff = (ImageView) findViewById(a.f.iv_close);
-        this.nVj = (TextView) findViewById(a.f.tv_confirm);
-        this.nWa = (TbImageView) findViewById(a.f.tiv_result);
+        this.nXC = (TextView) findViewById(a.f.tv_time);
+        this.nXB = (ViewGroup) findViewById(a.f.background_view);
+        this.lfw = (ImageView) findViewById(a.f.iv_close);
+        this.nWM = (TextView) findViewById(a.f.tv_confirm);
+        this.nXD = (TbImageView) findViewById(a.f.tiv_result);
         this.mTvTitle = (TextView) findViewById(a.f.tv_title);
-        this.abj = (TextView) findViewById(a.f.tv_tip);
-        this.nWb = (CheckBox) findViewById(a.f.cb_collect);
-        this.nWc = (RelativeLayout) findViewById(a.f.rl_redpacket_lootgift_root);
-        this.nWd = (RedPacketView) findViewById(a.f.red_packets_view1);
-        Pe();
+        this.abo = (TextView) findViewById(a.f.tv_tip);
+        this.nXE = (CheckBox) findViewById(a.f.cb_collect);
+        this.nXF = (RelativeLayout) findViewById(a.f.rl_redpacket_lootgift_root);
+        this.nXG = (RedPacketView) findViewById(a.f.red_packets_view1);
+        Ov();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dXT() {
-        if (this.nWb.isChecked()) {
-            this.nTv.w(this.mRoomId, this.mLiveId, 1);
-            this.nWb.setVisibility(8);
+    public void dXS() {
+        if (this.nXE.isChecked()) {
+            this.nUY.w(this.mRoomId, this.mLiveId, 1);
+            this.nXE.setVisibility(8);
         }
     }
 
-    private void Pe() {
+    private void Ov() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
         Window window = getWindow();
@@ -114,20 +114,20 @@ public class d extends Dialog {
     }
 
     public void a(boolean z, int i, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z2) {
-        this.fdv = i;
-        this.nWe = str;
-        this.nWf = str2;
+        this.fcD = i;
+        this.nXH = str;
+        this.nXI = str2;
         this.mRoomId = str3;
         this.mLiveId = str4;
-        this.nWi = str5;
-        this.nWg = str6;
-        this.nWh = str7;
-        this.nWj = str8;
-        this.nWk = z;
-        this.gBq = z2;
-        this.nWl = new b();
-        this.nTv = new h(this.context);
-        this.nTv.a(new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.1
+        this.nXL = str5;
+        this.nXJ = str6;
+        this.nXK = str7;
+        this.nXM = str8;
+        this.nXN = z;
+        this.gAX = z2;
+        this.nXO = new b();
+        this.nUY = new h(this.context);
+        this.nUY.a(new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.1
             @Override // com.baidu.tieba.yuyinala.liveroom.roomcard.h.a
             public void a(AlaGetCollectRoomHttpResponseMessage alaGetCollectRoomHttpResponseMessage) {
                 MessageManager.getInstance().dispatchResponsedMessage(new YuyinFollowRoomMessage(new FollowRoom(true, d.this.mLiveId)));
@@ -137,34 +137,34 @@ public class d extends Dialog {
             public void onFail(int i2, String str9) {
             }
         });
-        this.nWm = new Handler();
-        this.nVY.removeAllViews();
+        this.nXP = new Handler();
+        this.nXB.removeAllViews();
         if (!isShowing()) {
             show();
             if (z) {
-                com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.dZW().a(this.nVY, this.nWe, this.nWf);
+                com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.dZV().a(this.nXB, this.nXH, this.nXI);
             } else {
-                com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.dZW().b(this.nVY, this.nWe, this.nWf);
+                com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.dZV().b(this.nXB, this.nXH, this.nXI);
             }
-            if (this.gBq) {
-                this.nWb.setVisibility(8);
+            if (this.gAX) {
+                this.nXE.setVisibility(8);
             } else {
-                this.nWb.setVisibility(0);
+                this.nXE.setVisibility(0);
             }
-            this.nWm.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.2
+            this.nXP.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.dXU();
+                    d.this.dXT();
                 }
-            }, (((int) (this.fdv - (System.currentTimeMillis() / 1000))) - 15) * 1000);
-            this.lff.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.3
+            }, (((int) (this.fcD - (System.currentTimeMillis() / 1000))) - 15) * 1000);
+            this.lfw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.Hv();
+                    d.this.GM();
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.nWi);
+                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.nXL);
                         jSONObject.put("live_id", d.this.mLiveId);
                         jSONObject.put("live_id", d.this.mLiveId);
                         jSONObject.put("room_id", d.this.mRoomId);
@@ -174,42 +174,42 @@ public class d extends Dialog {
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "giftrain_esc").setContentExt(jSONObject));
                 }
             });
-            this.nVj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.4
+            this.nWM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.nWc.setVisibility(8);
+                    d.this.nXF.setVisibility(8);
                 }
             });
-            this.nWc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.5
+            this.nXF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.nWc.setVisibility(8);
+                    d.this.nXF.setVisibility(8);
                 }
             });
         }
     }
 
-    public void Hv() {
+    public void GM() {
         dismiss();
-        this.nVY.removeAllViews();
-        dXV();
-        this.nWm.removeCallbacksAndMessages(null);
-        this.nWc.setVisibility(8);
+        this.nXB.removeAllViews();
+        dXU();
+        this.nXP.removeCallbacksAndMessages(null);
+        this.nXF.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dXU() {
-        cSE();
-        this.nWd.dXX();
-        this.nWd.setOnRedPacketClickListener(new RedPacketView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.6
+    public void dXT() {
+        cSk();
+        this.nXG.dXW();
+        this.nXG.setOnRedPacketClickListener(new RedPacketView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.6
             @Override // com.baidu.tieba.yuyinala.liveroom.grabredpacket.RedPacketView.a
             public void a(c cVar) {
-                d.this.dXT();
-                d.this.nWl.i(d.this.mLiveId, d.this.mRoomId, d.this.nWi, d.this.nWg, d.this.nWh, d.this.nWj);
+                d.this.dXS();
+                d.this.nXO.i(d.this.mLiveId, d.this.mRoomId, d.this.nXL, d.this.nXJ, d.this.nXK, d.this.nXM);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.nWi);
+                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.nXL);
                     jSONObject.put("live_id", d.this.mLiveId);
                     jSONObject.put("live_id", d.this.mLiveId);
                     jSONObject.put("room_id", d.this.mRoomId);
@@ -219,18 +219,18 @@ public class d extends Dialog {
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "giftrain_clk").setContentExt(jSONObject));
             }
         });
-        this.nWl.a(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.7
+        this.nXO.a(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.7
             @Override // com.baidu.tieba.yuyinala.liveroom.grabredpacket.b.a
             public void a(LootGiftHttpResponseMessage lootGiftHttpResponseMessage) {
                 if (!TextUtils.isEmpty(lootGiftHttpResponseMessage.image)) {
-                    d.this.nWc.setVisibility(0);
-                    d.this.nWa.startLoad(lootGiftHttpResponseMessage.image, 10, false);
+                    d.this.nXF.setVisibility(0);
+                    d.this.nXD.startLoad(lootGiftHttpResponseMessage.image, 10, false);
                     d.this.mTvTitle.setText(lootGiftHttpResponseMessage.text);
-                    d.this.abj.setText(lootGiftHttpResponseMessage.tip);
+                    d.this.abo.setText(lootGiftHttpResponseMessage.tip);
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.nWi);
+                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.nXL);
                         jSONObject.put("live_id", d.this.mLiveId);
                         jSONObject.put("live_id", d.this.mLiveId);
                         jSONObject.put("room_id", d.this.mRoomId);
@@ -250,7 +250,7 @@ public class d extends Dialog {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.nWi);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.nXL);
             jSONObject.put("live_id", this.mLiveId);
             jSONObject.put("live_id", this.mLiveId);
             jSONObject.put("room_id", this.mRoomId);
@@ -261,26 +261,26 @@ public class d extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSE() {
-        this.nWm.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.8
+    public void cSk() {
+        this.nXP.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.8
             @Override // java.lang.Runnable
             public void run() {
-                int currentTimeMillis = (int) (d.this.fdv - (System.currentTimeMillis() / 1000));
+                int currentTimeMillis = (int) (d.this.fcD - (System.currentTimeMillis() / 1000));
                 if (currentTimeMillis <= 0) {
-                    d.this.Hv();
-                    d.this.nVZ.setVisibility(8);
+                    d.this.GM();
+                    d.this.nXC.setVisibility(8);
                 } else if (currentTimeMillis > 15) {
-                    d.this.nVZ.setVisibility(8);
+                    d.this.nXC.setVisibility(8);
                 } else {
-                    d.this.nVZ.setVisibility(0);
-                    d.this.nVZ.setText(currentTimeMillis + " S");
+                    d.this.nXC.setVisibility(0);
+                    d.this.nXC.setText(currentTimeMillis + " S");
                 }
-                d.this.cSE();
+                d.this.cSk();
             }
         }, 1000L);
     }
 
-    private void dXV() {
-        this.nWd.dXW();
+    private void dXU() {
+        this.nXG.dXV();
     }
 }

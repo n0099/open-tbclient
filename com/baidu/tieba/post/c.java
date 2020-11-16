@@ -1,5 +1,5 @@
 package com.baidu.tieba.post;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public interface c {
-    void dxU();
+    void dxu();
 }

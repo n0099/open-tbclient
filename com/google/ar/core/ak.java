@@ -2,7 +2,7 @@ package com.google.ar.core;
 
 import android.util.Log;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 final class ak implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
@@ -19,8 +19,8 @@ final class ak implements Runnable {
     public final void run() {
         if (!this.f4040a.getAndSet(true)) {
             Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-            w wVar = this.b.pcQ;
-            w.b(this.b.f4039a, this.b.pcC);
+            w wVar = this.b.pet;
+            w.b(this.b.f4039a, this.b.pef);
         }
     }
 }

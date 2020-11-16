@@ -1,5 +1,5 @@
 package com.baidu.searchbox.appframework.ext;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public interface ICommonMenuExtObject extends IBaseExtObject {
     Object getCommonMenuExtObject();
 

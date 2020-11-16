@@ -2,7 +2,7 @@ package kotlin.collections;
 
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static <T> List<T> asList(T[] tArr) {

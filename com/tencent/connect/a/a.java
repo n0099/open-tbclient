@@ -4,7 +4,7 @@ import android.content.Context;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.open.utils.f;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

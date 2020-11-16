@@ -13,7 +13,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.flutter.util.OpenFlutter;
 import com.baidu.tieba.flutter.view.FlutterDelegateStatic;
 import com.baidu.tieba.flutter.view.FlutterEnterForumDelegateStatic;
@@ -26,7 +26,7 @@ import com.idlefish.flutterboost.interfaces.INativeRouter;
 import io.flutter.embedding.android.FlutterView;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class FlutterStatic {
     static {
         registerFlutterRule();
@@ -80,20 +80,20 @@ public class FlutterStatic {
             public CustomResponsedMessage<m> run(CustomMessage<m> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
                     Context context = customMessage.getData().getContext();
-                    String dJM = customMessage.getData().dJM();
+                    String dJD = customMessage.getData().dJD();
                     HashMap params = customMessage.getData().getParams();
                     if (params == null || params.isEmpty()) {
                         params = new HashMap();
                     }
-                    if (context != null && !TextUtils.isEmpty(dJM) && params != null && !params.isEmpty()) {
-                        OpenFlutter.openFlutterPage(context, dJM, params);
+                    if (context != null && !TextUtils.isEmpty(dJD) && params != null && !params.isEmpty()) {
+                        OpenFlutter.openFlutterPage(context, dJD, params);
                     }
                 }
                 return null;
             }
         }));
-        be.brr().a(new be.a() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
-            @Override // com.baidu.tbadk.core.util.be.a
+        bf.bqF().a(new bf.a() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
                     return 3;

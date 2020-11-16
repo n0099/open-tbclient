@@ -2,116 +2,116 @@ package com.baidu.tieba.post;
 
 import android.text.TextUtils;
 import com.baidu.tieba.VideoPlatformStatic;
-/* loaded from: classes23.dex */
-public class i implements com.baidu.tieba.k.f {
+/* loaded from: classes22.dex */
+public class i implements com.baidu.tieba.l.f {
     private String mUuid;
-    private k mnR;
+    private k mol;
 
     public i(String str) {
         this.mUuid = str;
-        this.mnR = new k(str);
+        this.mol = new k(str);
     }
 
-    @Override // com.baidu.tieba.k.f
+    @Override // com.baidu.tieba.l.f
     public void q(String str, int i, String str2) {
-        if (QQ(str)) {
-            this.mnR.dyo();
-            this.mnR.a(new com.baidu.tieba.n.c(i, "record", i, str2));
+        if (Ql(str)) {
+            this.mol.dxO();
+            this.mol.a(new com.baidu.tieba.o.c(i, "record", i, str2));
         }
     }
 
-    @Override // com.baidu.tieba.k.f
+    @Override // com.baidu.tieba.l.f
     public void r(String str, int i, String str2) {
-        if (QQ(str)) {
+        if (Ql(str)) {
             if (i == 103 || i == 105 || i == 106 || i == 107 || i == 104) {
-                this.mnR.dyo();
-                this.mnR.a(new com.baidu.tieba.n.c(i, str2, i, VideoPlatformStatic.ti(i)));
+                this.mol.dxO();
+                this.mol.a(new com.baidu.tieba.o.c(i, str2, i, VideoPlatformStatic.tG(i)));
                 return;
             }
-            this.mnR.a(new com.baidu.tieba.n.c(i, str2, -4399, ""));
+            this.mol.a(new com.baidu.tieba.o.c(i, str2, -4399, ""));
         }
     }
 
-    @Override // com.baidu.tieba.k.f
+    @Override // com.baidu.tieba.l.f
     public void s(String str, int i, String str2) {
-        if (QQ(str)) {
-            this.mnR.dyo();
-            this.mnR.a(new com.baidu.tieba.n.c(i, "edit", i, str2));
+        if (Ql(str)) {
+            this.mol.dxO();
+            this.mol.a(new com.baidu.tieba.o.c(i, "edit", i, str2));
         }
     }
 
-    @Override // com.baidu.tieba.k.f
+    @Override // com.baidu.tieba.l.f
     public void e(String str, int i, int i2, String str2) {
-        if (QQ(str)) {
-            this.mnR.dyo();
-            this.mnR.dym();
-            this.mnR.dyq();
-            this.mnR.a(new com.baidu.tieba.n.c(i, "write", i2, str2));
+        if (Ql(str)) {
+            this.mol.dxO();
+            this.mol.dxM();
+            this.mol.dxQ();
+            this.mol.a(new com.baidu.tieba.o.c(i, "write", i2, str2));
         }
     }
 
-    @Override // com.baidu.tieba.k.f
-    public void OH(String str) {
-        if (QQ(str)) {
-            this.mnR.dyq();
-            this.mnR.a(new com.baidu.tieba.n.c(301, "write", -4399, ""));
+    @Override // com.baidu.tieba.l.f
+    public void Od(String str) {
+        if (Ql(str)) {
+            this.mol.dxQ();
+            this.mol.a(new com.baidu.tieba.o.c(301, "write", -4399, ""));
         }
     }
 
-    @Override // com.baidu.tieba.k.f
-    public void OI(String str) {
-        if (QQ(str)) {
-            this.mnR.dyq();
-            this.mnR.dyn();
-            this.mnR.a(new com.baidu.tieba.n.c(401, "write", -4399, ""));
+    @Override // com.baidu.tieba.l.f
+    public void Oe(String str) {
+        if (Ql(str)) {
+            this.mol.dxQ();
+            this.mol.dxN();
+            this.mol.a(new com.baidu.tieba.o.c(401, "write", -4399, ""));
         }
     }
 
-    @Override // com.baidu.tieba.k.f
+    @Override // com.baidu.tieba.l.f
     public void t(String str, int i, String str2) {
-        if (QQ(str)) {
-            this.mnR.dyo();
-            this.mnR.dym();
-            this.mnR.dyq();
-            this.mnR.a(new com.baidu.tieba.n.c(402, "write", i, str2));
+        if (Ql(str)) {
+            this.mol.dxO();
+            this.mol.dxM();
+            this.mol.dxQ();
+            this.mol.a(new com.baidu.tieba.o.c(402, "write", i, str2));
         }
     }
 
-    @Override // com.baidu.tieba.k.f
-    public void jS(String str) {
-        if (QQ(str)) {
-            com.baidu.tieba.u.b.dNR().v(this.mUuid, com.baidu.tieba.u.b.a(VideoPlatformStatic.bIN(), this.mnR.dek(), this.mnR.dem()));
+    @Override // com.baidu.tieba.l.f
+    public void jM(String str) {
+        if (Ql(str)) {
+            com.baidu.tieba.v.b.dNQ().t(this.mUuid, com.baidu.tieba.v.b.a(VideoPlatformStatic.bIh(), this.mol.ddH(), this.mol.ddJ()));
         }
     }
 
-    @Override // com.baidu.tieba.k.f
-    public boolean OJ(String str) {
-        if (QQ(str)) {
-            return this.mnR.dyp();
+    @Override // com.baidu.tieba.l.f
+    public boolean Of(String str) {
+        if (Ql(str)) {
+            return this.mol.dxP();
         }
         return false;
     }
 
-    @Override // com.baidu.tieba.k.f
-    public boolean OK(String str) {
-        return this.mnR.dyr();
+    @Override // com.baidu.tieba.l.f
+    public boolean Og(String str) {
+        return this.mol.dxR();
     }
 
-    @Override // com.baidu.tieba.k.f
+    @Override // com.baidu.tieba.l.f
     public void fI(String str, String str2) {
-        if (QQ(str)) {
-            this.mnR.a(new com.baidu.tieba.n.c(503, str2, -4399, ""));
+        if (Ql(str)) {
+            this.mol.a(new com.baidu.tieba.o.c(503, str2, -4399, ""));
         }
     }
 
-    @Override // com.baidu.tieba.k.f
+    @Override // com.baidu.tieba.l.f
     public void fJ(String str, String str2) {
-        if (QQ(str)) {
-            this.mnR.a(new com.baidu.tieba.n.c(501, str2, -4399, ""));
+        if (Ql(str)) {
+            this.mol.a(new com.baidu.tieba.o.c(501, str2, -4399, ""));
         }
     }
 
-    private boolean QQ(String str) {
+    private boolean Ql(String str) {
         return (!TextUtils.equals(this.mUuid, str) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.mUuid)) ? false : true;
     }
 }

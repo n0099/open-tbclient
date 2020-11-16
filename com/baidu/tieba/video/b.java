@@ -1,7 +1,7 @@
 package com.baidu.tieba.video;
 
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import java.io.File;
@@ -13,12 +13,12 @@ public abstract class b {
     public String filterName;
     public boolean isMute;
     public String musicPath;
-    public String nlK;
+    public String nmR;
     public String originPath;
 
-    public abstract void dOm();
+    public abstract void dOl();
 
-    public abstract void dOn();
+    public abstract void dOm();
 
     public b(BaseActivity baseActivity, String str, String str2) {
         this.originPath = str;
@@ -47,7 +47,7 @@ public abstract class b {
         }
     }
 
-    public void xQ(boolean z) {
+    public void xX(boolean z) {
         this.Mo = z;
     }
 
@@ -55,25 +55,25 @@ public abstract class b {
         return this.Mo;
     }
 
-    private void dOl() {
-        if (!at.isEmpty(this.nlK)) {
-            n.deleteFile(new File(this.nlK));
+    private void dOk() {
+        if (!au.isEmpty(this.nmR)) {
+            n.deleteFile(new File(this.nmR));
         }
     }
 
     public void onCancel() {
-        dOl();
+        dOk();
     }
 
-    public void bV(int i, String str) {
-        dOl();
+    public void bT(int i, String str) {
+        dOk();
     }
 
-    public void bW(int i, String str) {
-        dOl();
+    public void bU(int i, String str) {
+        dOk();
     }
 
     public void a(VideoInfo videoInfo) {
-        dOl();
+        dOk();
     }
 }

@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class a {
     public static void a(int i, int i2, Handler handler) {
         c.d("postUrl is https://ufosdk.baidu.com/?m=Index&a=getProductType");

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.appframework;
-/* loaded from: classes17.dex */
+/* loaded from: classes10.dex */
 public interface AppFrameworkIOC {
     void backPressUBC(String str, String str2, String str3, String str4, String str5);
 

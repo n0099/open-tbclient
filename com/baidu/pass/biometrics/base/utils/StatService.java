@@ -13,7 +13,7 @@ import com.baidu.pass.http.PassHttpParamDTO;
 import com.baidu.sapi2.SapiContext;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public final class StatService {
     public static final String DOMAIN_NSCLICK_URL = "https://nsclick.baidu.com/v.gif";
     public static final String TAG = "StatService";

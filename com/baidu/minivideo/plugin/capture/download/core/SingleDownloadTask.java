@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Map;
-/* loaded from: classes17.dex */
+/* loaded from: classes19.dex */
 public class SingleDownloadTask extends DownloadTaskImpl {
     public SingleDownloadTask(DownloadInfo downloadInfo, ThreadRecord threadRecord, DownloadTask.OnDownloadListener onDownloadListener) {
         super(downloadInfo, threadRecord, onDownloadListener);

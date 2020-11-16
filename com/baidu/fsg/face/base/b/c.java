@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
@@ -97,7 +97,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public static class a {
         private static final String d = "name";
         private static final String e = "url";

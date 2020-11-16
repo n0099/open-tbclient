@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class j extends g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -14,13 +14,13 @@ public class j extends g {
 
     @Override // com.baidu.swan.apps.media.b.a.g
     public boolean a(com.baidu.swan.apps.media.b.a aVar, com.baidu.swan.apps.media.b.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.console.c.i("video", "sendDanmu, video id:" + cVar.daK + " slave id: " + cVar.cDL);
-        a(aVar, cVar.deQ, unitedSchemeEntity, callbackHandler);
+        com.baidu.swan.apps.console.c.i("video", "sendDanmu, video id:" + cVar.cZa + " slave id: " + cVar.cCb);
+        a(aVar, cVar.ddh, unitedSchemeEntity, callbackHandler);
         return true;
     }
 
     private void a(com.baidu.swan.apps.media.b.a aVar, String str, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        aVar.oX(str);
+        aVar.oR(str);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 }

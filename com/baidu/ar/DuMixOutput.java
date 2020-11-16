@@ -7,7 +7,7 @@ import com.baidu.ar.arrender.Texture;
 import com.baidu.ar.bean.MirriorType;
 import com.baidu.ar.bean.RotationType;
 import com.baidu.ar.bean.ScaleType;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class DuMixOutput {
     private RotationType bi;
     private MirriorType bj;

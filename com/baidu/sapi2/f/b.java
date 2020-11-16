@@ -4,7 +4,7 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.result.SapiResult;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class b extends SapiResult {
 
     /* renamed from: a  reason: collision with root package name */

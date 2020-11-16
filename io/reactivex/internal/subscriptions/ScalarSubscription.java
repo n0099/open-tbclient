@@ -3,7 +3,7 @@ package io.reactivex.internal.subscriptions;
 import io.reactivex.internal.a.d;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.a.c;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class ScalarSubscription<T> extends AtomicInteger implements d<T> {
     static final int CANCELLED = 2;
     static final int NO_REQUEST = 0;

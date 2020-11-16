@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 import tbclient.RecommendForumListForBottle.RecommendForumListForBottleResIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class GetBottleForumListSocketResMessage extends SocketResponsedMessage {
     public List<ForumInfo> mBottleForumList;
 

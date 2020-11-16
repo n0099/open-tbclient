@@ -1,19 +1,14 @@
 package com.baidu.tieba.u;
 
-import java.util.ArrayList;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes23.dex */
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.util.ag;
+/* loaded from: classes.dex */
 public class d {
-    public final List<String> nlp;
-    public final String nlq;
-
-    public d(List<String> list, String str) {
-        if (list != null) {
-            this.nlp = new ArrayList(list);
-        } else {
-            this.nlp = new ArrayList();
+    public static void dMP() {
+        try {
+            Thread.setDefaultUncaughtExceptionHandler(new ag());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        this.nlq = str;
     }
 }

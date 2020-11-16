@@ -7,7 +7,7 @@ import com.bun.miitmdid.utils.d;
 import com.bun.miitmdid.utils.sysParamters;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
@@ -15,10 +15,10 @@ public class c {
 
     private Map<String, String> a() {
         if (this.f3978a.isEmpty()) {
-            this.f3978a.put("av", sysParamters.eiI().b());
-            this.f3978a.put("sv", sysParamters.eiI().c());
-            this.f3978a.put(IXAdRequestInfo.TEST_MODE, sysParamters.eiI().d());
-            this.f3978a.put("mf", sysParamters.eiI().e());
+            this.f3978a.put("av", sysParamters.eiG().b());
+            this.f3978a.put("sv", sysParamters.eiG().c());
+            this.f3978a.put(IXAdRequestInfo.TEST_MODE, sysParamters.eiG().d());
+            this.f3978a.put("mf", sysParamters.eiG().e());
             this.f3978a.put(Config.PACKAGE_NAME, sysParamters.g());
         }
         this.f3978a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
@@ -28,16 +28,16 @@ public class c {
     public boolean b(boolean z, String str, String str2, String str3, String str4) {
         try {
             String a2 = d.a(String.format("UDID=%s&OAID=%s&VAID=%s&AAID=%s", str, str2, str3, str4));
-            b gQ = b.gQ(com.bun.miitmdid.utils.b.a());
-            gQ.G(a());
-            gQ.gV("support", String.valueOf(z ? 1 : 0));
-            gQ.aW(a2);
-            gQ.XK("http://sdk.api.bjshcw.com/stat");
-            gQ.a(new b.a() { // from class: com.bun.miitmdid.b.c.1
+            b gO = b.gO(com.bun.miitmdid.utils.b.a());
+            gO.G(a());
+            gO.gV("support", String.valueOf(z ? 1 : 0));
+            gO.aX(a2);
+            gO.Xv("http://sdk.api.bjshcw.com/stat");
+            gO.a(new b.a() { // from class: com.bun.miitmdid.b.c.1
                 @Override // com.bun.miitmdid.b.b.a
                 public void a(Exception exc, int i, String str5) {
                 }
-            }).eiC();
+            }).eiA();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.k.a.a;
 import com.baidu.sapi2.callback.TitleBtnCallback;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class PassportViewManager implements NoProguard {
     private static SapiConfiguration c;
     private static PassportViewManager d;
@@ -13,7 +13,7 @@ public class PassportViewManager implements NoProguard {
     private TitleBtnCallback f3212a;
     private TitleViewModule b = null;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class TitleViewModule implements NoProguard {
         public static final int DEFAULT_TEXT_COLOR = PassportViewManager.c.context.getResources().getColor(a.b.sapi_sdk_edit_text_color);
         public int bgColor = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;

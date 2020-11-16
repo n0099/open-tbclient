@@ -14,7 +14,7 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class MediaUtils {
     private static final boolean DEBUG = AppConfig.isDebug();
     private static final String TAG = MediaUtils.class.getSimpleName();

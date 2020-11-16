@@ -9,38 +9,38 @@ import java.util.Locale;
 import java.util.Random;
 /* loaded from: classes6.dex */
 public final class UserAgent {
-    private static UserAgent pGg = new UserAgent();
-    public final String id = exT();
-    public final String ua = Zc(this.id);
+    private static UserAgent pHJ = new UserAgent();
+    public final String id = exU();
+    public final String ua = YN(this.id);
 
     private UserAgent() {
     }
 
-    public static UserAgent exS() {
-        return pGg;
+    public static UserAgent exT() {
+        return pHJ;
     }
 
-    private static String exT() {
+    private static String exU() {
         return System.currentTimeMillis() + "" + new Random().nextInt(999);
     }
 
-    static String Zc(String str) {
-        return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", abL(), exU(), str);
+    static String YN(String str) {
+        return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", abc(), exV(), str);
     }
 
-    private static String abL() {
+    private static String abc() {
         try {
             String str = Build.VERSION.RELEASE;
             if (str == null) {
                 return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             }
-            return StringUtils.Zi(str.trim());
+            return StringUtils.YT(str.trim());
         } catch (Throwable th) {
             return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
         }
     }
 
-    private static String exU() {
+    private static String exV() {
         try {
             String trim = Build.MODEL.trim();
             String hd = hd(Build.MANUFACTURER.trim(), trim);
@@ -51,7 +51,7 @@ public final class UserAgent {
             if (hd == null) {
                 hd = Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             }
-            return StringUtils.Zi(sb.append(hd).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(trim).toString());
+            return StringUtils.YT(sb.append(hd).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(trim).toString());
         } catch (Throwable th) {
             return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
         }
@@ -65,7 +65,7 @@ public final class UserAgent {
         return str;
     }
 
-    public String Zd(String str) {
+    public String YO(String str) {
         String trim = ("" + str).trim();
         return new String((this.ua + "; " + trim.substring(0, Math.min(16, trim.length())) + ")").getBytes(Charset.forName("ISO-8859-1")));
     }

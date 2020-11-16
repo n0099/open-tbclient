@@ -8,7 +8,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.Window;
 import com.baidu.mobstat.al;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
@@ -31,7 +31,7 @@ public class ak {
         }
     };
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
     }

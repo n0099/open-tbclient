@@ -2,9 +2,10 @@ package com.baidu.tieba.ala.alasquare.special_forum.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class b extends com.baidu.tieba.card.data.b {
+public class b extends BaseCardInfo {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public long end_time;
     public int id;
@@ -13,7 +14,7 @@ public class b extends com.baidu.tieba.card.data.b {
     public long start_time;
     public String url;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
         return TYPE;
     }

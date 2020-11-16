@@ -12,21 +12,21 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.c {
     private boolean mIsFromSchema = false;
-    private PersonPolymericFragment maN;
+    private PersonPolymericFragment mbf;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.person_new_fragment_view);
-        this.maN = new PersonPolymericFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.maN).commit();
+        this.mbf = new PersonPolymericFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.mbf).commit();
         if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !com.baidu.adp.base.a.lg().bq("MainTabActivity")) {
             this.mIsFromSchema = true;
         }
@@ -44,8 +44,8 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.maN != null) {
-            this.maN.onChangeSkinType(i);
+        if (this.mbf != null) {
+            this.mbf.onChangeSkinType(i);
         }
     }
 
@@ -58,15 +58,15 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.maN != null) {
-            this.maN.onActivityResult(i, i2, intent);
+        if (this.mbf != null) {
+            this.mbf.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.maN != null) {
-            return this.maN.getVoiceManager();
+        if (this.mbf != null) {
+            return this.mbf.getVoiceManager();
         }
         return null;
     }
@@ -79,7 +79,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (!at.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+        if (!au.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             TbadkCoreApplication.getInst().setTaskId("");
         }
     }

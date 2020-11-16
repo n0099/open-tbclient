@@ -2,7 +2,7 @@ package com.baidu.swan.apps.adaptation.implementation;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class d implements com.baidu.swan.apps.adaptation.a.n {
     @Override // com.baidu.swan.apps.adaptation.a.n
     public InputStream k(InputStream inputStream) throws IOException {

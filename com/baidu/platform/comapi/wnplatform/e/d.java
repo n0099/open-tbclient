@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.wnplatform.e;
 
 import android.text.TextUtils;
-import com.baidu.f.a.c;
+import com.baidu.g.a.c;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.google.protobuf.micro.MessageMicro;
 import java.io.BufferedInputStream;
@@ -49,20 +49,20 @@ public class d {
         ArrayList arrayList = new ArrayList();
         if (bArr != null && bArr.length != 0) {
             int i = ByteBuffer.wrap(bArr, 0, 4).order(ByteOrder.BIG_ENDIAN).getInt();
-            com.baidu.f.a.c w = com.baidu.f.a.c.w(a(new ByteArrayInputStream(bArr, 4, i)));
-            int wn = w.wn();
+            com.baidu.g.a.c w = com.baidu.g.a.c.w(a(new ByteArrayInputStream(bArr, 4, i)));
+            int wm = w.wm();
             int i2 = i + 4;
-            for (int i3 = 0; i3 < wn; i3++) {
-                c.a bZ = w.bZ(i3);
-                String name = bZ.getName();
-                int wp = bZ.wp();
-                int offset = bZ.getOffset() + i2;
+            for (int i3 = 0; i3 < wm; i3++) {
+                c.a bX = w.bX(i3);
+                String name = bX.getName();
+                int wo = bX.wo();
+                int offset = bX.getOffset() + i2;
                 if (name.equals("M")) {
                     b bVar = new b();
-                    bVar.f3107a = a(new ByteArrayInputStream(bArr, offset, wp));
+                    bVar.f3107a = a(new ByteArrayInputStream(bArr, offset, wo));
                     arrayList.add(bVar);
                 } else {
-                    MessageMicro a2 = a(str, name, bArr, offset, wp);
+                    MessageMicro a2 = a(str, name, bArr, offset, wo);
                     if (a2 != null) {
                         arrayList.add(a2);
                     }

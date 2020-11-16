@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.baidu.ufosdk.UfoSDK;
 import com.baidu.ufosdk.b.d;
 import com.baidu.ufosdk.f.c;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class a extends Thread {
 
     /* renamed from: a  reason: collision with root package name */

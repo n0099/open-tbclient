@@ -2,7 +2,7 @@ package com.sdk.base.module.config;
 
 import com.sdk.base.framework.c.e;
 import com.sdk.base.framework.f.d.a;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class BaseConfig implements e {
     long r = System.currentTimeMillis();
     public static String apk = "com.cucc.sdk.api_key";

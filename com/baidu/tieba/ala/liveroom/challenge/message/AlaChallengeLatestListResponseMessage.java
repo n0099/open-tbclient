@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaChallengeLatestListResponseMessage extends JsonHttpResponsedMessage {
-    private List<d> bsU;
+    private List<d> brj;
 
     public AlaChallengeLatestListResponseMessage() {
         super(1021203);
@@ -19,19 +19,19 @@ public class AlaChallengeLatestListResponseMessage extends JsonHttpResponsedMess
         JSONArray optJSONArray;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("data")) != null && optJSONArray.length() != 0) {
-            this.bsU = new ArrayList();
+            this.brj = new ArrayList();
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
                     d dVar = new d();
                     dVar.parseJson(optJSONObject);
-                    this.bsU.add(dVar);
+                    this.brj.add(dVar);
                 }
             }
         }
     }
 
-    public List<d> bZH() {
-        return this.bsU;
+    public List<d> bZa() {
+        return this.brj;
     }
 }

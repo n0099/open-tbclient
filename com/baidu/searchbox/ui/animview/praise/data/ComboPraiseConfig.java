@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ui.animview.praise.data;
 
 import android.graphics.Rect;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public class ComboPraiseConfig {
     public Rect mBaseRect = new Rect();
     public boolean mFirstPraiseAnimEnabled = false;

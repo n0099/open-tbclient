@@ -11,22 +11,22 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class ei extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
     private Context f4876a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f232a;
+    private SharedPreferences f235a;
 
     /* renamed from: a  reason: collision with other field name */
-    private com.xiaomi.push.service.ak f233a;
+    private com.xiaomi.push.service.ak f236a;
 
     public ei(Context context) {
         this.f4876a = context;
-        this.f232a = context.getSharedPreferences("mipush_extra", 0);
-        this.f233a = com.xiaomi.push.service.ak.a(context);
+        this.f235a = context.getSharedPreferences("mipush_extra", 0);
+        this.f236a = com.xiaomi.push.service.ak.a(context);
     }
 
     private List<hu> a(File file) {
@@ -39,8 +39,8 @@ public class ei extends ai.a {
         r1 = null;
         fileInputStream2 = null;
         FileLock fileLock2 = null;
-        dp m232a = dq.a().m232a();
-        String a2 = m232a == null ? "" : m232a.a();
+        dp m235a = dq.a().m235a();
+        String a2 = m235a == null ? "" : m235a.a();
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
@@ -49,7 +49,7 @@ public class ei extends ai.a {
         synchronized (dv.f4867a) {
             try {
                 File file2 = new File(this.f4876a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m590a(file2);
+                y.m593a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -130,13 +130,13 @@ public class ei extends ai.a {
     }
 
     private void a() {
-        SharedPreferences.Editor edit = this.f232a.edit();
+        SharedPreferences.Editor edit = this.f235a.edit();
         edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m237a() {
+    private boolean m240a() {
         if (az.d(this.f4876a)) {
             return false;
         }
@@ -147,22 +147,22 @@ public class ei extends ai.a {
     }
 
     private boolean b() {
-        if (this.f233a.a(hr.Upload3GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f232a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f233a.a(hr.Upload3GFrequency.a(), 432000)));
+        if (this.f236a.a(hr.Upload3GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f235a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f236a.a(hr.Upload3GFrequency.a(), 432000)));
         }
         return false;
     }
 
     private boolean c() {
-        if (this.f233a.a(hr.Upload4GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f232a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f233a.a(hr.Upload4GFrequency.a(), 259200)));
+        if (this.f236a.a(hr.Upload4GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f235a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f236a.a(hr.Upload4GFrequency.a(), 259200)));
         }
         return false;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo166a() {
+    public int mo169a() {
         return 1;
     }
 
@@ -173,7 +173,7 @@ public class ei extends ai.a {
             if (file.length() > 1863680) {
                 file.delete();
             }
-        } else if (m237a() || !file.exists()) {
+        } else if (m240a() || !file.exists()) {
         } else {
             List<hu> a2 = a(file);
             if (!ad.a(a2)) {
@@ -185,11 +185,11 @@ public class ei extends ai.a {
                 cif.a(a2);
                 byte[] a3 = y.a(iw.a(cif));
                 il ilVar = new il("-1", false);
-                ilVar.c(hw.DataCollection.f476a);
+                ilVar.c(hw.DataCollection.f479a);
                 ilVar.a(a3);
-                dp m232a = dq.a().m232a();
-                if (m232a != null) {
-                    m232a.a(ilVar, hm.Notification, null);
+                dp m235a = dq.a().m235a();
+                if (m235a != null) {
+                    m235a.a(ilVar, hm.Notification, null);
                 }
                 a();
             }

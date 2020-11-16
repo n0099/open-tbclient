@@ -2,7 +2,7 @@ package com.android.internal.http.multipart;
 
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public abstract class Part {
     @Deprecated
     protected static final String BOUNDARY = "----------------314159265358979323846";

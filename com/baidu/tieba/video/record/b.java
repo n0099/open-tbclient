@@ -2,24 +2,24 @@ package com.baidu.tieba.video.record;
 
 import android.hardware.Camera;
 import android.view.MotionEvent;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 class b {
     private Camera mCamera;
     private int mode = 0;
-    private float nsb;
-    private int nsc;
-    private i nsd;
+    private float nti;
+    private int ntj;
+    private i ntk;
 
     public b(Camera camera) {
         this.mCamera = camera;
     }
 
     public void setRecordController(i iVar) {
-        this.nsd = iVar;
+        this.ntk = iVar;
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (this.nsd == null || !this.nsd.btZ()) {
+        if (this.ntk == null || !this.ntk.btp()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.nsb) / 10.0f);
+                        int i = (int) ((spacing - this.nti) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.nsc;
+                            int i2 = i + this.ntj;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.nsb = spacing;
+                            this.nti = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.nsb = spacing(motionEvent);
+                    this.nti = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.nsc = i;
+                this.ntj = i;
             }
         }
     }

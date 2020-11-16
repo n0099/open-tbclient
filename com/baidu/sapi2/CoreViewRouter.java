@@ -84,7 +84,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class CoreViewRouter implements NoProguard {
     private static CoreViewRouter y;
     private static LoginStatusChangeCallback z;
@@ -116,7 +116,7 @@ public class CoreViewRouter implements NoProguard {
     private Context x = SapiAccountManager.getInstance().getSapiConfiguration().context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class a extends GetTplStokenCallback {
 
         /* renamed from: a  reason: collision with root package name */
@@ -164,12 +164,12 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public class b extends b.AbstractC0343b {
+    /* loaded from: classes15.dex */
+    public class b extends b.AbstractC0341b {
         b() {
         }
 
-        @Override // com.baidu.sapi2.share.b.AbstractC0343b
+        @Override // com.baidu.sapi2.share.b.AbstractC0341b
         public void onFailed(int i, String str) {
             super.onFailed(i, str);
             WebAuthResult webAuthResult = new WebAuthResult();
@@ -181,7 +181,7 @@ public class CoreViewRouter implements NoProguard {
             CoreViewRouter.getInstance().release();
         }
 
-        @Override // com.baidu.sapi2.share.b.AbstractC0343b
+        @Override // com.baidu.sapi2.share.b.AbstractC0341b
         public void onSuccess() {
             WebAuthResult webAuthResult = new WebAuthResult();
             webAuthResult.accountType = AccountType.NORMAL;
@@ -194,7 +194,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class c extends QrLoginCallback {
 
         /* renamed from: a  reason: collision with root package name */
@@ -221,7 +221,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class d extends WebAuthListener {
 
         /* renamed from: a  reason: collision with root package name */
@@ -248,7 +248,7 @@ public class CoreViewRouter implements NoProguard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     class e extends AuthWidgetCallback {
 
         /* renamed from: a  reason: collision with root package name */
@@ -277,7 +277,7 @@ public class CoreViewRouter implements NoProguard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     class f extends GetTplStokenCallback {
 
         /* renamed from: a  reason: collision with root package name */
@@ -327,7 +327,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class g extends PassFaceRecogCallback {
 
         /* renamed from: a  reason: collision with root package name */
@@ -363,7 +363,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class h extends PassFaceRecogCallback {
 
         /* renamed from: a  reason: collision with root package name */
@@ -406,7 +406,7 @@ public class CoreViewRouter implements NoProguard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     class i implements SapiCallback<SapiResult> {
 
         /* renamed from: a  reason: collision with root package name */
@@ -483,7 +483,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class j extends PassFaceRecogCallback {
 
         /* renamed from: a  reason: collision with root package name */
@@ -887,7 +887,7 @@ public class CoreViewRouter implements NoProguard {
             new OneKeyLoginSdkCall().b(SapiAccountManager.getInstance().getSapiConfiguration(), new OneKeyLoginSdkCall.TokenListener() { // from class: com.baidu.sapi2.CoreViewRouter.11
 
                 /* renamed from: com.baidu.sapi2.CoreViewRouter$11$a */
-                /* loaded from: classes5.dex */
+                /* loaded from: classes15.dex */
                 class a implements com.baidu.sapi2.callback.a.b {
                     a() {
                     }

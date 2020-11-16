@@ -9,37 +9,37 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class e extends BaseExpandableListAdapter {
-    private LayoutInflater jUp;
-    private ExpandableListView jUq;
+    private LayoutInflater jUZ;
+    private ExpandableListView jVa;
     private final List<c> mList = new ArrayList();
     private TbPageContext<HotTopicSelectActivity> mPageContext;
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes20.dex */
     public static class a {
-        int ajq = 3;
-        TextView jQr = null;
-        TextView jUr = null;
-        View jQu = null;
-        View jQv = null;
+        int ajv = 3;
+        TextView jRb = null;
+        TextView jVb = null;
+        View jRe = null;
+        View jRf = null;
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes20.dex */
     public static class b {
-        int ajq = 3;
+        int ajv = 3;
         View dividerLine;
-        View jUs;
+        View jVc;
         TextView titleTv;
     }
 
     public e(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.jUp = LayoutInflater.from(this.mPageContext.getPageActivity());
+        this.jUZ = LayoutInflater.from(this.mPageContext.getPageActivity());
     }
 
     public List<c> getList() {
@@ -57,11 +57,11 @@ public class e extends BaseExpandableListAdapter {
 
     @Override // android.widget.BaseExpandableListAdapter, android.widget.ExpandableListAdapter
     public void onGroupCollapsed(int i) {
-        if (this.jUq != null) {
+        if (this.jVa != null) {
             int groupCount = getGroupCount();
             for (int i2 = 0; i2 < groupCount; i2++) {
                 if (i2 != i) {
-                    this.jUq.collapseGroup(i);
+                    this.jVa.collapseGroup(i);
                 }
             }
         }
@@ -82,7 +82,7 @@ public class e extends BaseExpandableListAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.ExpandableListAdapter
-    /* renamed from: Cu */
+    /* renamed from: CS */
     public c getGroup(int i) {
         return this.mList.get(i);
     }
@@ -116,11 +116,11 @@ public class e extends BaseExpandableListAdapter {
     public View getGroupView(int i, boolean z, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null || !(view.getTag() instanceof b)) {
-            view = this.jUp.inflate(R.layout.hot_group_item, (ViewGroup) null);
+            view = this.jUZ.inflate(R.layout.hot_group_item, (ViewGroup) null);
             b bVar2 = new b();
             bVar2.titleTv = (TextView) view.findViewById(R.id.header_text);
             bVar2.dividerLine = view.findViewById(R.id.divider_line);
-            bVar2.jUs = view.findViewById(R.id.group_divider);
+            bVar2.jVc = view.findViewById(R.id.group_divider);
             view.setTag(bVar2);
             view.setClickable(false);
             bVar = bVar2;
@@ -129,13 +129,13 @@ public class e extends BaseExpandableListAdapter {
         }
         c group = getGroup(i);
         if (group != null) {
-            bVar.titleTv.setText(at.cutStringWithSuffix(group.cNO(), 15, null));
+            bVar.titleTv.setText(au.cutStringWithSuffix(group.cNu(), 15, null));
             if (i == 0) {
                 bVar.dividerLine.setVisibility(0);
-                bVar.jUs.setVisibility(8);
+                bVar.jVc.setVisibility(8);
             } else {
                 bVar.dividerLine.setVisibility(8);
-                bVar.jUs.setVisibility(0);
+                bVar.jVc.setVisibility(0);
             }
             a(bVar, view, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -143,24 +143,24 @@ public class e extends BaseExpandableListAdapter {
     }
 
     private void a(b bVar, View view, int i) {
-        if (bVar != null && bVar.ajq != i) {
-            ap.setBackgroundColor(view, R.color.cp_bg_line_d);
-            ap.setBackgroundColor(bVar.dividerLine, R.color.cp_bg_line_c);
-            ap.setBackgroundColor(bVar.jUs, R.color.cp_bg_line_e);
-            ap.setViewTextColor(bVar.titleTv, R.color.cp_cont_d, 1);
-            bVar.ajq = i;
+        if (bVar != null && bVar.ajv != i) {
+            ap.setBackgroundColor(view, R.color.CAM_X0201);
+            ap.setBackgroundColor(bVar.dividerLine, R.color.CAM_X0204);
+            ap.setBackgroundColor(bVar.jVc, R.color.CAM_X0205);
+            ap.setViewTextColor(bVar.titleTv, R.color.CAM_X0109, 1);
+            bVar.ajv = i;
         }
     }
 
     private void a(a aVar, View view, int i) {
-        if (aVar != null && aVar.ajq != i) {
+        if (aVar != null && aVar.ajv != i) {
             ap.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-            ap.setBackgroundResource(aVar.jUr, R.drawable.hot_select_tag_bg);
-            ap.setBackgroundColor(aVar.jQu, R.color.cp_bg_line_c);
-            ap.setBackgroundColor(aVar.jQv, R.color.cp_bg_line_c);
-            ap.setViewTextColor(aVar.jUr, R.color.cp_link_tip_a, 1);
-            ap.setViewTextColor(aVar.jQr, R.color.cp_cont_b, 1);
-            aVar.ajq = i;
+            ap.setBackgroundResource(aVar.jVb, R.drawable.hot_select_tag_bg);
+            ap.setBackgroundColor(aVar.jRe, R.color.CAM_X0204);
+            ap.setBackgroundColor(aVar.jRf, R.color.CAM_X0204);
+            ap.setViewTextColor(aVar.jVb, R.color.CAM_X0302, 1);
+            ap.setViewTextColor(aVar.jRb, R.color.CAM_X0105, 1);
+            aVar.ajv = i;
         }
     }
 
@@ -170,12 +170,12 @@ public class e extends BaseExpandableListAdapter {
         View view2;
         d child = getChild(i, i2);
         if (view == null || !(view.getTag() instanceof a)) {
-            View inflate = this.jUp.inflate(R.layout.hot_child_bang_item, (ViewGroup) null);
+            View inflate = this.jUZ.inflate(R.layout.hot_child_bang_item, (ViewGroup) null);
             aVar = new a();
-            aVar.jQr = (TextView) inflate.findViewById(R.id.hot_topic_title);
-            aVar.jUr = (TextView) inflate.findViewById(R.id.hot_topic_tag);
-            aVar.jQu = inflate.findViewById(R.id.divider_line_top);
-            aVar.jQv = inflate.findViewById(R.id.divider_line_bottom);
+            aVar.jRb = (TextView) inflate.findViewById(R.id.hot_topic_title);
+            aVar.jVb = (TextView) inflate.findViewById(R.id.hot_topic_tag);
+            aVar.jRe = inflate.findViewById(R.id.divider_line_top);
+            aVar.jRf = inflate.findViewById(R.id.divider_line_bottom);
             inflate.setTag(aVar);
             view2 = inflate;
         } else {
@@ -183,14 +183,14 @@ public class e extends BaseExpandableListAdapter {
             view2 = view;
         }
         if (child != null) {
-            aVar.jQr.setText(com.baidu.tbadk.plugins.b.Ep(at.cutStringWithEllipsisNew(child.getTopicName(), 15)));
-            h(aVar.jUr, child.cNP().intValue());
+            aVar.jRb.setText(com.baidu.tbadk.plugins.b.DO(au.cutStringWithEllipsisNew(child.getTopicName(), 15)));
+            g(aVar.jVb, child.cNv().intValue());
             a(aVar, view2, TbadkCoreApplication.getInst().getSkinType());
         }
         return view2;
     }
 
-    private void h(TextView textView, int i) {
+    private void g(TextView textView, int i) {
         if (textView != null) {
             if (i == 10) {
                 textView.setVisibility(0);

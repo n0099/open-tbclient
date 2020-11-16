@@ -2,7 +2,7 @@ package com.vivo.push.util;
 
 import android.content.Context;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class y implements c {
 
     /* renamed from: a  reason: collision with root package name */

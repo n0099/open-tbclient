@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.n;
 import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.tieba.advert.sdk.data.b;
 import java.io.File;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class a {
     private static long lastClickTime;
 
@@ -25,18 +25,18 @@ public class a {
 
     public static void a(b bVar) {
         if (bVar == null) {
-            bKw();
+            bJP();
         } else {
             TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).edit().putString("bc_splash_info_new", bVar.toString()).apply();
         }
     }
 
-    public static void bKw() {
+    public static void bJP() {
         TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).edit().putString("bc_splash_info_new", "").apply();
     }
 
-    public static void bKx() {
-        File file = new File(com.baidu.tieba.advert.sdk.b.a.fVC);
+    public static void bJQ() {
+        File file = new File(com.baidu.tieba.advert.sdk.b.a.fVj);
         if (file.exists()) {
             n.deleteFileOrDir(file);
         }
@@ -44,7 +44,7 @@ public class a {
 
     public static void W(File file) {
         File[] listFiles;
-        File file2 = new File(com.baidu.tieba.advert.sdk.b.a.fVC);
+        File file2 = new File(com.baidu.tieba.advert.sdk.b.a.fVj);
         if (file2.exists() && (listFiles = file2.listFiles()) != null) {
             for (File file3 : listFiles) {
                 if (file3 != null && !file3.equals(file)) {
@@ -54,7 +54,7 @@ public class a {
         }
     }
 
-    public static String bKy() {
+    public static String bJR() {
         return TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).getString("bc_splash_info_new", "");
     }
 }

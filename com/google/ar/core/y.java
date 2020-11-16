@@ -3,28 +3,28 @@ package com.google.ar.core;
 import com.google.ar.core.exceptions.UnavailableException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
     boolean f4050a = false;
-    final /* synthetic */ InstallActivity pcN;
+    final /* synthetic */ InstallActivity peq;
 
     public void a(p pVar) {
-        synchronized (this.pcN) {
+        synchronized (this.peq) {
             if (!this.f4050a) {
-                InstallActivity.a(this.pcN, pVar);
+                InstallActivity.a(this.peq, pVar);
                 switch (pVar.ordinal()) {
                     case 0:
                         return;
                     case 1:
-                        InstallActivity.a(this.pcN, new UnavailableUserDeclinedInstallationException());
+                        InstallActivity.a(this.peq, new UnavailableUserDeclinedInstallationException());
                         break;
                     case 2:
-                        if (!InstallActivity.d(this.pcN)) {
-                            InstallActivity.e(this.pcN);
+                        if (!InstallActivity.d(this.peq)) {
+                            InstallActivity.e(this.peq);
                         }
-                        InstallActivity.a(this.pcN, (Exception) null);
+                        InstallActivity.a(this.peq, (Exception) null);
                         break;
                 }
                 this.f4050a = true;
@@ -33,19 +33,19 @@ public class y {
     }
 
     public void a(Exception exc) {
-        synchronized (this.pcN) {
+        synchronized (this.peq) {
             if (!this.f4050a) {
                 this.f4050a = true;
-                InstallActivity.a(this.pcN, p.CANCELLED);
+                InstallActivity.a(this.peq, p.CANCELLED);
                 if (!(exc instanceof UnavailableException)) {
                 }
-                InstallActivity.a(this.pcN, exc);
+                InstallActivity.a(this.peq, exc);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(InstallActivity installActivity) {
-        this.pcN = installActivity;
+        this.peq = installActivity;
     }
 }

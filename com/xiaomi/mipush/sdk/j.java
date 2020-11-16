@@ -1,5 +1,5 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 /* synthetic */ class j {
 
     /* renamed from: a  reason: collision with root package name */

@@ -24,7 +24,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class b implements com.baidu.fsg.base.restnet.rest.b {
 
     /* renamed from: a  reason: collision with root package name */

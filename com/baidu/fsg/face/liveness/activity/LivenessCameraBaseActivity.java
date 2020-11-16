@@ -20,7 +20,7 @@ import com.baidu.fsg.face.base.d.d;
 import com.baidu.fsg.face.base.d.f;
 import com.baidu.fsg.face.liveness.camera.LivenessCameraSurfaceView;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity implements Camera.PreviewCallback, SurfaceHolder.Callback {
     private static final int b = 1;
     private static final int c = 2;
@@ -189,7 +189,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     private class a extends AsyncTask<Void, Void, String> {
         private a() {
         }
@@ -256,7 +256,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     private static class b implements MediaPlayer.OnErrorListener {
         private b() {
         }

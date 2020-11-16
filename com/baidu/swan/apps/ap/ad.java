@@ -11,9 +11,9 @@ import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class ad {
-    public static boolean aMK() {
+    public static boolean aMc() {
         Context appContext = AppRuntime.getAppContext();
         if (cL(appContext)) {
             return false;
@@ -49,8 +49,8 @@ public class ad {
         return z;
     }
 
-    public static int aML() {
-        if (!aMK()) {
+    public static int aMd() {
+        if (!aMc()) {
             return 0;
         }
         return ah.getInternalDimensionSize(AppRuntime.getAppContext().getResources(), ah.isScreenPortrait() ? "navigation_bar_height" : "navigation_bar_height_landscape");
@@ -96,7 +96,7 @@ public class ad {
         }
     }
 
-    public static Pair<Integer, Integer> aMM() {
+    public static Pair<Integer, Integer> aMe() {
         Context appContext = AppRuntime.getAppContext();
         WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
         if (windowManager == null) {
@@ -108,8 +108,8 @@ public class ad {
         return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
     }
 
-    public static Pair<Integer, Integer> aMN() {
-        Pair<Integer, Integer> aMM = aMM();
-        return new Pair<>(Integer.valueOf(((Integer) aMM.first).intValue()), Integer.valueOf(((Integer) aMM.second).intValue() - aML()));
+    public static Pair<Integer, Integer> aMf() {
+        Pair<Integer, Integer> aMe = aMe();
+        return new Pair<>(Integer.valueOf(((Integer) aMe.first).intValue()), Integer.valueOf(((Integer) aMe.second).intValue() - aMd()));
     }
 }

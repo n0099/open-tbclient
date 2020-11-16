@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class aw {
     private static aw b = new aw();
 
@@ -28,7 +28,7 @@ public class aw {
     private JSONArray j = new JSONArray();
     private JSONArray k = new JSONArray();
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(JSONObject jSONObject);
     }

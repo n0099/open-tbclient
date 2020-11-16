@@ -18,28 +18,28 @@ import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 import com.baidu.tieba.play.f;
 import com.baidu.tieba.play.n;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class VideoPasterContentView extends FrameLayout {
-    private VideoPasterOverlayView ZV;
-    private TbImageView ZW;
-    private TbImageView ZX;
-    private TbCyberVideoView ZY;
-    private f ZZ;
-    private a aaa;
-    private boolean aab;
-    private j aac;
-    private boolean aae;
-    private int aaf;
-    private long aag;
+    private VideoPasterOverlayView aaa;
+    private TbImageView aab;
+    private TbImageView aac;
+    private TbCyberVideoView aae;
+    private f aaf;
+    private a aag;
     private boolean aah;
-    private boolean aai;
-    private int aaj;
-    private Runnable aak;
+    private j aai;
+    private boolean aaj;
+    private int aak;
+    private long aal;
+    private boolean aam;
+    private boolean aan;
+    private int aao;
+    private Runnable aap;
     private String mFrom;
     private int mStartPosition;
     private com.baidu.afd.videopaster.data.a pasterData;
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes20.dex */
     public interface a {
         void onDetachedFromWindow();
 
@@ -48,23 +48,23 @@ public class VideoPasterContentView extends FrameLayout {
 
     public VideoPasterContentView(Context context) {
         super(context);
-        this.aab = false;
-        this.aae = false;
-        this.aaf = 100;
-        this.mStartPosition = 0;
         this.aah = false;
-        this.aai = false;
-        this.aaj = 0;
-        this.aak = new Runnable() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.7
+        this.aaj = false;
+        this.aak = 100;
+        this.mStartPosition = 0;
+        this.aam = false;
+        this.aan = false;
+        this.aao = 0;
+        this.aap = new Runnable() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.7
             @Override // java.lang.Runnable
             public void run() {
-                e.mY().removeCallbacks(VideoPasterContentView.this.aak);
-                if (!VideoPasterContentView.this.aae) {
-                    boolean z = VideoPasterContentView.this.ZY.getCurrentPositionSync() == 0 && VideoPasterContentView.this.aaf == 100;
-                    if (VideoPasterContentView.this.ZY.getCurrentPositionSync() > VideoPasterContentView.this.aaf) {
+                e.mY().removeCallbacks(VideoPasterContentView.this.aap);
+                if (!VideoPasterContentView.this.aaj) {
+                    boolean z = VideoPasterContentView.this.aae.getCurrentPositionSync() == 0 && VideoPasterContentView.this.aak == 100;
+                    if (VideoPasterContentView.this.aae.getCurrentPositionSync() > VideoPasterContentView.this.aak) {
                         VideoPasterContentView.this.rZ();
                     } else if (z) {
-                        e.mY().postDelayed(VideoPasterContentView.this.aak, 20L);
+                        e.mY().postDelayed(VideoPasterContentView.this.aap, 20L);
                     } else {
                         VideoPasterContentView.this.rZ();
                     }
@@ -75,55 +75,55 @@ public class VideoPasterContentView extends FrameLayout {
     }
 
     private void init() {
-        this.ZV = new VideoPasterOverlayView(getContext());
-        this.ZW = new TbImageView(getContext());
-        this.ZX = new TbImageView(getContext());
-        this.ZY = new TbCyberVideoView(getContext());
-        this.ZY.setStageType(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR);
+        this.aaa = new VideoPasterOverlayView(getContext());
+        this.aab = new TbImageView(getContext());
+        this.aac = new TbImageView(getContext());
+        this.aae = new TbCyberVideoView(getContext());
+        this.aae.setStageType(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR);
         setBackgroundResource(R.color.black_alpha100);
-        this.ZY.setContinuePlayEnable(true);
-        this.ZY.setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.1
+        this.aae.setContinuePlayEnable(true);
+        this.aae.setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.1
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
             public void onPrepared() {
-                if (VideoPasterContentView.this.ZY != null) {
+                if (VideoPasterContentView.this.aae != null) {
                     if (!TextUtils.equals(VideoPasterContentView.this.mFrom, "NEWINDEX")) {
-                        VideoPasterContentView.this.ZY.setVolume(1.0f, 1.0f);
+                        VideoPasterContentView.this.aae.setVolume(1.0f, 1.0f);
                     } else if (TbSingleton.getInstance().isVideoCardMute()) {
-                        VideoPasterContentView.this.ZY.setVolume(0.0f, 0.0f);
+                        VideoPasterContentView.this.aae.setVolume(0.0f, 0.0f);
                     } else {
-                        VideoPasterContentView.this.ZY.setVolume(1.0f, 1.0f);
+                        VideoPasterContentView.this.aae.setVolume(1.0f, 1.0f);
                     }
-                    VideoPasterContentView.this.aaj = VideoPasterContentView.this.ZY.getDuration();
-                    if (VideoPasterContentView.this.ZV != null) {
-                        VideoPasterContentView.this.ZV.d(VideoPasterContentView.this.ZY.getVideoWidth(), VideoPasterContentView.this.ZY.getVideoHeight(), VideoPasterContentView.this.mFrom);
+                    VideoPasterContentView.this.aao = VideoPasterContentView.this.aae.getDuration();
+                    if (VideoPasterContentView.this.aaa != null) {
+                        VideoPasterContentView.this.aaa.c(VideoPasterContentView.this.aae.getVideoWidth(), VideoPasterContentView.this.aae.getVideoHeight(), VideoPasterContentView.this.mFrom);
                     }
                 }
             }
         });
-        this.ZY.setOnCompletionListener(new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.2
+        this.aae.setOnCompletionListener(new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.2
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
             public void onCompletion() {
                 VideoPasterContentView.this.sb();
             }
         });
-        this.ZY.setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.3
+        this.aae.setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.3
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
             public boolean onError(int i, int i2, Object obj) {
                 VideoPasterContentView.this.sb();
                 return false;
             }
         });
-        this.ZY.setOnSurfaceDestroyedListener(new TbCyberVideoView.a() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.4
+        this.aae.setOnSurfaceDestroyedListener(new TbCyberVideoView.a() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.4
             @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.a
             public void onSurfaceDestroyed() {
-                VideoPasterContentView.this.aae = false;
-                VideoPasterContentView.this.aaf = 100;
-                e.mY().removeCallbacks(VideoPasterContentView.this.aak);
+                VideoPasterContentView.this.aaj = false;
+                VideoPasterContentView.this.aak = 100;
+                e.mY().removeCallbacks(VideoPasterContentView.this.aap);
             }
         });
-        this.ZZ = new f();
-        this.ZZ.setPlayer(this.ZY);
-        this.ZZ.a(new f.a() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.5
+        this.aaf = new f();
+        this.aaf.setPlayer(this.aae);
+        this.aaf.a(new f.a() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.5
             @Override // com.baidu.tieba.play.f.a
             public void sc() {
             }
@@ -133,48 +133,48 @@ public class VideoPasterContentView extends FrameLayout {
 
     public void b(boolean z, boolean z2, String str) {
         if (this.pasterData != null && this.pasterData.isValid() && !this.pasterData.isEmpty()) {
-            this.ZV.a(this.pasterData, z, z2);
-            if (!this.aab) {
+            this.aaa.a(this.pasterData, z, z2);
+            if (!this.aah) {
                 if (this.pasterData.rT() == 0) {
-                    this.ZV.setCountDownNum(this.pasterData.Zv);
-                    be(this.pasterData.Zv);
+                    this.aaa.setCountDownNum(this.pasterData.ZA);
+                    be(this.pasterData.ZA);
                 } else if (this.pasterData.rT() == 1) {
-                    this.ZV.setCountDownNum(this.pasterData.Zv);
-                    be(this.pasterData.Zv);
+                    this.aaa.setCountDownNum(this.pasterData.ZA);
+                    be(this.pasterData.ZA);
                 }
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
                 this.mFrom = str;
                 if (this.pasterData.rT() == 0) {
                     removeAllViews();
-                    addView(this.ZW);
-                    addView(this.ZV.getRootView(), layoutParams);
-                    this.ZW.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                    addView(this.aab);
+                    addView(this.aaa.getRootView(), layoutParams);
+                    this.aab.setScaleType(ImageView.ScaleType.FIT_CENTER);
                     c.mS().a(this.pasterData.picUrl, 10, new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.6
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.e.b
                         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str2, int i) {
                             super.onLoaded((AnonymousClass6) aVar, str2, i);
-                            if (aVar != null && aVar.getRawBitmap() != null && VideoPasterContentView.this.ZV != null) {
-                                VideoPasterContentView.this.ZV.d(aVar.getWidth(), aVar.getHeight(), VideoPasterContentView.this.mFrom);
+                            if (aVar != null && aVar.getRawBitmap() != null && VideoPasterContentView.this.aaa != null) {
+                                VideoPasterContentView.this.aaa.c(aVar.getWidth(), aVar.getHeight(), VideoPasterContentView.this.mFrom);
                             }
                         }
                     }, null);
-                    this.ZW.startLoad(this.pasterData.picUrl, 10, false);
+                    this.aab.startLoad(this.pasterData.picUrl, 10, false);
                 } else if (this.pasterData.rT() == 1) {
                     sa();
                     removeAllViews();
-                    addView(this.ZY.getView());
-                    addView(this.ZX);
-                    addView(this.ZV.getRootView(), layoutParams);
-                    this.ZX.startLoad(this.pasterData.Zw, 10, false);
-                    this.ZY.setVideoPath(this.pasterData.videoUrl);
-                    this.ZY.start();
-                    e.mY().removeCallbacks(this.aak);
-                    e.mY().postDelayed(this.aak, 20L);
+                    addView(this.aae.getView());
+                    addView(this.aac);
+                    addView(this.aaa.getRootView(), layoutParams);
+                    this.aac.startLoad(this.pasterData.ZB, 10, false);
+                    this.aae.setVideoPath(this.pasterData.videoUrl);
+                    this.aae.start();
+                    e.mY().removeCallbacks(this.aap);
+                    e.mY().postDelayed(this.aap, 20L);
                 }
-                this.aab = true;
                 this.aah = true;
+                this.aam = true;
             }
         }
     }
@@ -182,39 +182,39 @@ public class VideoPasterContentView extends FrameLayout {
     public void stop() {
         if (this.pasterData != null) {
             if (this.pasterData.rT() == 0) {
-                if (this.aac != null) {
-                    this.aac.pause();
+                if (this.aai != null) {
+                    this.aai.pause();
                 }
             } else if (this.pasterData.rT() == 1) {
-                this.ZX.setVisibility(0);
-                this.ZY.stopPlayback();
-                if (this.ZZ != null) {
-                    this.ZZ.stop();
+                this.aac.setVisibility(0);
+                this.aae.stopPlayback();
+                if (this.aaf != null) {
+                    this.aaf.stop();
                 }
-                if (this.aac != null) {
-                    this.aac.pause();
+                if (this.aai != null) {
+                    this.aai.pause();
                 }
-                e.mY().removeCallbacks(this.aak);
+                e.mY().removeCallbacks(this.aap);
             }
-            if (this.ZV != null) {
-                this.ZV.stop();
+            if (this.aaa != null) {
+                this.aaa.stop();
             }
-            this.aah = false;
-            this.aae = false;
+            this.aam = false;
+            this.aaj = false;
         }
     }
 
     public void rF() {
-        if (this.pasterData != null && this.pasterData.rT() == 1 && this.ZX != null) {
-            this.ZX.setVisibility(0);
+        if (this.pasterData != null && this.pasterData.rT() == 1 && this.aac != null) {
+            this.aac.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void rZ() {
-        if (!this.aae) {
-            this.aae = true;
-            this.ZX.setVisibility(8);
+        if (!this.aaj) {
+            this.aaj = true;
+            this.aac.setVisibility(8);
         }
     }
 
@@ -222,54 +222,54 @@ public class VideoPasterContentView extends FrameLayout {
         int i = 100;
         if (this.pasterData != null) {
             if (this.pasterData.rT() == 0) {
-                if (this.aac != null) {
-                    this.aac.resume();
+                if (this.aai != null) {
+                    this.aai.resume();
                 }
             } else if (this.pasterData.rT() == 1) {
-                this.ZX.setVisibility(0);
-                this.ZY.setVideoPath(this.pasterData.videoUrl);
-                this.ZY.start();
-                if (this.ZZ != null) {
-                    this.ZZ.start();
+                this.aac.setVisibility(0);
+                this.aae.setVideoPath(this.pasterData.videoUrl);
+                this.aae.start();
+                if (this.aaf != null) {
+                    this.aaf.start();
                 }
-                if (this.aac != null) {
-                    this.aac.resume();
+                if (this.aai != null) {
+                    this.aai.resume();
                 }
-                if (this.aab) {
-                    this.mStartPosition = n.dxh().QK(this.pasterData.videoUrl);
-                    if (this.mStartPosition > 100 && this.aaj > this.mStartPosition) {
+                if (this.aah) {
+                    this.mStartPosition = n.dwH().Qf(this.pasterData.videoUrl);
+                    if (this.mStartPosition > 100 && this.aao > this.mStartPosition) {
                         i = this.mStartPosition;
                     }
-                    this.aaf = i;
+                    this.aak = i;
                 } else {
-                    this.aaf = 100;
+                    this.aak = 100;
                 }
-                e.mY().removeCallbacks(this.aak);
-                e.mY().postDelayed(this.aak, 20L);
+                e.mY().removeCallbacks(this.aap);
+                e.mY().postDelayed(this.aap, 20L);
             }
-            if (this.ZV != null) {
-                this.ZV.resume();
+            if (this.aaa != null) {
+                this.aaa.resume();
             }
-            this.aah = true;
+            this.aam = true;
         }
     }
 
     private void be(int i) {
-        if (this.aac != null) {
-            this.aac.stop();
-            this.aac.a((j.a) null);
+        if (this.aai != null) {
+            this.aai.stop();
+            this.aai.a((j.a) null);
         }
-        this.aac = new j(i * 1000, 1000L);
-        this.aac.a(new j.a() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.8
+        this.aai = new j(i * 1000, 1000L);
+        this.aai.a(new j.a() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.8
             @Override // com.baidu.tbadk.util.j.a
             public void b(long j, long j2) {
-                VideoPasterContentView.this.aag = (int) (j2 / 1000);
-                if (VideoPasterContentView.this.ZV != null) {
-                    VideoPasterContentView.this.ZV.setCountDownNum((int) VideoPasterContentView.this.aag);
+                VideoPasterContentView.this.aal = (int) (j2 / 1000);
+                if (VideoPasterContentView.this.aaa != null) {
+                    VideoPasterContentView.this.aaa.setCountDownNum((int) VideoPasterContentView.this.aal);
                 }
-                if (VideoPasterContentView.this.aag == 0) {
+                if (VideoPasterContentView.this.aal == 0) {
                     VideoPasterContentView.this.sb();
-                    VideoPasterContentView.this.aac.stop();
+                    VideoPasterContentView.this.aai.stop();
                 }
             }
 
@@ -278,68 +278,68 @@ public class VideoPasterContentView extends FrameLayout {
                 VideoPasterContentView.this.sb();
             }
         });
-        this.aac.start();
-        this.aai = false;
+        this.aai.start();
+        this.aan = false;
     }
 
     public void setOverlayViewCallback(VideoPasterOverlayView.a aVar) {
-        if (this.ZV != null) {
-            this.ZV.setOverlayViewCallback(aVar);
+        if (this.aaa != null) {
+            this.aaa.setOverlayViewCallback(aVar);
         }
     }
 
     public void setContentViewCallback(a aVar) {
-        this.aaa = aVar;
+        this.aag = aVar;
     }
 
     public boolean rA() {
-        return this.aab;
+        return this.aah;
     }
 
     public boolean rB() {
-        return this.aah;
+        return this.aam;
     }
 
     public void reset() {
         sa();
         stop();
-        this.ZV.reset();
-        this.aab = false;
+        this.aaa.reset();
+        this.aah = false;
         this.pasterData = null;
-        this.aag = 0L;
-        this.aae = false;
-        this.aaf = 100;
-        e.mY().removeCallbacks(this.aak);
+        this.aal = 0L;
+        this.aaj = false;
+        this.aak = 100;
+        e.mY().removeCallbacks(this.aap);
     }
 
     private void sa() {
         if (this.pasterData != null && this.pasterData.rT() == 1) {
-            n.dxh().remove(this.pasterData.videoUrl);
-            if (this.ZY != null) {
-                this.ZY.seekTo(0);
+            n.dwH().remove(this.pasterData.videoUrl);
+            if (this.aae != null) {
+                this.aae.seekTo(0);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sb() {
-        this.aai = true;
-        if (this.aaa != null) {
-            this.aaa.rQ();
+        this.aan = true;
+        if (this.aag != null) {
+            this.aag.rQ();
         }
         removeAllViews();
         this.pasterData = null;
-        this.aag = 0L;
-        this.aab = false;
+        this.aal = 0L;
         this.aah = false;
-        this.aae = false;
-        this.aaf = 100;
-        e.mY().removeCallbacks(this.aak);
+        this.aam = false;
+        this.aaj = false;
+        this.aak = 100;
+        e.mY().removeCallbacks(this.aap);
     }
 
     public void aZ(int i) {
-        if (this.ZV != null) {
-            this.ZV.aZ(i);
+        if (this.aaa != null) {
+            this.aaa.aZ(i);
         }
     }
 
@@ -348,55 +348,55 @@ public class VideoPasterContentView extends FrameLayout {
     }
 
     public int getCurDuration() {
-        if (this.pasterData == null || this.aac == null) {
+        if (this.pasterData == null || this.aai == null) {
             return 0;
         }
-        return ((int) this.aac.bDA()) / 1000;
+        return ((int) this.aai.bCT()) / 1000;
     }
 
     public int getTotalDuration() {
         if (this.pasterData == null) {
             return -1;
         }
-        return this.pasterData.Zv;
+        return this.pasterData.ZA;
     }
 
     public void rI() {
-        if (this.ZV != null) {
-            this.ZV.rI();
+        if (this.aaa != null) {
+            this.aaa.rI();
         }
     }
 
     public void rJ() {
         int i = 100;
-        if (this.ZV != null) {
-            this.ZV.rJ();
+        if (this.aaa != null) {
+            this.aaa.rJ();
         }
-        if (this.pasterData != null && this.pasterData.isValid() && !this.pasterData.isEmpty() && this.aab && this.pasterData.rT() == 1) {
-            this.ZX.setVisibility(0);
-            this.mStartPosition = n.dxh().QK(this.pasterData.videoUrl);
-            if (this.mStartPosition > 100 && this.aaj > this.mStartPosition) {
+        if (this.pasterData != null && this.pasterData.isValid() && !this.pasterData.isEmpty() && this.aah && this.pasterData.rT() == 1) {
+            this.aac.setVisibility(0);
+            this.mStartPosition = n.dwH().Qf(this.pasterData.videoUrl);
+            if (this.mStartPosition > 100 && this.aao > this.mStartPosition) {
                 i = this.mStartPosition;
             }
-            this.aaf = i;
-            e.mY().removeCallbacks(this.aak);
-            e.mY().postDelayed(this.aak, 20L);
+            this.aak = i;
+            e.mY().removeCallbacks(this.aap);
+            e.mY().postDelayed(this.aap, 20L);
         }
     }
 
     public boolean ik() {
-        return this.aai;
+        return this.aan;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.aaa != null) {
-            this.aaa.onDetachedFromWindow();
+        if (this.aag != null) {
+            this.aag.onDetachedFromWindow();
         }
     }
 
     public boolean rK() {
-        return this.ZY != null && this.ZY.isPlaying();
+        return this.aae != null && this.aae.isPlaying();
     }
 }

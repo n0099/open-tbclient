@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public abstract class c {
     private static final String n = c.class.getSimpleName();
     protected com.meizu.cloud.pushsdk.c.b.c b;
@@ -27,7 +27,7 @@ public abstract class c {
     protected final String f4405a = PushManager.TAG;
     protected AtomicBoolean m = new AtomicBoolean(true);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */

@@ -7,67 +7,67 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
-public class s extends b<com.baidu.tieba.card.data.p> {
-    private View hYA;
-    private String hYD;
-    private HeadImageView hZE;
-    private TextView hZF;
-    private TextView hZG;
-    private TbImageView hZH;
-    private TextView hZI;
-    private com.baidu.tieba.card.data.p hZJ;
-    private int hZK;
-    private String hZL;
-    private String hZM;
+/* loaded from: classes21.dex */
+public class s extends b<com.baidu.tieba.card.data.o> {
+    private View hZa;
+    private String hZd;
+    private HeadImageView iaf;
+    private TextView iag;
+    private TextView iah;
+    private TbImageView iai;
+    private TextView iaj;
+    private com.baidu.tieba.card.data.o iak;
+    private int ial;
+    private String iam;
+    private String ian;
     private View mRootView;
 
     public s(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.hZK = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds70);
+        this.ial = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds70);
         init(getView());
     }
 
     public void ax(String str, String str2, String str3) {
-        this.hYD = str;
-        this.hZL = str2;
-        this.hZM = str3;
+        this.hZd = str;
+        this.iam = str2;
+        this.ian = str3;
     }
 
     private void init(View view) {
         this.mRootView = view.findViewById(R.id.root_view);
-        this.hZE = (HeadImageView) view.findViewById(R.id.promotion_head_img);
-        this.hZF = (TextView) view.findViewById(R.id.promotion_name);
-        this.hZG = (TextView) view.findViewById(R.id.promotion_desc);
-        this.hZH = (TbImageView) view.findViewById(R.id.promotion_img);
-        this.hZI = (TextView) view.findViewById(R.id.promotion_icon);
-        this.hYA = view.findViewById(R.id.top_line);
-        this.hZE.setOnClickListener(this);
-        this.hZF.setOnClickListener(this);
-        this.hZI.setOnClickListener(this);
+        this.iaf = (HeadImageView) view.findViewById(R.id.promotion_head_img);
+        this.iag = (TextView) view.findViewById(R.id.promotion_name);
+        this.iah = (TextView) view.findViewById(R.id.promotion_desc);
+        this.iai = (TbImageView) view.findViewById(R.id.promotion_img);
+        this.iaj = (TextView) view.findViewById(R.id.promotion_icon);
+        this.hZa = view.findViewById(R.id.top_line);
+        this.iaf.setOnClickListener(this);
+        this.iag.setOnClickListener(this);
+        this.iaj.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
-        this.hZE.setDefaultResource(17170445);
-        this.hZE.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.hZE.setPlaceHolder(1);
-        this.hZE.setRadius(this.hZK);
-        this.hZH.setDrawBorder(true);
-        this.hZH.setBorderWidth(1);
-        this.hZH.setPlaceHolder(2);
+        this.iaf.setDefaultResource(17170445);
+        this.iaf.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.iaf.setPlaceHolder(1);
+        this.iaf.setRadius(this.ial);
+        this.iai.setDrawBorder(true);
+        this.iai.setBorderWidth(1);
+        this.iai.setPlaceHolder(2);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((view == this.hZE || view == this.hZF || view == this.hZI) && !StringUtils.isNull(this.hZJ.ict)) {
-            TiebaStatic.log(new aq(this.hZL).dR("obj_id", String.valueOf(this.hZJ.icr)));
-            be.brr().b(getTbPageContext(), new String[]{this.hZJ.ict});
-        } else if ((view == this.mRootView || view == this.hZG || view == this.hZH) && !StringUtils.isNull(this.hZJ.icw)) {
-            TiebaStatic.log(new aq(this.hZM).dR("obj_id", String.valueOf(this.hZJ.icr)));
-            be.brr().b(getTbPageContext(), new String[]{this.hZJ.icw});
+        if ((view == this.iaf || view == this.iag || view == this.iaj) && !StringUtils.isNull(this.iak.idi)) {
+            TiebaStatic.log(new ar(this.iam).dR("obj_id", String.valueOf(this.iak.idg)));
+            bf.bqF().b(getTbPageContext(), new String[]{this.iak.idi});
+        } else if ((view == this.mRootView || view == this.iah || view == this.iai) && !StringUtils.isNull(this.iak.idm)) {
+            TiebaStatic.log(new ar(this.ian).dR("obj_id", String.valueOf(this.iak.idg)));
+            bf.bqF().b(getTbPageContext(), new String[]{this.iak.idm});
         }
     }
 
@@ -75,13 +75,13 @@ public class s extends b<com.baidu.tieba.card.data.p> {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundResource(this.mRootView, R.drawable.addresslist_item_bg);
-            ap.setBackgroundResource(this.hZI, R.drawable.label_bg_gray);
-            ap.setBackgroundResource(this.hYA, R.color.cp_bg_line_c);
-            ap.setViewTextColor(this.hZF, R.color.cp_cont_b, 1);
-            ap.setViewTextColor(this.hZI, R.color.cp_cont_d, 1);
-            ap.setViewTextColor(this.hZG, R.color.cp_cont_b, 1);
-            this.hZE.setPlaceHolder(1);
-            this.hZH.setPlaceHolder(2);
+            ap.setBackgroundResource(this.iaj, R.drawable.label_bg_gray);
+            ap.setBackgroundResource(this.hZa, R.color.CAM_X0204);
+            ap.setViewTextColor(this.iag, R.color.CAM_X0105, 1);
+            ap.setViewTextColor(this.iaj, R.color.CAM_X0109, 1);
+            ap.setViewTextColor(this.iah, R.color.CAM_X0105, 1);
+            this.iaf.setPlaceHolder(1);
+            this.iai.setPlaceHolder(2);
         }
         this.mSkinType = i;
     }
@@ -93,29 +93,29 @@ public class s extends b<com.baidu.tieba.card.data.p> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
-    public void a(com.baidu.tieba.card.data.p pVar) {
-        if (pVar == null) {
+    public void a(com.baidu.tieba.card.data.o oVar) {
+        if (oVar == null) {
             this.mRootView.setVisibility(8);
             return;
         }
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        this.hZJ = pVar;
-        this.hZE.startLoad(pVar.ics, 10, false);
-        this.hZF.setText(UtilHelper.getFixedText(pVar.userName, 7, true));
-        if (StringUtils.isNull(pVar.icy)) {
-            this.hZI.setVisibility(8);
+        this.iak = oVar;
+        this.iaf.startLoad(oVar.idh, 10, false);
+        this.iag.setText(UtilHelper.getFixedText(oVar.userName, 7, true));
+        if (StringUtils.isNull(oVar.ido)) {
+            this.iaj.setVisibility(8);
         } else {
-            this.hZI.setVisibility(0);
-            this.hZI.setText(pVar.icy);
+            this.iaj.setVisibility(0);
+            this.iaj.setText(oVar.ido);
         }
-        this.hZG.setText(pVar.icu);
-        if (com.baidu.tbadk.core.k.bjH().isShowImages()) {
-            this.hZH.setVisibility(0);
-            this.hZH.startLoad(pVar.icv, 10, false);
+        this.iah.setText(oVar.idj);
+        if (com.baidu.tbadk.core.k.biL().isShowImages()) {
+            this.iai.setVisibility(0);
+            this.iai.startLoad(oVar.idk, 10, false);
             return;
         }
-        this.hZH.setVisibility(8);
+        this.iai.setVisibility(8);
     }
 }

@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface ap {
-    void ahM();
+    void ahe();
 
-    void ahN();
+    void ahf();
 
-    long ahO();
+    long ahg();
 
-    boolean ahP();
+    boolean ahh();
 
-    String[] ahQ();
+    String[] ahi();
 
     void br(long j);
 

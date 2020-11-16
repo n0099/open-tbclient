@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class SwanApi$$ModulesProvider {
     public static Map<String, Object> getV8ApiModules(final b bVar) {
         HashMap hashMap = new HashMap();
@@ -54,8 +54,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kE = aVar.kE(str);
-                    String jsonString = kE == null ? "" : kE.toJsonString();
+                    com.baidu.swan.apps.api.c.b ky = aVar.ky(str);
+                    String jsonString = ky == null ? "" : ky.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Account.checkSession[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -95,8 +95,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajB = bVar2.ajB();
-                    String jsonString = ajB == null ? "" : ajB.toJsonString();
+                    com.baidu.swan.apps.api.c.b aiT = bVar2.aiT();
+                    String jsonString = aiT == null ? "" : aiT.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Account.isLoginSync[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -136,8 +136,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kF = bVar2.kF(str);
-                    String jsonString = kF == null ? "" : kF.toJsonString();
+                    com.baidu.swan.apps.api.c.b kz = bVar2.kz(str);
+                    String jsonString = kz == null ? "" : kz.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Account.login[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -187,8 +187,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kG = aVar.kG(str);
-                    String jsonString = kG == null ? "" : kG.toJsonString();
+                    com.baidu.swan.apps.api.c.b kA = aVar.kA(str);
+                    String jsonString = kA == null ? "" : kA.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Basic.loadSubPackage[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -238,8 +238,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b km = aVar.km(str);
-                    String jsonString = km == null ? "" : km.toJsonString();
+                    com.baidu.swan.apps.api.c.b kg = aVar.kg(str);
+                    String jsonString = kg == null ? "" : kg.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Bookshelf.insertBookshelf[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -279,8 +279,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kp = aVar.kp(str);
-                    String jsonString = kp == null ? "" : kp.toJsonString();
+                    com.baidu.swan.apps.api.c.b kj = aVar.kj(str);
+                    String jsonString = kj == null ? "" : kj.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Bookshelf.navigateToBookshelf[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -320,8 +320,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kn = aVar.kn(str);
-                    String jsonString = kn == null ? "" : kn.toJsonString();
+                    com.baidu.swan.apps.api.c.b kh = aVar.kh(str);
+                    String jsonString = kh == null ? "" : kh.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Bookshelf.queryBookshelf[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -361,8 +361,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ko = aVar.ko(str);
-                    String jsonString = ko == null ? "" : ko.toJsonString();
+                    com.baidu.swan.apps.api.c.b ki = aVar.ki(str);
+                    String jsonString = ki == null ? "" : ki.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Bookshelf.updateBookshelfReadTime[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -412,8 +412,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kJ = showFavoriteGuideApi.kJ(str);
-                    String jsonString = kJ == null ? "" : kJ.toJsonString();
+                    com.baidu.swan.apps.api.c.b kD = showFavoriteGuideApi.kD(str);
+                    String jsonString = kD == null ? "" : kD.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Favorite.showFavoriteGuide[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -463,8 +463,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kK = aVar.kK(str);
-                    String jsonString = kK == null ? "" : kK.toJsonString();
+                    com.baidu.swan.apps.api.c.b kE = aVar.kE(str);
+                    String jsonString = kE == null ? "" : kE.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[File.shareFile[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -514,8 +514,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ow = aVar.ow(str);
-                    String jsonString = ow == null ? "" : ow.toJsonString();
+                    com.baidu.swan.apps.api.c.b oq = aVar.oq(str);
+                    String jsonString = oq == null ? "" : oq.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[GameCenter.postGameCenterMessage[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -555,8 +555,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ox = aVar.ox(str);
-                    String jsonString = ox == null ? "" : ox.toJsonString();
+                    com.baidu.swan.apps.api.c.b or = aVar.or(str);
+                    String jsonString = or == null ? "" : or.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[GameCenter.postGameCenterMessageSync[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -606,8 +606,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kM = aVar.kM(str);
-                    String jsonString = kM == null ? "" : kM.toJsonString();
+                    com.baidu.swan.apps.api.c.b kG = aVar.kG(str);
+                    String jsonString = kG == null ? "" : kG.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Image.compressImage[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -657,8 +657,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ld = gVar.ld(str);
-                    String jsonString = ld == null ? "" : ld.toJsonString();
+                    com.baidu.swan.apps.api.c.b kX = gVar.kX(str);
+                    String jsonString = kX == null ? "" : kX.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.closeTabBar[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -698,8 +698,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b la = gVar.la(str);
-                    String jsonString = la == null ? "" : la.toJsonString();
+                    com.baidu.swan.apps.api.c.b kU = gVar.kU(str);
+                    String jsonString = kU == null ? "" : kU.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.closeTabBarRedDot[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -739,8 +739,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajI = aVar.ajI();
-                    String jsonString = ajI == null ? "" : ajI.toJsonString();
+                    com.baidu.swan.apps.api.c.b aja = aVar.aja();
+                    String jsonString = aja == null ? "" : aja.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.hideLoading[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -780,8 +780,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kR = cVar.kR(str);
-                    String jsonString = kR == null ? "" : kR.toJsonString();
+                    com.baidu.swan.apps.api.c.b kL = cVar.kL(str);
+                    String jsonString = kL == null ? "" : kL.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.hideNavigationBarLoading[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -821,8 +821,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajL = hVar.ajL();
-                    String jsonString = ajL == null ? "" : ajL.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajd = hVar.ajd();
+                    String jsonString = ajd == null ? "" : ajd.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.hideToast[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -862,8 +862,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kW = eVar.kW(str);
-                    String jsonString = kW == null ? "" : kW.toJsonString();
+                    com.baidu.swan.apps.api.c.b kQ = eVar.kQ(str);
+                    String jsonString = kQ == null ? "" : kQ.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.openMultiPicker[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -903,8 +903,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kV = eVar.kV(str);
-                    String jsonString = kV == null ? "" : kV.toJsonString();
+                    com.baidu.swan.apps.api.c.b kP = eVar.kP(str);
+                    String jsonString = kP == null ? "" : kP.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.openPicker[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -944,8 +944,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lc = gVar.lc(str);
-                    String jsonString = lc == null ? "" : lc.toJsonString();
+                    com.baidu.swan.apps.api.c.b kW = gVar.kW(str);
+                    String jsonString = kW == null ? "" : kW.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.openTabBar[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -985,8 +985,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kT = dVar.kT(str);
-                    String jsonString = kT == null ? "" : kT.toJsonString();
+                    com.baidu.swan.apps.api.c.b kN = dVar.kN(str);
+                    String jsonString = kN == null ? "" : kN.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.pageScrollTo[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1026,8 +1026,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kQ = cVar.kQ(str);
-                    String jsonString = kQ == null ? "" : kQ.toJsonString();
+                    com.baidu.swan.apps.api.c.b kK = cVar.kK(str);
+                    String jsonString = kK == null ? "" : kK.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.setNavigationBarColor[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1067,8 +1067,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kP = cVar.kP(str);
-                    String jsonString = kP == null ? "" : kP.toJsonString();
+                    com.baidu.swan.apps.api.c.b kJ = cVar.kJ(str);
+                    String jsonString = kJ == null ? "" : kJ.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.setNavigationBarTitle[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1108,8 +1108,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lb = gVar.lb(str);
-                    String jsonString = lb == null ? "" : lb.toJsonString();
+                    com.baidu.swan.apps.api.c.b kV = gVar.kV(str);
+                    String jsonString = kV == null ? "" : kV.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.setTabBarItem[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1149,8 +1149,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kU = eVar.kU(str);
-                    String jsonString = kU == null ? "" : kU.toJsonString();
+                    com.baidu.swan.apps.api.c.b kO = eVar.kO(str);
+                    String jsonString = kO == null ? "" : kO.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.showDatePickerView[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1190,8 +1190,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kN = aVar.kN(str);
-                    String jsonString = kN == null ? "" : kN.toJsonString();
+                    com.baidu.swan.apps.api.c.b kH = aVar.kH(str);
+                    String jsonString = kH == null ? "" : kH.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.showLoading[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1231,8 +1231,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kO = bVar2.kO(str);
-                    String jsonString = kO == null ? "" : kO.toJsonString();
+                    com.baidu.swan.apps.api.c.b kI = bVar2.kI(str);
+                    String jsonString = kI == null ? "" : kI.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.showModal[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1272,8 +1272,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kS = cVar.kS(str);
-                    String jsonString = kS == null ? "" : kS.toJsonString();
+                    com.baidu.swan.apps.api.c.b kM = cVar.kM(str);
+                    String jsonString = kM == null ? "" : kM.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.showNavigationBarLoading[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1313,8 +1313,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b le = hVar.le(str);
-                    String jsonString = le == null ? "" : le.toJsonString();
+                    com.baidu.swan.apps.api.c.b kY = hVar.kY(str);
+                    String jsonString = kY == null ? "" : kY.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.showToast[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1354,8 +1354,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kZ = fVar.kZ(str);
-                    String jsonString = kZ == null ? "" : kZ.toJsonString();
+                    com.baidu.swan.apps.api.c.b kT = fVar.kT(str);
+                    String jsonString = kT == null ? "" : kT.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.stopPullDownRefresh[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1395,8 +1395,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kX = eVar.kX(str);
-                    String jsonString = kX == null ? "" : kX.toJsonString();
+                    com.baidu.swan.apps.api.c.b kR = eVar.kR(str);
+                    String jsonString = kR == null ? "" : kR.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.updateMultiPicker[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1446,8 +1446,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lh = aVar.lh(str);
-                    String jsonString = lh == null ? "" : lh.toJsonString();
+                    com.baidu.swan.apps.api.c.b lb = aVar.lb(str);
+                    String jsonString = lb == null ? "" : lb.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[LocationService.getLocation[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1487,8 +1487,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b li = aVar.li(str);
-                    String jsonString = li == null ? "" : li.toJsonString();
+                    com.baidu.swan.apps.api.c.b lc = aVar.lc(str);
+                    String jsonString = lc == null ? "" : lc.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[LocationService.startLocationUpdate[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1528,8 +1528,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajN = aVar.ajN();
-                    String jsonString = ajN == null ? "" : ajN.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajf = aVar.ajf();
+                    String jsonString = ajf == null ? "" : ajf.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[LocationService.stopLocationUpdate[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1579,8 +1579,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ll = bVar2.ll(str);
-                    String jsonString = ll == null ? "" : ll.toJsonString();
+                    com.baidu.swan.apps.api.c.b lf = bVar2.lf(str);
+                    String jsonString = lf == null ? "" : lf.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Network.cancelRequest[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1620,8 +1620,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajP = aVar.ajP();
-                    String jsonString = ajP == null ? "" : ajP.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajh = aVar.ajh();
+                    String jsonString = ajh == null ? "" : ajh.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Network.getNetworkType[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1661,8 +1661,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lk = aVar.lk(str);
-                    String jsonString = lk == null ? "" : lk.toJsonString();
+                    com.baidu.swan.apps.api.c.b le = aVar.le(str);
+                    String jsonString = le == null ? "" : le.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Network.networkStatusChange[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1689,7 +1689,7 @@ public class SwanApi$$ModulesProvider {
             public String request(JsObject jsObject) {
                 com.baidu.swan.apps.api.module.network.b bVar2;
                 try {
-                    com.baidu.swan.apps.api.b.c.ako().lW("request");
+                    com.baidu.swan.apps.api.b.c.ajG().lQ("request");
                     if (DEBUG) {
                         Log.d(TAG, "====================Network.request[type:V8, v8 binding:true]====================");
                     }
@@ -1709,13 +1709,13 @@ public class SwanApi$$ModulesProvider {
                     if (((com.baidu.swan.apps.api.c.a) a3.first).isSuccess()) {
                         JSONObject jSONObject = (JSONObject) a3.second;
                         if (jSONObject == null) {
-                            return com.baidu.swan.apps.api.c.a.cBa.toJsonString();
+                            return com.baidu.swan.apps.api.c.a.czq.toJsonString();
                         }
                         if (DEBUG) {
                             Log.d(TAG, "JsObject->JSONObject: " + jSONObject.toString());
                         }
-                        com.baidu.swan.apps.api.c.b aN = bVar2.aN(jSONObject);
-                        String jsonString = aN == null ? "" : aN.toJsonString();
+                        com.baidu.swan.apps.api.c.b aH = bVar2.aH(jSONObject);
+                        String jsonString = aH == null ? "" : aH.toJsonString();
                         if (DEBUG) {
                             Log.d(TAG, "====================[[Network.request[type:V8, v8 binding:true] result]]" + jsonString);
                         }
@@ -1732,12 +1732,12 @@ public class SwanApi$$ModulesProvider {
                                     throw th;
                                 }
                             });
-                            com.baidu.swan.apps.api.b.c.ako().lX("request");
+                            com.baidu.swan.apps.api.b.c.ajG().lR("request");
                             return "";
                         }
                         throw th;
                     } finally {
-                        com.baidu.swan.apps.api.b.c.ako().lX("request");
+                        com.baidu.swan.apps.api.b.c.ajG().lR("request");
                     }
                 }
             }
@@ -1771,8 +1771,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b rj = aVar.rj(str);
-                    String jsonString = rj == null ? "" : rj.toJsonString();
+                    com.baidu.swan.apps.api.c.b rd = aVar.rd(str);
+                    String jsonString = rd == null ? "" : rd.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Plugin.invokePluginChooseAddress[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1812,8 +1812,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ri = aVar.ri(str);
-                    String jsonString = ri == null ? "" : ri.toJsonString();
+                    com.baidu.swan.apps.api.c.b rc = aVar.rc(str);
+                    String jsonString = rc == null ? "" : rc.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Plugin.invokePluginLoginAndGetUserInfo[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1853,8 +1853,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b rk = aVar.rk(str);
-                    String jsonString = rk == null ? "" : rk.toJsonString();
+                    com.baidu.swan.apps.api.c.b re = aVar.re(str);
+                    String jsonString = re == null ? "" : re.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Plugin.invokePluginPayment[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1904,8 +1904,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lr = aVar.lr(str);
-                    String jsonString = lr == null ? "" : lr.toJsonString();
+                    com.baidu.swan.apps.api.c.b ll = aVar.ll(str);
+                    String jsonString = ll == null ? "" : ll.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Router.navigateBack[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1945,8 +1945,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ls = bVar2.ls(str);
-                    String jsonString = ls == null ? "" : ls.toJsonString();
+                    com.baidu.swan.apps.api.c.b lm = bVar2.lm(str);
+                    String jsonString = lm == null ? "" : lm.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Router.navigateTo[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -1986,8 +1986,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lu = dVar.lu(str);
-                    String jsonString = lu == null ? "" : lu.toJsonString();
+                    com.baidu.swan.apps.api.c.b lo = dVar.lo(str);
+                    String jsonString = lo == null ? "" : lo.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Router.reLaunch[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2027,8 +2027,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lt = cVar.lt(str);
-                    String jsonString = lt == null ? "" : lt.toJsonString();
+                    com.baidu.swan.apps.api.c.b ln = cVar.ln(str);
+                    String jsonString = ln == null ? "" : ln.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Router.redirectTo[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2078,8 +2078,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajR = aVar.ajR();
-                    String jsonString = ajR == null ? "" : ajR.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajj = aVar.ajj();
+                    String jsonString = ajj == null ? "" : ajj.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Setting.getAppInfoSync[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2119,8 +2119,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lw = aVar.lw(str);
-                    String jsonString = lw == null ? "" : lw.toJsonString();
+                    com.baidu.swan.apps.api.c.b lq = aVar.lq(str);
+                    String jsonString = lq == null ? "" : lq.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Setting.getSetting[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2160,8 +2160,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajS = aVar.ajS();
-                    String jsonString = ajS == null ? "" : ajS.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajk = aVar.ajk();
+                    String jsonString = ajk == null ? "" : ajk.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Setting.getSlaveIdSync[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2201,8 +2201,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lv = aVar.lv(str);
-                    String jsonString = lv == null ? "" : lv.toJsonString();
+                    com.baidu.swan.apps.api.c.b lp = aVar.lp(str);
+                    String jsonString = lp == null ? "" : lp.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Setting.getSwanId[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2242,8 +2242,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lx = aVar.lx(str);
-                    String jsonString = lx == null ? "" : lx.toJsonString();
+                    com.baidu.swan.apps.api.c.b lr = aVar.lr(str);
+                    String jsonString = lr == null ? "" : lr.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Setting.getUserInfo[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2293,8 +2293,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajU = aVar.ajU();
-                    String jsonString = ajU == null ? "" : ajU.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajm = aVar.ajm();
+                    String jsonString = ajm == null ? "" : ajm.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.clearStorage[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2334,8 +2334,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajT = aVar.ajT();
-                    String jsonString = ajT == null ? "" : ajT.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajl = aVar.ajl();
+                    String jsonString = ajl == null ? "" : ajl.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.clearStorageSync[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2375,8 +2375,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lD = aVar.lD(str);
-                    String jsonString = lD == null ? "" : lD.toJsonString();
+                    com.baidu.swan.apps.api.c.b lx = aVar.lx(str);
+                    String jsonString = lx == null ? "" : lx.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.getStorage[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2416,8 +2416,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajV = aVar.ajV();
-                    String jsonString = ajV == null ? "" : ajV.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajn = aVar.ajn();
+                    String jsonString = ajn == null ? "" : ajn.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.getStorageInfo[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2457,8 +2457,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lC = aVar.lC(str);
-                    String jsonString = lC == null ? "" : lC.toJsonString();
+                    com.baidu.swan.apps.api.c.b lw = aVar.lw(str);
+                    String jsonString = lw == null ? "" : lw.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.getStorageSync[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2498,8 +2498,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lB = aVar.lB(str);
-                    String jsonString = lB == null ? "" : lB.toJsonString();
+                    com.baidu.swan.apps.api.c.b lv = aVar.lv(str);
+                    String jsonString = lv == null ? "" : lv.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.removeStorage[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2539,8 +2539,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lA = aVar.lA(str);
-                    String jsonString = lA == null ? "" : lA.toJsonString();
+                    com.baidu.swan.apps.api.c.b lu = aVar.lu(str);
+                    String jsonString = lu == null ? "" : lu.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.removeStorageSync[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2580,8 +2580,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lz = aVar.lz(str);
-                    String jsonString = lz == null ? "" : lz.toJsonString();
+                    com.baidu.swan.apps.api.c.b lt = aVar.lt(str);
+                    String jsonString = lt == null ? "" : lt.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.setStorage[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2621,8 +2621,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ly = aVar.ly(str);
-                    String jsonString = ly == null ? "" : ly.toJsonString();
+                    com.baidu.swan.apps.api.c.b ls = aVar.ls(str);
+                    String jsonString = ls == null ? "" : ls.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.setStorageSync[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2672,8 +2672,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lF = aVar.lF(str);
-                    String jsonString = lF == null ? "" : lF.toJsonString();
+                    com.baidu.swan.apps.api.c.b lz = aVar.lz(str);
+                    String jsonString = lz == null ? "" : lz.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Subscription.subscribeService[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2723,8 +2723,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lL = fVar.lL(str);
-                    String jsonString = lL == null ? "" : lL.toJsonString();
+                    com.baidu.swan.apps.api.c.b lF = fVar.lF(str);
+                    String jsonString = lF == null ? "" : lF.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.exitFullScreen[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2764,8 +2764,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajX = bVar2.ajX();
-                    String jsonString = ajX == null ? "" : ajX.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajp = bVar2.ajp();
+                    String jsonString = ajp == null ? "" : ajp.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.getBrightness[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2805,8 +2805,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajY = cVar.ajY();
-                    String jsonString = ajY == null ? "" : ajY.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajq = cVar.ajq();
+                    String jsonString = ajq == null ? "" : ajq.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.getClipboardData[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2846,8 +2846,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lK = eVar.lK(str);
-                    String jsonString = lK == null ? "" : lK.toJsonString();
+                    com.baidu.swan.apps.api.c.b lE = eVar.lE(str);
+                    String jsonString = lE == null ? "" : lE.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.getDeviceInfo[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2887,8 +2887,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lM = gVar.lM(str);
-                    String jsonString = lM == null ? "" : lM.toJsonString();
+                    com.baidu.swan.apps.api.c.b lG = gVar.lG(str);
+                    String jsonString = lG == null ? "" : lG.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.makePhoneCall[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2928,8 +2928,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lO = iVar.lO(str);
-                    String jsonString = lO == null ? "" : lO.toJsonString();
+                    com.baidu.swan.apps.api.c.b lI = iVar.lI(str);
+                    String jsonString = lI == null ? "" : lI.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.openSMSPanel[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -2969,8 +2969,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lN = hVar.lN(str);
-                    String jsonString = lN == null ? "" : lN.toJsonString();
+                    com.baidu.swan.apps.api.c.b lH = hVar.lH(str);
+                    String jsonString = lH == null ? "" : lH.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.requestFullScreen[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3010,8 +3010,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lI = cVar.lI(str);
-                    String jsonString = lI == null ? "" : lI.toJsonString();
+                    com.baidu.swan.apps.api.c.b lC = cVar.lC(str);
+                    String jsonString = lC == null ? "" : lC.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.setClipboardData[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3051,8 +3051,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lG = aVar.lG(str);
-                    String jsonString = lG == null ? "" : lG.toJsonString();
+                    com.baidu.swan.apps.api.c.b lA = aVar.lA(str);
+                    String jsonString = lA == null ? "" : lA.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.startAccelerometer[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3092,8 +3092,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lJ = dVar.lJ(str);
-                    String jsonString = lJ == null ? "" : lJ.toJsonString();
+                    com.baidu.swan.apps.api.c.b lD = dVar.lD(str);
+                    String jsonString = lD == null ? "" : lD.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.startCompass[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3133,8 +3133,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajW = aVar.ajW();
-                    String jsonString = ajW == null ? "" : ajW.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajo = aVar.ajo();
+                    String jsonString = ajo == null ? "" : ajo.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.stopAccelerometer[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3174,8 +3174,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajZ = dVar.ajZ();
-                    String jsonString = ajZ == null ? "" : ajZ.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajr = dVar.ajr();
+                    String jsonString = ajr == null ? "" : ajr.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.stopCompass[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3225,8 +3225,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lS = aVar.lS(str);
-                    String jsonString = lS == null ? "" : lS.toJsonString();
+                    com.baidu.swan.apps.api.c.b lM = aVar.lM(str);
+                    String jsonString = lM == null ? "" : lM.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Utils.checkAppInstalled[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3266,8 +3266,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b akm = dVar.akm();
-                    String jsonString = akm == null ? "" : akm.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajE = dVar.ajE();
+                    String jsonString = ajE == null ? "" : ajE.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Utils.getCommonSysInfoSync[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3307,8 +3307,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b akk = dVar.akk();
-                    String jsonString = akk == null ? "" : akk.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajC = dVar.ajC();
+                    String jsonString = ajC == null ? "" : ajC.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Utils.getSystemInfo[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3348,8 +3348,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b akl = dVar.akl();
-                    String jsonString = akl == null ? "" : akl.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajD = dVar.ajD();
+                    String jsonString = ajD == null ? "" : ajD.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Utils.getSystemInfoSync[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3389,8 +3389,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lT = bVar2.lT(str);
-                    String jsonString = lT == null ? "" : lT.toJsonString();
+                    com.baidu.swan.apps.api.c.b lN = bVar2.lN(str);
+                    String jsonString = lN == null ? "" : lN.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Utils.handleException[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3430,8 +3430,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lU = cVar.lU(str);
-                    String jsonString = lU == null ? "" : lU.toJsonString();
+                    com.baidu.swan.apps.api.c.b lO = cVar.lO(str);
+                    String jsonString = lO == null ? "" : lO.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Utils.previewImage[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3471,8 +3471,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lV = fVar.lV(str);
-                    String jsonString = lV == null ? "" : lV.toJsonString();
+                    com.baidu.swan.apps.api.c.b lP = fVar.lP(str);
+                    String jsonString = lP == null ? "" : lP.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Utils.ubcFlowJar[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3527,8 +3527,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kE = aVar.kE(str);
-                    String jsonString = kE == null ? "" : kE.toJsonString();
+                    com.baidu.swan.apps.api.c.b ky = aVar.ky(str);
+                    String jsonString = ky == null ? "" : ky.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Account.checkSession[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3568,8 +3568,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajB = bVar2.ajB();
-                    String jsonString = ajB == null ? "" : ajB.toJsonString();
+                    com.baidu.swan.apps.api.c.b aiT = bVar2.aiT();
+                    String jsonString = aiT == null ? "" : aiT.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Account.isLoginSync[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3609,8 +3609,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kF = bVar2.kF(str);
-                    String jsonString = kF == null ? "" : kF.toJsonString();
+                    com.baidu.swan.apps.api.c.b kz = bVar2.kz(str);
+                    String jsonString = kz == null ? "" : kz.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Account.login[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3660,8 +3660,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kG = aVar.kG(str);
-                    String jsonString = kG == null ? "" : kG.toJsonString();
+                    com.baidu.swan.apps.api.c.b kA = aVar.kA(str);
+                    String jsonString = kA == null ? "" : kA.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Basic.loadSubPackage[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3711,8 +3711,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b km = aVar.km(str);
-                    String jsonString = km == null ? "" : km.toJsonString();
+                    com.baidu.swan.apps.api.c.b kg = aVar.kg(str);
+                    String jsonString = kg == null ? "" : kg.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Bookshelf.insertBookshelf[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3752,8 +3752,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kp = aVar.kp(str);
-                    String jsonString = kp == null ? "" : kp.toJsonString();
+                    com.baidu.swan.apps.api.c.b kj = aVar.kj(str);
+                    String jsonString = kj == null ? "" : kj.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Bookshelf.navigateToBookshelf[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3793,8 +3793,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kn = aVar.kn(str);
-                    String jsonString = kn == null ? "" : kn.toJsonString();
+                    com.baidu.swan.apps.api.c.b kh = aVar.kh(str);
+                    String jsonString = kh == null ? "" : kh.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Bookshelf.queryBookshelf[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3834,8 +3834,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ko = aVar.ko(str);
-                    String jsonString = ko == null ? "" : ko.toJsonString();
+                    com.baidu.swan.apps.api.c.b ki = aVar.ki(str);
+                    String jsonString = ki == null ? "" : ki.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Bookshelf.updateBookshelfReadTime[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3885,8 +3885,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kJ = showFavoriteGuideApi.kJ(str);
-                    String jsonString = kJ == null ? "" : kJ.toJsonString();
+                    com.baidu.swan.apps.api.c.b kD = showFavoriteGuideApi.kD(str);
+                    String jsonString = kD == null ? "" : kD.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Favorite.showFavoriteGuide[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3936,8 +3936,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kK = aVar.kK(str);
-                    String jsonString = kK == null ? "" : kK.toJsonString();
+                    com.baidu.swan.apps.api.c.b kE = aVar.kE(str);
+                    String jsonString = kE == null ? "" : kE.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[File.shareFile[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -3987,8 +3987,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ow = aVar.ow(str);
-                    String jsonString = ow == null ? "" : ow.toJsonString();
+                    com.baidu.swan.apps.api.c.b oq = aVar.oq(str);
+                    String jsonString = oq == null ? "" : oq.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[GameCenter.postGameCenterMessage[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4028,8 +4028,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ox = aVar.ox(str);
-                    String jsonString = ox == null ? "" : ox.toJsonString();
+                    com.baidu.swan.apps.api.c.b or = aVar.or(str);
+                    String jsonString = or == null ? "" : or.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[GameCenter.postGameCenterMessageSync[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4079,8 +4079,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kM = aVar.kM(str);
-                    String jsonString = kM == null ? "" : kM.toJsonString();
+                    com.baidu.swan.apps.api.c.b kG = aVar.kG(str);
+                    String jsonString = kG == null ? "" : kG.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Image.compressImage[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4130,8 +4130,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ld = gVar.ld(str);
-                    String jsonString = ld == null ? "" : ld.toJsonString();
+                    com.baidu.swan.apps.api.c.b kX = gVar.kX(str);
+                    String jsonString = kX == null ? "" : kX.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.closeTabBar[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4171,8 +4171,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b la = gVar.la(str);
-                    String jsonString = la == null ? "" : la.toJsonString();
+                    com.baidu.swan.apps.api.c.b kU = gVar.kU(str);
+                    String jsonString = kU == null ? "" : kU.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.closeTabBarRedDot[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4212,8 +4212,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajI = aVar.ajI();
-                    String jsonString = ajI == null ? "" : ajI.toJsonString();
+                    com.baidu.swan.apps.api.c.b aja = aVar.aja();
+                    String jsonString = aja == null ? "" : aja.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.hideLoading[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4253,8 +4253,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kR = cVar.kR(str);
-                    String jsonString = kR == null ? "" : kR.toJsonString();
+                    com.baidu.swan.apps.api.c.b kL = cVar.kL(str);
+                    String jsonString = kL == null ? "" : kL.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.hideNavigationBarLoading[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4294,8 +4294,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajL = hVar.ajL();
-                    String jsonString = ajL == null ? "" : ajL.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajd = hVar.ajd();
+                    String jsonString = ajd == null ? "" : ajd.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.hideToast[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4335,8 +4335,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kW = eVar.kW(str);
-                    String jsonString = kW == null ? "" : kW.toJsonString();
+                    com.baidu.swan.apps.api.c.b kQ = eVar.kQ(str);
+                    String jsonString = kQ == null ? "" : kQ.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.openMultiPicker[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4376,8 +4376,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kV = eVar.kV(str);
-                    String jsonString = kV == null ? "" : kV.toJsonString();
+                    com.baidu.swan.apps.api.c.b kP = eVar.kP(str);
+                    String jsonString = kP == null ? "" : kP.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.openPicker[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4417,8 +4417,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lc = gVar.lc(str);
-                    String jsonString = lc == null ? "" : lc.toJsonString();
+                    com.baidu.swan.apps.api.c.b kW = gVar.kW(str);
+                    String jsonString = kW == null ? "" : kW.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.openTabBar[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4458,8 +4458,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kT = dVar.kT(str);
-                    String jsonString = kT == null ? "" : kT.toJsonString();
+                    com.baidu.swan.apps.api.c.b kN = dVar.kN(str);
+                    String jsonString = kN == null ? "" : kN.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.pageScrollTo[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4499,8 +4499,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kQ = cVar.kQ(str);
-                    String jsonString = kQ == null ? "" : kQ.toJsonString();
+                    com.baidu.swan.apps.api.c.b kK = cVar.kK(str);
+                    String jsonString = kK == null ? "" : kK.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.setNavigationBarColor[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4540,8 +4540,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kP = cVar.kP(str);
-                    String jsonString = kP == null ? "" : kP.toJsonString();
+                    com.baidu.swan.apps.api.c.b kJ = cVar.kJ(str);
+                    String jsonString = kJ == null ? "" : kJ.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.setNavigationBarTitle[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4581,8 +4581,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lb = gVar.lb(str);
-                    String jsonString = lb == null ? "" : lb.toJsonString();
+                    com.baidu.swan.apps.api.c.b kV = gVar.kV(str);
+                    String jsonString = kV == null ? "" : kV.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.setTabBarItem[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4622,8 +4622,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kU = eVar.kU(str);
-                    String jsonString = kU == null ? "" : kU.toJsonString();
+                    com.baidu.swan.apps.api.c.b kO = eVar.kO(str);
+                    String jsonString = kO == null ? "" : kO.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.showDatePickerView[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4663,8 +4663,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kN = aVar.kN(str);
-                    String jsonString = kN == null ? "" : kN.toJsonString();
+                    com.baidu.swan.apps.api.c.b kH = aVar.kH(str);
+                    String jsonString = kH == null ? "" : kH.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.showLoading[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4704,8 +4704,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kO = bVar2.kO(str);
-                    String jsonString = kO == null ? "" : kO.toJsonString();
+                    com.baidu.swan.apps.api.c.b kI = bVar2.kI(str);
+                    String jsonString = kI == null ? "" : kI.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.showModal[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4745,8 +4745,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kS = cVar.kS(str);
-                    String jsonString = kS == null ? "" : kS.toJsonString();
+                    com.baidu.swan.apps.api.c.b kM = cVar.kM(str);
+                    String jsonString = kM == null ? "" : kM.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.showNavigationBarLoading[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4786,8 +4786,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b le = hVar.le(str);
-                    String jsonString = le == null ? "" : le.toJsonString();
+                    com.baidu.swan.apps.api.c.b kY = hVar.kY(str);
+                    String jsonString = kY == null ? "" : kY.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.showToast[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4827,8 +4827,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kZ = fVar.kZ(str);
-                    String jsonString = kZ == null ? "" : kZ.toJsonString();
+                    com.baidu.swan.apps.api.c.b kT = fVar.kT(str);
+                    String jsonString = kT == null ? "" : kT.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.stopPullDownRefresh[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4868,8 +4868,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b kX = eVar.kX(str);
-                    String jsonString = kX == null ? "" : kX.toJsonString();
+                    com.baidu.swan.apps.api.c.b kR = eVar.kR(str);
+                    String jsonString = kR == null ? "" : kR.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Interaction.updateMultiPicker[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4919,8 +4919,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lh = aVar.lh(str);
-                    String jsonString = lh == null ? "" : lh.toJsonString();
+                    com.baidu.swan.apps.api.c.b lb = aVar.lb(str);
+                    String jsonString = lb == null ? "" : lb.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[LocationService.getLocation[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -4960,8 +4960,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b li = aVar.li(str);
-                    String jsonString = li == null ? "" : li.toJsonString();
+                    com.baidu.swan.apps.api.c.b lc = aVar.lc(str);
+                    String jsonString = lc == null ? "" : lc.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[LocationService.startLocationUpdate[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5001,8 +5001,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajN = aVar.ajN();
-                    String jsonString = ajN == null ? "" : ajN.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajf = aVar.ajf();
+                    String jsonString = ajf == null ? "" : ajf.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[LocationService.stopLocationUpdate[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5052,8 +5052,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ll = bVar2.ll(str);
-                    String jsonString = ll == null ? "" : ll.toJsonString();
+                    com.baidu.swan.apps.api.c.b lf = bVar2.lf(str);
+                    String jsonString = lf == null ? "" : lf.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Network.cancelRequest[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5093,8 +5093,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajP = aVar.ajP();
-                    String jsonString = ajP == null ? "" : ajP.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajh = aVar.ajh();
+                    String jsonString = ajh == null ? "" : ajh.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Network.getNetworkType[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5134,8 +5134,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lk = aVar.lk(str);
-                    String jsonString = lk == null ? "" : lk.toJsonString();
+                    com.baidu.swan.apps.api.c.b le = aVar.le(str);
+                    String jsonString = le == null ? "" : le.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Network.networkStatusChange[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5162,7 +5162,7 @@ public class SwanApi$$ModulesProvider {
             public String request(String str) {
                 com.baidu.swan.apps.api.module.network.b bVar2;
                 try {
-                    com.baidu.swan.apps.api.b.c.ako().lW("request");
+                    com.baidu.swan.apps.api.b.c.ajG().lQ("request");
                     if (DEBUG) {
                         Log.d(TAG, "====================Network.request[type:Webview, v8 binding:true]====================");
                     }
@@ -5178,23 +5178,23 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    Pair<com.baidu.swan.apps.api.c.a, JSONObject> kC = d.kC(str);
-                    if (((com.baidu.swan.apps.api.c.a) kC.first).isSuccess()) {
-                        JSONObject jSONObject = (JSONObject) kC.second;
+                    Pair<com.baidu.swan.apps.api.c.a, JSONObject> kw = d.kw(str);
+                    if (((com.baidu.swan.apps.api.c.a) kw.first).isSuccess()) {
+                        JSONObject jSONObject = (JSONObject) kw.second;
                         if (jSONObject == null) {
-                            return com.baidu.swan.apps.api.c.a.cBa.toJsonString();
+                            return com.baidu.swan.apps.api.c.a.czq.toJsonString();
                         }
                         if (DEBUG) {
                             Log.d(TAG, "JsObject->JSONObject: " + jSONObject.toString());
                         }
-                        com.baidu.swan.apps.api.c.b aN = bVar2.aN(jSONObject);
-                        String jsonString = aN == null ? "" : aN.toJsonString();
+                        com.baidu.swan.apps.api.c.b aH = bVar2.aH(jSONObject);
+                        String jsonString = aH == null ? "" : aH.toJsonString();
                         if (DEBUG) {
                             Log.d(TAG, "====================[[Network.request[type:Webview, v8 binding:true] result]]" + jsonString);
                         }
                         return jsonString;
                     }
-                    return ((com.baidu.swan.apps.api.c.a) kC.first).toJsonString();
+                    return ((com.baidu.swan.apps.api.c.a) kw.first).toJsonString();
                 } catch (Throwable th) {
                     try {
                         if (DEBUG) {
@@ -5205,12 +5205,12 @@ public class SwanApi$$ModulesProvider {
                                     throw th;
                                 }
                             });
-                            com.baidu.swan.apps.api.b.c.ako().lX("request");
+                            com.baidu.swan.apps.api.b.c.ajG().lR("request");
                             return "";
                         }
                         throw th;
                     } finally {
-                        com.baidu.swan.apps.api.b.c.ako().lX("request");
+                        com.baidu.swan.apps.api.b.c.ajG().lR("request");
                     }
                 }
             }
@@ -5244,8 +5244,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b rj = aVar.rj(str);
-                    String jsonString = rj == null ? "" : rj.toJsonString();
+                    com.baidu.swan.apps.api.c.b rd = aVar.rd(str);
+                    String jsonString = rd == null ? "" : rd.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Plugin.invokePluginChooseAddress[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5285,8 +5285,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ri = aVar.ri(str);
-                    String jsonString = ri == null ? "" : ri.toJsonString();
+                    com.baidu.swan.apps.api.c.b rc = aVar.rc(str);
+                    String jsonString = rc == null ? "" : rc.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Plugin.invokePluginLoginAndGetUserInfo[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5326,8 +5326,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b rk = aVar.rk(str);
-                    String jsonString = rk == null ? "" : rk.toJsonString();
+                    com.baidu.swan.apps.api.c.b re = aVar.re(str);
+                    String jsonString = re == null ? "" : re.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Plugin.invokePluginPayment[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5377,8 +5377,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lr = aVar.lr(str);
-                    String jsonString = lr == null ? "" : lr.toJsonString();
+                    com.baidu.swan.apps.api.c.b ll = aVar.ll(str);
+                    String jsonString = ll == null ? "" : ll.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Router.navigateBack[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5418,8 +5418,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ls = bVar2.ls(str);
-                    String jsonString = ls == null ? "" : ls.toJsonString();
+                    com.baidu.swan.apps.api.c.b lm = bVar2.lm(str);
+                    String jsonString = lm == null ? "" : lm.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Router.navigateTo[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5459,8 +5459,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lu = dVar.lu(str);
-                    String jsonString = lu == null ? "" : lu.toJsonString();
+                    com.baidu.swan.apps.api.c.b lo = dVar.lo(str);
+                    String jsonString = lo == null ? "" : lo.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Router.reLaunch[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5500,8 +5500,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lt = cVar.lt(str);
-                    String jsonString = lt == null ? "" : lt.toJsonString();
+                    com.baidu.swan.apps.api.c.b ln = cVar.ln(str);
+                    String jsonString = ln == null ? "" : ln.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Router.redirectTo[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5551,8 +5551,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajR = aVar.ajR();
-                    String jsonString = ajR == null ? "" : ajR.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajj = aVar.ajj();
+                    String jsonString = ajj == null ? "" : ajj.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Setting.getAppInfoSync[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5592,8 +5592,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lw = aVar.lw(str);
-                    String jsonString = lw == null ? "" : lw.toJsonString();
+                    com.baidu.swan.apps.api.c.b lq = aVar.lq(str);
+                    String jsonString = lq == null ? "" : lq.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Setting.getSetting[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5633,8 +5633,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajS = aVar.ajS();
-                    String jsonString = ajS == null ? "" : ajS.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajk = aVar.ajk();
+                    String jsonString = ajk == null ? "" : ajk.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Setting.getSlaveIdSync[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5674,8 +5674,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lv = aVar.lv(str);
-                    String jsonString = lv == null ? "" : lv.toJsonString();
+                    com.baidu.swan.apps.api.c.b lp = aVar.lp(str);
+                    String jsonString = lp == null ? "" : lp.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Setting.getSwanId[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5715,8 +5715,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lx = aVar.lx(str);
-                    String jsonString = lx == null ? "" : lx.toJsonString();
+                    com.baidu.swan.apps.api.c.b lr = aVar.lr(str);
+                    String jsonString = lr == null ? "" : lr.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Setting.getUserInfo[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5766,8 +5766,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajU = aVar.ajU();
-                    String jsonString = ajU == null ? "" : ajU.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajm = aVar.ajm();
+                    String jsonString = ajm == null ? "" : ajm.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.clearStorage[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5807,8 +5807,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajT = aVar.ajT();
-                    String jsonString = ajT == null ? "" : ajT.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajl = aVar.ajl();
+                    String jsonString = ajl == null ? "" : ajl.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.clearStorageSync[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5848,8 +5848,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lD = aVar.lD(str);
-                    String jsonString = lD == null ? "" : lD.toJsonString();
+                    com.baidu.swan.apps.api.c.b lx = aVar.lx(str);
+                    String jsonString = lx == null ? "" : lx.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.getStorage[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5889,8 +5889,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajV = aVar.ajV();
-                    String jsonString = ajV == null ? "" : ajV.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajn = aVar.ajn();
+                    String jsonString = ajn == null ? "" : ajn.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.getStorageInfo[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5930,8 +5930,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lC = aVar.lC(str);
-                    String jsonString = lC == null ? "" : lC.toJsonString();
+                    com.baidu.swan.apps.api.c.b lw = aVar.lw(str);
+                    String jsonString = lw == null ? "" : lw.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.getStorageSync[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -5971,8 +5971,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lB = aVar.lB(str);
-                    String jsonString = lB == null ? "" : lB.toJsonString();
+                    com.baidu.swan.apps.api.c.b lv = aVar.lv(str);
+                    String jsonString = lv == null ? "" : lv.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.removeStorage[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6012,8 +6012,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lA = aVar.lA(str);
-                    String jsonString = lA == null ? "" : lA.toJsonString();
+                    com.baidu.swan.apps.api.c.b lu = aVar.lu(str);
+                    String jsonString = lu == null ? "" : lu.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.removeStorageSync[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6053,8 +6053,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lz = aVar.lz(str);
-                    String jsonString = lz == null ? "" : lz.toJsonString();
+                    com.baidu.swan.apps.api.c.b lt = aVar.lt(str);
+                    String jsonString = lt == null ? "" : lt.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.setStorage[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6094,8 +6094,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ly = aVar.ly(str);
-                    String jsonString = ly == null ? "" : ly.toJsonString();
+                    com.baidu.swan.apps.api.c.b ls = aVar.ls(str);
+                    String jsonString = ls == null ? "" : ls.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Storage.setStorageSync[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6145,8 +6145,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lF = aVar.lF(str);
-                    String jsonString = lF == null ? "" : lF.toJsonString();
+                    com.baidu.swan.apps.api.c.b lz = aVar.lz(str);
+                    String jsonString = lz == null ? "" : lz.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Subscription.subscribeService[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6196,8 +6196,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lL = fVar.lL(str);
-                    String jsonString = lL == null ? "" : lL.toJsonString();
+                    com.baidu.swan.apps.api.c.b lF = fVar.lF(str);
+                    String jsonString = lF == null ? "" : lF.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.exitFullScreen[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6237,8 +6237,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajX = bVar2.ajX();
-                    String jsonString = ajX == null ? "" : ajX.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajp = bVar2.ajp();
+                    String jsonString = ajp == null ? "" : ajp.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.getBrightness[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6278,8 +6278,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajY = cVar.ajY();
-                    String jsonString = ajY == null ? "" : ajY.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajq = cVar.ajq();
+                    String jsonString = ajq == null ? "" : ajq.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.getClipboardData[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6319,8 +6319,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lK = eVar.lK(str);
-                    String jsonString = lK == null ? "" : lK.toJsonString();
+                    com.baidu.swan.apps.api.c.b lE = eVar.lE(str);
+                    String jsonString = lE == null ? "" : lE.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.getDeviceInfo[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6360,8 +6360,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lM = gVar.lM(str);
-                    String jsonString = lM == null ? "" : lM.toJsonString();
+                    com.baidu.swan.apps.api.c.b lG = gVar.lG(str);
+                    String jsonString = lG == null ? "" : lG.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.makePhoneCall[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6401,8 +6401,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lO = iVar.lO(str);
-                    String jsonString = lO == null ? "" : lO.toJsonString();
+                    com.baidu.swan.apps.api.c.b lI = iVar.lI(str);
+                    String jsonString = lI == null ? "" : lI.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.openSMSPanel[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6442,8 +6442,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lN = hVar.lN(str);
-                    String jsonString = lN == null ? "" : lN.toJsonString();
+                    com.baidu.swan.apps.api.c.b lH = hVar.lH(str);
+                    String jsonString = lH == null ? "" : lH.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.requestFullScreen[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6483,8 +6483,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lI = cVar.lI(str);
-                    String jsonString = lI == null ? "" : lI.toJsonString();
+                    com.baidu.swan.apps.api.c.b lC = cVar.lC(str);
+                    String jsonString = lC == null ? "" : lC.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.setClipboardData[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6524,8 +6524,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lG = aVar.lG(str);
-                    String jsonString = lG == null ? "" : lG.toJsonString();
+                    com.baidu.swan.apps.api.c.b lA = aVar.lA(str);
+                    String jsonString = lA == null ? "" : lA.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.startAccelerometer[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6565,8 +6565,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lJ = dVar.lJ(str);
-                    String jsonString = lJ == null ? "" : lJ.toJsonString();
+                    com.baidu.swan.apps.api.c.b lD = dVar.lD(str);
+                    String jsonString = lD == null ? "" : lD.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.startCompass[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6606,8 +6606,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajW = aVar.ajW();
-                    String jsonString = ajW == null ? "" : ajW.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajo = aVar.ajo();
+                    String jsonString = ajo == null ? "" : ajo.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.stopAccelerometer[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6647,8 +6647,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ajZ = dVar.ajZ();
-                    String jsonString = ajZ == null ? "" : ajZ.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajr = dVar.ajr();
+                    String jsonString = ajr == null ? "" : ajr.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[System.stopCompass[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6698,8 +6698,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lS = aVar.lS(str);
-                    String jsonString = lS == null ? "" : lS.toJsonString();
+                    com.baidu.swan.apps.api.c.b lM = aVar.lM(str);
+                    String jsonString = lM == null ? "" : lM.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Utils.checkAppInstalled[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6739,8 +6739,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b akm = dVar.akm();
-                    String jsonString = akm == null ? "" : akm.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajE = dVar.ajE();
+                    String jsonString = ajE == null ? "" : ajE.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Utils.getCommonSysInfoSync[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6780,8 +6780,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b akk = dVar.akk();
-                    String jsonString = akk == null ? "" : akk.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajC = dVar.ajC();
+                    String jsonString = ajC == null ? "" : ajC.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Utils.getSystemInfo[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6821,8 +6821,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b akl = dVar.akl();
-                    String jsonString = akl == null ? "" : akl.toJsonString();
+                    com.baidu.swan.apps.api.c.b ajD = dVar.ajD();
+                    String jsonString = ajD == null ? "" : ajD.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Utils.getSystemInfoSync[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6862,8 +6862,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lT = bVar2.lT(str);
-                    String jsonString = lT == null ? "" : lT.toJsonString();
+                    com.baidu.swan.apps.api.c.b lN = bVar2.lN(str);
+                    String jsonString = lN == null ? "" : lN.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Utils.handleException[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6903,8 +6903,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lU = cVar.lU(str);
-                    String jsonString = lU == null ? "" : lU.toJsonString();
+                    com.baidu.swan.apps.api.c.b lO = cVar.lO(str);
+                    String jsonString = lO == null ? "" : lO.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Utils.previewImage[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -6944,8 +6944,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b lV = fVar.lV(str);
-                    String jsonString = lV == null ? "" : lV.toJsonString();
+                    com.baidu.swan.apps.api.c.b lP = fVar.lP(str);
+                    String jsonString = lP == null ? "" : lP.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[Utils.ubcFlowJar[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;

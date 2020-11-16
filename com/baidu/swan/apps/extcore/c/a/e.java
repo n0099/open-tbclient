@@ -9,7 +9,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class e extends aa {
     public e(j jVar) {
         super(jVar, "/swanAPI/debug/setDebugConfig");
@@ -29,8 +29,8 @@ public class e extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        if (com.baidu.swan.apps.runtime.d.aHq().afE() == 0) {
-            eVar.aHG().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.e.1
+        if (com.baidu.swan.apps.runtime.d.aGI().aeW() == 0) {
+            eVar.aGY().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
@@ -40,35 +40,35 @@ public class e extends aa {
                         return;
                     }
                     if (optJSONObject.has("emitLive")) {
-                        com.baidu.swan.apps.ad.a.a.fW(com.baidu.swan.apps.extcore.c.a.iB(optJSONObject.optInt("emitLive")));
+                        com.baidu.swan.apps.ad.a.a.fZ(com.baidu.swan.apps.extcore.c.a.ix(optJSONObject.optInt("emitLive")));
                     }
                     if (optJSONObject.has("emitHttps")) {
-                        com.baidu.swan.apps.ad.a.a.fX(com.baidu.swan.apps.extcore.c.a.iB(optJSONObject.optInt("emitHttps")));
+                        com.baidu.swan.apps.ad.a.a.ga(com.baidu.swan.apps.extcore.c.a.ix(optJSONObject.optInt("emitHttps")));
                     }
                     if (optJSONObject.has("emitDomain")) {
-                        com.baidu.swan.apps.ad.a.a.fU(!com.baidu.swan.apps.extcore.c.a.iB(optJSONObject.optInt("emitDomain")));
-                        com.baidu.swan.apps.ad.a.a.fT(com.baidu.swan.apps.extcore.c.a.iB(optJSONObject.optInt("emitDomain")) ? false : true);
+                        com.baidu.swan.apps.ad.a.a.fX(!com.baidu.swan.apps.extcore.c.a.ix(optJSONObject.optInt("emitDomain")));
+                        com.baidu.swan.apps.ad.a.a.fW(com.baidu.swan.apps.extcore.c.a.ix(optJSONObject.optInt("emitDomain")) ? false : true);
                     }
                     if (optJSONObject.has("emitWss")) {
-                        com.baidu.swan.apps.ad.a.a.gb(com.baidu.swan.apps.extcore.c.a.iB(optJSONObject.optInt("emitWss")));
+                        com.baidu.swan.apps.ad.a.a.ge(com.baidu.swan.apps.extcore.c.a.ix(optJSONObject.optInt("emitWss")));
                     }
                     if (optJSONObject.has("emitLaunchMode")) {
-                        com.baidu.swan.apps.ad.a.a.ga(com.baidu.swan.apps.extcore.c.a.iB(optJSONObject.optInt("emitLaunchMode")));
+                        com.baidu.swan.apps.ad.a.a.gd(com.baidu.swan.apps.extcore.c.a.ix(optJSONObject.optInt("emitLaunchMode")));
                     }
                     if (optJSONObject.has("debugEnvData")) {
-                        com.baidu.swan.apps.ad.a.a.rq(optJSONObject.optString("debugEnvData"));
+                        com.baidu.swan.apps.ad.a.a.rk(optJSONObject.optString("debugEnvData"));
                     }
                     if (optJSONObject.has("emitReplaceJsNative")) {
-                        com.baidu.swan.apps.ad.a.a.gd(com.baidu.swan.apps.extcore.c.a.iB(optJSONObject.optInt("emitReplaceJsNative")));
+                        com.baidu.swan.apps.ad.a.a.gg(com.baidu.swan.apps.extcore.c.a.ix(optJSONObject.optInt("emitReplaceJsNative")));
                     }
                     if (optJSONObject.has("emitReplaceV8Core")) {
-                        d.C0434d.nI(d.C0434d.iq(optJSONObject.optInt("emitReplaceV8Core")));
+                        d.C0432d.nC(d.C0432d.im(optJSONObject.optInt("emitReplaceV8Core")));
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    com.baidu.swan.apps.ad.a.a.aol();
+                    com.baidu.swan.apps.ad.a.a.anD();
                 }
             });
-        } else if (com.baidu.swan.apps.runtime.d.aHq().afE() == 1) {
+        } else if (com.baidu.swan.apps.runtime.d.aGI().aeW() == 1) {
             if (!DEBUG) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
                 return false;
@@ -78,16 +78,16 @@ public class e extends aa {
                 return false;
             } else {
                 if (optJSONObject.has("emitHttps")) {
-                    com.baidu.swan.apps.ad.a.a.fX(com.baidu.swan.apps.extcore.c.a.iB(optJSONObject.optInt("emitHttps")));
+                    com.baidu.swan.apps.ad.a.a.ga(com.baidu.swan.apps.extcore.c.a.ix(optJSONObject.optInt("emitHttps")));
                 }
                 if (optJSONObject.has("emitWss")) {
-                    com.baidu.swan.apps.ad.a.a.gb(com.baidu.swan.apps.extcore.c.a.iB(optJSONObject.optInt("emitWss")));
+                    com.baidu.swan.apps.ad.a.a.ge(com.baidu.swan.apps.extcore.c.a.ix(optJSONObject.optInt("emitWss")));
                 }
                 if (optJSONObject.has("debugEnvData")) {
-                    com.baidu.swan.apps.ad.a.a.rq(optJSONObject.optString("debugEnvData"));
+                    com.baidu.swan.apps.ad.a.a.rk(optJSONObject.optString("debugEnvData"));
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                com.baidu.swan.apps.ad.a.a.aol();
+                com.baidu.swan.apps.ad.a.a.anD();
             }
         } else {
             com.baidu.swan.apps.console.c.e("setDebugConfig", "frame type error");

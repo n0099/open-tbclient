@@ -7,13 +7,13 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.webkit.WebView;
 import com.baidu.ar.arplay.core.filter.ARPFilter;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class a extends WebView {
     private C0076a fM;
     private boolean fN;
 
     /* renamed from: com.baidu.ar.arplay.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public static class C0076a {
         public int dz;
         public boolean fQ;

@@ -9,84 +9,84 @@ public class e implements d {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.d
     public void onError(int i, int i2, String str) {
-        if (a.obo) {
+        if (a.ocS) {
             Log.i("ARMI", "errMsg" + str);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.d
-    public void Ms(int i) {
-        if (a.obo) {
+    public void MV(int i) {
+        if (a.ocS) {
             Log.i("ARMI", "loginType:" + i);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.d
-    public void Mt(int i) {
-        if (a.obo) {
+    public void MW(int i) {
+        if (a.ocS) {
             Log.i("ARMI", "onSyncSelfStatus type:" + i);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.d
-    public void QD() {
-        if (a.obo) {
+    public void PU() {
+        if (a.ocS) {
             Log.i("ARMI", "onRoomClosed");
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.d
-    public void hj(long j) {
-        if (a.obo) {
+    public void hm(long j) {
+        if (a.ocS) {
             Log.i("ARMI", "onUserJoinRTCRoom:" + j);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.d
-    public void hk(long j) {
-        if (a.obo) {
+    public void hn(long j) {
+        if (a.ocS) {
             Log.i("ARMI", "onUserLeaveRTCRoom:" + j);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.d
     public void bm(long j) {
-        if (a.obo) {
+        if (a.ocS) {
             Log.i("ARMI", "onUserKickOff:" + j);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.d
     public void t(long j, boolean z) {
-        if (a.obo) {
+        if (a.ocS) {
             Log.i("ARMI", "imUK:" + j + "     isMute:" + z);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.d
     public void a(BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo) {
-        if (a.obo) {
+        if (a.ocS) {
             Log.i("ARMI", "onReciveInvite:" + bIMInviteSyncRtcInfo.getRtcExt() + "    " + bIMInviteSyncRtcInfo.getRtcRoomType());
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.d
     public void b(BIMRtcInfo bIMRtcInfo, int i) {
-        if (a.obo) {
+        if (a.ocS) {
             Log.i("ARMI", "onAnswer:" + i);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.d
-    public void r(int i, int i2, String str) {
-        if (a.obo) {
+    public void q(int i, int i2, String str) {
+        if (a.ocS) {
             Log.i("ARMI", "onSelfPulishStreamStatus:" + str);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.d
     public void j(int i, long j, String str) {
-        if (a.obo) {
+        if (a.ocS) {
             Log.i("ARMI", "onReceiveMessage:" + i);
         }
     }

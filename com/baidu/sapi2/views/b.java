@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.baidu.k.a.a;
 import com.baidu.sapi2.SapiAccountManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class b extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */

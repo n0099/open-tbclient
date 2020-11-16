@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public class HostProperties {
     private static final String TEMP_DIR_PROPERTY_NAME = "org.conscrypt.tmpdir";
     private static final Logger logger = Logger.getLogger(HostProperties.class.getName());
@@ -12,7 +12,7 @@ public class HostProperties {
     static final Architecture ARCH = getArchitecture(System.getProperty("os.arch", ""));
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     public enum OperatingSystem {
         AIX,
         HPUX,
@@ -32,7 +32,7 @@ public class HostProperties {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     public enum Architecture {
         X86_64,
         X86_32 { // from class: org.conscrypt.HostProperties.Architecture.1

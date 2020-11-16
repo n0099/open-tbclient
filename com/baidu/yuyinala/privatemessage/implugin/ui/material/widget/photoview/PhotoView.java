@@ -15,8 +15,8 @@ import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.d
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
 /* loaded from: classes4.dex */
 public class PhotoView extends ImageView implements c {
-    private d oCJ;
-    private ImageView.ScaleType oCK;
+    private d oEn;
+    private ImageView.ScaleType oEo;
 
     public PhotoView(Context context) {
         this(context, null);
@@ -33,33 +33,33 @@ public class PhotoView extends ImageView implements c {
     }
 
     protected void init() {
-        if (this.oCJ == null || this.oCJ.ehk() == null) {
-            this.oCJ = new d(this);
+        if (this.oEn == null || this.oEn.ehi() == null) {
+            this.oEn = new d(this);
         }
-        if (this.oCK != null) {
-            setScaleType(this.oCK);
-            this.oCK = null;
+        if (this.oEo != null) {
+            setScaleType(this.oEo);
+            this.oEo = null;
         }
     }
 
     public void setPhotoViewRotation(float f) {
-        this.oCJ.setRotationTo(f);
+        this.oEn.setRotationTo(f);
     }
 
     public void setRotationTo(float f) {
-        this.oCJ.setRotationTo(f);
+        this.oEn.setRotationTo(f);
     }
 
     public void setRotationBy(float f) {
-        this.oCJ.setRotationBy(f);
+        this.oEn.setRotationBy(f);
     }
 
     public RectF getDisplayRect() {
-        return this.oCJ.getDisplayRect();
+        return this.oEn.getDisplayRect();
     }
 
     public Matrix getDisplayMatrix() {
-        return this.oCJ.getDisplayMatrix();
+        return this.oEn.getDisplayMatrix();
     }
 
     @Deprecated
@@ -68,7 +68,7 @@ public class PhotoView extends ImageView implements c {
     }
 
     public float getMinimumScale() {
-        return this.oCJ.getMinimumScale();
+        return this.oEn.getMinimumScale();
     }
 
     @Deprecated
@@ -77,7 +77,7 @@ public class PhotoView extends ImageView implements c {
     }
 
     public float getMediumScale() {
-        return this.oCJ.getMediumScale();
+        return this.oEn.getMediumScale();
     }
 
     @Deprecated
@@ -86,20 +86,20 @@ public class PhotoView extends ImageView implements c {
     }
 
     public float getMaximumScale() {
-        return this.oCJ.getMaximumScale();
+        return this.oEn.getMaximumScale();
     }
 
     public float getScale() {
-        return this.oCJ.getScale();
+        return this.oEn.getScale();
     }
 
     @Override // android.widget.ImageView
     public ImageView.ScaleType getScaleType() {
-        return this.oCJ.getScaleType();
+        return this.oEn.getScaleType();
     }
 
     public void setAllowParentInterceptOnEdge(boolean z) {
-        this.oCJ.setAllowParentInterceptOnEdge(z);
+        this.oEn.setAllowParentInterceptOnEdge(z);
     }
 
     @Deprecated
@@ -108,7 +108,7 @@ public class PhotoView extends ImageView implements c {
     }
 
     public void setMinimumScale(float f) {
-        this.oCJ.setMinimumScale(f);
+        this.oEn.setMinimumScale(f);
     }
 
     @Deprecated
@@ -117,7 +117,7 @@ public class PhotoView extends ImageView implements c {
     }
 
     public void setMediumScale(float f) {
-        this.oCJ.setMediumScale(f);
+        this.oEn.setMediumScale(f);
     }
 
     @Deprecated
@@ -126,110 +126,110 @@ public class PhotoView extends ImageView implements c {
     }
 
     public void setMaximumScale(float f) {
-        this.oCJ.setMaximumScale(f);
+        this.oEn.setMaximumScale(f);
     }
 
     public void setScaleLevels(float f, float f2, float f3) {
-        this.oCJ.setScaleLevels(f, f2, f3);
+        this.oEn.setScaleLevels(f, f2, f3);
     }
 
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         super.setImageDrawable(drawable);
-        if (this.oCJ != null) {
-            this.oCJ.update();
+        if (this.oEn != null) {
+            this.oEn.update();
         }
     }
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
         super.setImageResource(i);
-        if (this.oCJ != null) {
-            this.oCJ.update();
+        if (this.oEn != null) {
+            this.oEn.update();
         }
     }
 
     @Override // android.widget.ImageView
     public void setImageURI(Uri uri) {
         super.setImageURI(uri);
-        if (this.oCJ != null) {
-            this.oCJ.update();
+        if (this.oEn != null) {
+            this.oEn.update();
         }
     }
 
     public void setOnMatrixChangeListener(d.c cVar) {
-        this.oCJ.setOnMatrixChangeListener(cVar);
+        this.oEn.setOnMatrixChangeListener(cVar);
     }
 
     @Override // android.view.View
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.oCJ.setOnLongClickListener(onLongClickListener);
+        this.oEn.setOnLongClickListener(onLongClickListener);
     }
 
-    public void setOnPhotoTapListener(d.InterfaceC0951d interfaceC0951d) {
-        this.oCJ.setOnPhotoTapListener(interfaceC0951d);
+    public void setOnPhotoTapListener(d.InterfaceC0954d interfaceC0954d) {
+        this.oEn.setOnPhotoTapListener(interfaceC0954d);
     }
 
-    public d.InterfaceC0951d getOnPhotoTapListener() {
-        return this.oCJ.getOnPhotoTapListener();
+    public d.InterfaceC0954d getOnPhotoTapListener() {
+        return this.oEn.getOnPhotoTapListener();
     }
 
     public void setOnViewTapListener(d.f fVar) {
-        this.oCJ.setOnViewTapListener(fVar);
+        this.oEn.setOnViewTapListener(fVar);
     }
 
     public d.f getOnViewTapListener() {
-        return this.oCJ.getOnViewTapListener();
+        return this.oEn.getOnViewTapListener();
     }
 
     public void setScale(float f) {
-        this.oCJ.setScale(f);
+        this.oEn.setScale(f);
     }
 
     public void setScale(float f, boolean z) {
-        this.oCJ.setScale(f, z);
+        this.oEn.setScale(f, z);
     }
 
     public void setScale(float f, float f2, float f3, boolean z) {
-        this.oCJ.setScale(f, f2, f3, z);
+        this.oEn.setScale(f, f2, f3, z);
     }
 
     @Override // android.widget.ImageView
     public void setScaleType(ImageView.ScaleType scaleType) {
-        if (this.oCJ != null) {
-            this.oCJ.setScaleType(scaleType);
+        if (this.oEn != null) {
+            this.oEn.setScaleType(scaleType);
         } else {
-            this.oCK = scaleType;
+            this.oEo = scaleType;
         }
     }
 
     public void setZoomable(boolean z) {
-        this.oCJ.setZoomable(z);
+        this.oEn.setZoomable(z);
     }
 
     public Bitmap getVisibleRectangleBitmap() {
-        return this.oCJ.getVisibleRectangleBitmap();
+        return this.oEn.getVisibleRectangleBitmap();
     }
 
     public void setZoomTransitionDuration(int i) {
-        this.oCJ.setZoomTransitionDuration(i);
+        this.oEn.setZoomTransitionDuration(i);
     }
 
     public c getIPhotoViewImplementation() {
-        return this.oCJ;
+        return this.oEn;
     }
 
     public void setOnDoubleTapListener(GestureDetector.OnDoubleTapListener onDoubleTapListener) {
-        this.oCJ.setOnDoubleTapListener(onDoubleTapListener);
+        this.oEn.setOnDoubleTapListener(onDoubleTapListener);
     }
 
     public void setOnScaleChangeListener(d.e eVar) {
-        this.oCJ.setOnScaleChangeListener(eVar);
+        this.oEn.setOnScaleChangeListener(eVar);
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
-        this.oCJ.cleanup();
+        this.oEn.cleanup();
         super.onDetachedFromWindow();
     }
 
@@ -242,7 +242,7 @@ public class PhotoView extends ImageView implements c {
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (ThemeManager.eia() == ThemeManager.ThemeMode.NIGHT) {
+        if (ThemeManager.ehY() == ThemeManager.ThemeMode.NIGHT) {
             canvas.drawColor(2130706432);
         }
     }

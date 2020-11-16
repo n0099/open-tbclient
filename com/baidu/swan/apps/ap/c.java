@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.ap;
 
 import android.os.Build;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static boolean hasGingerbread() {
         return Build.VERSION.SDK_INT >= 9;
@@ -47,7 +47,7 @@ public final class c {
         return Build.VERSION.SDK_INT >= 26;
     }
 
-    public static boolean aMf() {
+    public static boolean aLx() {
         return Build.VERSION.SDK_INT >= 29;
     }
 }

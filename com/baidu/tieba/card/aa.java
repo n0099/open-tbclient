@@ -1,5 +1,5 @@
 package com.baidu.tieba.card;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public interface aa {
-    void oA(boolean z);
+    void oD(boolean z);
 }

@@ -1,26 +1,43 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import java.util.List;
 import tbclient.BannerImage;
 /* loaded from: classes.dex */
-public class k extends com.baidu.tieba.card.data.b implements com.baidu.adp.widget.ListView.q {
-    public static BdUniqueId ezN = BdUniqueId.gen();
-    public List<j> dataList = new ArrayList();
+public class k implements com.baidu.tbadk.core.flow.a.a {
+    private String bJJ;
+    private String eya;
+    private String mTitle;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return ezN;
+    public void a(BannerImage bannerImage) {
+        if (bannerImage != null) {
+            this.bJJ = bannerImage.img_url;
+            this.eya = bannerImage.ahead_url;
+            this.mTitle = bannerImage.title;
+        }
     }
 
-    public void parserProtobuf(List<BannerImage> list) {
-        if (list != null) {
-            for (BannerImage bannerImage : list) {
-                j jVar = new j();
-                jVar.a(bannerImage);
-                this.dataList.add(jVar);
-            }
-        }
+    public String bjy() {
+        return this.bJJ;
+    }
+
+    public String bjz() {
+        return this.eya;
+    }
+
+    public void Aj(String str) {
+        this.eya = str;
+    }
+
+    public String getTitle() {
+        return this.mTitle;
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String getPicUrl() {
+        return this.bJJ;
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String bjA() {
+        return this.eya;
     }
 }

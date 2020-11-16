@@ -7,40 +7,40 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class a implements b.a {
-    private c aBi;
+    private c azx;
     private Context mContext;
-    private HashMap<Long, com.baidu.live.alablmsdk.module.rtc.b> aBT = new HashMap<>();
-    com.baidu.live.alablmsdk.c.a.a aBU = new com.baidu.live.alablmsdk.c.a.a() { // from class: com.baidu.live.alablmsdk.d.a.1
+    private HashMap<Long, com.baidu.live.alablmsdk.module.rtc.b> aAi = new HashMap<>();
+    com.baidu.live.alablmsdk.c.a.a aAj = new com.baidu.live.alablmsdk.c.a.a() { // from class: com.baidu.live.alablmsdk.d.a.1
         @Override // com.baidu.live.alablmsdk.c.a.a
         public void onPixelRead(byte[] bArr, int i, int i2) {
-            if (a.this.aBS != null) {
-                a.this.aBS.p(bArr, i, i2);
+            if (a.this.aAh != null) {
+                a.this.aAh.p(bArr, i, i2);
             }
         }
     };
-    private d aBS = new d();
+    private d aAh = new d();
 
     public a(Context context, c cVar) {
         this.mContext = context;
-        this.aBi = cVar;
-        this.aBi.a(this.aBS);
+        this.azx = cVar;
+        this.azx.a(this.aAh);
     }
 
-    public com.baidu.live.alablmsdk.c.a.a BX() {
-        return this.aBU;
+    public com.baidu.live.alablmsdk.c.a.a Bo() {
+        return this.aAj;
     }
 
     public void b(boolean z, long j) {
         String str;
-        com.baidu.live.alablmsdk.a.b.ah(" enableRemoteDisplay ", "imUk=" + j);
+        com.baidu.live.alablmsdk.a.b.ag(" enableRemoteDisplay ", "imUk=" + j);
         if (j != 0) {
-            synchronized (this.aBT) {
+            synchronized (this.aAi) {
                 if (z) {
                     ag(j);
                     if (com.baidu.live.alablmsdk.a.b.isDebug()) {
                         StringBuilder sb = new StringBuilder();
-                        if (this.aBT.size() > 0) {
-                            for (Map.Entry<Long, com.baidu.live.alablmsdk.module.rtc.b> entry : this.aBT.entrySet()) {
+                        if (this.aAi.size() > 0) {
+                            for (Map.Entry<Long, com.baidu.live.alablmsdk.module.rtc.b> entry : this.aAi.entrySet()) {
                                 if (entry != null) {
                                     com.baidu.live.alablmsdk.module.rtc.b value = entry.getValue();
                                     if (value == null) {
@@ -52,9 +52,9 @@ public class a implements b.a {
                                 }
                             }
                         }
-                        com.baidu.live.alablmsdk.a.b.ah("  map for 循环 texture info = " + sb.toString(), "");
+                        com.baidu.live.alablmsdk.a.b.ag("  map for 循环 texture info = " + sb.toString(), "");
                     }
-                    com.baidu.live.alablmsdk.a.b.ah(" remote user view num " + this.aBT.size(), "");
+                    com.baidu.live.alablmsdk.a.b.ag(" remote user view num " + this.aAi.size(), "");
                 }
             }
         }
@@ -62,32 +62,32 @@ public class a implements b.a {
 
     private TextureView ag(final long j) {
         TextureView textureView;
-        com.baidu.live.alablmsdk.a.b.ah(" addRemoteUserRtcVideoView remoteUid" + j, "");
-        synchronized (this.aBT) {
-            final com.baidu.live.alablmsdk.module.rtc.b bVar = this.aBT.get(Long.valueOf(j));
+        com.baidu.live.alablmsdk.a.b.ag(" addRemoteUserRtcVideoView remoteUid" + j, "");
+        synchronized (this.aAi) {
+            final com.baidu.live.alablmsdk.module.rtc.b bVar = this.aAi.get(Long.valueOf(j));
             if (bVar == null || bVar.mTextureView == null || bVar.mSurface == null) {
                 String str = "";
                 if (bVar != null) {
                     str = bVar.toString();
                 }
-                com.baidu.live.alablmsdk.a.b.ah(" map-externalTextureInfo info has null , remoteUid=" + j, " externalTextureInfo=" + str);
-                bVar = new com.baidu.live.alablmsdk.module.rtc.b(this.mContext, this.aBi, j);
+                com.baidu.live.alablmsdk.a.b.ag(" map-externalTextureInfo info has null , remoteUid=" + j, " externalTextureInfo=" + str);
+                bVar = new com.baidu.live.alablmsdk.module.rtc.b(this.mContext, this.azx, j);
                 bVar.a(this);
-                this.aBT.put(Long.valueOf(j), bVar);
-                com.baidu.live.alablmsdk.a.b.ah(" tempExternalTextureInfo = " + bVar.toString(), "");
+                this.aAi.put(Long.valueOf(j), bVar);
+                com.baidu.live.alablmsdk.a.b.ag(" tempExternalTextureInfo = " + bVar.toString(), "");
             } else {
-                com.baidu.live.alablmsdk.a.b.ah(" map contains , remoteUid=" + j, "");
+                com.baidu.live.alablmsdk.a.b.ag(" map contains , remoteUid=" + j, "");
                 final int i = bVar.mWidth;
                 final int i2 = bVar.mHeight;
-                com.baidu.live.alablmsdk.a.b.ah(" map contains , remoteUid=" + j + " , info=" + bVar, "");
+                com.baidu.live.alablmsdk.a.b.ag(" map contains , remoteUid=" + j + " , info=" + bVar, "");
                 if (bVar.mSurface != null) {
-                    com.baidu.live.alablmsdk.a.d.Bh().post(new Runnable() { // from class: com.baidu.live.alablmsdk.d.a.2
+                    com.baidu.live.alablmsdk.a.d.Ay().post(new Runnable() { // from class: com.baidu.live.alablmsdk.d.a.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.baidu.live.alablmsdk.a.b.ah(" re destroy set ExternalSurface , width=" + i + " , height=" + i2, "");
-                            a.this.aBi.destroyExternalSurface(j, bVar.mSurface);
-                            a.this.aBi.setExternalSurface(j, bVar.mSurface);
-                            a.this.aBi.changeSurfaceSize(j, i, i2);
+                            com.baidu.live.alablmsdk.a.b.ag(" re destroy set ExternalSurface , width=" + i + " , height=" + i2, "");
+                            a.this.azx.destroyExternalSurface(j, bVar.mSurface);
+                            a.this.azx.setExternalSurface(j, bVar.mSurface);
+                            a.this.azx.changeSurfaceSize(j, i, i2);
                         }
                     });
                 }
@@ -99,20 +99,20 @@ public class a implements b.a {
 
     @Override // com.baidu.live.alablmsdk.module.rtc.b.a
     public void af(long j) {
-        synchronized (this.aBT) {
-            com.baidu.live.alablmsdk.a.b.ah(" map remove , id=" + j, "");
+        synchronized (this.aAi) {
+            com.baidu.live.alablmsdk.a.b.ag(" map remove , id=" + j, "");
             if (j != 0) {
-                this.aBT.remove(Long.valueOf(j));
+                this.aAi.remove(Long.valueOf(j));
             }
         }
     }
 
     public TextureView c(com.baidu.live.alablmsdk.module.c cVar) {
-        if (cVar == null || cVar.aBv == 0) {
+        if (cVar == null || cVar.azK == 0) {
             return null;
         }
-        com.baidu.live.alablmsdk.a.b.ah(" getRemoteDisplayViewForUser", " imUk=" + cVar.aBv);
-        return ah(cVar.aBv);
+        com.baidu.live.alablmsdk.a.b.ag(" getRemoteDisplayViewForUser", " imUk=" + cVar.azK);
+        return ah(cVar.azK);
     }
 
     public TextureView ah(long j) {
@@ -120,12 +120,12 @@ public class a implements b.a {
         if (j == 0) {
             return null;
         }
-        synchronized (this.aBT) {
-            if (this.aBT.containsKey(Long.valueOf(j))) {
-                com.baidu.live.alablmsdk.a.b.ah(" mRemoteViewMap sizes " + this.aBT.size(), "");
-                com.baidu.live.alablmsdk.module.rtc.b bVar = this.aBT.get(Long.valueOf(j));
+        synchronized (this.aAi) {
+            if (this.aAi.containsKey(Long.valueOf(j))) {
+                com.baidu.live.alablmsdk.a.b.ag(" mRemoteViewMap sizes " + this.aAi.size(), "");
+                com.baidu.live.alablmsdk.module.rtc.b bVar = this.aAi.get(Long.valueOf(j));
                 if (bVar != null) {
-                    com.baidu.live.alablmsdk.a.b.ah(" get texture view by user , imUk=" + j + ", texture info=" + bVar.toString(), "");
+                    com.baidu.live.alablmsdk.a.b.ag(" get texture view by user , imUk=" + j + ", texture info=" + bVar.toString(), "");
                     textureView = bVar.mTextureView;
                 } else {
                     textureView = null;
@@ -138,24 +138,24 @@ public class a implements b.a {
     }
 
     public void release() {
-        BY();
+        Bp();
     }
 
-    public void BY() {
-        BZ();
+    public void Bp() {
+        Bq();
     }
 
-    private void BZ() {
+    private void Bq() {
         com.baidu.live.alablmsdk.module.rtc.b value;
-        com.baidu.live.alablmsdk.a.b.ah(" releaseVideoViewMap ", "");
-        if (this.aBT != null) {
-            synchronized (this.aBT) {
-                for (Map.Entry<Long, com.baidu.live.alablmsdk.module.rtc.b> entry : this.aBT.entrySet()) {
+        com.baidu.live.alablmsdk.a.b.ag(" releaseVideoViewMap ", "");
+        if (this.aAi != null) {
+            synchronized (this.aAi) {
+                for (Map.Entry<Long, com.baidu.live.alablmsdk.module.rtc.b> entry : this.aAi.entrySet()) {
                     if (entry != null && (value = entry.getValue()) != null) {
                         value.release();
                     }
                 }
-                this.aBT.clear();
+                this.aAi.clear();
             }
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.sofire.core;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */

@@ -6,13 +6,13 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class a {
     private static final int[] pw = {3, 10, 10, 10, 10};
     private String pv;
 
     /* renamed from: com.baidu.ar.face.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public class C0084a {
         public String pA;
         public String pB;
@@ -26,7 +26,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public class b {
         public int[] od;
         public String pF;

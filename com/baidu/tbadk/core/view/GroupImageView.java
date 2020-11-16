@@ -20,7 +20,7 @@ public class GroupImageView extends TbClipImageView {
     public GroupImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mDefaultId = R.drawable.transparent_bg;
-        this.mDefaultBgId = R.color.cp_bg_line_e;
+        this.mDefaultBgId = R.color.CAM_X0205;
         init();
     }
 

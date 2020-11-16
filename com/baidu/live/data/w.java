@@ -10,48 +10,48 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class w extends BaseData {
-    public AlaLiveUserInfoData aIV;
-    public AlaLocationData aIW;
-    public AlaRelationData aIX;
-    public List<AlaLiveMarkData> aJA;
-    public long aJB;
-    public String aJC;
-    public boolean aJD;
-    public an aJE;
-    public boolean aJF;
-    public AlaLiveFeedDiversionData aJG;
-    public c aJH;
-    public String aJI;
-    public String aJJ;
-    public cx aJK;
-    public ct aJL;
-    public u aJM;
-    public QuickImInputData aJN;
-    public boolean aJO;
-    public AlaWheatInfoDataWrapper aJP;
-    public boolean aJQ;
-    public boolean aJR;
-    public boolean aJS;
-    public String aJT;
-    public boolean aJU;
-    public int aJV;
-    private boolean aJW;
-    public double aJX;
-    public long aJY;
-    public long aJZ;
-    public long aJa;
-    public AlaLiveUserInfoData aJr;
-    public v aJs;
-    public l aJt;
-    public ag aJu;
-    public AlaLiveGiftUIInfo aJv;
-    public ArrayList<AlaLiveWishListData> aJw;
-    public ad aJx;
-    public boolean aJy;
-    public boolean aJz;
-    public String aKa;
-    public boolean aKb;
-    public boolean aKc;
+    public AlaLiveUserInfoData aHG;
+    public v aHH;
+    public l aHI;
+    public ag aHJ;
+    public AlaLiveGiftUIInfo aHK;
+    public ArrayList<AlaLiveWishListData> aHL;
+    public ad aHM;
+    public boolean aHN;
+    public boolean aHO;
+    public List<AlaLiveMarkData> aHP;
+    public long aHQ;
+    public String aHR;
+    public boolean aHS;
+    public an aHT;
+    public boolean aHU;
+    public AlaLiveFeedDiversionData aHV;
+    public c aHW;
+    public String aHX;
+    public String aHY;
+    public cx aHZ;
+    public AlaLiveUserInfoData aHk;
+    public AlaLocationData aHl;
+    public AlaRelationData aHm;
+    public long aHp;
+    public ct aIa;
+    public u aIb;
+    public QuickImInputData aIc;
+    public boolean aId;
+    public AlaWheatInfoDataWrapper aIe;
+    public boolean aIf;
+    public boolean aIg;
+    public boolean aIh;
+    public String aIi;
+    public boolean aIj;
+    public int aIk;
+    private boolean aIl;
+    public double aIm;
+    public long aIn;
+    public long aIo;
+    public String aIp;
+    public boolean aIq;
+    public boolean aIr;
     private int endTime;
     public boolean isHost;
     public long logId;
@@ -61,67 +61,67 @@ public class w extends BaseData {
 
     public w() {
         this.mLiveInfo = new AlaLiveInfoData();
-        this.aIV = new AlaLiveUserInfoData();
-        this.aJr = new AlaLiveUserInfoData();
-        this.aIX = new AlaRelationData();
-        this.aIW = new AlaLocationData();
+        this.aHk = new AlaLiveUserInfoData();
+        this.aHG = new AlaLiveUserInfoData();
+        this.aHm = new AlaRelationData();
+        this.aHl = new AlaLocationData();
         this.mLiveSdkInfo = new AlaLiveSdkInfo();
-        this.aJs = new v();
-        this.aJu = new ag();
-        this.aJw = new ArrayList<>();
-        this.aJy = false;
-        this.aJz = false;
-        this.aJA = new ArrayList();
-        this.aJa = 5000L;
-        this.aJD = false;
-        this.aJE = new an();
-        this.aJS = true;
-        this.aJV = 6;
-        this.aJW = false;
-        this.aJX = 2.0d;
-        this.aJY = 300L;
-        this.aJZ = 3399L;
-        this.aKa = "";
-        this.aKb = false;
-        this.aKc = true;
+        this.aHH = new v();
+        this.aHJ = new ag();
+        this.aHL = new ArrayList<>();
+        this.aHN = false;
+        this.aHO = false;
+        this.aHP = new ArrayList();
+        this.aHp = 5000L;
+        this.aHS = false;
+        this.aHT = new an();
+        this.aIh = true;
+        this.aIk = 6;
+        this.aIl = false;
+        this.aIm = 2.0d;
+        this.aIn = 300L;
+        this.aIo = 3399L;
+        this.aIp = "";
+        this.aIq = false;
+        this.aIr = true;
     }
 
     public w(AlaLiveInfoCoreData alaLiveInfoCoreData) {
         this.mLiveInfo = new AlaLiveInfoData();
-        this.aIV = new AlaLiveUserInfoData();
-        this.aJr = new AlaLiveUserInfoData();
-        this.aIX = new AlaRelationData();
-        this.aIW = new AlaLocationData();
+        this.aHk = new AlaLiveUserInfoData();
+        this.aHG = new AlaLiveUserInfoData();
+        this.aHm = new AlaRelationData();
+        this.aHl = new AlaLocationData();
         this.mLiveSdkInfo = new AlaLiveSdkInfo();
-        this.aJs = new v();
-        this.aJu = new ag();
-        this.aJw = new ArrayList<>();
-        this.aJy = false;
-        this.aJz = false;
-        this.aJA = new ArrayList();
-        this.aJa = 5000L;
-        this.aJD = false;
-        this.aJE = new an();
-        this.aJS = true;
-        this.aJV = 6;
-        this.aJW = false;
-        this.aJX = 2.0d;
-        this.aJY = 300L;
-        this.aJZ = 3399L;
-        this.aKa = "";
-        this.aKb = false;
-        this.aKc = true;
+        this.aHH = new v();
+        this.aHJ = new ag();
+        this.aHL = new ArrayList<>();
+        this.aHN = false;
+        this.aHO = false;
+        this.aHP = new ArrayList();
+        this.aHp = 5000L;
+        this.aHS = false;
+        this.aHT = new an();
+        this.aIh = true;
+        this.aIk = 6;
+        this.aIl = false;
+        this.aIm = 2.0d;
+        this.aIn = 300L;
+        this.aIo = 3399L;
+        this.aIp = "";
+        this.aIq = false;
+        this.aIr = true;
         if (alaLiveInfoCoreData != null) {
             this.mLiveInfo = a(alaLiveInfoCoreData);
             AlaLiveUserInfoData a2 = a(alaLiveInfoCoreData.userInfo);
             if (a2 != null) {
-                this.aIV = a2;
+                this.aHk = a2;
             }
         }
     }
 
-    public void bp(boolean z) {
-        this.aJW = z;
+    public void br(boolean z) {
+        this.aIl = z;
     }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
@@ -135,54 +135,54 @@ public class w extends BaseData {
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("room_info");
             if (optJSONObject3 != null) {
-                this.aJK = new cx();
-                this.aJK.parserJson(optJSONObject3);
+                this.aHZ = new cx();
+                this.aHZ.parserJson(optJSONObject3);
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("activity_detail");
             if (optJSONObject4 != null) {
-                this.aJL = new ct();
-                this.aJL.parserJson(optJSONObject4);
+                this.aIa = new ct();
+                this.aIa.parserJson(optJSONObject4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("entry");
             if (optJSONObject5 != null) {
-                this.aJR = optJSONObject5.optInt("audio_switch_moreroom") == 1;
-                this.aJQ = optJSONObject5.optInt("audio_switch_roomrank") == 1;
-                this.aJS = optJSONObject5.optInt("audio_noble_bottom_bar") == 1;
-                this.aJU = optJSONObject5.optInt("audio_switch_miliao") == 1;
-                this.aJV = optJSONObject5.optInt("audio_inviting_countdown", 6);
-                this.aJX = optJSONObject5.optDouble("audio_speaker_status_interval", 2.0d);
-                this.aJY = optJSONObject5.optLong("audio_speaker_decibel_android", 300L);
-                this.aJZ = optJSONObject5.optLong("audio_xq_sweet_count", 3399L);
+                this.aIg = optJSONObject5.optInt("audio_switch_moreroom") == 1;
+                this.aIf = optJSONObject5.optInt("audio_switch_roomrank") == 1;
+                this.aIh = optJSONObject5.optInt("audio_noble_bottom_bar") == 1;
+                this.aIj = optJSONObject5.optInt("audio_switch_miliao") == 1;
+                this.aIk = optJSONObject5.optInt("audio_inviting_countdown", 6);
+                this.aIm = optJSONObject5.optDouble("audio_speaker_status_interval", 2.0d);
+                this.aIn = optJSONObject5.optLong("audio_speaker_decibel_android", 300L);
+                this.aIo = optJSONObject5.optLong("audio_xq_sweet_count", 3399L);
             }
             JSONObject optJSONObject6 = jSONObject.optJSONObject("location_info");
             if (optJSONObject6 != null) {
-                this.aIW = new AlaLocationData();
-                this.aIW.parserJson(optJSONObject6);
+                this.aHl = new AlaLocationData();
+                this.aHl.parserJson(optJSONObject6);
             }
             JSONObject optJSONObject7 = jSONObject.optJSONObject("user_info");
             if (optJSONObject7 != null) {
-                this.aIV = new AlaLiveUserInfoData();
-                this.aIV.parserJson(optJSONObject7);
+                this.aHk = new AlaLiveUserInfoData();
+                this.aHk.parserJson(optJSONObject7);
             }
             JSONObject optJSONObject8 = jSONObject.optJSONObject("login_user_info");
             if (optJSONObject8 != null) {
-                this.aJr = new AlaLiveUserInfoData();
-                this.aJr.parserJson(optJSONObject8);
+                this.aHG = new AlaLiveUserInfoData();
+                this.aHG.parserJson(optJSONObject8);
             }
             JSONObject optJSONObject9 = jSONObject.optJSONObject("relation_info");
             if (optJSONObject9 != null) {
-                this.aIX = new AlaRelationData();
-                this.aIX.parserJson(optJSONObject9);
+                this.aHm = new AlaRelationData();
+                this.aHm.parserJson(optJSONObject9);
             }
             JSONObject optJSONObject10 = jSONObject.optJSONObject("task_info");
             if (optJSONObject10 != null) {
-                this.aJE = new an();
-                this.aJE.parserJson(optJSONObject10);
+                this.aHT = new an();
+                this.aHT.parserJson(optJSONObject10);
             }
             JSONObject optJSONObject11 = jSONObject.optJSONObject("pk_solo_info");
             if (optJSONObject11 != null) {
-                this.aJx = new ad();
-                this.aJx.parserJson(optJSONObject11);
+                this.aHM = new ad();
+                this.aHM.parserJson(optJSONObject11);
             }
             JSONObject optJSONObject12 = jSONObject.optJSONObject("pk_season_info");
             if (optJSONObject12 != null) {
@@ -195,67 +195,67 @@ public class w extends BaseData {
                     if (!optString.isEmpty()) {
                         this.endTime = Integer.parseInt(optString);
                         if (optString != null || optString.isEmpty() || this.endTime > 0) {
-                            this.aJy = true;
+                            this.aHN = true;
                         } else {
-                            this.aJy = false;
+                            this.aHN = false;
                         }
                     }
                 }
                 this.endTime = -1;
                 if (optString != null) {
                 }
-                this.aJy = true;
+                this.aHN = true;
             } else {
-                this.aJy = false;
+                this.aHN = false;
             }
-            this.aJT = jSONObject.optString("tying_gift");
+            this.aIi = jSONObject.optString("tying_gift");
             JSONObject optJSONObject13 = jSONObject.optJSONObject("tying_gift");
-            if (this.aJu != null) {
-                this.aJu = new ag();
-                this.aJu.parser(optJSONObject13);
+            if (this.aHJ != null) {
+                this.aHJ = new ag();
+                this.aHJ.parser(optJSONObject13);
             }
             JSONObject optJSONObject14 = jSONObject.optJSONObject("toutiao");
             if (optJSONObject14 != null) {
-                this.aJt = new l();
-                this.aJt.serverTime = this.serverTime;
-                this.aJt.parser(optJSONObject14);
+                this.aHI = new l();
+                this.aHI.serverTime = this.serverTime;
+                this.aHI.parser(optJSONObject14);
             }
             JSONObject optJSONObject15 = jSONObject.optJSONObject("share_live_info");
             if (optJSONObject15 != null) {
-                this.aJs = new v();
-                this.aJs.parseJson(optJSONObject15);
+                this.aHH = new v();
+                this.aHH.parseJson(optJSONObject15);
             }
             if (!TbadkCoreApplication.getInst().isMobileBaidu() && (optJSONObject = jSONObject.optJSONObject("gift_bg_info")) != null) {
-                this.aJv = new AlaLiveGiftUIInfo();
-                this.aJv.parserJson(optJSONObject);
+                this.aHK = new AlaLiveGiftUIInfo();
+                this.aHK.parserJson(optJSONObject);
             }
-            this.aJa = jSONObject.optLong("interval", 5L);
-            if (this.aJa < 5) {
-                this.aJa = 5000L;
+            this.aHp = jSONObject.optLong("interval", 5L);
+            if (this.aHp < 5) {
+                this.aHp = 5000L;
             } else {
-                this.aJa *= 1000;
+                this.aHp *= 1000;
             }
-            this.aJB = jSONObject.optInt("zan_status");
-            this.aJC = jSONObject.optString("user_watermark");
+            this.aHQ = jSONObject.optInt("zan_status");
+            this.aHR = jSONObject.optString("user_watermark");
             JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info_new");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject16 = optJSONArray.optJSONObject(i);
                     if (optJSONObject16 != null) {
                         AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
-                        alaLiveMarkData.userLevel = this.aIV.levelId;
+                        alaLiveMarkData.userLevel = this.aHk.levelId;
                         alaLiveMarkData.parserJson(optJSONObject16);
-                        this.aJA.add(alaLiveMarkData);
+                        this.aHP.add(alaLiveMarkData);
                     }
                 }
             }
-            this.aJz = jSONObject.optInt("need_renew_mark_info", 0) == 1;
+            this.aHO = jSONObject.optInt("need_renew_mark_info", 0) == 1;
             if (jSONObject.has("scene_from")) {
                 String optString2 = jSONObject.optString("scene_from");
-                if (this.aJW) {
-                    com.baidu.live.utils.s.iG(optString2);
+                if (this.aIl) {
+                    com.baidu.live.utils.s.iA(optString2);
                 } else {
-                    com.baidu.live.utils.p.iG(optString2);
+                    com.baidu.live.utils.p.iA(optString2);
                 }
             }
             JSONObject optJSONObject17 = jSONObject.optJSONObject(CashierData.SDK);
@@ -268,33 +268,33 @@ public class w extends BaseData {
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                     AlaLiveWishListData alaLiveWishListData = new AlaLiveWishListData();
                     alaLiveWishListData.parserJson(optJSONArray2.optJSONObject(i2));
-                    this.aJw.add(alaLiveWishListData);
+                    this.aHL.add(alaLiveWishListData);
                 }
             }
-            this.aJF = jSONObject.optInt("switch_guard_seat") == 1;
+            this.aHU = jSONObject.optInt("switch_guard_seat") == 1;
             JSONObject optJSONObject18 = jSONObject.optJSONObject("feed_diversion");
             if (optJSONObject18 != null) {
-                this.aJG = new AlaLiveFeedDiversionData();
-                this.aJG.parserJson(optJSONObject18);
+                this.aHV = new AlaLiveFeedDiversionData();
+                this.aHV.parserJson(optJSONObject18);
             }
             JSONObject optJSONObject19 = jSONObject.optJSONObject("anchor_info");
             if (optJSONObject19 != null) {
-                this.aJH = new c();
-                this.aJH.parseJson(optJSONObject19);
+                this.aHW = new c();
+                this.aHW.parseJson(optJSONObject19);
             }
-            this.aJI = jSONObject.optString("function_list");
-            this.aJJ = jSONObject.optString("function_list_detail");
+            this.aHX = jSONObject.optString("function_list");
+            this.aHY = jSONObject.optString("function_list_detail");
             String optString3 = jSONObject.optString("user_info_list");
             if (optString3 != null) {
-                this.aJP = new AlaWheatInfoDataWrapper(optString3);
+                this.aIe = new AlaWheatInfoDataWrapper(optString3);
             }
             JSONObject optJSONObject20 = jSONObject.optJSONObject("multi_session");
             if (optJSONObject20 != null) {
-                this.aJM = u.z(optJSONObject20);
+                this.aIb = u.t(optJSONObject20);
             }
-            this.aJN = new QuickImInputData();
-            this.aJN.parseJson(jSONObject.optJSONArray("fast_reply_word"));
-            this.aJO = jSONObject.optInt("disc_optimize_user_switch") == 1;
+            this.aIc = new QuickImInputData();
+            this.aIc.parseJson(jSONObject.optJSONArray("fast_reply_word"));
+            this.aId = jSONObject.optInt("disc_optimize_user_switch") == 1;
         }
     }
 
@@ -335,6 +335,6 @@ public class w extends BaseData {
     }
 
     public String toString() {
-        return "AlaLiveShowData{mAlaLiveMultiSession=" + this.aJM + '}';
+        return "AlaLiveShowData{mAlaLiveMultiSession=" + this.aIb + '}';
     }
 }

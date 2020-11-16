@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tieba.ala.live.walletconfig.CashierData;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class NetworkHelper {
     public static boolean hasInternetPermission(Context context) {
         return context == null || context.checkCallingOrSelfPermission("android.permission.INTERNET") == 0;

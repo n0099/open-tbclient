@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class b extends com.baidu.swan.pms.database.a.b<com.baidu.swan.pms.b.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b

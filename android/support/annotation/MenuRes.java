@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.LOCAL_VARIABLE})
 @Documented
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes18.dex */
+/* loaded from: classes14.dex */
 public @interface MenuRes {
 }

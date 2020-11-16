@@ -2,9 +2,9 @@ package rx.internal.operators;
 
 import rx.d;
 import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public class j<T, R> implements d.b<R, T> {
-    final Class<R> qfy;
+    final Class<R> qhb;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -12,31 +12,31 @@ public class j<T, R> implements d.b<R, T> {
     }
 
     public j(Class<R> cls) {
-        this.qfy = cls;
+        this.qhb = cls;
     }
 
     public rx.j<? super T> call(rx.j<? super R> jVar) {
-        a aVar = new a(jVar, this.qfy);
+        a aVar = new a(jVar, this.qhb);
         jVar.add(aVar);
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public static final class a<T, R> extends rx.j<T> {
         final rx.j<? super R> actual;
         boolean done;
-        final Class<R> qfy;
+        final Class<R> qhb;
 
         public a(rx.j<? super R> jVar, Class<R> cls) {
             this.actual = jVar;
-            this.qfy = cls;
+            this.qhb = cls;
         }
 
         @Override // rx.e
         public void onNext(T t) {
             try {
-                this.actual.onNext(this.qfy.cast(t));
+                this.actual.onNext(this.qhb.cast(t));
             } catch (Throwable th) {
                 rx.exceptions.a.J(th);
                 unsubscribe();

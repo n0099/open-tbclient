@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a implements com.baidu.swan.pms.b {
     @Override // com.baidu.swan.pms.b
     public boolean isDebug() {
@@ -30,13 +30,13 @@ public class a implements com.baidu.swan.pms.b {
     }
 
     @Override // com.baidu.swan.pms.b
-    public String axH() {
-        return com.baidu.swan.apps.t.a.awM().aib();
+    public String awZ() {
+        return com.baidu.swan.apps.t.a.awe().aht();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String axI() {
-        return com.baidu.swan.apps.t.a.awF().bq(AppRuntime.getAppContext());
+    public String axa() {
+        return com.baidu.swan.apps.t.a.avX().bq(AppRuntime.getAppContext());
     }
 
     @Override // com.baidu.swan.pms.b
@@ -45,53 +45,53 @@ public class a implements com.baidu.swan.pms.b {
     }
 
     @Override // com.baidu.swan.pms.b
-    public String axJ() {
-        return com.baidu.swan.apps.i.c.alk();
+    public String axb() {
+        return com.baidu.swan.apps.i.c.akC();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String axK() {
-        return com.baidu.swan.apps.t.a.axm().getHostName();
+    public String axc() {
+        return com.baidu.swan.apps.t.a.awE().getHostName();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String axL() {
+    public String axd() {
         return ak.getVersionName();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String axM() {
+    public String axe() {
         return com.baidu.swan.apps.c.getVersion();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String axN() {
-        return com.baidu.swan.apps.swancore.b.kF(0);
+    public String axf() {
+        return com.baidu.swan.apps.swancore.b.kB(0);
     }
 
     @Override // com.baidu.swan.pms.b
-    public String axO() {
-        return com.baidu.swan.apps.extcore.b.iz(0);
+    public String axg() {
+        return com.baidu.swan.apps.extcore.b.iv(0);
     }
 
     @Override // com.baidu.swan.pms.b
-    public String axP() {
-        return com.baidu.swan.apps.swancore.b.kF(1);
+    public String axh() {
+        return com.baidu.swan.apps.swancore.b.kB(1);
     }
 
     @Override // com.baidu.swan.pms.b
-    public String axQ() {
-        return com.baidu.swan.apps.extcore.b.iz(1);
+    public String axi() {
+        return com.baidu.swan.apps.extcore.b.iv(1);
     }
 
     @Override // com.baidu.swan.pms.b
-    public CookieManager axR() {
-        return com.baidu.swan.apps.t.a.awZ().aij();
+    public CookieManager axj() {
+        return com.baidu.swan.apps.t.a.awr().ahB();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String axS() {
-        return com.baidu.swan.apps.t.a.awD().agn();
+    public String axk() {
+        return com.baidu.swan.apps.t.a.avV().afF();
     }
 
     @Override // com.baidu.swan.pms.b
@@ -119,20 +119,20 @@ public class a implements com.baidu.swan.pms.b {
     }
 
     @Override // com.baidu.swan.pms.b
-    public com.baidu.swan.pms.c.f axT() {
-        return com.baidu.swan.apps.runtime.d.aHq().aHt();
+    public com.baidu.swan.pms.c.f axl() {
+        return com.baidu.swan.apps.runtime.d.aGI().aGL();
     }
 
     @Override // com.baidu.swan.pms.b
     public void a(final com.baidu.swan.pms.node.b.f fVar) {
-        final Set<String> bct;
-        if (fVar != null && (bct = fVar.bct()) != null && bct.size() > 0) {
+        final Set<String> bbM;
+        if (fVar != null && (bbM = fVar.bbM()) != null && bbM.size() > 0) {
             ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.t.a.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     ArrayList arrayList = new ArrayList();
                     final AtomicInteger atomicInteger = new AtomicInteger(0);
-                    for (String str : bct) {
+                    for (String str : bbM) {
                         if (!TextUtils.isEmpty(str)) {
                             arrayList.add(new b.a(str, 0));
                         }
@@ -140,16 +140,16 @@ public class a implements com.baidu.swan.pms.b {
                     if (!arrayList.isEmpty()) {
                         com.baidu.swan.apps.core.a.a.a.a(arrayList, "3", new com.baidu.swan.apps.core.pms.a() { // from class: com.baidu.swan.apps.t.a.a.1.1
                             @Override // com.baidu.swan.apps.core.pms.a
-                            public void aqh() {
+                            public void apz() {
                                 if (atomicInteger.get() == 0) {
-                                    g.bcu().b(fVar);
+                                    g.bbN().b(fVar);
                                 }
                             }
 
                             @Override // com.baidu.swan.apps.core.pms.a
-                            public void anq() {
+                            public void amI() {
                                 if (atomicInteger.get() == 0) {
-                                    g.bcu().b(fVar);
+                                    g.bbN().b(fVar);
                                 }
                             }
 
@@ -171,18 +171,18 @@ public class a implements com.baidu.swan.pms.b {
     public void a(com.baidu.swan.pms.node.a.a aVar) {
         if (aVar != null) {
             try {
-                JSONObject bcl = aVar.bcl();
-                JSONArray bcm = aVar.bcm();
+                JSONObject bbE = aVar.bbE();
+                JSONArray bbF = aVar.bbF();
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("threshold", bcl.optInt("threshold"));
-                jSONObject.put("timeup", bcl.optInt("timeup"));
-                jSONObject.put(MapController.ITEM_LAYER_TAG, bcm.toString());
+                jSONObject.put("threshold", bbE.optInt("threshold"));
+                jSONObject.put("timeup", bbE.optInt("timeup"));
+                jSONObject.put(MapController.ITEM_LAYER_TAG, bbF.toString());
                 if (com.baidu.swan.apps.runtime.e.DEBUG) {
                     Log.d(Node.TAG, "ceres adapted config " + jSONObject);
                 }
                 q qVar = new q("0", jSONObject);
-                qVar.bdV();
-                n.bdO().b(qVar);
+                qVar.bdo();
+                n.bdh().b(qVar);
             } catch (JSONException e) {
                 if (com.baidu.swan.apps.runtime.e.DEBUG) {
                     e.printStackTrace();
@@ -193,7 +193,7 @@ public class a implements com.baidu.swan.pms.b {
 
     @Override // com.baidu.swan.pms.b
     public void b(JSONArray jSONArray, String str, String str2) {
-        com.baidu.swan.apps.scheme.actions.forbidden.a.aIE().c(jSONArray, str, str2);
+        com.baidu.swan.apps.scheme.actions.forbidden.a.aHW().c(jSONArray, str, str2);
     }
 
     @Override // com.baidu.swan.pms.b
@@ -214,12 +214,12 @@ public class a implements com.baidu.swan.pms.b {
             return;
         }
         int i = pMSAppInfo.type;
-        final com.baidu.swan.apps.storage.c.b tN = h.tN(com.baidu.swan.apps.storage.b.X(str, pMSAppInfo.type));
-        tN.putBoolean("swan_service_update_degraded", z);
+        final com.baidu.swan.apps.storage.c.b tI = h.tI(com.baidu.swan.apps.storage.b.X(str, pMSAppInfo.type));
+        tI.putBoolean("swan_service_update_degraded", z);
         if (com.baidu.swan.apps.runtime.e.DEBUG) {
             Log.d("SwanAppUpdateManager", "update async appKey = " + str + " ; type = " + i + " ; serviceDegraded = " + z);
         }
-        if (!com.baidu.swan.apps.performance.b.c.aDY()) {
+        if (!com.baidu.swan.apps.performance.b.c.aDq()) {
             if (com.baidu.swan.apps.runtime.e.DEBUG) {
                 Log.e("SwanAppUpdateManager", "async update ab is closed");
                 return;
@@ -229,7 +229,7 @@ public class a implements com.baidu.swan.pms.b {
         p.postOnSerial(new Runnable() { // from class: com.baidu.swan.apps.t.a.a.2
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.network.c.a.aCK().a(tN, jSONObject);
+                com.baidu.swan.apps.network.c.a.aCc().a(tI, jSONObject);
             }
         }, "parseAccreditList");
     }

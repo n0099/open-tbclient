@@ -14,14 +14,14 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryActivity> implements BdListView.e {
-    private f jYq;
-    private a jYr;
-    private b jYs;
+    private f jZa;
+    private a jZb;
+    private b jZc;
     private List<ResponseHistoryMessage.a> mDataList;
-    private int jYp = 0;
-    private boolean giJ = false;
+    private int jYZ = 0;
+    private boolean giq = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -33,42 +33,42 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     }
 
     private void initListener() {
-        this.jYr = new a();
-        this.jYs = new b();
-        registerListener(this.jYr);
-        registerListener(this.jYs);
+        this.jZb = new a();
+        this.jZc = new b();
+        registerListener(this.jZb);
+        registerListener(this.jZc);
     }
 
     private void initUI() {
-        this.jYq = new f(this);
-        this.jYq.c(this);
+        this.jZa = new f(this);
+        this.jZa.c(this);
     }
 
     private void initData(Bundle bundle) {
-        this.jYp = getIntent().getIntExtra("forum_id", 0);
-        MessageManager.getInstance().sendMessage(new RequestLocalHistoryMessage(String.valueOf(this.jYp)));
-        baa();
+        this.jYZ = getIntent().getIntExtra("forum_id", 0);
+        MessageManager.getInstance().sendMessage(new RequestLocalHistoryMessage(String.valueOf(this.jYZ)));
+        aZt();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void baa() {
+    public void aZt() {
         int i = 0;
         if (this.mDataList != null && !this.mDataList.isEmpty()) {
             i = this.mDataList.get(this.mDataList.size() - 1).id;
         }
-        this.giJ = true;
-        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.jYp, com.baidu.adp.lib.f.b.toLong(TbadkApplication.getCurrentAccount(), 0L), i));
+        this.giq = true;
+        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.jYZ, com.baidu.adp.lib.f.b.toLong(TbadkApplication.getCurrentAccount(), 0L), i));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jYq.onChangeSkinType(i);
+        this.jZa.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes25.dex */
     public class b extends CustomMessageListener {
         public b() {
             super(CmdConfigCustom.CMD_QUERY_OFFICIAL_LOCAL_HISTORY);
@@ -83,7 +83,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 if (!responseLocalHistoryMessage.getData().isEmpty()) {
                     if (OfficialBarHistoryActivity.this.mDataList == null || OfficialBarHistoryActivity.this.mDataList.isEmpty()) {
                         OfficialBarHistoryActivity.this.mDataList = responseLocalHistoryMessage.getData();
-                        OfficialBarHistoryActivity.this.jYq.setData(OfficialBarHistoryActivity.this.mDataList);
+                        OfficialBarHistoryActivity.this.jZa.setData(OfficialBarHistoryActivity.this.mDataList);
                     }
                 }
             }
@@ -91,7 +91,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes25.dex */
     public class a extends com.baidu.adp.framework.listener.c {
         public a() {
             super(CmdConfigSocket.CMD_QUERY_OFFICIAL_BAR_HISTORY);
@@ -101,25 +101,25 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             OfficialBarHistoryActivity.this.hideProgressBar();
-            OfficialBarHistoryActivity.this.giJ = false;
+            OfficialBarHistoryActivity.this.giq = false;
             if (socketResponsedMessage == null) {
                 OfficialBarHistoryActivity.this.showToast(R.string.neterror);
-                OfficialBarHistoryActivity.this.jYq.dY(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.jZa.dY(OfficialBarHistoryActivity.this.mDataList);
             } else if (socketResponsedMessage.getError() != 0) {
                 OfficialBarHistoryActivity.this.showToast(socketResponsedMessage.getErrorString());
-                OfficialBarHistoryActivity.this.jYq.dY(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.jZa.dY(OfficialBarHistoryActivity.this.mDataList);
             } else if (socketResponsedMessage.getCmd() != 208002 || !(socketResponsedMessage instanceof ResponseHistoryMessage)) {
-                OfficialBarHistoryActivity.this.jYq.dY(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.jZa.dY(OfficialBarHistoryActivity.this.mDataList);
                 OfficialBarHistoryActivity.this.showToast(R.string.neterror);
             } else {
                 ResponseHistoryMessage responseHistoryMessage = (ResponseHistoryMessage) socketResponsedMessage;
                 if (responseHistoryMessage.getMsg().isEmpty()) {
-                    OfficialBarHistoryActivity.this.jYq.dY(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.jZa.dY(OfficialBarHistoryActivity.this.mDataList);
                     return;
                 }
                 RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) responseHistoryMessage.getOrginalMessage();
                 if (requestHistoryMessage == null) {
-                    OfficialBarHistoryActivity.this.jYq.dY(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.jZa.dY(OfficialBarHistoryActivity.this.mDataList);
                     return;
                 }
                 if (requestHistoryMessage.getRequestId() != 0) {
@@ -127,15 +127,15 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 } else {
                     OfficialBarHistoryActivity.this.mDataList = responseHistoryMessage.getMsg();
                 }
-                OfficialBarHistoryActivity.this.jYq.setData(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.jZa.setData(OfficialBarHistoryActivity.this.mDataList);
                 if (responseHistoryMessage.getMsg().size() == 0) {
-                    OfficialBarHistoryActivity.this.jYq.dY(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.jZa.dY(OfficialBarHistoryActivity.this.mDataList);
                 } else {
                     new Handler().post(new Runnable() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!OfficialBarHistoryActivity.this.jYq.cPf()) {
-                                OfficialBarHistoryActivity.this.baa();
+                            if (!OfficialBarHistoryActivity.this.jZa.cOL()) {
+                                OfficialBarHistoryActivity.this.aZt();
                             }
                         }
                     });
@@ -146,8 +146,8 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (!this.giJ) {
-            baa();
+        if (!this.giq) {
+            aZt();
         }
     }
 }

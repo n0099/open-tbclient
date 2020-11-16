@@ -11,11 +11,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.p;
 import com.tb.airbnb.lottie.k;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class c extends a {
     private final Rect dst;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> pIl;
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> pJO;
     private final Paint paint;
     private final Rect src;
 
@@ -33,8 +33,8 @@ public class c extends a {
         if (bitmap != null && !bitmap.isRecycled()) {
             float lb = com.tb.airbnb.lottie.d.f.lb();
             this.paint.setAlpha(i);
-            if (this.pIl != null) {
-                this.paint.setColorFilter(this.pIl.getValue());
+            if (this.pJO != null) {
+                this.paint.setColorFilter(this.pJO.getValue());
             }
             canvas.save();
             canvas.concat(matrix);
@@ -57,7 +57,7 @@ public class c extends a {
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.bf(this.pJU.getRefId());
+        return this.lottieDrawable.bf(this.pLx.getRefId());
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.model.f
@@ -65,9 +65,9 @@ public class c extends a {
         super.a((c) t, (com.tb.airbnb.lottie.e.c<c>) cVar);
         if (t == k.Cs) {
             if (cVar == null) {
-                this.pIl = null;
+                this.pJO = null;
             } else {
-                this.pIl = new p(cVar);
+                this.pJO = new p(cVar);
             }
         }
     }

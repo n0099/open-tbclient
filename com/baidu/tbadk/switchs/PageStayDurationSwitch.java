@@ -6,7 +6,7 @@ import com.baidu.tbadk.m.e;
 public class PageStayDurationSwitch extends a {
     @Override // com.baidu.adp.lib.featureSwitch.a
     protected void changeSettingByType(int i) {
-        e.bCg().setSamllFlowOpen(1 == i);
+        e.bBw().setSamllFlowOpen(1 == i);
     }
 
     @Override // com.baidu.adp.lib.featureSwitch.a

@@ -4,7 +4,7 @@ import android.content.Intent;
 import com.baidu.ufosdk.ui.FeedbackEditActivity;
 import java.io.ByteArrayOutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

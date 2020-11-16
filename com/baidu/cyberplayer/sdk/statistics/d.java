@@ -15,7 +15,7 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.concurrent.locks.ReentrantLock;
 import tv.chushou.basis.http.HttpConsts;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */

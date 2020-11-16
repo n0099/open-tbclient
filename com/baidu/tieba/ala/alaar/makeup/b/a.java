@@ -8,7 +8,7 @@ public abstract class a implements b {
     public boolean parse(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                return dz(new JSONObject(str));
+                return dt(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

@@ -9,7 +9,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes19.dex */
 public class VideoPlayData implements Parcelable, Jsonable, Serializable {
     public static final Parcelable.Creator<VideoPlayData> CREATOR = new Parcelable.Creator<VideoPlayData>() { // from class: com.baidu.minivideo.plugin.capture.bean.VideoPlayData.1
         /* JADX DEBUG: Method merged with bridge method */

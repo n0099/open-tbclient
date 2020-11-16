@@ -1,10 +1,10 @@
 package com.baidu.tieba.card;
 
 import android.view.View;
-import com.baidu.tieba.card.data.b;
+import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes.dex */
-public class ab<T extends com.baidu.tieba.card.data.b> {
-    public Object aiJ;
+public class ab<T extends BaseCardInfo> {
+    public Object aiO;
 
     public void a(View view, T t) {
     }

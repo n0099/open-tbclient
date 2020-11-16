@@ -4,36 +4,36 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class ao implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ Context f4752a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ an f47a;
+    final /* synthetic */ an f50a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String[] f48a;
+    final /* synthetic */ String[] f51a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(an anVar, String[] strArr, Context context) {
-        this.f47a = anVar;
-        this.f48a = strArr;
+        this.f50a = anVar;
+        this.f51a = strArr;
         this.f4752a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        for (int i = 0; i < this.f48a.length; i++) {
+        for (int i = 0; i < this.f51a.length; i++) {
             try {
-                if (!TextUtils.isEmpty(this.f48a[i])) {
+                if (!TextUtils.isEmpty(this.f51a[i])) {
                     if (i > 0) {
                         Thread.sleep(((long) ((Math.random() * 2.0d) + 1.0d)) * 1000);
                     }
-                    PackageInfo packageInfo = this.f4752a.getPackageManager().getPackageInfo(this.f48a[i], 4);
+                    PackageInfo packageInfo = this.f4752a.getPackageManager().getPackageInfo(this.f51a[i], 4);
                     if (packageInfo != null) {
-                        this.f47a.a(this.f4752a, packageInfo);
+                        this.f50a.a(this.f4752a, packageInfo);
                     }
                 }
             } catch (Throwable th) {

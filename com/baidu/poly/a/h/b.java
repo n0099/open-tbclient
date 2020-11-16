@@ -9,16 +9,16 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
     private String action;
-    private long ccF = System.currentTimeMillis();
-    private String ccG = f.getNetworkType();
-    private JSONObject ccH;
+    private long caT = System.currentTimeMillis();
+    private String caU = f.getNetworkType();
+    private JSONObject caV;
     private String content;
 
     public b(String str) {
         this.action = str;
     }
 
-    public JSONObject abh() {
+    public JSONObject aay() {
         if (TextUtils.isEmpty(this.action)) {
             com.baidu.poly.util.d.a("statistics action can not null");
             return null;
@@ -26,10 +26,10 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("a", this.action);
-            jSONObject.put("t", this.ccF);
-            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.ccG);
-            if (this.ccH != null) {
-                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.ccH);
+            jSONObject.put("t", this.caT);
+            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.caU);
+            if (this.caV != null) {
+                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.caV);
             } else if (!TextUtils.isEmpty(this.content)) {
                 try {
                     jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, new JSONObject(this.content));
@@ -39,7 +39,7 @@ public class b {
             }
             return jSONObject;
         } catch (JSONException e2) {
-            if (com.baidu.poly.util.d.cdF) {
+            if (com.baidu.poly.util.d.cbS) {
                 e2.printStackTrace();
                 return jSONObject;
             }
@@ -47,12 +47,12 @@ public class b {
         }
     }
 
-    public b at(JSONObject jSONObject) {
-        this.ccH = jSONObject;
+    public b an(JSONObject jSONObject) {
+        this.caV = jSONObject;
         return this;
     }
 
-    public b jA(String str) {
+    public b ju(String str) {
         this.content = str;
         return this;
     }

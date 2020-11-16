@@ -11,82 +11,82 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class a {
     private NavigationBar mNavigationBar;
     private View mRootView;
     private View mSearchView;
-    private PostSearchActivity moa;
-    private EditText itS = null;
-    private ImageView hQY = null;
-    private Runnable mob = null;
+    private PostSearchActivity mov;
+    private EditText iuG = null;
+    private ImageView hRy = null;
+    private Runnable mow = null;
 
     public a(PostSearchActivity postSearchActivity, View view) {
         this.mRootView = view;
-        this.moa = postSearchActivity;
-        bCV();
+        this.mov = postSearchActivity;
+        bCo();
     }
 
-    private void bCV() {
+    private void bCo() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.itS.hasFocus()) {
-                    l.hideSoftKeyPad(a.this.moa.getPageContext().getPageActivity(), a.this.itS);
+                if (a.this.iuG.hasFocus()) {
+                    l.hideSoftKeyPad(a.this.mov.getPageContext().getPageActivity(), a.this.iuG);
                 }
-                a.this.moa.finish();
+                a.this.mov.finish();
             }
         });
         this.mSearchView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.post_search_navigation_view, (View.OnClickListener) null);
-        this.itS = (EditText) this.mSearchView.findViewById(R.id.search_text);
-        this.hQY = (ImageView) this.mSearchView.findViewById(R.id.search_del);
-        this.hQY.setVisibility(8);
-        this.itS.requestFocus();
-        this.itS.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.postsearch.a.2
+        this.iuG = (EditText) this.mSearchView.findViewById(R.id.search_text);
+        this.hRy = (ImageView) this.mSearchView.findViewById(R.id.search_del);
+        this.hRy.setVisibility(8);
+        this.iuG.requestFocus();
+        this.iuG.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.postsearch.a.2
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
-                    l.hideSoftKeyPad(a.this.moa.getPageContext().getPageActivity(), view);
+                    l.hideSoftKeyPad(a.this.mov.getPageContext().getPageActivity(), view);
                     return;
                 }
-                a.this.dyx();
-                a.this.dyw();
+                a.this.dxX();
+                a.this.dxW();
             }
         });
-        this.itS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.a.3
+        this.iuG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.dyx();
-                a.this.dyw();
+                a.this.dxX();
+                a.this.dxW();
             }
         });
-        this.itS.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.postsearch.a.4
+        this.iuG.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.postsearch.a.4
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 2 || i == 6 || i == 4 || i == 3) {
                     String charSequence = textView.getText().toString();
                     if (!StringUtils.isNull(charSequence)) {
-                        a.this.moa.yh(charSequence);
-                        PostSearchActivity unused = a.this.moa;
-                        TiebaStatic.log(new aq("c12842").dR("obj_name", charSequence).dR("obj_source", "1").dR("obj_type", "2").dR("fid", a.this.moa.mForumId));
+                        a.this.mov.yc(charSequence);
+                        PostSearchActivity unused = a.this.mov;
+                        TiebaStatic.log(new ar("c12842").dR("obj_name", charSequence).dR("obj_source", "1").dR("obj_type", "2").dR("fid", a.this.mov.mForumId));
                     }
                     return true;
                 }
                 return false;
             }
         });
-        this.hQY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.a.5
+        this.hRy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.itS.setText("");
-                a.this.dyx();
+                a.this.iuG.setText("");
+                a.this.dxX();
             }
         });
-        this.itS.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.postsearch.a.6
+        this.iuG.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.postsearch.a.6
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -98,69 +98,69 @@ public class a {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 String obj = editable.toString();
-                a.this.moa.iFd = obj;
+                a.this.mov.iFR = obj;
                 if (obj.trim().length() == 0) {
-                    a.this.dyx();
-                    a.this.hQY.setVisibility(8);
+                    a.this.dxX();
+                    a.this.hRy.setVisibility(8);
                     return;
                 }
-                a.this.hQY.setVisibility(0);
+                a.this.hRy.setVisibility(0);
             }
         });
-        this.mob = new Runnable() { // from class: com.baidu.tieba.postsearch.a.7
+        this.mow = new Runnable() { // from class: com.baidu.tieba.postsearch.a.7
             @Override // java.lang.Runnable
             public void run() {
-                l.showSoftKeyPad(a.this.moa.getPageContext().getPageActivity(), a.this.itS);
+                l.showSoftKeyPad(a.this.mov.getPageContext().getPageActivity(), a.this.iuG);
             }
         };
-        com.baidu.adp.lib.f.e.mY().postDelayed(this.mob, 500L);
+        com.baidu.adp.lib.f.e.mY().postDelayed(this.mow, 500L);
     }
 
-    public void QS(String str) {
-        this.itS.setText(str);
+    public void Qn(String str) {
+        this.iuG.setText(str);
     }
 
-    public void cHm() {
+    public void cGR() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
     public void hideSoftKeyPad() {
-        l.hideSoftKeyPad(this.moa.getPageContext().getPageActivity(), this.itS);
+        l.hideSoftKeyPad(this.mov.getPageContext().getPageActivity(), this.iuG);
     }
 
-    public void dyv() {
-        this.hQY.setVisibility(8);
+    public void dxV() {
+        this.hRy.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dyw() {
-        if (!StringUtils.isNull(this.itS.getText().toString())) {
-            this.hQY.setVisibility(0);
+    public void dxW() {
+        if (!StringUtils.isNull(this.iuG.getText().toString())) {
+            this.hRy.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dyx() {
-        if (!this.moa.dyz()) {
-            this.moa.dyy();
-            if (!this.itS.hasFocus()) {
-                this.itS.requestFocus();
-                l.showSoftKeyPad(this.moa.getPageContext().getPageActivity(), this.itS);
+    public void dxX() {
+        if (!this.mov.dxZ()) {
+            this.mov.dxY();
+            if (!this.iuG.hasFocus()) {
+                this.iuG.requestFocus();
+                l.showSoftKeyPad(this.mov.getPageContext().getPageActivity(), this.iuG);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.moa.getPageContext(), i);
-        com.baidu.tbadk.r.a.a(this.moa.getPageContext(), this.mSearchView);
-        SvgManager.brn().a(this.hQY, R.drawable.icon_pure_search_empty16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.mNavigationBar.onChangeSkinType(this.mov.getPageContext(), i);
+        com.baidu.tbadk.r.a.a(this.mov.getPageContext(), this.mSearchView);
+        SvgManager.bqB().a(this.hRy, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void onDestroy() {
-        if (this.mob != null) {
-            com.baidu.adp.lib.f.e.mY().removeCallbacks(this.mob);
+        if (this.mow != null) {
+            com.baidu.adp.lib.f.e.mY().removeCallbacks(this.mow);
         }
     }
 }

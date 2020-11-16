@@ -23,7 +23,7 @@ import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public abstract class a implements c {
 
     /* renamed from: a  reason: collision with root package name */

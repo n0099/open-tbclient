@@ -3,7 +3,7 @@ package com.baidu.ufosdk.ui;
 import android.os.AsyncTask;
 import android.view.inputmethod.InputMethodManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class ei extends AsyncTask {
 
     /* renamed from: a  reason: collision with root package name */

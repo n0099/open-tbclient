@@ -3,14 +3,14 @@ package com.baidu.live.videochat.message;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes4.dex */
 public class b extends HttpMessage {
-    private boolean bJi;
+    private boolean bHx;
 
     public b(boolean z) {
         super(1021180);
-        this.bJi = z;
+        this.bHx = z;
     }
 
-    public boolean VY() {
-        return this.bJi;
+    public boolean Vp() {
+        return this.bHx;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.helios.channels.csc;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes14.dex */
+/* loaded from: classes18.dex */
 public final class b {
     public static byte[] a() {
         return new byte[]{-57, 117, 76, 90, 52, -92, 15, 42, 26, 37, 0, -124, 85, 45, 110, -64, -77, -20, 34, 18, -33, -20, -8, 111, -117, 98, -24, 88, 33, -35, 29, -6, 7, 53, -7, 88, -118, 83};

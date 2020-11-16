@@ -7,7 +7,7 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.security.KeyManagementException;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 final class OpenSSLSocketFactoryImpl extends SSLSocketFactory {
     private static boolean useEngineSocketByDefault = SSLUtils.USE_ENGINE_SOCKET_BY_DEFAULT;
     private final IOException instantiationException;

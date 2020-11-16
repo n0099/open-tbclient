@@ -13,21 +13,21 @@ public class b {
     }
 
     public static int c(boolean z, boolean z2, boolean z3) {
-        return i(z2, z3) + cV(z);
+        return i(z2, z3) + cX(z);
     }
 
-    public static int cU(boolean z) {
+    public static int cW(boolean z) {
         return z ? TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds132) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds16) : TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds90);
     }
 
-    public static int cV(boolean z) {
+    public static int cX(boolean z) {
         if (z) {
             return 0;
         }
         return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_tbds27);
     }
 
-    public static int UB() {
+    public static int TS() {
         return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds168);
     }
 }

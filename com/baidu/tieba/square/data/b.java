@@ -1,20 +1,21 @@
 package com.baidu.tieba.square.data;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes22.dex */
-public class b extends com.baidu.tieba.card.data.b {
+/* loaded from: classes21.dex */
+public class b extends BaseCardInfo {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public String avatar;
-    public boolean eDa;
+    public boolean eBr;
     public String extInfo;
     public long forumId;
     public String forumName;
-    public String imZ;
+    public String inO;
     public int memberCount;
     public int threadCount;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
         return TYPE;
     }
@@ -32,23 +33,23 @@ public class b extends com.baidu.tieba.card.data.b {
     }
 
     public boolean isLike() {
-        return this.eDa;
+        return this.eBr;
     }
 
     public void setLike(boolean z) {
-        this.eDa = z;
+        this.eBr = z;
     }
 
     public int getMemberCount() {
         return this.memberCount;
     }
 
-    public int dIl() {
+    public int dIc() {
         return this.threadCount;
     }
 
-    public String bka() {
-        return this.imZ;
+    public String bje() {
+        return this.inO;
     }
 
     public void c(RecommendForumInfo recommendForumInfo) {
@@ -58,8 +59,8 @@ public class b extends com.baidu.tieba.card.data.b {
             this.avatar = recommendForumInfo.avatar;
             this.memberCount = recommendForumInfo.member_count.intValue();
             this.threadCount = recommendForumInfo.thread_count.intValue();
-            this.eDa = recommendForumInfo.is_like.intValue() == 1;
-            this.imZ = recommendForumInfo.recom_reason;
+            this.eBr = recommendForumInfo.is_like.intValue() == 1;
+            this.inO = recommendForumInfo.recom_reason;
             this.extInfo = recommendForumInfo.extra;
         }
     }

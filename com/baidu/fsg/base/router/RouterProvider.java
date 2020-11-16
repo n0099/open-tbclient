@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.router;
 
 import java.util.HashMap;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public abstract class RouterProvider {
 
     /* renamed from: a  reason: collision with root package name */

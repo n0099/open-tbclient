@@ -1,29 +1,29 @@
 package com.baidu.tieba.im.forum.broadcast.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class ForumBroadcastMajorResidueData extends OrmObject {
-    private int kdg;
-    private int kdh;
-    private int kdi;
+    private int kdQ;
+    private int kdR;
+    private int kdS;
 
-    public int cRF() {
-        return this.kdg;
+    public int cRl() {
+        return this.kdQ;
     }
 
-    public void CN(int i) {
-        this.kdg = i;
+    public void Dl(int i) {
+        this.kdQ = i;
     }
 
-    public int cRG() {
-        return this.kdh;
+    public int cRm() {
+        return this.kdR;
     }
 
-    public void CO(int i) {
-        this.kdh = i;
+    public void Dm(int i) {
+        this.kdR = i;
     }
 
-    public void CP(int i) {
-        this.kdi = i;
+    public void Dn(int i) {
+        this.kdS = i;
     }
 }

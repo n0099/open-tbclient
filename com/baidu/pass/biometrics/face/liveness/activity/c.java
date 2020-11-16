@@ -3,7 +3,7 @@ package com.baidu.pass.biometrics.face.liveness.activity;
 import android.hardware.Camera;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 class c implements Camera.PreviewCallback {
 
     /* renamed from: a  reason: collision with root package name */

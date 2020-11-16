@@ -4,7 +4,7 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class i extends f<PointF> {
     private final PointF DW;
     private final float[] DX;

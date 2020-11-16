@@ -1,21 +1,21 @@
 package com.bun.miitmdid.supplier.h.a;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static String a(Context context, String str) {
-        return b.gR(context).a(str);
+        return b.gP(context).a(str);
     }
 
     public static boolean a(Context context) {
-        return b.gR(context).a();
+        return b.gP(context).a();
     }
 
     public static String b(Context context) {
-        return b.gR(context).b();
+        return b.gP(context).b();
     }
 
     public static String b(Context context, String str) {
-        return b.gR(context).b(str);
+        return b.gP(context).b(str);
     }
 }

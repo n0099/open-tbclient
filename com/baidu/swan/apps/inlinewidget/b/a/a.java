@@ -5,11 +5,11 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.http.cookie.SM;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.b.a> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String avA() {
+    public String auS() {
         return "extractMediaMetadata";
     }
 
@@ -23,7 +23,7 @@ public class a extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
                 hashMap.put(SM.COOKIE, (String) arrayList.get(1));
                 hashMap.put("User-Agent", (String) arrayList.get(2));
                 hashMap.put("Referer", (String) arrayList.get(3));
-                aVar.f((String) arrayList.get(0), hashMap);
+                aVar.e((String) arrayList.get(0), hashMap);
             }
         }
     }

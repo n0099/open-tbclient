@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class gi extends gj {
 
     /* renamed from: a  reason: collision with root package name */
@@ -11,7 +11,7 @@ public class gi extends gj {
     private String b;
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f392b;
+    private boolean f395b;
     private String c;
     private String d;
     private String e;
@@ -31,7 +31,7 @@ public class gi extends gj {
         this.j = "";
         this.k = "";
         this.l = "";
-        this.f392b = false;
+        this.f395b = false;
     }
 
     public gi(Bundle bundle) {
@@ -43,7 +43,7 @@ public class gi extends gj {
         this.j = "";
         this.k = "";
         this.l = "";
-        this.f392b = false;
+        this.f395b = false;
         this.b = bundle.getString("ext_msg_type");
         this.d = bundle.getString("ext_msg_lang");
         this.c = bundle.getString("ext_msg_thread");
@@ -52,7 +52,7 @@ public class gi extends gj {
         this.g = bundle.getString("ext_body_encode");
         this.h = bundle.getString("ext_msg_appid");
         this.f4924a = bundle.getBoolean("ext_msg_trans", false);
-        this.f392b = bundle.getBoolean("ext_msg_encrypt", false);
+        this.f395b = bundle.getBoolean("ext_msg_encrypt", false);
         this.i = bundle.getString("ext_msg_seq");
         this.j = bundle.getString("ext_msg_mseq");
         this.k = bundle.getString("ext_msg_fseq");
@@ -95,7 +95,7 @@ public class gi extends gj {
         if (!TextUtils.isEmpty(this.k)) {
             a2.putString("ext_msg_fseq", this.k);
         }
-        if (this.f392b) {
+        if (this.f395b) {
             a2.putBoolean("ext_msg_encrypt", true);
         }
         if (!TextUtils.isEmpty(this.l)) {
@@ -148,7 +148,7 @@ public class gi extends gj {
         if (!TextUtils.isEmpty(this.b)) {
             sb.append(" type=\"").append(this.b).append("\"");
         }
-        if (this.f392b) {
+        if (this.f395b) {
             sb.append(" s=\"1\"");
         }
         sb.append(">");
@@ -167,7 +167,7 @@ public class gi extends gj {
             sb.append("<thread>").append(this.c).append("</thread>");
         }
         if (BdStatsConstant.StatsType.ERROR.equalsIgnoreCase(this.b) && (a2 = a()) != null) {
-            sb.append(a2.m318a());
+            sb.append(a2.m321a());
         }
         sb.append(o());
         sb.append("</message>");
@@ -199,7 +199,7 @@ public class gi extends gj {
     }
 
     public void b(boolean z) {
-        this.f392b = z;
+        this.f395b = z;
     }
 
     public String c() {

@@ -7,17 +7,16 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.card.p;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
-/* loaded from: classes21.dex */
-public class ShareSmartAppLayout extends LinearLayout implements p<AbsThreadDataSupport> {
-    private AbsThreadDataSupport afI;
-    private ab<AbsThreadDataSupport> ahv;
-    private boolean akk;
-    public AppletsCellView alA;
+/* loaded from: classes20.dex */
+public class ShareSmartAppLayout extends LinearLayout implements p<com.baidu.tbadk.core.data.a> {
+    private com.baidu.tbadk.core.data.a afN;
+    private ab<com.baidu.tbadk.core.data.a> ahx;
+    private boolean akn;
+    public AppletsCellView alE;
 
     public ShareSmartAppLayout(Context context) {
         this(context, null);
@@ -25,8 +24,8 @@ public class ShareSmartAppLayout extends LinearLayout implements p<AbsThreadData
 
     public ShareSmartAppLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.akk = true;
-        this.afI = null;
+        this.akn = true;
+        this.afN = null;
         initUI();
     }
 
@@ -34,36 +33,36 @@ public class ShareSmartAppLayout extends LinearLayout implements p<AbsThreadData
         LayoutInflater.from(getContext()).inflate(R.layout.share_smart_app_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.alA = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
+        this.alE = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
     }
 
     public void setFromCDN(boolean z) {
-        this.akk = z;
+        this.akn = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || absThreadDataSupport.bjZ().bnp() == null) {
+    public void H(com.baidu.tbadk.core.data.a aVar) {
+        if (aVar == null || aVar.bjd() == null || aVar.bjd().bmr() == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.afI = absThreadDataSupport;
-        bw bjZ = absThreadDataSupport.bjZ();
-        this.alA.setData(bjZ.bnp());
-        this.alA.setForumId(String.valueOf(bjZ.getFid()));
-        AppletsCellView appletsCellView = this.alA;
-        AppletsCellView appletsCellView2 = this.alA;
+        this.afN = aVar;
+        bx bjd = aVar.bjd();
+        this.alE.setData(bjd.bmr());
+        this.alE.setForumId(String.valueOf(bjd.getFid()));
+        AppletsCellView appletsCellView = this.alE;
+        AppletsCellView appletsCellView2 = this.alE;
         appletsCellView.setFrom("frs_card");
     }
 
-    public ab<AbsThreadDataSupport> getSubClickListener() {
-        return this.ahv;
+    public ab<com.baidu.tbadk.core.data.a> getSubClickListener() {
+        return this.ahx;
     }
 
-    public void setSubClickListener(ab<AbsThreadDataSupport> abVar) {
-        this.ahv = abVar;
+    public void setSubClickListener(ab<com.baidu.tbadk.core.data.a> abVar) {
+        this.ahx = abVar;
     }
 }

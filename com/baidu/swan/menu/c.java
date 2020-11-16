@@ -3,7 +3,7 @@ package com.baidu.swan.menu;
 import android.animation.ObjectAnimator;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static ObjectAnimator b(BaseMenuView baseMenuView) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, "translationY", 0.0f);
@@ -34,6 +34,6 @@ public class c {
     }
 
     private static long d(BaseMenuView baseMenuView) {
-        return baseMenuView.aBU() ? 240L : 200L;
+        return baseMenuView.aBm() ? 240L : 200L;
     }
 }

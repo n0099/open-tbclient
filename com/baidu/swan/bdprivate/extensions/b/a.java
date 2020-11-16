@@ -18,7 +18,7 @@ import java.util.Iterator;
 import okhttp3.HttpUrl;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends i {
     public a(j jVar) {
         super(jVar, "/swanAPI/adRequest");
@@ -61,12 +61,12 @@ public class a extends i {
             if (!z) {
                 str2 = "";
             } else {
-                str2 = aCE();
+                str2 = aBW();
                 JSONObject optJSONObject2 = jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER);
                 if (optJSONObject2 == null) {
                     optJSONObject2 = new JSONObject();
                 }
-                t(optJSONObject2, str2);
+                q(optJSONObject2, str2);
                 jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, optJSONObject2);
             }
             if (DEBUG) {
@@ -78,7 +78,7 @@ public class a extends i {
                 String next = keys.next();
                 String optString = optJSONObject.optString(next);
                 if (TextUtils.equals(optString, "cuid")) {
-                    str3 = com.baidu.swan.apps.t.a.awF().bq(com.baidu.swan.apps.t.a.awA());
+                    str3 = com.baidu.swan.apps.t.a.avX().bq(com.baidu.swan.apps.t.a.avS());
                 } else if (TextUtils.equals(optString, ETAG.KEY_BAIDU_ID) && z) {
                     str3 = ai.getCookieValue(str2, "BAIDUID");
                 } else {

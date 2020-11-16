@@ -3,7 +3,7 @@ package com.baidu.pass.utils;
 import android.os.Build;
 import android.view.MotionEvent;
 import android.view.View;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 class a implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */

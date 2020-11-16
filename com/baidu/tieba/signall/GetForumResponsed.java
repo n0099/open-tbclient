@@ -3,7 +3,7 @@ package com.baidu.tieba.signall;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class GetForumResponsed extends JsonHttpResponsedMessage {
     public c listData;
 

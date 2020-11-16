@@ -9,7 +9,7 @@ import com.squareup.wire2.d;
 import com.squareup.wire2.internal.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public final class Transform extends Message<Transform, Builder> {
     public static final ProtoAdapter<Transform> ADAPTER = new ProtoAdapter_Transform();
     public static final Float DEFAULT_A = Float.valueOf(0.0f);
@@ -19,19 +19,19 @@ public final class Transform extends Message<Transform, Builder> {
     public static final Float DEFAULT_TX = Float.valueOf(0.0f);
     public static final Float DEFAULT_TY = Float.valueOf(0.0f);
     private static final long serialVersionUID = 0;
-    @WireField(eys = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(eyt = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
 
     /* renamed from: a  reason: collision with root package name */
     public final Float f4453a;
-    @WireField(eys = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+    @WireField(eyt = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float b;
-    @WireField(eys = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
+    @WireField(eyt = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
     public final Float c;
-    @WireField(eys = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
+    @WireField(eyt = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
     public final Float d;
-    @WireField(eys = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 5)
+    @WireField(eyt = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 5)
     public final Float tx;
-    @WireField(eys = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 6)
+    @WireField(eyt = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 6)
     public final Float ty;
 
     public Transform(Float f, Float f2, Float f3, Float f4, Float f5, Float f6) {
@@ -109,7 +109,7 @@ public final class Transform extends Message<Transform, Builder> {
         return sb.replace(0, 2, "Transform{").append('}').toString();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public static final class Builder extends Message.a<Transform, Builder> {
 
         /* renamed from: a  reason: collision with root package name */
@@ -158,7 +158,7 @@ public final class Transform extends Message<Transform, Builder> {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     private static final class ProtoAdapter_Transform extends ProtoAdapter<Transform> {
         ProtoAdapter_Transform() {
             super(FieldEncoding.LENGTH_DELIMITED, Transform.class);
@@ -199,11 +199,11 @@ public final class Transform extends Message<Transform, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public Transform decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long eyk = cVar.eyk();
+            long eyl = cVar.eyl();
             while (true) {
-                int eyl = cVar.eyl();
-                if (eyl != -1) {
-                    switch (eyl) {
+                int eym = cVar.eym();
+                if (eym != -1) {
+                    switch (eym) {
                         case 1:
                             builder.a(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -223,12 +223,12 @@ public final class Transform extends Message<Transform, Builder> {
                             builder.ty(ProtoAdapter.FLOAT.decode(cVar));
                             break;
                         default:
-                            FieldEncoding eym = cVar.eym();
-                            builder.addUnknownField(eyl, eym, eym.rawProtoAdapter().decode(cVar));
+                            FieldEncoding eyn = cVar.eyn();
+                            builder.addUnknownField(eym, eyn, eyn.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.ib(eyk);
+                    cVar.ie(eyl);
                     return builder.build();
                 }
             }

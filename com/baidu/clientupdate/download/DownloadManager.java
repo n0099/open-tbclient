@@ -45,7 +45,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 public final class DownloadManager {
     public static final String ACTION_DOWNLOAD_MERGE_STATUS = "com.baidu.clientupdate.download.STATUS_MERGE";
     public static final String ACTION_DOWNLOAD_PROGRESS_CHANGE = "com.baidu.clientupdate.download.PROGRESS_CHANGE";
@@ -169,8 +169,8 @@ public final class DownloadManager {
             download.mCurrentLength = j2;
             download.mFileLength = j3;
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - download.f1333a >= DownloadManager.MIN_PROGRESS_INTERVAL) {
-                download.f1333a = currentTimeMillis;
+            if (currentTimeMillis - download.f1336a >= DownloadManager.MIN_PROGRESS_INTERVAL) {
+                download.f1336a = currentTimeMillis;
                 int progress = download.getProgress();
                 if (progress != download.c) {
                     DownloadManager.this.notifyProgressChange(j, progress);

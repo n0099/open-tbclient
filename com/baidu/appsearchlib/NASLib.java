@@ -6,11 +6,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import java.net.URLDecoder;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class NASLib extends Activity {
     private static NASCallBack callback;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public interface NASCallBack {
         void callback(String str, String str2);
     }

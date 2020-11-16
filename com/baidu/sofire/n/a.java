@@ -3,7 +3,7 @@ package com.baidu.sofire.n;
 import android.content.Context;
 import android.util.Log;
 import java.lang.reflect.Method;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */

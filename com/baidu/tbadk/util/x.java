@@ -1,56 +1,35 @@
 package com.baidu.tbadk.util;
 
-import android.os.Environment;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public final class x {
-    public static boolean isEMUI() {
-        return I("ro.build.version.emui", "ro.build.hw_emui_api_level");
+public class x extends Thread {
+    private int fyk;
+    private int imageNum;
+    private String type = null;
+
+    public x(int i, int i2) {
+        this.imageNum = 0;
+        this.fyk = 0;
+        this.imageNum = i;
+        this.fyk = i2;
     }
 
-    private static boolean I(String... strArr) {
-        if (strArr == null || strArr.length == 0) {
-            return false;
-        }
-        try {
-            a bDO = a.bDO();
-            for (String str : strArr) {
-                if (bDO.getProperty(str) != null) {
-                    return true;
-                }
-            }
-            return false;
-        } catch (IOException e) {
-            return false;
-        }
+    public void setType(String str) {
+        this.type = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static final class a {
-        private static a fyV;
-        private final Properties fyW = new Properties();
-
-        private a() throws IOException {
-            this.fyW.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
-        }
-
-        public static a bDO() throws IOException {
-            if (fyV == null) {
-                synchronized (a.class) {
-                    if (fyV == null) {
-                        fyV = new a();
-                    }
-                }
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        if (!TbadkCoreApplication.getInst().checkInterrupt()) {
+            com.baidu.tbadk.core.util.aa aaVar = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
+            aaVar.addPostData("img_num", String.valueOf(this.imageNum));
+            aaVar.addPostData("img_total", String.valueOf(this.fyk));
+            if (this.type != null) {
+                aaVar.addPostData("img_type", this.type);
             }
-            return fyV;
-        }
-
-        public String getProperty(String str) {
-            return this.fyW.getProperty(str);
+            aaVar.postNetData();
         }
     }
 }

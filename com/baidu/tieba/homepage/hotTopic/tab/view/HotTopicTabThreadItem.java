@@ -14,140 +14,139 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TagTextHelper;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.h.f;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.hotTopic.tab.b.e;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class HotTopicTabThreadItem extends RelativeLayout {
-    private f<e> aiM;
-    private TextView ajl;
-    private TextView ajm;
-    private TextView evg;
-    private int jBV;
-    private TbImageView jCd;
-    private View jCe;
-    private View jCf;
-    private ImageView jCg;
-    private TextView jCh;
-    private View jCi;
-    private e jCj;
+    private f<e> aiR;
+    private TextView ajq;
+    private TextView ajr;
+    private TextView etx;
+    private int jCS;
+    private TbImageView jDa;
+    private View jDb;
+    private View jDc;
+    private ImageView jDd;
+    private TextView jDe;
+    private View jDf;
+    private e jDg;
 
     public HotTopicTabThreadItem(Context context) {
         super(context);
-        this.jBV = 3;
+        this.jCS = 3;
         initView();
     }
 
     public HotTopicTabThreadItem(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jBV = 3;
+        this.jCS = 3;
         initView();
     }
 
     public HotTopicTabThreadItem(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jBV = 3;
+        this.jCS = 3;
         initView();
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_tab_thread_item, (ViewGroup) this, true);
-        this.jCd = (TbImageView) findViewById(R.id.coverView);
-        this.jCe = findViewById(R.id.coverGradientMask);
-        this.jCf = findViewById(R.id.videoTimeContainer);
-        this.jCg = (ImageView) findViewById(R.id.videoPlayIcon);
-        this.jCh = (TextView) findViewById(R.id.videoPlayTime);
-        this.ajl = (TextView) findViewById(R.id.indexView);
-        this.evg = (TextView) findViewById(R.id.titleView);
-        this.ajm = (TextView) findViewById(R.id.tagView);
-        this.jCd.setPlaceHolder(2);
-        this.jCd.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
-        this.jCd.setConrers(15);
-        this.jCi = findViewById(R.id.rootLayout);
-        this.jCi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItem.1
+        this.jDa = (TbImageView) findViewById(R.id.coverView);
+        this.jDb = findViewById(R.id.coverGradientMask);
+        this.jDc = findViewById(R.id.videoTimeContainer);
+        this.jDd = (ImageView) findViewById(R.id.videoPlayIcon);
+        this.jDe = (TextView) findViewById(R.id.videoPlayTime);
+        this.ajq = (TextView) findViewById(R.id.indexView);
+        this.etx = (TextView) findViewById(R.id.titleView);
+        this.ajr = (TextView) findViewById(R.id.tagView);
+        this.jDa.setPlaceHolder(2);
+        this.jDa.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
+        this.jDa.setConrers(15);
+        this.jDf = findViewById(R.id.rootLayout);
+        this.jDf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItem.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotTopicTabThreadItem.this.jCj != null && HotTopicTabThreadItem.this.jCj.exA != null) {
-                    if (HotTopicTabThreadItem.this.aiM != null) {
-                        HotTopicTabThreadItem.this.aiM.a(view, HotTopicTabThreadItem.this.jCj, HotTopicTabThreadItem.this.jCj.index, HotTopicTabThreadItem.this.jCj.index);
+                if (HotTopicTabThreadItem.this.jDg != null && HotTopicTabThreadItem.this.jDg.evQ != null) {
+                    if (HotTopicTabThreadItem.this.aiR != null) {
+                        HotTopicTabThreadItem.this.aiR.a(view, HotTopicTabThreadItem.this.jDg, HotTopicTabThreadItem.this.jDg.index, HotTopicTabThreadItem.this.jDg.index);
                     }
-                    ay.a((AbsThreadDataSupport) HotTopicTabThreadItem.this.jCj.exA, view.getContext(), 2, false, true);
+                    az.a((com.baidu.tbadk.core.data.a) HotTopicTabThreadItem.this.jDg.evQ, view.getContext(), 2, false, true);
                 }
             }
         });
     }
 
     public void setOnItemCoverListener(f<e> fVar) {
-        this.aiM = fVar;
+        this.aiR = fVar;
     }
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.jCj = eVar;
+            this.jDg = eVar;
             if (TextUtils.isEmpty(eVar.cover)) {
-                this.jCd.setVisibility(8);
-                this.jCe.setVisibility(8);
-                this.jCf.setVisibility(8);
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ajm.getLayoutParams();
+                this.jDa.setVisibility(8);
+                this.jDb.setVisibility(8);
+                this.jDc.setVisibility(8);
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ajr.getLayoutParams();
                 layoutParams.addRule(8, 0);
                 layoutParams.addRule(3, R.id.titleView);
-                this.ajm.setLayoutParams(layoutParams);
+                this.ajr.setLayoutParams(layoutParams);
             } else {
-                this.jCd.startLoad(eVar.cover, 10, false);
-                this.jCd.setVisibility(0);
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.ajm.getLayoutParams();
+                this.jDa.startLoad(eVar.cover, 10, false);
+                this.jDa.setVisibility(0);
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.ajr.getLayoutParams();
                 layoutParams2.addRule(8, R.id.coverView);
                 layoutParams2.addRule(3, 0);
-                this.ajm.setLayoutParams(layoutParams2);
+                this.ajr.setLayoutParams(layoutParams2);
                 if (eVar.time > 0) {
-                    this.jCf.setVisibility(0);
-                    this.jCe.setVisibility(0);
-                    this.jCh.setText(StringUtils.translateSecondsToString(eVar.time));
+                    this.jDc.setVisibility(0);
+                    this.jDb.setVisibility(0);
+                    this.jDe.setText(StringUtils.translateSecondsToString(eVar.time));
                 } else {
-                    this.jCf.setVisibility(8);
-                    this.jCe.setVisibility(8);
+                    this.jDc.setVisibility(8);
+                    this.jDb.setVisibility(8);
                 }
             }
-            this.evg.setText(eVar.title);
-            this.ajm.setText(this.ajm.getContext().getResources().getString(R.string.hot_topic_thread_item_tag, at.dy(eVar.eHh < 1000 ? 1000 : eVar.eHh)));
-            this.ajl.setText(String.valueOf(eVar.index));
-            cKF();
-            if (this.aiM != null && this.jCj != null) {
-                this.aiM.b(this, this.jCj, this.jCj.index, this.jCj.index);
+            this.etx.setText(eVar.title);
+            this.ajr.setText(this.ajr.getContext().getResources().getString(R.string.hot_topic_thread_item_tag, au.dy(eVar.eFz < 1000 ? 1000 : eVar.eFz)));
+            this.ajq.setText(String.valueOf(eVar.index));
+            cKk();
+            if (this.aiR != null && this.jDg != null) {
+                this.aiR.b(this, this.jDg, this.jDg.index, this.jDg.index);
             }
         }
     }
 
-    private void cKF() {
-        if (this.jCj != null) {
-            int pe = TagTextHelper.pe(this.jCj.index);
-            Drawable background = this.ajm.getBackground();
-            DrawableCompat.setTint(background, ap.getColor(pe));
+    private void cKk() {
+        if (this.jDg != null) {
+            int pA = TagTextHelper.pA(this.jDg.index);
+            Drawable background = this.ajr.getBackground();
+            DrawableCompat.setTint(background, ap.getColor(pA));
             background.setAlpha(40);
-            this.ajm.setBackgroundDrawable(background);
-            ap.setViewTextColor(this.ajm, pe);
-            Drawable background2 = this.ajl.getBackground();
-            DrawableCompat.setTint(background2, ap.getColor(pe));
-            this.ajl.setBackgroundDrawable(background2);
+            this.ajr.setBackgroundDrawable(background);
+            ap.setViewTextColor(this.ajr, pA);
+            Drawable background2 = this.ajq.getBackground();
+            DrawableCompat.setTint(background2, ap.getColor(pA));
+            this.ajq.setBackgroundDrawable(background2);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jBV != i) {
-            com.baidu.tbadk.core.util.e.a.g(this.jCi, R.color.cp_bg_line_e, R.color.cp_bg_line_c);
-            ap.setViewTextColor(this.evg, R.color.cp_cont_b);
-            ap.setViewTextColor(this.ajl, R.color.cp_cont_a);
-            ap.setViewTextColor(this.jCh, R.color.cp_cont_a);
-            this.jCg.setImageDrawable(SvgManager.brn().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
-            cKF();
-            this.jBV = i;
+        if (this.jCS != i) {
+            com.baidu.tbadk.core.util.e.a.h(this.jDf, R.color.CAM_X0205, R.color.CAM_X0204);
+            ap.setViewTextColor(this.etx, R.color.CAM_X0105);
+            ap.setViewTextColor(this.ajq, R.color.CAM_X0101);
+            ap.setViewTextColor(this.jDe, R.color.CAM_X0101);
+            this.jDd.setImageDrawable(SvgManager.bqB().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
+            cKk();
+            this.jCS = i;
         }
     }
 }

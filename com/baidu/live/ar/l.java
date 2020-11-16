@@ -7,18 +7,18 @@ public interface l {
 
     /* loaded from: classes4.dex */
     public interface a {
-        Object CE();
+        Object BV();
 
         String getType();
 
         void setValue(float f);
     }
 
-    void CB();
+    void BS();
 
-    void CC();
+    void BT();
 
-    void CD();
+    void BU();
 
     void a(float f, AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey);
 

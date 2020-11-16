@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.d.c.b;
+import com.baidu.e.c.b;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.HttpManager;
@@ -31,7 +31,7 @@ import org.apache.commons.codec.digest4util.EncryptUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class HttpRequestPublishModule {
     public static final boolean DEBUG = false;
     private static final int HTTP_NO_ERROR = 0;
@@ -42,7 +42,7 @@ public class HttpRequestPublishModule {
     private static final String TAG = HttpRequestPublishModule.class.getSimpleName();
     public static VideoUploadModel videoInfo;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class Forward {
         @c("account_type")
         public String accountType;
@@ -72,7 +72,7 @@ public class HttpRequestPublishModule {
         public String videoDuration;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class Target implements NoProGuard {
         @c("topics")
         public List<TopicItem> mTopicList = new ArrayList();
@@ -82,7 +82,7 @@ public class HttpRequestPublishModule {
         public List<LinkInfoItem> mLinkInfoList = new ArrayList();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class VideoUploadModel {
         public String authorUK;
         public String bgSound;
@@ -105,7 +105,7 @@ public class HttpRequestPublishModule {
     public void requestPublish(String str, Map<String, String> map, final PublishRequestListener publishRequestListener) {
         if (publishRequestListener != null) {
             try {
-                ?? cookieManager = ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(b.uV().processUrl(UgcServerApiUtils.getHostAddress() + UgcServerApiUtils.PUBLISHER_ADDRESS_PATH))).addParams(map).cookieManager((CookieManager) UgcRuntime.getUgcInterface().newCookieManagerInstance(false, false));
+                ?? cookieManager = ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(b.uU().processUrl(UgcServerApiUtils.getHostAddress() + UgcServerApiUtils.PUBLISHER_ADDRESS_PATH))).addParams(map).cookieManager((CookieManager) UgcRuntime.getUgcInterface().newCookieManagerInstance(false, false));
                 String publisherUserAgent = UgcServerApiUtils.getPublisherUserAgent();
                 if (!TextUtils.isEmpty(publisherUserAgent)) {
                     cookieManager.addHeader("User-Agent", publisherUserAgent);

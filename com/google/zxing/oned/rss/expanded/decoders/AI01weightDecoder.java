@@ -1,9 +1,8 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
 import com.google.zxing.common.BitArray;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
-public abstract class AI01weightDecoder extends AI01decoder {
+/* loaded from: classes15.dex */
+abstract class AI01weightDecoder extends AI01decoder {
     protected abstract void addWeightCode(StringBuilder sb, int i);
 
     protected abstract int checkWeight(int i);

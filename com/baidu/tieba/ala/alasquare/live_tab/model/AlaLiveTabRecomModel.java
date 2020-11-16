@@ -22,14 +22,14 @@ import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaLiveTabRecomModel extends BdBaseModel {
-    private boolean gkG;
-    private long gkI;
-    private c gkQ;
-    private a gkR;
+    private boolean gkn;
+    private long gkp;
+    private c gkx;
+    private a gky;
     private boolean hasMore;
     private int mPn;
     private TbPageContext mTbPageContext;
-    private HttpMessageListener gkK = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO) { // from class: com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabRecomModel.1
+    private HttpMessageListener gkr = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO) { // from class: com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabRecomModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -37,34 +37,34 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 b bVar = new b();
                 if (alaTabLiveResponsedMessage.getError() != 0 || !alaTabLiveResponsedMessage.isSuccess()) {
-                    if (AlaLiveTabRecomModel.this.gkR != null) {
-                        AlaLiveTabRecomModel.this.gkR.h(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabRecomModel.this.gkG);
+                    if (AlaLiveTabRecomModel.this.gky != null) {
+                        AlaLiveTabRecomModel.this.gky.h(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabRecomModel.this.gkn);
                     }
                     bVar.isSuccess = false;
                     bVar.errCode = httpResponsedMessage.getError();
                     bVar.errMsg = httpResponsedMessage.getErrorString();
                 } else {
                     j jVar = alaTabLiveResponsedMessage.tabAllLiveInfo;
-                    if (AlaLiveTabRecomModel.this.gkG) {
-                        AlaLiveTabRecomModel.this.gkQ.a(jVar);
+                    if (AlaLiveTabRecomModel.this.gkn) {
+                        AlaLiveTabRecomModel.this.gkx.a(jVar);
                         AlaLiveTabRecomModel.e(AlaLiveTabRecomModel.this);
                     } else {
-                        AlaLiveTabFragment.gjw++;
-                        if (AlaLiveTabRecomModel.this.gkQ != null) {
-                            AlaLiveTabRecomModel.this.gkQ.clear();
+                        AlaLiveTabFragment.gjd++;
+                        if (AlaLiveTabRecomModel.this.gkx != null) {
+                            AlaLiveTabRecomModel.this.gkx.clear();
                         }
-                        AlaLiveTabRecomModel.this.gkQ = new c(alaTabLiveResponsedMessage);
+                        AlaLiveTabRecomModel.this.gkx = new c(alaTabLiveResponsedMessage);
                     }
-                    AlaLiveTabRecomModel.this.hasMore = AlaLiveTabRecomModel.this.gkQ.hasMore();
-                    if (AlaLiveTabRecomModel.this.gkR != null) {
-                        AlaLiveTabRecomModel.this.gkR.e(AlaLiveTabRecomModel.this.hasMore, AlaLiveTabRecomModel.this.gkQ.getData());
+                    AlaLiveTabRecomModel.this.hasMore = AlaLiveTabRecomModel.this.gkx.hasMore();
+                    if (AlaLiveTabRecomModel.this.gky != null) {
+                        AlaLiveTabRecomModel.this.gky.e(AlaLiveTabRecomModel.this.hasMore, AlaLiveTabRecomModel.this.gkx.getData());
                     }
                     bVar.isSuccess = true;
                 }
-                bVar.isLoadMore = AlaLiveTabRecomModel.this.gkG;
+                bVar.isLoadMore = AlaLiveTabRecomModel.this.gkn;
                 bVar.superEntranceInfo = alaTabLiveResponsedMessage.superEntranceInfo;
                 AlaLiveTabRecomModel.this.a(bVar);
-                AlaLiveTabRecomModel.this.gkG = false;
+                AlaLiveTabRecomModel.this.gkn = false;
             }
         }
     };
@@ -90,32 +90,32 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
 
     public AlaLiveTabRecomModel(TbPageContext tbPageContext, a aVar) {
         this.mTbPageContext = tbPageContext;
-        this.gkR = aVar;
+        this.gky = aVar;
     }
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.gkK);
+        MessageManager.getInstance().registerListener(this.gkr);
     }
 
     public void refresh() {
-        this.gkI = System.currentTimeMillis();
-        this.gkG = false;
+        this.gkp = System.currentTimeMillis();
+        this.gkn = false;
         this.mPn = 1;
-        J(this.mPn, 0, AlaLiveTabFragment.gjw);
+        L(this.mPn, 0, AlaLiveTabFragment.gjd);
     }
 
-    public void bOI() {
-        if (this.hasMore && !this.gkG) {
+    public void bOb() {
+        if (this.hasMore && !this.gkn) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.gkI >= 1800000) {
-                this.gkI = currentTimeMillis;
+            if (currentTimeMillis - this.gkp >= 1800000) {
+                this.gkp = currentTimeMillis;
             }
-            this.gkG = true;
-            J(this.mPn + 1, 1, AlaLiveTabFragment.gjw - 1);
+            this.gkn = true;
+            L(this.mPn + 1, 1, AlaLiveTabFragment.gjd - 1);
         }
     }
 
-    private void J(int i, int i2, int i3) {
+    private void L(int i, int i2, int i3) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
         httpMessage.addParam("tab_id", 1);
         String str = "N";
@@ -132,7 +132,7 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
         }
         httpMessage.addParam("network", str);
         httpMessage.addParam("ua_str", l.getEquipmentWidth(this.mTbPageContext.getPageActivity()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + l.getEquipmentHeight(this.mTbPageContext.getPageActivity()) + "_android_" + TbConfig.getVersion());
-        httpMessage.addParam("session_id", this.gkI);
+        httpMessage.addParam("session_id", this.gkp);
         httpMessage.addParam("refresh_type", i2);
         httpMessage.addParam("big_refresh_count", i3);
         httpMessage.setTag(this.mCurTag);
@@ -140,7 +140,7 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gkK);
+        MessageManager.getInstance().unRegisterListener(this.gkr);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

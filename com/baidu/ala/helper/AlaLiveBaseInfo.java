@@ -6,7 +6,7 @@ import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class AlaLiveBaseInfo {
     public static final String STREAM_TYPE_RECV = "RECV";
     public static final String STREAM_TYPE_SEND = "SEND";

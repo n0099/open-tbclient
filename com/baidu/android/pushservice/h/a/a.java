@@ -14,11 +14,11 @@ import com.baidu.android.pushservice.i.m;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final List<a.c> f1093a = new CopyOnWriteArrayList();
+    private static final List<a.c> f1096a = new CopyOnWriteArrayList();
 
     private a.c a(long j, long j2, String str, long j3, long j4, String str2, long j5) {
         return a.c.s().a(a.e.CONNECTION).a(a.j.q().a(j).b(j2).a(str).c(j3).d(j4).b(str2).e(j5).build()).build();
@@ -41,7 +41,7 @@ public final class a {
     }
 
     private void a(a.c cVar) {
-        f1093a.add(cVar);
+        f1096a.add(cVar);
     }
 
     private a.h c(Context context) {
@@ -95,37 +95,37 @@ public final class a {
 
     private void f(Context context) {
         for (com.baidu.android.pushservice.c.a.c cVar : e.a(context).a()) {
-            a(a(cVar.b, cVar.f1030a, cVar.c, cVar.d));
+            a(a(cVar.b, cVar.f1033a, cVar.c, cVar.d));
         }
     }
 
     private void g(Context context) {
         for (d dVar : e.a(context).b()) {
-            a(a(dVar.f1032a, dVar.b, dVar.c, dVar.d, dVar.e, dVar.f, dVar.g, dVar.h, dVar.i));
+            a(a(dVar.f1035a, dVar.b, dVar.c, dVar.d, dVar.e, dVar.f, dVar.g, dVar.h, dVar.i));
         }
     }
 
     private void h(Context context) {
         for (com.baidu.android.pushservice.c.a.b bVar : e.a(context).c()) {
-            a(a(bVar.f1028a, bVar.b, bVar.c, bVar.d, bVar.e, bVar.f, bVar.g));
+            a(a(bVar.f1031a, bVar.b, bVar.c, bVar.d, bVar.e, bVar.f, bVar.g));
         }
     }
 
     private void i(Context context) {
         for (com.baidu.android.pushservice.c.a.e eVar : e.a(context).d()) {
-            a(a(eVar.f1033a, eVar.b, eVar.c, eVar.d, eVar.e, eVar.f, eVar.g));
+            a(a(eVar.f1036a, eVar.b, eVar.c, eVar.d, eVar.e, eVar.f, eVar.g));
         }
     }
 
     private void j(Context context) {
         for (com.baidu.android.pushservice.c.a.a aVar : e.a(context).e()) {
-            a(a(aVar.f1026a, aVar.b, aVar.c, aVar.d, aVar.e));
+            a(a(aVar.f1029a, aVar.b, aVar.c, aVar.d, aVar.e));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        f1093a.clear();
+        f1096a.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -137,10 +137,10 @@ public final class a {
             h(context);
             i(context);
             j(context);
-            if (f1093a.size() <= 0) {
+            if (f1096a.size() <= 0) {
                 return null;
             }
-            return a.y.k().a(c(context)).a("push").a(com.baidu.android.pushservice.a.a()).a(f1093a).build().toByteArray();
+            return a.y.k().a(c(context)).a("push").a(com.baidu.android.pushservice.a.a()).a(f1096a).build().toByteArray();
         } catch (Exception e) {
             return null;
         }

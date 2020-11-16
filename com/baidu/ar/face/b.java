@@ -2,7 +2,7 @@ package com.baidu.ar.face;
 
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.ar.face.a.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
     private boolean needHeadPose = false;

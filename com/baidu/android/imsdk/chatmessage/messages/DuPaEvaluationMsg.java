@@ -9,7 +9,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class DuPaEvaluationMsg extends ChatMsg {
     public static final Parcelable.Creator<DuPaEvaluationMsg> CREATOR = new Parcelable.Creator<DuPaEvaluationMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.DuPaEvaluationMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -109,7 +109,7 @@ public class DuPaEvaluationMsg extends ChatMsg {
         return jSONObject.toString();
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     public static class EvaluationItem implements Parcelable {
         public static final Parcelable.Creator<EvaluationItem> CREATOR = new Parcelable.Creator<EvaluationItem>() { // from class: com.baidu.android.imsdk.chatmessage.messages.DuPaEvaluationMsg.EvaluationItem.1
             /* JADX DEBUG: Method merged with bridge method */

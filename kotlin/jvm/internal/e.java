@@ -3,25 +3,25 @@ package kotlin.jvm.internal;
 import java.util.NoSuchElementException;
 import kotlin.collections.ab;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 final class e extends ab {
     private int index;
-    private final float[] pSA;
+    private final float[] pUd;
 
     public e(float[] fArr) {
         q.n(fArr, com.baidu.fsg.base.statistics.b.j);
-        this.pSA = fArr;
+        this.pUd = fArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.pSA.length;
+        return this.index < this.pUd.length;
     }
 
     @Override // kotlin.collections.ab
     public float nextFloat() {
         try {
-            float[] fArr = this.pSA;
+            float[] fArr = this.pUd;
             int i = this.index;
             this.index = i + 1;
             return fArr[i];

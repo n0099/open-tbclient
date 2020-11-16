@@ -6,10 +6,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class cv {
-    public String aSK;
-    public String aSL;
-    public int aSM;
-    public String aSN;
+    public String aQZ;
+    public String aRa;
+    public int aRb;
+    public String aRc;
     public int level_id = -1;
     public List<AlaLiveMarkData> live_mark_info_new;
     public String uk;
@@ -17,10 +17,10 @@ public class cv {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.uk = jSONObject.optString("uk");
-            this.aSK = jSONObject.optString("head_img");
-            this.aSL = jSONObject.optString("nick_name");
-            this.aSM = jSONObject.optInt("noble_role_id");
-            this.aSN = jSONObject.optString("noble_role_name");
+            this.aQZ = jSONObject.optString("head_img");
+            this.aRa = jSONObject.optString("nick_name");
+            this.aRb = jSONObject.optInt("noble_role_id");
+            this.aRc = jSONObject.optString("noble_role_name");
             this.level_id = jSONObject.optInt("level_id");
             if (jSONObject.has("identity_icon")) {
                 if (this.live_mark_info_new == null) {

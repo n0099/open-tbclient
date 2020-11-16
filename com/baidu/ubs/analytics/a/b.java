@@ -1,19 +1,19 @@
 package com.baidu.ubs.analytics.a;
 
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public final class b {
-    private c ord = new c();
+    private c osH = new c();
 
     public final void a(a aVar) {
-        this.ord.b(aVar);
+        this.osH.b(aVar);
     }
 
-    public final List<a> edB() {
-        return this.ord.edB();
+    public final List<a> edA() {
+        return this.osH.edA();
     }
 
     public final void a(int i) {
-        this.ord.a(i);
+        this.osH.a(i);
     }
 }

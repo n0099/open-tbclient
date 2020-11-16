@@ -16,26 +16,26 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private w aES;
-    private InterfaceC0939a otW;
-    private int otX = -1;
+    private w aDh;
+    private InterfaceC0942a ovA;
+    private int ovB = -1;
 
     /* renamed from: com.baidu.yuyinala.mode.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0939a {
-        void eeJ();
+    public interface InterfaceC0942a {
+        void eeH();
 
-        void eeK();
+        void eeI();
     }
 
-    public a(w wVar, InterfaceC0939a interfaceC0939a) {
-        this.aES = wVar;
-        this.otW = interfaceC0939a;
+    public a(w wVar, InterfaceC0942a interfaceC0942a) {
+        this.aDh = wVar;
+        this.ovA = interfaceC0942a;
         registerListener();
     }
 
     public void aw(w wVar) {
-        this.aES = wVar;
+        this.aDh = wVar;
     }
 
     private void registerListener() {
@@ -45,16 +45,16 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage.getCmd() == 1031079) {
                     if (httpResponsedMessage.getError() != 0) {
-                        if (a.this.otW != null) {
-                            a.this.otW.eeJ();
+                        if (a.this.ovA != null) {
+                            a.this.ovA.eeH();
                             return;
                         }
                         return;
                     }
-                    if (a.this.otW != null) {
-                        a.this.otW.eeK();
+                    if (a.this.ovA != null) {
+                        a.this.ovA.eeI();
                     }
-                    a.this.eeO();
+                    a.this.eeM();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501073));
                 }
             }
@@ -62,13 +62,13 @@ public class a extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eeO() {
-        if (this.otX >= 0) {
+    public void eeM() {
+        if (this.ovB >= 0) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, this.otX == 0 ? "normal" : "dating");
-                if (this.otW != null) {
-                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, b.Xh().Xn().aJK.croom_id);
+                jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, this.ovB == 0 ? "normal" : "dating");
+                if (this.ovA != null) {
+                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, b.Wy().WE().aHZ.croom_id);
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -87,11 +87,11 @@ public class a extends BdBaseModel {
         return false;
     }
 
-    public void Ns(int i) {
-        this.otX = i;
+    public void NV(int i) {
+        this.ovB = i;
         String str = null;
-        if (this.aES != null && this.aES.aJK != null) {
-            str = this.aES.aJK.aSP;
+        if (this.aDh != null && this.aDh.aHZ != null) {
+            str = this.aDh.aHZ.aRe;
         }
         HttpMessage httpMessage = new HttpMessage(1031079);
         httpMessage.addParam("room_id", str);

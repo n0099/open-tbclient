@@ -9,10 +9,10 @@ import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class LiveTalentShowInitialize {
     static {
-        Rh();
+        Qy();
     }
 
-    private static void Rh() {
+    private static void Qy() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913254, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.talentshow.LiveTalentShowInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.aj.b> run(CustomMessage<TbPageContext> customMessage) {

@@ -17,7 +17,7 @@ import com.baidubce.services.vod.VodClient;
 import java.io.InputStream;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class UploadFileTask implements Runnable {
     public static final int ERROR_COMPRESS = 3;
     public static final int ERROR_NETWORK = 2;
@@ -57,16 +57,16 @@ public class UploadFileTask implements Runnable {
     protected Handler mHandler = new Handler(Looper.getMainLooper());
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public @interface ErrorCode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public @interface Status {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface TaskCallback {
         void onFailed(UploadFileTask uploadFileTask);
 

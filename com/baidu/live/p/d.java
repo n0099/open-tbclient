@@ -12,10 +12,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d extends BdAsyncTask<String, Void, b> {
-    private c bqa;
+    private c bop;
 
     public d(c cVar) {
-        this.bqa = cVar;
+        this.bop = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,8 +42,8 @@ public class d extends BdAsyncTask<String, Void, b> {
                     bVar.errCode = errorData.error_code;
                     bVar.errMsg = errorData.error_msg;
                     if (optJSONObject != null) {
-                        bVar.bqb = new PersonUserData();
-                        bVar.bqb.parserJson(optJSONObject);
+                        bVar.boq = new PersonUserData();
+                        bVar.boq.parserJson(optJSONObject);
                     }
                 } catch (JSONException e) {
                     BdLog.detailException(e);
@@ -58,11 +58,11 @@ public class d extends BdAsyncTask<String, Void, b> {
     @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(b bVar) {
-        if (this.bqa != null && bVar != null) {
+        if (this.bop != null && bVar != null) {
             if (bVar.errCode == 0) {
-                this.bqa.a(bVar.bqb);
+                this.bop.a(bVar.boq);
             } else {
-                this.bqa.s(bVar.errCode, bVar.errMsg);
+                this.bop.s(bVar.errCode, bVar.errMsg);
             }
         }
     }

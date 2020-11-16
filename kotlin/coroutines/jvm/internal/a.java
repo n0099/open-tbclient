@@ -2,9 +2,9 @@ package kotlin.coroutines.jvm.internal;
 
 import kotlin.h;
 @h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class a implements kotlin.coroutines.a<Object> {
-    public static final a pSn = new a();
+    public static final a pTQ = new a();
 
     private a() {
     }

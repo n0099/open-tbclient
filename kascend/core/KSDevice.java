@@ -4,7 +4,7 @@ import android.content.Context;
 import java.util.HashMap;
 import kascend.core.a.b;
 import kascend.core.a.c;
-/* loaded from: classes18.dex */
+/* loaded from: classes9.dex */
 public class KSDevice {
     private kascend.core.a.a mCache;
     private long uid = -1;
@@ -20,9 +20,9 @@ public class KSDevice {
 
     public String getDS() {
         if (this.mCache != null) {
-            String eBo = this.mCache.eBo();
-            this.mCache.ZK(eBo);
-            return eBo;
+            String eBp = this.mCache.eBp();
+            this.mCache.Zv(eBp);
+            return eBp;
         }
         return getDeviceId();
     }

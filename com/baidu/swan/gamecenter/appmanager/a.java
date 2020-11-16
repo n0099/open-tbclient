@@ -20,23 +20,23 @@ import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
 import java.io.File;
 import java.util.Collection;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a dPv;
-    private JSONObject dPA;
-    private b dPw = new b();
-    private b dPx = new b();
-    private DownloadManager dPy = DownloadManager.getInstance(AppRuntime.getAppContext());
-    private c dPz = new c(this.dPy);
+    private static volatile a dNN;
+    private b dNO = new b();
+    private b dNP = new b();
+    private DownloadManager dNQ = DownloadManager.getInstance(AppRuntime.getAppContext());
+    private c dNR = new c(this.dNQ);
+    private JSONObject dNS;
 
     private a() {
-        this.dPz.aSe();
-        this.dPz.aQt();
-        aRU();
-        aRV();
+        this.dNR.aRw();
+        this.dNR.aPL();
+        aRm();
+        aRn();
         if (DEBUG) {
-            this.dPy.registerOnProgressChangeListener(new DownloadManager.OnProgressChangeListener() { // from class: com.baidu.swan.gamecenter.appmanager.a.1
+            this.dNQ.registerOnProgressChangeListener(new DownloadManager.OnProgressChangeListener() { // from class: com.baidu.swan.gamecenter.appmanager.a.1
                 @Override // com.baidu.down.manage.DownloadManager.OnProgressChangeListener
                 public void onProgressChanged(long j, int i, long j2) {
                     Log.d("GameCenterAppManager", "onProgressChanged downloadId = " + j + ",percentage = " + i + ",speed = " + j2);
@@ -45,203 +45,203 @@ public class a {
         }
     }
 
-    public static a aRP() {
-        if (dPv == null) {
+    public static a aRh() {
+        if (dNN == null) {
             synchronized (a.class) {
-                if (dPv == null) {
-                    dPv = new a();
+                if (dNN == null) {
+                    dNN = new a();
                 }
             }
         }
-        return dPv;
+        return dNN;
     }
 
-    private boolean aRQ() {
+    private boolean aRi() {
         return !ProcessUtils.isMainProcess();
     }
 
-    public void cl(JSONObject jSONObject) {
+    public void cf(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.dPA = jSONObject;
+            this.dNS = jSONObject;
         }
     }
 
     public void a(String str, String str2, String str3, @NonNull com.baidu.swan.gamecenter.appmanager.b.b bVar) {
-        if (aRQ()) {
+        if (aRi()) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31006, "is not in main process"));
         } else if (!SwanAppNetworkUtils.isNetworkConnected(null)) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31014, "network is not connected"));
         } else if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31007, "invalid params"));
-        } else if (com.baidu.swan.gamecenter.appmanager.install.a.am(AppRuntime.getAppContext(), str2)) {
+        } else if (com.baidu.swan.gamecenter.appmanager.install.a.aj(AppRuntime.getAppContext(), str2)) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31005, "apk is already installed"));
         } else {
-            this.dPz.wc(str);
-            Download aRX = new com.baidu.swan.gamecenter.appmanager.download.a().vV(str).vW(str2).vX(str3).aRX();
-            this.dPy.start(aRX);
-            if (aRX.getId() != null) {
-                this.dPw.f(String.valueOf(aRX.getId()), bVar);
+            this.dNR.vX(str);
+            Download aRp = new com.baidu.swan.gamecenter.appmanager.download.a().vQ(str).vR(str2).vS(str3).aRp();
+            this.dNQ.start(aRp);
+            if (aRp.getId() != null) {
+                this.dNO.f(String.valueOf(aRp.getId()), bVar);
             }
         }
     }
 
     public void a(String str, @NonNull com.baidu.swan.gamecenter.appmanager.b.b bVar) {
-        if (aRQ()) {
+        if (aRi()) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31006, "is not in main process"));
         } else if (TextUtils.isEmpty(str)) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31007, "invalid params"));
         } else {
-            Download vY = this.dPz.vY(str);
-            if (vY == null) {
+            Download vT = this.dNR.vT(str);
+            if (vT == null) {
                 bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31008, "download is not exist"));
             } else {
-                bVar.a(new com.baidu.swan.gamecenter.appmanager.c.c(vY));
+                bVar.a(new com.baidu.swan.gamecenter.appmanager.c.c(vT));
             }
         }
     }
 
     public void a(@NonNull com.baidu.swan.gamecenter.appmanager.b.b bVar) {
-        if (aRQ()) {
+        if (aRi()) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31006, "is not in main process"));
             return;
         }
-        Collection<Download> aSb = this.dPz.aSb();
-        if (aSb == null || aSb.isEmpty()) {
+        Collection<Download> aRt = this.dNR.aRt();
+        if (aRt == null || aRt.isEmpty()) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31008, "download is not exist"));
         } else {
-            bVar.a(new com.baidu.swan.gamecenter.appmanager.c.c(aSb));
+            bVar.a(new com.baidu.swan.gamecenter.appmanager.c.c(aRt));
         }
     }
 
     public void b(String str, @NonNull com.baidu.swan.gamecenter.appmanager.b.b bVar) {
-        if (aRQ()) {
+        if (aRi()) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31006, "is not in main process"));
         } else if (!SwanAppNetworkUtils.isNetworkConnected(null)) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31014, "network is not connected"));
         } else if (TextUtils.isEmpty(str)) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31007, "invalid params"));
         } else {
-            Download vY = this.dPz.vY(str);
-            if (vY == null) {
+            Download vT = this.dNR.vT(str);
+            if (vT == null) {
                 bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31008, "download is not exist"));
-            } else if (vY.getState() == Download.DownloadState.FINISH) {
+            } else if (vT.getState() == Download.DownloadState.FINISH) {
                 bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31012, "download is finished"));
             } else {
-                this.dPw.f(String.valueOf(vY.getId()), bVar);
-                this.dPy.resume(vY.getId().longValue());
+                this.dNO.f(String.valueOf(vT.getId()), bVar);
+                this.dNQ.resume(vT.getId().longValue());
             }
         }
     }
 
-    public void aRR() {
-        Collection<Download> aSc = this.dPz.aSc();
-        if (aSc != null && !aSc.isEmpty()) {
-            for (Download download : aSc) {
-                this.dPw.f(String.valueOf(download.getId()), new C0522a());
-                com.baidu.swan.gamecenter.appmanager.d.c.a(download.getKeyByUser(), "resumeAllDownload", "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dPA));
+    public void aRj() {
+        Collection<Download> aRu = this.dNR.aRu();
+        if (aRu != null && !aRu.isEmpty()) {
+            for (Download download : aRu) {
+                this.dNO.f(String.valueOf(download.getId()), new C0520a());
+                com.baidu.swan.gamecenter.appmanager.d.c.a(download.getKeyByUser(), "resumeAllDownload", "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dNS));
             }
         }
     }
 
-    public void aRS() {
-        this.dPz.aQt();
+    public void aRk() {
+        this.dNR.aPL();
     }
 
     public void c(String str, @NonNull com.baidu.swan.gamecenter.appmanager.b.b bVar) {
-        if (aRQ()) {
+        if (aRi()) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31006, "is not in main process"));
         } else if (TextUtils.isEmpty(str)) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31007, "invalid params"));
         } else {
-            Download vY = this.dPz.vY(str);
-            if (vY == null) {
+            Download vT = this.dNR.vT(str);
+            if (vT == null) {
                 bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31008, "download is not exist"));
-            } else if (vY.getState() != Download.DownloadState.WAITING && vY.getState() != Download.DownloadState.DOWNLOADING) {
+            } else if (vT.getState() != Download.DownloadState.WAITING && vT.getState() != Download.DownloadState.DOWNLOADING) {
                 bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31013, "download is not started"));
             } else {
-                this.dPy.pause(vY.getId().longValue());
-                bVar.a(new com.baidu.swan.gamecenter.appmanager.c.c(vY));
+                this.dNQ.pause(vT.getId().longValue());
+                bVar.a(new com.baidu.swan.gamecenter.appmanager.c.c(vT));
             }
         }
     }
 
     public void d(String str, @NonNull com.baidu.swan.gamecenter.appmanager.b.b bVar) {
-        if (aRQ()) {
+        if (aRi()) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31006, "is not in main process"));
         } else if (TextUtils.isEmpty(str)) {
             bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31007, "invalid params"));
         } else {
-            Collection<Download> wb = this.dPz.wb(str);
-            if (wb == null || wb.isEmpty()) {
+            Collection<Download> vW = this.dNR.vW(str);
+            if (vW == null || vW.isEmpty()) {
                 bVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31008, "download is not exist"));
                 return;
             }
-            this.dPz.j(wb);
-            bVar.a(new com.baidu.swan.gamecenter.appmanager.c.c(wb));
+            this.dNR.j(vW);
+            bVar.a(new com.baidu.swan.gamecenter.appmanager.c.c(vW));
         }
     }
 
     public String a(String str, @NonNull com.baidu.swan.gamecenter.appmanager.b.a aVar) {
-        if (aRQ()) {
+        if (aRi()) {
             aVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31006, "is not in main process"));
             return null;
         } else if (TextUtils.isEmpty(str)) {
             aVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31007, "invalid params"));
             return null;
         } else {
-            Download vY = this.dPz.vY(str);
-            if (vY == null) {
+            Download vT = this.dNR.vT(str);
+            if (vT == null) {
                 aVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31008, "download is not exist"));
                 return null;
             }
-            if (vY.getCurrentbytes().longValue() < vY.getTotalbytes().longValue()) {
+            if (vT.getCurrentbytes().longValue() < vT.getTotalbytes().longValue()) {
                 aVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31017, "download is not finished"));
             }
-            String realDownloadDir = vY.getRealDownloadDir();
-            String fileName = vY.getFileName();
-            final String keyByUser = vY.getKeyByUser();
+            String realDownloadDir = vT.getRealDownloadDir();
+            String fileName = vT.getFileName();
+            final String keyByUser = vT.getKeyByUser();
             if (DEBUG) {
                 Log.d("GameCenterAppManager", "installApp packageName:" + keyByUser + ",fileDir:" + realDownloadDir + ",fileName:" + fileName);
             }
             if (TextUtils.isEmpty(keyByUser) || TextUtils.isEmpty(realDownloadDir) || TextUtils.isEmpty(fileName)) {
                 aVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31001, "database no package or file name"));
-                this.dPz.wc(str);
+                this.dNR.vX(str);
             }
             String str2 = realDownloadDir + File.separator + fileName;
-            if (com.baidu.swan.gamecenter.appmanager.install.a.am(AppRuntime.getAppContext(), keyByUser)) {
-                vU(keyByUser);
+            if (com.baidu.swan.gamecenter.appmanager.install.a.aj(AppRuntime.getAppContext(), keyByUser)) {
+                vP(keyByUser);
                 aVar.a(new com.baidu.swan.gamecenter.appmanager.c.c("apk is already installed"));
-                vT(str2);
+                vO(str2);
                 return null;
             }
             File file = new File(str2);
             if (!file.isFile() || !file.exists()) {
                 aVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31002, "file is not exist"));
-                this.dPz.wc(str);
+                this.dNR.vX(str);
                 return null;
             }
             aVar.setPackageName(keyByUser);
             aVar.setFilePath(str2);
-            this.dPx.f(keyByUser, aVar);
-            if (!com.baidu.swan.gamecenter.appmanager.install.a.wd(str2)) {
+            this.dNP.f(keyByUser, aVar);
+            if (!com.baidu.swan.gamecenter.appmanager.install.a.vY(str2)) {
                 e(keyByUser, aVar);
                 aVar.a(new com.baidu.swan.gamecenter.appmanager.c.a(31004, "apk install fail"));
-                this.dPz.wc(str);
+                this.dNR.vX(str);
             } else {
                 long length = ((file.length() / 104857600) + 1) * 1000;
-                final String avr = com.baidu.swan.gamecenter.appmanager.install.a.avr();
-                if (com.baidu.swan.gamecenter.appmanager.install.a.wf(avr)) {
+                final String auJ = com.baidu.swan.gamecenter.appmanager.install.a.auJ();
+                if (com.baidu.swan.gamecenter.appmanager.install.a.wa(auJ)) {
                     d.getMainHandler().postDelayed(new Runnable() { // from class: com.baidu.swan.gamecenter.appmanager.a.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!g.azX().isForeground()) {
+                            if (!g.azp().isForeground()) {
                                 if (a.DEBUG) {
                                     Log.d("GameCenterAppManager", "start InstallAntiBlockingActivity");
                                 }
                                 Intent intent = new Intent(AppRuntime.getAppContext(), InstallAntiBlockingActivity.class);
-                                intent.putExtra("type", avr);
+                                intent.putExtra("type", auJ);
                                 intent.putExtra("packageName", keyByUser);
-                                intent.putExtra("ubc_params", a.this.dPA.toString());
+                                intent.putExtra("ubc_params", a.this.dNS.toString());
                                 intent.setFlags(276824064);
                                 e.startActivitySafely(AppRuntime.getAppContext(), intent);
                             }
@@ -253,20 +253,20 @@ public class a {
         }
     }
 
-    public synchronized void aRT() {
-        this.dPz.aRT();
+    public synchronized void aRl() {
+        this.dNR.aRl();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vS(String str) {
-        this.dPw.removeEventListener(str);
+    public void vN(String str) {
+        this.dNO.removeEventListener(str);
     }
 
     public void e(String str, com.baidu.swan.gamecenter.appmanager.b.b bVar) {
-        this.dPx.g(str, bVar);
+        this.dNP.g(str, bVar);
     }
 
-    public boolean vT(String str) {
+    public boolean vO(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -285,8 +285,8 @@ public class a {
         return false;
     }
 
-    private void aRU() {
-        this.dPy.registerOnStateChangeListener(new DownloadManager.OnStateChangeListener() { // from class: com.baidu.swan.gamecenter.appmanager.a.3
+    private void aRm() {
+        this.dNQ.registerOnStateChangeListener(new DownloadManager.OnStateChangeListener() { // from class: com.baidu.swan.gamecenter.appmanager.a.3
             @Override // com.baidu.down.manage.DownloadManager.OnStateChangeListener
             public void onStateChanged(long j, final Download download) {
                 if (download != null && download.getId() != null) {
@@ -295,33 +295,33 @@ public class a {
                         Log.d("GameCenterAppManager", "onStateChanged downloadId = " + j + ",eventType:" + valueOf + ",download = " + download);
                     }
                     if (download.getState() == Download.DownloadState.FINISH) {
-                        com.baidu.swan.gamecenter.appmanager.d.c.a(download.getKeyByUser(), "startDownload", "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(a.this.dPA));
+                        com.baidu.swan.gamecenter.appmanager.d.c.a(download.getKeyByUser(), "startDownload", "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(a.this.dNS));
                     }
-                    if (a.this.dPw.hasEventListener(valueOf)) {
-                        switch (AnonymousClass5.dPC[download.getState().ordinal()]) {
+                    if (a.this.dNO.hasEventListener(valueOf)) {
+                        switch (AnonymousClass5.dNU[download.getState().ordinal()]) {
                             case 1:
-                                a.this.dPz.aSd();
-                                new com.baidu.swan.gamecenter.appmanager.install.c(download, a.this.dPA).b(new com.baidu.swan.gamecenter.appmanager.b.b() { // from class: com.baidu.swan.gamecenter.appmanager.a.3.1
+                                a.this.dNR.aRv();
+                                new com.baidu.swan.gamecenter.appmanager.install.c(download, a.this.dNS).b(new com.baidu.swan.gamecenter.appmanager.b.b() { // from class: com.baidu.swan.gamecenter.appmanager.a.3.1
                                     @Override // com.baidu.swan.gamecenter.appmanager.b.b
                                     public void a(com.baidu.swan.gamecenter.appmanager.c.b bVar) {
                                         if (bVar != null) {
-                                            if (bVar.aSq()) {
-                                                a.this.dPw.a(valueOf, new com.baidu.swan.gamecenter.appmanager.c.c(download));
+                                            if (bVar.aRI()) {
+                                                a.this.dNO.a(valueOf, new com.baidu.swan.gamecenter.appmanager.c.c(download));
                                             } else {
-                                                a.this.dPw.a(valueOf, bVar);
+                                                a.this.dNO.a(valueOf, bVar);
                                             }
                                         }
-                                        a.this.vS(valueOf);
+                                        a.this.vN(valueOf);
                                     }
                                 });
                                 return;
                             case 2:
-                                a.this.dPw.a(valueOf, new com.baidu.swan.gamecenter.appmanager.c.a(31015, "download is canceled"));
-                                a.this.vS(valueOf);
+                                a.this.dNO.a(valueOf, new com.baidu.swan.gamecenter.appmanager.c.a(31015, "download is canceled"));
+                                a.this.vN(valueOf);
                                 return;
                             case 3:
-                                a.this.dPw.a(valueOf, new com.baidu.swan.gamecenter.appmanager.c.a(download.getFailedType().intValue(), TextUtils.isEmpty(download.getFailedReason()) ? "download is failed" : download.getFailedReason()));
-                                a.this.vS(valueOf);
+                                a.this.dNO.a(valueOf, new com.baidu.swan.gamecenter.appmanager.c.a(download.getFailedType().intValue(), TextUtils.isEmpty(download.getFailedReason()) ? "download is failed" : download.getFailedReason()));
+                                a.this.vN(valueOf);
                                 return;
                             default:
                                 return;
@@ -333,27 +333,27 @@ public class a {
     }
 
     /* renamed from: com.baidu.swan.gamecenter.appmanager.a$5  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes16.dex */
     static /* synthetic */ class AnonymousClass5 {
-        static final /* synthetic */ int[] dPC = new int[Download.DownloadState.values().length];
+        static final /* synthetic */ int[] dNU = new int[Download.DownloadState.values().length];
 
         static {
             try {
-                dPC[Download.DownloadState.FINISH.ordinal()] = 1;
+                dNU[Download.DownloadState.FINISH.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                dPC[Download.DownloadState.CANCEL.ordinal()] = 2;
+                dNU[Download.DownloadState.CANCEL.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                dPC[Download.DownloadState.FAILED.ordinal()] = 3;
+                dNU[Download.DownloadState.FAILED.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
         }
     }
 
-    private synchronized void aRV() {
+    private synchronized void aRn() {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addDataScheme("package");
         intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
@@ -366,8 +366,8 @@ public class a {
                         if (a.DEBUG) {
                             Log.d("GameCenterAppManager", "AddPackageReceiver packageName = " + schemeSpecificPart);
                         }
-                        a.this.vU(schemeSpecificPart);
-                        a.this.dPx.a(schemeSpecificPart, new com.baidu.swan.gamecenter.appmanager.c.c((String) null));
+                        a.this.vP(schemeSpecificPart);
+                        a.this.dNP.a(schemeSpecificPart, new com.baidu.swan.gamecenter.appmanager.c.c((String) null));
                         a.this.e(schemeSpecificPart, null);
                     }
                 }
@@ -376,16 +376,16 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vU(String str) {
-        if (this.dPz.wa(str)) {
-            com.baidu.swan.gamecenter.appmanager.d.c.a(str, "installApp", "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dPA));
+    public void vP(String str) {
+        if (this.dNR.vV(str)) {
+            com.baidu.swan.gamecenter.appmanager.d.c.a(str, "installApp", "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dNS));
         }
     }
 
     /* renamed from: com.baidu.swan.gamecenter.appmanager.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0522a implements com.baidu.swan.gamecenter.appmanager.b.b {
-        public C0522a() {
+    /* loaded from: classes16.dex */
+    public class C0520a implements com.baidu.swan.gamecenter.appmanager.b.b {
+        public C0520a() {
         }
 
         @Override // com.baidu.swan.gamecenter.appmanager.b.b

@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     private static final String SIMPLE_NAME = "DefaultDateTypeAdapter";
     private final List<DateFormat> dateFormats;
@@ -29,7 +29,7 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
             this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2));
         }
         if (c.esK()) {
-            this.dateFormats.add(f.eh(2, 2));
+            this.dateFormats.add(f.ei(2, 2));
         }
     }
 
@@ -51,7 +51,7 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
             this.dateFormats.add(DateFormat.getDateInstance(i));
         }
         if (c.esK()) {
-            this.dateFormats.add(f.Qq(i));
+            this.dateFormats.add(f.QT(i));
         }
     }
 
@@ -67,7 +67,7 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
             this.dateFormats.add(DateFormat.getDateTimeInstance(i, i2));
         }
         if (c.esK()) {
-            this.dateFormats.add(f.eh(i, i2));
+            this.dateFormats.add(f.ei(i, i2));
         }
     }
 
@@ -86,7 +86,7 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
             return;
         }
         synchronized (this.dateFormats) {
-            bVar.YA(this.dateFormats.get(0).format(date));
+            bVar.Yl(this.dateFormats.get(0).format(date));
         }
     }
 

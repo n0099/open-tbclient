@@ -8,7 +8,7 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
@@ -26,7 +26,7 @@ public class b {
     public static c l;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
@@ -45,15 +45,15 @@ public class b {
     }
 
     /* renamed from: com.baidu.sapi2.share.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static abstract class AbstractC0343b {
+    /* loaded from: classes15.dex */
+    public static abstract class AbstractC0341b {
         public void onFailed(int i, String str) {
         }
 
         public abstract void onSuccess();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class c {
         public static final String e = "index";
         public static final String f = "account_tpl";
@@ -83,7 +83,7 @@ public class b {
         e.a(activity, str, str2, str3, str4, list, str5);
     }
 
-    public void a(AbstractC0343b abstractC0343b, int i2, int i3, Intent intent, List<PassNameValuePair> list) {
-        e.a(abstractC0343b, i2, i3, intent, this, list);
+    public void a(AbstractC0341b abstractC0341b, int i2, int i3, Intent intent, List<PassNameValuePair> list) {
+        e.a(abstractC0341b, i2, i3, intent, this, list);
     }
 }

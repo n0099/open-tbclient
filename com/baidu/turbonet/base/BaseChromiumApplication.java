@@ -10,12 +10,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Iterator;
-/* loaded from: classes17.dex */
+/* loaded from: classes12.dex */
 public class BaseChromiumApplication extends Application {
-    private final boolean oky;
-    private com.baidu.turbonet.base.b<b> okz;
+    private final boolean omb;
+    private com.baidu.turbonet.base.b<b> omc;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void m(Activity activity, boolean z);
     }
@@ -25,8 +25,8 @@ public class BaseChromiumApplication extends Application {
     }
 
     protected BaseChromiumApplication(boolean z) {
-        this.okz = new com.baidu.turbonet.base.b<>();
-        this.oky = z;
+        this.omc = new com.baidu.turbonet.base.b<>();
+        this.omb = z;
     }
 
     @Override // android.content.ContextWrapper
@@ -35,13 +35,13 @@ public class BaseChromiumApplication extends Application {
         com.baidu.turbonet.base.a.a.install(this);
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes12.dex */
     private class a implements InvocationHandler {
         private final Activity mActivity;
-        private final Window.Callback okB;
+        private final Window.Callback ome;
 
         public a(Activity activity, Window.Callback callback) {
-            this.okB = callback;
+            this.ome = callback;
             this.mActivity = activity;
         }
 
@@ -52,7 +52,7 @@ public class BaseChromiumApplication extends Application {
                 return null;
             }
             try {
-                return method.invoke(this.okB, objArr);
+                return method.invoke(this.ome, objArr);
             } catch (InvocationTargetException e) {
                 if (e.getCause() instanceof AbstractMethodError) {
                     throw e.getCause();
@@ -62,8 +62,8 @@ public class BaseChromiumApplication extends Application {
         }
 
         public void onWindowFocusChanged(boolean z) {
-            this.okB.onWindowFocusChanged(z);
-            Iterator it = BaseChromiumApplication.this.okz.iterator();
+            this.ome.onWindowFocusChanged(z);
+            Iterator it = BaseChromiumApplication.this.omc.iterator();
             while (it.hasNext()) {
                 ((b) it.next()).m(this.mActivity, z);
             }
@@ -73,16 +73,16 @@ public class BaseChromiumApplication extends Application {
     @Override // android.app.Application
     public void onCreate() {
         super.onCreate();
-        if (this.oky) {
-            ebe();
+        if (this.omb) {
+            ebd();
         }
     }
 
     public void a(b bVar) {
-        this.okz.aS(bVar);
+        this.omc.aT(bVar);
     }
 
-    private void ebe() {
+    private void ebd() {
         ApplicationStatus.a(this);
         registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() { // from class: com.baidu.turbonet.base.BaseChromiumApplication.1
             @Override // android.app.Application.ActivityLifecycleCallbacks

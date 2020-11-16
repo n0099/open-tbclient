@@ -3,7 +3,7 @@ package com.baidu.live.data;
 import com.baidu.live.adp.BdUniqueId;
 /* loaded from: classes4.dex */
 public class cu implements Cloneable {
-    private String aSJ;
+    private String aQY;
     private String liveId;
     private boolean mIsAttention;
     private BdUniqueId mPageId;
@@ -17,7 +17,7 @@ public class cu implements Cloneable {
         return this.roomId;
     }
 
-    public BdUniqueId Fc() {
+    public BdUniqueId Et() {
         return this.mPageId;
     }
 
@@ -29,14 +29,14 @@ public class cu implements Cloneable {
     }
 
     public cu(String str, String str2, boolean z, BdUniqueId bdUniqueId) {
-        this.aSJ = str;
+        this.aQY = str;
         this.liveId = str2;
         this.mIsAttention = z;
         this.mPageId = bdUniqueId;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Fd */
+    /* renamed from: Eu */
     public cu clone() {
         try {
             return (cu) super.clone();
@@ -46,7 +46,7 @@ public class cu implements Cloneable {
         }
     }
 
-    public String Fe() {
-        return this.aSJ;
+    public String Ev() {
+        return this.aQY;
     }
 }

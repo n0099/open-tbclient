@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
-/* loaded from: classes16.dex */
+/* loaded from: classes18.dex */
 public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
 
     /* renamed from: a  reason: collision with root package name */
@@ -43,29 +43,27 @@ public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
     private native void updateTimestamp(int i, long j);
 
     @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider
-    public synchronized void activeInstance(int i) {
+    public void activeInstance(int i) {
         int activePlayer;
-        MediaInstanceManagerProvider.OnClientInstanceHandler onClientInstanceHandler;
-        MediaInstanceManagerProvider.OnClientInstanceHandler onClientInstanceHandler2;
         if (this.e && (activePlayer = activePlayer(i)) > 0) {
             if (this.b.contains(Integer.valueOf(i))) {
                 WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference = this.f2255a.get(String.valueOf(i));
-                if (weakReference == null || (onClientInstanceHandler2 = weakReference.get()) == null) {
+                if (weakReference.get() != null) {
+                    weakReference.get().onResumeInstance();
+                } else {
                     unRegisterPlayer(i);
                     this.f2255a.remove(String.valueOf(i));
-                } else {
-                    onClientInstanceHandler2.onResumeInstance();
                 }
                 this.b.remove(Integer.valueOf(i));
             }
             WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference2 = this.f2255a.get(String.valueOf(activePlayer));
-            if (weakReference2 == null || (onClientInstanceHandler = weakReference2.get()) == null) {
-                unRegisterPlayer(activePlayer);
-                this.f2255a.remove(String.valueOf(activePlayer));
-            } else {
-                onClientInstanceHandler.onDestroyInstance();
+            if (weakReference2.get() != null) {
+                weakReference2.get().onDestroyInstance();
                 this.b.add(Integer.valueOf(activePlayer));
+                return;
             }
+            unRegisterPlayer(activePlayer);
+            this.f2255a.remove(String.valueOf(activePlayer));
         }
     }
 

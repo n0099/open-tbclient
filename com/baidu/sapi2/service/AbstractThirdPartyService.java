@@ -3,7 +3,7 @@ package com.baidu.sapi2.service;
 import android.app.Activity;
 import android.content.Context;
 import com.baidu.sapi2.utils.enums.SocialType;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public interface AbstractThirdPartyService {
     public static final String EXTRA_RESULT_CODE = "result_code";
     public static final String EXTRA_RESULT_MSG = "result_msg";

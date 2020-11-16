@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.statistics;
 
 import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 class m implements IBeanResponseCallback {
 
     /* renamed from: a  reason: collision with root package name */

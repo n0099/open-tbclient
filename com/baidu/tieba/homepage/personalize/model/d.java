@@ -3,17 +3,17 @@ package com.baidu.tieba.homepage.personalize.model;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.bw;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.card.data.j;
 import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.data.l;
-import com.baidu.tieba.card.data.m;
-import com.baidu.tieba.card.data.q;
-import com.baidu.tieba.recapp.r;
+import com.baidu.tieba.card.data.p;
+import com.baidu.tieba.recapp.q;
 import com.baidu.tieba.recapp.report.g;
 import com.baidu.tieba.tbadkCore.data.AppData;
 import java.util.Iterator;
@@ -24,7 +24,7 @@ import tbclient.BannerList;
 import tbclient.Personalized.CardForum;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.Resource;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class d {
     public static void a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i, int i2, int i3, int i4) {
         if (builder2 != null && builder != null) {
@@ -45,7 +45,7 @@ public class d {
             if (builder.age_sex == null) {
                 builder.age_sex = builder2.age_sex;
                 if (builder2.age_sex != null) {
-                    com.baidu.tbadk.core.sharedPref.b.bqh().putBoolean(SharedPrefConfig.HAS_REQUESTED_NEW_USER_GUIDE, true);
+                    com.baidu.tbadk.core.sharedPref.b.bpu().putBoolean(SharedPrefConfig.HAS_REQUESTED_NEW_USER_GUIDE, true);
                 }
             }
             if (builder2.interestion != null && builder != null && builder.interestion != null && builder.interestion.size() == 0) {
@@ -221,7 +221,7 @@ public class d {
         }
     }
 
-    public static List<q> d(DataRes.Builder builder) {
+    public static List<p> d(DataRes.Builder builder) {
         com.baidu.tieba.homepage.personalize.data.d dVar = null;
         if (builder == null) {
             return null;
@@ -236,7 +236,7 @@ public class d {
         }
         if (builder.card_forum != null) {
             for (CardForum cardForum : builder.card_forum) {
-                if (cardForum != null && com.baidu.tieba.homepage.personalize.data.b.BL(cardForum.card_type.intValue()) && dVar == null) {
+                if (cardForum != null && com.baidu.tieba.homepage.personalize.data.b.Cj(cardForum.card_type.intValue()) && dVar == null) {
                     dVar = new com.baidu.tieba.homepage.personalize.data.d();
                     dVar.a(cardForum);
                     if (dVar.isValidate()) {
@@ -246,48 +246,48 @@ public class d {
                 dVar = dVar;
             }
         }
-        List<AppData> dAm = r.dAo().dAm();
-        if (dAm != null) {
-            dAm.clear();
+        List<AppData> dzM = q.dzO().dzM();
+        if (dzM != null) {
+            dzM.clear();
         }
         if (builder.banner_list != null && builder.banner_list.app != null) {
             for (App app : builder.banner_list.app) {
                 com.baidu.tieba.homepage.personalize.data.a aVar = new com.baidu.tieba.homepage.personalize.data.a();
                 aVar.b(app);
-                if (dAm != null && aVar.iaY != null) {
-                    aVar.iaY.eGO = true;
-                    dAm.add(aVar.iaY.eze);
+                if (dzM != null && aVar.ibQ != null) {
+                    aVar.ibQ.eFg = true;
+                    dzM.add(aVar.ibQ.exs);
                 }
-                AdvertAppInfo coL = aVar.coL();
-                if (coL == null) {
-                    a(aVar.coL(), 1, 100);
+                AdvertAppInfo coq = aVar.coq();
+                if (coq == null) {
+                    a(aVar.coq(), 1, 100);
                 } else {
-                    int bkr = coL.bkr();
-                    if (bkr != 0) {
-                        a(aVar.coL(), 1, bkr);
-                        if (bkr != 28 && bkr != 31) {
-                            if (coL.eyX != null) {
-                                coL.eyX.ezk = -1001;
+                    int bjt = coq.bjt();
+                    if (bjt != 0) {
+                        a(aVar.coq(), 1, bjt);
+                        if (bjt != 28 && bjt != 31) {
+                            if (coq.exl != null) {
+                                coq.exl.exz = -1001;
                             }
                         }
                     }
                     if (aVar.getPosition() <= 0) {
-                        a(aVar.coL(), 1, 23);
-                        if (coL.eyX != null) {
-                            coL.eyX.ezk = -1001;
+                        a(aVar.coq(), 1, 23);
+                        if (coq.exl != null) {
+                            coq.exl.exz = -1001;
                         }
                     }
-                    if (coL.bks()) {
+                    if (coq.bju()) {
                         try {
-                            if (TextUtils.isEmpty(coL.eyR) || com.baidu.tieba.tbadkCore.y.isInstalledPackage(TbadkCoreApplication.getInst().getContext(), coL.eyR)) {
-                                if (TextUtils.isEmpty(coL.eyR)) {
-                                    a(aVar.coL(), 1, 26);
+                            if (TextUtils.isEmpty(coq.exf) || com.baidu.tieba.tbadkCore.y.isInstalledPackage(TbadkCoreApplication.getInst().getContext(), coq.exf)) {
+                                if (TextUtils.isEmpty(coq.exf)) {
+                                    a(aVar.coq(), 1, 26);
                                 } else {
-                                    a(aVar.coL(), 1, 3);
+                                    a(aVar.coq(), 1, 3);
                                 }
                             }
                         } catch (Exception e) {
-                            a(aVar.coL(), 1, 100);
+                            a(aVar.coq(), 1, 100);
                         }
                     }
                     linkedList.add(aVar);
@@ -323,177 +323,145 @@ public class d {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x0011 */
-    public static com.baidu.tieba.card.data.c aA(bw bwVar) {
-        l lVar = null;
-        lVar = null;
-        if (bwVar != null) {
-            if (bwVar.isShareThread) {
-                l lVar2 = new l();
-                lVar2.exA = bwVar;
-                lVar = lVar2;
-            } else if (k.ab(bwVar)) {
-                lVar = new k(bwVar);
-            } else if (l.ab(bwVar) || l.ad(bwVar)) {
-                l lVar3 = new l();
-                if (bwVar.isLinkThread()) {
-                    lVar3.isLinkThread = true;
-                } else if (bwVar.bnD()) {
-                    lVar3.eDq = true;
-                } else {
-                    lVar3.isLinkThread = false;
-                    if (bwVar.bmD()) {
-                        lVar3.ibH = true;
-                    } else {
-                        lVar3.ibH = false;
-                    }
-                }
-                lVar3.exA = bwVar;
-                lVar3.ibI = true;
-                lVar = lVar3;
-            } else if (m.ab(bwVar)) {
-                lVar = new m(bwVar);
-            }
-            if (lVar != null) {
-                lVar.coJ();
-            }
+    public static com.baidu.tieba.card.data.b aC(bx bxVar) {
+        if (bxVar == null) {
+            return null;
         }
-        return lVar;
-    }
-
-    public static l aB(bw bwVar) {
-        l lVar;
-        if (bwVar.isShareThread) {
-            lVar = new l();
-            lVar.exA = bwVar;
+        if (bxVar.isShareThread) {
+            k kVar = new k();
+            kVar.evQ = bxVar;
+            return kVar;
+        } else if (j.ad(bxVar)) {
+            return new j(bxVar);
         } else {
-            lVar = new l();
-            if (bwVar.isLinkThread()) {
-                lVar.isLinkThread = true;
-            } else {
-                lVar.isLinkThread = false;
-                if (bwVar.bmD()) {
-                    lVar.ibH = true;
-                } else {
-                    lVar.ibH = false;
+            if (k.ad(bxVar) || k.af(bxVar)) {
+                k kVar2 = new k();
+                kVar2.isLinkThread = bxVar.isLinkThread();
+                kVar2.eBH = bxVar.bmH();
+                if (!bxVar.isLinkThread() && !bxVar.bmH()) {
+                    kVar2.icy = bxVar.blF();
                 }
+                kVar2.evQ = bxVar;
+                kVar2.icz = true;
+                return kVar2;
+            } else if (l.ad(bxVar)) {
+                return new l(bxVar);
+            } else {
+                return null;
             }
-            lVar.exA = bwVar;
-            lVar.ibI = true;
         }
-        if (lVar != null) {
-            lVar.coJ();
+    }
+
+    public static k aD(bx bxVar) {
+        k kVar = new k();
+        kVar.evQ = bxVar;
+        kVar.isLinkThread = bxVar.isLinkThread();
+        if (!bxVar.isLinkThread()) {
+            kVar.icy = bxVar.blF();
         }
-        return lVar;
+        kVar.icz = true;
+        return kVar;
     }
 
-    public static void a(com.baidu.tieba.card.data.c cVar) {
-        if (cVar instanceof l) {
-            ((l) cVar).eDg = true;
-        } else if (cVar instanceof m) {
-            ((m) cVar).eDg = true;
-        } else if (cVar instanceof k) {
-            ((k) cVar).eDg = true;
+    public static void a(com.baidu.tieba.card.data.b bVar) {
+        if (bVar instanceof k) {
+            ((k) bVar).eBx = true;
+        } else if (bVar instanceof l) {
+            ((l) bVar).eBx = true;
+        } else if (bVar instanceof j) {
+            ((j) bVar).eBx = true;
         }
-        cVar.a(AbsThreadDataSupport.SupportType.TOP);
+        bVar.setSupportType(BaseCardInfo.SupportType.TOP);
     }
 
-    public static void b(com.baidu.tieba.card.data.c cVar) {
-        ((l) cVar).ibJ = true;
-        cVar.a(AbsThreadDataSupport.SupportType.CONTENT);
+    public static void b(com.baidu.tieba.card.data.b bVar) {
+        ((k) bVar).ibM = true;
+        bVar.setSupportType(BaseCardInfo.SupportType.CONTENT);
     }
 
-    public static void c(com.baidu.tieba.card.data.c cVar) {
-        ((l) cVar).eDk = true;
-        cVar.a(AbsThreadDataSupport.SupportType.CONTENT);
+    public static void c(com.baidu.tieba.card.data.b bVar) {
+        ((k) bVar).eBB = true;
+        bVar.setSupportType(BaseCardInfo.SupportType.CONTENT);
     }
 
-    public static void d(com.baidu.tieba.card.data.c cVar) {
-        ((l) cVar).eDl = true;
-        cVar.a(AbsThreadDataSupport.SupportType.CONTENT);
+    public static void d(com.baidu.tieba.card.data.b bVar) {
+        ((k) bVar).eBC = true;
+        bVar.setSupportType(BaseCardInfo.SupportType.CONTENT);
     }
 
-    public static void e(com.baidu.tieba.card.data.c cVar) {
-        ((l) cVar).eDh = true;
-        cVar.a(AbsThreadDataSupport.SupportType.CONTENT);
+    public static void e(com.baidu.tieba.card.data.b bVar) {
+        ((k) bVar).eBy = true;
+        bVar.setSupportType(BaseCardInfo.SupportType.CONTENT);
     }
 
-    public static void f(com.baidu.tieba.card.data.c cVar) {
-        ((m) cVar).ibR = true;
-        cVar.a(AbsThreadDataSupport.SupportType.CONTENT);
+    public static void f(com.baidu.tieba.card.data.b bVar) {
+        ((l) bVar).ibN = true;
+        bVar.setSupportType(BaseCardInfo.SupportType.CONTENT);
     }
 
-    public static void g(com.baidu.tieba.card.data.c cVar) {
-        if (cVar instanceof l) {
-            ((l) cVar).ibK = true;
-        } else if (cVar instanceof m) {
-            ((m) cVar).ibK = true;
-        } else if (cVar instanceof k) {
-            ((k) cVar).ibK = true;
+    public static void g(com.baidu.tieba.card.data.b bVar) {
+        if (bVar instanceof k) {
+            ((k) bVar).ibO = true;
+        } else if (bVar instanceof l) {
+            ((l) bVar).ibO = true;
+        } else if (bVar instanceof j) {
+            ((j) bVar).ibO = true;
         }
-        cVar.a(AbsThreadDataSupport.SupportType.EXTEND);
+        bVar.setSupportType(BaseCardInfo.SupportType.EXTEND);
     }
 
-    public static void h(com.baidu.tieba.card.data.c cVar) {
-        if (cVar instanceof l) {
-            ((l) cVar).eDw = true;
-        } else if (cVar instanceof m) {
-            ((m) cVar).eDw = true;
-        }
-        cVar.a(AbsThreadDataSupport.SupportType.TOP);
+    public static void h(com.baidu.tieba.card.data.b bVar) {
+        bVar.eBN = true;
+        bVar.setSupportType(BaseCardInfo.SupportType.TOP);
     }
 
-    public static void i(com.baidu.tieba.card.data.c cVar) {
-        if (cVar instanceof l) {
-            ((l) cVar).eDn = true;
-        } else if (cVar instanceof m) {
-            ((m) cVar).eDn = true;
-        } else if (cVar instanceof k) {
-            ((k) cVar).eDn = true;
+    public static void i(com.baidu.tieba.card.data.b bVar) {
+        if (bVar instanceof k) {
+            ((k) bVar).eBE = true;
+        } else if (bVar instanceof l) {
+            ((l) bVar).eBE = true;
+        } else if (bVar instanceof j) {
+            ((j) bVar).eBE = true;
         }
-        cVar.a(AbsThreadDataSupport.SupportType.EXTEND);
+        bVar.setSupportType(BaseCardInfo.SupportType.EXTEND);
     }
 
-    public static void j(com.baidu.tieba.card.data.c cVar) {
-        if (cVar instanceof l) {
-            ((l) cVar).eDm = true;
-        } else if (cVar instanceof m) {
-            ((m) cVar).eDm = true;
-        } else if (cVar instanceof k) {
-            ((k) cVar).eDm = true;
+    public static void j(com.baidu.tieba.card.data.b bVar) {
+        if (bVar instanceof k) {
+            ((k) bVar).eBD = true;
+        } else if (bVar instanceof l) {
+            ((l) bVar).eBD = true;
+        } else if (bVar instanceof j) {
+            ((j) bVar).eBD = true;
         }
-        cVar.a(AbsThreadDataSupport.SupportType.BOTTOM);
+        bVar.setSupportType(BaseCardInfo.SupportType.BOTTOM);
     }
 
-    public static void k(com.baidu.tieba.card.data.c cVar) {
-        if (cVar instanceof l) {
-            ((l) cVar).eDs = true;
-        } else if (cVar instanceof m) {
-            ((m) cVar).eDs = true;
-        }
-        cVar.a(AbsThreadDataSupport.SupportType.EXTEND);
+    public static void k(com.baidu.tieba.card.data.b bVar) {
+        bVar.eBJ = true;
+        bVar.setSupportType(BaseCardInfo.SupportType.EXTEND);
     }
 
-    public static void l(com.baidu.tieba.card.data.c cVar) {
-        if (cVar instanceof l) {
-            ((l) cVar).eDu = true;
-        } else if (cVar instanceof m) {
-            ((m) cVar).eDu = true;
-        } else if (cVar instanceof k) {
-            ((k) cVar).eDu = true;
+    public static void l(com.baidu.tieba.card.data.b bVar) {
+        if (bVar instanceof k) {
+            ((k) bVar).eBL = true;
+        } else if (bVar instanceof l) {
+            ((l) bVar).eBL = true;
+        } else if (bVar instanceof j) {
+            ((j) bVar).eBL = true;
         }
-        cVar.a(AbsThreadDataSupport.SupportType.EXTEND);
+        bVar.setSupportType(BaseCardInfo.SupportType.EXTEND);
     }
 
-    public static void m(com.baidu.tieba.card.data.c cVar) {
-        if (cVar instanceof l) {
-            ((l) cVar).eDv = true;
-        } else if (cVar instanceof m) {
-            ((m) cVar).eDv = true;
-        } else if (cVar instanceof k) {
-            ((k) cVar).eDv = true;
+    public static void m(com.baidu.tieba.card.data.b bVar) {
+        if (bVar instanceof k) {
+            ((k) bVar).eBM = true;
+        } else if (bVar instanceof l) {
+            ((l) bVar).eBM = true;
+        } else if (bVar instanceof j) {
+            ((j) bVar).eBM = true;
         }
-        cVar.a(AbsThreadDataSupport.SupportType.EXTEND);
+        bVar.setSupportType(BaseCardInfo.SupportType.EXTEND);
     }
 
     public static void f(DataRes.Builder builder) {
@@ -509,17 +477,17 @@ public class d {
                         aVar.b(app);
                         int i = app != null ? com.baidu.adp.lib.f.b.toInt(app.pos_name, -1) : -1;
                         if (i < 0 || i > count + size) {
-                            a(aVar.coL(), 1, 2);
+                            a(aVar.coq(), 1, 2);
                             builder2.app.remove(size);
                         } else {
-                            AdvertAppInfo coL = aVar.coL();
-                            if (coL == null) {
-                                a(aVar.coL(), 1, 100);
+                            AdvertAppInfo coq = aVar.coq();
+                            if (coq == null) {
+                                a(aVar.coq(), 1, 100);
                                 builder2.app.remove(size);
                             } else {
-                                int bkr = coL.bkr();
-                                if (bkr != 0) {
-                                    a(aVar.coL(), 1, bkr);
+                                int bjt = coq.bjt();
+                                if (bjt != 0) {
+                                    a(aVar.coq(), 1, bjt);
                                     builder2.app.remove(size);
                                 }
                             }
@@ -586,24 +554,24 @@ public class d {
     }
 
     private static void a(AdvertAppInfo advertAppInfo, int i, int i2) {
-        com.baidu.tieba.recapp.report.d.dBp().a(g.b(advertAppInfo, 5, i, i2));
-        if (advertAppInfo != null && advertAppInfo.eze != null) {
-            advertAppInfo.eze.mDiscardReason = i2;
+        com.baidu.tieba.recapp.report.d.dAT().a(g.b(advertAppInfo, 5, i, i2));
+        if (advertAppInfo != null && advertAppInfo.exs != null) {
+            advertAppInfo.exs.mDiscardReason = i2;
         }
     }
 
     private static void a(App app, int i, int i2) {
         com.baidu.tieba.homepage.personalize.data.a aVar = new com.baidu.tieba.homepage.personalize.data.a();
         aVar.b(app);
-        a(aVar.coL(), i, i2);
+        a(aVar.coq(), i, i2);
     }
 
-    public static void az(bw bwVar) {
-        String blX = bwVar.blX();
-        String du = at.du(bwVar.bmt() * 1000);
-        if (!TextUtils.isEmpty(blX) && !TextUtils.isEmpty(du)) {
-            blX = blX + "   " + TbadkCoreApplication.getInst().getString(R.string.repley_when) + du;
+    public static void aB(bx bxVar) {
+        String bkZ = bxVar.bkZ();
+        String du = au.du(bxVar.blv() * 1000);
+        if (!TextUtils.isEmpty(bkZ) && !TextUtils.isEmpty(du)) {
+            bkZ = bkZ + "   " + TbadkCoreApplication.getInst().getString(R.string.repley_when) + du;
         }
-        bwVar.AZ(blX);
+        bxVar.Au(bkZ);
     }
 }

@@ -5,17 +5,17 @@ import android.util.Log;
 import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.io.FileOutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class BdLog {
-    private static FileOutputStream afh;
+    private static FileOutputStream afm;
     private static boolean sDebug = true;
-    private static boolean afi = false;
-    private static String afj = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
-    private static String afk = afj + "baiduliulanqi_log.txt";
-    private static String afl = afj + "baiduliulanqi_lasttime_log.txt";
-    private static boolean afm = false;
+    private static boolean afn = false;
+    private static String afo = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
+    private static String afp = afo + "baiduliulanqi_log.txt";
+    private static String afq = afo + "baiduliulanqi_lasttime_log.txt";
+    private static boolean afr = false;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private enum LogLevel {
         DEBUG,
         ERROR,
@@ -88,23 +88,23 @@ public final class BdLog {
                     break;
                 }
         }
-        if (afi) {
-            R(str, str2);
+        if (afn) {
+            Q(str, str2);
         }
     }
 
-    private static void R(String str, String str2) {
+    private static void Q(String str, String str2) {
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
-                File file = new File(afj);
+                File file = new File(afo);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (afh == null) {
-                    afh = new FileOutputStream(afk);
+                if (afm == null) {
+                    afm = new FileOutputStream(afp);
                 }
-                afh.write((str + " : " + str2).getBytes("UTF-8"));
-                afh.write("\n".getBytes());
+                afm.write((str + " : " + str2).getBytes("UTF-8"));
+                afm.write("\n".getBytes());
             } catch (Exception e) {
                 e.printStackTrace();
             }

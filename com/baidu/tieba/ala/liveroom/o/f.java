@@ -13,10 +13,10 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes4.dex */
 public class f extends a {
-    private HeadImageView aFf;
-    private TextView aWS;
-    private View ctR;
-    private TextView hjZ;
+    private HeadImageView aDu;
+    private TextView aVh;
+    private View csf;
+    private TextView hjG;
 
     public f(@NonNull Context context) {
         super(context);
@@ -25,33 +25,33 @@ public class f extends a {
     @Override // com.baidu.tieba.ala.liveroom.o.a
     public void init() {
         super.init();
-        GB();
+        FS();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.o.a
     public void initView() {
         setContentView(a.g.ala_ver_guide_follow_float);
-        this.ctR = findViewById(a.f.layout_root);
-        this.ctR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.o.f.1
+        this.csf = findViewById(a.f.layout_root);
+        this.csf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.o.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 f.this.dismiss();
             }
         });
-        this.aWS = (TextView) findViewById(a.f.tv_guide_folllow_tip);
-        this.aFf = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.hjZ = (TextView) findViewById(a.f.ala_live_name);
+        this.aVh = (TextView) findViewById(a.f.tv_guide_folllow_tip);
+        this.aDu = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.hjG = (TextView) findViewById(a.f.ala_live_name);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.aFf.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def_hk);
-            this.aFf.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def_hk);
+            this.aDu.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def_hk);
+            this.aDu.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def_hk);
         } else {
-            this.aFf.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
-            this.aFf.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
+            this.aDu.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
+            this.aDu.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
         }
-        this.aFf.setIsRound(true);
-        this.aFf.setAutoChangeStyle(false);
-        this.aFf.setDrawBorder(false);
-        this.aFf.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.aDu.setIsRound(true);
+        this.aDu.setAutoChangeStyle(false);
+        this.aDu.setDrawBorder(false);
+        this.aDu.setScaleType(ImageView.ScaleType.CENTER_CROP);
         TextView textView = (TextView) findViewById(a.f.tv_confirm);
         if (TbadkCoreApplication.getInst().isHaokan()) {
             textView.setBackgroundResource(a.e.ala_live_follow_btn_radius_16_selector_hk);
@@ -63,49 +63,49 @@ public class f extends a {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.o.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.hjK != null) {
-                    f.this.hjK.onConfirm();
+                if (f.this.hjr != null) {
+                    f.this.hjr.onConfirm();
                 }
             }
         });
-        this.hjL = textView.getText().toString();
-        ccS();
+        this.hjs = textView.getText().toString();
+        ccl();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.o.a
     public void eu(String str, String str2) {
-        ccR();
-        this.aFf.startLoad(str, 25, false, false);
-        this.hjZ.setText(str2);
-        MR();
+        cck();
+        this.aDu.startLoad(str, 25, false, false);
+        this.hjG.setText(str2);
+        Mi();
         show();
     }
 
-    private void ccS() {
-        if (com.baidu.live.aa.a.PQ().bod != null && com.baidu.live.aa.a.PQ().bod.aMV == null) {
+    private void ccl() {
+        if (com.baidu.live.aa.a.Ph().bms != null && com.baidu.live.aa.a.Ph().bms.aLk == null) {
         }
     }
 
-    private void GB() {
+    private void FS() {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.o.f.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                f.this.ccR();
+                f.this.cck();
             }
         });
     }
 
-    private void MR() {
+    private void Mi() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
         translateAnimation.setDuration(400L);
         translateAnimation.setInterpolator(new LinearInterpolator());
-        this.ctR.startAnimation(translateAnimation);
+        this.csf.startAnimation(translateAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ccR() {
-        if (this.aFf != null) {
-            this.aFf.stopLoad();
+    public void cck() {
+        if (this.aDu != null) {
+            this.aDu.stopLoad();
         }
     }
 }

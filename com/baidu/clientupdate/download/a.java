@@ -12,11 +12,11 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.util.LogUtil;
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 public class a extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1334a = null;
+    private static a f1337a = null;
     private Context b;
 
     public a(Context context) {
@@ -27,10 +27,10 @@ public class a extends SQLiteOpenHelper {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f1334a == null) {
-                f1334a = new a(context);
+            if (f1337a == null) {
+                f1337a = new a(context);
             }
-            aVar = f1334a;
+            aVar = f1337a;
         }
         return aVar;
     }
@@ -70,7 +70,7 @@ public class a extends SQLiteOpenHelper {
     private ContentValues c(com.baidu.clientupdate.a.a aVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("ug", aVar.b);
-        contentValues.put("sessioninfo", aVar.f1315a + "\"tm\":\"" + (System.currentTimeMillis() / 1000) + "\"}");
+        contentValues.put("sessioninfo", aVar.f1318a + "\"tm\":\"" + (System.currentTimeMillis() / 1000) + "\"}");
         contentValues.put("nm", aVar.c);
         contentValues.put("stm", aVar.e.toString());
         contentValues.put(Config.STAT_SDK_CHANNEL, aVar.f.toString());

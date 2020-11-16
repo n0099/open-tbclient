@@ -5,7 +5,7 @@ import io.reactivex.u;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class ObservableTakeLastTimed<T> extends a<T, T> {
     final int bufferSize;
     final long count;
@@ -19,7 +19,7 @@ public final class ObservableTakeLastTimed<T> extends a<T, T> {
         this.source.subscribe(new TakeLastTimedObserver(uVar, this.count, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class TakeLastTimedObserver<T> extends AtomicBoolean implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -5677354903406201275L;
         final u<? super T> actual;

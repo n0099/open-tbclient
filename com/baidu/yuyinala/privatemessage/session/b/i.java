@@ -5,15 +5,15 @@ import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.live.adp.base.BdBaseApplication;
 /* loaded from: classes4.dex */
 public class i extends d {
-    public e aV(Object obj) {
+    public e aW(Object obj) {
         if (obj == null || !(obj instanceof ChatSession)) {
             return null;
         }
         ChatSession chatSession = (ChatSession) obj;
         j jVar = new j();
-        jVar.XI("usermessage");
+        jVar.Xt("usermessage");
         jVar.isGroup = false;
-        jVar.oGN = chatSession.getCategory();
+        jVar.oIr = chatSession.getCategory();
         jVar.iconUrl = chatSession.getIconUrl();
         jVar.name = chatSession.getNickName();
         if (TextUtils.isEmpty(jVar.name)) {
@@ -21,19 +21,19 @@ public class i extends d {
         }
         jVar.description = com.baidu.yuyinala.privatemessage.session.util.a.b(chatSession);
         jVar.time = chatSession.getLastMsgTime() * 1000;
-        jVar.oGO = chatSession.getLastMsgTime();
-        jVar.oGH = com.baidu.yuyinala.privatemessage.session.util.a.h(BdBaseApplication.getInst(), jVar.time);
+        jVar.oIs = chatSession.getLastMsgTime();
+        jVar.oIl = com.baidu.yuyinala.privatemessage.session.util.a.h(BdBaseApplication.getInst(), jVar.time);
         jVar.hasRead = chatSession.getNewMsgSum() <= 0;
         jVar.isMediaRole = chatSession.getSessionFrom() != 0;
-        jVar.oGS = chatSession.getShield() != 0;
-        jVar.oGP = chatSession.getContacterId();
+        jVar.oIw = chatSession.getShield() != 0;
+        jVar.oIt = chatSession.getContacterId();
         jVar.contacter = chatSession.getContacter();
         jVar.paid = chatSession.getPaid();
         try {
-            jVar.oGR = com.baidu.yuyinala.privatemessage.session.util.a.hy(chatSession.getNewMsgSum());
+            jVar.oIv = com.baidu.yuyinala.privatemessage.session.util.a.hB(chatSession.getNewMsgSum());
         } catch (Exception e) {
         }
-        jVar.oGI = 6;
+        jVar.oIm = 6;
         return jVar;
     }
 }

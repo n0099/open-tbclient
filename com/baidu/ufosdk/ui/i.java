@@ -6,7 +6,7 @@ import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.view.View;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class i extends View {
 
     /* renamed from: a  reason: collision with root package name */

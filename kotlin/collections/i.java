@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.RandomAccess;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class i extends h {
     public static final <T> List<T> asList(T[] tArr) {
         kotlin.jvm.internal.q.n(tArr, "receiver$0");
@@ -15,12 +15,12 @@ public class i extends h {
     }
 
     @kotlin.h
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class a extends d<Byte> implements RandomAccess {
-        final /* synthetic */ byte[] pSb;
+        final /* synthetic */ byte[] pTE;
 
         a(byte[] bArr) {
-            this.pSb = bArr;
+            this.pTE = bArr;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -49,31 +49,31 @@ public class i extends h {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.pSb.length;
+            return this.pTE.length;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
         public boolean isEmpty() {
-            return this.pSb.length == 0;
+            return this.pTE.length == 0;
         }
 
         public boolean e(byte b) {
-            return f.a(this.pSb, b);
+            return f.a(this.pTE, b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.collections.d, java.util.List
-        /* renamed from: Rr */
+        /* renamed from: RU */
         public Byte get(int i) {
-            return Byte.valueOf(this.pSb[i]);
+            return Byte.valueOf(this.pTE[i]);
         }
 
         public int f(byte b) {
-            return f.b(this.pSb, b);
+            return f.b(this.pTE, b);
         }
 
         public int g(byte b) {
-            return f.c(this.pSb, b);
+            return f.c(this.pTE, b);
         }
     }
 
@@ -84,7 +84,7 @@ public class i extends h {
 
     public static final byte[] s(byte[] bArr, int i, int i2) {
         kotlin.jvm.internal.q.n(bArr, "receiver$0");
-        f.eo(i2, bArr.length);
+        f.ep(i2, bArr.length);
         byte[] copyOfRange = Arrays.copyOfRange(bArr, i, i2);
         kotlin.jvm.internal.q.m(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;

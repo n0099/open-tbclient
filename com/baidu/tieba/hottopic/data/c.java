@@ -5,13 +5,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.q;
 import tbclient.TopicList.TopicList;
 import tbclient.TopicList.TopicListModule;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class c implements q {
-    public static final BdUniqueId jOZ = BdUniqueId.gen();
-    private long jOV;
-    private String jOW;
-    private int jPa = -1;
-    private String jPb;
+    public static final BdUniqueId jPJ = BdUniqueId.gen();
+    private long jPF;
+    private String jPG;
+    private int jPK = -1;
+    private String jPL;
     private long mId;
     private String mName;
     private int mTag;
@@ -19,7 +19,7 @@ public class c implements q {
     String rule_jump_url;
     String tips;
 
-    public String cMT() {
+    public String cMA() {
         return this.module_title;
     }
 
@@ -27,12 +27,12 @@ public class c implements q {
         return this.tips;
     }
 
-    public String cMU() {
+    public String cMB() {
         return this.rule_jump_url;
     }
 
-    public long cMV() {
-        return this.jOV;
+    public long cMC() {
+        return this.jPF;
     }
 
     public int getTag() {
@@ -47,12 +47,12 @@ public class c implements q {
         return this.mName;
     }
 
-    public int cMW() {
-        return this.jPa;
+    public int cMD() {
+        return this.jPK;
     }
 
-    public void Ce(int i) {
-        this.jPa = i;
+    public void CC(int i) {
+        this.jPK = i;
     }
 
     public void a(TopicList topicList) {
@@ -60,9 +60,9 @@ public class c implements q {
             this.mId = topicList.topic_id.longValue();
             this.mName = topicList.topic_name;
             this.mTag = topicList.tag.intValue();
-            this.jOV = topicList.discuss_num.longValue();
-            this.jOW = topicList.topic_desc;
-            this.jPb = topicList.topic_pic;
+            this.jPF = topicList.discuss_num.longValue();
+            this.jPG = topicList.topic_desc;
+            this.jPL = topicList.topic_pic;
         }
     }
 
@@ -78,6 +78,6 @@ public class c implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jOZ;
+        return jPJ;
     }
 }

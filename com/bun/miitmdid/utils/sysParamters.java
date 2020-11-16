@@ -8,9 +8,9 @@ import android.os.Build;
 import android.support.annotation.Keep;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class sysParamters {
-    private static volatile sysParamters oIv;
+    private static volatile sysParamters oJZ;
 
     /* renamed from: a  reason: collision with root package name */
     private String f4000a;
@@ -44,15 +44,15 @@ public class sysParamters {
         return a2.versionName;
     }
 
-    public static sysParamters eiI() {
-        if (oIv == null) {
+    public static sysParamters eiG() {
+        if (oJZ == null) {
             synchronized (sysParamters.class) {
-                if (oIv == null) {
-                    oIv = new sysParamters();
+                if (oJZ == null) {
+                    oJZ = new sysParamters();
                 }
             }
         }
-        return oIv;
+        return oJZ;
     }
 
     public static String f() {

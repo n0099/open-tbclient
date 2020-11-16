@@ -1,28 +1,28 @@
 package rx.internal.util;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class a<T> implements rx.e<T> {
-    final rx.functions.b<? super Throwable> qhq;
-    final rx.functions.b<? super T> qiD;
-    final rx.functions.a qiE;
+    final rx.functions.b<? super Throwable> qiU;
+    final rx.functions.b<? super T> qkg;
+    final rx.functions.a qkh;
 
     public a(rx.functions.b<? super T> bVar, rx.functions.b<? super Throwable> bVar2, rx.functions.a aVar) {
-        this.qiD = bVar;
-        this.qhq = bVar2;
-        this.qiE = aVar;
+        this.qkg = bVar;
+        this.qiU = bVar2;
+        this.qkh = aVar;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.qiD.call(t);
+        this.qkg.call(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.qhq.call(th);
+        this.qiU.call(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.qiE.call();
+        this.qkh.call();
     }
 }

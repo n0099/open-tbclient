@@ -16,7 +16,7 @@ import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class ARPEngine {
     private static final String LOWEST_VERSION_KEY = "compatible_version";
     public static final String MYTAG = "tracking_data_debug";
@@ -55,13 +55,13 @@ public class ARPEngine {
     private int mImuType = 0;
     private long start = 0;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void a(Bitmap bitmap);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public enum b {
         EUninit,
         ECreating,
@@ -69,17 +69,17 @@ public class ARPEngine {
         EDestroying
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public interface c {
         boolean c(int i, int i2);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public interface d {
         void a(float f, float f2, float f3);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public enum e {
         SCREEN_ORIENTATION_PORTRAIT,
         SCREEN_ORIENTATION_LANDSCAPE,
@@ -88,7 +88,7 @@ public class ARPEngine {
         SCREEN_ORIENTATION_NOT_DEFINED
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public interface f {
         void a(String str, int i, String str2, String str3);
     }

@@ -1,14 +1,14 @@
 package com.baidu.bdhttpdns;
 
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class BDHttpDnsResult {
-    private ResolveType adW;
-    private final ResolveStatus adX;
+    private ResolveType aeb;
+    private final ResolveStatus aed;
     private ArrayList<String> c;
     private ArrayList<String> d;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public enum ResolveStatus {
         BDHttpDnsResolveOK,
         BDHttpDnsInputError,
@@ -16,7 +16,7 @@ public class BDHttpDnsResult {
         BDHttpDnsResolveErrorDnsResolve
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public enum ResolveType {
         RESOLVE_NONE,
         RESOLVE_NONEED,
@@ -27,24 +27,24 @@ public class BDHttpDnsResult {
     }
 
     public BDHttpDnsResult(ResolveStatus resolveStatus) {
-        this.adW = ResolveType.RESOLVE_NONE;
-        this.adX = resolveStatus;
+        this.aeb = ResolveType.RESOLVE_NONE;
+        this.aed = resolveStatus;
     }
 
     public BDHttpDnsResult(ResolveType resolveType, ResolveStatus resolveStatus, ArrayList<String> arrayList, ArrayList<String> arrayList2) {
-        this.adW = ResolveType.RESOLVE_NONE;
-        this.adW = resolveType;
-        this.adX = resolveStatus;
+        this.aeb = ResolveType.RESOLVE_NONE;
+        this.aeb = resolveType;
+        this.aed = resolveStatus;
         this.c = arrayList;
         this.d = arrayList2;
     }
 
     public ResolveType sW() {
-        return this.adW;
+        return this.aeb;
     }
 
     public ResolveStatus sX() {
-        return this.adX;
+        return this.aed;
     }
 
     public ArrayList<String> sY() {

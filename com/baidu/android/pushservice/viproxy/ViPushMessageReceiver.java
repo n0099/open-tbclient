@@ -9,7 +9,7 @@ import com.baidu.android.pushservice.i.m;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.sdk.OpenClientPushMessageReceiver;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class ViPushMessageReceiver extends OpenClientPushMessageReceiver {
     @Override // com.vivo.push.sdk.PushMessageCallback
     public void onNotificationMessageClicked(Context context, UPSNotificationMessage uPSNotificationMessage) {

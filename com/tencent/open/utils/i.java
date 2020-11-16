@@ -11,7 +11,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public final class i {
     private static Handler c;
     private static HandlerThread d;
@@ -60,7 +60,7 @@ public final class i {
         return new a();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     private static class a implements Executor {
 
         /* renamed from: a  reason: collision with root package name */

@@ -4,7 +4,7 @@ import java.io.IOException;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public abstract class AbstractHttpEntity implements HttpEntity {
     protected boolean chunked;
     protected Header contentEncoding;

@@ -10,42 +10,42 @@ import java.util.List;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class a {
-    private final f pDj;
-    private final d pEh;
+    private final f pEM;
+    private final d pFK;
 
     public a(f fVar) {
         q.n(fVar, "videoItem");
-        this.pDj = fVar;
-        this.pEh = new d();
+        this.pEM = fVar;
+        this.pFK = new d();
     }
 
-    public final f ewC() {
-        return this.pDj;
+    public final f ewD() {
+        return this.pEM;
     }
 
-    public final d ewY() {
-        return this.pEh;
+    public final d ewZ() {
+        return this.pFK;
     }
 
     @h
     /* renamed from: com.opensource.svgaplayer.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public final class C1031a {
+    /* loaded from: classes17.dex */
+    public final class C1034a {
         private final String imageKey;
-        private final g pEi;
-        final /* synthetic */ a pEj;
+        private final g pFL;
+        final /* synthetic */ a pFM;
 
-        public C1031a(a aVar, String str, g gVar) {
+        public C1034a(a aVar, String str, g gVar) {
             q.n(gVar, "frameEntity");
-            this.pEj = aVar;
+            this.pFM = aVar;
             this.imageKey = str;
-            this.pEi = gVar;
+            this.pFL = gVar;
         }
 
-        public final g ewZ() {
-            return this.pEi;
+        public final g exa() {
+            return this.pFL;
         }
 
         public final String getImageKey() {
@@ -53,17 +53,17 @@ public class a {
         }
     }
 
-    public final List<C1031a> QX(int i) {
-        C1031a c1031a;
+    public final List<C1034a> RA(int i) {
+        C1034a c1034a;
         ArrayList arrayList = new ArrayList();
-        for (com.opensource.svgaplayer.entities.f fVar : this.pDj.ewT()) {
-            if (i < 0 || i >= fVar.exw().size()) {
-                c1031a = null;
+        for (com.opensource.svgaplayer.entities.f fVar : this.pEM.ewU()) {
+            if (i < 0 || i >= fVar.exx().size()) {
+                c1034a = null;
             } else {
-                c1031a = fVar.exw().get(i).exx() <= 0.0d ? null : new C1031a(this, fVar.getImageKey(), fVar.exw().get(i));
+                c1034a = fVar.exx().get(i).exy() <= 0.0d ? null : new C1034a(this, fVar.getImageKey(), fVar.exx().get(i));
             }
-            if (c1031a != null) {
-                arrayList.add(c1031a);
+            if (c1034a != null) {
+                arrayList.add(c1034a);
             }
         }
         return arrayList;
@@ -72,6 +72,6 @@ public class a {
     public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
         q.n(canvas, "canvas");
         q.n(scaleType, "scaleType");
-        this.pEh.a(canvas.getWidth(), canvas.getHeight(), (float) this.pDj.ewR().getWidth(), (float) this.pDj.ewR().getHeight(), scaleType);
+        this.pFK.a(canvas.getWidth(), canvas.getHeight(), (float) this.pEM.ewS().getWidth(), (float) this.pEM.ewS().getHeight(), scaleType);
     }
 }

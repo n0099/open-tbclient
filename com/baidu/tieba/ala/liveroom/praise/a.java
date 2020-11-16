@@ -11,20 +11,20 @@ import com.baidu.tieba.ala.liveroom.operation.b;
 import com.baidu.tieba.ala.liveroom.praise.DetailPraiseView;
 /* loaded from: classes4.dex */
 public class a {
-    private DetailPraiseView hsh;
-    private b hsi;
-    private boolean hsj;
+    private DetailPraiseView hrO;
+    private b hrP;
+    private boolean hrQ;
     private TbPageContext mTbPageContext;
     private String otherParams;
-    private DetailPraiseView.a hsk = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
+    private DetailPraiseView.a hrR = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
         @Override // com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.a
-        public void cgZ() {
-            if (a.this.hsi != null) {
-                a.this.hsi.p(a.this.hsh, 12);
+        public void cgs() {
+            if (a.this.hrP != null) {
+                a.this.hrP.s(a.this.hrO, 12);
             }
         }
     };
-    private CustomMessageListener gvo = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
+    private CustomMessageListener guV = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,60 +40,60 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.gvo.setTag(this.mTbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.gvo);
+        this.guV.setTag(this.mTbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.guV);
     }
 
     public void b(b bVar) {
-        this.hsi = bVar;
-    }
-
-    public void nI(boolean z) {
-        if (this.hsj && z) {
-            z = false;
-        }
-        if (this.hsh != null) {
-            this.hsh.setShowPraise(z);
-        }
+        this.hrP = bVar;
     }
 
     public void nJ(boolean z) {
-        this.hsj = z;
+        if (this.hrQ && z) {
+            z = false;
+        }
+        if (this.hrO != null) {
+            this.hrO.setShowPraise(z);
+        }
+    }
+
+    public void nK(boolean z) {
+        this.hrQ = z;
     }
 
     public void setPraiseEnable(boolean z) {
-        if (this.hsj && z) {
+        if (this.hrQ && z) {
             z = false;
         }
-        if (this.hsh != null) {
-            this.hsh.setPraiseEnable(z);
+        if (this.hrO != null) {
+            this.hrO.setPraiseEnable(z);
         }
     }
 
-    public void aE(ViewGroup viewGroup) {
+    public void aA(ViewGroup viewGroup) {
         if (viewGroup != null && this.mTbPageContext != null) {
-            if (this.hsh == null) {
-                this.hsh = new DetailPraiseView(this.mTbPageContext.getPageActivity());
+            if (this.hrO == null) {
+                this.hrO = new DetailPraiseView(this.mTbPageContext.getPageActivity());
             }
-            this.hsh.setOnDoubleClickListener(this.hsk);
-            if (this.hsh.getParent() != null) {
-                ((ViewGroup) this.hsh.getParent()).removeView(this.hsh);
+            this.hrO.setOnDoubleClickListener(this.hrR);
+            if (this.hrO.getParent() != null) {
+                ((ViewGroup) this.hrO.getParent()).removeView(this.hrO);
             }
-            viewGroup.addView(this.hsh, 0, new RelativeLayout.LayoutParams(-1, -1));
+            viewGroup.addView(this.hrO, 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
-    public void bTM() {
-        if (this.hsh != null) {
-            this.hsh.bTM();
+    public void bTf() {
+        if (this.hrO != null) {
+            this.hrO.bTf();
         }
     }
 
-    public void Ht() {
-        MessageManager.getInstance().unRegisterListener(this.gvo);
+    public void GK() {
+        MessageManager.getInstance().unRegisterListener(this.guV);
     }
 
     public View getView() {
-        return this.hsh;
+        return this.hrO;
     }
 }

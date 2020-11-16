@@ -43,7 +43,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public class ComboPraiseView extends View implements IPraiseAnimListener {
     private static final int DEBUG_PAINT_COLOR = -65536;
     private static final int DEBUG_PAINT_STROKE_WIDTH = 10;
@@ -107,7 +107,7 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
     private static boolean ANCHOR_ZONE_SWITCH = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     public interface IAction<T> {
         public static final int ACTION_BREAK = 1;
         public static final int ACTION_CONTINUE = 0;
@@ -1159,7 +1159,7 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     public static class MultiAnimHolder extends AnimHolder {
         public List<AnimHolder> mUnusedAnimHolder;
         public List<AnimHolder> mUsedAnimHolder;
@@ -1212,7 +1212,7 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     public static class AnimHolder {
         public IAnimatedElement mAnimatedElement;
         public ValueAnimator mAnimator;

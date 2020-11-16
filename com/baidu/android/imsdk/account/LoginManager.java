@@ -14,7 +14,7 @@ import com.baidu.ar.recorder.MovieRecorder;
 import com.baidu.imsdk.a;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class LoginManager {
     private static Context mContext;
     private static LoginManager mInstance = null;
@@ -29,7 +29,7 @@ public class LoginManager {
         }
     };
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     public enum LoginState {
         NOT_LOGIN,
         LOGINING,
@@ -96,11 +96,11 @@ public class LoginManager {
             this.cidTryLoginedTimes--;
             this.mLoginState = LoginState.NOT_LOGIN;
         } else if (110 != i && 7 != i && 23 != i && 1004 != i && 1001 != i && 8010 != i) {
-            LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.azB);
+            LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.axQ);
             this.mLoginState = LoginState.NOT_LOGIN;
-            if (a.azB && IMUserLoginByTokenMsg.sRetrytimes < 3) {
+            if (a.axQ && IMUserLoginByTokenMsg.sRetrytimes < 3) {
                 imRetryLogin(i);
-            } else if (!a.azB && IMConnection.getInstance(mContext).shouldRetryLogin()) {
+            } else if (!a.axQ && IMConnection.getInstance(mContext).shouldRetryLogin()) {
                 LogUtils.d(this.TAG, "IMConnection，im login ：" + IMUserLoginByTokenMsg.sRetrytimes);
                 IMConnection.getInstance(mContext).disconnectedByPeer();
             }

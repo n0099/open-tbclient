@@ -13,7 +13,7 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class CustomSuccessView extends View {
 
     /* renamed from: a  reason: collision with root package name */

@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 import org.webrtc.EglBase;
 import org.webrtc.VideoFrame;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class MediaCodecVideoDecoder {
     private static final int DEQUEUE_INPUT_TIMEOUT = 500000;
     private static final String FORMAT_KEY_CROP_BOTTOM = "crop-bottom";
@@ -77,7 +77,7 @@ public class MediaCodecVideoDecoder {
     private static final List<Integer> supportedColorList = Arrays.asList(19, 21, 2141391872, Integer.valueOf((int) COLOR_QCOM_FORMATYVU420PackedSemiPlanar32m4ka), Integer.valueOf((int) COLOR_QCOM_FORMATYVU420PackedSemiPlanar16m4ka), Integer.valueOf((int) COLOR_QCOM_FORMATYVU420PackedSemiPlanar64x32Tile2m8ka), Integer.valueOf((int) COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m));
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class DecodedOutputBuffer {
         private final long decodeTimeMs;
         private final long endDecodeTimeMs;
@@ -136,7 +136,7 @@ public class MediaCodecVideoDecoder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class DecodedTextureBuffer {
         private final long decodeTimeMs;
         private final long frameDelayMs;
@@ -186,7 +186,7 @@ public class MediaCodecVideoDecoder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class DecoderProperties {
         public final String codecName;
         public final int colorFormat;
@@ -198,7 +198,7 @@ public class MediaCodecVideoDecoder {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class HwDecoderFactory implements VideoDecoderFactory {
         private final VideoCodecInfo[] supportedHardwareCodecs = getSupportedHardwareCodecs();
 
@@ -274,13 +274,13 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public interface MediaCodecVideoDecoderErrorCallback {
         void onMediaCodecVideoDecoderCriticalError(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public class TextureListener implements VideoSink {
         @Nullable
         private DecodedOutputBuffer bufferToRender;
@@ -360,7 +360,7 @@ public class MediaCodecVideoDecoder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class TimeStamps {
         private final long decodeStartTimeMs;
         private final long ntpTimeStampMs;
@@ -373,7 +373,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public enum VideoCodecType {
         VIDEO_CODEC_UNKNOWN,
         VIDEO_CODEC_VP8,

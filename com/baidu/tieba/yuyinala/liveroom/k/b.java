@@ -13,70 +13,70 @@ import com.baidu.live.view.web.g;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes4.dex */
 public class b {
-    private Activity bNY;
-    private CustomMessageListener bOa;
-    private PopupWindow.OnDismissListener gtk;
-    private c nXR;
+    private Activity bMo;
+    private CustomMessageListener bMq;
+    private PopupWindow.OnDismissListener gsR;
+    private c nZu;
 
     public b(Activity activity) {
-        this.bNY = activity;
-        WY();
+        this.bMo = activity;
+        Wp();
     }
 
-    public void hT(String str) {
-        this.nXR = new c(this.bNY);
-        this.nXR.setOnDismissListener(this.gtk);
-        this.nXR.WZ().setBackgroundColor(hW(str));
+    public void hN(String str) {
+        this.nZu = new c(this.bMo);
+        this.nZu.setOnDismissListener(this.gsR);
+        this.nZu.Wq().setBackgroundColor(hQ(str));
         g gVar = new g();
-        gVar.y(this.bNY).a(this.nXR).a(this.nXR.WZ().getSchemeCallback());
-        com.baidu.live.view.web.a[] WX = gVar.WX();
-        for (com.baidu.live.view.web.a aVar : WX) {
-            this.nXR.WZ().addJavascriptInterface(aVar, aVar.getName());
+        gVar.x(this.bMo).a(this.nZu).a(this.nZu.Wq().getSchemeCallback());
+        com.baidu.live.view.web.a[] Wo = gVar.Wo();
+        for (com.baidu.live.view.web.a aVar : Wo) {
+            this.nZu.Wq().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.nXR.Gn(str);
+        this.nZu.FO(str);
     }
 
     public void resume() {
-        if (this.nXR != null && this.nXR.isShowing() && this.nXR.WZ() != null) {
-            this.nXR.WZ().onResume();
+        if (this.nZu != null && this.nZu.isShowing() && this.nZu.Wq() != null) {
+            this.nZu.Wq().onResume();
         }
     }
 
     public void pause() {
-        if (this.nXR != null && this.nXR.isShowing() && this.nXR.WZ() != null) {
-            this.nXR.WZ().onPause();
+        if (this.nZu != null && this.nZu.isShowing() && this.nZu.Wq() != null) {
+            this.nZu.Wq().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.nXR != null) {
-            this.nXR.Xa();
+        if (this.nZu != null) {
+            this.nZu.Wr();
         }
     }
 
-    public void Ht() {
+    public void GK() {
         dismiss();
     }
 
     public void release() {
-        Ht();
-        MessageManager.getInstance().unRegisterListener(this.bOa);
+        GK();
+        MessageManager.getInstance().unRegisterListener(this.bMq);
     }
 
-    private void WY() {
-        this.bOa = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.yuyinala.liveroom.k.b.1
+    private void Wp() {
+        this.bMq = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.yuyinala.liveroom.k.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.nXR != null && b.this.nXR.isShowing()) {
-                    b.this.nXR.dismiss();
+                if (b.this.nZu != null && b.this.nZu.isShowing()) {
+                    b.this.nZu.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bOa);
+        MessageManager.getInstance().registerListener(this.bMq);
     }
 
-    private int hW(String str) {
+    private int hQ(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {

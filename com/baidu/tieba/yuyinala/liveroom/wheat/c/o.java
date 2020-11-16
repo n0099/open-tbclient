@@ -31,61 +31,61 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class o {
-    private static o oez = new o();
+    private static o ogd = new o();
     private BroadcastReceiver mBroadcastReceiver;
     private Rect mRect;
-    private TbPageContext ocV;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.d.a oeA;
-    private AlaLiveRoomBlurPageLayout oeB;
-    private com.baidu.tieba.yuyinala.player.b oeD;
-    private boolean oeE;
-    private long oeF;
-    private boolean oeG;
-    private a oeH;
-    private long oeC = 10000;
-    private CustomMessageListener baw = new CustomMessageListener(2501033) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.1
+    private TbPageContext oey;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.d.a oge;
+    private AlaLiveRoomBlurPageLayout ogf;
+    private com.baidu.tieba.yuyinala.player.b ogh;
+    private boolean ogi;
+    private long ogj;
+    private boolean ogk;
+    private a ogl;
+    private long ogg = 10000;
+    private CustomMessageListener aYK = new CustomMessageListener(2501033) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof w)) {
                 w wVar = (w) customResponsedMessage.getData();
                 if (o.this.ah(wVar)) {
-                    if (o.this.oeA != null) {
-                        ViewGroup dZC = o.this.oeA.dZC();
-                        if (dZC != null && dZC.getParent() != null) {
-                            ((ViewGroup) dZC.getParent()).removeView(dZC);
+                    if (o.this.oge != null) {
+                        ViewGroup dZB = o.this.oge.dZB();
+                        if (dZB != null && dZB.getParent() != null) {
+                            ((ViewGroup) dZB.getParent()).removeView(dZB);
                         }
-                        o.this.oeA.onDestroy();
-                        o.this.oeA = null;
+                        o.this.oge.onDestroy();
+                        o.this.oge = null;
                         return;
                     }
                     return;
                 }
                 if (o.this.af(wVar)) {
                     o.this.ag(wVar);
-                } else if (o.this.oeA != null) {
-                    o.this.oeA.ai(wVar);
+                } else if (o.this.oge != null) {
+                    o.this.oge.ai(wVar);
                 }
-                o.this.dZJ();
+                o.this.dZI();
             }
         }
     };
-    private CustomMessageListener oeI = new CustomMessageListener(2501009) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.12
+    private CustomMessageListener ogm = new CustomMessageListener(2501009) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.12
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage == null || customResponsedMessage.getCmd() == 2501009) {
                 if (customResponsedMessage.getData() == null) {
-                    if (o.this.oeA != null) {
-                        o.this.oeA.loadData();
+                    if (o.this.oge != null) {
+                        o.this.oge.loadData();
                     }
-                } else if ((customResponsedMessage.getData() instanceof String) && ((String) customResponsedMessage.getData()).contains(Headers.REFRESH) && o.this.oeA != null) {
-                    o.this.oeA.ear();
+                } else if ((customResponsedMessage.getData() instanceof String) && ((String) customResponsedMessage.getData()).contains(Headers.REFRESH) && o.this.oge != null) {
+                    o.this.oge.eaq();
                 }
             }
         }
     };
-    private CustomMessageListener oeJ = new CustomMessageListener(2501022) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.13
+    private CustomMessageListener ogn = new CustomMessageListener(2501022) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.13
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -94,25 +94,25 @@ public class o {
                 String str = (String) hashMap.get("user_uk");
                 String str2 = (String) hashMap.get("webp_url");
                 String str3 = (String) hashMap.get("result_url");
-                if (o.this.oeA != null) {
-                    o.this.oeA.aM(str, str2, str3);
+                if (o.this.oge != null) {
+                    o.this.oge.aM(str, str2, str3);
                 }
             }
         }
     };
-    private CustomMessageListener oeK = new CustomMessageListener(2501024) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.14
+    private CustomMessageListener ogo = new CustomMessageListener(2501024) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.14
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501024 && customResponsedMessage.getData() != null) {
                 String str = (String) customResponsedMessage.getData();
                 if (!TextUtils.isEmpty(str)) {
-                    com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().VC(str).Ce();
+                    com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().Vn(str).Bv();
                 }
             }
         }
     };
-    private CustomMessageListener oeL = new CustomMessageListener(2501026) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.15
+    private CustomMessageListener ogp = new CustomMessageListener(2501026) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.15
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -125,17 +125,17 @@ public class o {
                         final String optString = jSONObject.optString("uk");
                         final String optString2 = jSONObject.optString("room_id");
                         boolean optBoolean = jSONObject.optBoolean("isLocalData", false);
-                        if (optBoolean || (!optBoolean && !o.this.Vu(optString))) {
+                        if (optBoolean || (!optBoolean && !o.this.Vf(optString))) {
                             SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.15.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    if (TextUtils.equals(optString2, com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Ca())) {
+                                    if (TextUtils.equals(optString2, com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().Br())) {
                                         if (optInt == 1) {
-                                            if (o.this.oeA != null) {
-                                                o.this.oeA.VY(optString);
+                                            if (o.this.oge != null) {
+                                                o.this.oge.VJ(optString);
                                             }
-                                        } else if (o.this.oeA != null) {
-                                            o.this.oeA.VZ(optString);
+                                        } else if (o.this.oge != null) {
+                                            o.this.oge.VK(optString);
                                         }
                                     }
                                 }
@@ -148,152 +148,152 @@ public class o {
             }
         }
     };
-    private CustomMessageListener oeM = new CustomMessageListener(2501023) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.16
+    private CustomMessageListener ogq = new CustomMessageListener(2501023) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.16
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501023 && customResponsedMessage.getData() != null && o.this.oeA != null) {
-                o.this.oeA.loadData();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501023 && customResponsedMessage.getData() != null && o.this.oge != null) {
+                o.this.oge.loadData();
             }
         }
     };
-    com.baidu.live.al.c oeN = new com.baidu.live.al.c() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.17
+    com.baidu.live.al.c ogr = new com.baidu.live.al.c() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.17
         @Override // com.baidu.live.al.c
         public boolean isApplying() {
-            if (o.this.oeA != null) {
-                return o.this.oeA.isApplying();
+            if (o.this.oge != null) {
+                return o.this.oge.isApplying();
             }
             return false;
         }
 
         @Override // com.baidu.live.al.c
-        public boolean iV(String str) {
-            if (o.this.oeA != null) {
-                return o.this.oeA.iV(str);
+        public boolean iP(String str) {
+            if (o.this.oge != null) {
+                return o.this.oge.iP(str);
             }
             return false;
         }
 
         @Override // com.baidu.live.al.c
-        public boolean iW(String str) {
-            if (o.this.oeA != null) {
-                return o.this.oeA.iW(str);
+        public boolean iQ(String str) {
+            if (o.this.oge != null) {
+                return o.this.oge.iQ(str);
             }
             return false;
         }
 
         @Override // com.baidu.live.al.c
-        public boolean iX(String str) {
-            if (o.this.oeA != null) {
-                return o.this.oeA.iX(str);
+        public boolean iR(String str) {
+            if (o.this.oge != null) {
+                return o.this.oge.iR(str);
             }
             return false;
         }
 
         @Override // com.baidu.live.al.c
-        public AlaWheatInfoData iY(String str) {
-            if (o.this.oeA != null) {
-                return o.this.oeA.VX(str);
+        public AlaWheatInfoData iS(String str) {
+            if (o.this.oge != null) {
+                return o.this.oge.VI(str);
             }
             return null;
         }
 
         @Override // com.baidu.live.al.c
-        public AlaWheatInfoData Xi() {
-            if (o.this.oeA != null) {
-                return o.this.oeA.Xi();
+        public AlaWheatInfoData Wz() {
+            if (o.this.oge != null) {
+                return o.this.oge.Wz();
             }
             return null;
         }
 
         @Override // com.baidu.live.al.c
         public void F(String str, boolean z) {
-            if (o.this.oeA != null) {
-                o.this.oeA.F(str, z);
+            if (o.this.oge != null) {
+                o.this.oge.F(str, z);
             }
         }
 
         @Override // com.baidu.live.al.c
-        public boolean iZ(String str) {
-            if (o.this.oeA != null) {
-                return o.this.oeA.iZ(str);
+        public boolean iT(String str) {
+            if (o.this.oge != null) {
+                return o.this.oge.iT(str);
             }
             return false;
         }
 
         @Override // com.baidu.live.al.c
         public void a(com.baidu.live.al.a aVar) {
-            if (o.this.oeA != null) {
-                o.this.oeA.a(aVar);
+            if (o.this.oge != null) {
+                o.this.oge.a(aVar);
             }
         }
 
         @Override // com.baidu.live.al.c
-        public List<AlaWheatInfoData> Xj() {
-            if (o.this.oeA != null) {
-                return o.this.oeA.Xj();
-            }
-            return null;
-        }
-
-        @Override // com.baidu.live.al.c
-        public List<AlaWheatInfoData> Xk() {
-            if (o.this.oeA != null) {
-                return o.this.oeA.Xk();
+        public List<AlaWheatInfoData> WA() {
+            if (o.this.oge != null) {
+                return o.this.oge.WA();
             }
             return null;
         }
 
         @Override // com.baidu.live.al.c
-        public String Xl() {
-            return com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Xl();
+        public List<AlaWheatInfoData> WB() {
+            if (o.this.oge != null) {
+                return o.this.oge.WB();
+            }
+            return null;
         }
 
         @Override // com.baidu.live.al.c
-        public String Xm() {
-            return com.baidu.tieba.yuyinala.liveroom.wheat.e.g.Xm();
+        public String WC() {
+            return com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().WC();
+        }
+
+        @Override // com.baidu.live.al.c
+        public String WD() {
+            return com.baidu.tieba.yuyinala.liveroom.wheat.e.g.WD();
         }
 
         @Override // com.baidu.live.al.c
         public String getCustomRoomId() {
-            return com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().getCustomRoomId();
+            return com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().getCustomRoomId();
         }
 
         @Override // com.baidu.live.al.c
-        public w Xn() {
-            return com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Xn();
+        public w WE() {
+            return com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().WE();
         }
 
         @Override // com.baidu.live.al.c
-        public String Xo() {
-            return com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Xo();
+        public String WF() {
+            return com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().WF();
         }
 
         @Override // com.baidu.live.al.c
         public void muteOrUnmuteAudio(boolean z) {
-            if (com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN() != null) {
-                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN().muteOrUnmuteAudio(z);
+            if (com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM() != null) {
+                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM().muteOrUnmuteAudio(z);
             }
         }
 
         @Override // com.baidu.live.al.c
-        public void Xp() {
-            o.this.zg(false);
+        public void WG() {
+            o.this.zn(false);
         }
 
         @Override // com.baidu.live.al.c
-        public void Xq() {
-            o.this.dZI();
+        public void WH() {
+            o.this.dZH();
         }
     };
 
     /* loaded from: classes4.dex */
     public interface a {
-        void LX(int i);
+        void MA(int i);
     }
 
-    public static o dZA() {
-        return oez;
+    public static o dZz() {
+        return ogd;
     }
 
     private o() {
@@ -301,150 +301,150 @@ public class o {
 
     public void a(TbPageContext tbPageContext, AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout, Rect rect) {
         this.mRect = rect;
-        this.ocV = tbPageContext;
-        this.oeB = alaLiveRoomBlurPageLayout;
+        this.oey = tbPageContext;
+        this.ogf = alaLiveRoomBlurPageLayout;
     }
 
-    public void dZB() {
-        if (this.oeA != null) {
-            this.oeA.loadData();
+    public void dZA() {
+        if (this.oge != null) {
+            this.oge.loadData();
         }
     }
 
-    public ViewGroup dZC() {
-        if (this.oeA != null) {
-            return this.oeA.dZC();
-        }
-        return null;
-    }
-
-    public List<AlaWheatInfoData> Xk() {
-        if (this.oeA != null) {
-            return this.oeA.Xk();
+    public ViewGroup dZB() {
+        if (this.oge != null) {
+            return this.oge.dZB();
         }
         return null;
     }
 
-    public List<AlaWheatInfoData> Xj() {
-        if (this.oeA != null) {
-            return this.oeA.Xj();
+    public List<AlaWheatInfoData> WB() {
+        if (this.oge != null) {
+            return this.oge.WB();
         }
         return null;
     }
 
-    public boolean dZD() {
-        if (this.oeA != null) {
-            return this.oeA.dZD();
+    public List<AlaWheatInfoData> WA() {
+        if (this.oge != null) {
+            return this.oge.WA();
+        }
+        return null;
+    }
+
+    public boolean dZC() {
+        if (this.oge != null) {
+            return this.oge.dZC();
         }
         return false;
     }
 
-    public boolean dYS() {
-        if (this.oeA != null) {
-            return this.oeA.dYS();
+    public boolean dYR() {
+        if (this.oge != null) {
+            return this.oge.dYR();
         }
         return false;
     }
 
-    public boolean iW(String str) {
-        if (this.oeA != null) {
-            return this.oeA.iW(str);
+    public boolean iQ(String str) {
+        if (this.oge != null) {
+            return this.oge.iQ(str);
         }
         return false;
     }
 
-    public boolean Vu(String str) {
-        if (this.oeA != null) {
-            return this.oeA.Vu(str);
+    public boolean Vf(String str) {
+        if (this.oge != null) {
+            return this.oge.Vf(str);
         }
         return false;
     }
 
-    public String Xm() {
-        return com.baidu.tieba.yuyinala.liveroom.wheat.e.g.Xm();
+    public String WD() {
+        return com.baidu.tieba.yuyinala.liveroom.wheat.e.g.WD();
     }
 
-    public boolean iV(String str) {
-        if (this.oeA != null) {
-            return this.oeA.iV(str);
+    public boolean iP(String str) {
+        if (this.oge != null) {
+            return this.oge.iP(str);
         }
         return false;
     }
 
-    public boolean iX(String str) {
-        if (this.oeA != null) {
-            return this.oeA.iX(str);
+    public boolean iR(String str) {
+        if (this.oge != null) {
+            return this.oge.iR(str);
         }
         return false;
     }
 
-    public boolean VQ(String str) {
-        if (this.oeA != null) {
-            return this.oeA.VQ(str);
+    public boolean VB(String str) {
+        if (this.oge != null) {
+            return this.oge.VB(str);
         }
         return false;
     }
 
-    public AlaWheatInfoData iY(String str) {
-        if (this.oeA != null) {
-            return this.oeA.iY(str);
+    public AlaWheatInfoData iS(String str) {
+        if (this.oge != null) {
+            return this.oge.iS(str);
         }
         return null;
     }
 
     public AlaWheatInfoData bi(String str, boolean z) {
-        if (this.oeA != null) {
-            return this.oeA.bi(str, z);
+        if (this.oge != null) {
+            return this.oge.bi(str, z);
         }
         return null;
     }
 
-    public int dZE() {
-        if (this.oeA != null) {
-            return this.oeA.dZE();
+    public int dZD() {
+        if (this.oge != null) {
+            return this.oge.dZD();
         }
         return -1;
     }
 
-    public TbPageContext dZF() {
-        if (this.oeA != null) {
-            return this.oeA.dZF();
+    public TbPageContext dZE() {
+        if (this.oge != null) {
+            return this.oge.dZE();
         }
         return null;
     }
 
     public boolean isApplying() {
-        if (this.oeA != null) {
-            return this.oeA.isApplying();
+        if (this.oge != null) {
+            return this.oge.isApplying();
         }
         return false;
     }
 
     public void setMaskBg(boolean z) {
-        if (this.oeA != null) {
-            this.oeA.setMaskBg(z);
+        if (this.oge != null) {
+            this.oge.setMaskBg(z);
         }
     }
 
-    public void zd(boolean z) {
-        if (this.oeA != null) {
-            this.oeA.zd(z);
+    public void zk(boolean z) {
+        if (this.oge != null) {
+            this.oge.zk(z);
         }
     }
 
-    public void ze(boolean z) {
-        if (this.oeA != null) {
-            this.oeA.ze(z);
+    public void zl(boolean z) {
+        if (this.oge != null) {
+            this.oge.zl(z);
         }
     }
 
     public void l(w wVar) {
-        if (wVar != null && wVar.aJP != null) {
-            wVar.aJP.isEnterLiveData = true;
+        if (wVar != null && wVar.aIe != null) {
+            wVar.aIe.isEnterLiveData = true;
             ad(wVar);
-            if (this.oeA != null) {
-                this.oeA.a(this.oeD);
-                this.oeA.l(wVar);
+            if (this.oge != null) {
+                this.oge.a(this.ogh);
+                this.oge.l(wVar);
             }
             registerListener();
         }
@@ -452,45 +452,45 @@ public class o {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ad(w wVar) {
-        AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = wVar.aJP;
+        AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = wVar.aIe;
         if (alaWheatInfoDataWrapper.getRoomMode() == 0) {
-            if (this.oeA == null || !(this.oeA instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.b)) {
-                this.oeA = new com.baidu.tieba.yuyinala.liveroom.wheat.d.b();
-                this.oeA.a(this.ocV, this.oeB, this.mRect);
+            if (this.oge == null || !(this.oge instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.b)) {
+                this.oge = new com.baidu.tieba.yuyinala.liveroom.wheat.d.b();
+                this.oge.a(this.oey, this.ogf, this.mRect);
             }
         } else if (alaWheatInfoDataWrapper.getRoomMode() == 1) {
-            if (this.oeA == null || !(this.oeA instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.c)) {
-                this.oeA = new com.baidu.tieba.yuyinala.liveroom.wheat.d.c();
-                this.oeA.a(this.ocV, this.oeB, this.mRect);
+            if (this.oge == null || !(this.oge instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.c)) {
+                this.oge = new com.baidu.tieba.yuyinala.liveroom.wheat.d.c();
+                this.oge.a(this.oey, this.ogf, this.mRect);
             }
-        } else if (this.oeA == null || !(this.oeA instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.b)) {
-            this.oeA = new com.baidu.tieba.yuyinala.liveroom.wheat.d.b();
-            this.oeA.a(this.ocV, this.oeB, this.mRect);
+        } else if (this.oge == null || !(this.oge instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.b)) {
+            this.oge = new com.baidu.tieba.yuyinala.liveroom.wheat.d.b();
+            this.oge.a(this.oey, this.ogf, this.mRect);
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x001f, code lost:
-        if ((r4.oeA instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.b) == false) goto L14;
+        if ((r4.oge instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.b) == false) goto L14;
      */
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0031, code lost:
-        if ((r4.oeA instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.c) == false) goto L14;
+        if ((r4.oge instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.c) == false) goto L14;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean ae(w wVar) {
         boolean z = true;
-        if (wVar.aKb) {
-            wVar.aKb = false;
+        if (wVar.aIq) {
+            wVar.aIq = false;
             return false;
-        } else if (dZG()) {
-            AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = wVar.aJP;
+        } else if (dZF()) {
+            AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = wVar.aIe;
             if (alaWheatInfoDataWrapper.getRoomMode() == 0) {
-                if (this.oeA != null) {
+                if (this.oge != null) {
                 }
                 z = false;
             } else if (alaWheatInfoDataWrapper.getRoomMode() == 1) {
-                if (this.oeA != null) {
+                if (this.oge != null) {
                 }
                 z = false;
             } else {
@@ -504,113 +504,113 @@ public class o {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean af(w wVar) {
-        AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = wVar.aJP;
+        AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = wVar.aIe;
         if (alaWheatInfoDataWrapper.getRoomMode() == 0) {
-            return this.oeA == null || !(this.oeA instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.b);
+            return this.oge == null || !(this.oge instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.b);
         } else if (alaWheatInfoDataWrapper.getRoomMode() == 1) {
-            return this.oeA == null || !(this.oeA instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.c);
+            return this.oge == null || !(this.oge instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.c);
         } else {
             return false;
         }
     }
 
-    private boolean dZG() {
-        if (com.baidu.live.aa.a.PQ().bod == null || com.baidu.live.aa.a.PQ().bod.aNy == null || com.baidu.live.aa.a.PQ().bod.aNy.aQG == null) {
+    private boolean dZF() {
+        if (com.baidu.live.aa.a.Ph().bms == null || com.baidu.live.aa.a.Ph().bms.aLN == null || com.baidu.live.aa.a.Ph().bms.aLN.aOV == null) {
             return false;
         }
-        return com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.dZW().a(com.baidu.live.aa.a.PQ().bod.aNy.aQG.ES(), true);
+        return com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.dZV().a(com.baidu.live.aa.a.Ph().bms.aLN.aOV.Ej(), true);
     }
 
-    public void Dm() {
-        if (this.oeA != null) {
-            this.oeA.Dm();
+    public void CD() {
+        if (this.oge != null) {
+            this.oge.CD();
         }
         onDestroy();
-        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().onDestroy();
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().onDestroy();
     }
 
     public void a(com.baidu.tieba.yuyinala.player.b bVar) {
-        this.oeD = bVar;
+        this.ogh = bVar;
     }
 
-    public void zf(boolean z) {
-        if (this.oeA != null) {
-            this.oeA.zf(z);
+    public void zm(boolean z) {
+        if (this.oge != null) {
+            this.oge.zm(z);
         }
     }
 
-    public boolean dZH() {
-        if (this.oeA != null) {
-            return this.oeA.dZH();
+    public boolean dZG() {
+        if (this.oge != null) {
+            return this.oge.dZG();
         }
         return false;
     }
 
     private void registerListener() {
         onDestroy();
-        MessageManager.getInstance().registerListener(this.baw);
-        com.baidu.live.al.b.Xh().a(this.oeN);
-        MessageManager.getInstance().registerListener(this.oeI);
-        MessageManager.getInstance().registerListener(this.oeL);
-        MessageManager.getInstance().registerListener(this.oeK);
-        MessageManager.getInstance().registerListener(this.oeM);
-        MessageManager.getInstance().registerListener(this.oeJ);
-        dZL();
+        MessageManager.getInstance().registerListener(this.aYK);
+        com.baidu.live.al.b.Wy().a(this.ogr);
+        MessageManager.getInstance().registerListener(this.ogm);
+        MessageManager.getInstance().registerListener(this.ogp);
+        MessageManager.getInstance().registerListener(this.ogo);
+        MessageManager.getInstance().registerListener(this.ogq);
+        MessageManager.getInstance().registerListener(this.ogn);
+        dZK();
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.baw);
-        MessageManager.getInstance().unRegisterListener(this.oeI);
-        MessageManager.getInstance().unRegisterListener(this.oeJ);
-        MessageManager.getInstance().unRegisterListener(this.oeK);
-        MessageManager.getInstance().unRegisterListener(this.oeL);
-        MessageManager.getInstance().unRegisterListener(this.oeM);
-        dZM();
-        if (this.oeA != null) {
-            this.oeA.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.aYK);
+        MessageManager.getInstance().unRegisterListener(this.ogm);
+        MessageManager.getInstance().unRegisterListener(this.ogn);
+        MessageManager.getInstance().unRegisterListener(this.ogo);
+        MessageManager.getInstance().unRegisterListener(this.ogp);
+        MessageManager.getInstance().unRegisterListener(this.ogq);
+        dZL();
+        if (this.oge != null) {
+            this.oge.onDestroy();
         }
     }
 
-    public void cFz() {
-        if (this.oeA != null) {
-            this.oeA = null;
+    public void cFe() {
+        if (this.oge != null) {
+            this.oge = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ag(final w wVar) {
         final int i;
-        if (this.oeA instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.c) {
+        if (this.oge instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.c) {
             BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_enter_common_mode_text)).show();
             i = 0;
-        } else if (this.oeA instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.b) {
+        } else if (this.oge instanceof com.baidu.tieba.yuyinala.liveroom.wheat.d.b) {
             BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_enter_dating_mode_text)).show();
             i = 1;
         } else {
             i = 0;
         }
         if (ae(wVar)) {
-            if (System.currentTimeMillis() - this.oeF > 1000) {
-                this.oeF = System.currentTimeMillis();
-                this.oeG = true;
+            if (System.currentTimeMillis() - this.ogj > 1000) {
+                this.ogj = System.currentTimeMillis();
+                this.ogk = true;
                 View view = null;
-                if (this.ocV != null && this.ocV.getPageActivity() != null) {
-                    view = this.ocV.getPageActivity().findViewById(a.f.ala_liveroom_view);
+                if (this.oey != null && this.oey.getPageActivity() != null) {
+                    view = this.oey.getPageActivity().findViewById(a.f.ala_liveroom_view);
                 }
                 if (view != null) {
-                    com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.dZW().cV((ViewGroup) view);
+                    com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.dZV().cR((ViewGroup) view);
                 }
                 SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.11
                     @Override // java.lang.Runnable
                     public void run() {
                         o.this.ad(wVar);
-                        if (o.this.oeA != null) {
-                            o.this.oeA.ai(wVar);
+                        if (o.this.oge != null) {
+                            o.this.oge.ai(wVar);
                         }
-                        if (o.this.oeH != null) {
-                            o.this.oeH.LX(i);
+                        if (o.this.ogl != null) {
+                            o.this.ogl.MA(i);
                         }
-                        o.this.oeG = false;
+                        o.this.ogk = false;
                     }
                 }, 1500L);
                 return;
@@ -618,21 +618,21 @@ public class o {
             return;
         }
         ad(wVar);
-        if (this.oeA != null) {
-            this.oeA.ai(wVar);
+        if (this.oge != null) {
+            this.oge.ai(wVar);
         }
-        if (this.oeH != null) {
-            this.oeH.LX(i);
+        if (this.ogl != null) {
+            this.ogl.MA(i);
         }
     }
 
     public void a(a aVar) {
-        this.oeH = aVar;
+        this.ogl = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dZI() {
-        new com.baidu.tieba.yuyinala.liveroom.wheat.model.d(this.ocV, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.18
+    public void dZH() {
+        new com.baidu.tieba.yuyinala.liveroom.wheat.model.d(this.oey, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.18
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.d.a
             public void a(AlaCancelApplyOrCancelInviteHttpResponseMessage alaCancelApplyOrCancelInviteHttpResponseMessage) {
             }
@@ -640,115 +640,115 @@ public class o {
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.d.a
             public void onFail(int i, String str) {
             }
-        }).gP(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Ca(), "1");
+        }).gP(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().Br(), "1");
     }
 
-    public void dZJ() {
-        com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYN = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN();
-        if (dYN != null) {
-            if (dYS()) {
-                if (dYN.dYJ() && dYN.dYG() && !iV(Xm())) {
+    public void dZI() {
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYM = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM();
+        if (dYM != null) {
+            if (dYR()) {
+                if (dYM.dYI() && dYM.dYF() && !iP(WD())) {
                     SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYN2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN();
-                            if (dYN2.dYJ() && dYN2.dYG() && !o.this.iV(o.this.Xm())) {
-                                dYN2.dYv();
-                                o.this.dZK();
+                            com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYM2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM();
+                            if (dYM2.dYI() && dYM2.dYF() && !o.this.iP(o.this.WD())) {
+                                dYM2.dYu();
+                                o.this.dZJ();
                             }
                         }
-                    }, this.oeC);
-                } else if (dYN.dYJ() && !dYN.dYG() && !iV(Xm())) {
+                    }, this.ogg);
+                } else if (dYM.dYI() && !dYM.dYF() && !iP(WD())) {
                     SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.3
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYN2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN();
-                            if (dYN2.dYJ() && !dYN2.dYG() && !o.this.iV(o.this.Xm())) {
-                                dYN2.dYD();
+                            com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYM2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM();
+                            if (dYM2.dYI() && !dYM2.dYF() && !o.this.iP(o.this.WD())) {
+                                dYM2.dYC();
                             }
                         }
-                    }, this.oeC);
-                } else if (!dYN.dYJ() && dYN.dYG() && iV(Xm())) {
+                    }, this.ogg);
+                } else if (!dYM.dYI() && dYM.dYF() && iP(WD())) {
                     SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.4
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYN2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN();
-                            if (!dYN2.dYJ() && dYN2.dYG() && o.this.iV(o.this.Xm())) {
-                                o.this.Xp();
+                            com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYM2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM();
+                            if (!dYM2.dYI() && dYM2.dYF() && o.this.iP(o.this.WD())) {
+                                o.this.WG();
                             }
                         }
-                    }, this.oeC);
-                } else if (!dYN.dYJ() && !dYN.dYG() && iV(Xm())) {
+                    }, this.ogg);
+                } else if (!dYM.dYI() && !dYM.dYF() && iP(WD())) {
                     SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.5
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYN2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN();
-                            if (!dYN2.dYJ() && !dYN2.dYG() && o.this.iV(o.this.Xm())) {
-                                o.this.Xp();
-                                dYN2.dYD();
+                            com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYM2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM();
+                            if (!dYM2.dYI() && !dYM2.dYF() && o.this.iP(o.this.WD())) {
+                                o.this.WG();
+                                dYM2.dYC();
                             }
                         }
-                    }, this.oeC);
-                } else if (dYN.dYJ() && dYN.dYG() && iV(Xm())) {
-                    dYN.aAm();
+                    }, this.ogg);
+                } else if (dYM.dYI() && dYM.dYF() && iP(WD())) {
+                    dYM.azE();
                 }
-            } else if (dYN.dYG() && !iV(Xm())) {
+            } else if (dYM.dYF() && !iP(WD())) {
                 SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.6
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYN2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN();
-                        if (dYN2 != null && dYN2.dYG() && !o.this.iV(o.this.Xm())) {
-                            dYN2.dYv();
-                            o.this.dZK();
+                        com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYM2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM();
+                        if (dYM2 != null && dYM2.dYF() && !o.this.iP(o.this.WD())) {
+                            dYM2.dYu();
+                            o.this.dZJ();
                         }
                     }
-                }, this.oeC);
-            } else if (!dYN.dYG() && ((dYN.dYw() == 0 || dYN.dYw() == 4 || dYN.dYw() == 3) && iV(Xm()))) {
+                }, this.ogg);
+            } else if (!dYM.dYF() && ((dYM.dYv() == 0 || dYM.dYv() == 4 || dYM.dYv() == 3) && iP(WD()))) {
                 SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.7
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYN2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN();
-                        if (!dYN2.dYG()) {
-                            if ((dYN2.dYw() == 0 || dYN2.dYw() == 4 || dYN2.dYw() == 3) && o.this.iV(o.this.Xm())) {
-                                o.this.Xp();
+                        com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYM2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM();
+                        if (!dYM2.dYF()) {
+                            if ((dYM2.dYv() == 0 || dYM2.dYv() == 4 || dYM2.dYv() == 3) && o.this.iP(o.this.WD())) {
+                                o.this.WG();
                             }
                         }
                     }
-                }, this.oeC);
-            } else if (dYN.dYG() && iV(Xm()) && dYN.dYy()) {
-                dYN.aAm();
+                }, this.ogg);
+            } else if (dYM.dYF() && iP(WD()) && dYM.dYx()) {
+                dYM.azE();
             }
-            if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.obo) {
+            if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.ocS) {
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dZK() {
-        if (!dYS()) {
-            e.dZk().onDestroy();
+    public void dZJ() {
+        if (!dYR()) {
+            e.dZj().onDestroy();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501071));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Xp() {
-        zg(true);
+    public void WG() {
+        zn(true);
     }
 
-    public void zg(boolean z) {
+    public void zn(boolean z) {
         String str;
         if (z) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYN = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN();
-            if (dYN != null) {
-                String dYK = dYN.dYK();
-                if (dYS()) {
-                    str = dYK + ",isOwnerJoinChat:" + dYN.dYJ() + ",mIsSelfInRctRoom:" + dYN.dYG() + ",isOwner:true";
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYM = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM();
+            if (dYM != null) {
+                String dYJ = dYM.dYJ();
+                if (dYR()) {
+                    str = dYJ + ",isOwnerJoinChat:" + dYM.dYI() + ",mIsSelfInRctRoom:" + dYM.dYF() + ",isOwner:true";
                 } else {
-                    str = dYK + ",mIsSelfInRctRoom:" + dYN.dYG() + ",getRtcStatus:" + dYN.dYw() + ",isOwner:false";
+                    str = dYJ + ",mIsSelfInRctRoom:" + dYM.dYF() + ",getRtcStatus:" + dYM.dYv() + ",isOwner:false";
                 }
                 int length = str.length();
-                if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.obo) {
+                if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.ocS) {
                     Log.i("AudioRoom", str);
                 }
                 if (str != null && length > 1900) {
@@ -760,13 +760,13 @@ public class o {
             new com.baidu.tieba.yuyinala.liveroom.wheat.model.e(null, new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.8
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.e.a
                 public void a(AlaEndConnectionWheatHttpResponseMessage alaEndConnectionWheatHttpResponseMessage) {
-                    o.this.dZK();
+                    o.this.dZJ();
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.e.a
                 public void onFail(int i, String str2) {
                 }
-            }).a(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Ca(), dZA().Xm(), 1, str);
+            }).a(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().Br(), dZz().WD(), 1, str);
             return;
         }
         new com.baidu.tieba.yuyinala.liveroom.wheat.model.e(null, new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.9
@@ -777,44 +777,44 @@ public class o {
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.e.a
             public void onFail(int i, String str2) {
             }
-        }).gP(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Ca(), dZA().Xm());
+        }).gP(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().Br(), dZz().WD());
     }
 
-    private void dZL() {
-        if (this.ocV != null && this.ocV.getPageActivity() != null) {
+    private void dZK() {
+        if (this.oey != null && this.oey.getPageActivity() != null) {
             this.mBroadcastReceiver = new BroadcastReceiver() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.o.10
                 @Override // android.content.BroadcastReceiver
                 public void onReceive(Context context, Intent intent) {
                     if (TextUtils.equals(intent.getAction(), "com.baidu.open.log.debug")) {
-                        com.baidu.tieba.yuyinala.liveroom.wheat.a.a.obo = true;
-                        com.baidu.tieba.yuyinala.liveroom.wheat.e.d.obo = true;
+                        com.baidu.tieba.yuyinala.liveroom.wheat.a.a.ocS = true;
+                        com.baidu.tieba.yuyinala.liveroom.wheat.e.d.ocS = true;
                     }
                 }
             };
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.open.log.debug");
-            this.oeE = true;
-            this.ocV.getPageActivity().registerReceiver(this.mBroadcastReceiver, intentFilter);
+            this.ogi = true;
+            this.oey.getPageActivity().registerReceiver(this.mBroadcastReceiver, intentFilter);
         }
     }
 
-    private void dZM() {
-        if (this.ocV != null && this.ocV.getPageActivity() != null && this.mBroadcastReceiver != null && this.oeE) {
-            this.oeE = false;
-            this.ocV.getPageActivity().unregisterReceiver(this.mBroadcastReceiver);
+    private void dZL() {
+        if (this.oey != null && this.oey.getPageActivity() != null && this.mBroadcastReceiver != null && this.ogi) {
+            this.ogi = false;
+            this.oey.getPageActivity().unregisterReceiver(this.mBroadcastReceiver);
             this.mBroadcastReceiver = null;
         }
     }
 
     public int getWheatHeight() {
-        if (this.oeA != null) {
-            return this.oeA.getWheatHeight();
+        if (this.oge != null) {
+            return this.oge.getWheatHeight();
         }
         return 0;
     }
 
-    public boolean dZN() {
-        return this.oeG;
+    public boolean dZM() {
+        return this.ogk;
     }
 
     public boolean ah(w wVar) {

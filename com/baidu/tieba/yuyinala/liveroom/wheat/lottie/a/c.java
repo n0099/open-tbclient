@@ -14,16 +14,16 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
 public class c {
-    public static String ogq = "dating_anim_md5_";
+    public static String ohT = "dating_anim_md5_";
 
     public static void b(final String str, final String str2, final b.a aVar) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !VU(str)) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !VF(str)) {
             new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 public Boolean doInBackground(Void... voidArr) {
-                    return Boolean.valueOf(c.VV(str2));
+                    return Boolean.valueOf(c.VG(str2));
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +33,7 @@ public class c {
                     super.onPostExecute((AnonymousClass1) bool);
                     if (bool.booleanValue()) {
                         if (aVar != null) {
-                            aVar.zm(true);
+                            aVar.zt(true);
                             return;
                         }
                         return;
@@ -44,7 +44,7 @@ public class c {
         }
     }
 
-    private static boolean VU(String str) {
+    private static boolean VF(String str) {
         List<DownloadData> downloadList = FileSerialDownLoader.getInstance().getDownloadList();
         if (ListUtils.isEmpty(downloadList) || TextUtils.isEmpty(str)) {
             return false;
@@ -61,33 +61,33 @@ public class c {
         return false;
     }
 
-    public static boolean VV(String str) {
+    public static boolean VG(String str) {
         if (StringUtils.isNull(str, true)) {
             return false;
         }
-        String str2 = ogq + str;
-        String VW = VW(com.baidu.live.ac.b.ij(str));
-        return com.baidu.live.f.a.existFile(VW) && com.baidu.live.f.a.isDirectory(VW) && !com.baidu.live.f.b.b(VW, com.baidu.live.f.b.gu(str2));
+        String str2 = ohT + str;
+        String VH = VH(com.baidu.live.ac.b.id(str));
+        return com.baidu.live.f.a.existFile(VH) && com.baidu.live.f.a.isDirectory(VH) && !com.baidu.live.f.b.b(VH, com.baidu.live.f.b.gn(str2));
     }
 
     public static void gO(String str, String str2) {
         File[] listFiles;
         String fileMd5;
         if (!TextUtils.isEmpty(str)) {
-            String VW = VW(str2);
-            if (com.baidu.live.f.a.existFile(VW) && com.baidu.live.f.a.isDirectory(VW) && (listFiles = new File(VW).listFiles()) != null) {
+            String VH = VH(str2);
+            if (com.baidu.live.f.a.existFile(VH) && com.baidu.live.f.a.isDirectory(VH) && (listFiles = new File(VH).listFiles()) != null) {
                 JSONArray jSONArray = new JSONArray();
                 for (File file : listFiles) {
                     if (file != null && !file.isDirectory() && (fileMd5 = com.baidu.live.f.a.getFileMd5(file)) != null) {
                         jSONArray.put(fileMd5);
                     }
                 }
-                d.AZ().putString(ogq + str, jSONArray.toString());
+                d.Aq().putString(ohT + str, jSONArray.toString());
             }
         }
     }
 
-    public static String VW(String str) {
+    public static String VH(String str) {
         if (com.baidu.live.f.a.existFile(str)) {
             if (!com.baidu.live.f.a.isDirectory(str)) {
                 FileHelper.deleteFileOrDir(new File(str));
@@ -98,7 +98,7 @@ public class c {
                 return null;
             }
             if (listFiles.length == 1 && listFiles[0] != null && listFiles[0].isDirectory()) {
-                return VW(listFiles[0].getAbsolutePath());
+                return VH(listFiles[0].getAbsolutePath());
             }
             return str;
         }

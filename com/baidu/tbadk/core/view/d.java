@@ -20,12 +20,12 @@ public class d {
     private int mScreenHeight;
     private int usableHeightPrevious;
     private int mSkinType = 3;
-    private int backColor = R.color.cp_bg_line_d;
+    private int backColor = R.color.CAM_X0201;
     private boolean isAutoChangeNightMode = false;
     private ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener = null;
     private int mExcludeHeight = 0;
 
-    public static d ae(Activity activity) {
+    public static d ad(Activity activity) {
         return new d(activity);
     }
 
@@ -38,11 +38,11 @@ public class d {
     }
 
     private d(Activity activity) {
-        init(activity, R.color.cp_bg_line_d, true);
+        init(activity, R.color.CAM_X0201, true);
     }
 
     private d(Activity activity, boolean z) {
-        init(activity, R.color.cp_bg_line_d, z);
+        init(activity, R.color.CAM_X0201, z);
     }
 
     private d(Activity activity, int i, boolean z) {

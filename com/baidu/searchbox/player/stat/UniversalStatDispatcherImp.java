@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.stat;
 
 import android.graphics.Point;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class UniversalStatDispatcherImp implements IUniversalPlayerStatDispatcher {
     public static final UniversalStatDispatcherImp EMPTY = new UniversalStatDispatcherImp() { // from class: com.baidu.searchbox.player.stat.UniversalStatDispatcherImp.1
     };

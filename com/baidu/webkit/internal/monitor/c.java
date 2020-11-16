@@ -2,7 +2,7 @@ package com.baidu.webkit.internal.monitor;
 
 import com.baidu.webkit.internal.Base64;
 import com.baidu.webkit.sdk.WebKitFactory;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class c implements com.baidu.webkit.logsdk.b {
 
     /* renamed from: a  reason: collision with root package name */

@@ -2,7 +2,7 @@ package com.facebook.rebound;
 
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class Spring {
     private static int ID = 0;
     private static final double MAX_DELTA_TIME_SEC = 0.064d;
@@ -23,7 +23,7 @@ public class Spring {
     private double mTimeAccumulator = 0.0d;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public static class PhysicsState {
         double position;
         double velocity;

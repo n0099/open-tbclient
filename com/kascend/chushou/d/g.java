@@ -21,8 +21,8 @@ public class g {
             return d();
         }
         if (lowerCase.contains(RomUtils.MANUFACTURER_OPPO)) {
-            if (tv.chushou.basis.d.b.eHo() != null) {
-                return tv.chushou.basis.d.b.eHo().getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
+            if (tv.chushou.basis.d.b.eHp() != null) {
+                return tv.chushou.basis.d.b.eHp().getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
             }
             return false;
         } else if (lowerCase.contains(RomUtils.MANUFACTURER_XIAOMI)) {

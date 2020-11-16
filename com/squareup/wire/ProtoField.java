@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 public @interface ProtoField {
     boolean deprecated() default false;
 

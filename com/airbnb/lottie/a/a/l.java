@@ -2,7 +2,7 @@ package com.airbnb.lottie.a.a;
 
 import android.graphics.Path;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public interface l extends b {
     Path iW();
 }

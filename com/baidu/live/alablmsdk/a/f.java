@@ -4,41 +4,41 @@ import android.os.Handler;
 import android.os.HandlerThread;
 /* loaded from: classes4.dex */
 public class f {
-    private static f aAv;
-    private Handler aAw;
-    private HandlerThread aAx = new HandlerThread("blm_work_threads");
+    private static f ayK;
+    private Handler ayL;
+    private HandlerThread ayM = new HandlerThread("blm_work_threads");
 
     private f() {
-        this.aAx.start();
-        this.aAw = new Handler(this.aAx.getLooper());
+        this.ayM.start();
+        this.ayL = new Handler(this.ayM.getLooper());
     }
 
-    public static f Bj() {
-        if (aAv == null) {
+    public static f AA() {
+        if (ayK == null) {
             synchronized (f.class) {
-                if (aAv == null) {
-                    aAv = new f();
+                if (ayK == null) {
+                    ayK = new f();
                 }
             }
         }
-        return aAv;
+        return ayK;
     }
 
     public void post(Runnable runnable) {
-        if (this.aAw != null) {
-            this.aAw.post(runnable);
+        if (this.ayL != null) {
+            this.ayL.post(runnable);
         }
     }
 
     public void release() {
-        if (this.aAw != null) {
-            this.aAw.removeCallbacksAndMessages(null);
-            this.aAw = null;
+        if (this.ayL != null) {
+            this.ayL.removeCallbacksAndMessages(null);
+            this.ayL = null;
         }
-        if (this.aAx != null) {
-            this.aAx.quit();
-            this.aAx = null;
+        if (this.ayM != null) {
+            this.ayM.quit();
+            this.ayM = null;
         }
-        aAv = null;
+        ayK = null;
     }
 }

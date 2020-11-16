@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class a {
     private static final String b = a.class.getSimpleName();
     private static final boolean c = false;

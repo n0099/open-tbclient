@@ -19,35 +19,35 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes4.dex */
 public class a implements ad {
-    private final String aZu;
-    private com.baidu.live.gift.c.a bed;
+    private final String aXJ;
+    private com.baidu.live.gift.c.a bcs;
     private Context mContext;
 
     public a(Context context) {
-        this.aZu = "live_key_privilege_tab_unlock_giftid_array_" + (TbadkCoreApplication.getCurrentAccountInfo() == null ? "" : TbadkCoreApplication.getCurrentAccountInfo().getID());
+        this.aXJ = "live_key_privilege_tab_unlock_giftid_array_" + (TbadkCoreApplication.getCurrentAccountInfo() == null ? "" : TbadkCoreApplication.getCurrentAccountInfo().getID());
         this.mContext = context;
-        Jz();
+        IQ();
     }
 
     @Override // com.baidu.live.gift.ad
-    public void hk(String str) {
-        this.bed.hy(str);
+    public void he(String str) {
+        this.bcs.hs(str);
     }
 
     @Override // com.baidu.live.gift.ad
-    public void Ht() {
+    public void GK() {
     }
 
     @Override // com.baidu.live.gift.ad
     public void release() {
-        if (this.bed != null) {
-            this.bed.release();
+        if (this.bcs != null) {
+            this.bcs.release();
         }
     }
 
-    private void Jz() {
-        this.bed = new com.baidu.live.gift.c.a();
-        this.bed.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
+    private void IQ() {
+        this.bcs = new com.baidu.live.gift.c.a();
+        this.bcs.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
             @Override // com.baidu.live.gift.c.b, com.baidu.live.gift.c.c.a
             public void a(boolean z, int i, String str, ArrayList<h> arrayList, ArrayList<com.baidu.live.data.h> arrayList2, ArrayList<j> arrayList3) {
                 super.a(z, i, str, arrayList, arrayList2, arrayList3);
@@ -65,7 +65,7 @@ public class a implements ad {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, List<h> list) {
         if (z) {
-            y.Hc().G(list);
+            y.Gt().G(list);
         }
     }
 
@@ -79,17 +79,17 @@ public class a implements ad {
             BdUtilHelper.showToast(this.mContext.getApplicationContext(), str);
         }
         if (i == 101) {
-            if (this.bed == null) {
-                this.bed = new com.baidu.live.gift.c.a();
+            if (this.bcs == null) {
+                this.bcs = new com.baidu.live.gift.c.a();
             }
-            this.bed.hy("gift_send_101");
+            this.bcs.hs("gift_send_101");
         }
     }
 
-    private void hz(String str) {
+    private void ht(String str) {
         if (str != null) {
             HashSet<Object> hashSet = new HashSet();
-            String string = SharedPrefHelper.getInstance().getString(this.aZu, "");
+            String string = SharedPrefHelper.getInstance().getString(this.aXJ, "");
             if (!TextUtils.isEmpty(string)) {
                 try {
                     JSONArray jSONArray = new JSONArray(string);
@@ -105,38 +105,38 @@ public class a implements ad {
             for (Object obj : hashSet) {
                 jSONArray2.put(obj);
             }
-            SharedPrefHelper.getInstance().putString(this.aZu, jSONArray2.toString());
-            AlaGiftTabView.baq.remove(str);
+            SharedPrefHelper.getInstance().putString(this.aXJ, jSONArray2.toString());
+            AlaGiftTabView.aYF.remove(str);
         }
     }
 
     private void B(String str, int i) {
         List<h> datas;
         if (i == 0) {
-            hz(str);
+            ht(str);
         }
-        if (!TextUtils.isEmpty(str) && (datas = y.Hc().getDatas()) != null) {
+        if (!TextUtils.isEmpty(str) && (datas = y.Gt().getDatas()) != null) {
             ArrayList<h> arrayList = new ArrayList(datas);
             for (h hVar : arrayList) {
-                List<g> Gu = hVar.Gu();
-                if (Gu != null) {
+                List<g> FL = hVar.FL();
+                if (FL != null) {
                     if (i == 0) {
-                        Iterator<g> it = Gu.iterator();
+                        Iterator<g> it = FL.iterator();
                         while (it.hasNext()) {
-                            if (it.next().FT().equals(str)) {
+                            if (it.next().Fk().equals(str)) {
                                 it.remove();
                             }
                         }
                     } else {
-                        for (g gVar : Gu) {
-                            if (gVar.FT().equals(str)) {
-                                gVar.aUI.aUV = i;
+                        for (g gVar : FL) {
+                            if (gVar.Fk().equals(str)) {
+                                gVar.aSX.aTk = i;
                             }
                         }
                     }
                 }
             }
-            y.Hc().G(arrayList);
+            y.Gt().G(arrayList);
         }
     }
 }

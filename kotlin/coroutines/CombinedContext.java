@@ -10,7 +10,7 @@ import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 import kotlin.l;
 @h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class CombinedContext implements Serializable, c {
     private final c.b element;
     private final c left;
@@ -29,17 +29,17 @@ public final class CombinedContext implements Serializable, c {
     }
 
     @Override // kotlin.coroutines.c
-    public <E extends c.b> E get(c.InterfaceC1078c<E> interfaceC1078c) {
-        q.n(interfaceC1078c, "key");
+    public <E extends c.b> E get(c.InterfaceC1081c<E> interfaceC1081c) {
+        q.n(interfaceC1081c, "key");
         CombinedContext combinedContext = this;
         while (true) {
-            E e = (E) combinedContext.element.get(interfaceC1078c);
+            E e = (E) combinedContext.element.get(interfaceC1081c);
             if (e == null) {
                 c cVar = combinedContext.left;
                 if (cVar instanceof CombinedContext) {
                     combinedContext = (CombinedContext) cVar;
                 } else {
-                    return (E) cVar.get(interfaceC1078c);
+                    return (E) cVar.get(interfaceC1081c);
                 }
             } else {
                 return e;
@@ -54,12 +54,12 @@ public final class CombinedContext implements Serializable, c {
     }
 
     @Override // kotlin.coroutines.c
-    public c minusKey(c.InterfaceC1078c<?> interfaceC1078c) {
-        q.n(interfaceC1078c, "key");
-        if (this.element.get(interfaceC1078c) != null) {
+    public c minusKey(c.InterfaceC1081c<?> interfaceC1081c) {
+        q.n(interfaceC1081c, "key");
+        if (this.element.get(interfaceC1081c) != null) {
             return this.left;
         }
-        c minusKey = this.left.minusKey(interfaceC1078c);
+        c minusKey = this.left.minusKey(interfaceC1081c);
         return minusKey == this.left ? this : minusKey == EmptyCoroutineContext.INSTANCE ? this.element : new CombinedContext(minusKey, this.element);
     }
 
@@ -81,7 +81,7 @@ public final class CombinedContext implements Serializable, c {
     }
 
     private final boolean contains(c.b bVar) {
-        return q.l(get(bVar.eBH()), bVar);
+        return q.l(get(bVar.eBI()), bVar);
     }
 
     private final boolean containsAll(CombinedContext combinedContext) {
@@ -115,7 +115,7 @@ public final class CombinedContext implements Serializable, c {
         c[] cVarArr = new c[size];
         Ref.IntRef intRef = new Ref.IntRef();
         intRef.element = 0;
-        fold(l.pRS, new CombinedContext$writeReplace$1(cVarArr, intRef));
+        fold(l.pTv, new CombinedContext$writeReplace$1(cVarArr, intRef));
         if (intRef.element == size) {
             return new Serialized(cVarArr);
         }
@@ -123,14 +123,14 @@ public final class CombinedContext implements Serializable, c {
     }
 
     @h
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     private static final class Serialized implements Serializable {
         public static final a Companion = new a(null);
         private static final long serialVersionUID = 0;
         private final c[] elements;
 
         @h
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public static final class a {
             private a() {
             }

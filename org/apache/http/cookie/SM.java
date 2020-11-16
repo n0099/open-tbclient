@@ -1,6 +1,6 @@
 package org.apache.http.cookie;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public interface SM {
     public static final String COOKIE = "Cookie";
     public static final String COOKIE2 = "Cookie2";

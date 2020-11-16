@@ -6,17 +6,17 @@ import android.os.RemoteException;
 import android.util.Log;
 import com.google.ar.core.ArCoreApk;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class aa implements Runnable {
     private final /* synthetic */ Context b;
-    final /* synthetic */ ArCoreApk.a pcP;
-    private final /* synthetic */ w pcQ;
+    final /* synthetic */ ArCoreApk.a pes;
+    private final /* synthetic */ w pet;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(w wVar, Context context, ArCoreApk.a aVar) {
-        this.pcQ = wVar;
+        this.pet = wVar;
         this.b = context;
-        this.pcP = aVar;
+        this.pes = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -24,14 +24,14 @@ public final class aa implements Runnable {
         com.google.a.b.a.a.a.a aVar;
         Bundle b;
         try {
-            aVar = this.pcQ.pcK;
+            aVar = this.pet.pen;
             String str = this.b.getApplicationInfo().packageName;
-            w wVar = this.pcQ;
+            w wVar = this.pet;
             b = w.b();
             aVar.a(str, b, new u(this));
         } catch (RemoteException e) {
             Log.e("ARCore-InstallService", "requestInfo threw", e);
-            this.pcP.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+            this.pes.a(ArCoreApk.Availability.UNKNOWN_ERROR);
         }
     }
 }

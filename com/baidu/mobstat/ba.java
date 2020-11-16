@@ -4,7 +4,7 @@ import android.util.Log;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public abstract class ba {
 
     /* renamed from: a  reason: collision with root package name */

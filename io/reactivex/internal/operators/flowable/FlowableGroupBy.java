@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operators.flowable.a<T, io.reactivex.b.b<K, V>> {
     final int bufferSize;
     final boolean delayError;
@@ -20,10 +20,10 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super io.reactivex.b.b<K, V>> cVar) {
-        this.pMK.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
+        this.pOn.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class GroupBySubscriber<T, K, V> extends BasicIntQueueSubscription<io.reactivex.b.b<K, V>> implements j<T> {
         static final Object NULL_KEY = new Object();
         private static final long serialVersionUID = -3688291656102519502L;
@@ -291,9 +291,9 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class a<K, T> extends io.reactivex.b.b<K, T> {
-        final State<T, K> pNi;
+        final State<T, K> pOL;
 
         public static <T, K> a<K, T> a(K k, int i, GroupBySubscriber<?, K, T> groupBySubscriber, boolean z) {
             return new a<>(k, new State(i, groupBySubscriber, k, z));
@@ -301,29 +301,29 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
         protected a(K k, State<T, K> state) {
             super(k);
-            this.pNi = state;
+            this.pOL = state;
         }
 
         @Override // io.reactivex.g
         protected void a(org.a.c<? super T> cVar) {
-            this.pNi.subscribe(cVar);
+            this.pOL.subscribe(cVar);
         }
 
         public void onNext(T t) {
-            this.pNi.onNext(t);
+            this.pOL.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.pNi.onError(th);
+            this.pOL.onError(th);
         }
 
         public void onComplete() {
-            this.pNi.onComplete();
+            this.pOL.onComplete();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class State<T, K> extends BasicIntQueueSubscription<T> implements org.a.b<T> {
         private static final long serialVersionUID = -3852313036005250360L;
         final boolean delayError;

@@ -5,7 +5,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import com.xiaomi.mipush.sdk.n;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class HelpContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {

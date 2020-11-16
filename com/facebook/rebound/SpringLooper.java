@@ -1,5 +1,5 @@
 package com.facebook.rebound;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public abstract class SpringLooper {
     protected BaseSpringSystem mSpringSystem;
 

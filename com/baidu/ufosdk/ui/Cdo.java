@@ -3,7 +3,7 @@ package com.baidu.ufosdk.ui;
 import android.view.View;
 import android.widget.AbsListView;
 /* renamed from: com.baidu.ufosdk.ui.do  reason: invalid class name */
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class Cdo implements AbsListView.RecyclerListener {
 
     /* renamed from: a  reason: collision with root package name */

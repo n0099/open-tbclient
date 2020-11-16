@@ -10,7 +10,7 @@ import java.security.spec.ECPoint;
 import java.security.spec.EllipticCurve;
 import org.conscrypt.NativeRef;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public final class OpenSSLECGroupContext {
     private final NativeRef.EC_GROUP groupCtx;
 

@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class eo implements et {
     private void a(Activity activity, Intent intent) {
         String stringExtra = intent.getStringExtra("awake_info");
@@ -23,29 +23,29 @@ public class eo implements et {
     }
 
     private void b(Context context, ep epVar) {
-        String m266a = epVar.m266a();
+        String m269a = epVar.m269a();
         String b = epVar.b();
         String d = epVar.d();
         int a2 = epVar.a();
-        if (context == null || TextUtils.isEmpty(m266a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
+        if (context == null || TextUtils.isEmpty(m269a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
             if (TextUtils.isEmpty(d)) {
                 em.a(context, PushConstants.INTENT_ACTIVITY_NAME, 1008, "argument error");
             } else {
                 em.a(context, d, 1008, "argument error");
             }
-        } else if (!com.xiaomi.push.service.f.b(context, m266a, b)) {
+        } else if (!com.xiaomi.push.service.f.b(context, m269a, b)) {
             em.a(context, d, 1003, "B is not ready");
         } else {
             em.a(context, d, 1002, "B is ready");
             em.a(context, d, 1004, "A is ready");
             Intent intent = new Intent(b);
-            intent.setPackage(m266a);
+            intent.setPackage(m269a);
             intent.putExtra("awake_info", el.a(d));
             intent.addFlags(276824064);
             intent.setAction(b);
             if (a2 == 1) {
                 try {
-                    if (!eq.m267a(context)) {
+                    if (!eq.m270a(context)) {
                         em.a(context, d, 1008, "A not in foreground");
                     }
                 } catch (Exception e) {

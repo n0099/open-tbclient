@@ -10,33 +10,33 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.a.d;
 import com.baidu.tieba.barselect.data.e;
 import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.view.NewVoteCountDownView;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class VoteStatusCard extends LinearLayout {
-    private a hQP;
-    private f hQm;
-    private e hRI;
-    private TextView hUZ;
-    private VoteStatusView hVa;
-    private TextView hVb;
-    private TextView hVc;
-    private TextView hVd;
-    private TextView hVe;
-    private TextView hVf;
-    private TextView hVg;
-    private NewVoteCountDownView hVh;
-    private View hVi;
-    private NewVoteCountDownView.a hVj;
+    private f hQM;
+    private a hRp;
+    private e hSi;
+    private VoteStatusView hVA;
+    private TextView hVB;
+    private TextView hVC;
+    private TextView hVD;
+    private TextView hVE;
+    private TextView hVF;
+    private TextView hVG;
+    private NewVoteCountDownView hVH;
+    private View hVI;
+    private NewVoteCountDownView.a hVJ;
+    private TextView hVz;
     private Context mContext;
     private Path mPath;
     private int status;
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes20.dex */
     public interface a {
         void onRefresh();
     }
@@ -47,12 +47,12 @@ public class VoteStatusCard extends LinearLayout {
 
     public VoteStatusCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.status = d.hUt;
-        this.hVj = new NewVoteCountDownView.a() { // from class: com.baidu.tieba.barselect.view.VoteStatusCard.1
+        this.status = d.hUT;
+        this.hVJ = new NewVoteCountDownView.a() { // from class: com.baidu.tieba.barselect.view.VoteStatusCard.1
             @Override // com.baidu.tieba.view.NewVoteCountDownView.a
-            public void afA() {
-                if (VoteStatusCard.this.hQP != null) {
-                    VoteStatusCard.this.hQP.onRefresh();
+            public void aeS() {
+                if (VoteStatusCard.this.hRp != null) {
+                    VoteStatusCard.this.hRp.onRefresh();
                 }
             }
         };
@@ -70,23 +70,23 @@ public class VoteStatusCard extends LinearLayout {
         setPadding(dimens, dimens2, dimens, dimens2);
         LayoutInflater.from(getContext()).inflate(R.layout.vote_status_card, (ViewGroup) this, true);
         ul();
-        cnM();
+        cno();
     }
 
     private void ul() {
-        this.hUZ = (TextView) findViewById(R.id.bar_maneger_apply_title);
-        this.hVa = (VoteStatusView) findViewById(R.id.vote_status_view);
-        this.hVb = (TextView) findViewById(R.id.apply_title);
-        this.hVc = (TextView) findViewById(R.id.apply_start_time);
-        this.hVd = (TextView) findViewById(R.id.vote_title);
-        this.hVe = (TextView) findViewById(R.id.vote_start_time);
-        this.hVf = (TextView) findViewById(R.id.publicity_title);
-        this.hVg = (TextView) findViewById(R.id.publicity_start_time);
-        this.hVi = findViewById(R.id.vote_count_down_container);
-        this.hVh = (NewVoteCountDownView) findViewById(R.id.vote_count_down_view);
+        this.hVz = (TextView) findViewById(R.id.bar_maneger_apply_title);
+        this.hVA = (VoteStatusView) findViewById(R.id.vote_status_view);
+        this.hVB = (TextView) findViewById(R.id.apply_title);
+        this.hVC = (TextView) findViewById(R.id.apply_start_time);
+        this.hVD = (TextView) findViewById(R.id.vote_title);
+        this.hVE = (TextView) findViewById(R.id.vote_start_time);
+        this.hVF = (TextView) findViewById(R.id.publicity_title);
+        this.hVG = (TextView) findViewById(R.id.publicity_start_time);
+        this.hVI = findViewById(R.id.vote_count_down_container);
+        this.hVH = (NewVoteCountDownView) findViewById(R.id.vote_count_down_view);
     }
 
-    private void cnM() {
+    private void cno() {
         this.mPath = new Path();
         this.mPath.moveTo(0.0f, 15.0f);
         this.mPath.lineTo(440.0f, 15.0f);
@@ -100,69 +100,69 @@ public class VoteStatusCard extends LinearLayout {
     }
 
     public void setData(f fVar) {
-        this.hQm = fVar;
-        if (this.hQm == null || this.hQm.cnn() == null) {
+        this.hQM = fVar;
+        if (this.hQM == null || this.hQM.cmP() == null) {
             setVisibility(8);
             return;
         }
-        this.hRI = this.hQm.cnn();
-        this.status = this.hRI.getStatus();
-        this.hVa.setStatus(this.status);
-        long cnh = this.hRI.cnh() * 1000;
-        this.hVc.setText(at.dq(this.hRI.cnf() * 1000));
-        this.hVe.setText(at.dp(this.hRI.cni() * 1000));
-        this.hVg.setText(at.dp(this.hRI.cng() * 1000));
-        if (this.status == d.hUt) {
-            this.hVi.setVisibility(0);
-            if (this.hVj != null) {
-                this.hVh.setOnCountDownFinished(this.hVj);
+        this.hSi = this.hQM.cmP();
+        this.status = this.hSi.getStatus();
+        this.hVA.setStatus(this.status);
+        long cmJ = this.hSi.cmJ() * 1000;
+        this.hVC.setText(au.dq(this.hSi.cmH() * 1000));
+        this.hVE.setText(au.dp(this.hSi.cmK() * 1000));
+        this.hVG.setText(au.dp(this.hSi.cmI() * 1000));
+        if (this.status == d.hUT) {
+            this.hVI.setVisibility(0);
+            if (this.hVJ != null) {
+                this.hVH.setOnCountDownFinished(this.hVJ);
             }
-            this.hVh.setData(cnh);
+            this.hVH.setData(cmJ);
             return;
         }
-        this.hVi.setVisibility(8);
+        this.hVI.setVisibility(8);
     }
 
-    public void uE(int i) {
-        int color = ap.getColor(i, R.color.cp_cont_b);
-        int color2 = ap.getColor(i, R.color.cp_cont_d);
-        if (this.hVb != null) {
-            this.hVb.setTextColor(color);
+    public void vc(int i) {
+        int color = ap.getColor(i, R.color.CAM_X0105);
+        int color2 = ap.getColor(i, R.color.CAM_X0109);
+        if (this.hVB != null) {
+            this.hVB.setTextColor(color);
         }
-        if (this.hVd != null) {
-            this.hVd.setTextColor(this.status > d.hUs ? color : color2);
+        if (this.hVD != null) {
+            this.hVD.setTextColor(this.status > d.hUS ? color : color2);
         }
-        if (this.hVf != null) {
-            TextView textView = this.hVf;
-            if (this.status <= d.hUt) {
+        if (this.hVF != null) {
+            TextView textView = this.hVF;
+            if (this.status <= d.hUT) {
                 color = color2;
             }
             textView.setTextColor(color);
         }
-        if (this.hVa != null) {
-            this.hVa.uE(i);
+        if (this.hVA != null) {
+            this.hVA.vc(i);
         }
-        ap.setViewTextColor(this.hUZ, R.color.cp_cont_b, 1, i);
-        ap.setViewTextColor(this.hVc, R.color.cp_cont_d, 1, i);
-        ap.setViewTextColor(this.hVe, R.color.cp_cont_d, 1, i);
-        ap.setViewTextColor(this.hVg, R.color.cp_cont_d, 1, i);
+        ap.setViewTextColor(this.hVz, R.color.CAM_X0105, 1, i);
+        ap.setViewTextColor(this.hVC, R.color.CAM_X0109, 1, i);
+        ap.setViewTextColor(this.hVE, R.color.CAM_X0109, 1, i);
+        ap.setViewTextColor(this.hVG, R.color.CAM_X0109, 1, i);
         ap.setBackgroundResource(this, R.drawable.bar_select_bg_shadow_and_radius, i);
-        if (this.hVh != null) {
-            this.hVh.uE(i);
+        if (this.hVH != null) {
+            this.hVH.vc(i);
         }
-        int color3 = ap.getColor(R.color.cp_bg_line_g);
+        int color3 = ap.getColor(R.color.CAM_X0206);
         com.baidu.tieba.view.e eVar = new com.baidu.tieba.view.e(this.mPath, 902.0f, 224.0f);
         eVar.setColor(color3);
-        this.hVi.setBackground(eVar);
+        this.hVI.setBackground(eVar);
     }
 
     public void setOnRefreshListener(a aVar) {
-        this.hQP = aVar;
+        this.hRp = aVar;
     }
 
     public void onDestroy() {
-        if (this.hVh != null) {
-            this.hVh.onDestroy();
+        if (this.hVH != null) {
+            this.hVH.onDestroy();
         }
     }
 }

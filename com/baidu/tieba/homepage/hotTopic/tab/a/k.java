@@ -5,19 +5,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItemView;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class k extends a<com.baidu.tieba.homepage.hotTopic.tab.b.f, com.baidu.adp.widget.ListView.b<HotTopicTabThreadItemView>> {
     public k(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.jBP);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.jCM);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bH */
+    /* renamed from: bD */
     public com.baidu.adp.widget.ListView.b<HotTopicTabThreadItemView> c(ViewGroup viewGroup) {
         HotTopicTabThreadItemView hotTopicTabThreadItemView = new HotTopicTabThreadItemView(viewGroup.getContext());
-        hotTopicTabThreadItemView.setOnItemCoverListener(this.aiM);
+        hotTopicTabThreadItemView.setOnItemCoverListener(this.aiR);
         hotTopicTabThreadItemView.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         return new com.baidu.adp.widget.ListView.b<>(hotTopicTabThreadItemView);
     }

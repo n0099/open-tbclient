@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public class af {
-    public int iLN;
+    public int iMA;
     public String name;
 }

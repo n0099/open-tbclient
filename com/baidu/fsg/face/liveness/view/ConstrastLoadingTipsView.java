@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.fsg.face.liveness.datamodel.UploadContrastPortraitModel;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class ConstrastLoadingTipsView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
@@ -25,7 +25,7 @@ public class ConstrastLoadingTipsView extends LinearLayout {
     private TextView h;
     private a i;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public interface a {
         void a();
 
@@ -96,7 +96,7 @@ public class ConstrastLoadingTipsView extends LinearLayout {
         this.i = aVar;
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     private class b extends CountDownTimer {
         public b(long j, long j2) {
             super(j, j2);

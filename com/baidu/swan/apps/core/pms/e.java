@@ -3,7 +3,7 @@ package com.baidu.swan.apps.core.pms;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class e extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -12,14 +12,14 @@ public class e extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.j
-    protected int aql() {
+    protected int apD() {
         return 3;
     }
 
     @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
     public void a(com.baidu.swan.pms.utils.f fVar) {
         super.a(fVar);
-        if (fVar != null && fVar.bcz()) {
+        if (fVar != null && fVar.bbS()) {
             R("checkForUpdate", true);
         }
     }
@@ -27,12 +27,12 @@ public class e extends f {
     @Override // com.baidu.swan.pms.a.g
     public void P(String str, int i) {
         super.P(str, i);
-        com.baidu.swan.pms.c.c yr = com.baidu.swan.pms.c.c.yr(str);
-        if (yr != null) {
-            boolean df = com.baidu.swan.pms.utils.e.df(yr.getData());
-            com.baidu.swan.apps.console.c.i("SwanAppPkgAsyncDownloadCallback", "resetCore: " + df);
-            if (df) {
-                com.baidu.swan.apps.process.messaging.a.aFe().a(new com.baidu.swan.apps.process.messaging.c(129).gg(true));
+        com.baidu.swan.pms.c.c ym = com.baidu.swan.pms.c.c.ym(str);
+        if (ym != null) {
+            boolean cZ = com.baidu.swan.pms.utils.e.cZ(ym.getData());
+            com.baidu.swan.apps.console.c.i("SwanAppPkgAsyncDownloadCallback", "resetCore: " + cZ);
+            if (cZ) {
+                com.baidu.swan.apps.process.messaging.a.aEw().a(new com.baidu.swan.apps.process.messaging.c(129).gj(true));
             }
         }
     }
@@ -44,36 +44,36 @@ public class e extends f {
             Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + aVar.toString());
         }
         R("checkForUpdate", false);
-        ij(aVar.errorNo);
+        m33if(aVar.errorNo);
         if (com.baidu.swan.apps.core.pms.d.a.c(aVar)) {
-            com.baidu.swan.apps.core.pms.d.a.nq(this.mAppId);
+            com.baidu.swan.apps.core.pms.d.a.nk(this.mAppId);
         }
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void anq() {
-        super.anq();
-        if (this.cNc != null) {
-            aqy();
+    public void amI() {
+        super.amI();
+        if (this.cLs != null) {
+            apQ();
             R("checkForUpdate", false);
-            com.baidu.swan.apps.core.pms.d.a.nq(this.mAppId);
+            com.baidu.swan.apps.core.pms.d.a.nk(this.mAppId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.pms.f
-    public void aqp() {
-        super.aqp();
-        this.cNd.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.am.a aqx = aqx();
-        this.cNd.add(new UbcFlowEvent("na_end_update_db"));
-        if (aqx == null) {
+    public void apH() {
+        super.apH();
+        this.cLt.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.am.a apP = apP();
+        this.cLt.add(new UbcFlowEvent("na_end_update_db"));
+        if (apP == null) {
             if (DEBUG) {
                 Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");
             }
             R("updateReady", true);
-            by("main_async_download", "0");
-            com.baidu.swan.apps.core.pms.d.a.nq(this.mAppId);
+            bx("main_async_download", "0");
+            com.baidu.swan.apps.core.pms.d.a.nk(this.mAppId);
         } else if (DEBUG) {
             Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储失败");
         }
@@ -93,7 +93,7 @@ public class e extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType aqq() {
+    protected PMSDownloadType apI() {
         return PMSDownloadType.ASYNC;
     }
 

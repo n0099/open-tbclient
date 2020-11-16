@@ -9,26 +9,26 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class h {
-    private com.baidu.tbadk.coreExtra.model.a eNr;
-    private c iPu;
+    private com.baidu.tbadk.coreExtra.model.a eMq;
+    private c iQh;
     private TbPageContext mPageContext;
-    private BdUniqueId aiz = BdUniqueId.gen();
-    private CustomMessageListener eNv = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.frs.aggregation.h.1
+    private BdUniqueId aiE = BdUniqueId.gen();
+    private CustomMessageListener eMu = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.frs.aggregation.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage;
             UpdateAttentionMessage.a data;
-            if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.iPu != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
+            if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.iQh != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
                 if (!data.isSucc) {
-                    h.this.iPu.showMsg(updateAttentionMessage.getData().errorString);
+                    h.this.iQh.showMsg(updateAttentionMessage.getData().errorString);
                 } else {
-                    h.this.iPu.pS(data.isAttention);
+                    h.this.iQh.pV(data.isAttention);
                 }
             }
         }
@@ -36,25 +36,25 @@ public class h {
 
     public h(TbPageContext tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
-        this.iPu = cVar;
-        this.eNr = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
-        this.eNv.setSelfListener(true);
-        this.eNv.setTag(this.aiz);
-        MessageManager.getInstance().registerListener(this.eNv);
+        this.iQh = cVar;
+        this.eMq = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
+        this.eMu.setSelfListener(true);
+        this.eMu.setTag(this.aiE);
+        MessageManager.getInstance().registerListener(this.eMu);
     }
 
     public void f(g gVar) {
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.no_network);
-        } else if (gVar != null && gVar.iOY != null && this.eNr != null && bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            this.eNr.a(!gVar.iOY.hasFocus, gVar.iOY.portrait, gVar.iOY.userId, this.aiz);
+        } else if (gVar != null && gVar.iPL != null && this.eMq != null && bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+            this.eMq.a(!gVar.iPL.hasFocus, gVar.iPL.portrait, gVar.iPL.userId, this.aiE);
         }
     }
 
     public void g(g gVar) {
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.no_network);
-        } else if (gVar != null && this.iPu != null && bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+        } else if (gVar != null && this.iQh != null && bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
             HttpMessage httpMessage = new HttpMessage(1001601);
             httpMessage.addParam("thread_id", gVar.threadId);
             httpMessage.addParam("op_type", Boolean.valueOf(gVar.hasAgree));
@@ -64,14 +64,14 @@ public class h {
             httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
             httpMessage.addHeader("needSig", "1");
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.iPu.cBe();
+            this.iQh.cAH();
         }
     }
 
-    public void cBn() {
-        if (this.eNr != null) {
-            this.eNr.cancel();
+    public void cAQ() {
+        if (this.eMq != null) {
+            this.eMq.cancel();
         }
-        MessageManager.getInstance().unRegisterListener(this.eNv);
+        MessageManager.getInstance().unRegisterListener(this.eMu);
     }
 }

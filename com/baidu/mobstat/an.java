@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class an {
     private static volatile String c;
     private static volatile int d = 0;
@@ -208,7 +208,7 @@ public class an {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Callable<List<c>> {
 
         /* renamed from: a  reason: collision with root package name */
@@ -338,7 +338,7 @@ public class an {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         private final Paint b = new Paint(2);
 
@@ -363,7 +363,7 @@ public class an {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */

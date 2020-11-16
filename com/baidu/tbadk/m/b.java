@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class b {
     private static final int FIX_MAX_COST = 5;
-    private boolean isSwitchOpen = com.baidu.tbadk.core.sharedPref.b.bqh().getBoolean(SharedPrefConfig.PAGE_STAY_DURATION_SWITCH, false);
+    private boolean isSwitchOpen = com.baidu.tbadk.core.sharedPref.b.bpu().getBoolean(SharedPrefConfig.PAGE_STAY_DURATION_SWITCH, false);
 
     public abstract int getMaxCost();
 
@@ -18,7 +18,7 @@ public abstract class b {
         if (dVar.isRouteStat) {
             dVar.setSorceKeyList(c.trimToSize(dVar.getSorceKeyList(), 6));
         } else {
-            int maxCostFromServer = getMaxCost() > e.bCg().getMaxCostFromServer() ? e.bCg().getMaxCostFromServer() : getMaxCost();
+            int maxCostFromServer = getMaxCost() > e.bBw().getMaxCostFromServer() ? e.bBw().getMaxCostFromServer() : getMaxCost();
             dVar.setSorceKeyList(c.trimToSize(dVar.getSorceKeyList(), maxCostFromServer <= 5 ? maxCostFromServer : 5));
         }
         return true;
@@ -26,7 +26,7 @@ public abstract class b {
 
     private void updataSwitchStaus(boolean z) {
         if (this.isSwitchOpen != z) {
-            com.baidu.tbadk.core.sharedPref.b.bqh().putBoolean(SharedPrefConfig.PAGE_STAY_DURATION_SWITCH, true);
+            com.baidu.tbadk.core.sharedPref.b.bpu().putBoolean(SharedPrefConfig.PAGE_STAY_DURATION_SWITCH, true);
             this.isSwitchOpen = z;
         }
     }
@@ -38,7 +38,7 @@ public abstract class b {
         if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
             updataSwitchStaus(false);
             return false;
-        } else if (!e.bCg().isSmallFlowOpen()) {
+        } else if (!e.bBw().isSmallFlowOpen()) {
             updataSwitchStaus(false);
             return false;
         } else {

@@ -23,8 +23,8 @@ import com.baidu.platform.comapi.UIMsg;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes4.dex */
 public class c {
-    private VideoBeautyType bxA;
-    private AlaLiveRecorder bxq;
+    private AlaLiveRecorder bvF;
+    private VideoBeautyType bvP;
     private TbPageContext mPageContext;
     private RecorderCallback mRecorderCallback = new RecorderCallback() { // from class: com.baidu.live.talentshow.a.c.1
         @Override // com.baidu.ala.recorder.RecorderCallback
@@ -86,33 +86,33 @@ public class c {
         this.mPageContext = tbPageContext;
     }
 
-    public AlaLiveRecorder RT() {
-        if (this.bxq == null) {
-            RU();
+    public AlaLiveRecorder Rk() {
+        if (this.bvF == null) {
+            Rl();
         }
-        return this.bxq;
+        return this.bvF;
     }
 
-    private void RU() {
-        this.bxA = bl.b(com.baidu.live.aa.a.PQ().btT) ? VideoBeautyType.DUMIX_AR : VideoBeautyType.BEAUTY_NONE;
-        if (this.bxq == null) {
-            AlaLiveVideoConfig d = LiveRecorderConfigHelper.Pn().d(4, 1, false);
+    private void Rl() {
+        this.bvP = bl.b(com.baidu.live.aa.a.Ph().bsh) ? VideoBeautyType.DUMIX_AR : VideoBeautyType.BEAUTY_NONE;
+        if (this.bvF == null) {
+            AlaLiveVideoConfig d = LiveRecorderConfigHelper.OE().d(4, 1, false);
             d.setOutputWidth(UIMsg.MsgDefine.MSG_NETWORK_CHANNEL);
             d.setOutputHeight(TbConfig.HEAD_IMG_SIZE);
-            this.bxq = new AlaLiveRecorder(this.mPageContext.getPageActivity(), d, VideoRecorderType.CAMERA, this.bxA);
-            this.bxq.addRecorderCallback(this.mRecorderCallback);
+            this.bvF = new AlaLiveRecorder(this.mPageContext.getPageActivity(), d, VideoRecorderType.CAMERA, this.bvP);
+            this.bvF.addRecorderCallback(this.mRecorderCallback);
         }
     }
 
-    public void x(ViewGroup viewGroup) {
-        RT();
-        this.bxq.getPreview().setEnabled(false);
-        RW();
-        ab(this.bxq.getPreview());
-        viewGroup.addView(this.bxq.getPreview(), 0, RV());
+    public void t(ViewGroup viewGroup) {
+        Rk();
+        this.bvF.getPreview().setEnabled(false);
+        Rn();
+        ab(this.bvF.getPreview());
+        viewGroup.addView(this.bvF.getPreview(), 0, Rm());
     }
 
-    private FrameLayout.LayoutParams RV() {
+    private FrameLayout.LayoutParams Rm() {
         return new FrameLayout.LayoutParams(-1, -1);
     }
 
@@ -136,9 +136,9 @@ public class c {
         view.setClipToOutline(true);
     }
 
-    public void RW() {
+    public void Rn() {
         View preview;
-        if (this.bxq != null && (preview = this.bxq.getPreview()) != null) {
+        if (this.bvF != null && (preview = this.bvF.getPreview()) != null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 n(preview, 0.0f);
             }
@@ -149,22 +149,22 @@ public class c {
     }
 
     public void startPreview() {
-        if (this.bxq != null) {
-            this.bxq.startRecord();
+        if (this.bvF != null) {
+            this.bvF.startRecord();
         }
     }
 
-    public void RX() {
-        if (this.bxq != null) {
-            this.bxq.stopRecord();
+    public void Ro() {
+        if (this.bvF != null) {
+            this.bvF.stopRecord();
         }
     }
 
     public void onDestroy() {
-        if (this.bxq != null) {
-            this.bxq.stopRecord();
-            this.bxq.release();
-            this.bxq = null;
+        if (this.bvF != null) {
+            this.bvF.stopRecord();
+            this.bvF.release();
+            this.bvF = null;
         }
     }
 }

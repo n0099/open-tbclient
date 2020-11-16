@@ -69,7 +69,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class TypeUtils {
     public static boolean compatibleWithFieldName;
     public static boolean compatibleWithJavaBean;

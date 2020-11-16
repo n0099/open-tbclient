@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class UrlUtil {
     private static final boolean DEBUG = false;
     public static final String PERCENT_PATTEN = "%(?![0-9a-fA-F]{2})";

@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public final class NativeCrashHandler {
 
     /* renamed from: a  reason: collision with root package name */

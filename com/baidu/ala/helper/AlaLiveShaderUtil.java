@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class AlaLiveShaderUtil {
     public static String getStringFromAssert(String str) {
         StringBuilder sb = new StringBuilder();

@@ -2,7 +2,7 @@ package com.baidu.fsg.base.restnet.rest;
 
 import android.util.Log;
 import com.baidu.fsg.base.restnet.http.HttpStatus;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class f<T> {
 
     /* renamed from: a  reason: collision with root package name */

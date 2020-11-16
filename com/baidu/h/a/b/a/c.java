@@ -1,18 +1,18 @@
 package com.baidu.h.a.b.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class c {
-    public String aSP;
-    public String bUL;
-    public String bUM;
-    public String bUP;
-    public C0136c bUR;
-    public String bUS;
-    public String bUU;
-    public String bUX;
-    public String bUY;
-    public C0136c bUZ;
-    public a bVa;
-    public String bVb;
+    public String aRe;
+    public String bTb;
+    public String bTc;
+    public String bTf;
+    public C0134c bTh;
+    public String bTi;
+    public String bTk;
+    public String bTn;
+    public String bTo;
+    public C0134c bTp;
+    public a bTq;
+    public String bTr;
     public String content;
     public long msgId;
     public String name;
@@ -20,54 +20,54 @@ public class c {
     public long time;
     public String uid;
     public String type = "0";
-    public String bUN = "0";
-    public String bUO = "1005";
-    public String bUQ = "0";
-    public String bUT = "0";
-    public String bUV = "0";
-    public String bUW = "1005";
+    public String bTd = "0";
+    public String bTe = "1005";
+    public String bTg = "0";
+    public String bTj = "0";
+    public String bTl = "0";
+    public String bTm = "1005";
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        public int bVj;
-        public int bVk;
-        public c bVl;
-        public long[] bVm;
-        public int bVn;
-        public String bVo;
-        public String bVp;
+        public int bTA;
+        public c bTB;
+        public long[] bTC;
+        public int bTD;
+        public String bTE;
+        public String bTF;
+        public int bTz;
         public int feedback = 0;
-        public String bVc = "";
-        public int bVd = 0;
+        public String bTs = "";
+        public int bTt = 0;
         public String duration = "";
-        public String bVe = "";
-        public String bVf = "";
-        public String bVg = "";
-        public String bVh = "";
-        public String bVi = "";
+        public String bTu = "";
+        public String bTv = "";
+        public String bTw = "";
+        public String bTx = "";
+        public String bTy = "";
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public String title;
         public String url;
     }
 
     /* renamed from: com.baidu.h.a.b.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public static class C0136c {
-        public e bVq;
-        public d bVr;
-        public f bVs;
-        public b bVt;
+    /* loaded from: classes9.dex */
+    public static class C0134c {
+        public e bTG;
+        public d bTH;
+        public f bTI;
+        public b bTJ;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public static class d {
-        public a bVu;
-        public a bVv;
+        public a bTK;
+        public a bTL;
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes9.dex */
         public static class a {
             public String format;
             public int height;
@@ -76,12 +76,12 @@ public class c {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public static class e {
         public String word;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public static class f {
         public String duration;
         public String format;
@@ -89,6 +89,6 @@ public class c {
     }
 
     public String toString() {
-        return "LiveMessageBean:{" + this.bUL + "}";
+        return "LiveMessageBean:{" + this.bTb + "}";
     }
 }

@@ -5,26 +5,26 @@ import com.baidu.swan.apps.runtime.e;
 import kotlin.h;
 import org.json.JSONObject;
 @h
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class c extends b {
     private final boolean DEBUG;
     private final String TAG = "SwanAppPayCheckNode";
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void u(JSONObject jSONObject, String str) {
-        e aHv;
-        com.baidu.swan.apps.setting.a aHG;
+    public void r(JSONObject jSONObject, String str) {
+        e aGN;
+        com.baidu.swan.apps.setting.a aGY;
         if (this.DEBUG) {
             Log.d(this.TAG, "onUpdate: ");
         }
-        if (jSONObject == null || (aHv = e.aHv()) == null || (aHG = aHv.aHG()) == null) {
+        if (jSONObject == null || (aGN = e.aGN()) == null || (aGY = aGN.aGY()) == null) {
             return;
         }
-        aHG.putString("note_data_pay_check_list", jSONObject.toString());
+        aGY.putString("note_data_pay_check_list", jSONObject.toString());
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void aCS() {
+    public void aCk() {
         if (this.DEBUG) {
             Log.d(this.TAG, "onFiltered: ");
         }

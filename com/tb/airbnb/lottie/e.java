@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class e {
     private Map<String, List<Layer>> Bj;
     private Map<String, com.tb.airbnb.lottie.model.c> Bk;
@@ -23,7 +23,7 @@ public class e {
     private float Bq;
     private Rect bounds;
     private Map<String, h> images;
-    private final o pHQ = new o();
+    private final o pJt = new o();
     private final HashSet<String> Bi = new HashSet<>();
 
     public void a(Rect rect, float f, float f2, float f3, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, h> map2, SparseArrayCompat<com.tb.airbnb.lottie.model.d> sparseArrayCompat, Map<String, com.tb.airbnb.lottie.model.c> map3) {
@@ -46,15 +46,16 @@ public class e {
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.pHQ.setEnabled(z);
+        this.pJt.setEnabled(z);
     }
 
     public o getPerformanceTracker() {
-        return this.pHQ;
+        return this.pJt;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public Layer ic(long j) {
+    /* renamed from: if  reason: not valid java name */
+    public Layer m56if(long j) {
         return this.Bm.get(j);
     }
 
@@ -115,31 +116,31 @@ public class e {
     }
 
     @Deprecated
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public static class a {
         @Deprecated
         public static com.tb.airbnb.lottie.a a(InputStream inputStream, n nVar) {
-            C1039a c1039a = new C1039a(nVar);
-            f.j(inputStream, null).a(c1039a);
-            return c1039a;
+            C1042a c1042a = new C1042a(nVar);
+            f.j(inputStream, null).a(c1042a);
+            return c1042a;
         }
 
         /* renamed from: com.tb.airbnb.lottie.e$a$a  reason: collision with other inner class name */
-        /* loaded from: classes16.dex */
-        private static final class C1039a implements com.tb.airbnb.lottie.a, i<e> {
+        /* loaded from: classes17.dex */
+        private static final class C1042a implements com.tb.airbnb.lottie.a, i<e> {
             private boolean cancelled;
-            private final n pHR;
+            private final n pJu;
 
-            private C1039a(n nVar) {
+            private C1042a(n nVar) {
                 this.cancelled = false;
-                this.pHR = nVar;
+                this.pJu = nVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.tb.airbnb.lottie.i
             public void onResult(e eVar) {
                 if (!this.cancelled) {
-                    this.pHR.a(eVar);
+                    this.pJu.a(eVar);
                 }
             }
         }

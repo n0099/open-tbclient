@@ -7,22 +7,22 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class p extends HttpMessage {
-    public long aVA;
-    public Map<Long, Long> aVC;
-    public int aWg;
+    public long aTP;
+    public Map<Long, Long> aTR;
+    public int aUv;
     public String giftId;
     public String giftName;
     public String sceneFrom;
 
     public p() {
         super(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
-        this.aVC = new HashMap();
+        this.aTR = new HashMap();
     }
 
     public void a(String str, String str2, String str3, String str4, int i, int i2, String str5, long j) {
         this.giftId = str;
-        this.sceneFrom = com.baidu.live.utils.p.UK();
-        this.aWg = i;
+        this.sceneFrom = com.baidu.live.utils.p.Ub();
+        this.aUv = i;
         addParam("scene_from", this.sceneFrom);
         addParam(LegoListActivityConfig.ITEM_ID, str);
         addParam("item_type", str2);

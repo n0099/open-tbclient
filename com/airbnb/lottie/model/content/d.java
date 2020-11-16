@@ -2,7 +2,7 @@ package com.airbnb.lottie.model.content;
 
 import android.graphics.Path;
 import android.support.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class d implements b {
     private final com.airbnb.lottie.model.a.d EY;
     private final GradientType Fe;

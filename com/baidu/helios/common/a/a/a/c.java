@@ -1,23 +1,23 @@
 package com.baidu.helios.common.a.a.a;
 
 import java.math.BigInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class c implements com.baidu.helios.common.a.b.a {
-    private BigInteger adG;
-    private BigInteger adH;
+    private BigInteger adL;
+    private BigInteger adM;
 
     public c(byte[] bArr, byte[] bArr2) {
-        this.adG = new BigInteger(bArr);
-        this.adH = new BigInteger(bArr2);
+        this.adL = new BigInteger(bArr);
+        this.adM = new BigInteger(bArr2);
     }
 
     @Override // com.baidu.helios.common.a.b.a
     public BigInteger getModulus() {
-        return this.adG;
+        return this.adL;
     }
 
     @Override // com.baidu.helios.common.a.b.a
     public BigInteger getPublicExponent() {
-        return this.adH;
+        return this.adM;
     }
 }

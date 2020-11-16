@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.util.Log;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 class c extends a {
     @Override // com.baidu.swan.apps.y.b.a
     public boolean a(Bitmap bitmap, Rect rect) {
@@ -21,8 +21,8 @@ class c extends a {
         try {
             int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
             boolean z2 = pixel == -1 || pixel == -657931;
-            if (!z2 && this.dgW != null) {
-                for (Integer num : this.dgW) {
+            if (!z2 && this.dfp != null) {
+                for (Integer num : this.dfp) {
                     if (num.intValue() == pixel) {
                         z = true;
                         break;

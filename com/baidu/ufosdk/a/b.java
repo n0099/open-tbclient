@@ -3,7 +3,7 @@ package com.baidu.ufosdk.a;
 import android.content.Context;
 import com.baidu.ufosdk.UfoSDK;
 import com.baidu.ufosdk.f.c;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class b extends Thread {
 
     /* renamed from: a  reason: collision with root package name */

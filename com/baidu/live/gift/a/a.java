@@ -3,19 +3,19 @@ package com.baidu.live.gift.a;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public String baU;
-    public String baV;
-    public String baW;
-    public String baX;
+    public String aZi;
+    public String aZj;
+    public String aZk;
+    public String aZl;
 
     public a(String str, String str2, String str3, String str4) {
-        this.baU = str;
-        this.baV = str2;
-        this.baW = str3;
-        this.baX = str4;
+        this.aZi = str;
+        this.aZj = str2;
+        this.aZk = str3;
+        this.aZl = str4;
     }
 
-    public static a K(JSONObject jSONObject) {
+    public static a E(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

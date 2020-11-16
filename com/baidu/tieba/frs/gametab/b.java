@@ -9,39 +9,39 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tieba.f.a;
+import com.baidu.tieba.g.a;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.tieba.f.b iMk;
-    private boolean jah;
+    private com.baidu.tieba.g.b iMX;
+    private boolean jaT;
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
-    private boolean fyZ = false;
-    private a.InterfaceC0719a igd = new a.InterfaceC0719a() { // from class: com.baidu.tieba.frs.gametab.b.1
-        @Override // com.baidu.tieba.f.a.InterfaceC0719a
+    private boolean fym = false;
+    private a.InterfaceC0740a igS = new a.InterfaceC0740a() { // from class: com.baidu.tieba.frs.gametab.b.1
+        @Override // com.baidu.tieba.g.a.InterfaceC0740a
         public void H(int i, int i2) {
-            if (av(i2)) {
-                b.this.pN(true);
+            if (ax(i2)) {
+                b.this.pQ(true);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0719a
+        @Override // com.baidu.tieba.g.a.InterfaceC0740a
         public void I(int i, int i2) {
-            if (av(i2)) {
-                b.this.pN(false);
+            if (ax(i2)) {
+                b.this.pQ(false);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0719a
+        @Override // com.baidu.tieba.g.a.InterfaceC0740a
         public void cg(int i, int i2) {
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0719a
+        @Override // com.baidu.tieba.g.a.InterfaceC0740a
         public void J(int i, int i2) {
         }
 
-        private boolean av(float f) {
+        private boolean ax(float f) {
             return Math.abs(f) >= 10.0f;
         }
     };
@@ -49,10 +49,10 @@ public class b {
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.jah = z;
-        if (this.jah) {
-            this.iMk = new com.baidu.tieba.f.b(context);
-            this.iMk.a(this.igd);
+        this.jaT = z;
+        if (this.jaT) {
+            this.iMX = new com.baidu.tieba.g.b(context);
+            this.iMX.a(this.igS);
         }
     }
 
@@ -69,15 +69,15 @@ public class b {
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.jah = false;
+                    this.jaT = false;
                     break;
                 } else {
-                    this.jah = true;
+                    this.jaT = true;
                     break;
                 }
         }
-        if (this.jah && this.iMk != null) {
-            this.iMk.onTouchEvent(motionEvent);
+        if (this.jaT && this.iMX != null) {
+            this.iMX.onTouchEvent(motionEvent);
         }
     }
 
@@ -90,10 +90,10 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pN(boolean z) {
-        this.fyZ = z;
-        if (this.jah) {
-            J(!this.fyZ, true);
+    public void pQ(boolean z) {
+        this.fym = z;
+        if (this.jaT) {
+            J(!this.fym, true);
         }
     }
 

@@ -8,7 +8,7 @@ import com.baidu.fsg.base.restnet.beans.business.BaseBean;
 import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class o extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */

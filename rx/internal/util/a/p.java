@@ -1,19 +1,19 @@
 package rx.internal.util.a;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 abstract class p<E> extends n<E> {
-    private volatile long qje;
+    private volatile long qkH;
 
     public p(int i) {
         super(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final long eGk() {
-        return this.qje;
+    public final long eGl() {
+        return this.qkH;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void iy(long j) {
-        this.qje = j;
+    public final void iB(long j) {
+        this.qkH = j;
     }
 }

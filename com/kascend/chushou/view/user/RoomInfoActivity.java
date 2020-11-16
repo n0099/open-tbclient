@@ -39,7 +39,7 @@ public class RoomInfoActivity extends BaseActivity {
             this.f4239a.setText(a.i.str_contribute_tittle);
             H5Options h5Options = new H5Options();
             h5Options.d = true;
-            h5Options.f4233a = tv.chushou.common.a.cId() + "m/room-billboard/" + stringExtra + ".htm";
+            h5Options.f4233a = tv.chushou.common.a.cHI() + "m/room-billboard/" + stringExtra + ".htm";
             aVar = com.kascend.chushou.view.h5.a.a(h5Options);
         }
         if (aVar != null) {

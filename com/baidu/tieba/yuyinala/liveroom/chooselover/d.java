@@ -57,48 +57,48 @@ public class d extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(a.g.yuyin_ala_item_choose_love_person, (ViewGroup) null);
             a aVar2 = new a(view);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                aVar2.nVm.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
+                aVar2.nWP.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
             } else {
-                aVar2.nVm.setDefaultResource(a.e.sdk_icon_default_avatar100);
+                aVar2.nWP.setDefaultResource(a.e.sdk_icon_default_avatar100);
             }
-            aVar2.nVm.setIsRound(true);
-            aVar2.nVm.setDrawBorder(true);
-            aVar2.nVm.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-            aVar2.nVm.setAutoChangeStyle(false);
-            aVar2.nVm.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            aVar2.nWP.setIsRound(true);
+            aVar2.nWP.setDrawBorder(true);
+            aVar2.nWP.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+            aVar2.nWP.setAutoChangeStyle(false);
+            aVar2.nWP.setScaleType(ImageView.ScaleType.CENTER_CROP);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         AlaWheatInfoData alaWheatInfoData = (AlaWheatInfoData) getItem(i);
-        g(aVar.nVo);
-        aVar.nVm.setDrawBorder(true);
-        aVar.bxh.setText(alaWheatInfoData.userName);
+        g(aVar.nWR);
+        aVar.nWP.setDrawBorder(true);
+        aVar.bvw.setText(alaWheatInfoData.userName);
         if (!TextUtils.isEmpty(alaWheatInfoData.portrait)) {
-            aVar.nVm.startLoad(alaWheatInfoData.portrait, 12, false, false);
+            aVar.nWP.startLoad(alaWheatInfoData.portrait, 12, false, false);
         }
         if (alaWheatInfoData.sex == 2) {
-            aVar.nVn.setBackgroundResource(a.e.shape_yuin_choose_love_person_woman);
+            aVar.nWQ.setBackgroundResource(a.e.shape_yuin_choose_love_person_woman);
         } else {
-            aVar.nVn.setBackgroundResource(a.e.shape_yuin_choose_love_person_man);
+            aVar.nWQ.setBackgroundResource(a.e.shape_yuin_choose_love_person_man);
         }
-        aVar.nVn.setText(alaWheatInfoData.realWheatPosition + "");
+        aVar.nWQ.setText(alaWheatInfoData.realWheatPosition + "");
         if (alaWheatInfoData.isSelect) {
-            aVar.nVm.setBackgroundResource(a.e.shape_yuin_choose_love_person_select);
+            aVar.nWP.setBackgroundResource(a.e.shape_yuin_choose_love_person_select);
         } else {
-            aVar.nVm.setBackgroundResource(a.e.shape_yuin_choose_love_person_unselect);
+            aVar.nWP.setBackgroundResource(a.e.shape_yuin_choose_love_person_unselect);
         }
         return view;
     }
 
-    public void dO(View view) {
+    public void dV(View view) {
         if (view != null && view.findViewById(a.f.iv_head) != null) {
             view.findViewById(a.f.iv_head).setBackgroundResource(a.e.shape_yuin_choose_love_person_unselect);
         }
     }
 
-    public void dP(View view) {
+    public void dW(View view) {
         if (view != null && view.findViewById(a.f.iv_head) != null) {
             view.findViewById(a.f.iv_head).setBackgroundResource(a.e.shape_yuin_choose_love_person_select);
         }
@@ -113,18 +113,18 @@ public class d extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     public static class a {
-        public TextView bxh;
-        public HeadImageView nVm;
-        public TextView nVn;
-        public LinearLayout nVo;
+        public TextView bvw;
+        public HeadImageView nWP;
+        public TextView nWQ;
+        public LinearLayout nWR;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.nVm = (HeadImageView) view.findViewById(a.f.iv_head);
-            this.bxh = (TextView) view.findViewById(a.f.tv_name);
-            this.nVn = (TextView) view.findViewById(a.f.tv_sex);
-            this.nVo = (LinearLayout) view.findViewById(a.f.ll_bg);
+            this.nWP = (HeadImageView) view.findViewById(a.f.iv_head);
+            this.bvw = (TextView) view.findViewById(a.f.tv_name);
+            this.nWQ = (TextView) view.findViewById(a.f.tv_sex);
+            this.nWR = (LinearLayout) view.findViewById(a.f.ll_bg);
         }
     }
 }

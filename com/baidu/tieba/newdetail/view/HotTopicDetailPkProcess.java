@@ -15,25 +15,25 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class HotTopicDetailPkProcess extends View {
-    private static int lcX = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds22);
-    private static int lcY = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+    private static int ldp = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds22);
+    private static int ldq = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
     private RectF GD;
-    private ValueAnimator hey;
-    private int jBV;
-    private int lcZ;
-    private int lda;
-    private int ldb;
-    private float ldc;
-    private int ldd;
+    private ValueAnimator hef;
+    private int jCS;
+    private int jFJ;
+    private int ldr;
+    private int lds;
+    private float ldt;
+    private int ldu;
     private Paint paint;
     private Path path;
 
     public HotTopicDetailPkProcess(Context context) {
         super(context);
-        this.jBV = 3;
-        this.ldc = 50.0f;
+        this.jCS = 3;
+        this.ldt = 50.0f;
         this.GD = new RectF();
         this.path = new Path();
         init();
@@ -41,8 +41,8 @@ public class HotTopicDetailPkProcess extends View {
 
     public HotTopicDetailPkProcess(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jBV = 3;
-        this.ldc = 50.0f;
+        this.jCS = 3;
+        this.ldt = 50.0f;
         this.GD = new RectF();
         this.path = new Path();
         init();
@@ -50,8 +50,8 @@ public class HotTopicDetailPkProcess extends View {
 
     public HotTopicDetailPkProcess(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jBV = 3;
-        this.ldc = 50.0f;
+        this.jCS = 3;
+        this.ldt = 50.0f;
         this.GD = new RectF();
         this.path = new Path();
         init();
@@ -59,14 +59,14 @@ public class HotTopicDetailPkProcess extends View {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), i), lcX);
+        setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), i), ldp);
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.lcZ = i;
-        this.ldd = ((int) ((((this.lcZ - lcX) - (lcY + lcX)) * this.ldc) / 100.0f)) + (lcX / 2);
+        this.jFJ = i;
+        this.ldu = ((int) ((((this.jFJ - ldp) - (ldq + ldp)) * this.ldt) / 100.0f)) + (ldp / 2);
     }
 
     private void init() {
@@ -78,46 +78,46 @@ public class HotTopicDetailPkProcess extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.lcZ > 0) {
-            aa(canvas);
+        if (this.jFJ > 0) {
+            ad(canvas);
         }
     }
 
-    private void aa(Canvas canvas) {
-        ab(canvas);
-        ac(canvas);
-        ad(canvas);
-    }
-
-    private void ab(Canvas canvas) {
-        this.paint.setColor(this.lda);
-        this.GD.set(0.0f, 0.0f, lcX, lcX);
-        canvas.drawArc(this.GD, 90.0f, 180.0f, true, this.paint);
-        this.GD.set(lcX / 2, 0.0f, this.ldd, lcX);
-        canvas.drawRect(this.GD, this.paint);
-    }
-
-    private void ac(Canvas canvas) {
-        this.paint.setColor(this.ldb);
-        this.GD.set(this.lcZ - lcX, 0.0f, this.lcZ, lcX);
-        canvas.drawArc(this.GD, -90.0f, 180.0f, true, this.paint);
-        this.GD.set(this.ldd + lcX + lcY, 0.0f, this.lcZ - (lcX / 2), lcX);
-        canvas.drawRect(this.GD, this.paint);
-    }
-
     private void ad(Canvas canvas) {
-        this.paint.setColor(this.lda);
+        ae(canvas);
+        af(canvas);
+        ag(canvas);
+    }
+
+    private void ae(Canvas canvas) {
+        this.paint.setColor(this.ldr);
+        this.GD.set(0.0f, 0.0f, ldp, ldp);
+        canvas.drawArc(this.GD, 90.0f, 180.0f, true, this.paint);
+        this.GD.set(ldp / 2, 0.0f, this.ldu, ldp);
+        canvas.drawRect(this.GD, this.paint);
+    }
+
+    private void af(Canvas canvas) {
+        this.paint.setColor(this.lds);
+        this.GD.set(this.jFJ - ldp, 0.0f, this.jFJ, ldp);
+        canvas.drawArc(this.GD, -90.0f, 180.0f, true, this.paint);
+        this.GD.set(this.ldu + ldp + ldq, 0.0f, this.jFJ - (ldp / 2), ldp);
+        canvas.drawRect(this.GD, this.paint);
+    }
+
+    private void ag(Canvas canvas) {
+        this.paint.setColor(this.ldr);
         this.path.reset();
-        this.path.moveTo(this.ldd, lcX);
-        this.path.lineTo(this.ldd + lcX, 0.0f);
-        this.path.lineTo(this.ldd, 0.0f);
+        this.path.moveTo(this.ldu, ldp);
+        this.path.lineTo(this.ldu + ldp, 0.0f);
+        this.path.lineTo(this.ldu, 0.0f);
         this.path.close();
         canvas.drawPath(this.path, this.paint);
-        this.paint.setColor(this.ldb);
+        this.paint.setColor(this.lds);
         this.path.reset();
-        this.path.moveTo(this.ldd + lcY, lcX);
-        this.path.lineTo(this.ldd + lcY + lcX, lcX);
-        this.path.lineTo(this.ldd + lcY + lcX, 0.0f);
+        this.path.moveTo(this.ldu + ldq, ldp);
+        this.path.lineTo(this.ldu + ldq + ldp, ldp);
+        this.path.lineTo(this.ldu + ldq + ldp, 0.0f);
         this.path.close();
         canvas.drawPath(this.path, this.paint);
     }
@@ -126,38 +126,38 @@ public class HotTopicDetailPkProcess extends View {
         float f2 = f >= 0.0f ? f : 0.0f;
         float f3 = f2 <= 1.0f ? f2 : 1.0f;
         if (!z) {
-            this.ldc = f3 * 100.0f;
-            this.ldd = ((int) ((((this.lcZ - lcX) - (lcY + lcX)) * this.ldc) / 100.0f)) + (lcX / 2);
+            this.ldt = f3 * 100.0f;
+            this.ldu = ((int) ((((this.jFJ - ldp) - (ldq + ldp)) * this.ldt) / 100.0f)) + (ldp / 2);
             invalidate();
             return;
         }
-        aG(f3);
+        aN(f3);
     }
 
-    private void aG(float f) {
-        if (this.hey != null) {
-            this.hey.cancel();
+    private void aN(float f) {
+        if (this.hef != null) {
+            this.hef.cancel();
         }
-        this.hey = ValueAnimator.ofFloat(this.ldc / 100.0f, f);
-        this.hey.setDuration(300L);
-        this.hey.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.hey.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailPkProcess.1
+        this.hef = ValueAnimator.ofFloat(this.ldt / 100.0f, f);
+        this.hef.setDuration(300L);
+        this.hef.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.hef.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailPkProcess.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 HotTopicDetailPkProcess.this.setProcess(((Float) valueAnimator.getAnimatedValue()).floatValue(), false);
             }
         });
-        this.hey.start();
+        this.hef.start();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jBV != i) {
-            this.lda = ap.getColor(R.color.cp_other_b);
-            this.ldb = ap.getColor(R.color.cp_link_tip_b);
-            if (this.jBV != 3) {
+        if (this.jCS != i) {
+            this.ldr = ap.getColor(R.color.CAM_X0308);
+            this.lds = ap.getColor(R.color.CAM_X0303);
+            if (this.jCS != 3) {
                 invalidate();
             }
-            this.jBV = i;
+            this.jCS = i;
         }
     }
 }

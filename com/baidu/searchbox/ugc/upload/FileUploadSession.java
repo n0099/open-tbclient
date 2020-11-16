@@ -24,7 +24,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class FileUploadSession {
     static final long CHUNK_SIZE = 1048576;
     static final int RETRY_COUNT = 2;
@@ -42,7 +42,7 @@ public class FileUploadSession {
     private int tryNum;
     private String uploadId;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface MultipartUploadProgressListener {
         void notifyPercent(int i);
     }
@@ -313,7 +313,7 @@ public class FileUploadSession {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public class UploadPartTask implements Callable<Boolean> {
         int partNum;
         FileUploadSession session;

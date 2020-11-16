@@ -11,12 +11,12 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 final class e {
     private static String b = a();
 
     /* renamed from: a  reason: collision with root package name */
-    private static Pattern f1272a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
+    private static Pattern f1275a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
 
     private static String a() {
         try {
@@ -32,7 +32,7 @@ final class e {
     private static String a(String str, byte[] bArr) {
         try {
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-            cipher.init(1, df(str), new IvParameterSpec("01020304".getBytes()));
+            cipher.init(1, dh(str), new IvParameterSpec("01020304".getBytes()));
             return Base64.encodeToString(cipher.doFinal(bArr), 0);
         } catch (Exception e) {
             return null;
@@ -56,7 +56,7 @@ final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a(String str) {
-        return f1272a.matcher(str).matches();
+        return f1275a.matcher(str).matches();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -73,7 +73,7 @@ final class e {
         return Pattern.matches("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$", str);
     }
 
-    private static Key df(String str) {
+    private static Key dh(String str) {
         return SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(str.getBytes()));
     }
 
@@ -101,7 +101,7 @@ final class e {
     private static String e(String str, byte[] bArr) {
         try {
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-            cipher.init(2, df(str), new IvParameterSpec("01020304".getBytes()));
+            cipher.init(2, dh(str), new IvParameterSpec("01020304".getBytes()));
             return new String(cipher.doFinal(bArr));
         } catch (Exception e) {
             return null;

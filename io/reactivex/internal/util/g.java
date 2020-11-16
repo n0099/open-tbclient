@@ -1,10 +1,10 @@
 package io.reactivex.internal.util;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class g<T> {
     final float loadFactor;
     int mask;
     int maxSize;
-    T[] pQx;
+    T[] pSa;
     int size;
 
     public g() {
@@ -13,31 +13,31 @@ public final class g<T> {
 
     public g(int i, float f) {
         this.loadFactor = f;
-        int Ro = h.Ro(i);
-        this.mask = Ro - 1;
-        this.maxSize = (int) (Ro * f);
-        this.pQx = (T[]) new Object[Ro];
+        int RR = h.RR(i);
+        this.mask = RR - 1;
+        this.maxSize = (int) (RR * f);
+        this.pSa = (T[]) new Object[RR];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.pQx;
+        T[] tArr = this.pSa;
         int i = this.mask;
-        int Rn = Rn(t.hashCode()) & i;
-        T t3 = tArr[Rn];
+        int RQ = RQ(t.hashCode()) & i;
+        T t3 = tArr[RQ];
         if (t3 != null) {
             if (t3.equals(t)) {
                 return false;
             }
             do {
-                Rn = (Rn + 1) & i;
-                t2 = tArr[Rn];
+                RQ = (RQ + 1) & i;
+                t2 = tArr[RQ];
                 if (t2 == null) {
                 }
             } while (!t2.equals(t));
             return false;
         }
-        tArr[Rn] = t;
+        tArr[RQ] = t;
         int i2 = this.size + 1;
         this.size = i2;
         if (i2 >= this.maxSize) {
@@ -48,24 +48,24 @@ public final class g<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.pQx;
+        T[] tArr = this.pSa;
         int i = this.mask;
-        int Rn = Rn(t.hashCode()) & i;
-        T t3 = tArr[Rn];
+        int RQ = RQ(t.hashCode()) & i;
+        T t3 = tArr[RQ];
         if (t3 == null) {
             return false;
         }
         if (t3.equals(t)) {
-            return a(Rn, tArr, i);
+            return a(RQ, tArr, i);
         }
         do {
-            Rn = (Rn + 1) & i;
-            t2 = tArr[Rn];
+            RQ = (RQ + 1) & i;
+            t2 = tArr[RQ];
             if (t2 == null) {
                 return false;
             }
         } while (!t2.equals(t));
-        return a(Rn, tArr, i);
+        return a(RQ, tArr, i);
     }
 
     boolean a(int i, T[] tArr, int i2) {
@@ -81,13 +81,13 @@ public final class g<T> {
                     tArr[i] = null;
                     return true;
                 }
-                int Rn = Rn(t.hashCode()) & i2;
+                int RQ = RQ(t.hashCode()) & i2;
                 if (i > i3) {
-                    if (i >= Rn && Rn > i3) {
+                    if (i >= RQ && RQ > i3) {
                         break;
                     }
                     i4 = i3 + 1;
-                } else if (i < Rn && Rn <= i3) {
+                } else if (i < RQ && RQ <= i3) {
                     i4 = i3 + 1;
                 }
             }
@@ -97,7 +97,7 @@ public final class g<T> {
     }
 
     void rehash() {
-        T[] tArr = this.pQx;
+        T[] tArr = this.pSa;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -110,30 +110,30 @@ public final class g<T> {
                 do {
                     i3--;
                 } while (tArr[i3] == null);
-                int Rn = Rn(tArr[i3].hashCode()) & i2;
-                if (tArr2[Rn] != null) {
+                int RQ = RQ(tArr[i3].hashCode()) & i2;
+                if (tArr2[RQ] != null) {
                     do {
-                        Rn = (Rn + 1) & i2;
-                    } while (tArr2[Rn] != null);
+                        RQ = (RQ + 1) & i2;
+                    } while (tArr2[RQ] != null);
                 }
-                tArr2[Rn] = tArr[i3];
+                tArr2[RQ] = tArr[i3];
                 i4 = i5;
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.pQx = tArr2;
+                this.pSa = tArr2;
                 return;
             }
         }
     }
 
-    static int Rn(int i) {
+    static int RQ(int i) {
         int i2 = (-1640531527) * i;
         return i2 ^ (i2 >>> 16);
     }
 
-    public Object[] eBa() {
-        return this.pQx;
+    public Object[] eBb() {
+        return this.pSa;
     }
 
     public int size() {

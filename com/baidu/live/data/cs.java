@@ -3,24 +3,24 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class cs {
-    public int aSt;
-    public int aSu;
-    public int aSv;
-    public int aSw;
-    public int aSx;
-    public String aSy;
+    public int aQI;
+    public int aQJ;
+    public int aQK;
+    public int aQL;
+    public int aQM;
+    public String aQN;
 
     public void fromJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("category_id");
             if (optJSONObject != null) {
-                this.aSt = optJSONObject.optInt("android_tieba_type");
-                this.aSu = optJSONObject.optInt("android_haokan_type");
-                this.aSv = optJSONObject.optInt("android_quanmin_type");
-                this.aSw = optJSONObject.optInt("android_yinbo_type");
+                this.aQI = optJSONObject.optInt("android_tieba_type");
+                this.aQJ = optJSONObject.optInt("android_haokan_type");
+                this.aQK = optJSONObject.optInt("android_quanmin_type");
+                this.aQL = optJSONObject.optInt("android_yinbo_type");
             }
-            this.aSx = jSONObject.optInt("display_limit", 3);
-            this.aSy = jSONObject.optString("client_wishlist_tips");
+            this.aQM = jSONObject.optInt("display_limit", 3);
+            this.aQN = jSONObject.optString("client_wishlist_tips");
         }
     }
 }

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.baidu.ufosdk.f.m;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class i extends Handler {
 
     /* renamed from: a  reason: collision with root package name */

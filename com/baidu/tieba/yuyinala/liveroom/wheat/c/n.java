@@ -15,11 +15,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class n {
-    private FrameLayout itH;
+    private FrameLayout iuv;
     private View mView;
 
     public void a(FrameLayout frameLayout, TextView textView, String str, BdPageContext bdPageContext) {
-        if (o.dZA().dYS() || o.dZA().iX(o.dZA().Xm())) {
+        if (o.dZz().dYR() || o.dZz().iR(o.dZz().WD())) {
             if (!TextUtils.isEmpty(str)) {
                 if (TextUtils.equals("hide_dot", str)) {
                     hide();
@@ -75,13 +75,13 @@ public class n {
                 textView.setBackgroundResource(a.e.bg_guide_gift_toast_qm);
                 imageView.setImageResource(a.e.bg_guide_gift_toast_arrow_qm);
             }
-            this.itH = (FrameLayout) bdPageContext.getPageActivity().getWindow().getDecorView();
-            if (this.itH != null) {
-                this.itH.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.n.1
+            this.iuv = (FrameLayout) bdPageContext.getPageActivity().getWindow().getDecorView();
+            if (this.iuv != null) {
+                this.iuv.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.n.1
                     @Override // java.lang.Runnable
                     public void run() {
                         Activity pageActivity;
-                        if (n.this.itH != null && (pageActivity = bdPageContext.getPageActivity()) != null && !pageActivity.isFinishing()) {
+                        if (n.this.iuv != null && (pageActivity = bdPageContext.getPageActivity()) != null && !pageActivity.isFinishing()) {
                             FrameLayout frameLayout2 = frameLayout;
                             int[] iArr = new int[2];
                             frameLayout2.getLocationOnScreen(iArr);
@@ -96,15 +96,15 @@ public class n {
                             if (viewGroup != null) {
                                 viewGroup.removeView(n.this.mView);
                             }
-                            n.this.itH.addView(n.this.mView, layoutParams);
+                            n.this.iuv.addView(n.this.mView, layoutParams);
                         }
                     }
                 }, j);
-                this.itH.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.n.2
+                this.iuv.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.n.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (n.this.itH != null) {
-                            n.this.itH.removeView(n.this.mView);
+                        if (n.this.iuv != null) {
+                            n.this.iuv.removeView(n.this.mView);
                         }
                     }
                 }, i + j);
@@ -120,8 +120,8 @@ public class n {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
-        if (this.itH != null && this.mView != null) {
-            this.itH.removeView(this.mView);
+        if (this.iuv != null && this.mView != null) {
+            this.iuv.removeView(this.mView);
         }
     }
 }

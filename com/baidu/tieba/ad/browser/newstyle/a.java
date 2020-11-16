@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.hybrid.o;
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 class a extends n {
     /* JADX INFO: Access modifiers changed from: protected */
     public a(l lVar) {
@@ -20,18 +20,18 @@ class a extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String bji() {
+    public String bim() {
         return "TBHY_COMMON_Utils";
     }
 
-    @o(bpS = false, value = PopItemMethodConstant.showToast)
+    @o(bpf = false, value = PopItemMethodConstant.showToast)
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.b(getContext(), jSONObject.optString("message")).bpi();
+            BdToast.b(getContext(), jSONObject.optString("message")).bom();
         }
     }
 
-    @o(bpS = false, value = "showNetStatus")
+    @o(bpf = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
@@ -57,7 +57,7 @@ class a extends n {
         return jSONObject;
     }
 
-    @o(bpS = false, value = "showDeviceInfo")
+    @o(bpf = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();

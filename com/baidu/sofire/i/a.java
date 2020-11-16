@@ -3,7 +3,7 @@ package com.baidu.sofire.i;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         try {

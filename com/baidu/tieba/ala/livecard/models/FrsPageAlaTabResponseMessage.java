@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.livecard.models;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.frs.bd;
 import java.util.ArrayList;
@@ -44,10 +44,10 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 this.mThreadList = new ArrayList<>();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    bw bwVar = new bw();
-                    bwVar.Ba("frs_live_play");
-                    bwVar.parserJson(jSONObject2);
-                    this.mThreadList.add(bwVar);
+                    bx bxVar = new bx();
+                    bxVar.Av("frs_live_play");
+                    bxVar.parserJson(jSONObject2);
+                    this.mThreadList.add(bxVar);
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
@@ -55,10 +55,10 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 this.mAltList = new ArrayList<>();
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     JSONObject jSONObject3 = optJSONArray2.getJSONObject(i3);
-                    bw bwVar2 = new bw();
-                    bwVar2.Ba("frs_live_play");
-                    bwVar2.parserJson(jSONObject3);
-                    this.mAltList.add(bwVar2);
+                    bx bxVar2 = new bx();
+                    bxVar2.Av("frs_live_play");
+                    bxVar2.parserJson(jSONObject3);
+                    this.mAltList.add(bxVar2);
                 }
             }
         }

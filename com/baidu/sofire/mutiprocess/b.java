@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
@@ -28,7 +28,7 @@ public class b {
     private static Map<Integer, a> b = new HashMap();
     private static Map<Integer, List<String>> c = new HashMap();
     private static List<String> d = new ArrayList();
-    private static a e = new a.AbstractBinderC0363a() { // from class: com.baidu.sofire.mutiprocess.b.1
+    private static a e = new a.AbstractBinderC0361a() { // from class: com.baidu.sofire.mutiprocess.b.1
         @Override // com.baidu.sofire.mutiprocess.a
         public final Bundle a(Bundle bundle) throws RemoteException {
             return b.f(bundle);
@@ -226,7 +226,7 @@ public class b {
             if (i <= 0 || binderHolder == null || binderHolder.f3664a == null) {
                 return a(-101);
             }
-            b.put(Integer.valueOf(i), a.AbstractBinderC0363a.a(binderHolder.f3664a));
+            b.put(Integer.valueOf(i), a.AbstractBinderC0361a.a(binderHolder.f3664a));
             if (d.size() <= 0) {
                 return a(0);
             }

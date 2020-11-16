@@ -5,7 +5,7 @@ import com.baidubce.services.bos.callback.BosProgressCallback;
 import com.baidubce.util.CheckUtils;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class PutObjectRequest extends GenericObjectRequest {
     private File file;
     private InputStream inputStream;

@@ -19,31 +19,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private static a ogi;
-    private ca aQG;
-    private HttpMessageListener hJG;
-    private List<as> ogj;
-    private List<as> ogk;
-    private boolean ogl = false;
+    private static a ohL;
+    private ca aOV;
+    private HttpMessageListener hJn;
+    private List<as> ohM;
+    private List<as> ohN;
+    private boolean ohO = false;
 
     private a() {
     }
 
-    public static a eae() {
-        if (ogi == null) {
+    public static a ead() {
+        if (ohL == null) {
             synchronized (a.class) {
-                if (ogi == null) {
-                    ogi = new a();
+                if (ohL == null) {
+                    ohL = new a();
                 }
             }
         }
-        return ogi;
+        return ohL;
     }
 
-    public void bbU() {
-        final ak akVar = com.baidu.live.aa.a.PQ().bod;
-        if (akVar == null || akVar.aNy == null || akVar.aNy.aQG == null) {
-            bUk();
+    public void bbn() {
+        final ak akVar = com.baidu.live.aa.a.Ph().bms;
+        if (akVar == null || akVar.aLN == null || akVar.aLN.aOV == null) {
+            bTD();
         } else {
             new BdAsyncTask<ca, Void, Boolean>() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -53,25 +53,25 @@ public class a {
                 public Boolean doInBackground(ca... caVarArr) {
                     boolean z = false;
                     if (caVarArr != null && caVarArr.length != 0) {
-                        if (!a.this.ogl) {
-                            a.this.ogl = true;
+                        if (!a.this.ohO) {
+                            a.this.ohO = true;
                             ca caVar = caVarArr[0];
-                            ca gt = ca.gt(d.AZ().getString("audio_live_dating_anim", ""));
-                            if (gt != null) {
-                                if (a.this.a(caVar.ES(), gt.ES())) {
-                                    a.this.b(gt.ES());
+                            ca gm = ca.gm(d.Aq().getString("audio_live_dating_anim", ""));
+                            if (gm != null) {
+                                if (a.this.a(caVar.Ej(), gm.Ej())) {
+                                    a.this.b(gm.Ej());
                                     z = true;
                                 }
-                                if (a.this.a(caVar.ET(), gt.ET())) {
-                                    a.this.b(gt.ET());
+                                if (a.this.a(caVar.Ek(), gm.Ek())) {
+                                    a.this.b(gm.Ek());
                                     z = true;
                                 }
-                                if (a.this.a(caVar.EU(), gt.EU())) {
-                                    a.this.b(gt.EU());
+                                if (a.this.a(caVar.El(), gm.El())) {
+                                    a.this.b(gm.El());
                                     z = true;
                                 }
-                                if (a.this.a(caVar.EV(), gt.EV())) {
-                                    a.this.b(gt.EV());
+                                if (a.this.a(caVar.Em(), gm.Em())) {
+                                    a.this.b(gm.Em());
                                     z = true;
                                 }
                             }
@@ -87,79 +87,79 @@ public class a {
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass1) bool);
-                    a.this.aQG = akVar.aNy.aQG;
+                    a.this.aOV = akVar.aLN.aOV;
                     if (bool != null && bool.booleanValue()) {
-                        d.AZ().putString("audio_live_dating_anim", ca.a(a.this.aQG));
+                        d.Aq().putString("audio_live_dating_anim", ca.a(a.this.aOV));
                     }
-                    a.this.eaf();
-                    a.this.zl(false);
+                    a.this.eae();
+                    a.this.zs(false);
                 }
-            }.execute(akVar.aNy.aQG);
+            }.execute(akVar.aLN.aOV);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eaf() {
-        if (this.aQG != null) {
-            if (this.ogj == null) {
-                this.ogj = new ArrayList();
+    public void eae() {
+        if (this.aOV != null) {
+            if (this.ohM == null) {
+                this.ohM = new ArrayList();
             } else {
-                this.ogj.clear();
+                this.ohM.clear();
             }
-            ListUtils.add(this.ogj, this.aQG.EV());
-            ListUtils.add(this.ogj, this.aQG.ES());
-            ListUtils.add(this.ogj, this.aQG.ET());
-            ListUtils.add(this.ogj, this.aQG.EU());
+            ListUtils.add(this.ohM, this.aOV.Em());
+            ListUtils.add(this.ohM, this.aOV.Ej());
+            ListUtils.add(this.ohM, this.aOV.Ek());
+            ListUtils.add(this.ohM, this.aOV.El());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zl(final boolean z) {
-        if (!ListUtils.isEmpty(z ? this.ogk : this.ogj)) {
-            final as gl = gl(z ? this.ogk : this.ogj);
+    public void zs(final boolean z) {
+        if (!ListUtils.isEmpty(z ? this.ohN : this.ohM)) {
+            final as gl = gl(z ? this.ohN : this.ohM);
             if (gl == null) {
-                zl(z);
+                zs(z);
             } else {
-                c.b(gl.getDownloadUrl(), gl.EL(), new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.2
+                c.b(gl.getDownloadUrl(), gl.Ec(), new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.2
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.b.a
-                    public void zm(boolean z2) {
+                    public void zt(boolean z2) {
                         if (!z && !z2) {
-                            if (a.this.ogk == null) {
-                                a.this.ogk = new ArrayList();
+                            if (a.this.ohN == null) {
+                                a.this.ohN = new ArrayList();
                             }
-                            a.this.ogk.add(gl);
+                            a.this.ohN.add(gl);
                         }
-                        a.this.zl(z || ListUtils.isEmpty(a.this.ogj));
+                        a.this.zs(z || ListUtils.isEmpty(a.this.ohM));
                     }
                 });
             }
         }
     }
 
-    private void bUk() {
-        if (this.hJG == null) {
-            this.hJG = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.3
+    private void bTD() {
+        if (this.hJn == null) {
+            this.hJn = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021011 && (httpResponsedMessage instanceof AlaSyncHttpResponseMessage)) {
-                        a.this.bbU();
+                        a.this.bbn();
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.hJG);
+            MessageManager.getInstance().registerListener(this.hJn);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(as asVar, as asVar2) {
-        return (asVar2 == null || asVar == null || TextUtils.equals(asVar2.getDownloadUrl(), asVar.getDownloadUrl()) || TextUtils.equals(asVar2.EL(), asVar.EL())) ? false : true;
+        return (asVar2 == null || asVar == null || TextUtils.equals(asVar2.getDownloadUrl(), asVar.getDownloadUrl()) || TextUtils.equals(asVar2.Ec(), asVar.Ec())) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(as asVar) {
         if (!c(asVar)) {
-            com.baidu.live.f.a.cleanDir(new File(com.baidu.live.ac.b.ij(asVar.EL())));
+            com.baidu.live.f.a.cleanDir(new File(com.baidu.live.ac.b.id(asVar.Ec())));
         }
     }
 
@@ -171,6 +171,6 @@ public class a {
     }
 
     private static boolean c(as asVar) {
-        return asVar == null || StringUtils.isNull(asVar.EL(), true);
+        return asVar == null || StringUtils.isNull(asVar.Ec(), true);
     }
 }

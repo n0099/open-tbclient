@@ -8,10 +8,10 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.GridLayoutAnimationController;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class GameVideoGridView extends BdGridView {
-    private Animation jAQ;
-    private GridLayoutAnimationController jAR;
+    private Animation jBM;
+    private GridLayoutAnimationController jBN;
     private int mMaxHeight;
 
     public GameVideoGridView(Context context, AttributeSet attributeSet, int i) {
@@ -33,15 +33,15 @@ public class GameVideoGridView extends BdGridView {
     }
 
     private void init() {
-        if (this.jAQ == null) {
-            this.jAQ = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
+        if (this.jBM == null) {
+            this.jBM = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
         }
-        if (this.jAR == null) {
-            this.jAR = new GridLayoutAnimationController(this.jAQ);
-            this.jAR.setColumnDelay(0.4f);
-            this.jAR.setRowDelay(0.2f);
-            this.jAR.setDirection(0);
-            this.jAR.setDirectionPriority(0);
+        if (this.jBN == null) {
+            this.jBN = new GridLayoutAnimationController(this.jBM);
+            this.jBN.setColumnDelay(0.4f);
+            this.jBN.setRowDelay(0.2f);
+            this.jBN.setDirection(0);
+            this.jBN.setDirectionPriority(0);
         }
     }
 
@@ -57,17 +57,17 @@ public class GameVideoGridView extends BdGridView {
         super.onMeasure(i, i2);
     }
 
-    public void cKk() {
-        if (this.jAR != null) {
-            setLayoutAnimation(this.jAR);
-            this.jAR.start();
+    public void cJP() {
+        if (this.jBN != null) {
+            setLayoutAnimation(this.jBN);
+            this.jBN.start();
             startLayoutAnimation();
         }
     }
 
     public void onDestroy() {
-        if (this.jAQ != null) {
-            this.jAQ.cancel();
+        if (this.jBM != null) {
+            this.jBM.cancel();
         }
     }
 }

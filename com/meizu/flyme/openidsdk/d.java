@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class d extends BroadcastReceiver {
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0066, code lost:
         if (r2 == 0) goto L8;
@@ -33,9 +33,9 @@ public class d extends BroadcastReceiver {
             }
         }
         if (z) {
-            a YQ = e.ewz().YQ(intent.getStringExtra("openIdType"));
-            if (YQ != null) {
-                YQ.b();
+            a YB = e.ewA().YB(intent.getStringExtra("openIdType"));
+            if (YB != null) {
+                YB.b();
             }
         }
     }

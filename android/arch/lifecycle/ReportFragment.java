@@ -7,12 +7,12 @@ import android.arch.lifecycle.Lifecycle;
 import android.os.Bundle;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class ReportFragment extends Fragment {
     private a zU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void onCreate();
 

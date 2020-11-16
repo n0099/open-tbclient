@@ -9,31 +9,31 @@ import android.os.SystemClock;
 import com.xiaomi.push.fc;
 import com.xiaomi.push.service.XMJobService;
 @TargetApi(21)
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class fe implements fc.a {
 
     /* renamed from: a  reason: collision with root package name */
     JobScheduler f4899a;
 
     /* renamed from: a  reason: collision with other field name */
-    Context f316a;
+    Context f319a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f317a = false;
+    private boolean f320a = false;
 
     fe(Context context) {
-        this.f316a = context;
+        this.f319a = context;
         this.f4899a = (JobScheduler) context.getSystemService("jobscheduler");
     }
 
     @Override // com.xiaomi.push.fc.a
     public void a() {
-        this.f317a = false;
+        this.f320a = false;
         this.f4899a.cancel(1);
     }
 
     void a(long j) {
-        JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f316a.getPackageName(), XMJobService.class.getName()));
+        JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f319a.getPackageName(), XMJobService.class.getName()));
         builder.setMinimumLatency(j);
         builder.setOverrideDeadline(j);
         builder.setRequiredNetworkType(1);
@@ -44,19 +44,19 @@ public class fe implements fc.a {
 
     @Override // com.xiaomi.push.fc.a
     public void a(boolean z) {
-        if (z || this.f317a) {
+        if (z || this.f320a) {
             long b = fy.b();
             if (z) {
                 a();
                 b -= SystemClock.elapsedRealtime() % b;
             }
-            this.f317a = true;
+            this.f320a = true;
             a(b);
         }
     }
 
     @Override // com.xiaomi.push.fc.a
     public boolean a() {
-        return this.f317a;
+        return this.f320a;
     }
 }

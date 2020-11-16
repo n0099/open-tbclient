@@ -3,7 +3,7 @@ package com.vivo.push.cache;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public interface ISubscribeAppTagManager {
     boolean delTags(Set<String> set);
 

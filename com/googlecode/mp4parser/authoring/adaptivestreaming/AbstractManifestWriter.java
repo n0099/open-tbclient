@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.logging.Logger;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class AbstractManifestWriter implements ManifestWriter {
     private static final Logger LOG = Logger.getLogger(AbstractManifestWriter.class.getName());
     protected long[] audioFragmentsDurations;

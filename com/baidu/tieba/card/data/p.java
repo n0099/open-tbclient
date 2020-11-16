@@ -1,39 +1,13 @@
 package com.baidu.tieba.card.data;
 
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes22.dex */
-public class p extends b implements q {
-    public static final BdUniqueId icq = BdUniqueId.gen();
-    public long icr;
-    public String ics;
-    public String ict;
-    public String icu;
-    public String icv;
-    public String icw;
-    public long icx;
-    public String icy;
-    public String userName;
+import com.baidu.adp.widget.ListView.q;
+/* loaded from: classes.dex */
+public interface p extends q {
+    boolean cop();
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return icq;
-    }
+    int getPosition();
 
-    @Override // com.baidu.tieba.card.data.q
-    public int getPosition() {
-        return (int) this.icx;
-    }
+    void oE(boolean z);
 
-    @Override // com.baidu.tieba.card.data.q
-    public boolean coK() {
-        return false;
-    }
-
-    @Override // com.baidu.tieba.card.data.q
-    public void oB(boolean z) {
-    }
-
-    @Override // com.baidu.tieba.card.data.q
-    public void oC(boolean z) {
-    }
+    void oF(boolean z);
 }

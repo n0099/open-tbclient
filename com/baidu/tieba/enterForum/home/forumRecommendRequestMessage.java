@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.ForumRecommend.DataReq;
 import tbclient.ForumRecommend.ForumRecommendReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class forumRecommendRequestMessage extends NetMessage {
     private Integer like_forum;
     private LinkedList<VisitedForumData> mForumData;
@@ -82,7 +82,7 @@ public class forumRecommendRequestMessage extends NetMessage {
                     VisitedForumData next = it.next();
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("forum_id", com.baidu.adp.lib.f.b.toLong(next.getForumId(), 0L));
-                    jSONObject.put("visit_time", next.bzc());
+                    jSONObject.put("visit_time", next.bys());
                     jSONArray.put(jSONObject);
                 }
             }

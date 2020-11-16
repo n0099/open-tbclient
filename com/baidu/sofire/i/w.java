@@ -4,7 +4,7 @@ import android.os.Build;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class w {
     private static final int b = Runtime.getRuntime().availableProcessors();
     private static volatile w c;

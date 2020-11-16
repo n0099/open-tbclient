@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class HWPushHelper {
 
     /* renamed from: a  reason: collision with root package name */
@@ -16,7 +16,7 @@ public class HWPushHelper {
     }
 
     public static boolean hasNetwork(Context context) {
-        return h.m114a(context);
+        return h.m117a(context);
     }
 
     public static boolean isHmsTokenSynced(Context context) {

@@ -10,7 +10,7 @@ import com.vivo.push.model.UnvarnishedMessage;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

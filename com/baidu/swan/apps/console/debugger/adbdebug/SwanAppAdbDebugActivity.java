@@ -11,7 +11,7 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.ap.u;
 import com.baidu.swan.apps.res.widget.b.d;
 import com.baidu.swan.apps.res.widget.dialog.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class SwanAppAdbDebugActivity extends Activity {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -30,7 +30,7 @@ public class SwanAppAdbDebugActivity extends Activity {
                 }
                 finish();
             }
-            new g.a(this).f(getString(a.h.aiapps_adb_debug)).rR(getString(a.h.aiapps_adb_debug_alert)).a(new com.baidu.swan.apps.view.c.a()).gr(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.debugger.adbdebug.SwanAppAdbDebugActivity.2
+            new g.a(this).f(getString(a.h.aiapps_adb_debug)).rL(getString(a.h.aiapps_adb_debug_alert)).a(new com.baidu.swan.apps.view.c.a()).gu(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.debugger.adbdebug.SwanAppAdbDebugActivity.2
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                     intent.setClass(SwanAppAdbDebugActivity.this, SwanAppLauncherActivity.class);
@@ -42,7 +42,7 @@ public class SwanAppAdbDebugActivity extends Activity {
                 public void onClick(DialogInterface dialogInterface, int i) {
                     SwanAppAdbDebugActivity.this.finish();
                 }
-            }).aHb();
+            }).aGt();
         }
     }
 }

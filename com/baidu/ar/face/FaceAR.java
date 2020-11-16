@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class FaceAR extends com.baidu.ar.c implements IFace {
     private static final String TAG = FaceAR.class.getSimpleName();
     private LuaMsgListener bZ;

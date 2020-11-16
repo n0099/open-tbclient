@@ -5,85 +5,85 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.card.b;
 import com.baidu.card.o;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.ar;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.as;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class f extends a {
-    private o lGE;
-    private AbsThreadDataSupport lGv;
-    private bw lGy;
-    private int lsX;
+    private com.baidu.tbadk.core.data.a lGM;
+    private bx lGP;
+    private o lGV;
+    private int ltn;
     private View mRootView;
 
     public f(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.lsX = i;
+        this.ltn = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
-        if (this.lGE == null) {
-            this.lGE = new o(this.eIc.getPageActivity());
-            this.lGE.b((Boolean) true);
-            this.lGE.setFrom("pb");
-            this.lGE.setFromForPb(0);
-            this.lGE.e(this.eIc.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.eIc.getResources().getDimensionPixelOffset(R.dimen.tbds39), this.eIc.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.eIc.getResources().getDimensionPixelSize(R.dimen.tbds40));
-            this.lGE.aH(false);
+        if (this.lGV == null) {
+            this.lGV = new o(this.eGu.getPageActivity());
+            this.lGV.b((Boolean) true);
+            this.lGV.setFrom("pb");
+            this.lGV.setFromForPb(0);
+            this.lGV.e(this.eGu.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.eGu.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.eGu.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.eGu.getResources().getDimensionPixelSize(R.dimen.M_H_X005));
+            this.lGV.aH(false);
+            this.lGV.aI(true);
         }
-        this.mRootView = this.lGE.getView();
+        this.mRootView = this.lGV.getView();
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.lGu = originalThreadInfo;
-        this.lGy = originalThreadInfo == null ? null : originalThreadInfo.blb();
-        this.lGv = new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.f.1
-            @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-            public bw bjZ() {
-                return f.this.lGy;
+        this.lGL = originalThreadInfo;
+        this.lGP = originalThreadInfo == null ? null : originalThreadInfo.bkd();
+        this.lGM = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.f.1
+            @Override // com.baidu.tbadk.core.data.a
+            public bx bjd() {
+                return f.this.lGP;
             }
 
-            @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-            public ar bkb() {
+            @Override // com.baidu.tbadk.core.data.a
+            public as bjf() {
                 return null;
             }
 
-            @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+            @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
             public BdUniqueId getType() {
                 return null;
             }
         };
-        if (this.lGE != null) {
-            this.lGE.H(this.lGv);
+        if (this.lGV != null) {
+            this.lGV.H(this.lGM);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(ab abVar) {
         super.a(abVar);
-        if (this.lGE != null) {
-            this.lGE.setOnCardSubClickListener(this.lGt);
+        if (this.lGV != null) {
+            this.lGV.setOnCardSubClickListener(this.lGK);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(b.a aVar) {
         super.a(aVar);
-        if (this.lGE != null) {
-            this.lGE.a(aVar);
+        if (this.lGV != null) {
+            this.lGV.a(aVar);
         }
         if (this.mRootView != null) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.c.f.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (f.this.afG != null) {
-                        f.this.afG.a(f.this.lGv);
+                    if (f.this.afL != null) {
+                        f.this.afL.a(f.this.lGM);
                     }
                 }
             });
@@ -94,9 +94,9 @@ public class f extends a {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c);
-            if (this.lGE != null) {
-                this.lGE.onChangeSkinType(tbPageContext, i);
+            ap.setBackgroundColor(this.mRootView, R.color.CAM_X0204);
+            if (this.lGV != null) {
+                this.lGV.onChangeSkinType(tbPageContext, i);
             }
         }
     }

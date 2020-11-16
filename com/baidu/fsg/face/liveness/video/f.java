@@ -11,7 +11,7 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.vivo.push.util.p;
 import com.vivo.push.util.z;
 import java.lang.reflect.Method;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */

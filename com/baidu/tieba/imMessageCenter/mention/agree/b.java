@@ -18,22 +18,22 @@ import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b {
     public boolean hasMore;
-    private a kwe;
-    private ArrayList<q> kwf;
+    private a kwO;
+    private ArrayList<q> kwP;
     private BdUniqueId uniqueId;
-    private boolean kwd = false;
+    private boolean kwN = false;
     private long lastId = 0;
-    private com.baidu.adp.framework.listener.a kwg = new com.baidu.adp.framework.listener.a(1002211, CmdConfigSocket.CMD_AGREE_ME) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
+    private com.baidu.adp.framework.listener.a kwQ = new com.baidu.adp.framework.listener.a(1002211, CmdConfigSocket.CMD_AGREE_ME) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z = false;
             if (responsedMessage != null) {
                 if (responsedMessage.hasError()) {
-                    if (b.this.kwe != null) {
-                        b.this.kwe.onFailed(responsedMessage.getErrorString());
+                    if (b.this.kwO != null) {
+                        b.this.kwO.onFailed(responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -54,9 +54,9 @@ public class b {
         }
     };
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public interface a {
-        void ax(ArrayList<q> arrayList);
+        void ay(ArrayList<q> arrayList);
 
         void onFailed(String str);
     }
@@ -69,26 +69,26 @@ public class b {
     public b(TbPageContext tbPageContext, a aVar) {
         if (tbPageContext != null) {
             this.uniqueId = tbPageContext.getUniqueId();
-            tbPageContext.registerListener(this.kwg);
-            this.kwe = aVar;
+            tbPageContext.registerListener(this.kwQ);
+            this.kwO = aVar;
         }
     }
 
-    public void cIA() {
-        bjR();
-        bjQ();
+    public void cIf() {
+        biV();
+        biU();
     }
 
-    public void cBt() {
+    public void cAW() {
         this.lastId = 0L;
-        bjQ();
+        biU();
     }
 
-    public void bOI() {
-        bjQ();
+    public void bOb() {
+        biU();
     }
 
-    private void bjR() {
+    private void biV() {
         new BdAsyncTask<Void, Void, ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a>>() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -97,8 +97,8 @@ public class b {
             public ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> doInBackground(Void... voidArr) {
                 byte[] bArr;
                 ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList = new ArrayList<>();
-                l<byte[]> dH = com.baidu.tbadk.core.c.a.boX().dH("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
-                if (dH != null && (bArr = dH.get("agree_me_cache_key")) != null) {
+                l<byte[]> dF = com.baidu.tbadk.core.c.a.bob().dF("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
+                if (dF != null && (bArr = dF.get("agree_me_cache_key")) != null) {
                     try {
                         AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
                         if (agreeMeResIdl.data != null) {
@@ -131,7 +131,7 @@ public class b {
         }.execute(new Void[0]);
     }
 
-    private void bjQ() {
+    private void biU() {
         AgreeMeRequestMessage agreeMeRequestMessage = new AgreeMeRequestMessage();
         agreeMeRequestMessage.id = this.lastId;
         agreeMeRequestMessage.setTag(this.uniqueId);
@@ -140,41 +140,41 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void y(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList) {
-        if (!this.kwd) {
-            if (y.isEmpty(this.kwf)) {
-                this.kwf = new ArrayList<>();
+        if (!this.kwN) {
+            if (y.isEmpty(this.kwP)) {
+                this.kwP = new ArrayList<>();
             } else {
-                this.kwf.clear();
+                this.kwP.clear();
             }
-            this.kwf.addAll(arrayList);
-            q qVar = (q) y.getItem(this.kwf, this.kwf.size() - 1);
+            this.kwP.addAll(arrayList);
+            q qVar = (q) y.getItem(this.kwP, this.kwP.size() - 1);
             if (qVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
                 this.lastId = ((com.baidu.tieba.imMessageCenter.mention.base.a) qVar).getMsgId();
             }
-            if (this.kwe != null && !y.isEmpty(this.kwf)) {
-                this.kwe.ax(this.kwf);
+            if (this.kwO != null && !y.isEmpty(this.kwP)) {
+                this.kwO.ay(this.kwP);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList, boolean z) {
-        this.kwd = true;
-        if (y.isEmpty(this.kwf)) {
-            this.kwf = new ArrayList<>();
+        this.kwN = true;
+        if (y.isEmpty(this.kwP)) {
+            this.kwP = new ArrayList<>();
         }
         if (!z) {
-            this.kwf.addAll(arrayList);
+            this.kwP.addAll(arrayList);
         } else {
-            this.kwf.clear();
-            this.kwf.addAll(0, arrayList);
+            this.kwP.clear();
+            this.kwP.addAll(0, arrayList);
         }
-        q qVar = (q) y.getItem(this.kwf, this.kwf.size() - 1);
+        q qVar = (q) y.getItem(this.kwP, this.kwP.size() - 1);
         if (qVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
             this.lastId = ((com.baidu.tieba.imMessageCenter.mention.base.a) qVar).getMsgId();
         }
-        if (this.kwe != null) {
-            this.kwe.ax(this.kwf);
+        if (this.kwO != null) {
+            this.kwO.ay(this.kwP);
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.searchbox.ugc.utils;
 import android.text.TextUtils;
 import com.baidu.fsg.face.liveness.video.f;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class UgcUbcDataKeeper {
     private static String voteSourceFrom = "default";
     private static String naShareSourceFrom = "default";

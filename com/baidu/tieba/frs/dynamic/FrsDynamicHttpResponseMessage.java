@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.dynamic;
 
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import tbclient.StarTrends.StarTrendsResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class FrsDynamicHttpResponseMessage extends MvcProtobufHttpResponsedMessage<a, StarTrendsResIdl> {
     public a responseData;
 

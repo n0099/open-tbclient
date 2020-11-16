@@ -3,20 +3,20 @@ package com.baidu.yuyinala.privatemessage.implugin.util;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class d {
-    public static boolean oEv = true;
-    public static final String oEw = "baidu/implugin" + File.separator + "msgsremote";
-    public static final String oEx = "baidu/implugin" + File.separator + "msgslocal";
-    public static final String oEy = "baidu/implugin" + File.separator + "msgsupload";
-    public static final String oEz = "baidu/implugin" + File.separator + "cache";
-    public static String oEA = "chat";
-    public static String oEB = "broadcast";
-    public static String oEC = "meeting";
-    public static String oED = "invokeJson";
-    public static String oEE = "uid";
-    public static String oEF = "uk";
-    public static String oEG = "nickname";
-    public static String oEH = "msgType";
-    public static String oEI = "userIcon";
-    public static String oEJ = "isFromGame";
-    public static String oEK = "isBattleHomeExist";
+    public static boolean oFZ = true;
+    public static final String oGa = "baidu/implugin" + File.separator + "msgsremote";
+    public static final String oGb = "baidu/implugin" + File.separator + "msgslocal";
+    public static final String oGc = "baidu/implugin" + File.separator + "msgsupload";
+    public static final String oGd = "baidu/implugin" + File.separator + "cache";
+    public static String oGe = "chat";
+    public static String oGf = "broadcast";
+    public static String oGg = "meeting";
+    public static String oGh = "invokeJson";
+    public static String oGi = "uid";
+    public static String oGj = "uk";
+    public static String oGk = "nickname";
+    public static String oGl = "msgType";
+    public static String oGm = "userIcon";
+    public static String oGn = "isFromGame";
+    public static String oGo = "isBattleHomeExist";
 }

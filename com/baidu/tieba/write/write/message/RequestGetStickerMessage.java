@@ -23,7 +23,7 @@ public class RequestGetStickerMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f946common = this.f3697common;
+        builder.f949common = this.f3697common;
         if (z) {
             u.a(builder, true);
         }

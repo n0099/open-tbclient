@@ -1,5 +1,5 @@
 package com.baidu.android.common;
-/* loaded from: classes19.dex */
+/* loaded from: classes7.dex */
 public class Galaxy {
     private static final String VERSION = "2.7.1";
 

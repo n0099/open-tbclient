@@ -3,7 +3,7 @@ package com.baidu.webkit.logsdk;
 import android.content.Context;
 import android.os.Message;
 import android.text.TextUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */

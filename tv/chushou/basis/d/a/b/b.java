@@ -3,9 +3,9 @@ package tv.chushou.basis.d.a.b;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public interface b extends tv.chushou.basis.d.a {
-    boolean QL(int i);
+    boolean Ro(int i);
 
-    String asG();
+    String arX();
 
     String evY();
 

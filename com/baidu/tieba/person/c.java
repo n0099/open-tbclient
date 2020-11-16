@@ -30,7 +30,7 @@ public interface c {
 
     int getErrorCode();
 
-    com.baidu.tieba.i.b getGoodsWindowInfo();
+    com.baidu.tieba.j.b getGoodsWindowInfo();
 
     HotUserRankEntry getHotRankEntry();
 

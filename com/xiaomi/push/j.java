@@ -11,21 +11,21 @@ import android.os.Parcel;
 import java.io.IOException;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 final class j {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes18.dex */
     static final class a {
 
         /* renamed from: a  reason: collision with root package name */
         private final String f4993a;
 
         /* renamed from: a  reason: collision with other field name */
-        private final boolean f766a;
+        private final boolean f769a;
 
         a(String str, boolean z) {
             this.f4993a = str;
-            this.f766a = z;
+            this.f769a = z;
         }
 
         public String a() {
@@ -33,25 +33,25 @@ final class j {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes18.dex */
     private static final class b implements ServiceConnection {
 
         /* renamed from: a  reason: collision with root package name */
         private final LinkedBlockingQueue<IBinder> f4994a;
 
         /* renamed from: a  reason: collision with other field name */
-        boolean f767a;
+        boolean f770a;
 
         private b() {
-            this.f767a = false;
+            this.f770a = false;
             this.f4994a = new LinkedBlockingQueue<>(1);
         }
 
         public IBinder a() {
-            if (this.f767a) {
+            if (this.f770a) {
                 throw new IllegalStateException();
             }
-            this.f767a = true;
+            this.f770a = true;
             return this.f4994a.poll(30000L, TimeUnit.MILLISECONDS);
         }
 
@@ -68,7 +68,7 @@ final class j {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes18.dex */
     private static final class c implements IInterface {
 
         /* renamed from: a  reason: collision with root package name */

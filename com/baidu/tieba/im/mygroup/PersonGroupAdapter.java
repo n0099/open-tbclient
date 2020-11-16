@@ -5,51 +5,51 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class PersonGroupAdapter extends FragmentPagerAdapter {
-    public static int knh = 1;
-    private int[] gEq;
-    private ArrayList<PersonalGroupFragment> kni;
+    public static int knR = 1;
+    private int[] gDX;
+    private ArrayList<PersonalGroupFragment> knS;
 
     public PersonGroupAdapter(PersonGroupActivity personGroupActivity, boolean z) {
         super(personGroupActivity.getSupportFragmentManager());
-        this.kni = new ArrayList<>();
+        this.knS = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         PersonalGroupFragment personalGroupFragment = new PersonalGroupFragment();
         personalGroupFragment.setArguments(bundle);
-        this.kni.add(personalGroupFragment);
+        this.knS.add(personalGroupFragment);
         if (z) {
-            this.gEq = new int[]{0};
+            this.gDX = new int[]{0};
         } else {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
             PersonalGroupFragment personalGroupFragment2 = new PersonalGroupFragment();
             personalGroupFragment2.setArguments(bundle2);
-            this.kni.add(personalGroupFragment2);
-            this.gEq = new int[]{0, 1};
+            this.knS.add(personalGroupFragment2);
+            this.gDX = new int[]{0, 1};
         }
-        knh = this.gEq.length;
-        Iterator<PersonalGroupFragment> it = this.kni.iterator();
+        knR = this.gDX.length;
+        Iterator<PersonalGroupFragment> it = this.knS.iterator();
         while (it.hasNext()) {
-            it.next().getArguments().putInt("page_size", this.kni.size());
+            it.next().getArguments().putInt("page_size", this.knS.size());
         }
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= knh || i < 0) {
+        if (i >= knR || i < 0) {
             return null;
         }
-        return this.kni.get(i);
+        return this.knS.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return knh;
+        return knR;
     }
 
-    public int Ds(int i) {
-        return this.gEq[i];
+    public int DQ(int i) {
+        return this.gDX[i];
     }
 }

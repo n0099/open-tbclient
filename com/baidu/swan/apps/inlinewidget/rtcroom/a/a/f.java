@@ -3,11 +3,11 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.a.a;
 import android.support.annotation.NonNull;
 import android.view.Surface;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class f extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.a> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String avA() {
+    public String auS() {
         return "setSurface";
     }
 

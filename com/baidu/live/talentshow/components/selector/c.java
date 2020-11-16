@@ -5,31 +5,31 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    private ArrayList<com.baidu.live.talentshow.b.d> bwV = new ArrayList<>();
+    private ArrayList<com.baidu.live.talentshow.b.d> bvk = new ArrayList<>();
 
-    public ArrayList<com.baidu.live.talentshow.b.d> RD() {
-        return this.bwV;
+    public ArrayList<com.baidu.live.talentshow.b.d> QU() {
+        return this.bvk;
     }
 
-    public int RE() {
-        return this.bwV.size();
+    public int QV() {
+        return this.bvk.size();
     }
 
     public void aa(List<com.baidu.live.talentshow.b.d> list) {
-        this.bwV.addAll(ab(list));
+        this.bvk.addAll(ab(list));
     }
 
-    public void RF() {
+    public void QW() {
         ArrayList<com.baidu.live.talentshow.b.d> arrayList = new ArrayList<>();
-        Iterator<com.baidu.live.talentshow.b.d> it = this.bwV.iterator();
+        Iterator<com.baidu.live.talentshow.b.d> it = this.bvk.iterator();
         while (it.hasNext()) {
             com.baidu.live.talentshow.b.d next = it.next();
             if (!a(next, arrayList)) {
                 arrayList.add(next);
             }
         }
-        this.bwV.clear();
-        this.bwV.addAll(arrayList);
+        this.bvk.clear();
+        this.bvk.addAll(arrayList);
     }
 
     private boolean a(com.baidu.live.talentshow.b.d dVar, ArrayList<com.baidu.live.talentshow.b.d> arrayList) {
@@ -44,13 +44,13 @@ public class c {
     }
 
     public void clearData() {
-        this.bwV.clear();
+        this.bvk.clear();
     }
 
     private ArrayList<com.baidu.live.talentshow.b.d> ab(List<com.baidu.live.talentshow.b.d> list) {
         ArrayList<com.baidu.live.talentshow.b.d> arrayList = new ArrayList<>();
         for (com.baidu.live.talentshow.b.d dVar : list) {
-            if (!a(dVar, this.bwV)) {
+            if (!a(dVar, this.bvk)) {
                 arrayList.add(dVar);
             }
         }

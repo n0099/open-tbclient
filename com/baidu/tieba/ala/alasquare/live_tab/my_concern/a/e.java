@@ -10,19 +10,19 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.i;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.j;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b, j> {
-    private ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b> glr;
+    private ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b> gkY;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b.glw);
-        this.glr = new ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b>() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.e.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b.gld);
+        this.gkY = new ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b>() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b bVar) {
@@ -35,10 +35,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: U */
+    /* renamed from: Q */
     public j c(ViewGroup viewGroup) {
         i iVar = new i(this.mPageContext, viewGroup);
-        iVar.c(this.glr);
+        iVar.c(this.gkY);
         return new j(iVar);
     }
 
@@ -46,10 +46,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b bVar, j jVar) {
-        if (jVar == null || jVar.gmw == null) {
+        if (jVar == null || jVar.gmd == null) {
             return null;
         }
-        jVar.gmw.a(bVar);
+        jVar.gmd.a(bVar);
         return jVar.getView();
     }
 
@@ -59,7 +59,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
             String str = bVar.user_id;
             if (!StringUtils.isNull(str) && com.baidu.adp.lib.f.b.toLong(str, 0L) != 0) {
                 if (!TbadkCoreApplication.isLogin()) {
-                    bg.skipToLoginActivity(this.mPageContext.getPageActivity());
+                    bh.skipToLoginActivity(this.mPageContext.getPageActivity());
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(str, 0L), !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str), false)));
                 }

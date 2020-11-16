@@ -2,7 +2,7 @@ package protobuf.QueryGroupsByUid;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public final class QueryGroupsByUidReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
@@ -16,7 +16,7 @@ public final class QueryGroupsByUidReqIdl extends Message {
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes25.dex */
     public static final class Builder extends Message.Builder<QueryGroupsByUidReqIdl> {
         public DataReq data;
 

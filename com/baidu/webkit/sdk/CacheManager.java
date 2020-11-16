@@ -6,12 +6,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class CacheManager {
     static final /* synthetic */ boolean $assertionsDisabled;
 
     @Deprecated
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class CacheResult {
         long contentLength;
         String contentdisposition;

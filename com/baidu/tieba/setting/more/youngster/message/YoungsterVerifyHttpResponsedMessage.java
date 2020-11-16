@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.setting.more.youngster.a.a;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class YoungsterVerifyHttpResponsedMessage extends JsonHttpResponsedMessage {
     private a mSearchMajorResultData;
 

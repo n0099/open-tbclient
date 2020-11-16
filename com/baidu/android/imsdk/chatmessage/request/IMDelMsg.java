@@ -17,7 +17,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class IMDelMsg extends Message {
     public static final String TAG = IMDelMsg.class.getSimpleName();
     private int mCategory;

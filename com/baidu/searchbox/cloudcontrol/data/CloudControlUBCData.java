@@ -6,7 +6,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class CloudControlUBCData {
     public static final String KEY_COUNT = "count";
     public static final String KEY_ITEMS = "items";

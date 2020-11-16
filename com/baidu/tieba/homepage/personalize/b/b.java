@@ -11,30 +11,30 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.card.t;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
-    private ab jGE;
+    private ab jHD;
     private final TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.jGE = new ab() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
+        this.jHD = new ab() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
-                TiebaStatic.log(new aq("c11273"));
+                TiebaStatic.log(new ar("c11273"));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
             }
         };
         this.mPageContext = tbPageContext;
-        a(this.jGE);
+        a(this.jHD);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bK */
+    /* renamed from: bG */
     public a c(ViewGroup viewGroup) {
         return new a(new com.baidu.tieba.homepage.personalize.b.a(this.mPageContext, viewGroup));
     }
@@ -43,18 +43,18 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
-        t.cor().e(new aq("c11272"));
-        aVar.jGG.a(cVar);
+        t.cnT().e(new ar("c11272"));
+        aVar.jHF.a(cVar);
         return aVar.getView();
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public static class a extends af.a {
-        public com.baidu.tieba.homepage.personalize.b.a jGG;
+        public com.baidu.tieba.homepage.personalize.b.a jHF;
 
         public a(com.baidu.tieba.homepage.personalize.b.a aVar) {
             super(aVar.getView());
-            this.jGG = aVar;
+            this.jHF = aVar;
         }
     }
 }

@@ -13,15 +13,15 @@ import org.json.JSONObject;
 /* loaded from: classes16.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static com.baidu.poly.a cbl = null;
-    private static com.baidu.poly.d.a.a cbm = null;
-    private static int cbn = 1;
+    private static com.baidu.poly.a bZA = null;
+    private static com.baidu.poly.d.a.a bZB = null;
+    private static int bZC = 1;
 
     public boolean a(Activity activity, String str, com.baidu.l.a.a aVar) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.aaM().e(activity, str, aVar);
+        b.aad().e(activity, str, aVar);
         return true;
     }
 
@@ -29,7 +29,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.aaM().f(activity, str, aVar);
+        b.aad().f(activity, str, aVar);
         return true;
     }
 
@@ -190,8 +190,8 @@ public class a {
                 }
                 bundle.putString("chosenChannel", string);
             }
-            bundle.putString("zid", b.aaM().getZid(activity));
-            aN(activity).a(activity, bundle, aaK(), new a.b() { // from class: com.baidu.l.a.1
+            bundle.putString("zid", b.aad().getZid(activity));
+            aN(activity).a(activity, bundle, aab(), new a.b() { // from class: com.baidu.l.a.1
                 @Override // com.baidu.poly.a.b
                 public void onResult(int i2, String str2) {
                     if (i2 == 3) {
@@ -212,11 +212,11 @@ public class a {
         }
     }
 
-    private static com.baidu.poly.d.a.c aaK() {
+    private static com.baidu.poly.d.a.c aab() {
         return new com.baidu.poly.d.a.c() { // from class: com.baidu.l.a.2
             @Override // com.baidu.poly.d.a.c
             public void a(Activity activity, com.baidu.poly.d.a.b bVar, final com.baidu.poly.d.a.a aVar) {
-                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.cdH == null) {
+                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.cbU == null) {
                     a.a(aVar, 6, "支付信息不能为空");
                     return;
                 }
@@ -263,7 +263,7 @@ public class a {
                 switch (c) {
                     case 0:
                     case 1:
-                        c.aaN().d(activity, bVar.cdH.optString("orderInfo"), new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.1
+                        c.aae().d(activity, bVar.cbU.optString("orderInfo"), new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.1
                             @Override // com.baidu.l.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -271,7 +271,7 @@ public class a {
                         });
                         break;
                     case 2:
-                        c.aaN().a((Context) activity, bVar.cdH, new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.2
+                        c.aae().a((Context) activity, bVar.cbU, new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.2
                             @Override // com.baidu.l.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -279,7 +279,7 @@ public class a {
                         });
                         break;
                     case 3:
-                        c.aaN().c(activity, bVar.cdH.optString("orderInfo"), new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.3
+                        c.aae().c(activity, bVar.cbU.optString("orderInfo"), new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.3
                             @Override // com.baidu.l.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -287,12 +287,12 @@ public class a {
                         });
                         break;
                     case 4:
-                        com.baidu.poly.d.a.a unused = a.cbm = aVar;
-                        d.aaO();
-                        c.aaN().f(activity, bVar.cdH);
+                        com.baidu.poly.d.a.a unused = a.bZB = aVar;
+                        d.aaf();
+                        c.aae().f(activity, bVar.cbU);
                         break;
                     case 5:
-                        c.aaN().a(activity, bVar.cdH, new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.4
+                        c.aae().a(activity, bVar.cbU, new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.4
                             @Override // com.baidu.l.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -317,18 +317,18 @@ public class a {
     }
 
     private static com.baidu.poly.a aN(Context context) {
-        if (cbl != null) {
-            return cbl;
+        if (bZA != null) {
+            return bZA;
         }
-        cbn = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
-        cbl = new a.C0298a().gL(cbn).aP(context.getApplicationContext()).dH(false).aaR();
-        return cbl;
+        bZC = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
+        bZA = new a.C0296a().gH(bZC).aP(context.getApplicationContext()).dJ(false).aai();
+        return bZA;
     }
 
     public static void ac(int i, String str) {
-        if (cbm != null) {
-            cbm.onResult(i, str);
-            cbm = null;
+        if (bZB != null) {
+            bZB.onResult(i, str);
+            bZB = null;
         }
     }
 
@@ -354,7 +354,7 @@ public class a {
         }
     }
 
-    public static boolean aaL() {
+    public static boolean aac() {
         return false;
     }
 }

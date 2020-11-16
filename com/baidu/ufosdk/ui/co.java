@@ -8,7 +8,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class co implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */

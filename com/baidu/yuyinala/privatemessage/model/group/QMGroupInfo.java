@@ -15,7 +15,7 @@ public class QMGroupInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: NZ */
+        /* renamed from: OC */
         public QMGroupInfo[] newArray(int i) {
             return new QMGroupInfo[i];
         }

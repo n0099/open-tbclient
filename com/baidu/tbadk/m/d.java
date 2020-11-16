@@ -7,9 +7,9 @@ public class d {
     private String abTag;
     private String currentPageKey;
     private long fid;
-    public String fuF;
-    private String fuG;
-    public String fuH;
+    public String ftP;
+    private String ftQ;
+    public String ftR;
     public boolean isRouteStat = false;
     public String isVertical;
     private com.baidu.tbadk.l.b mTbPageExtra;
@@ -95,20 +95,20 @@ public class d {
         return this.task_id;
     }
 
-    public String bCe() {
+    public String bBu() {
         return this.abTag;
     }
 
-    public void Ek(String str) {
+    public void DJ(String str) {
         this.abTag = str;
     }
 
-    public String bCf() {
-        return this.fuG;
+    public String bBv() {
+        return this.ftQ;
     }
 
-    public void El(String str) {
-        this.fuG = str;
+    public void DK(String str) {
+        this.ftQ = str;
     }
 
     public boolean isDirtyData() {

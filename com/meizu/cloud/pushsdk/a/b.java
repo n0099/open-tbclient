@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */

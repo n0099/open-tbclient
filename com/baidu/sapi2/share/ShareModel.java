@@ -9,7 +9,7 @@ import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class ShareModel implements Parcelable {
     public static final Parcelable.Creator<ShareModel> CREATOR = new a();
 
@@ -20,7 +20,7 @@ public class ShareModel implements Parcelable {
     private String d;
     private LoginShareStrategy e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     static class a implements Parcelable.Creator<ShareModel> {
         a() {
         }

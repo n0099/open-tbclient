@@ -8,7 +8,7 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
@@ -21,13 +21,13 @@ public class c {
     private long h;
     private String i;
     private int j;
-    private Network oJh;
-    private g oJi;
+    private Network oKL;
+    private g oKM;
 
     private c(String str, Map<String, String> map, g gVar, String str2, String str3) {
         this.e = false;
         this.b = str;
-        this.oJi = gVar;
+        this.oKM = gVar;
         this.c = map == null ? new HashMap<>() : map;
         this.f4015a = gVar == null ? "" : gVar.b().toString();
         this.d = str2;
@@ -85,12 +85,12 @@ public class c {
         return !e.a(this.f) || this.b.contains("logReport") || this.b.contains("uniConfig");
     }
 
-    public Network eiP() {
-        return this.oJh;
+    public Network eiN() {
+        return this.oKL;
     }
 
     public void f(Network network) {
-        this.oJh = network;
+        this.oKL = network;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -109,7 +109,7 @@ public class c {
         return i < 2;
     }
 
-    public g eiQ() {
-        return this.oJi;
+    public g eiO() {
+        return this.oKM;
     }
 }

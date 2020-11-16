@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.ufosdk.UfoSDK;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class ao implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

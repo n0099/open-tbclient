@@ -1,5 +1,5 @@
 package com.facebook.rebound;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class OrigamiValueConverter {
     public static double tensionFromOrigamiValue(double d) {
         if (d == 0.0d) {

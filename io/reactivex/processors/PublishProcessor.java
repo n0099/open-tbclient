@@ -6,10 +6,10 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class PublishProcessor<T> extends a<T> {
-    static final PublishSubscription[] pRg = new PublishSubscription[0];
-    static final PublishSubscription[] pRh = new PublishSubscription[0];
+    static final PublishSubscription[] pSJ = new PublishSubscription[0];
+    static final PublishSubscription[] pSK = new PublishSubscription[0];
     Throwable error;
     final AtomicReference<PublishSubscription<T>[]> subscribers;
 
@@ -37,7 +37,7 @@ public final class PublishProcessor<T> extends a<T> {
         PublishSubscription<T>[] publishSubscriptionArr2;
         do {
             publishSubscriptionArr = this.subscribers.get();
-            if (publishSubscriptionArr == pRg) {
+            if (publishSubscriptionArr == pSJ) {
                 return false;
             }
             int length = publishSubscriptionArr.length;
@@ -53,7 +53,7 @@ public final class PublishProcessor<T> extends a<T> {
         PublishSubscription<T>[] publishSubscriptionArr2;
         do {
             publishSubscriptionArr = this.subscribers.get();
-            if (publishSubscriptionArr != pRg && publishSubscriptionArr != pRh) {
+            if (publishSubscriptionArr != pSJ && publishSubscriptionArr != pSK) {
                 int length = publishSubscriptionArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -69,7 +69,7 @@ public final class PublishProcessor<T> extends a<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        publishSubscriptionArr2 = pRh;
+                        publishSubscriptionArr2 = pSK;
                     } else {
                         publishSubscriptionArr2 = new PublishSubscription[length - 1];
                         System.arraycopy(publishSubscriptionArr, 0, publishSubscriptionArr2, 0, i);
@@ -86,7 +86,7 @@ public final class PublishProcessor<T> extends a<T> {
 
     @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
-        if (this.subscribers.get() == pRg) {
+        if (this.subscribers.get() == pSJ) {
             dVar.cancel();
         } else {
             dVar.request(Long.MAX_VALUE);
@@ -96,7 +96,7 @@ public final class PublishProcessor<T> extends a<T> {
     @Override // org.a.c
     public void onNext(T t) {
         io.reactivex.internal.functions.a.l(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() != pRg) {
+        if (this.subscribers.get() != pSJ) {
             for (PublishSubscription<T> publishSubscription : this.subscribers.get()) {
                 publishSubscription.onNext(t);
             }
@@ -106,27 +106,27 @@ public final class PublishProcessor<T> extends a<T> {
     @Override // org.a.c
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.l(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == pRg) {
+        if (this.subscribers.get() == pSJ) {
             io.reactivex.e.a.onError(th);
             return;
         }
         this.error = th;
-        for (PublishSubscription<T> publishSubscription : this.subscribers.getAndSet(pRg)) {
+        for (PublishSubscription<T> publishSubscription : this.subscribers.getAndSet(pSJ)) {
             publishSubscription.onError(th);
         }
     }
 
     @Override // org.a.c
     public void onComplete() {
-        if (this.subscribers.get() != pRg) {
-            for (PublishSubscription<T> publishSubscription : this.subscribers.getAndSet(pRg)) {
+        if (this.subscribers.get() != pSJ) {
+            for (PublishSubscription<T> publishSubscription : this.subscribers.getAndSet(pSJ)) {
                 publishSubscription.onComplete();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class PublishSubscription<T> extends AtomicLong implements d {
         private static final long serialVersionUID = 3562861878281475070L;
         final c<? super T> actual;

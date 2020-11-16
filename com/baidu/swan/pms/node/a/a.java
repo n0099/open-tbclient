@@ -2,22 +2,22 @@ package com.baidu.swan.pms.node.a;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private JSONArray eiR;
-    private JSONObject eiS;
+    private JSONArray ehk;
+    private JSONObject ehl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(JSONArray jSONArray, JSONObject jSONObject) {
-        this.eiR = jSONArray;
-        this.eiS = jSONObject;
+        this.ehk = jSONArray;
+        this.ehl = jSONObject;
     }
 
-    public JSONObject bcl() {
-        return this.eiS;
+    public JSONObject bbE() {
+        return this.ehl;
     }
 
-    public JSONArray bcm() {
-        return this.eiR;
+    public JSONArray bbF() {
+        return this.ehk;
     }
 }

@@ -6,19 +6,19 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private a fgB;
+    private a ffJ;
 
     /* loaded from: classes.dex */
     public interface a {
-        void e(ShareItem shareItem);
+        void d(ShareItem shareItem);
     }
 
-    public void c(final ShareItem shareItem) {
+    public void b(final ShareItem shareItem) {
         new BdAsyncTask<ShareItem, Integer, ShareItem>() { // from class: com.baidu.tbadk.coreExtra.share.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -41,7 +41,7 @@ public class b {
                     aaVar.addPostData("type", "3");
                 }
                 String postNetData = aaVar.postNetData();
-                if (at.isEmpty(postNetData)) {
+                if (au.isEmpty(postNetData)) {
                     return shareItem2;
                 }
                 try {
@@ -50,7 +50,7 @@ public class b {
                     BdLog.e(e);
                 }
                 if (shareItem2.typeShareToSmallApp != 4) {
-                    shareItem2.fhl = str;
+                    shareItem2.fgt = str;
                     shareItem2.imageUri = Uri.parse(str);
                 }
                 return shareItem2;
@@ -59,17 +59,17 @@ public class b {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            /* renamed from: d */
+            /* renamed from: c */
             public void onPostExecute(ShareItem shareItem2) {
                 super.onPostExecute(shareItem2);
-                if (b.this.fgB != null) {
-                    b.this.fgB.e(shareItem2);
+                if (b.this.ffJ != null) {
+                    b.this.ffJ.d(shareItem2);
                 }
             }
         }.execute(shareItem);
     }
 
     public void a(a aVar) {
-        this.fgB = aVar;
+        this.ffJ = aVar;
     }
 }

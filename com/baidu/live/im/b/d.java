@@ -9,12 +9,12 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d {
-    private List<AlaLiveMarkData> bjl;
-    private boolean bln;
-    private String blo;
+    private List<AlaLiveMarkData> bhx;
+    private boolean bjC;
+    private String bjD;
 
-    public static d Mg() {
-        return a.blp;
+    public static d Lx() {
+        return a.bjE;
     }
 
     private List<cg> a(boolean z, int i, List<cg> list, cg[] cgVarArr, cg[] cgVarArr2) {
@@ -22,9 +22,9 @@ public class d {
         if (list == null) {
             list = new ArrayList<>();
         }
-        boolean z3 = com.baidu.live.aa.a.PQ().bod != null && com.baidu.live.aa.a.PQ().bod.aNi && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled());
-        bn bnVar = com.baidu.live.aa.a.PQ().btT;
-        boolean z4 = TbadkCoreApplication.getInst().isMobileBaidu() || !(bnVar == null || bnVar.aPA == null || bnVar.aPA.aRW) || (TbadkCoreApplication.sAlaLiveSwitchData != null && TbadkCoreApplication.sAlaLiveSwitchData.isNobleInfoSwitchUnabled());
+        boolean z3 = com.baidu.live.aa.a.Ph().bms != null && com.baidu.live.aa.a.Ph().bms.aLx && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled());
+        bn bnVar = com.baidu.live.aa.a.Ph().bsh;
+        boolean z4 = TbadkCoreApplication.getInst().isMobileBaidu() || !(bnVar == null || bnVar.aNP == null || bnVar.aNP.aQl) || (TbadkCoreApplication.sAlaLiveSwitchData != null && TbadkCoreApplication.sAlaLiveSwitchData.isNobleInfoSwitchUnabled());
         boolean z5 = cgVarArr != null && cgVarArr.length > 0 && z3;
         boolean z6 = i > 2;
         if (cgVarArr2 == null || cgVarArr2.length <= 0 || z4) {
@@ -62,18 +62,18 @@ public class d {
         return list;
     }
 
-    public cg[] Mh() {
+    public cg[] Ly() {
         return e(false, 0);
     }
 
     public cg[] e(boolean z, int i) {
         List<cg> list;
-        bn bnVar = com.baidu.live.aa.a.PQ().btT;
-        if (bnVar == null || bnVar.aPA == null || !bnVar.aPA.aRO || bnVar.aPx == null) {
+        bn bnVar = com.baidu.live.aa.a.Ph().bsh;
+        if (bnVar == null || bnVar.aNP == null || !bnVar.aNP.aQd || bnVar.aNM == null) {
             list = null;
         } else {
-            cg[] cgVarArr = bnVar.aPx.aQP;
-            list = a(z, i, (cgVarArr == null || cgVarArr.length <= 0) ? null : new ArrayList(Arrays.asList(cgVarArr)), bnVar.aPx.aQV, bnVar.aPx.aQW);
+            cg[] cgVarArr = bnVar.aNM.aPe;
+            list = a(z, i, (cgVarArr == null || cgVarArr.length <= 0) ? null : new ArrayList(Arrays.asList(cgVarArr)), bnVar.aNM.aPk, bnVar.aNM.aPl);
         }
         if (list == null || list.isEmpty()) {
             return null;
@@ -81,18 +81,18 @@ public class d {
         return (cg[]) list.toArray(new cg[list.size()]);
     }
 
-    public cg[] Mi() {
-        return eK(0);
+    public cg[] Lz() {
+        return eG(0);
     }
 
-    public cg[] eK(int i) {
+    public cg[] eG(int i) {
         List<cg> list;
-        bn bnVar = com.baidu.live.aa.a.PQ().btT;
-        if (bnVar == null || bnVar.aPA == null || !bnVar.aPA.aRO || bnVar.aPx == null) {
+        bn bnVar = com.baidu.live.aa.a.Ph().bsh;
+        if (bnVar == null || bnVar.aNP == null || !bnVar.aNP.aQd || bnVar.aNM == null) {
             list = null;
         } else {
-            cg[] cgVarArr = bnVar.aPx.aQP;
-            list = a(false, i, (cgVarArr == null || cgVarArr.length <= 0) ? null : new ArrayList(Arrays.asList(cgVarArr)), null, bnVar.aPx.aQW);
+            cg[] cgVarArr = bnVar.aNM.aPe;
+            list = a(false, i, (cgVarArr == null || cgVarArr.length <= 0) ? null : new ArrayList(Arrays.asList(cgVarArr)), null, bnVar.aNM.aPl);
         }
         if (list == null || list.isEmpty()) {
             return null;
@@ -100,50 +100,50 @@ public class d {
         return (cg[]) list.toArray(new cg[list.size()]);
     }
 
-    public boolean Mj() {
-        return this.bln;
+    public boolean LA() {
+        return this.bjC;
     }
 
     public void setSwitchStatus(boolean z) {
-        this.bln = z;
+        this.bjC = z;
     }
 
-    public String Mk() {
-        return this.blo;
+    public String LB() {
+        return this.bjD;
     }
 
     public void setSelectId(String str) {
-        this.blo = str;
+        this.bjD = str;
     }
 
-    public List<AlaLiveMarkData> Ml() {
-        return this.bjl;
+    public List<AlaLiveMarkData> LC() {
+        return this.bhx;
     }
 
     public void U(List<AlaLiveMarkData> list) {
-        if (this.bjl == null) {
-            this.bjl = new ArrayList();
+        if (this.bhx == null) {
+            this.bhx = new ArrayList();
         }
-        this.bjl.clear();
+        this.bhx.clear();
         if (list != null && !list.isEmpty()) {
-            this.bjl.addAll(list);
+            this.bhx.addAll(list);
         }
     }
 
     public void release() {
-        this.bln = false;
-        this.blo = null;
-        if (this.bjl != null) {
-            this.bjl.clear();
+        this.bjC = false;
+        this.bjD = null;
+        if (this.bhx != null) {
+            this.bhx.clear();
         }
     }
 
     private d() {
-        this.bln = false;
+        this.bjC = false;
     }
 
     /* loaded from: classes4.dex */
     private static class a {
-        private static final d blp = new d();
+        private static final d bjE = new d();
     }
 }

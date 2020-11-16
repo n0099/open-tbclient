@@ -2,10 +2,10 @@ package com.baidu.afd.videopaster;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class c implements a {
-    private final int YH;
-    private HashMap YK;
+    private final int YM;
+    private HashMap YP;
     private int floor;
     private final int height;
     private final String pid;
@@ -13,7 +13,7 @@ public class c implements a {
     private final int width;
 
     private c(int i, int i2, String str, int i3, int i4, int i5) {
-        this.YH = i;
+        this.YM = i;
         this.refreshCount = i2;
         this.pid = str;
         this.floor = i3;
@@ -42,7 +42,7 @@ public class c implements a {
 
     @Override // com.baidu.afd.videopaster.a
     public int rl() {
-        return this.YH;
+        return this.YM;
     }
 
     @Override // com.baidu.afd.videopaster.a
@@ -52,14 +52,14 @@ public class c implements a {
 
     @Override // com.baidu.afd.videopaster.a
     public Map<String, String> ro() {
-        return this.YK;
+        return this.YP;
     }
 
     @Override // com.baidu.afd.videopaster.a
     public void u(HashMap hashMap) {
-        this.YK = hashMap;
-        if (!this.YK.containsKey("iadex")) {
-            hashMap.put("iadex", com.baidu.tbadk.util.c.bDk());
+        this.YP = hashMap;
+        if (!this.YP.containsKey("iadex")) {
+            hashMap.put("iadex", com.baidu.tbadk.util.c.bCD());
         }
     }
 }

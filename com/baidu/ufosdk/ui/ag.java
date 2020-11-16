@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class ag extends Handler {
 
     /* renamed from: a  reason: collision with root package name */

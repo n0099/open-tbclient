@@ -5,23 +5,23 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public C0639a gzx;
-    public b gzy;
-    public b gzz;
+    public C0639a gze;
+    public b gzf;
+    public b gzg;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             if (jSONObject.optJSONObject("pk_info") != null) {
-                this.gzx = new C0639a();
-                this.gzx.parseJson(jSONObject.optJSONObject("pk_info"));
+                this.gze = new C0639a();
+                this.gze.parseJson(jSONObject.optJSONObject("pk_info"));
             }
             if (jSONObject.optJSONObject("user_info") != null) {
-                this.gzy = new b();
-                this.gzy.parseJson(jSONObject.optJSONObject("user_info"));
+                this.gzf = new b();
+                this.gzf.parseJson(jSONObject.optJSONObject("user_info"));
             }
             if (jSONObject.optJSONObject("rival_info") != null) {
-                this.gzz = new b();
-                this.gzz.parseJson(jSONObject.optJSONObject("rival_info"));
+                this.gzg = new b();
+                this.gzg.parseJson(jSONObject.optJSONObject("rival_info"));
             }
         }
     }
@@ -29,31 +29,31 @@ public class a {
     /* renamed from: com.baidu.tieba.ala.data.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public class C0639a {
-        public String gzA;
-        public String gzB;
-        public String gzC;
-        public long gzD;
-        public long gzE;
-        public String gzF;
-        public String gzG;
+        public String gzh;
+        public String gzi;
+        public String gzj;
+        public long gzk;
+        public long gzl;
+        public String gzm;
+        public String gzn;
 
         public C0639a() {
         }
 
         public void parseJson(JSONObject jSONObject) {
-            this.gzA = jSONObject.optString("pk_id");
-            this.gzB = jSONObject.optString("pk_ret");
-            this.gzC = jSONObject.optString("pk_ret_type");
-            this.gzD = jSONObject.optLong("anchor_score", 0L);
-            this.gzE = jSONObject.optLong("rival_score", 0L);
-            this.gzF = jSONObject.optString("continue_status");
-            this.gzG = jSONObject.optString("continue_number");
+            this.gzh = jSONObject.optString("pk_id");
+            this.gzi = jSONObject.optString("pk_ret");
+            this.gzj = jSONObject.optString("pk_ret_type");
+            this.gzk = jSONObject.optLong("anchor_score", 0L);
+            this.gzl = jSONObject.optLong("rival_score", 0L);
+            this.gzm = jSONObject.optString("continue_status");
+            this.gzn = jSONObject.optString("continue_number");
         }
     }
 
     /* loaded from: classes4.dex */
     public class b {
-        public String gzI;
+        public String gzp;
         public String pass_name;
         public String portrait;
         public String sex;
@@ -67,7 +67,7 @@ public class a {
             this.user_id = jSONObject.optString("user_id");
             this.user_name = jSONObject.optString("user_name");
             this.pass_name = jSONObject.optString("pass_name");
-            this.gzI = jSONObject.optString("user_status");
+            this.gzp = jSONObject.optString("user_status");
             this.sex = jSONObject.optString("sex");
             this.portrait = jSONObject.optString("bd_portrait");
             if (StringUtils.isNull(this.portrait)) {

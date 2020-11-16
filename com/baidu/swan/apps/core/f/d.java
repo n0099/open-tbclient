@@ -1,13 +1,13 @@
 package com.baidu.swan.apps.core.f;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface d {
     void e(int i, String str, String str2);
 
     void goBack();
 
-    void hV(String str);
+    void hP(String str);
 
-    void iP(String str);
+    void iJ(String str);
 
-    boolean iQ(String str);
+    boolean iK(String str);
 }

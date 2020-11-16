@@ -12,7 +12,7 @@ import com.baidu.android.pushservice.message.k;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class f extends b {
     public f(Context context) {
         super(context);
@@ -43,16 +43,16 @@ public class f extends b {
         int f = kVar.f();
         byte[] h = kVar.h();
         String c = kVar.c();
-        com.baidu.android.pushservice.a.d a2 = com.baidu.android.pushservice.a.d.a(this.f1168a, b);
-        if (TextUtils.isEmpty(c) || !m.b(this.f1168a, c)) {
-            c = a2.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT ? a2.f1012a.b() : null;
+        com.baidu.android.pushservice.a.d a2 = com.baidu.android.pushservice.a.d.a(this.f1171a, b);
+        if (TextUtils.isEmpty(c) || !m.b(this.f1171a, c)) {
+            c = a2.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT ? a2.f1015a.b() : null;
         }
         switch (a2.a()) {
             case PUSH_CLIENT:
                 String a3 = a(c);
                 try {
-                    this.f1168a.getPackageManager().getPackageInfo(a3, 128);
-                    PublicMsg a4 = h.a(this.f1168a, e, b, bArr);
+                    this.f1171a.getPackageManager().getPackageInfo(a3, 128);
+                    PublicMsg a4 = h.a(this.f1171a, e, b, bArr);
                     boolean a5 = a(bArr);
                     if (a4 == null) {
                         i = 0;
@@ -81,21 +81,21 @@ public class f extends b {
                                 }
                                 intent.putExtra("extra_extra_custom_content", a4.mCustomContent);
                             } catch (JSONException e2) {
-                                new b.c(this.f1168a).a(Log.getStackTraceString(e2)).a();
+                                new b.c(this.f1171a).a(Log.getStackTraceString(e2)).a();
                             }
                         }
-                        i = m.a(this.f1168a, intent, str, a3);
-                        m.a(">>> Deliver message to client: " + a3 + " msg: " + a4.mDescription + " result: " + i, this.f1168a);
+                        i = m.a(this.f1171a, intent, str, a3);
+                        m.a(">>> Deliver message to client: " + a3 + " msg: " + a4.mDescription + " result: " + i, this.f1171a);
                         break;
                     }
                 } catch (PackageManager.NameNotFoundException e3) {
                     i = 8;
-                    m.a(">>> NOT deliver to app: " + a2.f1012a.b(), this.f1168a);
+                    m.a(">>> NOT deliver to app: " + a2.f1015a.b(), this.f1171a);
                     break;
                 }
             default:
                 i = 7;
-                m.a(">>> NOT found client for privateMessageHandler appid " + b, this.f1168a);
+                m.a(">>> NOT found client for privateMessageHandler appid " + b, this.f1171a);
                 break;
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();

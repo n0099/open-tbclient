@@ -5,15 +5,15 @@ import com.baidu.live.adp.widget.listview.IAdapterData;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b implements IAdapterData {
-    public static BdUniqueId mBX = BdUniqueId.gen();
-    public List<IAdapterData> mBY;
+    public static BdUniqueId mCu = BdUniqueId.gen();
+    public List<IAdapterData> mCw;
 
     public b(List<IAdapterData> list) {
-        this.mBY = list;
+        this.mCw = list;
     }
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return mBX;
+        return mCu;
     }
 }

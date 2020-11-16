@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import org.webrtc.VideoDecoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 class VideoDecoderWrapper {
     VideoDecoderWrapper() {
     }

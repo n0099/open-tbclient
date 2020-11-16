@@ -13,10 +13,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c knM = null;
-    private long jWa = 0;
-    private List<Long> knN = new ArrayList();
-    private final CustomMessageListener kmM = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.im.push.c.1
+    private static c kow = null;
+    private long jWK = 0;
+    private List<Long> kox = new ArrayList();
+    private final CustomMessageListener knw = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.im.push.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,31 +27,31 @@ public class c {
     };
 
     private c() {
-        MessageManager.getInstance().registerListener(this.kmM);
+        MessageManager.getInstance().registerListener(this.knw);
     }
 
-    public static c cUG() {
-        if (knM == null) {
+    public static c cUm() {
+        if (kow == null) {
             synchronized (c.class) {
-                if (knM == null) {
-                    knM = new c();
+                if (kow == null) {
+                    kow = new c();
                 }
             }
         }
-        return knM;
+        return kow;
     }
 
-    public synchronized void de(String str, String str2) {
+    public synchronized void dd(String str, String str2) {
         clear();
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                this.jWa = com.baidu.adp.lib.f.b.toLong(str, 0L);
+                this.jWK = com.baidu.adp.lib.f.b.toLong(str, 0L);
                 try {
                     String[] split = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     if (split != null && split.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             if (!TextUtils.isEmpty(split[i])) {
-                                this.knN.add(Long.valueOf(Long.parseLong(split[i])));
+                                this.kox.add(Long.valueOf(Long.parseLong(split[i])));
                             }
                         }
                     }
@@ -65,46 +65,46 @@ public class c {
     }
 
     public synchronized void clear() {
-        this.jWa = 0L;
-        this.knN.clear();
+        this.jWK = 0L;
+        this.kox.clear();
     }
 
     public long getGid() {
-        return this.jWa;
+        return this.jWK;
     }
 
-    public Long cUH() {
-        return com.baidu.tieba.im.memorycache.b.cTK().cTV().get(this.jWa);
+    public Long cUn() {
+        return com.baidu.tieba.im.memorycache.b.cTq().cTB().get(this.jWK);
     }
 
-    public synchronized List<Long> cUI() {
+    public synchronized List<Long> cUo() {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (Long l : this.knN) {
+        for (Long l : this.kox) {
             if (l != null) {
-                arrayList.add(Long.valueOf(com.baidu.tieba.im.util.d.gu(l.longValue())));
+                arrayList.add(Long.valueOf(com.baidu.tieba.im.util.d.gx(l.longValue())));
             }
         }
         return arrayList;
     }
 
-    public synchronized void cUJ() {
-        this.knN.clear();
+    public synchronized void cUp() {
+        this.kox.clear();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0061, code lost:
-        r9.knN.add(java.lang.Long.valueOf(r12));
+        r9.kox.add(java.lang.Long.valueOf(r12));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void C(long j, long j2) {
-        if (this.jWa != 0 && this.jWa != j) {
-            this.knN.clear();
-            i.a("PushIdsCacheManager", null, 0, "addPushId", -1, "not equal original gid:" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.jWa);
+        if (this.jWK != 0 && this.jWK != j) {
+            this.kox.clear();
+            i.a("PushIdsCacheManager", null, 0, "addPushId", -1, "not equal original gid:" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.jWK);
         }
-        this.jWa = j;
-        Iterator<Long> it = this.knN.iterator();
+        this.jWK = j;
+        Iterator<Long> it = this.kox.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -116,17 +116,17 @@ public class c {
         }
     }
 
-    public synchronized boolean cUK() {
+    public synchronized boolean cUq() {
         boolean z;
-        if (this.jWa > 0) {
-            z = this.knN.size() > 0;
+        if (this.jWK > 0) {
+            z = this.kox.size() > 0;
         }
         return z;
     }
 
-    public synchronized boolean gp(long j) {
+    public synchronized boolean gs(long j) {
         boolean z;
-        Iterator<Long> it = this.knN.iterator();
+        Iterator<Long> it = this.kox.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -141,10 +141,10 @@ public class c {
         return z;
     }
 
-    public synchronized String cUL() {
+    public synchronized String cUr() {
         String str;
         str = "";
-        for (Long l : this.knN) {
+        for (Long l : this.kox) {
             str = (l == null || l.longValue() == 0) ? str : (str + l.longValue()) + Constants.ACCEPT_TIME_SEPARATOR_SP;
         }
         return str;

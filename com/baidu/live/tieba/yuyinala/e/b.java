@@ -16,10 +16,10 @@ import com.baidu.live.tbadk.core.view.BdGridView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b implements View.OnClickListener {
-    private String bFK;
-    private TextView bGr;
-    private BdGridView bGu;
-    private com.baidu.live.tieba.yuyinala.a.a bGv;
+    private String bDZ;
+    private TextView bEG;
+    private BdGridView bEJ;
+    private com.baidu.live.tieba.yuyinala.a.a bEK;
     private String mLiveId;
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -34,16 +34,16 @@ public class b implements View.OnClickListener {
 
     private void initView() {
         this.mView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.yuyin_ala_activity_choose_feedback_reason_layout, (ViewGroup) null);
-        this.bGu = (BdGridView) this.mView.findViewById(a.f.id_feedback_gridview);
-        this.bGr = (TextView) this.mView.findViewById(a.f.id_feenback_confirm_btn);
-        this.bGr.setEnabled(false);
-        this.bGr.setOnClickListener(this);
-        this.bGv = new com.baidu.live.tieba.yuyinala.a.a(this.mPageContext);
-        this.bGu.setAdapter((ListAdapter) this.bGv);
-        this.bGu.setOnItemClickListener(new a());
+        this.bEJ = (BdGridView) this.mView.findViewById(a.f.id_feedback_gridview);
+        this.bEG = (TextView) this.mView.findViewById(a.f.id_feenback_confirm_btn);
+        this.bEG.setEnabled(false);
+        this.bEG.setOnClickListener(this);
+        this.bEK = new com.baidu.live.tieba.yuyinala.a.a(this.mPageContext);
+        this.bEJ.setAdapter((ListAdapter) this.bEK);
+        this.bEJ.setOnItemClickListener(new a());
     }
 
-    public void aQ(String str, String str2) {
+    public void aP(String str, String str2) {
         this.mLiveId = str;
         this.mRoomId = str2;
     }
@@ -51,7 +51,7 @@ public class b implements View.OnClickListener {
     public void z(String str, String str2, String str3) {
         this.mLiveId = str;
         this.mRoomId = str2;
-        this.bFK = str3;
+        this.bDZ = str3;
     }
 
     @Override // android.view.View.OnClickListener
@@ -71,21 +71,21 @@ public class b implements View.OnClickListener {
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             com.baidu.live.tieba.yuyinala.c.a item = ((com.baidu.live.tieba.yuyinala.a.a) adapterView.getAdapter()).getItem(i);
             if (item != null) {
-                if (item.Uu() != 0) {
-                    if (b.this.bGv.Us() == i) {
-                        b.this.bGv.ge(-1);
-                        b.this.bGv.notifyDataSetChanged();
-                        b.this.bGr.setEnabled(false);
+                if (item.TL() != 0) {
+                    if (b.this.bEK.TJ() == i) {
+                        b.this.bEK.ga(-1);
+                        b.this.bEK.notifyDataSetChanged();
+                        b.this.bEG.setEnabled(false);
                         return;
                     }
-                    b.this.bGv.ge(i);
-                    b.this.bGv.notifyDataSetChanged();
-                    b.this.bGr.setEnabled(true);
+                    b.this.bEK.ga(i);
+                    b.this.bEK.notifyDataSetChanged();
+                    b.this.bEG.setEnabled(true);
                     return;
                 }
                 aa aaVar = new aa(b.this.mPageContext.getPageActivity());
-                aaVar.ai(b.this.mLiveId, b.this.mRoomId);
-                aaVar.ge(b.this.bFK);
+                aaVar.ah(b.this.mLiveId, b.this.mRoomId);
+                aaVar.fY(b.this.bDZ);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, aaVar));
                 b.this.mPageContext.getPageActivity().finish();
             }
@@ -100,13 +100,13 @@ public class b implements View.OnClickListener {
     }
 
     public void setData(List<com.baidu.live.tieba.yuyinala.c.a> list) {
-        this.bGv.setData(list);
+        this.bEK.setData(list);
     }
 
-    public com.baidu.live.tieba.yuyinala.c.a UA() {
-        if (this.bGv == null || this.bGv.Us() < 0) {
+    public com.baidu.live.tieba.yuyinala.c.a TR() {
+        if (this.bEK == null || this.bEK.TJ() < 0) {
             return null;
         }
-        return this.bGv.getItem(this.bGv.Us());
+        return this.bEK.getItem(this.bEK.TJ());
     }
 }

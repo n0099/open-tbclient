@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.restnet;
 
 import java.io.Serializable;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class RestNameValuePair implements Serializable {
     private static final long serialVersionUID = 847806714499261896L;
     private String name;

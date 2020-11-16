@@ -24,9 +24,9 @@ import com.baidu.tieba.yuyinala.data.h;
 public class a {
     private Activity activity;
     private String liveId;
-    private b nTi;
+    private b nUL;
     private String roomId;
-    private HttpMessageListener gyt = new HttpMessageListener(1031076) { // from class: com.baidu.tieba.yuyinala.a.a.1
+    private HttpMessageListener gya = new HttpMessageListener(1031076) { // from class: com.baidu.tieba.yuyinala.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -38,7 +38,7 @@ public class a {
                 return;
             }
             if ((httpResponsedMessage instanceof RedPktSendHttpResponseMessage) && httpResponsedMessage.getError() == 0) {
-                c.a(a.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).gAK, ((RedPktSendHttpResponseMessage) httpResponsedMessage).gAL, "send_redpacket");
+                c.a(a.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).gAr, ((RedPktSendHttpResponseMessage) httpResponsedMessage).gAs, "send_redpacket");
                 a.this.activity.finish();
                 return;
             }
@@ -47,8 +47,8 @@ public class a {
             } else if (!TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
                 BdUtilHelper.showToast(a.this.activity, httpResponsedMessage.getErrorString());
             }
-            if (a.this.nTi != null) {
-                a.this.nTi.mc(true);
+            if (a.this.nUL != null) {
+                a.this.nUL.md(true);
             }
         }
     };
@@ -70,7 +70,7 @@ public class a {
     public a(Activity activity) {
         this.activity = activity;
         initView();
-        bRA();
+        bQT();
     }
 
     private void initView() {
@@ -79,10 +79,10 @@ public class a {
             this.liveId = intent.getStringExtra("live_id");
             this.roomId = intent.getStringExtra("room_id");
         }
-        this.nTi = new b(this.activity, this);
+        this.nUL = new b(this.activity, this);
     }
 
-    private static void bRz() {
+    private static void bQS() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031076, TbConfig.SERVER_HOST + "liveserver/redpacket/send");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -92,21 +92,21 @@ public class a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bRA() {
-        bRz();
-        MessageManager.getInstance().registerListener(this.gyt);
+    private void bQT() {
+        bQS();
+        MessageManager.getInstance().registerListener(this.gya);
         MessageManager.getInstance().registerListener(this.notifyDialogDismissListener);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(1031076);
-        MessageManager.getInstance().unRegisterListener(this.gyt);
+        MessageManager.getInstance().unRegisterListener(this.gya);
         MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
     }
 
     public View getView() {
-        if (this.nTi != null) {
-            return this.nTi.getView();
+        if (this.nUL != null) {
+            return this.nUL.getView();
         }
         return null;
     }
@@ -117,21 +117,21 @@ public class a {
             hVar.setRoomId(this.roomId);
             hVar.setParams();
             MessageManager.getInstance().sendMessage(hVar);
-            if (this.nTi != null) {
-                this.nTi.mc(false);
+            if (this.nUL != null) {
+                this.nUL.md(false);
             }
         }
     }
 
-    public void HJ() {
-        if (this.nTi != null) {
-            this.nTi.HJ();
+    public void Ha() {
+        if (this.nUL != null) {
+            this.nUL.Ha();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.nTi != null) {
-            this.nTi.onKeyboardVisibilityChanged(z);
+        if (this.nUL != null) {
+            this.nUL.onKeyboardVisibilityChanged(z);
         }
     }
 }

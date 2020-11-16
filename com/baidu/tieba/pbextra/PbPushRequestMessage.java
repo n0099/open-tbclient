@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.u;
 import tbclient.PushThread.DataReq;
 import tbclient.PushThread.PushThreadReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class PbPushRequestMessage extends NetMessage {
     private long mForumId;
     private int mPushType;

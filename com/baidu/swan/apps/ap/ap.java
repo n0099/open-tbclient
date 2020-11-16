@@ -1,34 +1,34 @@
 package com.baidu.swan.apps.ap;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class ap {
-    private int dEf;
+    private int dCy;
 
     private ap() {
-        this.dEf = 0;
+        this.dCy = 0;
     }
 
-    public void lr(int i) {
-        this.dEf = i;
+    public void ln(int i) {
+        this.dCy = i;
     }
 
     public void reset() {
-        this.dEf = 0;
+        this.dCy = 0;
     }
 
-    public boolean aNi() {
-        return this.dEf != 0;
+    public boolean aMA() {
+        return this.dCy != 0;
     }
 
-    public int aNj() {
-        return aNi() ? 1 : 0;
+    public int aMB() {
+        return aMA() ? 1 : 0;
     }
 
-    public static ap aNk() {
-        return a.dEg;
+    public static ap aMC() {
+        return a.dCz;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     private static class a {
-        private static final ap dEg = new ap();
+        private static final ap dCz = new ap();
     }
 }

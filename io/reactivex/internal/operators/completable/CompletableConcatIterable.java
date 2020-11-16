@@ -8,14 +8,14 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class CompletableConcatIterable extends a {
-    final Iterable<? extends e> pMG;
+    final Iterable<? extends e> pOj;
 
     @Override // io.reactivex.a
     public void b(c cVar) {
         try {
-            ConcatInnerObserver concatInnerObserver = new ConcatInnerObserver(cVar, (Iterator) io.reactivex.internal.functions.a.l(this.pMG.iterator(), "The iterator returned is null"));
+            ConcatInnerObserver concatInnerObserver = new ConcatInnerObserver(cVar, (Iterator) io.reactivex.internal.functions.a.l(this.pOj.iterator(), "The iterator returned is null"));
             cVar.onSubscribe(concatInnerObserver.sd);
             concatInnerObserver.next();
         } catch (Throwable th) {
@@ -24,7 +24,7 @@ public final class CompletableConcatIterable extends a {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class ConcatInnerObserver extends AtomicInteger implements c {
         private static final long serialVersionUID = -7965400327305809232L;
         final c actual;

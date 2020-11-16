@@ -3,7 +3,7 @@ package android.support.annotation;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes18.dex */
+/* loaded from: classes14.dex */
 public @interface VisibleForTesting {
     public static final int NONE = 5;
     public static final int PACKAGE_PRIVATE = 3;

@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.text.TextUtils;
 import com.vivo.push.model.InsideNotificationItem;
 import com.vivo.push.sdk.PushMessageCallback;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 final class s implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

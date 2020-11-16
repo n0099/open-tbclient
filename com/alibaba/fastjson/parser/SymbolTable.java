@@ -1,7 +1,7 @@
 package com.alibaba.fastjson.parser;
 
 import com.alibaba.fastjson.JSON;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class SymbolTable {
     private final int indexMask;
     private final String[] symbols;

@@ -17,7 +17,7 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class LivenessVideoXfordView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
@@ -45,14 +45,14 @@ public class LivenessVideoXfordView extends FrameLayout {
     private int v;
     private a w;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public enum VideoXfordViewState {
         FAILURE,
         SUCCESSING,
         SUCCESSED
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public interface a {
         void a();
     }

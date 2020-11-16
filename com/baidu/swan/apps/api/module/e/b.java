@@ -11,13 +11,13 @@ import com.baidu.swan.apps.api.a.d;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.swan.apps.api.a.d {
     public b(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kO(String str) {
+    public com.baidu.swan.apps.api.c.b kI(String str) {
         if (DEBUG) {
             Log.d("Api-Modal", "start show modal");
         }
@@ -26,7 +26,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.api.module.e.b$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public class AnonymousClass1 implements d.a {
         AnonymousClass1() {
         }
@@ -40,9 +40,9 @@ public class b extends com.baidu.swan.apps.api.a.d {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.b.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (eVar.aHo() != null && !eVar.aHo().isFinishing() && !eVar.aHo().isDestroyed()) {
+                    if (eVar.aGG() != null && !eVar.aGG().isFinishing() && !eVar.aGG().isDestroyed()) {
                         g.a aVar = new g.a(b.this.getContext());
-                        aVar.f(jSONObject.optString("title")).rR(jSONObject.optString("content")).a(new com.baidu.swan.apps.view.c.a()).gr(false);
+                        aVar.f(jSONObject.optString("title")).rL(jSONObject.optString("content")).a(new com.baidu.swan.apps.view.c.a()).gu(false);
                         if (jSONObject.optBoolean("showCancel", true)) {
                             aVar.V(jSONObject.optString("cancelColor"), a.c.aiapps_modal_cancel_color);
                             String optString2 = jSONObject.optString("cancelText");
@@ -81,7 +81,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
                                 }
                             }
                         });
-                        aVar.aHb();
+                        aVar.aGt();
                     }
                 }
             });

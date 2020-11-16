@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import rx.c.f;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class OnErrorThrowable extends RuntimeException {
     private static final long serialVersionUID = -569558213262703934L;
     private final boolean hasValue;
@@ -56,17 +56,17 @@ public final class OnErrorThrowable extends RuntimeException {
         return th;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public static class OnNextValue extends RuntimeException {
         private static final long serialVersionUID = -3454462756050397899L;
         private final Object value;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes16.dex */
+        /* loaded from: classes14.dex */
         public static final class a {
-            static final Set<Class<?>> qdP = eFB();
+            static final Set<Class<?>> qfs = eFC();
 
-            private static Set<Class<?>> eFB() {
+            private static Set<Class<?>> eFC() {
                 HashSet hashSet = new HashSet();
                 hashSet.add(Boolean.class);
                 hashSet.add(Character.class);
@@ -100,7 +100,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj == null) {
                 return "null";
             }
-            if (a.qdP.contains(obj.getClass())) {
+            if (a.qfs.contains(obj.getClass())) {
                 return obj.toString();
             }
             if (obj instanceof String) {
@@ -109,8 +109,8 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj instanceof Enum) {
                 return ((Enum) obj).name();
             }
-            String co = f.eGu().eGv().co(obj);
-            return co != null ? co : obj.getClass().getName() + ".class";
+            String cp = f.eGv().eGw().cp(obj);
+            return cp != null ? cp : obj.getClass().getName() + ".class";
         }
     }
 }

@@ -4,7 +4,7 @@ import java.util.Random;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 final class KotlinRandom extends Random {
     private final d impl;
 
@@ -19,7 +19,7 @@ final class KotlinRandom extends Random {
 
     @Override // java.util.Random
     protected int next(int i) {
-        return this.impl.Ru(i);
+        return this.impl.RX(i);
     }
 
     @Override // java.util.Random

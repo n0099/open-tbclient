@@ -11,26 +11,26 @@ import com.facebook.imagepipeline.c.h;
 import com.facebook.imagepipeline.g.c;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a implements com.facebook.imagepipeline.f.a {
-    private final b oNp;
-    private final h<com.facebook.cache.common.b, c> oRU;
-    private final com.facebook.imagepipeline.animated.impl.b oRW;
-    private final ScheduledExecutorService oRc;
-    private final f oRk;
-    private final ExecutorService oSa;
-    private final j<Integer> oSb;
-    private final j<Integer> oSc;
+    private final b oOT;
+    private final ScheduledExecutorService oSF;
+    private final f oSN;
+    private final ExecutorService oTD;
+    private final j<Integer> oTE;
+    private final j<Integer> oTF;
+    private final h<com.facebook.cache.common.b, c> oTx;
+    private final com.facebook.imagepipeline.animated.impl.b oTz;
 
     public a(com.facebook.imagepipeline.animated.impl.b bVar, ScheduledExecutorService scheduledExecutorService, ExecutorService executorService, b bVar2, f fVar, h<com.facebook.cache.common.b, c> hVar, j<Integer> jVar, j<Integer> jVar2) {
-        this.oRW = bVar;
-        this.oRc = scheduledExecutorService;
-        this.oSa = executorService;
-        this.oNp = bVar2;
-        this.oRk = fVar;
-        this.oRU = hVar;
-        this.oSb = jVar;
-        this.oSc = jVar2;
+        this.oTz = bVar;
+        this.oSF = scheduledExecutorService;
+        this.oTD = executorService;
+        this.oOT = bVar2;
+        this.oSN = fVar;
+        this.oTx = hVar;
+        this.oTE = jVar;
+        this.oTF = jVar2;
     }
 
     @Override // com.facebook.imagepipeline.f.a
@@ -42,7 +42,7 @@ public class a implements com.facebook.imagepipeline.f.a {
     @Override // com.facebook.imagepipeline.f.a
     /* renamed from: d */
     public com.facebook.fresco.animation.c.a b(c cVar) {
-        return new com.facebook.fresco.animation.c.a(a(((com.facebook.imagepipeline.g.a) cVar).epP()));
+        return new com.facebook.fresco.animation.c.a(a(((com.facebook.imagepipeline.g.a) cVar).epN()));
     }
 
     private com.facebook.fresco.animation.a.a a(d dVar) {
@@ -51,27 +51,27 @@ public class a implements com.facebook.imagepipeline.f.a {
         com.facebook.imagepipeline.animated.base.a b = b(dVar);
         com.facebook.fresco.animation.b.b c = c(dVar);
         com.facebook.fresco.animation.b.c.b bVar2 = new com.facebook.fresco.animation.b.c.b(c, b);
-        int intValue = this.oSc.get().intValue();
+        int intValue = this.oTF.get().intValue();
         if (intValue > 0) {
             dVar2 = new com.facebook.fresco.animation.b.b.d(intValue);
             bVar = a(bVar2);
         } else {
             dVar2 = null;
         }
-        return com.facebook.fresco.animation.a.c.a(new com.facebook.fresco.animation.b.a(this.oRk, c, new com.facebook.fresco.animation.b.c.a(b), bVar2, dVar2, bVar), this.oNp, this.oRc);
+        return com.facebook.fresco.animation.a.c.a(new com.facebook.fresco.animation.b.a(this.oSN, c, new com.facebook.fresco.animation.b.c.a(b), bVar2, dVar2, bVar), this.oOT, this.oSF);
     }
 
     private com.facebook.fresco.animation.b.b.b a(com.facebook.fresco.animation.b.c cVar) {
-        return new com.facebook.fresco.animation.b.b.c(this.oRk, cVar, Bitmap.Config.ARGB_8888, this.oSa);
+        return new com.facebook.fresco.animation.b.b.c(this.oSN, cVar, Bitmap.Config.ARGB_8888, this.oTD);
     }
 
     private com.facebook.imagepipeline.animated.base.a b(d dVar) {
-        com.facebook.imagepipeline.animated.base.b ene = dVar.ene();
-        return this.oRW.a(dVar, new Rect(0, 0, ene.getWidth(), ene.getHeight()));
+        com.facebook.imagepipeline.animated.base.b enb = dVar.enb();
+        return this.oTz.a(dVar, new Rect(0, 0, enb.getWidth(), enb.getHeight()));
     }
 
     private com.facebook.fresco.animation.b.b c(d dVar) {
-        switch (this.oSb.get().intValue()) {
+        switch (this.oTE.get().intValue()) {
             case 1:
                 return new com.facebook.fresco.animation.b.a.a(d(dVar), true);
             case 2:
@@ -84,26 +84,26 @@ public class a implements com.facebook.imagepipeline.f.a {
     }
 
     private com.facebook.imagepipeline.animated.impl.c d(d dVar) {
-        return new com.facebook.imagepipeline.animated.impl.c(new C0978a(dVar.hashCode()), this.oRU);
+        return new com.facebook.imagepipeline.animated.impl.c(new C0981a(dVar.hashCode()), this.oTx);
     }
 
     /* renamed from: com.facebook.fresco.animation.factory.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public static class C0978a implements com.facebook.cache.common.b {
-        private final String oSd;
+    /* loaded from: classes10.dex */
+    public static class C0981a implements com.facebook.cache.common.b {
+        private final String oTG;
 
-        public C0978a(int i) {
-            this.oSd = "anim://" + i;
+        public C0981a(int i) {
+            this.oTG = "anim://" + i;
         }
 
         @Override // com.facebook.cache.common.b
-        public boolean I(Uri uri) {
-            return uri.toString().startsWith(this.oSd);
+        public boolean J(Uri uri) {
+            return uri.toString().startsWith(this.oTG);
         }
 
         @Override // com.facebook.cache.common.b
-        public String ejo() {
-            return this.oSd;
+        public String ejm() {
+            return this.oTG;
         }
     }
 }

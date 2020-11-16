@@ -5,7 +5,7 @@ import com.baidu.fsg.base.restnet.RestMultipartEntity;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.http.HttpDefines;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */

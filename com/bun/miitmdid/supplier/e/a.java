@@ -8,16 +8,16 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 import com.zui.deviceidservice.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class a {
     private static String c = "OpenDeviceId library";
     private static boolean d = false;
 
     /* renamed from: a  reason: collision with root package name */
     private Context f3984a;
-    private com.zui.deviceidservice.a oIf;
-    private ServiceConnection oIg;
-    private com.bun.miitmdid.supplier.c.a oIh;
+    private com.zui.deviceidservice.a oJJ;
+    private ServiceConnection oJK;
+    private com.bun.miitmdid.supplier.c.a oJL;
 
     public a(Context context, com.bun.miitmdid.supplier.c.a aVar) {
         this.f3984a = null;
@@ -25,32 +25,32 @@ public class a {
             throw new NullPointerException("Context can not be null.");
         }
         this.f3984a = context;
-        this.oIh = aVar;
-        this.oIg = new ServiceConnection() { // from class: com.bun.miitmdid.supplier.e.a.1
+        this.oJL = aVar;
+        this.oJK = new ServiceConnection() { // from class: com.bun.miitmdid.supplier.e.a.1
             @Override // android.content.ServiceConnection
             public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                a.this.oIf = a.AbstractBinderC1058a.a(iBinder);
-                if (a.this.oIh != null) {
-                    a.this.oIh.a(true);
+                a.this.oJJ = a.AbstractBinderC1061a.a(iBinder);
+                if (a.this.oJL != null) {
+                    a.this.oJL.a(true);
                 }
                 a.this.a("Service onServiceConnected");
             }
 
             @Override // android.content.ServiceConnection
             public void onServiceDisconnected(ComponentName componentName) {
-                a.this.oIf = null;
+                a.this.oJJ = null;
                 a.this.a("Service onServiceDisconnected");
             }
         };
         Intent intent = new Intent();
         intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-        if (this.f3984a.bindService(intent, this.oIg, 1)) {
+        if (this.f3984a.bindService(intent, this.oJK, 1)) {
             a("bindService Successful!");
             return;
         }
         a("bindService Failed!");
-        if (this.oIh != null) {
-            this.oIh.a();
+        if (this.oJL != null) {
+            this.oJL.a();
         }
     }
 
@@ -73,8 +73,8 @@ public class a {
             throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
         }
         try {
-            if (this.oIf != null) {
-                return this.oIf.a();
+            if (this.oJJ != null) {
+                return this.oJJ.a();
             }
         } catch (RemoteException e) {
             b("getOAID error, RemoteException!");
@@ -89,8 +89,8 @@ public class a {
             throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
         }
         try {
-            if (this.oIf != null) {
-                return this.oIf.b();
+            if (this.oJJ != null) {
+                return this.oJJ.b();
             }
         } catch (RemoteException e) {
             b("getUDID error, RemoteException!");
@@ -101,9 +101,9 @@ public class a {
 
     public boolean c() {
         try {
-            if (this.oIf != null) {
+            if (this.oJJ != null) {
                 a("Device support opendeviceid");
-                return this.oIf.c();
+                return this.oJJ.c();
             }
             return false;
         } catch (RemoteException e) {
@@ -123,8 +123,8 @@ public class a {
             a("input package is null!");
         } else {
             try {
-                if (this.oIf != null) {
-                    return this.oIf.a(packageName);
+                if (this.oJJ != null) {
+                    return this.oJJ.a(packageName);
                 }
             } catch (RemoteException e) {
                 b("getVAID error, RemoteException!");
@@ -145,8 +145,8 @@ public class a {
             a("input package is null!");
         } else {
             try {
-                if (this.oIf != null) {
-                    return this.oIf.b(packageName);
+                if (this.oJJ != null) {
+                    return this.oJJ.b(packageName);
                 }
             } catch (RemoteException e) {
                 b("getAAID error, RemoteException!");
@@ -157,11 +157,11 @@ public class a {
 
     public void f() {
         try {
-            this.f3984a.unbindService(this.oIg);
+            this.f3984a.unbindService(this.oJK);
             a("unBind Service successful");
         } catch (IllegalArgumentException e) {
             b("unBind Service exception");
         }
-        this.oIf = null;
+        this.oJJ = null;
     }
 }

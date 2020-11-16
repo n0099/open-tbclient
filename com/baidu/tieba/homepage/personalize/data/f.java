@@ -2,50 +2,49 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.ar;
-import com.baidu.tbadk.core.data.bw;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.data.as;
+import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.Personalized.UserFollowLive;
-/* loaded from: classes22.dex */
-public class f extends AbsThreadDataSupport {
-    public static final BdUniqueId jGb = BdUniqueId.gen();
-    private List<AlaLiveInfo> jGc = new ArrayList();
+/* loaded from: classes21.dex */
+public class f extends com.baidu.tbadk.core.data.a {
+    public static final BdUniqueId jHa = BdUniqueId.gen();
+    private List<AlaLiveInfo> jHb = new ArrayList();
 
     public void a(UserFollowLive userFollowLive) {
-        this.jGc.clear();
+        this.jHb.clear();
         if (userFollowLive != null && userFollowLive._switch.intValue() != 0 && !y.isEmpty(userFollowLive.user_follow_live)) {
-            this.jGc.addAll(userFollowLive.user_follow_live);
+            this.jHb.addAll(userFollowLive.user_follow_live);
         }
     }
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jGb;
+        return jHa;
     }
 
-    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bjZ() {
+    @Override // com.baidu.tbadk.core.data.a
+    public bx bjd() {
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bkb() {
+    @Override // com.baidu.tbadk.core.data.a
+    public as bjf() {
         return null;
     }
 
-    public List<AlaLiveInfo> cLt() {
-        return this.jGc;
+    public List<AlaLiveInfo> cKZ() {
+        return this.jHb;
     }
 
-    public aq cLu() {
-        aq aqVar = new aq("c13620");
-        aqVar.w("uid", TbadkApplication.getCurrentAccountId());
-        aqVar.al("fid", 0);
-        return aqVar;
+    public ar cLa() {
+        ar arVar = new ar("c13620");
+        arVar.w("uid", TbadkApplication.getCurrentAccountId());
+        arVar.ak("fid", 0);
+        return arVar;
     }
 }

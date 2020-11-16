@@ -12,8 +12,8 @@ import com.baidu.live.tbadk.util.TextHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
 /* loaded from: classes4.dex */
 public class PkRankStartNameView extends LinearLayout {
-    private TbImageView bKU;
-    private TextView hPj;
+    private TbImageView bJj;
+    private TextView hOQ;
 
     public PkRankStartNameView(Context context) {
         super(context);
@@ -21,18 +21,18 @@ public class PkRankStartNameView extends LinearLayout {
     }
 
     public void setData(String str, String str2) {
-        if (this.hPj != null) {
+        if (this.hOQ != null) {
             if (!TextUtils.isEmpty(str) && TextHelper.getTextLengthWithEmoji(str) > 10) {
                 str = TextHelper.subStringWithEmoji(str, 10) + StringHelper.STRING_MORE;
             }
-            TextView textView = this.hPj;
+            TextView textView = this.hOQ;
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
             textView.setText(str);
         }
-        if (this.bKU != null) {
-            TbImageView tbImageView = this.bKU;
+        if (this.bJj != null) {
+            TbImageView tbImageView = this.bJj;
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -41,8 +41,8 @@ public class PkRankStartNameView extends LinearLayout {
     }
 
     public void release() {
-        if (this.bKU != null) {
-            this.bKU.stopLoad();
+        if (this.bJj != null) {
+            this.bJj.stopLoad();
         }
     }
 
@@ -50,9 +50,9 @@ public class PkRankStartNameView extends LinearLayout {
         setBackgroundColor(0);
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.g.sdk_pk_rank_start_name, (ViewGroup) this, true);
-        this.hPj = (TextView) findViewById(a.f.tv_pk_rank_start_nickname);
-        this.bKU = (TbImageView) findViewById(a.f.iv_pk_rank_start_level);
-        this.bKU.setAutoChangeStyle(false);
-        this.bKU.setDefaultBgResource(a.e.pk_rank_division_default);
+        this.hOQ = (TextView) findViewById(a.f.tv_pk_rank_start_nickname);
+        this.bJj = (TbImageView) findViewById(a.f.iv_pk_rank_start_level);
+        this.bJj.setAutoChangeStyle(false);
+        this.bJj.setDefaultBgResource(a.e.pk_rank_division_default);
     }
 }

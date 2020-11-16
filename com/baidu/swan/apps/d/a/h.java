@@ -3,10 +3,10 @@ package com.baidu.swan.apps.d.a;
 import kotlin.jvm.internal.q;
 import org.json.JSONObject;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class h {
-    private static String cwM;
-    public static final h cwN = new h();
+    private static String cvc;
+    public static final h cvd = new h();
 
     private h() {
     }
@@ -14,16 +14,16 @@ public final class h {
     public final void d(int i, JSONObject jSONObject) {
         q.n(jSONObject, "jsonObject");
         if (i == 0) {
-            aF(jSONObject);
+            az(jSONObject);
         }
     }
 
-    private final void aF(JSONObject jSONObject) {
-        com.baidu.swan.apps.storage.c.h.aKS().putString("alliance_login_uk", jSONObject.optString("uk"));
+    private final void az(JSONObject jSONObject) {
+        com.baidu.swan.apps.storage.c.h.aKk().putString("alliance_login_uk", jSONObject.optString("uk"));
     }
 
-    public final void ajs() {
-        com.baidu.swan.apps.storage.c.h.aKS().putString("alliance_login_uk", "");
-        cwM = null;
+    public final void aiK() {
+        com.baidu.swan.apps.storage.c.h.aKk().putString("alliance_login_uk", "");
+        cvc = null;
     }
 }

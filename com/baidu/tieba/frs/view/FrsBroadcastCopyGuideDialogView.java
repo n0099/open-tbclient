@@ -9,12 +9,12 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
-    private TextView bEW;
-    private TextView iLa;
-    private TextView ihZ;
-    private ImageView jns;
+    private TextView bDl;
+    private TextView iLN;
+    private TextView iiN;
+    private ImageView job;
     private Context mContext;
     private LinearLayout mRootView;
 
@@ -26,24 +26,24 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.iLa.setOnClickListener(onClickListener);
+            this.iLN.setOnClickListener(onClickListener);
         }
     }
 
     private void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_broadcast_major_copy_guide_dialog, this);
         this.mRootView = (LinearLayout) findViewById(R.id.frs_broadcast_guide_main);
-        this.bEW = (TextView) this.mRootView.findViewById(R.id.frs_broadcast_guide_title);
-        this.ihZ = (TextView) this.mRootView.findViewById(R.id.frs_broadcast_guide_content);
-        this.jns = (ImageView) this.mRootView.findViewById(R.id.guide_iv);
-        this.iLa = (TextView) this.mRootView.findViewById(R.id.to_next_tv);
-        this.bEW.setText(R.string.forum_broadcast_copy_guide_title);
-        this.ihZ.setText(R.string.forum_broadcast_copy_guide_hint);
-        this.iLa.setText(R.string.comment_tab_dialog_botton_text);
-        ap.setViewTextColor(this.bEW, R.color.cp_cont_b);
-        ap.setViewTextColor(this.ihZ, R.color.cp_cont_j);
-        ap.setViewTextColor(this.iLa, R.color.cp_link_tip_a);
-        ap.setImageResource(this.jns, R.drawable.pic_frs_guide_copylink);
-        com.baidu.tbadk.core.util.e.a.brO().pj(0).pk(R.color.cp_bg_line_k).af(l.getDimens(this.mContext, R.dimen.tbds30)).ae(l.getDimens(this.mContext, R.dimen.tbds30)).ad(l.getDimens(this.mContext, R.dimen.tbds32)).ac(l.getDimens(this.mContext, R.dimen.tbds32)).bk(this.mRootView);
+        this.bDl = (TextView) this.mRootView.findViewById(R.id.frs_broadcast_guide_title);
+        this.iiN = (TextView) this.mRootView.findViewById(R.id.frs_broadcast_guide_content);
+        this.job = (ImageView) this.mRootView.findViewById(R.id.guide_iv);
+        this.iLN = (TextView) this.mRootView.findViewById(R.id.to_next_tv);
+        this.bDl.setText(R.string.forum_broadcast_copy_guide_title);
+        this.iiN.setText(R.string.forum_broadcast_copy_guide_hint);
+        this.iLN.setText(R.string.comment_tab_dialog_botton_text);
+        ap.setViewTextColor(this.bDl, R.color.CAM_X0105);
+        ap.setViewTextColor(this.iiN, R.color.CAM_X0107);
+        ap.setViewTextColor(this.iLN, R.color.CAM_X0302);
+        ap.setImageResource(this.job, R.drawable.pic_frs_guide_copylink);
+        com.baidu.tbadk.core.util.e.a.brc().pF(0).pG(R.color.CAM_X0211).ag(l.getDimens(this.mContext, R.dimen.tbds30)).af(l.getDimens(this.mContext, R.dimen.tbds30)).ae(l.getDimens(this.mContext, R.dimen.tbds32)).ad(l.getDimens(this.mContext, R.dimen.tbds32)).bn(this.mRootView);
     }
 }

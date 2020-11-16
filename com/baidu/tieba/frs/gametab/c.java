@@ -17,40 +17,40 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class c {
-    private final ViewGroup bJN;
-    private View.OnClickListener fUZ;
-    private com.baidu.adp.lib.guide.c gpq;
+    private final ViewGroup bIc;
+    private View.OnClickListener fUG;
+    private com.baidu.adp.lib.guide.c goX;
     private final Handler handler = new Handler();
-    private com.baidu.adp.lib.guide.b jaj;
-    private String jak;
-    private Runnable jal;
+    private com.baidu.adp.lib.guide.b jaV;
+    private String jaW;
+    private Runnable jaX;
     private final Activity mActivity;
 
     public c(Activity activity, int i) {
         this.mActivity = activity;
-        this.bJN = (ViewGroup) activity.findViewById(i);
+        this.bIc = (ViewGroup) activity.findViewById(i);
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.fUZ = onClickListener;
+        this.fUG = onClickListener;
     }
 
-    public void KF(String str) {
-        this.jak = str;
+    public void Kg(String str) {
+        this.jaW = str;
     }
 
-    public void cli() {
-        if (this.bJN != null) {
-            if (this.gpq != null) {
-                this.gpq.b(this.bJN);
+    public void ckB() {
+        if (this.bIc != null) {
+            if (this.goX != null) {
+                this.goX.b(this.bIc);
             }
-            this.jal = new Runnable() { // from class: com.baidu.tieba.frs.gametab.c.1
+            this.jaX = new Runnable() { // from class: com.baidu.tieba.frs.gametab.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (c.this.gpq != null) {
-                        c.this.gpq.b(c.this.bJN);
+                    if (c.this.goX != null) {
+                        c.this.goX.b(c.this.bIc);
                     }
                 }
             };
@@ -63,29 +63,29 @@ public class c {
 
                 @Override // com.baidu.adp.lib.guide.d.a
                 public void onDismiss() {
-                    c.this.gpq = null;
-                    c.this.handler.removeCallbacks(c.this.jal);
+                    c.this.goX = null;
+                    c.this.handler.removeCallbacks(c.this.jaX);
                 }
             });
-            if (this.jaj == null) {
-                this.jaj = cDq();
+            if (this.jaV == null) {
+                this.jaV = cCU();
             }
-            dVar.a(this.jaj);
+            dVar.a(this.jaV);
             dVar.am(R.anim.frs_guide_tip_enter);
             dVar.an(R.anim.frs_guide_tip_out);
-            this.gpq = dVar.mi();
-            this.gpq.a(this.mActivity, this.bJN, false);
-            this.handler.postDelayed(this.jal, 4000L);
+            this.goX = dVar.mi();
+            this.goX.a(this.mActivity, this.bIc, false);
+            this.handler.postDelayed(this.jaX, 4000L);
         }
     }
 
-    public void cDp() {
-        if (this.gpq != null) {
-            this.gpq.b(this.bJN);
+    public void cCT() {
+        if (this.goX != null) {
+            this.goX.b(this.bIc);
         }
     }
 
-    private com.baidu.adp.lib.guide.b cDq() {
+    private com.baidu.adp.lib.guide.b cCU() {
         return new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.frs.gametab.c.3
             @Override // com.baidu.adp.lib.guide.b
             public View getView(LayoutInflater layoutInflater) {
@@ -93,42 +93,42 @@ public class c {
                 View findViewById = inflate.findViewById(R.id.frs_guide_bg);
                 BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.frs_guide_bar_icon);
                 final FollowUserButton followUserButton = (FollowUserButton) inflate.findViewById(R.id.frs_guide_concern_btn);
-                ap.setViewTextColor((TextView) inflate.findViewById(R.id.frs_guide_text), R.color.cp_link_tip_a);
+                ap.setViewTextColor((TextView) inflate.findViewById(R.id.frs_guide_text), R.color.CAM_X0302);
                 barImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
                 barImageView.setContentDescription(c.this.mActivity.getResources().getString(R.string.bar_header));
                 barImageView.setStrokeWith(l.getDimens(c.this.mActivity, R.dimen.tbds1));
                 barImageView.setShowOval(true);
-                barImageView.setPlaceHolder(2);
+                barImageView.setPlaceHolder(1);
                 barImageView.setShowOuterBorder(false);
                 barImageView.setShowInnerBorder(true);
-                barImageView.setStrokeColorResId(R.color.cp_border_a);
-                if (!StringUtils.isNull(c.this.jak)) {
-                    barImageView.startLoad(c.this.jak, 10, false);
+                barImageView.setStrokeColorResId(R.color.CAM_X0401);
+                if (!StringUtils.isNull(c.this.jaW)) {
+                    barImageView.startLoad(c.this.jaW, 10, false);
                 }
                 final com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
-                aVar.qi(R.color.cp_link_tip_a);
-                aVar.qd(UtilHelper.getDimenPixelSize(R.dimen.tbds28));
+                aVar.qG(R.color.CAM_X0302);
+                aVar.qB(UtilHelper.getDimenPixelSize(R.dimen.tbds28));
                 aVar.a(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-                aVar.qh(UtilHelper.getDimenPixelSize(R.dimen.tbds11));
+                aVar.qF(UtilHelper.getDimenPixelSize(R.dimen.tbds11));
                 followUserButton.setConfig(aVar);
                 followUserButton.setText(c.this.mActivity.getString(R.string.attention));
                 followUserButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametab.c.3.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.fUZ != null) {
-                            c.this.fUZ.onClick(view);
+                        if (c.this.fUG != null) {
+                            c.this.fUG.onClick(view);
                         }
-                        aVar.qi(R.color.cp_cont_d);
+                        aVar.qG(R.color.CAM_X0109);
                         aVar.a(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                         followUserButton.setText(TbadkCoreApplication.getInst().getString(R.string.followed));
                         followUserButton.setClickable(false);
-                        if (c.this.jal != null) {
-                            c.this.handler.removeCallbacks(c.this.jal);
-                            c.this.handler.postDelayed(c.this.jal, 1000L);
+                        if (c.this.jaX != null) {
+                            c.this.handler.removeCallbacks(c.this.jaX);
+                            c.this.handler.postDelayed(c.this.jaX, 1000L);
                         }
                     }
                 });
-                com.baidu.tbadk.core.util.e.a.brN().pA(R.color.cp_bg_line_h).pv(l.getDimens(c.this.mActivity, R.dimen.tbds21)).pw(R.color.cp_shadow_a_alpha12).pu(4369).px(l.getDimens(c.this.mActivity, R.dimen.tbds10)).py(0).pz(l.getDimens(c.this.mActivity, R.dimen.tbds5)).bk(findViewById);
+                com.baidu.tbadk.core.util.e.a.brb().pX(R.color.CAM_X0207).pS(l.getDimens(c.this.mActivity, R.dimen.tbds21)).pT(R.color.CAM_X0803).pR(4369).pU(l.getDimens(c.this.mActivity, R.dimen.tbds10)).pV(0).pW(l.getDimens(c.this.mActivity, R.dimen.tbds5)).bn(findViewById);
                 return inflate;
             }
 

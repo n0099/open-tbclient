@@ -6,7 +6,7 @@ import com.baidu.ala.recorder.video.gles.BaseFilter;
 import com.baidu.ala.recorder.video.gles.GlUtil;
 import java.nio.ByteBuffer;
 @TargetApi(15)
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class YuvOutputDrawer extends BaseFilter {
     public static final int EXPORT_TYPE_I420 = 1;
     public static final int EXPORT_TYPE_NV12 = 3;
@@ -81,7 +81,7 @@ public class YuvOutputDrawer extends BaseFilter {
         this.mScaleFilter.destroy();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     private static class ExportShader {
         private final String HEAD;
 
@@ -110,7 +110,7 @@ public class YuvOutputDrawer extends BaseFilter {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     private static class ExportFilter extends BaseFilter {
         private int mGLHeight;
         private int mGLWidth;
@@ -136,7 +136,7 @@ public class YuvOutputDrawer extends BaseFilter {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     private static class ScaleFilter extends BaseFilter {
         private static final String HEAD = "precision mediump float;\n        varying vec2 vTextureCo;\n        uniform sampler2D uTexture;\n        void main() {\n            gl_FragColor = texture2D( uTexture, vTextureCo);\n        }";
 

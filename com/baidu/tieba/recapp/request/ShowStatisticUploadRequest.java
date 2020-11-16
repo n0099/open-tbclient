@@ -16,7 +16,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class ShowStatisticUploadRequest extends HttpMessage {
     private static final TbHttpMessageTask task = new TbHttpMessageTask(1003183, "https://als.baidu.com/flog/logFeed");
 
@@ -30,7 +30,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
             addParam("net_type", netType);
         }
         d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        task.setUrl((adAdSense == null || adAdSense.buo()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
+        task.setUrl((adAdSense == null || adAdSense.btE()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
     }
 
     ShowStatisticUploadRequest init(int i, String str, String str2, String str3) {
@@ -50,8 +50,8 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                 if (bVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("tid", bVar.alT);
-                        jSONObject.put("locate", bVar.iaT);
+                        jSONObject.put("tid", bVar.alZ);
+                        jSONObject.put("locate", bVar.ibH);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         BdLog.e(e);
@@ -74,7 +74,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     try {
                         jSONObject.put("pid", bVar.mPid);
                         jSONObject.put("tid", str4);
-                        jSONObject.put("locate", bVar.iaT);
+                        jSONObject.put("locate", bVar.ibH);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         BdLog.e(e);
@@ -92,7 +92,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
         task.setIsNeedAddCommenParam(true);
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes25.dex */
     private static final class ResponseMessage extends HttpResponsedMessage {
         public ResponseMessage(int i) {
             super(i);

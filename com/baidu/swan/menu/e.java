@@ -2,40 +2,40 @@ package com.baidu.swan.menu;
 
 import android.graphics.PointF;
 import android.view.animation.Interpolator;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class e implements Interpolator {
-    private int egd = 0;
-    private final PointF ege = new PointF();
-    private final PointF egf = new PointF();
+    private int eew = 0;
+    private final PointF eex = new PointF();
+    private final PointF eey = new PointF();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(float f, float f2, float f3, float f4) {
-        this.ege.x = f;
-        this.ege.y = f2;
-        this.egf.x = f3;
-        this.egf.y = f4;
+        this.eex.x = f;
+        this.eex.y = f2;
+        this.eey.x = f3;
+        this.eey.y = f4;
     }
 
     @Override // android.animation.TimeInterpolator
     public float getInterpolation(float f) {
         double d = 1.0d;
-        int i = this.egd;
+        int i = this.eew;
         float f2 = f;
         while (true) {
             if (i >= 4096) {
                 break;
             }
             f2 = (1.0f * i) / 4096.0f;
-            if (a(f2, 0.0d, this.ege.x, this.egf.x, 1.0d) < f) {
+            if (a(f2, 0.0d, this.eex.x, this.eey.x, 1.0d) < f) {
                 i++;
             } else {
-                this.egd = i;
+                this.eew = i;
                 break;
             }
         }
-        double a2 = a(f2, 0.0d, this.ege.y, this.egf.y, 1.0d);
+        double a2 = a(f2, 0.0d, this.eex.y, this.eey.y, 1.0d);
         if (a2 > 0.999d) {
-            this.egd = 0;
+            this.eew = 0;
         } else {
             d = a2;
         }

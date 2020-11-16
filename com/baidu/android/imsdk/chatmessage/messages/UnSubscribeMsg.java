@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class UnSubscribeMsg extends NormalMsg {
     public static final Parcelable.Creator<UnSubscribeMsg> CREATOR = new Parcelable.Creator<UnSubscribeMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.UnSubscribeMsg.1
         /* JADX DEBUG: Method merged with bridge method */

@@ -3,11 +3,11 @@ package com.baidu.android.pushservice.a;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.i.m;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f1012a;
+    public e f1015a;
     private c b;
 
     public d(c cVar) {
@@ -22,7 +22,7 @@ public class d {
             return new d(c.UNKNOWN_CLIENT);
         }
         d dVar = new d(c.PUSH_CLIENT);
-        dVar.f1012a = b;
+        dVar.f1015a = b;
         return dVar;
     }
 

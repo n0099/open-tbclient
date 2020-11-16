@@ -4,7 +4,7 @@ import com.baidu.android.common.logging.Log;
 import com.xiaomi.push.je;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class jo extends je {
     private static int b = 10000;
     private static int c = 10000;
@@ -12,7 +12,7 @@ public class jo extends je {
     private static int e = Log.FILE_LIMETE;
     private static int f = 104857600;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes18.dex */
     public static class a extends je.a {
         public a() {
             super(false, true);
@@ -24,7 +24,7 @@ public class jo extends je {
 
         @Override // com.xiaomi.push.je.a, com.xiaomi.push.jk
         public ji a(js jsVar) {
-            jo joVar = new jo(jsVar, this.f776a, this.b);
+            jo joVar = new jo(jsVar, this.f779a, this.b);
             if (this.f4999a != 0) {
                 joVar.b(this.f4999a);
             }
@@ -75,7 +75,7 @@ public class jo extends je {
         }
         if (this.f5003a.b() >= a2) {
             try {
-                String str = new String(this.f5003a.m496a(), this.f5003a.a(), a2, "UTF-8");
+                String str = new String(this.f5003a.m499a(), this.f5003a.a(), a2, "UTF-8");
                 this.f5003a.a(a2);
                 return str;
             } catch (UnsupportedEncodingException e2) {
@@ -93,7 +93,7 @@ public class jo extends je {
         }
         c(a2);
         if (this.f5003a.b() >= a2) {
-            ByteBuffer wrap = ByteBuffer.wrap(this.f5003a.m496a(), this.f5003a.a(), a2);
+            ByteBuffer wrap = ByteBuffer.wrap(this.f5003a.m499a(), this.f5003a.a(), a2);
             this.f5003a.a(a2);
             return wrap;
         }

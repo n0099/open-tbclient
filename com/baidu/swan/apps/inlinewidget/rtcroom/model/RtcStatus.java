@@ -2,7 +2,7 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.model;
 
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mapapi.SDKInitializer;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public enum RtcStatus {
     UNKNOWN(-1, RomUtils.UNKNOWN),
     LOCAL_JOIN(1001, "LOCAL_JOIN"),

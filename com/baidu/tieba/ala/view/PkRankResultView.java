@@ -20,28 +20,28 @@ import com.baidu.tieba.ala.data.PkInfoData;
 /* loaded from: classes4.dex */
 public class PkRankResultView extends RelativeLayout {
     Context context;
-    private PkRankView gzq;
-    private TextView hOA;
-    private TextView hOB;
-    private TextView hOC;
-    private TextView hOD;
-    private TextView hOE;
-    private TextView hOF;
-    private TextView hOG;
-    private TextView hOH;
-    private TextView hOI;
-    private TextView hOJ;
-    private TextView hOK;
-    private TextView hOL;
-    private TbImageView hOM;
-    private LinearLayout hON;
-    private SeekBar hOO;
-    private TextView hOP;
-    private TextView hOQ;
-    PkRankMvpView hOR;
-    private RelativeLayout hOx;
-    private RelativeLayout hOy;
-    private ViewFlipper hOz;
+    private PkRankView gyX;
+    private RelativeLayout hOe;
+    private RelativeLayout hOf;
+    private ViewFlipper hOg;
+    private TextView hOh;
+    private TextView hOi;
+    private TextView hOj;
+    private TextView hOk;
+    private TextView hOl;
+    private TextView hOm;
+    private TextView hOn;
+    private TextView hOo;
+    private TextView hOp;
+    private TextView hOq;
+    private TextView hOr;
+    private TextView hOs;
+    private TbImageView hOt;
+    private LinearLayout hOu;
+    private SeekBar hOv;
+    private TextView hOw;
+    private TextView hOx;
+    PkRankMvpView hOy;
     private Handler handler;
     boolean isShowing;
     private View mView;
@@ -60,65 +60,65 @@ public class PkRankResultView extends RelativeLayout {
 
     private void initView() {
         this.mView = LayoutInflater.from(getContext()).inflate(a.g.sdk_rank_result_layout, (ViewGroup) this, true);
-        this.hOx = (RelativeLayout) this.mView.findViewById(a.f.result_layout);
-        this.hOy = (RelativeLayout) this.mView.findViewById(a.f.title_layout);
-        this.hOA = (TextView) this.mView.findViewById(a.f.wins_title);
-        this.hOB = (TextView) this.mView.findViewById(a.f.score_title);
-        this.hOz = (ViewFlipper) this.mView.findViewById(a.f.view_flipper);
-        this.hOz.setInAnimation(AnimationUtils.loadAnimation(this.context, a.C0197a.pk_rank_slide_in_left));
-        this.hOz.setOutAnimation(AnimationUtils.loadAnimation(this.context, a.C0197a.pk_rank_slide_out_right));
-        this.hOR = (PkRankMvpView) this.mView.findViewById(a.f.mvp_view);
-        clZ();
+        this.hOe = (RelativeLayout) this.mView.findViewById(a.f.result_layout);
+        this.hOf = (RelativeLayout) this.mView.findViewById(a.f.title_layout);
+        this.hOh = (TextView) this.mView.findViewById(a.f.wins_title);
+        this.hOi = (TextView) this.mView.findViewById(a.f.score_title);
+        this.hOg = (ViewFlipper) this.mView.findViewById(a.f.view_flipper);
+        this.hOg.setInAnimation(AnimationUtils.loadAnimation(this.context, a.C0195a.pk_rank_slide_in_left));
+        this.hOg.setOutAnimation(AnimationUtils.loadAnimation(this.context, a.C0195a.pk_rank_slide_out_right));
+        this.hOy = (PkRankMvpView) this.mView.findViewById(a.f.mvp_view);
+        cls();
     }
 
-    private void cmq() {
+    private void clJ() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.g.sdk_rank_result_score_layout, (ViewGroup) null);
-        this.hOC = (TextView) inflate.findViewById(a.f.result);
-        this.hOD = (TextView) inflate.findViewById(a.f.result_score);
-        this.hOE = (TextView) inflate.findViewById(a.f.glory);
-        this.hOF = (TextView) inflate.findViewById(a.f.glory_score);
-        this.hOG = (TextView) inflate.findViewById(a.f.wins);
-        this.hOH = (TextView) inflate.findViewById(a.f.wins_score);
-        this.hOI = (TextView) inflate.findViewById(a.f.shut_down);
-        this.hOJ = (TextView) inflate.findViewById(a.f.shut_down_score);
-        this.hOK = (TextView) inflate.findViewById(a.f.total_times);
-        this.hOL = (TextView) inflate.findViewById(a.f.total_times_score);
-        this.hOz.addView(inflate);
+        this.hOj = (TextView) inflate.findViewById(a.f.result);
+        this.hOk = (TextView) inflate.findViewById(a.f.result_score);
+        this.hOl = (TextView) inflate.findViewById(a.f.glory);
+        this.hOm = (TextView) inflate.findViewById(a.f.glory_score);
+        this.hOn = (TextView) inflate.findViewById(a.f.wins);
+        this.hOo = (TextView) inflate.findViewById(a.f.wins_score);
+        this.hOp = (TextView) inflate.findViewById(a.f.shut_down);
+        this.hOq = (TextView) inflate.findViewById(a.f.shut_down_score);
+        this.hOr = (TextView) inflate.findViewById(a.f.total_times);
+        this.hOs = (TextView) inflate.findViewById(a.f.total_times_score);
+        this.hOg.addView(inflate);
     }
 
-    private void cmr() {
+    private void clK() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.g.sdk_rank_result_rank_layout, (ViewGroup) null);
-        this.hOM = (TbImageView) inflate.findViewById(a.f.rank_view);
-        this.hON = (LinearLayout) inflate.findViewById(a.f.star_layout);
-        this.hOO = (SeekBar) inflate.findViewById(a.f.rank_progress);
-        this.hOP = (TextView) inflate.findViewById(a.f.rank_get_score);
-        this.hOQ = (TextView) inflate.findViewById(a.f.rank_total_score);
-        this.hOz.addView(inflate);
+        this.hOt = (TbImageView) inflate.findViewById(a.f.rank_view);
+        this.hOu = (LinearLayout) inflate.findViewById(a.f.star_layout);
+        this.hOv = (SeekBar) inflate.findViewById(a.f.rank_progress);
+        this.hOw = (TextView) inflate.findViewById(a.f.rank_get_score);
+        this.hOx = (TextView) inflate.findViewById(a.f.rank_total_score);
+        this.hOg.addView(inflate);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clZ() {
-        this.hOx.setVisibility(8);
+    public void cls() {
+        this.hOe.setVisibility(8);
+        this.hOf.setVisibility(8);
+        this.hOg.setVisibility(8);
         this.hOy.setVisibility(8);
-        this.hOz.setVisibility(8);
-        this.hOR.setVisibility(8);
     }
 
     public void b(PkInfoData pkInfoData, int i) {
-        this.gzq.cmE();
-        if (this.gzq.wN(i) && !this.isShowing) {
+        this.gyX.clX();
+        if (this.gyX.xl(i) && !this.isShowing) {
             g(pkInfoData);
         }
     }
 
     private void g(final PkInfoData pkInfoData) {
-        clZ();
-        this.hOx.setVisibility(0);
+        cls();
+        this.hOe.setVisibility(0);
         h(pkInfoData);
         this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankResultView.1
             @Override // java.lang.Runnable
             public void run() {
-                PkRankResultView.this.cms();
+                PkRankResultView.this.clL();
             }
         }, pkInfoData.showScoreTime);
         if (pkInfoData.mvpInfoData.userID != 0) {
@@ -131,16 +131,16 @@ public class PkRankResultView extends RelativeLayout {
             this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankResultView.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    PkRankResultView.this.gzq.hPk.wL(0);
-                    PkRankResultView.this.clZ();
+                    PkRankResultView.this.gyX.hOR.xj(0);
+                    PkRankResultView.this.cls();
                 }
             }, pkInfoData.showScoreTime + pkInfoData.showRankTime + pkInfoData.showMvpTime);
         } else {
             this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankResultView.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    PkRankResultView.this.gzq.hPk.wL(0);
-                    PkRankResultView.this.clZ();
+                    PkRankResultView.this.gyX.hOR.xj(0);
+                    PkRankResultView.this.cls();
                 }
             }, pkInfoData.showScoreTime + pkInfoData.showRankTime);
         }
@@ -148,50 +148,50 @@ public class PkRankResultView extends RelativeLayout {
     }
 
     private void h(PkInfoData pkInfoData) {
-        this.hOy.setVisibility(0);
-        this.hOz.setVisibility(0);
-        this.hOz.removeAllViews();
-        cmq();
-        cmr();
+        this.hOf.setVisibility(0);
+        this.hOg.setVisibility(0);
+        this.hOg.removeAllViews();
+        clJ();
+        clK();
         k(pkInfoData);
         j(pkInfoData);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cms() {
-        this.hOz.showNext();
+    public void clL() {
+        this.hOg.showNext();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(PkInfoData pkInfoData) {
-        this.hOy.setVisibility(8);
-        this.hOz.setVisibility(8);
-        this.hOR.setVisibility(0);
-        this.hOR.e(pkInfoData);
+        this.hOf.setVisibility(8);
+        this.hOg.setVisibility(8);
+        this.hOy.setVisibility(0);
+        this.hOy.e(pkInfoData);
     }
 
     private void j(PkInfoData pkInfoData) {
         boolean z = pkInfoData.pkResultData.rankType.equals("king");
-        this.hOM.startLoad(pkInfoData.pkResultData.rankImageUrl, 10, false);
-        this.hON.removeAllViews();
+        this.hOt.startLoad(pkInfoData.pkResultData.rankImageUrl, 10, false);
+        this.hOu.removeAllViews();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(BdUtilHelper.getDimens(this.context, a.d.sdk_ds16), BdUtilHelper.getDimens(this.context, a.d.sdk_ds16));
         layoutParams.rightMargin = BdUtilHelper.getDimens(this.context, a.d.sdk_ds4);
         layoutParams.gravity = 16;
         for (int i = 0; i < pkInfoData.pkResultData.currentStar; i++) {
-            this.hON.addView(getSolidStarView(), layoutParams);
+            this.hOu.addView(getSolidStarView(), layoutParams);
         }
         for (int i2 = 0; i2 < pkInfoData.pkResultData.maxStar - pkInfoData.pkResultData.currentStar; i2++) {
-            this.hON.addView(getBlankStarView(), layoutParams);
+            this.hOu.addView(getBlankStarView(), layoutParams);
         }
         if (z) {
-            this.hOO.setVisibility(8);
-            this.hOP.setVisibility(8);
-            this.hOQ.setVisibility(8);
+            this.hOv.setVisibility(8);
+            this.hOw.setVisibility(8);
+            this.hOx.setVisibility(8);
             return;
         }
-        this.hOO.setProgress((int) (((pkInfoData.pkResultData.rankScore - pkInfoData.pkResultData.rankMinScore) / pkInfoData.pkResultData.rankMaxScore) * 100.0d));
-        this.hOP.setText(String.valueOf(pkInfoData.pkResultData.rankScore));
-        this.hOQ.setText(String.valueOf(pkInfoData.pkResultData.rankMaxScore));
+        this.hOv.setProgress((int) (((pkInfoData.pkResultData.rankScore - pkInfoData.pkResultData.rankMinScore) / pkInfoData.pkResultData.rankMaxScore) * 100.0d));
+        this.hOw.setText(String.valueOf(pkInfoData.pkResultData.rankScore));
+        this.hOx.setText(String.valueOf(pkInfoData.pkResultData.rankMaxScore));
     }
 
     private View getSolidStarView() {
@@ -208,89 +208,89 @@ public class PkRankResultView extends RelativeLayout {
 
     private void k(PkInfoData pkInfoData) {
         if (pkInfoData.pkResultData.totalScore > 0) {
-            this.hOB.setText(this.context.getString(a.h.sdk_pk_rank_this_total, String.valueOf(pkInfoData.pkResultData.totalScore)));
+            this.hOi.setText(this.context.getString(a.h.sdk_pk_rank_this_total, String.valueOf(pkInfoData.pkResultData.totalScore)));
         } else {
-            this.hOB.setText(this.context.getString(a.h.sdk_pk_rank_this_total_fu, String.valueOf(pkInfoData.pkResultData.totalScore)));
+            this.hOi.setText(this.context.getString(a.h.sdk_pk_rank_this_total_fu, String.valueOf(pkInfoData.pkResultData.totalScore)));
         }
         if (pkInfoData.pkResultData.resultScore != 0) {
-            this.hOC.setVisibility(0);
-            this.hOD.setVisibility(0);
+            this.hOj.setVisibility(0);
+            this.hOk.setVisibility(0);
             switch (pkInfoData.pkResultData.resultType) {
                 case 1:
                     if (pkInfoData.pkResultData.winStreakNum < 2) {
-                        this.hOA.setText(a.h.sdk_pk_rank_win_title);
+                        this.hOh.setText(a.h.sdk_pk_rank_win_title);
                     } else {
-                        this.hOA.setText(this.context.getString(a.h.sdk_pk_rank_wins_title, String.valueOf(pkInfoData.pkResultData.winStreakNum)));
+                        this.hOh.setText(this.context.getString(a.h.sdk_pk_rank_wins_title, String.valueOf(pkInfoData.pkResultData.winStreakNum)));
                     }
-                    this.hOC.setText(a.h.sdk_pk_rank_win);
-                    this.hOA.setTextColor(-5376);
+                    this.hOj.setText(a.h.sdk_pk_rank_win);
+                    this.hOh.setTextColor(-5376);
                     break;
                 case 2:
-                    this.hOA.setText(a.h.sdk_pk_rank_loss);
-                    this.hOA.setTextColor(-1513240);
-                    this.hOC.setText(a.h.sdk_pk_rank_loss);
+                    this.hOh.setText(a.h.sdk_pk_rank_loss);
+                    this.hOh.setTextColor(-1513240);
+                    this.hOj.setText(a.h.sdk_pk_rank_loss);
                     break;
                 case 3:
-                    this.hOC.setText(a.h.sdk_pk_rank_tied);
-                    this.hOA.setTextColor(-10955153);
-                    this.hOA.setText(a.h.sdk_pk_rank_tied);
+                    this.hOj.setText(a.h.sdk_pk_rank_tied);
+                    this.hOh.setTextColor(-10955153);
+                    this.hOh.setText(a.h.sdk_pk_rank_tied);
                     break;
             }
             if (pkInfoData.pkResultData.resultScore > 0) {
-                this.hOD.setText(this.context.getString(a.h.sdk_pk_rank_add_score, String.valueOf(pkInfoData.pkResultData.resultScore)));
+                this.hOk.setText(this.context.getString(a.h.sdk_pk_rank_add_score, String.valueOf(pkInfoData.pkResultData.resultScore)));
             } else {
-                this.hOD.setText(String.valueOf(pkInfoData.pkResultData.resultScore));
+                this.hOk.setText(String.valueOf(pkInfoData.pkResultData.resultScore));
             }
         }
         if (pkInfoData.pkResultData.honorAddScore != 0) {
-            this.hOE.setVisibility(0);
-            this.hOF.setVisibility(0);
-            this.hOE.setText(this.context.getString(a.h.sdk_pk_rank_win_score, String.valueOf(pkInfoData.pkResultData.honorNum)));
+            this.hOl.setVisibility(0);
+            this.hOm.setVisibility(0);
+            this.hOl.setText(this.context.getString(a.h.sdk_pk_rank_win_score, String.valueOf(pkInfoData.pkResultData.honorNum)));
             if (pkInfoData.pkResultData.honorAddScore > 0) {
-                this.hOF.setText(this.context.getString(a.h.sdk_pk_rank_add_score, String.valueOf(pkInfoData.pkResultData.honorAddScore)));
+                this.hOm.setText(this.context.getString(a.h.sdk_pk_rank_add_score, String.valueOf(pkInfoData.pkResultData.honorAddScore)));
             } else {
-                this.hOF.setText(String.valueOf(pkInfoData.pkResultData.honorAddScore));
+                this.hOm.setText(String.valueOf(pkInfoData.pkResultData.honorAddScore));
             }
         }
         if (pkInfoData.pkResultData.winStreakAddScore != 0) {
-            this.hOG.setVisibility(0);
-            this.hOH.setVisibility(0);
-            this.hOG.setText(this.context.getString(a.h.sdk_pk_rank_wins, String.valueOf(pkInfoData.pkResultData.winStreakNum2)));
+            this.hOn.setVisibility(0);
+            this.hOo.setVisibility(0);
+            this.hOn.setText(this.context.getString(a.h.sdk_pk_rank_wins, String.valueOf(pkInfoData.pkResultData.winStreakNum2)));
             if (pkInfoData.pkResultData.winStreakAddScore > 0) {
-                this.hOH.setText(this.context.getString(a.h.sdk_pk_rank_add_score, String.valueOf(pkInfoData.pkResultData.winStreakAddScore)));
+                this.hOo.setText(this.context.getString(a.h.sdk_pk_rank_add_score, String.valueOf(pkInfoData.pkResultData.winStreakAddScore)));
             } else {
-                this.hOH.setText(String.valueOf(pkInfoData.pkResultData.winStreakAddScore));
+                this.hOo.setText(String.valueOf(pkInfoData.pkResultData.winStreakAddScore));
             }
         }
         if (pkInfoData.pkResultData.finalWinScore != 0) {
-            this.hOJ.setVisibility(0);
-            this.hOI.setVisibility(0);
+            this.hOq.setVisibility(0);
+            this.hOp.setVisibility(0);
             if (pkInfoData.pkResultData.finalWinScore > 0) {
-                this.hOJ.setText(this.context.getString(a.h.sdk_pk_rank_add_score, String.valueOf(pkInfoData.pkResultData.finalWinScore)));
+                this.hOq.setText(this.context.getString(a.h.sdk_pk_rank_add_score, String.valueOf(pkInfoData.pkResultData.finalWinScore)));
             } else {
-                this.hOJ.setText(String.valueOf(pkInfoData.pkResultData.finalWinScore));
+                this.hOq.setText(String.valueOf(pkInfoData.pkResultData.finalWinScore));
             }
         }
         if (pkInfoData.pkResultData.roundAddScore != 0) {
-            this.hOK.setVisibility(0);
-            this.hOL.setVisibility(0);
-            this.hOK.setText(this.context.getString(a.h.sdk_pk_rank_total_times, String.valueOf(pkInfoData.pkResultData.roundNum)));
+            this.hOr.setVisibility(0);
+            this.hOs.setVisibility(0);
+            this.hOr.setText(this.context.getString(a.h.sdk_pk_rank_total_times, String.valueOf(pkInfoData.pkResultData.roundNum)));
             if (pkInfoData.pkResultData.roundAddScore > 0) {
-                this.hOL.setText(this.context.getString(a.h.sdk_pk_rank_add_score, String.valueOf(pkInfoData.pkResultData.roundAddScore)));
+                this.hOs.setText(this.context.getString(a.h.sdk_pk_rank_add_score, String.valueOf(pkInfoData.pkResultData.roundAddScore)));
             } else {
-                this.hOL.setText(String.valueOf(pkInfoData.pkResultData.roundAddScore));
+                this.hOs.setText(String.valueOf(pkInfoData.pkResultData.roundAddScore));
             }
         }
     }
 
     public void setPkRankView(PkRankView pkRankView) {
-        this.gzq = pkRankView;
-        this.hOR.setPkRankView(pkRankView);
+        this.gyX = pkRankView;
+        this.hOy.setPkRankView(pkRankView);
     }
 
     public void onDestroy() {
-        if (this.gzq.getGetPkInfoModel() != null) {
-            this.gzq.getGetPkInfoModel().ciT();
+        if (this.gyX.getGetPkInfoModel() != null) {
+            this.gyX.getGetPkInfoModel().cim();
             this.handler.removeMessages(0);
         }
     }

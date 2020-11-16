@@ -1,7 +1,7 @@
 package com.baidu.sapi2;
 
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class ServiceManager implements NoProguard {
     private static ServiceManager b;
 

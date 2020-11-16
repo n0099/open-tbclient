@@ -7,7 +7,7 @@ import android.graphics.BitmapFactory;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class c extends com.meizu.cloud.pushsdk.notification.a {
     public c(Context context, PushNotificationBuilder pushNotificationBuilder) {
         super(context, pushNotificationBuilder);

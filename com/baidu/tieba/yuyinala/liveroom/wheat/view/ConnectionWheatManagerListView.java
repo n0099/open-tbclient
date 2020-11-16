@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ConnectionWheatManagerListView extends BaseConnectionWheatListView {
-    private d.a obi;
-    private d ohT;
+    private d.a ocN;
+    private d ojw;
 
     public ConnectionWheatManagerListView(@NonNull Context context) {
         this(context, null);
@@ -34,36 +34,36 @@ public class ConnectionWheatManagerListView extends BaseConnectionWheatListView 
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
-    protected void dxY() {
-        this.ohT = new d(getContext());
-        this.ofa.setAdapter((ListAdapter) this.ohT);
+    protected void dxy() {
+        this.ojw = new d(getContext());
+        this.ogE.setAdapter((ListAdapter) this.ojw);
     }
 
-    public void dZB() {
-        zj(false);
+    public void dZA() {
+        zq(false);
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            dZQ();
+            dZP();
         } else {
-            dZR();
+            dZQ();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
-    public void zj(boolean z) {
-        this.ohT.Mn(o.dZA().Xk().size());
+    public void zq(boolean z) {
+        this.ojw.MQ(o.dZz().WB().size());
         ArrayList arrayList = new ArrayList();
-        arrayList.addAll(o.dZA().Xk());
-        arrayList.addAll(o.dZA().Xj());
+        arrayList.addAll(o.dZz().WB());
+        arrayList.addAll(o.dZz().WA());
         gm(arrayList);
-        if (this.obi != null && this.ohT != null) {
-            this.obi.Mo(this.ohT.getCount());
+        if (this.ocN != null && this.ojw != null) {
+            this.ocN.MR(this.ojw.getCount());
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
     public int getCount() {
-        if (this.ohT != null) {
-            return this.ohT.getCount();
+        if (this.ojw != null) {
+            return this.ojw.getCount();
         }
         return 0;
     }
@@ -74,15 +74,15 @@ public class ConnectionWheatManagerListView extends BaseConnectionWheatListView 
     }
 
     private void gm(List<AlaWheatInfoData> list) {
-        if (this.ohT != null) {
-            this.ohT.setData(list);
+        if (this.ojw != null) {
+            this.ojw.setData(list);
         }
     }
 
     public void setListener(d.a aVar) {
-        this.obi = aVar;
-        if (this.ohT != null) {
-            this.ohT.setListener(aVar);
+        this.ocN = aVar;
+        if (this.ojw != null) {
+            this.ojw.setListener(aVar);
         }
     }
 

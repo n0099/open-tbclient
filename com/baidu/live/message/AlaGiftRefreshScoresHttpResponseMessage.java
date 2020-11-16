@@ -7,28 +7,28 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGiftRefreshScoresHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ar bnY;
+    private ar bmn;
 
     public AlaGiftRefreshScoresHttpResponseMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES);
     }
 
-    public ar Oe() {
-        return this.bnY;
+    public ar Nv() {
+        return this.bmn;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (i == 1021019 && jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            this.bnY = new ar();
+            this.bmn = new ar();
             String optString = jSONObject.optString("scores_total");
             String optString2 = jSONObject.optString("petal_total");
             if (!TextUtils.isEmpty(optString)) {
-                this.bnY.mTDouScores = Long.parseLong(optString);
+                this.bmn.mTDouScores = Long.parseLong(optString);
             }
             if (!TextUtils.isEmpty(optString2)) {
-                this.bnY.mPetalTotal = Long.parseLong(optString2);
+                this.bmn.mPetalTotal = Long.parseLong(optString2);
             }
         }
     }

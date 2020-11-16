@@ -12,7 +12,7 @@ import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
@@ -22,7 +22,7 @@ public class c {
     private HashMap<String, Object> d;
     private HashMap<String, Object> e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */

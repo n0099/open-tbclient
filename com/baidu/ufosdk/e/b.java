@@ -8,7 +8,7 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */

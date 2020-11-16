@@ -1,7 +1,7 @@
 package com.baidu.webkit.logsdk.d;
 
 import android.util.Base64;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */

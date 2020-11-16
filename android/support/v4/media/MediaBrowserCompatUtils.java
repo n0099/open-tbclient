@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.RestrictTo;
 import android.support.v7.widget.ActivityChooserView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class MediaBrowserCompatUtils {
     public static boolean areSameOptions(Bundle bundle, Bundle bundle2) {
         if (bundle == bundle2) {

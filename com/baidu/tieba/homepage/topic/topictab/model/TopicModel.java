@@ -6,30 +6,30 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.a;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessage;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class TopicModel extends BdBaseModel {
-    private a ers;
-    private a jDK;
-    private com.baidu.tieba.homepage.topic.topictab.a jLc;
+    private a epK;
+    private a jEI;
+    private com.baidu.tieba.homepage.topic.topictab.a jLM;
     private boolean mIsLoading;
 
     public void setPresenter(com.baidu.tieba.homepage.topic.topictab.a aVar) {
-        this.jLc = aVar;
+        this.jLM = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void setUniqueId(BdUniqueId bdUniqueId) {
         super.setUniqueId(bdUniqueId);
-        this.ers.setTag(bdUniqueId);
-        registerListener(this.ers);
-        this.jDK.setTag(bdUniqueId);
-        registerListener(this.jDK);
+        this.epK.setTag(bdUniqueId);
+        registerListener(this.epK);
+        this.jEI.setTag(bdUniqueId);
+        registerListener(this.jEI);
     }
 
-    public void cMh() {
+    public void cLO() {
         if (!j.isNetworkAvailableForImmediately()) {
-            if (this.jLc != null) {
-                this.jLc.o(-1, null);
+            if (this.jLM != null) {
+                this.jLM.o(-1, null);
             }
         } else if (!this.mIsLoading) {
             cancelLoadData();
@@ -54,8 +54,8 @@ public class TopicModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.ers);
-        MessageManager.getInstance().unRegisterListener(this.jDK);
+        MessageManager.getInstance().unRegisterListener(this.epK);
+        MessageManager.getInstance().unRegisterListener(this.jEI);
         this.mIsLoading = false;
     }
 }

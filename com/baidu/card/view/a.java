@@ -1,7 +1,5 @@
 package com.baidu.card.view;
-
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public interface a {
-    void a(AbsThreadDataSupport absThreadDataSupport);
+    void a(com.baidu.tbadk.core.data.a aVar);
 }

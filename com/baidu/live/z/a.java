@@ -5,15 +5,15 @@ import com.baidu.live.data.w;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface a {
-    void KJ();
+    void Ka();
 
-    boolean R(JSONObject jSONObject);
+    boolean L(JSONObject jSONObject);
 
     void a(ViewGroup viewGroup, String str);
 
     void a(w wVar);
 
-    void cv(boolean z);
+    void cx(boolean z);
 
     void onDestroy();
 

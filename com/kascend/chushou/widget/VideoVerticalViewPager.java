@@ -20,7 +20,7 @@ public class VideoVerticalViewPager extends KasVerticalViewPager {
 
     /* renamed from: a  reason: collision with root package name */
     private boolean f4258a;
-    private int[] amu;
+    private int[] amA;
     private int b;
     private float c;
     private float d;
@@ -147,7 +147,7 @@ public class VideoVerticalViewPager extends KasVerticalViewPager {
 
     public void setSurfaceLoc(int[] iArr) {
         if (iArr != null && iArr.length == 4) {
-            this.amu = iArr;
+            this.amA = iArr;
         }
     }
 }

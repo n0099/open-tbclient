@@ -108,15 +108,15 @@ public class RoomSpaceData {
     }
 
     public List<ListItem> parseRecommendList() {
-        ListItem eJ;
+        ListItem eE;
         ArrayList arrayList = new ArrayList();
         if (this.recommendList != null && this.recommendList.size() > 0) {
             try {
                 JSONArray jSONArray = new JSONArray(this.recommendList.toString());
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null && (eJ = a.eJ(optJSONObject)) != null) {
-                        arrayList.add(eJ);
+                    if (optJSONObject != null && (eE = a.eE(optJSONObject)) != null) {
+                        arrayList.add(eE);
                     }
                 }
             } catch (JSONException e) {

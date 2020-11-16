@@ -9,7 +9,7 @@ import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 final class EANManufacturerOrgSupport {
     private final List<int[]> ranges = new ArrayList();
     private final List<String> countryIdentifiers = new ArrayList();

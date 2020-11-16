@@ -1,5 +1,5 @@
 package com.baidu.swan.games.m.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface e {
     void a(com.baidu.swan.games.screenrecord.a.d dVar, com.baidu.swan.games.screenrecord.a.c cVar);
 

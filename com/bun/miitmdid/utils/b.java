@@ -2,7 +2,7 @@ package com.bun.miitmdid.utils;
 
 import android.content.Context;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */

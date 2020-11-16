@@ -11,7 +11,7 @@ import javax.net.ssl.SSLServerSocketFactory;
 import javax.net.ssl.SSLSessionContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public abstract class OpenSSLContextImpl extends SSLContextSpi {
     private static DefaultSSLContextImpl defaultSslContextImpl;
     private final String[] algorithms;
@@ -99,7 +99,7 @@ public abstract class OpenSSLContextImpl extends SSLContextSpi {
         return this.clientSessionContext;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     public static final class TLSv12 extends OpenSSLContextImpl {
         @Override // org.conscrypt.OpenSSLContextImpl, javax.net.ssl.SSLContextSpi
         public /* bridge */ /* synthetic */ SSLSessionContext engineGetClientSessionContext() {
@@ -116,7 +116,7 @@ public abstract class OpenSSLContextImpl extends SSLContextSpi {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     public static final class TLSv11 extends OpenSSLContextImpl {
         @Override // org.conscrypt.OpenSSLContextImpl, javax.net.ssl.SSLContextSpi
         public /* bridge */ /* synthetic */ SSLSessionContext engineGetClientSessionContext() {
@@ -133,7 +133,7 @@ public abstract class OpenSSLContextImpl extends SSLContextSpi {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     public static final class TLSv1 extends OpenSSLContextImpl {
         @Override // org.conscrypt.OpenSSLContextImpl, javax.net.ssl.SSLContextSpi
         public /* bridge */ /* synthetic */ SSLSessionContext engineGetClientSessionContext() {

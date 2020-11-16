@@ -7,7 +7,7 @@ import com.baidu.mobstat.Session;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class SessionAnalysis {
 
     /* renamed from: a  reason: collision with root package name */
@@ -25,7 +25,7 @@ public class SessionAnalysis {
     private LaunchInfo l;
     public Callback mCallback;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public interface Callback {
         void onCallback(JSONObject jSONObject);
     }
@@ -293,7 +293,7 @@ public class SessionAnalysis {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */

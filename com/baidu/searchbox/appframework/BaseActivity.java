@@ -39,7 +39,7 @@ import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class BaseActivity extends FragmentActivity implements IActionBarExtObject, ICommonMenuExtObject, IToolBarExtObject, NightModeChangeListener {
     protected static final int INVALID_ANIM = 0;
     public static final String KEY_WINDOWS_ANIMATING_NEED_DRAW = "winAccelerate";
@@ -74,7 +74,7 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
     private boolean mEnableImmersion = ImmersionHelper.SUPPORT_IMMERSION;
     private final Object tagObject = new Object();
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public interface OnNewIntentCallback {
         void execute(Object obj);
     }

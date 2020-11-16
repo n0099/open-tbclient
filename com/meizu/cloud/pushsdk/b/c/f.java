@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.http.HttpHost;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
@@ -29,37 +29,37 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.meizu.cloud.pushsdk.b.c.f$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f4327a = new int[a.EnumC1027a.values().length];
+        static final /* synthetic */ int[] f4327a = new int[a.EnumC1030a.values().length];
 
         static {
             try {
-                f4327a[a.EnumC1027a.SUCCESS.ordinal()] = 1;
+                f4327a[a.EnumC1030a.SUCCESS.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                f4327a[a.EnumC1027a.INVALID_HOST.ordinal()] = 2;
+                f4327a[a.EnumC1030a.INVALID_HOST.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                f4327a[a.EnumC1027a.UNSUPPORTED_SCHEME.ordinal()] = 3;
+                f4327a[a.EnumC1030a.UNSUPPORTED_SCHEME.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                f4327a[a.EnumC1027a.MISSING_SCHEME.ordinal()] = 4;
+                f4327a[a.EnumC1030a.MISSING_SCHEME.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                f4327a[a.EnumC1027a.INVALID_PORT.ordinal()] = 5;
+                f4327a[a.EnumC1030a.INVALID_PORT.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
@@ -74,8 +74,8 @@ public class f {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.meizu.cloud.pushsdk.b.c.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public enum EnumC1027a {
+        /* loaded from: classes15.dex */
+        public enum EnumC1030a {
             SUCCESS,
             MISSING_SCHEME,
             UNSUPPORTED_SCHEME,
@@ -394,7 +394,7 @@ public class f {
             return this.e != -1 ? this.e : f.a(this.f4328a);
         }
 
-        EnumC1027a a(f fVar, String str) {
+        EnumC1030a a(f fVar, String str) {
             int i;
             int a2 = m.a(str, 0, str.length());
             int b = m.b(str, a2, str.length());
@@ -403,13 +403,13 @@ public class f {
                     this.f4328a = "https";
                     a2 += UrlSchemaHelper.SCHEMA_TYPE_HTTPS.length();
                 } else if (!str.regionMatches(true, a2, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
-                    return EnumC1027a.UNSUPPORTED_SCHEME;
+                    return EnumC1030a.UNSUPPORTED_SCHEME;
                 } else {
                     this.f4328a = HttpHost.DEFAULT_SCHEME_NAME;
                     a2 += UrlSchemaHelper.SCHEMA_TYPE_HTTP.length();
                 }
             } else if (fVar == null) {
-                return EnumC1027a.MISSING_SCHEME;
+                return EnumC1030a.MISSING_SCHEME;
             } else {
                 this.f4328a = fVar.b;
             }
@@ -434,7 +434,7 @@ public class f {
                                 this.d = e(str, i3, d);
                                 this.e = g(str, d + 1, a3);
                                 if (this.e == -1) {
-                                    return EnumC1027a.INVALID_PORT;
+                                    return EnumC1030a.INVALID_PORT;
                                 }
                             } else {
                                 this.d = e(str, i3, d);
@@ -444,7 +444,7 @@ public class f {
                                 a2 = a3;
                                 break;
                             } else {
-                                return EnumC1027a.INVALID_HOST;
+                                return EnumC1030a.INVALID_HOST;
                             }
                         case '@':
                             if (z3) {
@@ -494,7 +494,7 @@ public class f {
             if (i < b && str.charAt(i) == '#') {
                 this.h = f.a(str, i + 1, b, "", true, false, false, false);
             }
-            return EnumC1027a.SUCCESS;
+            return EnumC1030a.SUCCESS;
         }
 
         public a a(String str) {
@@ -746,7 +746,7 @@ public class f {
 
     public static f c(String str) {
         a aVar = new a();
-        if (aVar.a((f) null, str) == a.EnumC1027a.SUCCESS) {
+        if (aVar.a((f) null, str) == a.EnumC1030a.SUCCESS) {
             return aVar.b();
         }
         return null;

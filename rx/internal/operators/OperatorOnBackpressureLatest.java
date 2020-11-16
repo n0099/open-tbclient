@@ -3,7 +3,7 @@ package rx.internal.operators;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -21,7 +21,7 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public static final class LatestEmitter<T> extends AtomicLong implements rx.e<T>, rx.f, rx.k {
         static final Object EMPTY = new Object();
         static final long NOT_REQUESTED = -4611686018427387904L;
@@ -189,12 +189,12 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public static final class a<T> extends rx.j<T> {
-        private final LatestEmitter<T> qgm;
+        private final LatestEmitter<T> qhP;
 
         a(LatestEmitter<T> latestEmitter) {
-            this.qgm = latestEmitter;
+            this.qhP = latestEmitter;
         }
 
         @Override // rx.j
@@ -204,17 +204,17 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            this.qgm.onNext(t);
+            this.qhP.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.qgm.onError(th);
+            this.qhP.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.qgm.onCompleted();
+            this.qhP.onCompleted();
         }
 
         void requestMore(long j) {

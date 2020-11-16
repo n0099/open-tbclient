@@ -47,8 +47,8 @@ public class p {
     }
 
     private static final List<a> b(com.baidu.h.a.b.a.c cVar) {
-        int i = cVar.bVa.bVn;
-        String str = cVar.bVa.bVo;
+        int i = cVar.bTq.bTD;
+        String str = cVar.bTq.bTE;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -61,12 +61,12 @@ public class p {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     a aVar = new a();
-                    if (aVar.N(optJSONObject)) {
+                    if (aVar.H(optJSONObject)) {
                         if (aVar.getUserId() == 0) {
                             aVar.setUserId(JavaTypesHelper.toLong(cVar.uid, 0L));
                         }
-                        if (TextUtils.isEmpty(aVar.Mo().userId) || "0".equals(aVar.Mo().userId)) {
-                            aVar.Mo().userId = String.valueOf(aVar.getUserId());
+                        if (TextUtils.isEmpty(aVar.LF().userId) || "0".equals(aVar.LF().userId)) {
+                            aVar.LF().userId = String.valueOf(aVar.getUserId());
                         }
                         arrayList.add(aVar);
                     }
@@ -81,7 +81,7 @@ public class p {
     }
 
     private static final List<a> c(com.baidu.h.a.b.a.c cVar) {
-        String str = cVar.bVb;
+        String str = cVar.bTr;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -94,12 +94,12 @@ public class p {
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     a aVar = new a();
-                    if (aVar.N(optJSONObject)) {
+                    if (aVar.H(optJSONObject)) {
                         if (aVar.getUserId() == 0) {
                             aVar.setUserId(JavaTypesHelper.toLong(cVar.uid, 0L));
                         }
-                        if (TextUtils.isEmpty(aVar.Mo().userId) || "0".equals(aVar.Mo().userId)) {
-                            aVar.Mo().userId = String.valueOf(aVar.getUserId());
+                        if (TextUtils.isEmpty(aVar.LF().userId) || "0".equals(aVar.LF().userId)) {
+                            aVar.LF().userId = String.valueOf(aVar.getUserId());
                         }
                         arrayList.add(aVar);
                     }
@@ -128,7 +128,7 @@ public class p {
     }
 
     private static final List<a> d(com.baidu.h.a.b.a.c cVar) {
-        int i = cVar.bVa.feedback;
+        int i = cVar.bTq.feedback;
         ArrayList arrayList = new ArrayList();
         if (i > 0) {
             a aVar = new a();
@@ -149,8 +149,8 @@ public class p {
 
     private static final List<a> e(com.baidu.h.a.b.a.c cVar) {
         ArrayList arrayList = new ArrayList();
-        if (cVar != null && cVar.bVa != null) {
-            String str = cVar.bVa.bVp;
+        if (cVar != null && cVar.bTq != null) {
+            String str = cVar.bTq.bTF;
             if (!TextUtils.isEmpty(str)) {
                 a aVar = new a();
                 aVar.setContent(str);

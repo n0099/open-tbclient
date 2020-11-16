@@ -1,35 +1,42 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.text.style.ReplacementSpan;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.R;
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-public class h extends ReplacementSpan {
-    private int fIX;
-    private int mPaddingRight;
+public interface h {
+    void au(Context context, String str);
 
-    @Override // android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        this.fIX = (int) ((paint.getFontMetricsInt().descent - paint.getFontMetricsInt().ascent) * 0.8d);
-        return this.fIX + this.mPaddingRight;
-    }
+    void av(Context context, String str);
 
-    @Override // android.text.style.ReplacementSpan
-    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-        Drawable drawable = ap.getDrawable(R.drawable.pic_post_link16);
-        drawable.setBounds(0, 0, this.fIX, this.fIX);
-        canvas.save();
-        canvas.translate(f, (((paint.getFontMetricsInt().descent - paint.getFontMetricsInt().ascent) / 2) - ((drawable.getBounds().top + drawable.getBounds().bottom) / 2)) + i3);
-        drawable.draw(canvas);
-        canvas.restore();
-    }
+    void aw(Context context, String str);
 
-    public void setPaddingRight(int i) {
-        this.mPaddingRight = i;
-    }
+    void ax(Context context, String str);
+
+    void ay(Context context, String str);
+
+    int bFM();
+
+    com.baidu.adp.lib.d.b<ImageView> bFN();
+
+    com.baidu.adp.lib.d.b<TextView> bFO();
+
+    com.baidu.adp.lib.d.b<GifView> bFP();
+
+    com.baidu.adp.lib.d.b<View> bFQ();
+
+    com.baidu.adp.lib.d.b<LinearLayout> bFR();
+
+    com.baidu.adp.lib.d.b<RelativeLayout> bFS();
+
+    void f(Context context, String str, boolean z);
+
+    ListView getListView();
+
+    void u(Context context, String str, String str2);
 }

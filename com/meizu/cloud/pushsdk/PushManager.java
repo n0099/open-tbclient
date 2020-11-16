@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.a.b;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class PushManager {
     static final String KEY_PUSH_ID = "pushId";
     static final String PUSH_ID_PREFERENCE_NAME = "com.meizu.flyme.push";
@@ -70,7 +70,7 @@ public class PushManager {
 
     @Deprecated
     public static void register(Context context) {
-        com.meizu.cloud.a.a.hk(context);
+        com.meizu.cloud.a.a.hi(context);
         if (!MzSystemUtils.isBrandMeizu(context)) {
             com.meizu.cloud.a.a.e(TAG, "please invoke register on meizu device Build-in FlymeOS");
             return;
@@ -99,7 +99,7 @@ public class PushManager {
     }
 
     public static void register(Context context, String str, String str2) {
-        com.meizu.cloud.a.a.hk(context);
+        com.meizu.cloud.a.a.hi(context);
         if (MzSystemUtils.isBrandMeizu(context)) {
             b.a(context).a(str, str2, context.getPackageName());
         } else {

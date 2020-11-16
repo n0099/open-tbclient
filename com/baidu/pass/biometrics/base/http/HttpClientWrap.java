@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class HttpClientWrap {
 
     /* renamed from: a  reason: collision with root package name */

@@ -4,104 +4,104 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import java.io.File;
 @TargetApi(18)
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class b {
     private Context mContext;
     private String mFilterName;
     private boolean mIsRunning = false;
     private String mSourcePath;
-    private String nmd;
-    private a nnQ;
-    private f nnR;
-    private d nnS;
-    private e nnT;
-    private volatile boolean nnU;
-    private volatile boolean nnV;
-    private volatile boolean nnW;
+    private String nnk;
+    private a noZ;
+    private f npa;
+    private d npb;
+    private e npc;
+    private volatile boolean npd;
+    private volatile boolean npe;
+    private volatile boolean npf;
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes22.dex */
     public interface a {
-        void TL(String str);
+        void Tw(String str);
 
-        void bX(int i, String str);
+        void bV(int i, String str);
 
-        void bY(int i, String str);
+        void bW(int i, String str);
     }
 
     public b(Context context, String str, String str2, String str3) {
         this.mContext = context;
         this.mSourcePath = str;
-        this.nmd = str2;
+        this.nnk = str2;
         this.mFilterName = str3;
     }
 
-    public void dOZ() {
+    public void dOY() {
         if (!this.mIsRunning) {
             this.mIsRunning = true;
-            this.nnU = false;
-            this.nnV = false;
-            this.nnW = false;
+            this.npd = false;
+            this.npe = false;
+            this.npf = false;
             try {
-                File file = new File(new File(this.nmd).getParent());
+                File file = new File(new File(this.nnk).getParent());
                 if (!file.exists()) {
                     file.mkdirs();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.nnQ != null) {
-                    this.nnQ.bX(222, com.baidu.tieba.k.a.r(e));
+                if (this.noZ != null) {
+                    this.noZ.bV(222, com.baidu.tieba.l.a.r(e));
                 }
             }
             try {
-                this.nnT = new e(this.nmd);
-                this.nnR = new f(this.mContext, this.mSourcePath, this.mFilterName, this.nnT, this.nnQ) { // from class: com.baidu.tieba.video.editvideo.b.b.1
+                this.npc = new e(this.nnk);
+                this.npa = new f(this.mContext, this.mSourcePath, this.mFilterName, this.npc, this.noZ) { // from class: com.baidu.tieba.video.editvideo.b.b.1
                     @Override // com.baidu.tieba.video.editvideo.b.f
                     public void onPostExecute() {
-                        b.this.nnU = true;
-                        b.this.dPb();
+                        b.this.npd = true;
+                        b.this.dPa();
                     }
                 };
-                this.nnR.start();
-                this.nnS = new d(this.mContext, this.mSourcePath, this.nnT, this.nnQ) { // from class: com.baidu.tieba.video.editvideo.b.b.2
+                this.npa.start();
+                this.npb = new d(this.mContext, this.mSourcePath, this.npc, this.noZ) { // from class: com.baidu.tieba.video.editvideo.b.b.2
                     @Override // com.baidu.tieba.video.editvideo.b.d
                     public void onPostExecute() {
-                        b.this.nnV = true;
-                        b.this.dPb();
+                        b.this.npe = true;
+                        b.this.dPa();
                     }
                 };
-                this.nnS.start();
+                this.npb.start();
             } catch (Exception e2) {
             }
         }
     }
 
-    public void dPa() {
-        if (this.nnR != null) {
-            this.nnR.interrupt();
-            this.nnR = null;
+    public void dOZ() {
+        if (this.npa != null) {
+            this.npa.interrupt();
+            this.npa = null;
         }
-        if (this.nnS != null) {
-            this.nnS.interrupt();
-            this.nnS = null;
+        if (this.npb != null) {
+            this.npb.interrupt();
+            this.npb = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dPb() {
-        if (this.nnU && this.nnV && !this.nnW) {
-            this.nnT.stop();
-            this.nnW = true;
-            dPc();
+    public void dPa() {
+        if (this.npd && this.npe && !this.npf) {
+            this.npc.stop();
+            this.npf = true;
+            dPb();
         }
     }
 
-    private void dPc() {
-        if (this.nnQ != null) {
-            File file = new File(this.nmd);
+    private void dPb() {
+        if (this.noZ != null) {
+            File file = new File(this.nnk);
             if (file.exists() && file.length() > 0) {
-                this.nnQ.TL(this.nmd);
+                this.noZ.Tw(this.nnk);
             } else {
-                this.nnQ.bX(223, "Err empty outputFile");
+                this.noZ.bV(223, "Err empty outputFile");
             }
         }
         this.mIsRunning = false;
@@ -112,6 +112,6 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.nnQ = aVar;
+        this.noZ = aVar;
     }
 }

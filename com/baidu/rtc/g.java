@@ -1,24 +1,24 @@
 package com.baidu.rtc;
 
 import org.webrtc.audio.JavaAudioDeviceModule;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class g extends JavaAudioDeviceModule.AudioSamples {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public interface a {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public interface b {
         void b(g gVar);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public interface c {
         void c(g gVar);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public interface d {
         void a(g gVar);
     }

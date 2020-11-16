@@ -1,45 +1,46 @@
 package com.baidu.tieba.homepage.topic.topicdetail.b;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import tbclient.NewHottopic.TopicThread;
-/* loaded from: classes22.dex */
-public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId jJx = BdUniqueId.gen();
-    public bw exA;
-    public boolean jJA;
-    public long jJy;
-    public int jJz;
+/* loaded from: classes21.dex */
+public class c extends BaseCardInfo {
+    public static final BdUniqueId jKi = BdUniqueId.gen();
+    public bx evQ;
+    public long jKj;
+    public int jKk;
+    public boolean jKl;
     public int source;
     public long topicId;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jJx;
+        return jKi;
     }
 
     public void a(TopicThread topicThread) {
         if (topicThread != null) {
-            this.jJy = topicThread.feed_id.longValue();
+            this.jKj = topicThread.feed_id.longValue();
             if (topicThread.thread_info != null) {
-                this.exA = new bw();
-                this.exA.a(topicThread.thread_info);
-                this.exA.bny();
+                this.evQ = new bx();
+                this.evQ.a(topicThread.thread_info);
+                this.evQ.bmC();
             }
-            this.jJz = topicThread.user_agree.intValue();
+            this.jKk = topicThread.user_agree.intValue();
             this.source = topicThread.source.intValue();
         }
     }
 
     public void a(tbclient.NewTopicThread.TopicThread topicThread) {
         if (topicThread != null) {
-            this.jJy = topicThread.feed_id.longValue();
+            this.jKj = topicThread.feed_id.longValue();
             if (topicThread.thread_info != null) {
-                this.exA = new bw();
-                this.exA.a(topicThread.thread_info);
-                this.exA.bny();
+                this.evQ = new bx();
+                this.evQ.a(topicThread.thread_info);
+                this.evQ.bmC();
             }
-            this.jJz = Integer.parseInt(topicThread.user_agree);
+            this.jKk = Integer.parseInt(topicThread.user_agree);
             this.source = topicThread.source.intValue();
         }
     }

@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.RectF;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class am extends a {
     private Path mPath;
 
@@ -12,12 +12,12 @@ public class am extends a {
     public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() == 4) {
-                int N = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(0));
-                int N2 = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(1));
-                int N3 = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(2));
-                int N4 = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(3));
+                int M = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(0));
+                int M2 = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(1));
+                int M3 = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(2));
+                int M4 = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(3));
                 this.mPath = new Path();
-                this.mPath.addRect(new RectF(N, N2, N + N3, N2 + N4), Path.Direction.CW);
+                this.mPath.addRect(new RectF(M, M2, M + M3, M2 + M4), Path.Direction.CW);
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {

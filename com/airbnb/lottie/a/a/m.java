@@ -7,7 +7,7 @@ import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.PolystarShape;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class m implements j, l, a.InterfaceC0011a {
     @Nullable
     private r CY;

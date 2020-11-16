@@ -3,6 +3,6 @@ package com.baidu.afd;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class b {
-    public static final BdUniqueId YF = BdUniqueId.gen();
-    public static final BdUniqueId YG = BdUniqueId.gen();
+    public static final BdUniqueId YK = BdUniqueId.gen();
+    public static final BdUniqueId YL = BdUniqueId.gen();
 }

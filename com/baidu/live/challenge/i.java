@@ -19,7 +19,7 @@ public interface i {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void dO(int i);
+        void dK(int i);
     }
 
     /* loaded from: classes4.dex */
@@ -49,7 +49,7 @@ public interface i {
 
     /* loaded from: classes4.dex */
     public interface f {
-        int DG();
+        int CX();
     }
 
     /* loaded from: classes4.dex */
@@ -68,7 +68,7 @@ public interface i {
 
     /* renamed from: com.baidu.live.challenge.i$i  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0177i {
+    public interface InterfaceC0175i {
         void a(com.baidu.live.challenge.b bVar, List<com.baidu.live.challenge.d> list);
 
         void m(int i, String str);
@@ -97,7 +97,7 @@ public interface i {
 
     /* loaded from: classes4.dex */
     public interface m {
-        void DH();
+        void CY();
 
         void p(int i, String str);
     }
@@ -107,31 +107,31 @@ public interface i {
         void d(boolean z, String str);
     }
 
-    void DA();
+    void CD();
 
-    ChallenfeInfoData.ChallengeStatus DB();
+    void CL();
 
-    boolean DC();
+    void CM();
 
-    void DD();
+    void CN();
 
-    long DE();
+    void CO();
 
-    void DF();
+    void CP();
 
-    void Dm();
+    void CQ();
 
-    void Du();
+    void CR();
 
-    void Dv();
+    ChallenfeInfoData.ChallengeStatus CS();
 
-    void Dw();
+    boolean CT();
 
-    void Dx();
+    void CU();
 
-    void Dy();
+    long CV();
 
-    void Dz();
+    void CW();
 
     void a(long j2, long j3, long j4, int i, String str);
 
@@ -151,7 +151,7 @@ public interface i {
 
     void a(h hVar);
 
-    void a(InterfaceC0177i interfaceC0177i);
+    void a(InterfaceC0175i interfaceC0175i);
 
     void a(j jVar);
 
@@ -175,21 +175,21 @@ public interface i {
 
     void am(long j2);
 
-    void bl(boolean z);
+    void bn(boolean z);
 
     void c(w wVar);
 
-    void dN(int i);
+    void dJ(int i);
 
     void e(long j2, long j3);
 
-    void g(int i, int i2, String str);
+    void f(int i, int i2, String str);
 
-    void gh(String str);
+    void gb(String str);
 
-    void gi(String str);
+    void gc(String str);
 
-    void gj(String str);
+    void gd(String str);
 
     void onDestroy();
 

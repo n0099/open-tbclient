@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class InputStreamEntity extends AbstractHttpEntity {
     public InputStreamEntity(InputStream inputStream, long j) {
         throw new RuntimeException("Stub!");

@@ -1,7 +1,7 @@
 package com.baidu.pass.ecommerce.c;
 
 import com.baidu.sapi2.result.SapiResult;
-/* loaded from: classes17.dex */
+/* loaded from: classes10.dex */
 public class a extends SapiResult {
     public static final int c = -901;
     public static final String d = "无权限";

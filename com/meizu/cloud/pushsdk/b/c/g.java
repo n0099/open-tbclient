@@ -4,7 +4,7 @@ import java.nio.charset.Charset;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */

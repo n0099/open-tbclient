@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.upload.action.track;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class Request {
     public long aliasId;
     public long errorCode;

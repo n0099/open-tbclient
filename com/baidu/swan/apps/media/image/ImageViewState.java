@@ -2,7 +2,7 @@ package com.baidu.swan.apps.media.image;
 
 import android.graphics.PointF;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class ImageViewState implements Serializable {
     private float centerX;
     private float centerY;

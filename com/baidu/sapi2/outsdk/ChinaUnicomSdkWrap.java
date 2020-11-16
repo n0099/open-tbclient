@@ -19,7 +19,7 @@ import com.sdk.mobile.manager.login.cucc.UiOauthManager;
 import com.sdk.mobile.manager.oauth.cucc.OauthManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class ChinaUnicomSdkWrap {
 
     /* renamed from: a  reason: collision with root package name */

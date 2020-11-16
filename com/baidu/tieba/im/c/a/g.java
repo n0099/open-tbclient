@@ -8,36 +8,36 @@ import com.baidu.tieba.im.message.LoadHistoryMessage;
 import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.LinkedList;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
-    private com.baidu.tieba.im.db.c kpo;
+    private com.baidu.tieba.im.db.c kpY;
     private int mCmd;
 
     public g() {
-        a(com.baidu.tieba.im.db.c.cQU(), CmdConfigCustom.CMD_LOAD_HISTORY_GROUP);
+        a(com.baidu.tieba.im.db.c.cQA(), CmdConfigCustom.CMD_LOAD_HISTORY_GROUP);
     }
 
     private void a(com.baidu.tieba.im.db.c cVar, int i) {
-        this.kpo = cVar;
+        this.kpY = cVar;
         this.mCmd = i;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
         if (customMessage == null || !(customMessage instanceof LoadHistoryMessage)) {
-            return Dw(this.mCmd);
+            return DU(this.mCmd);
         }
-        if (this.kpo == null) {
-            return Dw(this.mCmd);
+        if (this.kpY == null) {
+            return DU(this.mCmd);
         }
         LoadHistoryMessage.a data = customMessage.getData();
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.mCmd);
-        LinkedList<ChatMessage> e = this.kpo.e(data.id, data.kma, data.kmb, data.limit);
+        LinkedList<ChatMessage> e = this.kpY.e(data.id, data.kmK, data.kmL, data.limit);
         if (e == null) {
-            return Dw(this.mCmd);
+            return DU(this.mCmd);
         }
         LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-        if (data.kma == null) {
+        if (data.kmK == null) {
             aVar.isFirst = true;
         } else {
             aVar.isFirst = false;
@@ -52,7 +52,7 @@ public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
         return loadHistoryResponsedMessage;
     }
 
-    private LoadHistoryResponsedMessage Dw(int i) {
+    private LoadHistoryResponsedMessage DU(int i) {
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
         loadHistoryResponsedMessage.setError(-18);
         return loadHistoryResponsedMessage;

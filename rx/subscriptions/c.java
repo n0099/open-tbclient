@@ -2,24 +2,24 @@ package rx.subscriptions;
 
 import rx.internal.subscriptions.SequentialSubscription;
 import rx.k;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class c implements k {
-    final SequentialSubscription qkz = new SequentialSubscription();
+    final SequentialSubscription qmc = new SequentialSubscription();
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.qkz.isUnsubscribed();
+        return this.qmc.isUnsubscribed();
     }
 
     @Override // rx.k
     public void unsubscribe() {
-        this.qkz.unsubscribe();
+        this.qmc.unsubscribe();
     }
 
     public void f(k kVar) {
         if (kVar == null) {
             throw new IllegalArgumentException("Subscription can not be null");
         }
-        this.qkz.replace(kVar);
+        this.qmc.replace(kVar);
     }
 }

@@ -11,23 +11,23 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.adp.widget.ListView.af.a;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public abstract class k<T, V extends af.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int iGK;
-    protected static final int iGL;
-    protected static final int iGM;
-    protected FrsViewData iGN;
-    protected f iGO;
-    protected int iGP;
-    protected i iGQ;
-    private boolean iGR;
-    private boolean iGS;
-    protected com.baidu.tieba.card.ab iGT;
-    protected com.baidu.adp.widget.ListView.v imM;
+    protected static final int iHA;
+    protected static final int iHy;
+    protected static final int iHz;
+    protected FrsViewData iHB;
+    protected f iHC;
+    protected int iHD;
+    protected i iHE;
+    private boolean iHF;
+    private boolean iHG;
+    protected com.baidu.tieba.card.ab iHH;
+    protected com.baidu.adp.widget.ListView.v inB;
     protected boolean mIsFromCDN;
     protected TbPageContext<?> mPageContext;
     protected int mSkinType;
@@ -35,16 +35,16 @@ public abstract class k<T, V extends af.a> extends com.baidu.adp.widget.ListView
 
     static {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        iGK = resources.getDimensionPixelSize(R.dimen.ds8);
-        iGL = resources.getDimensionPixelSize(R.dimen.ds16);
-        iGM = resources.getDimensionPixelSize(R.dimen.ds1);
+        iHy = resources.getDimensionPixelSize(R.dimen.ds8);
+        iHz = resources.getDimensionPixelSize(R.dimen.ds16);
+        iHA = resources.getDimensionPixelSize(R.dimen.ds1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mIsFromCDN = false;
-        this.iGS = false;
+        this.iHG = false;
         this.mTbPageTag = null;
         a(tbPageContext, bdUniqueId2);
     }
@@ -53,7 +53,7 @@ public abstract class k<T, V extends af.a> extends com.baidu.adp.widget.ListView
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.iGS = false;
+        this.iHG = false;
         this.mTbPageTag = null;
         a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
@@ -69,26 +69,26 @@ public abstract class k<T, V extends af.a> extends com.baidu.adp.widget.ListView
     public void release() {
         this.mContext = null;
         this.mPageContext = null;
-        this.iGO = null;
-        this.Vu = null;
+        this.iHC = null;
         this.Vv = null;
-        if (this.iGQ != null) {
-            this.iGQ.destory();
-            this.iGQ = null;
+        this.Vw = null;
+        if (this.iHE != null) {
+            this.iHE.destory();
+            this.iHE = null;
         }
     }
 
     public void b(com.baidu.adp.widget.ListView.v vVar) {
-        this.imM = vVar;
+        this.inB = vVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.imM = (com.baidu.adp.widget.ListView.v) viewGroup;
-        if (t instanceof bv) {
-            ((bv) t).exA.oi(2);
+        this.inB = (com.baidu.adp.widget.ListView.v) viewGroup;
+        if (t instanceof bw) {
+            ((bw) t).evQ.oe(2);
             return null;
         }
         return null;
@@ -99,23 +99,23 @@ public abstract class k<T, V extends af.a> extends com.baidu.adp.widget.ListView
     }
 
     public void b(FrsViewData frsViewData) {
-        this.iGN = frsViewData;
+        this.iHB = frsViewData;
     }
 
     public void a(f fVar) {
-        this.iGO = fVar;
+        this.iHC = fVar;
     }
 
-    public void yA(int i) {
-        this.iGP = i;
+    public void yY(int i) {
+        this.iHD = i;
     }
 
     public void a(i iVar) {
-        this.iGQ = iVar;
+        this.iHE = iVar;
     }
 
-    public boolean cxY() {
-        return this.iGR;
+    public boolean cxB() {
+        return this.iHF;
     }
 
     public View x(ViewGroup viewGroup, int i) {

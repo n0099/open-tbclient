@@ -4,9 +4,9 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 final class m {
-    private static volatile m aes;
+    private static volatile m aex;
     private final Executor b = new ThreadPoolExecutor(5, 25, 20, TimeUnit.SECONDS, new LinkedBlockingDeque(50));
 
     private m() {
@@ -14,14 +14,14 @@ final class m {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static m td() {
-        if (aes == null) {
+        if (aex == null) {
             synchronized (m.class) {
-                if (aes == null) {
-                    aes = new m();
+                if (aex == null) {
+                    aex = new m();
                 }
             }
         }
-        return aes;
+        return aex;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -6,7 +6,7 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.Log;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes10.dex */
 public class InvoiceBuildExternalActivity extends InvoiceBuildActivity {
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
     private static final String TAG = InvoiceBuildExternalActivity.class.getSimpleName();

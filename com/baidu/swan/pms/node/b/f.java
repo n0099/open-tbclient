@@ -5,26 +5,26 @@ import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class f {
-    private final Set<String> ejg;
+    private final Set<String> ehz;
     private final String mVersion;
 
     public f(String str, Set<String> set) {
         this.mVersion = str;
-        this.ejg = set;
+        this.ehz = set;
     }
 
     public String getVersion() {
         return this.mVersion;
     }
 
-    public Set<String> bct() {
-        return this.ejg;
+    public Set<String> bbM() {
+        return this.ehz;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static f cT(JSONObject jSONObject) {
+    public static f cN(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("version");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");

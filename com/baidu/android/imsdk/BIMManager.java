@@ -60,13 +60,13 @@ import com.baidu.imsdk.a;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class BIMManager extends BaseManager implements NoProGuard {
     private static IConnectListener mConnectListener;
     private static Context sContext = null;
     private static List<IConnectListener> mConnectListeners = new ArrayList();
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     public enum CATEGORY {
         ALL(-1),
         SINGLEPERSON(0),
@@ -113,7 +113,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
         Context applicationContext = context.getApplicationContext();
         sContext = applicationContext;
-        a.azB = false;
+        a.axQ = false;
         Log.d("imsdk", "set env as " + i + "， appId:" + j + ", cuid :" + str);
         AccountManagerImpl.getInstance(applicationContext).setAppid(j);
         Utility.setDeviceId(applicationContext, str);
@@ -725,7 +725,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void tryConnection(Context context) {
-        if (!a.azB) {
+        if (!a.axQ) {
             AccountManagerImpl.getInstance(context);
             AccountManagerImpl.tryConnection(context);
         }

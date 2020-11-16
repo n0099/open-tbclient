@@ -16,7 +16,7 @@ public class a {
 
     /* renamed from: com.baidu.platform.comapi.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    private static final class C0280a {
+    private static final class C0278a {
 
         /* renamed from: a  reason: collision with root package name */
         private static final a f2857a = new a(null);
@@ -30,7 +30,7 @@ public class a {
     }
 
     public static a a() {
-        return C0280a.f2857a;
+        return C0278a.f2857a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

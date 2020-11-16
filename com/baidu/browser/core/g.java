@@ -7,13 +7,13 @@ import android.util.LongSparseArray;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 @SuppressLint({"NewApi"})
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class g {
-    private static g aeH;
-    private LongSparseArray<WeakReference<Bitmap>> aeI = new LongSparseArray<>();
+    private static g aeM;
+    private LongSparseArray<WeakReference<Bitmap>> aeN = new LongSparseArray<>();
     private Context mContext;
     private static final String LOG_TAG = g.class.getSimpleName();
-    private static HashMap<String, com.baidu.browser.core.util.e<String, Integer>> aeJ = new HashMap<>();
+    private static HashMap<String, com.baidu.browser.core.util.e<String, Integer>> aeO = new HashMap<>();
 
     private g() {
     }
@@ -21,10 +21,10 @@ public final class g {
     public static synchronized g tn() {
         g gVar;
         synchronized (g.class) {
-            if (aeH == null) {
-                aeH = new g();
+            if (aeM == null) {
+                aeM = new g();
             }
-            gVar = aeH;
+            gVar = aeM;
         }
         return gVar;
     }
@@ -40,13 +40,13 @@ public final class g {
     }
 
     @Deprecated
-    public static int P(String str, String str2) {
+    public static int O(String str, String str2) {
         com.baidu.browser.core.util.e<String, Integer> eVar;
-        Q(str2, str);
-        com.baidu.browser.core.util.e<String, Integer> eVar2 = aeJ.get(str);
+        P(str2, str);
+        com.baidu.browser.core.util.e<String, Integer> eVar2 = aeO.get(str);
         if (eVar2 == null) {
             com.baidu.browser.core.util.e<String, Integer> eVar3 = new com.baidu.browser.core.util.e<>(100);
-            aeJ.put(str, eVar3);
+            aeO.put(str, eVar3);
             eVar = eVar3;
         } else {
             eVar = eVar2;
@@ -68,6 +68,6 @@ public final class g {
         return num.intValue();
     }
 
-    public static void Q(String str, String str2) {
+    public static void P(String str, String str2) {
     }
 }

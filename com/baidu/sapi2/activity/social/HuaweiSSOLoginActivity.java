@@ -13,7 +13,7 @@ import com.huawei.hms.support.hwid.request.HuaweiIdAuthParams;
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper;
 import com.huawei.hms.support.hwid.result.AuthHuaweiId;
 import com.huawei.hms.support.hwid.service.HuaweiIdAuthService;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     public static final int REQUEST_SIGN_IN_LOGIN = 1002;
     public static final int REQUEST_SIGN_IN_LOGIN_CODE = 1003;

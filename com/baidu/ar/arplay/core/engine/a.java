@@ -11,7 +11,7 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class a {
     private b el;
     private boolean em = true;
@@ -36,7 +36,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.arplay.core.engine.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public enum EnumC0075a {
         EGESTURE_CLICK,
         EGESTURE_DOUBLE_CLICK,
@@ -51,7 +51,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public class b extends Handler {
         public b(Looper looper) {
             super(looper);
@@ -85,7 +85,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public enum c {
         EStatSingFingerCandidate,
         EStatTwoFingersCandidate,
@@ -102,7 +102,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public enum d {
         ESWIPE_RIGHT,
         ESWIPE_LEFT,
@@ -111,7 +111,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public class e {
         int id;
         long time;
@@ -138,7 +138,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public enum f {
         ETOUCH_BEGIN,
         ETOUCH_MOVE,

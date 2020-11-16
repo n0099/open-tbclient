@@ -1,5 +1,5 @@
 package io.reactivex.internal.disposables;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public interface a {
     boolean a(io.reactivex.disposables.b bVar);
 

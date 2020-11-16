@@ -7,7 +7,7 @@ import com.vivo.push.util.p;
 import com.vivo.push.util.y;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public abstract class d<T> {
 
     /* renamed from: a  reason: collision with root package name */

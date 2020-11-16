@@ -9,7 +9,7 @@ import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class d extends b {
     public d(j jVar) {
         super(jVar, "/swanAPI/deleteFavor");
@@ -17,9 +17,9 @@ public class d extends b {
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
     protected void b(final com.baidu.swan.apps.runtime.e eVar, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str) {
-        SwanFavorDataManager.aur().b(this.dvE, new com.baidu.swan.apps.favordata.a.b() { // from class: com.baidu.swan.apps.scheme.actions.b.d.1
+        SwanFavorDataManager.atJ().b(this.dtX, new com.baidu.swan.apps.favordata.a.b() { // from class: com.baidu.swan.apps.scheme.actions.b.d.1
             @Override // com.baidu.swan.apps.favordata.a.b
-            public void anX() {
+            public void anp() {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("success", "1");
@@ -28,14 +28,14 @@ public class d extends b {
                         e.printStackTrace();
                     }
                 }
-                if (d.this.dvF) {
-                    com.baidu.swan.apps.res.widget.b.d.k(eVar.getApplicationContext(), a.h.aiapps_cancel_fav_success).km(2).showHighlightToast();
+                if (d.this.dtY) {
+                    com.baidu.swan.apps.res.widget.b.d.k(eVar.getApplicationContext(), a.h.aiapps_cancel_fav_success).ki(2).showHighlightToast();
                 }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
             }
 
             @Override // com.baidu.swan.apps.favordata.a.b
-            public void anY() {
+            public void anq() {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("success", "0");
@@ -44,12 +44,12 @@ public class d extends b {
                         e.printStackTrace();
                     }
                 }
-                if (d.this.dvF) {
-                    com.baidu.swan.apps.res.widget.b.d.k(eVar.getApplicationContext(), a.h.aiapps_cancel_fav_fail).km(2).showToast();
+                if (d.this.dtY) {
+                    com.baidu.swan.apps.res.widget.b.d.k(eVar.getApplicationContext(), a.h.aiapps_cancel_fav_fail).ki(2).showToast();
                 }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
             }
-        }, com.baidu.swan.apps.env.c.c.atN().iw(3).atO());
+        }, com.baidu.swan.apps.env.c.c.atf().is(3).atg());
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
@@ -59,8 +59,8 @@ public class d extends b {
             return false;
         }
         try {
-            this.dvE = this.dvF ? eVar.getAppId() : new JSONObject(param).optString("appid");
-            return !TextUtils.isEmpty(this.dvE);
+            this.dtX = this.dtY ? eVar.getAppId() : new JSONObject(param).optString("appid");
+            return !TextUtils.isEmpty(this.dtX);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

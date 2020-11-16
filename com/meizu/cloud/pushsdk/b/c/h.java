@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public final class h extends j {
 
     /* renamed from: a  reason: collision with root package name */
@@ -22,7 +22,7 @@ public final class h extends j {
     private final List<b> l;
     private long m = -1;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
@@ -71,7 +71,7 @@ public final class h extends j {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */

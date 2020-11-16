@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class a implements b<String> {
     private Context mContext;
 
@@ -18,28 +18,28 @@ public class a implements b<String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
     public void put(String str) {
-        zl(str);
+        zg(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: aMx */
+    /* renamed from: aLP */
     public String get() {
-        return beo();
+        return bdH();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean ben() {
+    public boolean bdG() {
         return (TextUtils.equals("mounted", Environment.getExternalStorageState()) && com.baidu.swan.uuid.b.c.hasPermission(this.mContext, "android.permission.READ_EXTERNAL_STORAGE") && new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid").exists()) ? false : true;
     }
 
-    private void zl(String str) {
+    private void zg(String str) {
         if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && com.baidu.swan.uuid.b.c.hasPermission(this.mContext, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             com.baidu.swan.uuid.b.a.saveFile(str, new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid"));
         }
     }
 
-    private String beo() {
+    private String bdH() {
         if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && com.baidu.swan.uuid.b.c.hasPermission(this.mContext, "android.permission.READ_EXTERNAL_STORAGE")) {
             File file = new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid");
             if (file.exists()) {

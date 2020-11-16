@@ -3,7 +3,7 @@ package com.vivo.push.util;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.provider.Settings;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 final class v implements c {
 
     /* renamed from: a  reason: collision with root package name */

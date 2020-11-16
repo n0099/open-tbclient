@@ -5,17 +5,17 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetQualifyingResultResponseMessage extends JsonHttpResponsedMessage {
-    private int hau;
-    private boolean hav;
-    private int haw;
-    private int hax;
-    private String hay;
+    private int hab;
+    private boolean hac;
+    private int had;
+    private int hae;
+    private String haf;
 
     public AlaGetQualifyingResultResponseMessage() {
         super(1021209);
-        this.hau = 0;
-        this.hav = false;
-        this.haw = 0;
+        this.hab = 0;
+        this.hac = false;
+        this.had = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -23,42 +23,42 @@ public class AlaGetQualifyingResultResponseMessage extends JsonHttpResponsedMess
         JSONObject optJSONObject;
         ak akVar;
         super.decodeLogicInBackGround(i, jSONObject);
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (akVar = com.baidu.live.aa.a.PQ().bod) != null && akVar.aNw != null) {
-            this.hav = akVar.aNw.aQr;
-            if (this.hav) {
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (akVar = com.baidu.live.aa.a.Ph().bms) != null && akVar.aLL != null) {
+            this.hac = akVar.aLL.aOG;
+            if (this.hac) {
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("season_info");
                 if (optJSONObject2 != null) {
-                    this.hau = 1;
-                    this.hay = optJSONObject2.optString("show_last_time");
-                    if (this.hay == null || this.hay.isEmpty()) {
-                        this.haw = 0;
+                    this.hab = 1;
+                    this.haf = optJSONObject2.optString("show_last_time");
+                    if (this.haf == null || this.haf.isEmpty()) {
+                        this.had = 0;
                         return;
                     } else {
-                        this.haw = 1;
+                        this.had = 1;
                         return;
                     }
                 }
-                this.hau = 0;
+                this.hab = 0;
                 return;
             }
-            this.hau = 0;
+            this.hab = 0;
         }
     }
 
-    public boolean bZP() {
-        return this.hau == 1;
+    public boolean bZi() {
+        return this.hab == 1;
     }
 
-    public boolean bZQ() {
-        return this.haw == 1;
+    public boolean bZj() {
+        return this.had == 1;
     }
 
-    public long bZR() {
+    public long bZk() {
         try {
-            this.hax = Integer.parseInt(this.hay);
+            this.hae = Integer.parseInt(this.haf);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        return this.hax * 1000;
+        return this.hae * 1000;
     }
 }

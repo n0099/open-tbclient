@@ -27,7 +27,7 @@ import java.net.SocketTimeoutException;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public abstract class BaseApi {
 
     /* renamed from: a  reason: collision with root package name */
@@ -185,7 +185,7 @@ public abstract class BaseApi {
     public void releaseResource() {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public class TempRequestListener implements IRequestListener {
         private final IUiListener b;
         private final Handler c;

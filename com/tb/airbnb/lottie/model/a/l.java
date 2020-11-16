@@ -3,63 +3,63 @@ package com.tb.airbnb.lottie.model.a;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e pJn;
-    private final m<PointF, PointF> pJo;
-    private final g pJp;
-    private final b pJq;
-    private final d pJr;
+    private final e pKQ;
+    private final m<PointF, PointF> pKR;
+    private final g pKS;
+    private final b pKT;
+    private final d pKU;
     @Nullable
-    private final b pJs;
+    private final b pKV;
     @Nullable
-    private final b pJt;
+    private final b pKW;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.pJn = eVar;
-        this.pJo = mVar;
-        this.pJp = gVar;
-        this.pJq = bVar;
-        this.pJr = dVar;
-        this.pJs = bVar2;
-        this.pJt = bVar3;
+        this.pKQ = eVar;
+        this.pKR = mVar;
+        this.pKS = gVar;
+        this.pKT = bVar;
+        this.pKU = dVar;
+        this.pKV = bVar2;
+        this.pKW = bVar3;
     }
 
-    public e eyN() {
-        return this.pJn;
+    public e eyO() {
+        return this.pKQ;
     }
 
-    public m<PointF, PointF> eyO() {
-        return this.pJo;
+    public m<PointF, PointF> eyP() {
+        return this.pKR;
     }
 
-    public g eyP() {
-        return this.pJp;
+    public g eyQ() {
+        return this.pKS;
     }
 
-    public b eyQ() {
-        return this.pJq;
+    public b eyR() {
+        return this.pKT;
     }
 
-    public d eyR() {
-        return this.pJr;
-    }
-
-    @Nullable
-    public b eyS() {
-        return this.pJs;
+    public d eyS() {
+        return this.pKU;
     }
 
     @Nullable
     public b eyT() {
-        return this.pJt;
+        return this.pKV;
     }
 
-    public o eyU() {
+    @Nullable
+    public b eyU() {
+        return this.pKW;
+    }
+
+    public o eyV() {
         return new o(this);
     }
 

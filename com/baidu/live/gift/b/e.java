@@ -9,7 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e {
-    public static void aw(String str, String str2) {
+    public static void av(String str, String str2) {
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(str, str2, "liveroom", ""));
     }
 

@@ -26,7 +26,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class UfoSDK {
     public static boolean localFirstCall;
     private static Context mApplication;

@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.process.b;
 
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface a {
-    public static final long dlr = TimeUnit.SECONDS.toMillis(5);
+    public static final long djK = TimeUnit.SECONDS.toMillis(5);
 }

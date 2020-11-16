@@ -1,17 +1,17 @@
 package com.facebook.imagepipeline.c;
 
 import android.support.v7.widget.ActivityChooserView;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class k implements com.facebook.common.internal.j<q> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: enw */
+    /* renamed from: enu */
     public q get() {
-        int enx = enx();
-        return new q(enx, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, enx, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, enx / 8);
+        int env = env();
+        return new q(env, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, env, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, env / 8);
     }
 
-    private int enx() {
+    private int env() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
         if (min < 16777216) {
             return 1048576;

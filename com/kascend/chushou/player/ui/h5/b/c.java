@@ -21,8 +21,8 @@ public class c extends LinearLayout implements View.OnClickListener {
     private TextView e;
     private boolean f;
     private int g;
-    private FrescoThumbnailView ptS;
-    private FrescoThumbnailView ptX;
+    private FrescoThumbnailView pvA;
+    private FrescoThumbnailView pvv;
 
     public c(Context context) {
         super(context);
@@ -34,12 +34,12 @@ public class c extends LinearLayout implements View.OnClickListener {
     private void a(Context context) {
         this.f4171a = context;
         LayoutInflater.from(context).inflate(a.h.view_lucky_draw_notifier, (ViewGroup) this, true);
-        this.ptX = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_icon);
-        this.ptX.setAnim(true);
-        this.ptS = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_text_bg);
+        this.pvA = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_icon);
+        this.pvA.setAnim(true);
+        this.pvv = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_text_bg);
         this.d = (TextView) findViewById(a.f.tv_lucky_draw_text);
         this.e = (TextView) findViewById(a.f.tv_count);
-        this.ptX.setOnClickListener(this);
+        this.pvA.setOnClickListener(this);
         this.d.setOnClickListener(this);
     }
 
@@ -53,8 +53,8 @@ public class c extends LinearLayout implements View.OnClickListener {
         if (evT == null) {
             setVisibility(8);
         } else if (!this.f) {
-            this.ptX.i(evT.f4175a, a.e.open_vote, b.C1124b.qow, b.C1124b.qow);
-            this.ptS.i(evT.b, a.e.open_vote_text_bg, b.C1124b.small, b.C1124b.small);
+            this.pvA.i(evT.f4175a, a.e.open_vote, b.C1127b.qpZ, b.C1127b.qpZ);
+            this.pvv.i(evT.b, a.e.open_vote_text_bg, b.C1127b.small, b.C1127b.small);
             int color = ContextCompat.getColor(this.f4171a, a.c.kas_white);
             if (!h.isEmpty(evT.c)) {
                 try {
@@ -75,8 +75,8 @@ public class c extends LinearLayout implements View.OnClickListener {
         if (evT == null) {
             setVisibility(8);
         } else if (!this.f) {
-            this.ptX.i(evT.f4175a, a.e.open_luckydraw, b.C1124b.qow, b.C1124b.qow);
-            this.ptS.i(evT.b, a.e.open_luckydraw_text_bg, b.C1124b.small, b.C1124b.small);
+            this.pvA.i(evT.f4175a, a.e.open_luckydraw, b.C1127b.qpZ, b.C1127b.qpZ);
+            this.pvv.i(evT.b, a.e.open_luckydraw_text_bg, b.C1127b.small, b.C1127b.small);
             int color = ContextCompat.getColor(this.f4171a, a.c.kas_white);
             if (!h.isEmpty(evT.c)) {
                 try {

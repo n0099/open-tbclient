@@ -20,25 +20,25 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class PkRankView extends RelativeLayout {
-    w aKv;
+    w aIK;
     Context context;
-    boolean hMM;
-    PkRankEnterView hPk;
-    PkRankInView hPl;
-    PkRankResultView hPm;
-    private l hPn;
-    PkInfoData hPo;
-    public int hPp;
-    CustomMessageListener hPq;
-    CustomMessageListener hPr;
-    boolean hPs;
+    boolean hMt;
+    PkRankEnterView hOR;
+    PkRankInView hOS;
+    PkRankResultView hOT;
+    private l hOU;
+    PkInfoData hOV;
+    public int hOW;
+    CustomMessageListener hOX;
+    CustomMessageListener hOY;
+    boolean hOZ;
     boolean isHost;
     private View mView;
 
     public PkRankView(Context context, boolean z, w wVar) {
         this(context, null);
         this.isHost = z;
-        this.aKv = wVar;
+        this.aIK = wVar;
     }
 
     public PkRankView(Context context, AttributeSet attributeSet) {
@@ -47,54 +47,54 @@ public class PkRankView extends RelativeLayout {
 
     public PkRankView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hPp = -1;
-        this.hMM = true;
-        this.hPs = false;
+        this.hOW = -1;
+        this.hMt = true;
+        this.hOZ = false;
         this.context = context;
         initView();
     }
 
     private void initView() {
         this.mView = LayoutInflater.from(getContext()).inflate(a.g.sdk_pk_rank_view_layout, (ViewGroup) this, true);
-        this.hPk = (PkRankEnterView) this.mView.findViewById(a.f.enter_view);
-        this.hPk.setPkRankView(this);
-        this.hPl = (PkRankInView) this.mView.findViewById(a.f.in_view);
-        this.hPl.setPkRankView(this);
-        this.hPm = (PkRankResultView) this.mView.findViewById(a.f.result_view);
-        this.hPm.setPkRankView(this);
-        clZ();
-        cmF();
+        this.hOR = (PkRankEnterView) this.mView.findViewById(a.f.enter_view);
+        this.hOR.setPkRankView(this);
+        this.hOS = (PkRankInView) this.mView.findViewById(a.f.in_view);
+        this.hOS.setPkRankView(this);
+        this.hOT = (PkRankResultView) this.mView.findViewById(a.f.result_view);
+        this.hOT.setPkRankView(this);
+        cls();
+        clY();
     }
 
-    public void cmB() {
-        if (this.aKv.mLiveInfo.pkId == 0) {
+    public void clU() {
+        if (this.aIK.mLiveInfo.pkId == 0) {
             if (this.isHost) {
-                cmC();
-                this.hPk.wL(1);
+                clV();
+                this.hOR.xj(1);
                 return;
             }
             postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankView.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (PkRankView.this.aKv.mLiveInfo.pkId == 0) {
-                        PkRankView.this.clZ();
+                    if (PkRankView.this.aIK.mLiveInfo.pkId == 0) {
+                        PkRankView.this.cls();
                     }
                 }
             }, 6000L);
         } else if (!getGetPkInfoModel().isLoop()) {
-            getGetPkInfoModel().a(this.aKv.aIV.userId, this.aKv.mLiveInfo.pkId, this.aKv.mLiveInfo.room_id, this.aKv.mLiveInfo.live_id, this.isHost ? 1 : 0);
+            getGetPkInfoModel().a(this.aIK.aHk.userId, this.aIK.mLiveInfo.pkId, this.aIK.mLiveInfo.room_id, this.aIK.mLiveInfo.live_id, this.isHost ? 1 : 0);
         }
     }
 
     public void f(JSONObject jSONObject, int i) {
-        if (this.hPp < 10 || this.hPp > 30 || i >= 10) {
-            if ((this.hPp >= 10 && this.hPp < 30) || i <= 10 || i >= 30) {
-                if (jSONObject.optLong("pk_id") == 0 || this.hPo == null || this.hPo.pkStatusInfoData.pkID == jSONObject.optLong("pk_id") || i == 10) {
-                    if (i != 4 || this.hPp == 1) {
+        if (this.hOW < 10 || this.hOW > 30 || i >= 10) {
+            if ((this.hOW >= 10 && this.hOW < 30) || i <= 10 || i >= 30) {
+                if (jSONObject.optLong("pk_id") == 0 || this.hOV == null || this.hOV.pkStatusInfoData.pkID == jSONObject.optLong("pk_id") || i == 10) {
+                    if (i != 4 || this.hOW == 1) {
                         if (i < 10 && this.isHost) {
-                            this.hPk.d(jSONObject, i);
+                            this.hOR.d(jSONObject, i);
                         } else if (i >= 10 && i < 30) {
-                            this.hPl.e(jSONObject, i);
+                            this.hOS.e(jSONObject, i);
                         }
                     }
                 }
@@ -103,43 +103,43 @@ public class PkRankView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cmC() {
-        this.hPk.setVisibility(0);
-        this.hPl.setVisibility(8);
-        this.hPm.setVisibility(8);
+    public void clV() {
+        this.hOR.setVisibility(0);
+        this.hOS.setVisibility(8);
+        this.hOT.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cmD() {
-        this.hPk.setVisibility(8);
-        this.hPl.setVisibility(0);
-        this.hPm.setVisibility(8);
+    public void clW() {
+        this.hOR.setVisibility(8);
+        this.hOS.setVisibility(0);
+        this.hOT.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cmE() {
-        this.hPk.setVisibility(8);
-        this.hPl.setVisibility(8);
-        this.hPm.setVisibility(0);
+    public void clX() {
+        this.hOR.setVisibility(8);
+        this.hOS.setVisibility(8);
+        this.hOT.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clZ() {
-        this.hPk.setVisibility(8);
-        this.hPl.setVisibility(8);
-        this.hPm.setVisibility(8);
+    public void cls() {
+        this.hOR.setVisibility(8);
+        this.hOS.setVisibility(8);
+        this.hOT.setVisibility(8);
     }
 
     public void setCanVisible(boolean z) {
-        this.hMM = z;
-        this.mView.setVisibility((z && this.hPs) ? 0 : 8);
+        this.hMt = z;
+        this.mView.setVisibility((z && this.hOZ) ? 0 : 8);
     }
 
     public void setInSeason(boolean z) {
         int i = 8;
-        this.hPs = z;
-        if (this.hMM) {
-            this.mView.setVisibility((this.hPp >= 10 || z) ? 0 : 0);
+        this.hOZ = z;
+        if (this.hMt) {
+            this.mView.setVisibility((this.hOW >= 10 || z) ? 0 : 0);
         } else {
             this.mView.setVisibility(8);
         }
@@ -148,43 +148,43 @@ public class PkRankView extends RelativeLayout {
     public void B(String str, long j) {
         HashMap hashMap = new HashMap(2);
         hashMap.put("pk_anchor_id", ExtraParamsManager.getEncryptionUserId(String.valueOf(j)));
-        String a2 = com.baidu.live.utils.b.a(1, str, this.isHost, ExtraParamsManager.getEncryptionUserId(String.valueOf(this.aKv.aJr.userId)), ExtraParamsManager.getEncryptionUserId(String.valueOf(this.aKv.aIV.userId)), String.valueOf(this.aKv.mLiveInfo.room_id), String.valueOf(this.aKv.mLiveInfo.live_id), hashMap);
+        String a2 = com.baidu.live.utils.b.a(1, str, this.isHost, ExtraParamsManager.getEncryptionUserId(String.valueOf(this.aIK.aHG.userId)), ExtraParamsManager.getEncryptionUserId(String.valueOf(this.aIK.aHk.userId)), String.valueOf(this.aIK.mLiveInfo.room_id), String.valueOf(this.aIK.mLiveInfo.live_id), hashMap);
         com.baidu.live.ak.c cVar = new com.baidu.live.ak.c();
         cVar.url = a2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913232, cVar));
     }
 
     public l getGetPkInfoModel() {
-        if (this.hPn == null) {
-            this.hPn = new l();
-            this.hPn.a(new l.a() { // from class: com.baidu.tieba.ala.view.PkRankView.2
+        if (this.hOU == null) {
+            this.hOU = new l();
+            this.hOU.a(new l.a() { // from class: com.baidu.tieba.ala.view.PkRankView.2
                 @Override // com.baidu.tieba.ala.g.l.a
                 public void a(PkInfoData pkInfoData) {
-                    if (PkRankView.this.isHost || PkRankView.this.hPo != null || pkInfoData.pkStatusInfoData.pkStatus == 1) {
+                    if (PkRankView.this.isHost || PkRankView.this.hOV != null || pkInfoData.pkStatusInfoData.pkStatus == 1) {
                         PkRankView.this.l(pkInfoData);
-                        if (PkRankView.this.hPo == null || PkRankView.this.hPo.myPkData.userID == pkInfoData.myPkData.userID) {
-                            PkRankView.this.hPo = pkInfoData;
+                        if (PkRankView.this.hOV == null || PkRankView.this.hOV.myPkData.userID == pkInfoData.myPkData.userID) {
+                            PkRankView.this.hOV = pkInfoData;
                             switch (pkInfoData.pkStatusInfoData.pkStatus) {
                                 case 1:
-                                    PkRankView.this.hPm.isShowing = false;
-                                    PkRankView.this.hPl.a(pkInfoData, 10);
-                                    PkRankView.this.hPl.getPkRankPropController().f(pkInfoData);
+                                    PkRankView.this.hOT.isShowing = false;
+                                    PkRankView.this.hOS.a(pkInfoData, 10);
+                                    PkRankView.this.hOS.getPkRankPropController().f(pkInfoData);
                                     return;
                                 case 2:
-                                    PkRankView.this.hPm.isShowing = false;
-                                    PkRankView.this.hPl.a(pkInfoData, 30);
+                                    PkRankView.this.hOT.isShowing = false;
+                                    PkRankView.this.hOS.a(pkInfoData, 30);
                                     return;
                                 case 3:
-                                    PkRankView.this.hPn.hr(false);
-                                    PkRankView.this.hPl.resetView();
-                                    PkRankView.this.hPm.b(pkInfoData, 40);
+                                    PkRankView.this.hOU.hu(false);
+                                    PkRankView.this.hOS.resetView();
+                                    PkRankView.this.hOT.b(pkInfoData, 40);
                                     return;
                                 case 4:
-                                    PkRankView.this.hPn.hr(false);
-                                    PkRankView.this.hPm.isShowing = false;
-                                    PkRankView.this.hPl.resetView();
-                                    PkRankView.this.hPl.setVisibility(8);
-                                    PkRankView.this.hPk.wL(1);
+                                    PkRankView.this.hOU.hu(false);
+                                    PkRankView.this.hOT.isShowing = false;
+                                    PkRankView.this.hOS.resetView();
+                                    PkRankView.this.hOS.setVisibility(8);
+                                    PkRankView.this.hOR.xj(1);
                                     return;
                                 default:
                                     return;
@@ -192,20 +192,20 @@ public class PkRankView extends RelativeLayout {
                         }
                         return;
                     }
-                    PkRankView.this.hPn.hr(false);
+                    PkRankView.this.hOU.hu(false);
                 }
 
                 @Override // com.baidu.tieba.ala.g.l.a
-                public void bq(int i, String str) {
+                public void bo(int i, String str) {
                 }
             });
         }
-        return this.hPn;
+        return this.hOU;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(PkInfoData pkInfoData) {
-        if (this.hPo == null || this.hPo.pkStatusInfoData.pkID != pkInfoData.pkStatusInfoData.pkID) {
+        if (this.hOV == null || this.hOV.pkStatusInfoData.pkID != pkInfoData.pkStatusInfoData.pkID) {
             AlaStatsItem alaStatsItem = new AlaStatsItem();
             alaStatsItem.addValue("lodId", Long.valueOf(pkInfoData.logId));
             alaStatsItem.addValue("pkId", Long.valueOf(pkInfoData.pkStatusInfoData.pkID));
@@ -226,53 +226,53 @@ public class PkRankView extends RelativeLayout {
         }
     }
 
-    public void cmF() {
-        if (this.hPq == null) {
-            this.hPq = new CustomMessageListener(2913233) { // from class: com.baidu.tieba.ala.view.PkRankView.3
+    public void clY() {
+        if (this.hOX == null) {
+            this.hOX = new CustomMessageListener(2913233) { // from class: com.baidu.tieba.ala.view.PkRankView.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     if (customResponsedMessage.getData() != null) {
-                        PkRankView.this.hPk.hNB.fh(PkRankView.this.aKv.aIV.userId);
+                        PkRankView.this.hOR.hNi.fh(PkRankView.this.aIK.aHk.userId);
                         AlaStatsItem alaStatsItem = new AlaStatsItem();
                         alaStatsItem.addValue("source", "pk_challage_btn_click");
                         AlaStatManager.getInstance().debug("pk_competition_start_match", alaStatsItem);
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.hPq);
+            MessageManager.getInstance().registerListener(this.hOX);
         }
-        if (this.hPr == null) {
-            this.hPr = new CustomMessageListener(2913237) { // from class: com.baidu.tieba.ala.view.PkRankView.4
+        if (this.hOY == null) {
+            this.hOY = new CustomMessageListener(2913237) { // from class: com.baidu.tieba.ala.view.PkRankView.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage.getData() != null && com.baidu.live.aa.a.PQ().bod.aNw.aQr) {
+                    if (customResponsedMessage.getData() != null && com.baidu.live.aa.a.Ph().bms.aLL.aOG) {
                         PkRankView.this.setInSeason(((Boolean) customResponsedMessage.getData()).booleanValue());
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.hPr);
+            MessageManager.getInstance().registerListener(this.hOY);
         }
     }
 
-    public boolean wN(int i) {
-        if (this.hPp < 10 || this.hPp > 30 || i >= 10 || i == 1) {
-            if (this.hPp == 4 && i < 4) {
-                this.hPk.hNB.ciW();
-                this.hPk.clT();
+    public boolean xl(int i) {
+        if (this.hOW < 10 || this.hOW > 30 || i >= 10 || i == 1) {
+            if (this.hOW == 4 && i < 4) {
+                this.hOR.hNi.cip();
+                this.hOR.clm();
                 return false;
             }
             if (i >= 10 && i < 30) {
-                if (this.hPo != null && this.hPo.pkStatusInfoData != null) {
-                    fn(this.hPo.pkStatusInfoData.pkID);
+                if (this.hOV != null && this.hOV.pkStatusInfoData != null) {
+                    fn(this.hOV.pkStatusInfoData.pkID);
                 } else {
                     fn(-1L);
                 }
             } else {
                 fn(-1L);
             }
-            this.hPp = i;
+            this.hOW = i;
             return true;
         }
         return false;
@@ -283,13 +283,13 @@ public class PkRankView extends RelativeLayout {
     }
 
     public void onDestroy() {
-        if (this.hPn != null) {
-            this.hPn.ciT();
+        if (this.hOU != null) {
+            this.hOU.cim();
         }
-        this.hPk.onDestroy();
-        this.hPl.onDestroy();
-        this.hPm.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.hPq);
-        MessageManager.getInstance().unRegisterListener(this.hPr);
+        this.hOR.onDestroy();
+        this.hOS.onDestroy();
+        this.hOT.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.hOX);
+        MessageManager.getInstance().unRegisterListener(this.hOY);
     }
 }

@@ -11,7 +11,7 @@ import java.net.HttpURLConnection;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Void> implements com.sdk.base.framework.a.b.c {
     private static d b = new d();
     private com.sdk.base.framework.b.b<T> d;

@@ -7,7 +7,7 @@ import com.baidu.ar.face.algo.FaceAlgoConfig;
 import com.baidu.ar.face.algo.FaceJniClient;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class i {
     private AlgoHandleController bY;
     private String oA;

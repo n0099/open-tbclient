@@ -1,16 +1,16 @@
 package com.baidu.tieba.InjectPlugin.FrsFeedAd;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class c {
-    private Object fNG;
-    private int fNH;
+    private Object fNj;
+    private int fNk;
     private int threadType;
 
-    public Object bHC() {
-        return this.fNG;
+    public Object bGV() {
+        return this.fNj;
     }
 
     public void aA(Object obj) {
-        this.fNG = obj;
+        this.fNj = obj;
     }
 
     public int getThreadType() {
@@ -21,11 +21,11 @@ public class c {
         this.threadType = i;
     }
 
-    public int bHD() {
-        return this.fNH;
+    public int bGW() {
+        return this.fNk;
     }
 
-    public void sZ(int i) {
-        this.fNH = i;
+    public void tx(int i) {
+        this.fNk = i;
     }
 }

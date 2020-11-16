@@ -9,15 +9,15 @@ import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.tieba.ala.liveroom.j.g;
 /* loaded from: classes4.dex */
 public class b {
-    private ViewGroup bJN;
-    private String fRs;
-    private View.OnClickListener fii = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.u.b.1
+    private ViewGroup bIc;
+    private String fRa;
+    private View.OnClickListener fhp = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.u.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            BrowserHelper.startInternalWebActivity(b.this.mTbPageContext.getPageActivity(), b.this.fRs);
+            BrowserHelper.startInternalWebActivity(b.this.mTbPageContext.getPageActivity(), b.this.fRa);
         }
     };
-    protected c hst;
+    protected c hsa;
     protected TbPageContext mTbPageContext;
 
     public b(TbPageContext tbPageContext) {
@@ -32,16 +32,16 @@ public class b {
         if (viewGroup == null) {
             return false;
         }
-        this.fRs = str;
-        if (this.hst == null) {
-            this.hst = new c(getPageContext(), this.fii);
+        this.fRa = str;
+        if (this.hsa == null) {
+            this.hsa = new c(getPageContext(), this.fhp);
         }
-        if (this.bJN != null && this.bJN.indexOfChild(this.hst.getView()) > 0) {
-            this.bJN.removeView(this.hst.getView());
+        if (this.bIc != null && this.bIc.indexOfChild(this.hsa.getView()) > 0) {
+            this.bIc.removeView(this.hsa.getView());
         }
-        this.bJN = viewGroup;
-        this.hst.getView().setId(a.f.privilege_manager_id);
-        this.hst.getView().setVisibility(0);
+        this.bIc = viewGroup;
+        this.hsa.getView().setId(a.f.privilege_manager_id);
+        this.hsa.getView().setVisibility(0);
         return true;
     }
 
@@ -51,14 +51,14 @@ public class b {
             layoutParams.addRule(12);
             layoutParams.setMargins(getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds18), 0, getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds180), 0);
             layoutParams.bottomMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_tbds130) + getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds18);
-            viewGroup.addView(this.hst.getView(), layoutParams);
+            viewGroup.addView(this.hsa.getView(), layoutParams);
         }
     }
 
-    public void cha() {
-        if (this.bJN != null && this.bJN.indexOfChild(this.hst.getView()) > 0) {
-            this.bJN.removeView(this.hst.getView());
-            g.vH(2913128);
+    public void cgt() {
+        if (this.bIc != null && this.bIc.indexOfChild(this.hsa.getView()) > 0) {
+            this.bIc.removeView(this.hsa.getView());
+            g.wf(2913128);
         }
     }
 }

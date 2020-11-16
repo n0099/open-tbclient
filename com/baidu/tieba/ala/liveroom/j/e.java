@@ -18,21 +18,22 @@ import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.utils.l;
 /* loaded from: classes4.dex */
 public class e implements f {
-    private static ApkData hiH;
-    private static long hiI = 0;
-    private w aES;
-    private PendantParentView hiG;
-    private d hiJ;
-    private ApkStatusCallback hiK = new ApkStatusCallback() { // from class: com.baidu.tieba.ala.liveroom.j.e.1
+    private static ApkData hio;
+    private static long hip = 0;
+    private w aDh;
+    private String hhU;
+    private PendantParentView hin;
+    private d hiq;
+    private ApkStatusCallback hir = new ApkStatusCallback() { // from class: com.baidu.tieba.ala.liveroom.j.e.1
         @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
         public void onApkDownloadStart(ApkData apkData) {
-            e.this.cca();
+            e.this.cbt();
         }
 
         @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
         public void onApkDownloadProgress(long j, long j2) {
-            if (e.this.hiJ != null) {
-                e.this.hiJ.setProgress((int) ((100 * j) / j2));
+            if (e.this.hiq != null) {
+                e.this.hiq.setProgress((int) ((100 * j) / j2));
             }
         }
 
@@ -43,100 +44,99 @@ public class e implements f {
         @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
         public void onApkDownloadFailed(ApkData apkData, int i, String str) {
             e.this.mPageContext.showToast(e.this.mPageContext.getString(a.h.ala_feedback_flow_download_fail_tip_prefix) + str);
-            e.this.ccd();
+            e.this.cbw();
         }
 
         @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
         public void onApkStartInstall(ApkData apkData) {
-            e.this.ccd();
+            e.this.cbw();
         }
     };
-    private String hio;
     private TbPageContext mPageContext;
     private long roomId;
 
     public e(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        if (hiH != null && hiI != 0) {
-            hiH.apkStatusCallBack = this.hiK;
+        if (hio != null && hip != 0) {
+            hio.apkStatusCallBack = this.hir;
         }
     }
 
     public void b(w wVar, PendantParentView pendantParentView) {
-        this.aES = wVar;
-        this.hiG = pendantParentView;
+        this.aDh = wVar;
+        this.hin = pendantParentView;
         if (isDownloading() && wVar != null && wVar.mLiveInfo != null) {
-            cca();
-            if (this.hiJ != null) {
-                if (wVar.mLiveInfo.live_id == hiI) {
-                    this.hiJ.nk(false);
+            cbt();
+            if (this.hiq != null) {
+                if (wVar.mLiveInfo.live_id == hip) {
+                    this.hiq.nl(false);
                 } else {
-                    this.hiJ.nk(true);
+                    this.hiq.nl(true);
                 }
             }
         }
     }
 
-    public void bZX() {
-        ccc();
+    public void bZq() {
+        cbv();
     }
 
-    public void cbZ() {
-        ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), hiH, false);
+    public void cbs() {
+        ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), hio, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cca() {
+    public void cbt() {
         if (isDownloading()) {
-            ccb();
+            cbu();
         }
     }
 
-    private void ccb() {
-        if (this.hiJ == null) {
-            this.hiJ = new d(this.mPageContext.getPageActivity());
-            this.hiJ.setProgress(0);
-            this.hiJ.nk(false);
+    private void cbu() {
+        if (this.hiq == null) {
+            this.hiq = new d(this.mPageContext.getPageActivity());
+            this.hiq.setProgress(0);
+            this.hiq.nl(false);
         }
-        if (this.hiJ.cbY() != null && this.hiJ.cbY().getParent() == null && this.hiG != null) {
+        if (this.hiq.cbr() != null && this.hiq.cbr().getParent() == null && this.hin != null) {
             int dimensionPixelSize = this.mPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds100);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.rightMargin = this.mPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds10);
             layoutParams.bottomMargin = this.mPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds54);
             layoutParams.gravity = 5;
-            this.hiG.a(this.hiJ.cbY(), new LinearLayout.LayoutParams(-2, -2));
+            this.hin.a(this.hiq.cbr(), new LinearLayout.LayoutParams(-2, -2));
         }
     }
 
-    private void ccc() {
-        if (this.hiJ != null && this.hiJ.cbY() != null && this.hiJ.cbY().getParent() != null) {
-            ((ViewGroup) this.hiJ.cbY().getParent()).removeView(this.hiJ.cbY());
+    private void cbv() {
+        if (this.hiq != null && this.hiq.cbr() != null && this.hiq.cbr().getParent() != null) {
+            ((ViewGroup) this.hiq.cbr().getParent()).removeView(this.hiq.cbr());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ccd() {
-        hiI = 0L;
-        if (hiH != null) {
-            hiH.apkStatusCallBack = null;
-            hiH = null;
+    public void cbw() {
+        hip = 0L;
+        if (hio != null) {
+            hio.apkStatusCallBack = null;
+            hio = null;
         }
-        ccc();
-        this.hiJ = null;
+        cbv();
+        this.hiq = null;
     }
 
-    public void ch(boolean z) {
-        if (z && hiH != null) {
-            ApkManager.getInstance().stopApkDownload(hiH);
-            ccd();
-        } else if (hiH != null) {
-            hiH.apkStatusCallBack = null;
+    public void cj(boolean z) {
+        if (z && hio != null) {
+            ApkManager.getInstance().stopApkDownload(hio);
+            cbw();
+        } else if (hio != null) {
+            hio.apkStatusCallBack = null;
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.j.f
     public boolean isDownloading() {
-        return (hiI == 0 || hiH == null) ? false : true;
+        return (hip == 0 || hio == null) ? false : true;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.j.f
@@ -150,16 +150,16 @@ public class e implements f {
         if (a2 == ApkStatus.READY) {
             ApkManager.getInstance().launchApkByDeeplink(this.mPageContext.getPageActivity(), apkData.m23clone());
         } else if (a2 == ApkStatus.DOWNLOADED) {
-            hiH = apkData.m23clone();
+            hio = apkData.m23clone();
             ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), apkData.m23clone(), false);
         } else if (a2 == ApkStatus.NONE || a2 == ApkStatus.OVERTIME) {
-            if (BdNetTypeUtil.isMobileNet() && l.UF()) {
+            if (BdNetTypeUtil.isMobileNet() && l.TW()) {
                 BdAlertDialog bdAlertDialog = new BdAlertDialog(this.mPageContext.getPageActivity());
                 bdAlertDialog.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.liveroom.j.e.2
                     @Override // android.content.DialogInterface.OnKeyListener
                     public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
                         if (i == 4) {
-                            LogManager.getFeedDiversionLogger().doStopFlowDialogLog(e.this.roomId + "", e.this.hio);
+                            LogManager.getFeedDiversionLogger().doStopFlowDialogLog(e.this.roomId + "", e.this.hhU);
                             dialogInterface.dismiss();
                             return true;
                         }
@@ -173,21 +173,21 @@ public class e implements f {
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog2) {
                         e.this.c(apkData);
-                        LogManager.getFeedDiversionLogger().doContinueFlowDialogLog(e.this.roomId + "", e.this.hio);
+                        LogManager.getFeedDiversionLogger().doContinueFlowDialogLog(e.this.roomId + "", e.this.hhU);
                         bdAlertDialog2.dismiss();
                     }
                 });
                 bdAlertDialog.setNegativeButton(this.mPageContext.getResources().getString(a.h.sdk_stop), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.j.e.4
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog2) {
-                        LogManager.getFeedDiversionLogger().doStopFlowDialogLog(e.this.roomId + "", e.this.hio);
+                        LogManager.getFeedDiversionLogger().doStopFlowDialogLog(e.this.roomId + "", e.this.hhU);
                         bdAlertDialog2.dismiss();
                     }
                 });
                 bdAlertDialog.setNagetiveButtonTextColor(-13421773);
                 bdAlertDialog.create(this.mPageContext);
                 bdAlertDialog.show();
-                LogManager.getFeedDiversionLogger().doDisplayFlowDialogLog(this.roomId + "", this.hio);
+                LogManager.getFeedDiversionLogger().doDisplayFlowDialogLog(this.roomId + "", this.hhU);
                 return;
             }
             c(apkData);
@@ -196,12 +196,12 @@ public class e implements f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(ApkData apkData) {
-        hiH = apkData.m23clone();
-        hiH.apkStatusCallBack = this.hiK;
-        if (this.aES != null && this.aES.mLiveInfo != null) {
-            hiI = this.aES.mLiveInfo.live_id;
+        hio = apkData.m23clone();
+        hio.apkStatusCallBack = this.hir;
+        if (this.aDh != null && this.aDh.mLiveInfo != null) {
+            hip = this.aDh.mLiveInfo.live_id;
         }
-        ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), hiH, true);
+        ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), hio, true);
     }
 
     public void setRoomId(long j) {
@@ -209,13 +209,13 @@ public class e implements f {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.j.f
-    public void Ie(String str) {
-        this.hio = str;
+    public void HF(String str) {
+        this.hhU = str;
     }
 
     public void setVisible(int i) {
-        if (this.hiJ != null && this.hiJ.cbY() != null) {
-            this.hiJ.cbY().setVisibility(i);
+        if (this.hiq != null && this.hiq.cbr() != null) {
+            this.hiq.cbr().setVisibility(i);
         }
     }
 }

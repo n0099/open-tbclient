@@ -4,15 +4,15 @@ import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class br {
-    public long aQh;
-    public int aQi;
-    public int aQj;
-    public long aQk;
-    public long aQl;
-    public int aQm;
-    public int aQn;
-    public bq aQo;
-    public String aQp;
+    public long aOA;
+    public int aOB;
+    public int aOC;
+    public bq aOD;
+    public String aOE;
+    public long aOw;
+    public int aOx;
+    public int aOy;
+    public long aOz;
     public String call_type;
     public String extData;
     public String imei;
@@ -33,13 +33,13 @@ public class br {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aQh = jSONObject.optInt(CashierData.CUSTOMER_ID);
+            this.aOw = jSONObject.optInt(CashierData.CUSTOMER_ID);
             this.service = jSONObject.optString("service");
             this.orderId = jSONObject.optString(CashierData.ORDERID);
-            this.aQi = jSONObject.optInt(CashierData.ORDER_CREATE_TIME);
-            this.aQj = jSONObject.optInt(CashierData.DEVICE_TYPE);
-            this.aQk = jSONObject.optLong(CashierData.PAY_AMOUNT);
-            this.aQl = jSONObject.optLong(CashierData.ORIGINALAMOUNT_AMOUNT);
+            this.aOx = jSONObject.optInt(CashierData.ORDER_CREATE_TIME);
+            this.aOy = jSONObject.optInt(CashierData.DEVICE_TYPE);
+            this.aOz = jSONObject.optLong(CashierData.PAY_AMOUNT);
+            this.aOA = jSONObject.optLong(CashierData.ORIGINALAMOUNT_AMOUNT);
             this.notifyUrl = jSONObject.optString(CashierData.NOTIFY_URL);
             this.passuid = jSONObject.optString(CashierData.PASS_UID);
             this.title = jSONObject.optString("title");
@@ -48,21 +48,21 @@ public class br {
             this.mobile = jSONObject.optString("mobile");
             this.itemInfo = jSONObject.optString(CashierData.ITEM_INFO);
             this.imei = jSONObject.optString("imei");
-            this.aQm = jSONObject.optInt(CashierData.SDK);
-            this.aQn = jSONObject.optInt(CashierData.SDK_STYLE);
+            this.aOB = jSONObject.optInt(CashierData.SDK);
+            this.aOC = jSONObject.optInt(CashierData.SDK_STYLE);
             this.extData = jSONObject.optString(CashierData.EXT_DATA);
             this.signType = jSONObject.optInt(CashierData.SIGN_TYPE);
             this.tag = jSONObject.optString("tag");
             this.sign = jSONObject.optString("sign");
             JSONObject optJSONObject = jSONObject.optJSONObject("popup");
             if (optJSONObject != null) {
-                this.aQo = new bq();
-                this.aQo.parserJson(optJSONObject);
+                this.aOD = new bq();
+                this.aOD.parserJson(optJSONObject);
             }
             this.pay_url = jSONObject.optString("pay_url");
             this.call_type = jSONObject.optString("call_type");
             this.pay_channel = jSONObject.optString("pay_channel");
-            this.aQp = jSONObject.optString("real_channel");
+            this.aOE = jSONObject.optString("real_channel");
         }
     }
 }

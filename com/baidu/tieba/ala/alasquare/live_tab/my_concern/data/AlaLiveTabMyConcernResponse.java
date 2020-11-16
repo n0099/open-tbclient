@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alasquare.live_tab.my_concern.data;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +13,11 @@ import org.json.JSONObject;
 public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
     public List<b> followCloseList;
     public int followCloseNum;
-    public List<bw> followList;
+    public List<bx> followList;
     public int followStatus;
     public boolean hasMore;
     public int pn;
-    public List<bw> recommendList;
+    public List<bx> recommendList;
     public int totalFollowCount;
 
     public AlaLiveTabMyConcernResponse() {
@@ -43,9 +43,9 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        bw bwVar = new bw();
-                        bwVar.parserJson(optJSONObject2);
-                        this.followList.add(bwVar);
+                        bx bxVar = new bx();
+                        bxVar.parserJson(optJSONObject2);
+                        this.followList.add(bxVar);
                     }
                 }
             }
@@ -65,9 +65,9 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
                     JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i4);
                     if (optJSONObject4 != null) {
-                        bw bwVar2 = new bw();
-                        bwVar2.parserJson(optJSONObject4);
-                        this.recommendList.add(bwVar2);
+                        bx bxVar2 = new bx();
+                        bxVar2.parserJson(optJSONObject4);
+                        this.recommendList.add(bxVar2);
                     }
                 }
             }

@@ -1,14 +1,15 @@
 package com.baidu.tieba.ala.alasquare.special_forum.data;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes4.dex */
-public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId glv = BdUniqueId.gen();
-    public boolean gpM;
-    public String gpN;
+public class g extends BaseCardInfo {
+    public static final BdUniqueId glc = BdUniqueId.gen();
+    public boolean gpt;
+    public String gpu;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return glv;
+        return glc;
     }
 }

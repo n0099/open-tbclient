@@ -1,26 +1,26 @@
 package com.baidu.tieba.personPolymeric;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class b {
-    private static b maS = new b();
+    private static b mbk = new b();
     private long creatTime = 0;
-    private long maT = 0;
-    private long maU = 0;
-    private long fvq = 0;
+    private long mbl = 0;
+    private long mbm = 0;
+    private long fuA = 0;
     private long beginTime = 0;
-    private long maV = 0;
-    private long maW = 0;
+    private long mbn = 0;
+    private long mbo = 0;
 
     private b() {
     }
 
     public void reset() {
         this.creatTime = 0L;
-        this.maT = 0L;
-        this.maU = 0L;
-        this.fvq = 0L;
+        this.mbl = 0L;
+        this.mbm = 0L;
+        this.fuA = 0L;
         this.beginTime = 0L;
-        this.maV = 0L;
-        this.maW = 0L;
+        this.mbn = 0L;
+        this.mbo = 0L;
     }
 
     public String toString() {
@@ -30,18 +30,18 @@ public class b {
         stringBuffer.append(" creatTime:");
         stringBuffer.append(this.creatTime);
         stringBuffer.append(" refreshStartTime:");
-        stringBuffer.append(this.maW);
+        stringBuffer.append(this.mbo);
         stringBuffer.append(" refrehTime:");
-        stringBuffer.append(this.maV);
+        stringBuffer.append(this.mbn);
         stringBuffer.append(" drawTime:");
-        stringBuffer.append(this.fvq);
+        stringBuffer.append(this.fuA);
         stringBuffer.append(" profileTime:");
-        stringBuffer.append(this.maU);
+        stringBuffer.append(this.mbm);
         return stringBuffer.toString();
     }
 
-    public static b dvd() {
-        return maS;
+    public static b duD() {
+        return mbk;
     }
 
     public long getCreateTime() {
@@ -52,7 +52,7 @@ public class b {
         this.creatTime = j;
     }
 
-    public long bdL() {
+    public long bde() {
         return this.beginTime;
     }
 
@@ -60,47 +60,47 @@ public class b {
         this.beginTime = j;
     }
 
-    public long dtu() {
-        return this.fvq;
-    }
-
-    public void gL(long j) {
-        this.fvq = j;
-    }
-
-    public long getRefreshTime() {
-        return this.maV;
-    }
-
-    public void setRefreshTime(long j) {
-        this.maV = j;
-    }
-
-    public long dtv() {
-        return this.maW;
-    }
-
-    public void gM(long j) {
-        if (this.maW == 0) {
-            this.maW = j;
-        }
-    }
-
-    public long dve() {
-        return this.maT;
+    public long dsU() {
+        return this.fuA;
     }
 
     public void gO(long j) {
-        if (this.maT == 0) {
-            this.maT = j;
-        }
+        this.fuA = j;
     }
 
-    public long dvf() {
-        return this.maU;
+    public long getRefreshTime() {
+        return this.mbn;
+    }
+
+    public void setRefreshTime(long j) {
+        this.mbn = j;
+    }
+
+    public long dsV() {
+        return this.mbo;
     }
 
     public void gP(long j) {
-        this.maU = j;
+        if (this.mbo == 0) {
+            this.mbo = j;
+        }
+    }
+
+    public long duE() {
+        return this.mbl;
+    }
+
+    public void gR(long j) {
+        if (this.mbl == 0) {
+            this.mbl = j;
+        }
+    }
+
+    public long duF() {
+        return this.mbm;
+    }
+
+    public void gS(long j) {
+        this.mbm = j;
     }
 }

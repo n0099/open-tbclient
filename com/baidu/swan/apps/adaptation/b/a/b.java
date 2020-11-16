@@ -10,7 +10,7 @@ import com.baidu.swan.apps.d.a.i;
 import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
 import com.baidu.swan.games.c.h;
 import com.baidu.swan.games.view.webview.GameWebViewManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b implements ba {
     @Override // com.baidu.swan.apps.adaptation.a.ba
     public com.baidu.swan.apps.core.g.a h(Context context, int i) {

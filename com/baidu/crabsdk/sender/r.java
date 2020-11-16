@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class r {
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0137: ARRAY_LENGTH  (r4v10 int A[REMOVE]) = (r9v0 byte[]))] */
     /* JADX WARN: Removed duplicated region for block: B:117:? A[RETURN, SYNTHETIC] */
@@ -78,7 +78,7 @@ public final class r {
                         httpURLConnection2.setRequestProperty("EncryptType", "RSA-AES");
                     }
                     httpURLConnection2.setRequestProperty("EncryptData", p);
-                    httpURLConnection2.setRequestProperty("User-Agent", g.a(str2, h.dN(str3)));
+                    httpURLConnection2.setRequestProperty("User-Agent", g.a(str2, h.dP(str3)));
                 }
                 httpURLConnection2.setConnectTimeout(CoolPraiseGuideLottieView.ANIM_DURATION);
                 httpURLConnection2.setReadTimeout(CoolPraiseGuideLottieView.ANIM_DURATION);
@@ -88,7 +88,7 @@ public final class r {
                     dataOutputStream.flush();
                     dataOutputStream.close();
                     StringBuffer stringBuffer = new StringBuffer();
-                    com.baidu.crabsdk.c.a.dA("response code is " + httpURLConnection2.getResponseCode());
+                    com.baidu.crabsdk.c.a.dC("response code is " + httpURLConnection2.getResponseCode());
                     if (httpURLConnection2.getResponseCode() == 200) {
                         InputStreamReader inputStreamReader3 = new InputStreamReader(httpURLConnection2.getInputStream());
                         try {
@@ -310,7 +310,7 @@ public final class r {
         HttpURLConnection httpURLConnection;
         Exception e;
         try {
-            com.baidu.crabsdk.c.a.dA("发送数据的 url is : " + str2);
+            com.baidu.crabsdk.c.a.dC("发送数据的 url is : " + str2);
             httpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
             try {
                 httpURLConnection.setRequestMethod("POST");

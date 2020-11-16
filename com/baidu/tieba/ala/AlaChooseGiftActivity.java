@@ -28,51 +28,51 @@ import com.baidu.tieba.ala.g.c;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class AlaChooseGiftActivity extends BaseFragmentActivity {
-    private ViewTreeObserver.OnGlobalLayoutListener aYX;
-    private int aYY;
-    private TextView bGr;
-    private FrameLayout bJO;
-    private View fXU;
-    private LinearLayout fXV;
-    private ImageView fXW;
-    private TextView fXX;
-    private FrameLayout fXY;
-    private AlaLiveInputEditView fXZ;
-    private com.baidu.tieba.ala.c.d fYa;
-    private com.baidu.tieba.ala.g.c fYb;
-    private String fYc;
-    private ArrayList<String> fYd;
-    private int fYe;
+    private ViewTreeObserver.OnGlobalLayoutListener aXm;
+    private int aXn;
+    private TextView bEG;
+    private FrameLayout bId;
+    private View fXB;
+    private LinearLayout fXC;
+    private ImageView fXD;
+    private TextView fXE;
+    private FrameLayout fXF;
+    private AlaLiveInputEditView fXG;
+    private com.baidu.tieba.ala.c.d fXH;
+    private com.baidu.tieba.ala.g.c fXI;
+    private String fXJ;
+    private ArrayList<String> fXK;
+    private int fXL;
     private int mGiftNum;
     private boolean mIsKeyboardOpen;
     private View mRootView;
     private int mType = 1;
-    private boolean aVc = false;
-    private boolean aZb = false;
-    private boolean aZc = false;
-    private c.a fYf = new c.a() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.1
+    private boolean aTr = false;
+    private boolean aXq = false;
+    private boolean aXr = false;
+    private c.a fXM = new c.a() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.1
         @Override // com.baidu.tieba.ala.g.c.a
         public void c(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
-            if (AlaChooseGiftActivity.this.fYa != null) {
-                AlaChooseGiftActivity.this.fYa.d(alaSdkGetGiftListHttpResponseMessage);
+            if (AlaChooseGiftActivity.this.fXH != null) {
+                AlaChooseGiftActivity.this.fXH.d(alaSdkGetGiftListHttpResponseMessage);
             }
         }
 
         @Override // com.baidu.tieba.ala.g.c.a
         public void onFail(int i, String str) {
-            if (AlaChooseGiftActivity.this.fYa != null) {
-                AlaChooseGiftActivity.this.fYa.aV(i, str);
+            if (AlaChooseGiftActivity.this.fXH != null) {
+                AlaChooseGiftActivity.this.fXH.aT(i, str);
             }
         }
     };
-    private CustomMessageListener aVs = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.2
+    private CustomMessageListener aTH = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaChooseGiftActivity.this.finishSelf();
         }
     };
-    private CustomMessageListener aVt = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.3
+    private CustomMessageListener aTI = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -92,15 +92,15 @@ public class AlaChooseGiftActivity extends BaseFragmentActivity {
         super.onCreate(bundle);
         if (!isFinishing()) {
             setContentView(a.g.ala_host_wish_choose_layout);
-            registerListener(this.aVt);
-            registerListener(this.aVs);
+            registerListener(this.aTI);
+            registerListener(this.aTH);
             parserIntent();
             initView();
-            this.fYb = new com.baidu.tieba.ala.g.c(getPageContext(), this.fYf);
-            Jz();
+            this.fXI = new com.baidu.tieba.ala.g.c(getPageContext(), this.fXM);
+            IQ();
             addGlobalLayoutListener();
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-            this.aZb = false;
+            this.aXq = false;
             this.mRootView.setVisibility(4);
         }
     }
@@ -109,20 +109,20 @@ public class AlaChooseGiftActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aVc) {
+        if (!this.aTr) {
             this.mRootView.setVisibility(0);
-            HW();
-            this.aVc = true;
+            Hn();
+            this.aTr = true;
         }
     }
 
-    private void HW() {
+    private void Hn() {
         Animation loadAnimation;
-        this.aZb = true;
+        this.aXq = true;
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_in_from_right);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_right);
         } else {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_in_from_bottom);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_bottom);
         }
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.4
             @Override // android.view.animation.Animation.AnimationListener
@@ -131,7 +131,7 @@ public class AlaChooseGiftActivity extends BaseFragmentActivity {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaChooseGiftActivity.this.aZb = false;
+                AlaChooseGiftActivity.this.aXq = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -141,13 +141,13 @@ public class AlaChooseGiftActivity extends BaseFragmentActivity {
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void HX() {
+    private void Ho() {
         Animation loadAnimation;
-        if (!this.aZc && !this.aZb) {
+        if (!this.aXr && !this.aXq) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_out_to_right);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_right);
             } else {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0197a.sdk_out_to_bottom);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_bottom);
             }
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.5
                 @Override // android.view.animation.Animation.AnimationListener
@@ -164,79 +164,79 @@ public class AlaChooseGiftActivity extends BaseFragmentActivity {
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.aZc = true;
+            this.aXr = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        HX();
+        Ho();
     }
 
-    private void Jz() {
+    private void IQ() {
         if (this.mType == 2 || this.mType == 1) {
-            this.fYb.request();
+            this.fXI.request();
         }
     }
 
     private void parserIntent() {
         if (getIntent() != null) {
             this.mType = getIntent().getIntExtra("key_choose_type", 1);
-            this.fYc = getIntent().getStringExtra("key_chosen_gift_id");
-            this.fYd = getIntent().getStringArrayListExtra("key_used_gift_list");
+            this.fXJ = getIntent().getStringExtra("key_chosen_gift_id");
+            this.fXK = getIntent().getStringArrayListExtra("key_used_gift_list");
             this.mGiftNum = getIntent().getIntExtra("key_chosen_gift_num", 0);
-            this.fYe = getIntent().getIntExtra("key_chosen_date", 0);
+            this.fXL = getIntent().getIntExtra("key_chosen_date", 0);
         }
     }
 
     private void initView() {
         this.mRootView = findViewById(a.f.choose_gift_root_view);
-        this.fXU = findViewById(a.f.choose_gift_root_bg);
-        this.fXU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.6
+        this.fXB = findViewById(a.f.choose_gift_root_bg);
+        this.fXB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaChooseGiftActivity.this.finishSelf();
             }
         });
-        this.fXV = (LinearLayout) findViewById(a.f.choose_gift_content);
+        this.fXC = (LinearLayout) findViewById(a.f.choose_gift_content);
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fXV.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fXC.getLayoutParams();
         layoutParams.height = (int) (screenDimensions[1] * 0.68d);
-        this.fXV.setLayoutParams(layoutParams);
-        this.fXX = (TextView) findViewById(a.f.choose_gift_title);
-        this.fXW = (ImageView) findViewById(a.f.choose_gift_return_btn);
-        this.fXW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.7
+        this.fXC.setLayoutParams(layoutParams);
+        this.fXE = (TextView) findViewById(a.f.choose_gift_title);
+        this.fXD = (ImageView) findViewById(a.f.choose_gift_return_btn);
+        this.fXD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaChooseGiftActivity.this.finishSelf();
             }
         });
-        this.bGr = (TextView) findViewById(a.f.choose_gift_confirm_btn);
-        this.bGr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.8
+        this.bEG = (TextView) findViewById(a.f.choose_gift_confirm_btn);
+        this.bEG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaChooseGiftActivity.this.fYa.confirm();
+                AlaChooseGiftActivity.this.fXH.confirm();
             }
         });
-        this.bJO = (FrameLayout) findViewById(a.f.choose_gift_container);
-        this.fXY = (FrameLayout) this.mRootView.findViewById(a.f.choose_gift_input_layout);
-        this.fXY.setOnClickListener(new AnonymousClass9());
-        this.fXZ = (AlaLiveInputEditView) this.mRootView.findViewById(a.f.choose_gift_input_edit);
+        this.bId = (FrameLayout) findViewById(a.f.choose_gift_container);
+        this.fXF = (FrameLayout) this.mRootView.findViewById(a.f.choose_gift_input_layout);
+        this.fXF.setOnClickListener(new AnonymousClass9());
+        this.fXG = (AlaLiveInputEditView) this.mRootView.findViewById(a.f.choose_gift_input_edit);
         if (this.mType == 2) {
-            this.fYa = new com.baidu.tieba.ala.c.c(this, this.bJO, this.fYc, this.fYd, this.mGiftNum, this.fYe);
+            this.fXH = new com.baidu.tieba.ala.c.c(this, this.bId, this.fXJ, this.fXK, this.mGiftNum, this.fXL);
         } else if (this.mType == 3) {
-            this.fYa = new com.baidu.tieba.ala.c.a(this, this.bJO, this.fYc, this.fYd, this.mGiftNum, this.fYe);
+            this.fXH = new com.baidu.tieba.ala.c.a(this, this.bId, this.fXJ, this.fXK, this.mGiftNum, this.fXL);
         } else {
-            this.fYa = new com.baidu.tieba.ala.c.b(this, this.bJO, this.fYc, this.fYd, this.mGiftNum, this.fYe);
+            this.fXH = new com.baidu.tieba.ala.c.b(this, this.bId, this.fXJ, this.fXK, this.mGiftNum, this.fXL);
         }
-        this.fYa.j(this.fXX);
-        this.fYa.e(this.fXZ);
-        this.fYa.s(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.10
+        this.fXH.j(this.fXE);
+        this.fXH.e(this.fXG);
+        this.fXH.s(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.10
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaChooseGiftActivity.this.fYb != null) {
-                    AlaChooseGiftActivity.this.fYb.request();
+                if (AlaChooseGiftActivity.this.fXI != null) {
+                    AlaChooseGiftActivity.this.fXI.request();
                 }
             }
         });
@@ -257,10 +257,10 @@ public class AlaChooseGiftActivity extends BaseFragmentActivity {
                     try {
                         new Instrumentation().sendKeyDownUpSync(4);
                     } catch (Exception e) {
-                        AlaChooseGiftActivity.this.fXY.post(new Runnable() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.9.1.1
+                        AlaChooseGiftActivity.this.fXF.post(new Runnable() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.9.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                AlaChooseGiftActivity.this.fYa.bLT();
+                                AlaChooseGiftActivity.this.fXH.bLm();
                             }
                         });
                         e.printStackTrace();
@@ -281,15 +281,15 @@ public class AlaChooseGiftActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     protected void addGlobalLayoutListener() {
-        this.aYX = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.11
+        this.aXm = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.11
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 Rect rect = new Rect();
                 AlaChooseGiftActivity.this.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
                 int statusBarHeight = BdUtilHelper.getStatusBarHeight(AlaChooseGiftActivity.this.getPageContext().getPageActivity());
                 int[] screenDimensions = BdUtilHelper.getScreenDimensions(AlaChooseGiftActivity.this.getPageContext().getPageActivity());
-                boolean z = AlaChooseGiftActivity.this.aYY != rect.bottom;
-                AlaChooseGiftActivity.this.aYY = rect.bottom;
+                boolean z = AlaChooseGiftActivity.this.aXn != rect.bottom;
+                AlaChooseGiftActivity.this.aXn = rect.bottom;
                 if (screenDimensions[1] - rect.bottom > screenDimensions[1] / 4 && (!AlaChooseGiftActivity.this.mIsKeyboardOpen || z)) {
                     AlaChooseGiftActivity.this.mIsKeyboardOpen = true;
                     AlaChooseGiftActivity.this.onKeyboardVisibilityChanged(true);
@@ -299,7 +299,7 @@ public class AlaChooseGiftActivity extends BaseFragmentActivity {
                 }
             }
         };
-        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aYX);
+        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aXm);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -311,33 +311,33 @@ public class AlaChooseGiftActivity extends BaseFragmentActivity {
             this.mRootView.getRootView().getWindowVisibleDisplayFrame(rect);
             int dimensionPixelSize = rect.bottom - getResources().getDimensionPixelSize(a.d.sdk_ds104);
             int statusBarHeight = !UtilHelper.canUseStyleImmersiveSticky() ? dimensionPixelSize - UtilHelper.getStatusBarHeight() : dimensionPixelSize;
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fXZ.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fXG.getLayoutParams();
             layoutParams.topMargin = statusBarHeight;
-            this.fXZ.setLayoutParams(layoutParams);
-            this.fXZ.setVisibility(0);
-            this.fXY.setVisibility(0);
+            this.fXG.setLayoutParams(layoutParams);
+            this.fXG.setVisibility(0);
+            this.fXF.setVisibility(0);
         } else {
-            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.fXZ.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.fXG.getLayoutParams();
             layoutParams2.topMargin = 0;
-            this.fXZ.setLayoutParams(layoutParams2);
-            this.fXZ.setVisibility(8);
-            this.fXY.setVisibility(8);
+            this.fXG.setLayoutParams(layoutParams2);
+            this.fXG.setVisibility(8);
+            this.fXF.setVisibility(8);
         }
-        if (this.fYa != null) {
-            this.fYa.onKeyboardVisibilityChanged(z);
+        if (this.fXH != null) {
+            this.fXH.onKeyboardVisibilityChanged(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.fYb != null) {
-            this.fYb.onDestroy();
+        if (this.fXI != null) {
+            this.fXI.onDestroy();
         }
-        if (this.fYa != null) {
-            this.fYa.onDestroy();
+        if (this.fXH != null) {
+            this.fXH.onDestroy();
         }
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aYX);
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aXm);
         super.onDestroy();
     }
 }

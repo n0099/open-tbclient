@@ -21,7 +21,7 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Interpolator;
-/* loaded from: classes16.dex */
+/* loaded from: classes9.dex */
 final class CollapsingTextHelper {
     private static final boolean DEBUG_DRAW = false;
     private static final Paint DEBUG_DRAW_PAINT;

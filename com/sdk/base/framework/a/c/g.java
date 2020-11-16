@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class g extends Handler {
     private g() {
         super(Looper.getMainLooper());

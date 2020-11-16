@@ -1,11 +1,11 @@
 package com.baidu.pass.http;
 
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MultipartHashMap extends HttpHashMap implements com.baidu.pass.a {
     public a fileWrapper;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     static class a {
 
         /* renamed from: a  reason: collision with root package name */

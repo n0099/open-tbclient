@@ -15,9 +15,9 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class DiscoverDelegateStatic extends b {
-    private static boolean ifa = false;
+    private static boolean ifP = false;
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, new CustomMessageTask.CustomRunnable<BaseFragment>() { // from class: com.baidu.tieba.discover.DiscoverDelegateStatic.1
@@ -50,7 +50,7 @@ public class DiscoverDelegateStatic extends b {
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.ftl = this.mIndicator;
+        aVar.fsw = this.mIndicator;
         aVar.offsetX = l.dip2px(context, 3.0f);
         aVar.bgDayRes = R.drawable.icon_news_down_bar_one;
         this.mIndicator.a("emotion", aVar);
@@ -59,7 +59,7 @@ public class DiscoverDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        ifa = true;
+        ifP = true;
     }
 
     @Override // com.baidu.tbadk.mainTab.b

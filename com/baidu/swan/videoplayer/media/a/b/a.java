@@ -5,11 +5,11 @@ import com.baidu.ala.helper.AlaConstants;
 import com.baidu.swan.apps.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    public int eoA;
-    public int eoz;
+    public int emP;
+    public int emQ;
     public int mAudioBitrate;
     public int mVideoBitrate;
     public int mVideoHeight;
@@ -21,8 +21,8 @@ public final class a {
         try {
             jSONObject.put("videoBitrate", this.mVideoBitrate);
             jSONObject.put("audioBitrate", this.mAudioBitrate);
-            jSONObject.put("videoFPS", this.eoz);
-            jSONObject.put("netSpeed", this.eoA);
+            jSONObject.put("videoFPS", this.emP);
+            jSONObject.put("netSpeed", this.emQ);
             jSONObject.put("videoWidth", this.mVideoWidth);
             jSONObject.put(AlaConstants.STAT_VIDEO_HEIGHT, this.mVideoHeight);
             jSONObject2.putOpt("info", jSONObject);

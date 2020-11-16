@@ -3,10 +3,10 @@ package com.tencent.mm.opensdk.modelbiz;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes17.dex */
 public final class JumpToBizWebview {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes17.dex */
     public static class Req extends BaseReq {
         private static final int EXT_MSG_LENGTH = 1024;
         private static final String TAG = "MicroMsg.SDK.JumpToBizWebview.Req";

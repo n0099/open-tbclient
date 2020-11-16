@@ -5,7 +5,7 @@ import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpResponseInterceptor;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ResponseServer implements HttpResponseInterceptor {
     public ResponseServer() {
         throw new RuntimeException("Stub!");

@@ -14,22 +14,22 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static b ctj;
+    private static b crz;
     private static Context mContext;
-    private HashMap<String, a> ctk = new HashMap<>();
-    private List<String> ctl = new ArrayList();
+    private HashMap<String, a> crA = new HashMap<>();
+    private List<String> crB = new ArrayList();
 
     public static b bd(Context context) {
-        if (ctj == null) {
+        if (crz == null) {
             synchronized (c.class) {
-                if (ctj == null) {
-                    ctj = new b(context.getApplicationContext());
+                if (crz == null) {
+                    crz = new b(context.getApplicationContext());
                 }
             }
         }
-        return ctj;
+        return crz;
     }
 
     private b(Context context) {
@@ -49,16 +49,16 @@ public class b {
                         JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
                         String optString = jSONObject.optString("id");
                         String optString2 = jSONObject.optString("text");
-                        this.ctk.put(optString2, new a(optString, optString2, Integer.valueOf(kk(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON)))));
+                        this.crA.put(optString2, new a(optString, optString2, Integer.valueOf(ke(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON)))));
                     }
                 }
                 JSONArray optJSONArray3 = optJSONObject.optJSONArray("panel_emoticons");
                 if (optJSONArray3 != null) {
                     int length2 = optJSONArray3.length();
                     for (int i2 = 0; i2 < length2; i2++) {
-                        String kj = kj((String) optJSONArray3.get(i2));
-                        if (!TextUtils.isEmpty(kj)) {
-                            this.ctl.add(kj);
+                        String kd = kd((String) optJSONArray3.get(i2));
+                        if (!TextUtils.isEmpty(kd)) {
+                            this.crB.add(kd);
                         }
                     }
                 }
@@ -68,9 +68,9 @@ public class b {
         }
     }
 
-    private String kj(String str) {
+    private String kd(String str) {
         String str2 = "";
-        for (Map.Entry<String, a> entry : this.ctk.entrySet()) {
+        for (Map.Entry<String, a> entry : this.crA.entrySet()) {
             str2 = entry.getKey();
             if (str.equals(entry.getValue().id)) {
                 break;
@@ -79,7 +79,7 @@ public class b {
         return str2;
     }
 
-    private int kk(String str) {
+    private int ke(String str) {
         if (str == null) {
             return 0;
         }
@@ -150,9 +150,9 @@ public class b {
         Integer num;
         switch (emotionType) {
             case EMOTION_CLASSIC_TYPE:
-                a aVar = this.ctk.get(str);
+                a aVar = this.crA.get(str);
                 if (aVar != null) {
-                    num = aVar.ctn;
+                    num = aVar.crD;
                     break;
                 }
             default:
@@ -169,26 +169,26 @@ public class b {
         a aVar = null;
         switch (emotionType) {
             case EMOTION_CLASSIC_TYPE:
-                aVar = this.ctk.get(str);
+                aVar = this.crA.get(str);
                 break;
         }
         return aVar == null ? "" : aVar.id;
     }
 
-    public List afu() {
-        return this.ctl;
+    public List aeM() {
+        return this.crB;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes6.dex */
     public static class a {
-        public Integer ctn;
+        public Integer crD;
         public String id;
         public String text;
 
         public a(String str, String str2, Integer num) {
             this.id = str;
             this.text = str2;
-            this.ctn = num;
+            this.crD = num;
         }
     }
 }

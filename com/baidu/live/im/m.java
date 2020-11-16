@@ -16,25 +16,25 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class m {
-    private w aES;
+    private w aDh;
 
     public void g(w wVar) {
         Log.i("i", "@@@ localText imsdmctrl ent");
-        LU();
+        Ll();
         a(wVar);
     }
 
     public void a(w wVar) {
-        this.aES = wVar;
+        this.aDh = wVar;
     }
 
-    public void Ht() {
+    public void GK() {
         Log.i("i", "@@@ localText imsdmctrl oqt");
-        this.aES = null;
-        LV();
+        this.aDh = null;
+        Lm();
     }
 
-    private void LU() {
+    private void Ll() {
         Log.i("i", "@@@ localText imsdmctrl reg");
         CustomMessageTask customMessageTask = new CustomMessageTask(2913100, new CustomMessageTask.CustomRunnable<ImSendMsgData>() { // from class: com.baidu.live.im.m.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -51,7 +51,7 @@ public class m {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private void LV() {
+    private void Lm() {
         Log.i("i", "@@@ localText imsdmctrl unr");
         MessageManager.getInstance().unRegisterTask(2913100);
     }
@@ -59,7 +59,7 @@ public class m {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ImSendMsgData imSendMsgData) {
         Log.i("i", "@@@ localText imsdmctrl onsm");
-        if (!JM()) {
+        if (!Jd()) {
             Log.i("i", "@@@ localText imsdmctrl nolg");
             return;
         }
@@ -76,15 +76,15 @@ public class m {
     }
 
     private void a(ImSendMsgData imSendMsgData) {
-        Map<String, Integer> He = y.Hc().He();
-        if (He != null && He.containsKey(imSendMsgData.barrageId) && He.get(imSendMsgData.barrageId).intValue() > 0) {
-            imSendMsgData.barrageCardInfo = new com.baidu.live.im.data.b(true, String.valueOf(this.aES.aIV.userId), String.valueOf(this.aES.mLiveInfo.live_id));
+        Map<String, Integer> Gv = y.Gt().Gv();
+        if (Gv != null && Gv.containsKey(imSendMsgData.barrageId) && Gv.get(imSendMsgData.barrageId).intValue() > 0) {
+            imSendMsgData.barrageCardInfo = new com.baidu.live.im.data.b(true, String.valueOf(this.aDh.aHk.userId), String.valueOf(this.aDh.mLiveInfo.live_id));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2913101, imSendMsgData));
         MessageManager.getInstance().sendMessage(new CustomMessage(2501069, imSendMsgData));
     }
 
-    private boolean JM() {
+    private boolean Jd() {
         if (!TbadkCoreApplication.isLogin()) {
             BdUtilHelper.showToast(TbadkCoreApplication.getInst(), a.h.sdk_not_login);
             return false;

@@ -5,7 +5,7 @@ import java.util.Map;
 import kotlin.collections.af;
 import kotlin.jvm.internal.Lambda;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 final class CharDirectionality$Companion$directionalityMap$2 extends Lambda implements kotlin.jvm.a.a<Map<Integer, ? extends CharDirectionality>> {
     public static final CharDirectionality$Companion$directionalityMap$2 INSTANCE = new CharDirectionality$Companion$directionalityMap$2();
 
@@ -18,7 +18,7 @@ final class CharDirectionality$Companion$directionalityMap$2 extends Lambda impl
     @Override // kotlin.jvm.a.a
     public final Map<Integer, ? extends CharDirectionality> invoke() {
         CharDirectionality[] values = CharDirectionality.values();
-        LinkedHashMap linkedHashMap = new LinkedHashMap(kotlin.b.l.ex(af.Rs(values.length), 16));
+        LinkedHashMap linkedHashMap = new LinkedHashMap(kotlin.b.l.ey(af.RV(values.length), 16));
         for (CharDirectionality charDirectionality : values) {
             linkedHashMap.put(Integer.valueOf(charDirectionality.getValue()), charDirectionality);
         }

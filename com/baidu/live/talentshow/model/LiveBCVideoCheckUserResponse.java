@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LiveBCVideoCheckUserResponse extends JsonHttpResponsedMessage {
-    private String bzo;
+    private String bxD;
     private int userStatus;
 
     public LiveBCVideoCheckUserResponse(int i) {
@@ -21,7 +21,7 @@ public class LiveBCVideoCheckUserResponse extends JsonHttpResponsedMessage {
         }
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.userStatus = JavaTypesHelper.toInt(optJSONObject.optString("status"), 1);
-            this.bzo = optJSONObject.optString("text");
+            this.bxD = optJSONObject.optString("text");
         }
     }
 
@@ -29,7 +29,7 @@ public class LiveBCVideoCheckUserResponse extends JsonHttpResponsedMessage {
         return this.userStatus;
     }
 
-    public String SD() {
-        return this.bzo;
+    public String RU() {
+        return this.bxD;
     }
 }

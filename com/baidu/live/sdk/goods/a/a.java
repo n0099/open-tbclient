@@ -9,26 +9,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public JSONObject brV;
-    public String brW;
-    public String brX;
-    public String brY;
-    public long brZ;
-    public long bsa;
-    public String bsb;
-    public String bsc;
-    public int bsd;
-    public double bse;
-    public double bsf;
-    public String bsg;
-    public String bsh;
-    public int bsi;
-    public String bsj;
-    public String bsk;
-    public String bsl;
-    public String bsm;
-    public boolean bsn;
-    public boolean bso;
+    public String bqA;
+    public String bqB;
+    public boolean bqC;
+    public boolean bqD;
+    public JSONObject bqk;
+    public String bql;
+    public String bqm;
+    public String bqn;
+    public long bqo;
+    public long bqp;
+    public String bqq;
+    public String bqr;
+    public int bqs;
+    public double bqt;
+    public double bqu;
+    public String bqv;
+    public String bqw;
+    public int bqx;
+    public String bqy;
+    public String bqz;
     public String fromType;
     public String gid;
     public String imageUrl;
@@ -40,64 +40,64 @@ public class a {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.brV = jSONObject.optJSONObject("slink");
-            this.brW = jSONObject.optString("num_id");
+            this.bqk = jSONObject.optJSONObject("slink");
+            this.bql = jSONObject.optString("num_id");
             this.gid = jSONObject.optString("gid");
             this.title = jSONObject.optString("title");
-            this.brX = jSONObject.optString("original_title");
+            this.bqm = jSONObject.optString("original_title");
             this.price = jSONObject.optString("price");
-            this.brY = jSONObject.optString(TbConfig.IMAGE_CACHE_DIR_NAME);
-            this.brZ = jSONObject.optLong("v_start_time");
-            this.bsa = jSONObject.optLong("v_end_time");
+            this.bqn = jSONObject.optString(TbConfig.IMAGE_CACHE_DIR_NAME);
+            this.bqo = jSONObject.optLong("v_start_time");
+            this.bqp = jSONObject.optLong("v_end_time");
             this.fromType = jSONObject.optString("from_type");
             this.source = jSONObject.optString("user_name");
             this.platform = jSONObject.optString("platform");
             this.nid = jSONObject.optString("nid");
-            this.bsb = jSONObject.optString("c_status");
-            this.bsc = jSONObject.optString("b_status");
-            this.bsd = jSONObject.optInt("index_id");
-            this.bse = jSONObject.optDouble("reserve_price");
-            this.bsf = jSONObject.optDouble("profit");
-            this.bsg = jSONObject.optString("sale_num");
-            this.bsh = jSONObject.optString("coupon");
-            this.bso = jSONObject.optInt("introduceStatus", 0) == 1;
-            this.bsi = jSONObject.optInt("goodsStatus");
+            this.bqq = jSONObject.optString("c_status");
+            this.bqr = jSONObject.optString("b_status");
+            this.bqs = jSONObject.optInt("index_id");
+            this.bqt = jSONObject.optDouble("reserve_price");
+            this.bqu = jSONObject.optDouble("profit");
+            this.bqv = jSONObject.optString("sale_num");
+            this.bqw = jSONObject.optString("coupon");
+            this.bqD = jSONObject.optInt("introduceStatus", 0) == 1;
+            this.bqx = jSONObject.optInt("goodsStatus");
             JSONObject optJSONObject = jSONObject.optJSONObject("skip_url");
             if (optJSONObject != null) {
-                this.bsl = optJSONObject.optString("Android");
-                this.bsm = optJSONObject.optString("h5");
+                this.bqA = optJSONObject.optString("Android");
+                this.bqB = optJSONObject.optString("h5");
             }
-            this.bsn = jSONObject.optInt("is_jump_outside", 0) == 1;
+            this.bqC = jSONObject.optInt("is_jump_outside", 0) == 1;
             JSONObject optJSONObject2 = jSONObject.optJSONObject("zhibo_url");
             if (optJSONObject2 != null) {
-                this.bsk = optJSONObject2.optString("na");
-                this.bsj = optJSONObject2.optString("h5");
+                this.bqz = optJSONObject2.optString("na");
+                this.bqy = optJSONObject2.optString("h5");
             }
         }
     }
 
-    public static a T(JSONObject jSONObject) {
+    public static a N(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject == null) {
             return null;
         }
         a aVar = new a();
-        aVar.brV = jSONObject.optJSONObject("zhibo_url");
+        aVar.bqk = jSONObject.optJSONObject("zhibo_url");
         aVar.gid = jSONObject.optString("gid");
         aVar.price = jSONObject.optString("price");
-        aVar.bsi = jSONObject.optInt("goodsStatus");
-        aVar.bsh = jSONObject.optString("coupon");
+        aVar.bqx = jSONObject.optInt("goodsStatus");
+        aVar.bqw = jSONObject.optString("coupon");
         aVar.source = jSONObject.optString("user_name");
         aVar.platform = jSONObject.optString("platform");
         aVar.title = jSONObject.optString("title");
         aVar.fromType = jSONObject.optString("from_type");
-        aVar.bso = jSONObject.optInt("introduceStatus", 0) == 1;
+        aVar.bqD = jSONObject.optInt("introduceStatus", 0) == 1;
         JSONObject optJSONObject2 = jSONObject.optJSONObject("skip_url");
         if (optJSONObject2 != null) {
-            aVar.bsl = optJSONObject2.optString("Android");
-            aVar.bsm = optJSONObject2.optString("h5");
+            aVar.bqA = optJSONObject2.optString("Android");
+            aVar.bqB = optJSONObject2.optString("h5");
         }
-        aVar.bsn = jSONObject.optInt("is_jump_outside", 0) == 1;
+        aVar.bqC = jSONObject.optInt("is_jump_outside", 0) == 1;
         JSONArray optJSONArray = jSONObject.optJSONArray(MapController.ITEM_LAYER_TAG);
         if (optJSONArray != null && optJSONArray.length() > 0 && (optJSONObject = optJSONArray.optJSONObject(0)) != null) {
             String optString = optJSONObject.optString("url");
@@ -107,20 +107,20 @@ public class a {
                 aVar.imageUrl = optString;
             }
         }
-        aVar.bsg = jSONObject.optString("sale_num");
+        aVar.bqv = jSONObject.optString("sale_num");
         JSONObject optJSONObject3 = jSONObject.optJSONObject("zhibo_url");
         if (optJSONObject3 != null) {
-            aVar.bsk = optJSONObject3.optString("na");
-            aVar.bsj = optJSONObject3.optString("h5");
+            aVar.bqz = optJSONObject3.optString("na");
+            aVar.bqy = optJSONObject3.optString("h5");
         }
         return aVar;
     }
 
-    public boolean Py() {
-        return (TextUtils.isEmpty(this.bsh) || "0".equals(this.bsh)) ? false : true;
+    public boolean OP() {
+        return (TextUtils.isEmpty(this.bqw) || "0".equals(this.bqw)) ? false : true;
     }
 
-    public boolean Ek() {
+    public boolean DB() {
         return (TextUtils.isEmpty(this.gid) || TextUtils.equals("0", this.gid)) ? false : true;
     }
 }

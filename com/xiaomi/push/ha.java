@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 class ha extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */

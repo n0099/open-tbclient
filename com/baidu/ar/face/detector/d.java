@@ -1,7 +1,7 @@
 package com.baidu.ar.face.detector;
 
 import android.util.Log;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class d extends com.baidu.ar.c.a {
     private static final String TAG = d.class.getSimpleName();
     private String nT = "face_animate";

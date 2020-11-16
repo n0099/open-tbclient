@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.hotuserrank.a.b;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class UserHeadCoverView extends FrameLayout {
-    private ImageView gNx;
-    private View imr;
-    private ImageView ims;
+    private ImageView gNe;
+    private View inf;
+    private ImageView ing;
 
     public UserHeadCoverView(@NonNull Context context) {
         super(context);
@@ -35,63 +35,63 @@ public class UserHeadCoverView extends FrameLayout {
     }
 
     private void init(Context context) {
-        this.gNx = new ImageView(context);
+        this.gNe = new ImageView(context);
         int dimens = l.getDimens(context, R.dimen.tbds78);
-        addView(this.gNx, new FrameLayout.LayoutParams(dimens, dimens));
-        this.imr = new View(context);
+        addView(this.gNe, new FrameLayout.LayoutParams(dimens, dimens));
+        this.inf = new View(context);
         int dimens2 = l.getDimens(context, R.dimen.tbds158);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimens2, dimens2);
         int dimens3 = l.getDimens(context, R.dimen.tbds26);
         layoutParams.leftMargin = dimens3;
         layoutParams.topMargin = dimens3;
-        addView(this.imr, layoutParams);
-        this.ims = new ImageView(context);
+        addView(this.inf, layoutParams);
+        this.ing = new ImageView(context);
         int dimens4 = l.getDimens(context, R.dimen.tbds36);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(dimens4, dimens4);
         layoutParams2.gravity = 85;
-        addView(this.ims, layoutParams2);
+        addView(this.ing, layoutParams2);
     }
 
     public void setData(b bVar) {
         if (bVar != null) {
             if (bVar.rankNum != null) {
                 if (bVar.rankNum.equals("1") || bVar.rankNum.equals("2") || bVar.rankNum.equals("3")) {
-                    this.gNx.setVisibility(0);
-                    this.imr.setVisibility(0);
+                    this.gNe.setVisibility(0);
+                    this.inf.setVisibility(0);
                     if (bVar.rankNum.equals("1")) {
-                        SvgManager.brn().a(this.gNx, R.drawable.svg_icon_mask_first30, (SvgManager.SvgResourceStateType) null);
-                        this.imr.setBackground(ap.getDrawable(R.drawable.shape_hot_user_yellow_circle));
+                        SvgManager.bqB().a(this.gNe, R.drawable.svg_icon_mask_first30, (SvgManager.SvgResourceStateType) null);
+                        this.inf.setBackground(ap.getDrawable(R.drawable.shape_hot_user_yellow_circle));
                     } else if (bVar.rankNum.equals("2")) {
-                        SvgManager.brn().a(this.gNx, R.drawable.svg_icon_mask_second30, (SvgManager.SvgResourceStateType) null);
-                        this.imr.setBackground(ap.getDrawable(R.drawable.shape_hot_user_gray_circle));
+                        SvgManager.bqB().a(this.gNe, R.drawable.svg_icon_mask_second30, (SvgManager.SvgResourceStateType) null);
+                        this.inf.setBackground(ap.getDrawable(R.drawable.shape_hot_user_gray_circle));
                     } else if (bVar.rankNum.equals("3")) {
-                        SvgManager.brn().a(this.gNx, R.drawable.svg_icon_mask_third30, (SvgManager.SvgResourceStateType) null);
-                        this.imr.setBackground(ap.getDrawable(R.drawable.shape_hot_user_brown_circle));
+                        SvgManager.bqB().a(this.gNe, R.drawable.svg_icon_mask_third30, (SvgManager.SvgResourceStateType) null);
+                        this.inf.setBackground(ap.getDrawable(R.drawable.shape_hot_user_brown_circle));
                     }
                 } else {
-                    this.gNx.setVisibility(8);
-                    this.imr.setVisibility(8);
+                    this.gNe.setVisibility(8);
+                    this.inf.setVisibility(8);
                 }
             } else {
-                this.gNx.setVisibility(8);
-                this.imr.setVisibility(8);
+                this.gNe.setVisibility(8);
+                this.inf.setVisibility(8);
             }
-            if (bVar.imk) {
+            if (bVar.imY) {
                 int dimens = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimens, dimens);
                 layoutParams.gravity = 85;
-                this.ims.setLayoutParams(layoutParams);
-                this.ims.setVisibility(0);
-                SvgManager.brn().a(this.ims, R.drawable.ic_icon_mask_v14_n_svg, (SvgManager.SvgResourceStateType) null);
-            } else if (bVar.ilY) {
+                this.ing.setLayoutParams(layoutParams);
+                this.ing.setVisibility(0);
+                SvgManager.bqB().a(this.ing, R.drawable.ic_icon_mask_v14_n_svg, (SvgManager.SvgResourceStateType) null);
+            } else if (bVar.imN) {
                 int dimens2 = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds40);
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(dimens2, dimens2);
                 layoutParams2.gravity = 85;
-                this.ims.setLayoutParams(layoutParams2);
-                this.ims.setVisibility(0);
-                SvgManager.brn().a(this.ims, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
+                this.ing.setLayoutParams(layoutParams2);
+                this.ing.setVisibility(0);
+                SvgManager.bqB().a(this.ing, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
             } else {
-                this.ims.setVisibility(8);
+                this.ing.setVisibility(8);
             }
         }
     }

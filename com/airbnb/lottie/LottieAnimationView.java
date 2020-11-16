@@ -26,7 +26,7 @@ import java.io.StringReader;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class LottieAnimationView extends AppCompatImageView {
     private static final String TAG = LottieAnimationView.class.getSimpleName();
     private String animationName;
@@ -600,7 +600,7 @@ public class LottieAnimationView extends AppCompatImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes16.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.airbnb.lottie.LottieAnimationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

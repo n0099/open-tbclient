@@ -5,7 +5,7 @@ import kotlin.jvm.internal.p;
 import kotlin.jvm.internal.q;
 import kotlin.jvm.internal.t;
 @h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class RestrictedSuspendLambda extends RestrictedContinuationImpl implements p<Object> {
     private final int arity;
 

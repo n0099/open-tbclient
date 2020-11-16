@@ -1,5 +1,5 @@
 package com.google.gson;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class JsonNull extends JsonElement {
     public static final JsonNull INSTANCE = new JsonNull();
 

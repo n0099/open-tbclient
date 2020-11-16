@@ -17,16 +17,17 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.richText.j;
+import com.baidu.tbadk.widget.richText.i;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.CallStateMessage;
 import com.baidu.tieba.play.CallStateReceiver;
@@ -38,32 +39,32 @@ import com.baidu.tieba.play.m;
 import com.baidu.tieba.play.n;
 import com.baidu.tieba.play.o;
 import com.baidu.tieba.video.g;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class PushDialogVideoView extends RelativeLayout implements View.OnClickListener {
-    private boolean aae;
-    private Runnable aak;
-    private TbImageView alJ;
-    private String alT;
-    private CyberPlayerManager.OnPreparedListener eog;
-    private CyberPlayerManager.OnCompletionListener eoi;
-    private CyberPlayerManager.OnSeekCompleteListener eol;
-    private m fFA;
-    private TbCyberVideoView.a fFI;
-    private int fSK;
-    private TbCyberVideoView gjd;
-    private TextView hDk;
-    private VideoLoadingProgressView.a hXS;
-    private View iaG;
-    private CallStateReceiver kGF;
-    private CyberPlayerManager.OnErrorListener kGI;
-    private Runnable kGJ;
-    private CustomMessageListener kGO;
-    private View kGb;
-    private ImageView kGk;
-    private VideoControllerView.b kIH;
-    private boolean lLd;
-    private PbVideoWifiTipLayout lLo;
-    private boolean lLx;
+    private boolean aaj;
+    private Runnable aap;
+    private TbImageView alP;
+    private String alZ;
+    private CyberPlayerManager.OnSeekCompleteListener emB;
+    private CyberPlayerManager.OnPreparedListener emw;
+    private CyberPlayerManager.OnCompletionListener emy;
+    private m fFc;
+    private TbCyberVideoView.a fFk;
+    private int fSr;
+    private TbCyberVideoView giK;
+    private TextView hCR;
+    private VideoLoadingProgressView.a hYs;
+    private View ibi;
+    private CallStateReceiver kGU;
+    private CyberPlayerManager.OnErrorListener kGX;
+    private Runnable kGY;
+    private View kGq;
+    private ImageView kGz;
+    private CustomMessageListener kHd;
+    private VideoControllerView.b kIW;
+    private PbVideoWifiTipLayout lLG;
+    private boolean lLP;
+    private boolean lLv;
     private Handler mHandler;
     private int mHeight;
     private TbPageContext<?> mPageContext;
@@ -71,135 +72,135 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     private int mStartPosition;
     private String mVideoUrl;
     private int mWidth;
-    private ProgressBar mhY;
-    private boolean miA;
-    private boolean miB;
-    private boolean miC;
-    private boolean miF;
-    private boolean miG;
-    private boolean miH;
-    private Runnable miN;
-    private TextView mib;
-    private j mpk;
+    private boolean miT;
+    private boolean miU;
+    private boolean miV;
+    private boolean miY;
+    private boolean miZ;
+    private ProgressBar mit;
+    private TextView miw;
+    private boolean mja;
+    private Runnable mjg;
+    private i mpE;
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes20.dex */
     public interface a {
-        void ws(boolean z);
+        void wv(boolean z);
     }
 
     public PushDialogVideoView(Context context) {
         super(context);
-        this.fSK = 50;
+        this.fSr = 50;
         this.mSkinType = 3;
-        this.aae = false;
+        this.aaj = false;
         this.mStartPosition = 0;
-        this.miA = true;
-        this.miB = false;
-        this.miC = false;
-        this.lLd = false;
-        this.eog = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.1
+        this.miT = true;
+        this.miU = false;
+        this.miV = false;
+        this.lLv = false;
+        this.emw = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.1
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
             public void onPrepared() {
-                PushDialogVideoView.this.fFA.dxb();
+                PushDialogVideoView.this.fFc.dwB();
             }
         };
-        this.hXS = new VideoLoadingProgressView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.5
+        this.hYs = new VideoLoadingProgressView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.5
             @Override // com.baidu.tieba.play.VideoLoadingProgressView.a
             public void onAnimationEnd() {
-                PushDialogVideoView.this.cnY();
+                PushDialogVideoView.this.cnA();
             }
         };
-        this.aak = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.6
+        this.aap = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.6
             @Override // java.lang.Runnable
             public void run() {
-                if (PushDialogVideoView.this.gjd.getCurrentPosition() > 100) {
-                    PushDialogVideoView.this.aae = true;
-                    PushDialogVideoView.this.kGb.setVisibility(8);
-                    PushDialogVideoView.this.iaG.setVisibility(8);
-                    PushDialogVideoView.this.fFA.dxc();
-                    PushDialogVideoView.this.alJ.setVisibility(8);
+                if (PushDialogVideoView.this.giK.getCurrentPosition() > 100) {
+                    PushDialogVideoView.this.aaj = true;
+                    PushDialogVideoView.this.kGq.setVisibility(8);
+                    PushDialogVideoView.this.ibi.setVisibility(8);
+                    PushDialogVideoView.this.fFc.dwC();
+                    PushDialogVideoView.this.alP.setVisibility(8);
                     PushDialogVideoView.this.showProgress();
                     return;
                 }
-                e.mY().postDelayed(PushDialogVideoView.this.aak, 20L);
+                e.mY().postDelayed(PushDialogVideoView.this.aap, 20L);
             }
         };
-        this.eoi = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.7
+        this.emy = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.7
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
             public void onCompletion() {
-                PushDialogVideoView.this.aae = false;
-                PushDialogVideoView.this.miH = false;
+                PushDialogVideoView.this.aaj = false;
+                PushDialogVideoView.this.mja = false;
                 PushDialogVideoView.this.mStartPosition = 0;
-                PushDialogVideoView.this.kGb.setVisibility(0);
-                PushDialogVideoView.this.mhY.setVisibility(8);
-                PushDialogVideoView.this.mhY.setProgress(PushDialogVideoView.this.mhY.getMax());
-                if (PushDialogVideoView.this.gjd == null || PushDialogVideoView.this.gjd.getDuration() > 150000) {
-                    PushDialogVideoView.this.wn(false);
+                PushDialogVideoView.this.kGq.setVisibility(0);
+                PushDialogVideoView.this.mit.setVisibility(8);
+                PushDialogVideoView.this.mit.setProgress(PushDialogVideoView.this.mit.getMax());
+                if (PushDialogVideoView.this.giK == null || PushDialogVideoView.this.giK.getDuration() > 150000) {
+                    PushDialogVideoView.this.wq(false);
                 } else {
-                    PushDialogVideoView.this.mib.setVisibility(0);
+                    PushDialogVideoView.this.miw.setVisibility(0);
                 }
-                n.dxh().remove(PushDialogVideoView.this.mVideoUrl);
-                if (PushDialogVideoView.this.gjd != null && PushDialogVideoView.this.gjd.getDuration() <= 150000) {
-                    PushDialogVideoView.this.fW(PushDialogVideoView.this.mVideoUrl, PushDialogVideoView.this.alT);
+                n.dwH().remove(PushDialogVideoView.this.mVideoUrl);
+                if (PushDialogVideoView.this.giK != null && PushDialogVideoView.this.giK.getDuration() <= 150000) {
+                    PushDialogVideoView.this.fW(PushDialogVideoView.this.mVideoUrl, PushDialogVideoView.this.alZ);
                 }
             }
         };
-        this.kGI = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.8
+        this.kGX = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.8
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
             public boolean onError(int i, int i2, Object obj) {
-                PushDialogVideoView.this.iaG.setVisibility(0);
-                PushDialogVideoView.this.fFA.dxd();
-                if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                    PushDialogVideoView.this.miF = true;
+                PushDialogVideoView.this.ibi.setVisibility(0);
+                PushDialogVideoView.this.fFc.dwD();
+                if (!j.isNetWorkAvailable()) {
+                    PushDialogVideoView.this.miY = true;
                 }
-                PushDialogVideoView.this.miH = false;
+                PushDialogVideoView.this.mja = false;
                 return true;
             }
         };
-        this.kGJ = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.9
+        this.kGY = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.9
             @Override // java.lang.Runnable
             public void run() {
-                PushDialogVideoView.this.iaG.setVisibility(0);
-                PushDialogVideoView.this.fFA.dxd();
+                PushDialogVideoView.this.ibi.setVisibility(0);
+                PushDialogVideoView.this.fFc.dwD();
             }
         };
-        this.eol = new CyberPlayerManager.OnSeekCompleteListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.10
+        this.emB = new CyberPlayerManager.OnSeekCompleteListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.10
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
             public void onSeekComplete() {
-                if (PushDialogVideoView.this.miB) {
-                    e.mY().postDelayed(PushDialogVideoView.this.miN, 200L);
+                if (PushDialogVideoView.this.miU) {
+                    e.mY().postDelayed(PushDialogVideoView.this.mjg, 200L);
                 }
             }
         };
-        this.miN = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
+        this.mjg = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
             @Override // java.lang.Runnable
             public void run() {
-                if (PushDialogVideoView.this.gjd == null || !PushDialogVideoView.this.miB) {
-                    e.mY().postDelayed(PushDialogVideoView.this.aak, 200L);
-                    PushDialogVideoView.this.miB = false;
-                } else if (PushDialogVideoView.this.mStartPosition != PushDialogVideoView.this.gjd.getCurrentPosition()) {
-                    PushDialogVideoView.this.miB = false;
-                    e.mY().postDelayed(PushDialogVideoView.this.aak, 20L);
+                if (PushDialogVideoView.this.giK == null || !PushDialogVideoView.this.miU) {
+                    e.mY().postDelayed(PushDialogVideoView.this.aap, 200L);
+                    PushDialogVideoView.this.miU = false;
+                } else if (PushDialogVideoView.this.mStartPosition != PushDialogVideoView.this.giK.getCurrentPosition()) {
+                    PushDialogVideoView.this.miU = false;
+                    e.mY().postDelayed(PushDialogVideoView.this.aap, 20L);
                 } else {
-                    e.mY().postDelayed(PushDialogVideoView.this.miN, 200L);
+                    e.mY().postDelayed(PushDialogVideoView.this.mjg, 200L);
                 }
             }
         };
-        this.fFI = new TbCyberVideoView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.12
+        this.fFk = new TbCyberVideoView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.12
             @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.a
             public void onSurfaceDestroyed() {
-                PushDialogVideoView.this.aae = false;
-                PushDialogVideoView.this.miH = false;
-                e.mY().removeCallbacks(PushDialogVideoView.this.aak);
-                e.mY().removeCallbacks(PushDialogVideoView.this.kGJ);
+                PushDialogVideoView.this.aaj = false;
+                PushDialogVideoView.this.mja = false;
+                e.mY().removeCallbacks(PushDialogVideoView.this.aap);
+                e.mY().removeCallbacks(PushDialogVideoView.this.kGY);
             }
         };
-        this.kGO = new CustomMessageListener(CmdConfigCustom.CMD_CALL_STATE_CHANGED) { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.2
+        this.kHd = new CustomMessageListener(CmdConfigCustom.CMD_CALL_STATE_CHANGED) { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if ((customResponsedMessage instanceof CallStateMessage) && ((CallStateMessage) customResponsedMessage).getCallState() == 1) {
-                    PushDialogVideoView.this.aPL();
+                    PushDialogVideoView.this.aPd();
                 }
             }
         };
@@ -208,16 +209,16 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (PushDialogVideoView.this.gjd != null && PushDialogVideoView.this.gjd.isPlaying()) {
-                            int currentPosition = PushDialogVideoView.this.gjd.getCurrentPosition();
-                            int duration = PushDialogVideoView.this.gjd.getDuration();
+                        if (PushDialogVideoView.this.giK != null && PushDialogVideoView.this.giK.isPlaying()) {
+                            int currentPosition = PushDialogVideoView.this.giK.getCurrentPosition();
+                            int duration = PushDialogVideoView.this.giK.getDuration();
                             if (currentPosition <= duration) {
                                 duration = currentPosition;
                             }
-                            if (PushDialogVideoView.this.kIH != null) {
-                                PushDialogVideoView.this.kIH.tp(duration);
+                            if (PushDialogVideoView.this.kIW != null) {
+                                PushDialogVideoView.this.kIW.tN(duration);
                             }
-                            sendMessageDelayed(obtainMessage(1), PushDialogVideoView.this.fSK - (duration % PushDialogVideoView.this.fSK));
+                            sendMessageDelayed(obtainMessage(1), PushDialogVideoView.this.fSr - (duration % PushDialogVideoView.this.fSr));
                             return;
                         }
                         return;
@@ -226,12 +227,12 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 }
             }
         };
-        this.kIH = new VideoControllerView.b() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.4
+        this.kIW = new VideoControllerView.b() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.4
             @Override // com.baidu.tieba.play.VideoControllerView.b
-            public void tp(int i) {
+            public void tN(int i) {
                 int duration;
-                if (PushDialogVideoView.this.gjd != null && (duration = PushDialogVideoView.this.gjd.getDuration()) > 0 && PushDialogVideoView.this.mhY != null) {
-                    PushDialogVideoView.this.mhY.setProgress((int) ((i * PushDialogVideoView.this.getWidth()) / duration));
+                if (PushDialogVideoView.this.giK != null && (duration = PushDialogVideoView.this.giK.getDuration()) > 0 && PushDialogVideoView.this.mit != null) {
+                    PushDialogVideoView.this.mit.setProgress((int) ((i * PushDialogVideoView.this.getWidth()) / duration));
                 }
             }
         };
@@ -240,117 +241,117 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public PushDialogVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fSK = 50;
+        this.fSr = 50;
         this.mSkinType = 3;
-        this.aae = false;
+        this.aaj = false;
         this.mStartPosition = 0;
-        this.miA = true;
-        this.miB = false;
-        this.miC = false;
-        this.lLd = false;
-        this.eog = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.1
+        this.miT = true;
+        this.miU = false;
+        this.miV = false;
+        this.lLv = false;
+        this.emw = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.1
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
             public void onPrepared() {
-                PushDialogVideoView.this.fFA.dxb();
+                PushDialogVideoView.this.fFc.dwB();
             }
         };
-        this.hXS = new VideoLoadingProgressView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.5
+        this.hYs = new VideoLoadingProgressView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.5
             @Override // com.baidu.tieba.play.VideoLoadingProgressView.a
             public void onAnimationEnd() {
-                PushDialogVideoView.this.cnY();
+                PushDialogVideoView.this.cnA();
             }
         };
-        this.aak = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.6
+        this.aap = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.6
             @Override // java.lang.Runnable
             public void run() {
-                if (PushDialogVideoView.this.gjd.getCurrentPosition() > 100) {
-                    PushDialogVideoView.this.aae = true;
-                    PushDialogVideoView.this.kGb.setVisibility(8);
-                    PushDialogVideoView.this.iaG.setVisibility(8);
-                    PushDialogVideoView.this.fFA.dxc();
-                    PushDialogVideoView.this.alJ.setVisibility(8);
+                if (PushDialogVideoView.this.giK.getCurrentPosition() > 100) {
+                    PushDialogVideoView.this.aaj = true;
+                    PushDialogVideoView.this.kGq.setVisibility(8);
+                    PushDialogVideoView.this.ibi.setVisibility(8);
+                    PushDialogVideoView.this.fFc.dwC();
+                    PushDialogVideoView.this.alP.setVisibility(8);
                     PushDialogVideoView.this.showProgress();
                     return;
                 }
-                e.mY().postDelayed(PushDialogVideoView.this.aak, 20L);
+                e.mY().postDelayed(PushDialogVideoView.this.aap, 20L);
             }
         };
-        this.eoi = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.7
+        this.emy = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.7
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
             public void onCompletion() {
-                PushDialogVideoView.this.aae = false;
-                PushDialogVideoView.this.miH = false;
+                PushDialogVideoView.this.aaj = false;
+                PushDialogVideoView.this.mja = false;
                 PushDialogVideoView.this.mStartPosition = 0;
-                PushDialogVideoView.this.kGb.setVisibility(0);
-                PushDialogVideoView.this.mhY.setVisibility(8);
-                PushDialogVideoView.this.mhY.setProgress(PushDialogVideoView.this.mhY.getMax());
-                if (PushDialogVideoView.this.gjd == null || PushDialogVideoView.this.gjd.getDuration() > 150000) {
-                    PushDialogVideoView.this.wn(false);
+                PushDialogVideoView.this.kGq.setVisibility(0);
+                PushDialogVideoView.this.mit.setVisibility(8);
+                PushDialogVideoView.this.mit.setProgress(PushDialogVideoView.this.mit.getMax());
+                if (PushDialogVideoView.this.giK == null || PushDialogVideoView.this.giK.getDuration() > 150000) {
+                    PushDialogVideoView.this.wq(false);
                 } else {
-                    PushDialogVideoView.this.mib.setVisibility(0);
+                    PushDialogVideoView.this.miw.setVisibility(0);
                 }
-                n.dxh().remove(PushDialogVideoView.this.mVideoUrl);
-                if (PushDialogVideoView.this.gjd != null && PushDialogVideoView.this.gjd.getDuration() <= 150000) {
-                    PushDialogVideoView.this.fW(PushDialogVideoView.this.mVideoUrl, PushDialogVideoView.this.alT);
+                n.dwH().remove(PushDialogVideoView.this.mVideoUrl);
+                if (PushDialogVideoView.this.giK != null && PushDialogVideoView.this.giK.getDuration() <= 150000) {
+                    PushDialogVideoView.this.fW(PushDialogVideoView.this.mVideoUrl, PushDialogVideoView.this.alZ);
                 }
             }
         };
-        this.kGI = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.8
+        this.kGX = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.8
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
             public boolean onError(int i, int i2, Object obj) {
-                PushDialogVideoView.this.iaG.setVisibility(0);
-                PushDialogVideoView.this.fFA.dxd();
-                if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                    PushDialogVideoView.this.miF = true;
+                PushDialogVideoView.this.ibi.setVisibility(0);
+                PushDialogVideoView.this.fFc.dwD();
+                if (!j.isNetWorkAvailable()) {
+                    PushDialogVideoView.this.miY = true;
                 }
-                PushDialogVideoView.this.miH = false;
+                PushDialogVideoView.this.mja = false;
                 return true;
             }
         };
-        this.kGJ = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.9
+        this.kGY = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.9
             @Override // java.lang.Runnable
             public void run() {
-                PushDialogVideoView.this.iaG.setVisibility(0);
-                PushDialogVideoView.this.fFA.dxd();
+                PushDialogVideoView.this.ibi.setVisibility(0);
+                PushDialogVideoView.this.fFc.dwD();
             }
         };
-        this.eol = new CyberPlayerManager.OnSeekCompleteListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.10
+        this.emB = new CyberPlayerManager.OnSeekCompleteListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.10
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
             public void onSeekComplete() {
-                if (PushDialogVideoView.this.miB) {
-                    e.mY().postDelayed(PushDialogVideoView.this.miN, 200L);
+                if (PushDialogVideoView.this.miU) {
+                    e.mY().postDelayed(PushDialogVideoView.this.mjg, 200L);
                 }
             }
         };
-        this.miN = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
+        this.mjg = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
             @Override // java.lang.Runnable
             public void run() {
-                if (PushDialogVideoView.this.gjd == null || !PushDialogVideoView.this.miB) {
-                    e.mY().postDelayed(PushDialogVideoView.this.aak, 200L);
-                    PushDialogVideoView.this.miB = false;
-                } else if (PushDialogVideoView.this.mStartPosition != PushDialogVideoView.this.gjd.getCurrentPosition()) {
-                    PushDialogVideoView.this.miB = false;
-                    e.mY().postDelayed(PushDialogVideoView.this.aak, 20L);
+                if (PushDialogVideoView.this.giK == null || !PushDialogVideoView.this.miU) {
+                    e.mY().postDelayed(PushDialogVideoView.this.aap, 200L);
+                    PushDialogVideoView.this.miU = false;
+                } else if (PushDialogVideoView.this.mStartPosition != PushDialogVideoView.this.giK.getCurrentPosition()) {
+                    PushDialogVideoView.this.miU = false;
+                    e.mY().postDelayed(PushDialogVideoView.this.aap, 20L);
                 } else {
-                    e.mY().postDelayed(PushDialogVideoView.this.miN, 200L);
+                    e.mY().postDelayed(PushDialogVideoView.this.mjg, 200L);
                 }
             }
         };
-        this.fFI = new TbCyberVideoView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.12
+        this.fFk = new TbCyberVideoView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.12
             @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.a
             public void onSurfaceDestroyed() {
-                PushDialogVideoView.this.aae = false;
-                PushDialogVideoView.this.miH = false;
-                e.mY().removeCallbacks(PushDialogVideoView.this.aak);
-                e.mY().removeCallbacks(PushDialogVideoView.this.kGJ);
+                PushDialogVideoView.this.aaj = false;
+                PushDialogVideoView.this.mja = false;
+                e.mY().removeCallbacks(PushDialogVideoView.this.aap);
+                e.mY().removeCallbacks(PushDialogVideoView.this.kGY);
             }
         };
-        this.kGO = new CustomMessageListener(CmdConfigCustom.CMD_CALL_STATE_CHANGED) { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.2
+        this.kHd = new CustomMessageListener(CmdConfigCustom.CMD_CALL_STATE_CHANGED) { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if ((customResponsedMessage instanceof CallStateMessage) && ((CallStateMessage) customResponsedMessage).getCallState() == 1) {
-                    PushDialogVideoView.this.aPL();
+                    PushDialogVideoView.this.aPd();
                 }
             }
         };
@@ -359,16 +360,16 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (PushDialogVideoView.this.gjd != null && PushDialogVideoView.this.gjd.isPlaying()) {
-                            int currentPosition = PushDialogVideoView.this.gjd.getCurrentPosition();
-                            int duration = PushDialogVideoView.this.gjd.getDuration();
+                        if (PushDialogVideoView.this.giK != null && PushDialogVideoView.this.giK.isPlaying()) {
+                            int currentPosition = PushDialogVideoView.this.giK.getCurrentPosition();
+                            int duration = PushDialogVideoView.this.giK.getDuration();
                             if (currentPosition <= duration) {
                                 duration = currentPosition;
                             }
-                            if (PushDialogVideoView.this.kIH != null) {
-                                PushDialogVideoView.this.kIH.tp(duration);
+                            if (PushDialogVideoView.this.kIW != null) {
+                                PushDialogVideoView.this.kIW.tN(duration);
                             }
-                            sendMessageDelayed(obtainMessage(1), PushDialogVideoView.this.fSK - (duration % PushDialogVideoView.this.fSK));
+                            sendMessageDelayed(obtainMessage(1), PushDialogVideoView.this.fSr - (duration % PushDialogVideoView.this.fSr));
                             return;
                         }
                         return;
@@ -377,12 +378,12 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 }
             }
         };
-        this.kIH = new VideoControllerView.b() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.4
+        this.kIW = new VideoControllerView.b() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.4
             @Override // com.baidu.tieba.play.VideoControllerView.b
-            public void tp(int i) {
+            public void tN(int i) {
                 int duration;
-                if (PushDialogVideoView.this.gjd != null && (duration = PushDialogVideoView.this.gjd.getDuration()) > 0 && PushDialogVideoView.this.mhY != null) {
-                    PushDialogVideoView.this.mhY.setProgress((int) ((i * PushDialogVideoView.this.getWidth()) / duration));
+                if (PushDialogVideoView.this.giK != null && (duration = PushDialogVideoView.this.giK.getDuration()) > 0 && PushDialogVideoView.this.mit != null) {
+                    PushDialogVideoView.this.mit.setProgress((int) ((i * PushDialogVideoView.this.getWidth()) / duration));
                 }
             }
         };
@@ -391,117 +392,117 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public PushDialogVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fSK = 50;
+        this.fSr = 50;
         this.mSkinType = 3;
-        this.aae = false;
+        this.aaj = false;
         this.mStartPosition = 0;
-        this.miA = true;
-        this.miB = false;
-        this.miC = false;
-        this.lLd = false;
-        this.eog = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.1
+        this.miT = true;
+        this.miU = false;
+        this.miV = false;
+        this.lLv = false;
+        this.emw = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.1
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
             public void onPrepared() {
-                PushDialogVideoView.this.fFA.dxb();
+                PushDialogVideoView.this.fFc.dwB();
             }
         };
-        this.hXS = new VideoLoadingProgressView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.5
+        this.hYs = new VideoLoadingProgressView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.5
             @Override // com.baidu.tieba.play.VideoLoadingProgressView.a
             public void onAnimationEnd() {
-                PushDialogVideoView.this.cnY();
+                PushDialogVideoView.this.cnA();
             }
         };
-        this.aak = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.6
+        this.aap = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.6
             @Override // java.lang.Runnable
             public void run() {
-                if (PushDialogVideoView.this.gjd.getCurrentPosition() > 100) {
-                    PushDialogVideoView.this.aae = true;
-                    PushDialogVideoView.this.kGb.setVisibility(8);
-                    PushDialogVideoView.this.iaG.setVisibility(8);
-                    PushDialogVideoView.this.fFA.dxc();
-                    PushDialogVideoView.this.alJ.setVisibility(8);
+                if (PushDialogVideoView.this.giK.getCurrentPosition() > 100) {
+                    PushDialogVideoView.this.aaj = true;
+                    PushDialogVideoView.this.kGq.setVisibility(8);
+                    PushDialogVideoView.this.ibi.setVisibility(8);
+                    PushDialogVideoView.this.fFc.dwC();
+                    PushDialogVideoView.this.alP.setVisibility(8);
                     PushDialogVideoView.this.showProgress();
                     return;
                 }
-                e.mY().postDelayed(PushDialogVideoView.this.aak, 20L);
+                e.mY().postDelayed(PushDialogVideoView.this.aap, 20L);
             }
         };
-        this.eoi = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.7
+        this.emy = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.7
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
             public void onCompletion() {
-                PushDialogVideoView.this.aae = false;
-                PushDialogVideoView.this.miH = false;
+                PushDialogVideoView.this.aaj = false;
+                PushDialogVideoView.this.mja = false;
                 PushDialogVideoView.this.mStartPosition = 0;
-                PushDialogVideoView.this.kGb.setVisibility(0);
-                PushDialogVideoView.this.mhY.setVisibility(8);
-                PushDialogVideoView.this.mhY.setProgress(PushDialogVideoView.this.mhY.getMax());
-                if (PushDialogVideoView.this.gjd == null || PushDialogVideoView.this.gjd.getDuration() > 150000) {
-                    PushDialogVideoView.this.wn(false);
+                PushDialogVideoView.this.kGq.setVisibility(0);
+                PushDialogVideoView.this.mit.setVisibility(8);
+                PushDialogVideoView.this.mit.setProgress(PushDialogVideoView.this.mit.getMax());
+                if (PushDialogVideoView.this.giK == null || PushDialogVideoView.this.giK.getDuration() > 150000) {
+                    PushDialogVideoView.this.wq(false);
                 } else {
-                    PushDialogVideoView.this.mib.setVisibility(0);
+                    PushDialogVideoView.this.miw.setVisibility(0);
                 }
-                n.dxh().remove(PushDialogVideoView.this.mVideoUrl);
-                if (PushDialogVideoView.this.gjd != null && PushDialogVideoView.this.gjd.getDuration() <= 150000) {
-                    PushDialogVideoView.this.fW(PushDialogVideoView.this.mVideoUrl, PushDialogVideoView.this.alT);
+                n.dwH().remove(PushDialogVideoView.this.mVideoUrl);
+                if (PushDialogVideoView.this.giK != null && PushDialogVideoView.this.giK.getDuration() <= 150000) {
+                    PushDialogVideoView.this.fW(PushDialogVideoView.this.mVideoUrl, PushDialogVideoView.this.alZ);
                 }
             }
         };
-        this.kGI = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.8
+        this.kGX = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.8
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
             public boolean onError(int i2, int i22, Object obj) {
-                PushDialogVideoView.this.iaG.setVisibility(0);
-                PushDialogVideoView.this.fFA.dxd();
-                if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                    PushDialogVideoView.this.miF = true;
+                PushDialogVideoView.this.ibi.setVisibility(0);
+                PushDialogVideoView.this.fFc.dwD();
+                if (!j.isNetWorkAvailable()) {
+                    PushDialogVideoView.this.miY = true;
                 }
-                PushDialogVideoView.this.miH = false;
+                PushDialogVideoView.this.mja = false;
                 return true;
             }
         };
-        this.kGJ = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.9
+        this.kGY = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.9
             @Override // java.lang.Runnable
             public void run() {
-                PushDialogVideoView.this.iaG.setVisibility(0);
-                PushDialogVideoView.this.fFA.dxd();
+                PushDialogVideoView.this.ibi.setVisibility(0);
+                PushDialogVideoView.this.fFc.dwD();
             }
         };
-        this.eol = new CyberPlayerManager.OnSeekCompleteListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.10
+        this.emB = new CyberPlayerManager.OnSeekCompleteListener() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.10
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
             public void onSeekComplete() {
-                if (PushDialogVideoView.this.miB) {
-                    e.mY().postDelayed(PushDialogVideoView.this.miN, 200L);
+                if (PushDialogVideoView.this.miU) {
+                    e.mY().postDelayed(PushDialogVideoView.this.mjg, 200L);
                 }
             }
         };
-        this.miN = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
+        this.mjg = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
             @Override // java.lang.Runnable
             public void run() {
-                if (PushDialogVideoView.this.gjd == null || !PushDialogVideoView.this.miB) {
-                    e.mY().postDelayed(PushDialogVideoView.this.aak, 200L);
-                    PushDialogVideoView.this.miB = false;
-                } else if (PushDialogVideoView.this.mStartPosition != PushDialogVideoView.this.gjd.getCurrentPosition()) {
-                    PushDialogVideoView.this.miB = false;
-                    e.mY().postDelayed(PushDialogVideoView.this.aak, 20L);
+                if (PushDialogVideoView.this.giK == null || !PushDialogVideoView.this.miU) {
+                    e.mY().postDelayed(PushDialogVideoView.this.aap, 200L);
+                    PushDialogVideoView.this.miU = false;
+                } else if (PushDialogVideoView.this.mStartPosition != PushDialogVideoView.this.giK.getCurrentPosition()) {
+                    PushDialogVideoView.this.miU = false;
+                    e.mY().postDelayed(PushDialogVideoView.this.aap, 20L);
                 } else {
-                    e.mY().postDelayed(PushDialogVideoView.this.miN, 200L);
+                    e.mY().postDelayed(PushDialogVideoView.this.mjg, 200L);
                 }
             }
         };
-        this.fFI = new TbCyberVideoView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.12
+        this.fFk = new TbCyberVideoView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.12
             @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.a
             public void onSurfaceDestroyed() {
-                PushDialogVideoView.this.aae = false;
-                PushDialogVideoView.this.miH = false;
-                e.mY().removeCallbacks(PushDialogVideoView.this.aak);
-                e.mY().removeCallbacks(PushDialogVideoView.this.kGJ);
+                PushDialogVideoView.this.aaj = false;
+                PushDialogVideoView.this.mja = false;
+                e.mY().removeCallbacks(PushDialogVideoView.this.aap);
+                e.mY().removeCallbacks(PushDialogVideoView.this.kGY);
             }
         };
-        this.kGO = new CustomMessageListener(CmdConfigCustom.CMD_CALL_STATE_CHANGED) { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.2
+        this.kHd = new CustomMessageListener(CmdConfigCustom.CMD_CALL_STATE_CHANGED) { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if ((customResponsedMessage instanceof CallStateMessage) && ((CallStateMessage) customResponsedMessage).getCallState() == 1) {
-                    PushDialogVideoView.this.aPL();
+                    PushDialogVideoView.this.aPd();
                 }
             }
         };
@@ -510,16 +511,16 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (PushDialogVideoView.this.gjd != null && PushDialogVideoView.this.gjd.isPlaying()) {
-                            int currentPosition = PushDialogVideoView.this.gjd.getCurrentPosition();
-                            int duration = PushDialogVideoView.this.gjd.getDuration();
+                        if (PushDialogVideoView.this.giK != null && PushDialogVideoView.this.giK.isPlaying()) {
+                            int currentPosition = PushDialogVideoView.this.giK.getCurrentPosition();
+                            int duration = PushDialogVideoView.this.giK.getDuration();
                             if (currentPosition <= duration) {
                                 duration = currentPosition;
                             }
-                            if (PushDialogVideoView.this.kIH != null) {
-                                PushDialogVideoView.this.kIH.tp(duration);
+                            if (PushDialogVideoView.this.kIW != null) {
+                                PushDialogVideoView.this.kIW.tN(duration);
                             }
-                            sendMessageDelayed(obtainMessage(1), PushDialogVideoView.this.fSK - (duration % PushDialogVideoView.this.fSK));
+                            sendMessageDelayed(obtainMessage(1), PushDialogVideoView.this.fSr - (duration % PushDialogVideoView.this.fSr));
                             return;
                         }
                         return;
@@ -528,12 +529,12 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 }
             }
         };
-        this.kIH = new VideoControllerView.b() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.4
+        this.kIW = new VideoControllerView.b() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.4
             @Override // com.baidu.tieba.play.VideoControllerView.b
-            public void tp(int i2) {
+            public void tN(int i2) {
                 int duration;
-                if (PushDialogVideoView.this.gjd != null && (duration = PushDialogVideoView.this.gjd.getDuration()) > 0 && PushDialogVideoView.this.mhY != null) {
-                    PushDialogVideoView.this.mhY.setProgress((int) ((i2 * PushDialogVideoView.this.getWidth()) / duration));
+                if (PushDialogVideoView.this.giK != null && (duration = PushDialogVideoView.this.giK.getDuration()) > 0 && PushDialogVideoView.this.mit != null) {
+                    PushDialogVideoView.this.mit.setProgress((int) ((i2 * PushDialogVideoView.this.getWidth()) / duration));
                 }
             }
         };
@@ -544,263 +545,263 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         LayoutInflater.from(context).inflate(R.layout.cell_push_dialog_video_layout, (ViewGroup) this, true);
         this.mWidth = l.getEquipmentWidth(context) - l.getDimens(context, R.dimen.tbds132);
         this.mHeight = (int) (this.mWidth * 0.5625f);
-        this.gjd = (TbCyberVideoView) findViewById(R.id.videoView);
-        this.gjd.setPlayMode("2");
-        this.gjd.setStageType(null);
-        this.fFA = new m((ViewGroup) findViewById(R.id.auto_video_loading_container));
-        this.fFA.setLoadingAnimationListener(this.hXS);
-        this.mhY = (ProgressBar) findViewById(R.id.pgrBottomProgress);
-        this.mhY.setMax(this.mWidth);
-        this.mhY.setProgress(0);
-        this.kGb = findViewById(R.id.black_mask);
-        this.iaG = findViewById(R.id.layout_error);
-        this.kGk = (ImageView) findViewById(R.id.img_play);
-        this.mib = (TextView) findViewById(R.id.txt_replay);
-        this.hDk = (TextView) findViewById(R.id.push_dialog_video_time);
-        this.alJ = (TbImageView) findViewById(R.id.video_thumbnail);
-        this.lLo = (PbVideoWifiTipLayout) findViewById(R.id.layout_wifi_tip);
-        this.alJ.setDefaultErrorResource(0);
-        this.alJ.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-        this.kGF = new CallStateReceiver();
-        this.kGF.register(context);
-        this.iaG.setOnClickListener(this);
-        this.mib.setOnClickListener(this);
-        this.lLo.setOnPlayClickListener(this);
-        this.lLo.setFreeClickListener(this);
+        this.giK = (TbCyberVideoView) findViewById(R.id.videoView);
+        this.giK.setPlayMode("2");
+        this.giK.setStageType(null);
+        this.fFc = new m((ViewGroup) findViewById(R.id.auto_video_loading_container));
+        this.fFc.setLoadingAnimationListener(this.hYs);
+        this.mit = (ProgressBar) findViewById(R.id.pgrBottomProgress);
+        this.mit.setMax(this.mWidth);
+        this.mit.setProgress(0);
+        this.kGq = findViewById(R.id.black_mask);
+        this.ibi = findViewById(R.id.layout_error);
+        this.kGz = (ImageView) findViewById(R.id.img_play);
+        this.miw = (TextView) findViewById(R.id.txt_replay);
+        this.hCR = (TextView) findViewById(R.id.push_dialog_video_time);
+        this.alP = (TbImageView) findViewById(R.id.video_thumbnail);
+        this.lLG = (PbVideoWifiTipLayout) findViewById(R.id.layout_wifi_tip);
+        this.alP.setDefaultErrorResource(0);
+        this.alP.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+        this.kGU = new CallStateReceiver();
+        this.kGU.register(context);
+        this.ibi.setOnClickListener(this);
+        this.miw.setOnClickListener(this);
+        this.lLG.setOnPlayClickListener(this);
+        this.lLG.setFreeClickListener(this);
         setOnClickListener(this);
-        this.gjd.setOnPreparedListener(this.eog);
-        this.gjd.setOnCompletionListener(this.eoi);
-        this.gjd.setOnErrorListener(this.kGI);
-        this.gjd.setOnSeekCompleteListener(this.eol);
-        this.gjd.setOnSurfaceDestroyedListener(this.fFI);
+        this.giK.setOnPreparedListener(this.emw);
+        this.giK.setOnCompletionListener(this.emy);
+        this.giK.setOnErrorListener(this.kGX);
+        this.giK.setOnSeekCompleteListener(this.emB);
+        this.giK.setOnSurfaceDestroyedListener(this.fFk);
         onChangeSkinType();
     }
 
     public void onPause() {
         if (rK()) {
-            this.lLd = true;
-            aPL();
+            this.lLv = true;
+            aPd();
             return;
         }
-        this.lLd = false;
-        aPL();
+        this.lLv = false;
+        aPd();
     }
 
     public void onResume() {
-        if (this.lLd) {
-            aPM();
+        if (this.lLv) {
+            aPe();
         }
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.mPageContext.registerListener(this.kGO);
+        this.mPageContext.registerListener(this.kHd);
     }
 
-    public void setTbRichTextVideoInfo(j jVar) {
-        this.mpk = jVar;
-        this.hDk.setText(at.stringForVideoTime(this.mpk.getDuration() * 1000));
+    public void setTbRichTextVideoInfo(i iVar) {
+        this.mpE = iVar;
+        this.hCR.setText(au.stringForVideoTime(this.mpE.getDuration() * 1000));
     }
 
     public void setVideoUrl(String str, String str2) {
         this.mVideoUrl = str;
-        this.alT = str2;
+        this.alZ = str2;
     }
 
     public void setVideoViewBusiness(o oVar) {
-        this.gjd.setVideoStatData(oVar);
+        this.giK.setVideoStatData(oVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cnY() {
-        if (this.gjd != null) {
-            if (this.miH) {
-                this.gjd.start();
-                this.miH = false;
+    public void cnA() {
+        if (this.giK != null) {
+            if (this.mja) {
+                this.giK.start();
+                this.mja = false;
             }
-            e.mY().removeCallbacks(this.aak);
-            e.mY().postDelayed(this.aak, 20L);
-            e.mY().removeCallbacks(this.kGJ);
-            this.mStartPosition = n.dxh().QK(this.mVideoUrl);
+            e.mY().removeCallbacks(this.aap);
+            e.mY().postDelayed(this.aap, 20L);
+            e.mY().removeCallbacks(this.kGY);
+            this.mStartPosition = n.dwH().Qf(this.mVideoUrl);
             if (this.mStartPosition != 0) {
-                this.gjd.seekTo(this.mStartPosition);
-                if (!this.miG) {
+                this.giK.seekTo(this.mStartPosition);
+                if (!this.miZ) {
                     showProgress();
-                    e.mY().removeCallbacks(this.aak);
+                    e.mY().removeCallbacks(this.aap);
                 }
-                this.miB = true;
+                this.miU = true;
             }
         }
     }
 
-    public void dqv() {
-        if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
+    public void dpV() {
+        if (!j.isNetWorkAvailable()) {
             l.showLongToast(getContext(), getContext().getString(R.string.neterror));
-        } else if (this.gjd.isPlaying()) {
-            aPL();
-        } else if (this.aae) {
-            aPM();
+        } else if (this.giK.isPlaying()) {
+            aPd();
+        } else if (this.aaj) {
+            aPe();
         } else {
-            dwF();
+            dwf();
         }
     }
 
     public void setPauseState() {
-        this.fFA.dxd();
-        this.kGk.setVisibility(0);
-        this.mib.setVisibility(8);
+        this.fFc.dwD();
+        this.kGz.setVisibility(0);
+        this.miw.setVisibility(8);
     }
 
     private void a(a aVar, boolean z, String str, String str2) {
-        if (this.miC) {
+        if (this.miV) {
             fX(str, str2);
         } else {
             fW(str, str2);
         }
         if (aVar != null) {
-            aVar.ws(z);
+            aVar.wv(z);
         }
     }
 
     public void fW(String str, String str2) {
-        dwG();
-        this.miH = true;
+        dwg();
+        this.mja = true;
         setVideoUrl(str, str2);
-        this.gjd.setVideoPath(str, str2);
-        this.fFA.startLoading();
-        this.alJ.setVisibility(0);
-        this.kGk.setVisibility(8);
-        this.mib.setVisibility(8);
-        this.iaG.setVisibility(8);
-        e.mY().removeCallbacks(this.kGJ);
-        e.mY().postDelayed(this.kGJ, 60000L);
+        this.giK.setVideoPath(str, str2);
+        this.fFc.startLoading();
+        this.alP.setVisibility(0);
+        this.kGz.setVisibility(8);
+        this.miw.setVisibility(8);
+        this.ibi.setVisibility(8);
+        e.mY().removeCallbacks(this.kGY);
+        e.mY().postDelayed(this.kGY, 60000L);
     }
 
     public void fX(String str, String str2) {
-        dwG();
-        this.miH = true;
-        this.fFA.startLoading();
-        this.alJ.setVisibility(0);
-        this.kGk.setVisibility(8);
-        this.mib.setVisibility(8);
-        this.iaG.setVisibility(8);
-        e.mY().removeCallbacks(this.kGJ);
-        e.mY().postDelayed(this.kGJ, 60000L);
+        dwg();
+        this.mja = true;
+        this.fFc.startLoading();
+        this.alP.setVisibility(0);
+        this.kGz.setVisibility(8);
+        this.miw.setVisibility(8);
+        this.ibi.setVisibility(8);
+        e.mY().removeCallbacks(this.kGY);
+        e.mY().postDelayed(this.kGY, 60000L);
     }
 
-    public void aPM() {
-        this.gjd.start();
-        this.alJ.setVisibility(8);
-        this.kGb.setVisibility(8);
-        this.fFA.dxd();
+    public void aPe() {
+        this.giK.start();
+        this.alP.setVisibility(8);
+        this.kGq.setVisibility(8);
+        this.fFc.dwD();
         showProgress();
-        this.kGk.setVisibility(8);
-        this.mib.setVisibility(8);
+        this.kGz.setVisibility(8);
+        this.miw.setVisibility(8);
     }
 
     public void setNetworkChange() {
-        if (com.baidu.adp.lib.util.j.isNetWorkAvailable() && this.miF && !StringUtils.isNull(this.mVideoUrl) && !StringUtils.isNull(this.alT)) {
-            this.miF = false;
-            this.miG = true;
-            fW(this.mVideoUrl, this.alT);
+        if (j.isNetWorkAvailable() && this.miY && !StringUtils.isNull(this.mVideoUrl) && !StringUtils.isNull(this.alZ)) {
+            this.miY = false;
+            this.miZ = true;
+            fW(this.mVideoUrl, this.alZ);
         }
     }
 
-    public void aPL() {
-        if (this.gjd.isPlaying() && this.miA) {
-            dwE();
+    public void aPd() {
+        if (this.giK.isPlaying() && this.miT) {
+            dwe();
         }
-        this.gjd.pause();
+        this.giK.pause();
         setPauseState();
     }
 
     public void stopPlay() {
-        if (this.gjd.isPlaying() && this.miA) {
-            dwE();
+        if (this.giK.isPlaying() && this.miT) {
+            dwe();
         }
-        e.mY().removeCallbacks(this.aak);
-        e.mY().removeCallbacks(this.kGJ);
-        this.gjd.stopPlayback();
-        this.aae = false;
-        this.miH = false;
+        e.mY().removeCallbacks(this.aap);
+        e.mY().removeCallbacks(this.kGY);
+        this.giK.stopPlayback();
+        this.aaj = false;
+        this.mja = false;
         this.mStartPosition = 0;
-        cMt();
+        cMa();
     }
 
-    public void dwE() {
-        n.dxh().bC(this.mVideoUrl, this.gjd.getCurrentPositionSync());
+    public void dwe() {
+        n.dwH().bB(this.mVideoUrl, this.giK.getCurrentPositionSync());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wn(boolean z) {
-        this.kGb.setVisibility(0);
-        this.kGk.setVisibility(0);
-        this.mib.setVisibility(8);
-        this.fFA.dxd();
-        this.mhY.setVisibility(8);
-        this.iaG.setVisibility(8);
+    public void wq(boolean z) {
+        this.kGq.setVisibility(0);
+        this.kGz.setVisibility(0);
+        this.miw.setVisibility(8);
+        this.fFc.dwD();
+        this.mit.setVisibility(8);
+        this.ibi.setVisibility(8);
         this.mHandler.removeMessages(1);
-        this.alJ.setVisibility(z ? 0 : 8);
+        this.alP.setVisibility(z ? 0 : 8);
     }
 
-    public void cMt() {
-        wn(true);
+    public void cMa() {
+        wq(true);
     }
 
     public boolean rK() {
-        if (this.gjd == null) {
+        if (this.giK == null) {
             return false;
         }
-        return this.gjd.isPlaying();
+        return this.giK.isPlaying();
     }
 
     public int getCurrentPosition() {
-        if (this.gjd == null) {
+        if (this.giK == null) {
             return 0;
         }
-        return this.gjd.getCurrentPosition();
+        return this.giK.getCurrentPosition();
     }
 
     public void showProgress() {
-        if (this.gjd != null) {
-            this.mhY.setVisibility(0);
-            this.fSK = ((this.gjd.getDuration() / 200) / 50) * 50;
-            if (this.fSK < 50) {
-                this.fSK = 50;
-            } else if (this.fSK > 500) {
-                this.fSK = 500;
+        if (this.giK != null) {
+            this.mit.setVisibility(0);
+            this.fSr = ((this.giK.getDuration() / 200) / 50) * 50;
+            if (this.fSr < 50) {
+                this.fSr = 50;
+            } else if (this.fSr > 500) {
+                this.fSr = 500;
             }
             this.mHandler.removeMessages(1);
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.fSK - (this.gjd.getCurrentPosition() % this.fSK));
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.fSr - (this.giK.getCurrentPosition() % this.fSr));
         }
     }
 
-    private void dwF() {
-        a(this.mVideoUrl, this.alT, (a) null, new Object[0]);
+    private void dwf() {
+        a(this.mVideoUrl, this.alZ, (a) null, new Object[0]);
     }
 
     public void a(String str, String str2, a aVar, Object... objArr) {
-        dwG();
+        dwg();
         if (objArr != null && objArr.length > 0 && (objArr[0] instanceof Boolean)) {
-            this.miC = ((Boolean) objArr[0]).booleanValue();
+            this.miV = ((Boolean) objArr[0]).booleanValue();
         }
-        if (com.baidu.adp.lib.util.j.isMobileNet() && !this.lLx && !g.dOu().dOv()) {
-            this.lLo.setVisibility(0);
-            this.lLo.setData(this.mpk.getDuration(), this.mpk.getFileSize());
+        if (j.isMobileNet() && !this.lLP && !g.dOt().dOu()) {
+            this.lLG.setVisibility(0);
+            this.lLG.setData(this.mpE.getDuration(), this.mpE.getFileSize());
             return;
         }
         a(aVar, true, str, str2);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_VEDIO_START_PLAY));
     }
 
-    private void dwG() {
-        if (com.baidu.adp.lib.util.j.isMobileNet()) {
-            g.dOu().fW(getContext());
+    private void dwg() {
+        if (j.isMobileNet()) {
+            g.dOt().fV(getContext());
         }
     }
 
     public void setThumbnail(String str) {
-        this.alJ.startLoad(str, 17, false);
+        this.alP.startLoad(str, 17, false);
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -811,18 +812,18 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.iaG) {
-            dwF();
+        if (view == this.ibi) {
+            dwf();
         } else if (view == this) {
-            TiebaStatic.log(new aq("c13199").al("obj_locate", 2).dR("tid", this.alT));
-            dqv();
-        } else if (view == this.mib) {
-            fW(this.mVideoUrl, this.alT);
-        } else if (view == this.lLo.getTvPlay()) {
-            this.lLx = true;
-            this.lLo.setVisibility(8);
-            fW(this.mVideoUrl, this.alT);
-        } else if (view == this.lLo.getTvOpenFreeData() && this.mPageContext != null) {
+            TiebaStatic.log(new ar("c13199").ak("obj_locate", 2).dR("tid", this.alZ));
+            dpV();
+        } else if (view == this.miw) {
+            fW(this.mVideoUrl, this.alZ);
+        } else if (view == this.lLG.getTvPlay()) {
+            this.lLP = true;
+            this.lLG.setVisibility(8);
+            fW(this.mVideoUrl, this.alZ);
+        } else if (view == this.lLG.getTvOpenFreeData() && this.mPageContext != null) {
             this.mPageContext.getPageActivity().finish();
         }
     }
@@ -836,10 +837,10 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public void onDestroy() {
         stopPlay();
-        e.mY().removeCallbacks(this.aak);
-        e.mY().removeCallbacks(this.kGJ);
-        e.mY().removeCallbacks(this.miN);
+        e.mY().removeCallbacks(this.aap);
+        e.mY().removeCallbacks(this.kGY);
+        e.mY().removeCallbacks(this.mjg);
         this.mHandler.removeMessages(1);
-        this.kGF.unregister(getContext());
+        this.kGU.unregister(getContext());
     }
 }

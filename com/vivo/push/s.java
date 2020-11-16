@@ -1,6 +1,6 @@
 package com.vivo.push;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class s implements IPushActionListener {
 
     /* renamed from: a  reason: collision with root package name */

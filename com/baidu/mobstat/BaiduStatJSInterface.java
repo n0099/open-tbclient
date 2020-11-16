@@ -36,17 +36,17 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class BaiduStatJSInterface {
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public interface IWebviewPageLoadCallback {
         void onPageFinished(WebView webView, String str, bl blVar);
 
         void onPageStarted(WebView webView, String str, bl blVar);
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public static class CustomWebViewClient extends WebViewClient {
 
         /* renamed from: a  reason: collision with root package name */
@@ -322,7 +322,7 @@ public class BaiduStatJSInterface {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public static class CustomWebChromeViewClient extends WebChromeClient {
 
         /* renamed from: a  reason: collision with root package name */

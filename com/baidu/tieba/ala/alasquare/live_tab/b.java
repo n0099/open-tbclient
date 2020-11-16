@@ -9,42 +9,42 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private BdTypeRecyclerView Xe;
-    private List<com.baidu.adp.widget.ListView.a> bky;
-    private d gjI;
-    private boolean gjJ = false;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a gjv;
+    private BdTypeRecyclerView Xi;
+    private List<com.baidu.adp.widget.ListView.a> biN;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a gjc;
+    private d gjp;
+    private boolean gjq = false;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.Xe = bdTypeRecyclerView;
-        LY();
+        this.Xi = bdTypeRecyclerView;
+        Lp();
     }
 
-    private void LY() {
-        this.bky = new ArrayList();
-        this.gjI = new d(this.mPageContext);
-        this.gjI.lD(this.gjJ);
-        this.gjv = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.bky.add(this.gjI);
-        this.bky.add(this.gjv);
-        this.Xe.addAdapters(this.bky);
+    private void Lp() {
+        this.biN = new ArrayList();
+        this.gjp = new d(this.mPageContext);
+        this.gjp.lE(this.gjq);
+        this.gjc = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.biN.add(this.gjp);
+        this.biN.add(this.gjc);
+        this.Xi.addAdapters(this.biN);
     }
 
     public void setData(List<q> list) {
-        this.Xe.setData(list);
+        this.Xi.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Xe != null) {
-            this.Xe.getListAdapter().notifyDataSetChanged();
+        if (this.Xi != null) {
+            this.Xi.getListAdapter().notifyDataSetChanged();
         }
     }
 
-    public void lD(boolean z) {
-        this.gjJ = z;
+    public void lE(boolean z) {
+        this.gjq = z;
     }
 }

@@ -7,8 +7,8 @@ import android.view.MotionEvent;
 /* loaded from: classes6.dex */
 public class KasChildViewPager extends ViewPager {
     private float lastX;
-    private boolean qrs;
-    private boolean qrt;
+    private boolean qsV;
+    private boolean qsW;
 
     public KasChildViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -28,26 +28,26 @@ public class KasChildViewPager extends ViewPager {
             case 1:
                 getParent().requestDisallowInterceptTouchEvent(false);
                 this.lastX = motionEvent.getX();
-                this.qrs = false;
-                this.qrt = false;
+                this.qsV = false;
+                this.qsW = false;
                 break;
             case 2:
                 if (getCurrentItem() == 0) {
-                    if (this.lastX <= motionEvent.getX() && !this.qrt) {
+                    if (this.lastX <= motionEvent.getX() && !this.qsW) {
                         getParent().requestDisallowInterceptTouchEvent(false);
                         break;
                     } else {
-                        this.qrt = true;
+                        this.qsW = true;
                         this.lastX = motionEvent.getX();
                         getParent().requestDisallowInterceptTouchEvent(true);
                         break;
                     }
                 } else if (getCurrentItem() == getAdapter().getCount() - 1) {
-                    if (this.lastX >= motionEvent.getX() && !this.qrs) {
+                    if (this.lastX >= motionEvent.getX() && !this.qsV) {
                         getParent().requestDisallowInterceptTouchEvent(false);
                         break;
                     } else {
-                        this.qrs = true;
+                        this.qsV = true;
                         this.lastX = motionEvent.getX();
                         getParent().requestDisallowInterceptTouchEvent(true);
                         break;

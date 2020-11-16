@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class an extends o<com.baidu.tieba.pb.data.l, com.baidu.tieba.pb.pb.a.b> {
     public an(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
@@ -15,7 +15,7 @@ public class an extends o<com.baidu.tieba.pb.data.l, com.baidu.tieba.pb.pb.a.b> 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cn */
+    /* renamed from: cj */
     public com.baidu.tieba.pb.pb.a.b c(ViewGroup viewGroup) {
         return new com.baidu.tieba.pb.pb.a.b(LayoutInflater.from(this.mContext).inflate(R.layout.pb_no_data_item_layout, viewGroup, false), this.mContext);
     }
@@ -26,24 +26,25 @@ public class an extends o<com.baidu.tieba.pb.data.l, com.baidu.tieba.pb.pb.a.b> 
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.l lVar, com.baidu.tieba.pb.pb.a.b bVar) {
         super.a(i, view, viewGroup, (ViewGroup) lVar, (com.baidu.tieba.pb.data.l) bVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        bVar.mTextView.setText(lVar.loe);
-        if (lVar.lod != 0) {
-            com.baidu.tbadk.core.util.ap.setImageResource(bVar.mImageView, lVar.lod);
+        bVar.mTextView.setText(lVar.lox);
+        if (lVar.lov != 0) {
+            com.baidu.tbadk.core.util.ap.setImageResource(bVar.mImageView, lVar.lov);
         } else {
             com.baidu.tbadk.core.util.ap.setImageResource(bVar.mImageView, R.drawable.new_pic_emotion_06);
         }
-        com.baidu.tbadk.core.util.ap.setViewTextColor(bVar.mTextView, R.color.cp_cont_d);
-        if (lVar.gjD != 0 && view.getLayoutParams() != null) {
-            view.getLayoutParams().height = lVar.gjD;
+        com.baidu.tbadk.core.util.ap.setViewTextColor(bVar.mTextView, R.color.CAM_X0109);
+        if (lVar.gjk != 0 && view.getLayoutParams() != null) {
+            view.getLayoutParams().height = lVar.gjk;
         }
-        if (lVar.lof != 0) {
+        if (lVar.loy != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) bVar.mImageView.getLayoutParams();
-            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, lVar.lof, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
+            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, lVar.loy, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
         }
-        if (lVar.loh != 0) {
+        if (lVar.loz != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) bVar.mTextView.getLayoutParams();
-            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, lVar.loh);
+            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, lVar.loz);
         }
+        bVar.mImageView.setVisibility(lVar.loA);
         return view;
     }
 }

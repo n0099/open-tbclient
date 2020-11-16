@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class c extends g {
-    private String eiH;
-    private long eiI;
-    private long eiJ;
-    private String eiK;
-    private String eiL;
-    private int eiM;
+    private String eha;
+    private long ehb;
+    private long ehc;
+    private String ehd;
+    private String ehe;
+    private int ehf;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.eiI = -1L;
-        this.eiJ = -1L;
-        this.eiM = -1;
-        this.eiH = str;
+        this.ehb = -1L;
+        this.ehc = -1L;
+        this.ehf = -1;
+        this.eha = str;
     }
 
-    public c mW(int i) {
-        this.eiM = i;
+    public c mS(int i) {
+        this.ehf = i;
         return this;
     }
 
-    public int bca() {
-        return this.eiM;
+    public int bbt() {
+        return this.ehf;
     }
 
-    public c yu(String str) {
-        this.eiK = str;
+    public c yp(String str) {
+        this.ehd = str;
         return this;
     }
 
     public c cS(long j) {
-        this.eiI = j;
+        this.ehb = j;
         return this;
     }
 
     public c cT(long j) {
-        this.eiJ = j;
+        this.ehc = j;
         return this;
     }
 
-    public c yv(String str) {
-        this.eiL = str;
+    public c yq(String str) {
+        this.ehe = str;
         return this;
     }
 
-    public c yw(String str) {
+    public c yr(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.eiH;
+        return this.eha;
     }
 
-    public long bbY() {
-        return this.eiI;
+    public long bbr() {
+        return this.ehb;
     }
 
-    public long bbZ() {
-        return this.eiJ;
+    public long bbs() {
+        return this.ehc;
     }
 
-    public String bcb() {
-        return this.eiK;
+    public String bbu() {
+        return this.ehd;
     }
 
-    public String bcc() {
-        return this.eiL;
+    public String bbv() {
+        return this.ehe;
     }
 
     public String getPath() {

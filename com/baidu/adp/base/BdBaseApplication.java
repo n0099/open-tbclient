@@ -17,6 +17,9 @@ public class BdBaseApplication extends MAApplication {
     protected Handler mAppInitHandler;
     private boolean mHasCheckedNewUserStatus;
     private boolean mIsNewUser;
+    protected boolean mIsSmallFlow;
+    protected long mSmallFlowInterval;
+    protected long mStartSmallFlowTime;
     private boolean mIsDebugMode = false;
     private Application mContext = null;
     private boolean mIsPluginResourceOpen = true;
@@ -64,6 +67,33 @@ public class BdBaseApplication extends MAApplication {
         } else {
             this.mIsDebugMode = true;
         }
+    }
+
+    public void setIsSmallFlow(boolean z) {
+        this.mIsSmallFlow = z;
+    }
+
+    public boolean isSmallFlow() {
+        if (!this.mIsSmallFlow || (System.currentTimeMillis() - this.mStartSmallFlowTime) / 1000 <= this.mSmallFlowInterval) {
+            return this.mIsSmallFlow;
+        }
+        return false;
+    }
+
+    public void setStartSmallFlowTime(long j) {
+        this.mStartSmallFlowTime = j;
+    }
+
+    public long getStartSmallFlowTime() {
+        return this.mStartSmallFlowTime;
+    }
+
+    public void setSmallFlowInterval(long j) {
+        this.mSmallFlowInterval = j;
+    }
+
+    public long getSmallFlowInterval() {
+        return this.mSmallFlowInterval;
     }
 
     public boolean isDebugMode() {

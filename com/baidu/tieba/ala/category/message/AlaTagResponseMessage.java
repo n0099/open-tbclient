@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaTagResponseMessage extends JsonHttpResponsedMessage {
-    private List<d> guF;
+    private List<d> gum;
 
     public AlaTagResponseMessage() {
         super(1021191);
@@ -19,17 +19,17 @@ public class AlaTagResponseMessage extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         JSONArray optJSONArray = jSONObject.optJSONObject("data").optJSONArray("list");
         if (optJSONArray != null && optJSONArray.length() != 0) {
-            this.guF = new ArrayList();
+            this.gum = new ArrayList();
             int length = optJSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 d dVar = new d();
                 dVar.parse(optJSONArray.getJSONObject(i2));
-                this.guF.add(dVar);
+                this.gum.add(dVar);
             }
         }
     }
 
     public List<d> getTagList() {
-        return this.guF;
+        return this.gum;
     }
 }

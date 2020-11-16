@@ -22,117 +22,117 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.e.g;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class DatingNavView extends LinearLayout {
-    private w aES;
-    private com.baidu.live.ak.a gKY;
+    private w aDh;
+    private com.baidu.live.ak.a gKF;
     protected Activity mActivity;
-    protected TextView nVA;
-    protected TextView nVB;
-    protected TextView nVC;
-    protected TextView nVD;
-    protected TextView nVE;
-    protected LinearLayout nVF;
-    protected TextView nVG;
-    protected MarqueeTextView nVH;
-    private int nVI;
-    private d nVJ;
-    private d nVK;
-    private LinearLayout nVL;
-    protected LinearLayout nVy;
-    protected TextView nVz;
+    protected LinearLayout nXb;
+    protected TextView nXc;
+    protected TextView nXd;
+    protected TextView nXe;
+    protected TextView nXf;
+    protected TextView nXg;
+    protected TextView nXh;
+    protected LinearLayout nXi;
+    protected TextView nXj;
+    protected MarqueeTextView nXk;
+    private int nXl;
+    private d nXm;
+    private d nXn;
+    private LinearLayout nXo;
 
     public DatingNavView(Activity activity) {
         super(activity);
-        this.nVI = 0;
-        I(activity);
+        this.nXl = 0;
+        H(activity);
     }
 
-    protected void I(Activity activity) {
+    protected void H(Activity activity) {
         ViewGroup.LayoutParams layoutParams;
         LayoutInflater.from(activity).inflate(a.g.yuyin_ala_liveroom_dating_nav_layout, this);
         this.mActivity = activity;
-        this.nVy = (LinearLayout) findViewById(a.f.ll_rule);
-        this.nVz = (TextView) findViewById(a.f.tv_inter);
-        this.nVL = (LinearLayout) findViewById(a.f.ll_rule);
+        this.nXb = (LinearLayout) findViewById(a.f.ll_rule);
+        this.nXc = (TextView) findViewById(a.f.tv_inter);
+        this.nXo = (LinearLayout) findViewById(a.f.ll_rule);
         int i = BdUtilHelper.getScreenSize(activity).widthPixels;
-        if (this.nVL != null && this.nVL.getLayoutParams() != null && (layoutParams = this.nVL.getLayoutParams()) != null) {
+        if (this.nXo != null && this.nXo.getLayoutParams() != null && (layoutParams = this.nXo.getLayoutParams()) != null) {
             layoutParams.width = (i - BdUtilHelper.dip2px(activity, 110.0f)) / 4;
         }
-        this.nVA = (TextView) findViewById(a.f.tv_choose);
-        this.nVB = (TextView) findViewById(a.f.tv_publish);
-        this.nVC = (TextView) findViewById(a.f.tv_confession);
-        this.nVD = (TextView) findViewById(a.f.tv_end);
-        this.nVE = (TextView) findViewById(a.f.tv_next);
-        this.nVF = (LinearLayout) findViewById(a.f.tv_operate);
-        this.nVG = (TextView) findViewById(a.f.tv_start);
-        this.nVH = (MarqueeTextView) findViewById(a.f.tv_progress);
-        this.nVH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.1
+        this.nXd = (TextView) findViewById(a.f.tv_choose);
+        this.nXe = (TextView) findViewById(a.f.tv_publish);
+        this.nXf = (TextView) findViewById(a.f.tv_confession);
+        this.nXg = (TextView) findViewById(a.f.tv_end);
+        this.nXh = (TextView) findViewById(a.f.tv_next);
+        this.nXi = (LinearLayout) findViewById(a.f.tv_operate);
+        this.nXj = (TextView) findViewById(a.f.tv_start);
+        this.nXk = (MarqueeTextView) findViewById(a.f.tv_progress);
+        this.nXk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DatingNavView.this.dXN();
+                DatingNavView.this.dXM();
             }
         });
-        this.nVy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.3
+        this.nXb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DatingNavView.this.dXN();
+                DatingNavView.this.dXM();
             }
         });
-        aA(activity);
+        az(activity);
     }
 
-    private void aA(Activity activity) {
-        this.nVJ = new d(activity);
-        this.nVK = new d(activity);
-        this.nVG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                DatingNavView.this.dXQ();
-            }
-        });
-        this.nVD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.5
+    private void az(Activity activity) {
+        this.nXm = new d(activity);
+        this.nXn = new d(activity);
+        this.nXj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 DatingNavView.this.dXP();
             }
         });
-        this.nVE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.6
+        this.nXg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                switch (DatingNavView.this.nVI) {
+                DatingNavView.this.dXO();
+            }
+        });
+        this.nXh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.6
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                switch (DatingNavView.this.nXl) {
                     case 1:
-                        DatingNavView.this.ca(DatingNavView.this.nVI, "确认进入 心动选择 环节？");
+                        DatingNavView.this.bY(DatingNavView.this.nXl, "确认进入 心动选择 环节？");
                         return;
                     case 2:
-                        DatingNavView.this.ca(DatingNavView.this.nVI, "确认进入 结果公布 环节？");
+                        DatingNavView.this.bY(DatingNavView.this.nXl, "确认进入 结果公布 环节？");
                         return;
                     case 3:
-                        DatingNavView.this.ca(DatingNavView.this.nVI, "确认进入 祝福时刻 环节？");
+                        DatingNavView.this.bY(DatingNavView.this.nXl, "确认进入 祝福时刻 环节？");
                         return;
                     default:
                         return;
                 }
             }
         });
-        this.nVJ.a(new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.7
+        this.nXm.a(new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.7
             @Override // com.baidu.tieba.yuyinala.liveroom.datingnavigation.d.a
             public void a(DatingStageHttpResponseMessage datingStageHttpResponseMessage) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501032));
-                DatingNavView.this.nVG.setEnabled(true);
-                DatingNavView.this.nVE.setEnabled(true);
-                b dXR = datingStageHttpResponseMessage.dXR();
-                if (dXR != null) {
+                DatingNavView.this.nXj.setEnabled(true);
+                DatingNavView.this.nXh.setEnabled(true);
+                b dXQ = datingStageHttpResponseMessage.dXQ();
+                if (dXQ != null) {
                     try {
-                        DatingNavView.this.nVI = Integer.parseInt(dXR.nVP);
+                        DatingNavView.this.nXl = Integer.parseInt(dXQ.nXs);
                     } catch (Exception e) {
-                        DatingNavView.this.nVI = 0;
+                        DatingNavView.this.nXl = 0;
                     }
-                    DatingNavView.this.setMasterStageView(DatingNavView.this.nVI);
-                    switch (DatingNavView.this.nVI) {
+                    DatingNavView.this.setMasterStageView(DatingNavView.this.nXl);
+                    switch (DatingNavView.this.nXl) {
                         case 1:
                             JSONObject jSONObject = new JSONObject();
                             try {
                                 jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, DatingNavView.this.aES.aJK.croom_id);
+                                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, DatingNavView.this.aDh.aHZ.croom_id);
                             } catch (Exception e2) {
                                 BdLog.e(e2);
                             }
@@ -157,25 +157,25 @@ public class DatingNavView extends LinearLayout {
             @Override // com.baidu.tieba.yuyinala.liveroom.datingnavigation.d.a
             public void onFail(int i, String str) {
                 if (i == 110003) {
-                    DatingNavView.this.nVI = 0;
+                    DatingNavView.this.nXl = 0;
                     DatingNavView.this.setMasterStageView(0);
                 } else {
                     BdUtilHelper.showToast(DatingNavView.this.getContext(), "进入下一环节失败，请重试");
                 }
-                DatingNavView.this.nVG.setEnabled(true);
-                DatingNavView.this.nVE.setEnabled(true);
+                DatingNavView.this.nXj.setEnabled(true);
+                DatingNavView.this.nXh.setEnabled(true);
             }
         });
-        this.nVK.a(new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.8
+        this.nXn.a(new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.8
             @Override // com.baidu.tieba.yuyinala.liveroom.datingnavigation.d.a
             public void a(DatingStageHttpResponseMessage datingStageHttpResponseMessage) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501032));
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, DatingNavView.this.aES.aJK.croom_id);
+                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, DatingNavView.this.aDh.aHZ.croom_id);
                     String str = "";
-                    switch (DatingNavView.this.nVI) {
+                    switch (DatingNavView.this.nXl) {
                         case 1:
                             str = "interact";
                             break;
@@ -194,134 +194,134 @@ public class DatingNavView extends LinearLayout {
                     BdLog.e(e);
                 }
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "enddating_suc").setContentExt(jSONObject));
-                DatingNavView.this.nVI = 0;
-                DatingNavView.this.nVD.setEnabled(true);
+                DatingNavView.this.nXl = 0;
+                DatingNavView.this.nXg.setEnabled(true);
                 DatingNavView.this.setMasterStageView(0);
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.datingnavigation.d.a
             public void onFail(int i, String str) {
-                DatingNavView.this.nVD.setEnabled(true);
+                DatingNavView.this.nXg.setEnabled(true);
                 BdUtilHelper.showToast(DatingNavView.this.getContext(), "约会结束失败，请重试");
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dXN() {
-        if (this.aES != null && this.aES.aJL != null && !TextUtils.isEmpty(this.aES.aJL.aSC)) {
-            if (this.gKY == null) {
-                this.gKY = new com.baidu.live.ak.a(this.mActivity);
+    public void dXM() {
+        if (this.aDh != null && this.aDh.aIa != null && !TextUtils.isEmpty(this.aDh.aIa.aQR)) {
+            if (this.gKF == null) {
+                this.gKF = new com.baidu.live.ak.a(this.mActivity);
             }
             com.baidu.live.ak.c cVar = new com.baidu.live.ak.c();
-            cVar.url = this.aES.aJL.aSC;
-            cVar.bOc = 0.5f;
-            this.gKY.a(cVar);
+            cVar.url = this.aDh.aIa.aQR;
+            cVar.bMs = 0.5f;
+            this.gKF.a(cVar);
         }
     }
 
     public void destory() {
-        this.nVI = 0;
+        this.nXl = 0;
     }
 
     public void e(w wVar, boolean z) {
-        if (wVar != null && wVar.aJP != null) {
-            this.aES = wVar;
-            this.nVI = wVar.aJP.getActivityStage();
-            if (g.eau()) {
-                setMasterStageView(this.nVI);
+        if (wVar != null && wVar.aIe != null) {
+            this.aDh = wVar;
+            this.nXl = wVar.aIe.getActivityStage();
+            if (g.eat()) {
+                setMasterStageView(this.nXl);
             } else {
-                j(this.nVI, true, z);
+                j(this.nXl, true, z);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setMasterStageView(int i) {
-        LZ(i);
-        Ma(i);
-        this.nVF.setVisibility(0);
+        MC(i);
+        MD(i);
+        this.nXi.setVisibility(0);
     }
 
-    private void dXO() {
-        this.nVz.setBackgroundDrawable(null);
-        this.nVz.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
-        g.f(this.nVz, false);
-        this.nVA.setBackgroundDrawable(null);
-        this.nVA.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
-        g.f(this.nVA, false);
-        this.nVB.setBackgroundDrawable(null);
-        this.nVB.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
-        g.f(this.nVB, false);
-        this.nVC.setBackgroundDrawable(null);
-        this.nVC.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
-        g.f(this.nVC, false);
+    private void dXN() {
+        this.nXc.setBackgroundDrawable(null);
+        this.nXc.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
+        g.f(this.nXc, false);
+        this.nXd.setBackgroundDrawable(null);
+        this.nXd.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
+        g.f(this.nXd, false);
+        this.nXe.setBackgroundDrawable(null);
+        this.nXe.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
+        g.f(this.nXe, false);
+        this.nXf.setBackgroundDrawable(null);
+        this.nXf.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
+        g.f(this.nXf, false);
     }
 
-    private void LZ(int i) {
+    private void MC(int i) {
         switch (i) {
             case 1:
-                dXO();
-                this.nVz.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
-                this.nVz.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
-                g.f(this.nVz, true);
-                this.nVH.setScrollText(g.d(this.aES, 1));
+                dXN();
+                this.nXc.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
+                this.nXc.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
+                g.f(this.nXc, true);
+                this.nXk.setScrollText(g.d(this.aDh, 1));
                 return;
             case 2:
-                dXO();
-                this.nVA.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
-                this.nVA.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
-                g.f(this.nVA, true);
-                this.nVH.setScrollText(g.d(this.aES, 2));
+                dXN();
+                this.nXd.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
+                this.nXd.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
+                g.f(this.nXd, true);
+                this.nXk.setScrollText(g.d(this.aDh, 2));
                 return;
             case 3:
-                dXO();
-                this.nVB.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
-                this.nVB.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
-                g.f(this.nVB, true);
-                this.nVH.setScrollText(g.d(this.aES, 3));
+                dXN();
+                this.nXe.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
+                this.nXe.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
+                g.f(this.nXe, true);
+                this.nXk.setScrollText(g.d(this.aDh, 3));
                 return;
             case 4:
-                dXO();
-                this.nVC.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
-                this.nVC.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
-                g.f(this.nVC, true);
-                this.nVH.setScrollText(g.d(this.aES, 4));
+                dXN();
+                this.nXf.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
+                this.nXf.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
+                g.f(this.nXf, true);
+                this.nXk.setScrollText(g.d(this.aDh, 4));
                 return;
             default:
-                dXO();
-                this.nVH.setScrollText(g.d(this.aES, 0));
+                dXN();
+                this.nXk.setScrollText(g.d(this.aDh, 0));
                 return;
         }
     }
 
     public void j(w wVar) {
-        if (wVar != null && wVar.aJP != null) {
-            this.aES = wVar;
-            if (g.eau()) {
-                this.nVI = wVar.aJP.getActivityStage();
-                setMasterStageView(this.nVI);
+        if (wVar != null && wVar.aIe != null) {
+            this.aDh = wVar;
+            if (g.eat()) {
+                this.nXl = wVar.aIe.getActivityStage();
+                setMasterStageView(this.nXl);
                 return;
             }
-            int activityStage = wVar.aJP.getActivityStage();
-            this.nVF.setVisibility(8);
-            if (this.nVI == 0 || activityStage != this.nVI) {
-                this.nVI = activityStage;
-                j(this.nVI, false, true);
+            int activityStage = wVar.aIe.getActivityStage();
+            this.nXi.setVisibility(8);
+            if (this.nXl == 0 || activityStage != this.nXl) {
+                this.nXl = activityStage;
+                j(this.nXl, false, true);
             }
         }
     }
 
     private void j(int i, boolean z, boolean z2) {
-        this.nVF.setVisibility(8);
+        this.nXi.setVisibility(8);
         switch (i) {
             case 1:
                 if (z2) {
                     BdUtilHelper.showToast(getContext(), z ? "嘉宾互动中" : "约会开始，进入嘉宾互动环节");
                 }
-                LZ(1);
-                if (this.aES != null) {
-                    this.aES.aKa = "";
+                MC(1);
+                if (this.aDh != null) {
+                    this.aDh.aIp = "";
                     return;
                 }
                 return;
@@ -329,15 +329,15 @@ public class DatingNavView extends LinearLayout {
                 if (z2) {
                     BdUtilHelper.showToast(getContext(), z ? "心动选择中" : "进入心动选择环节");
                 }
-                LZ(2);
+                MC(2);
                 return;
             case 3:
                 if (z2) {
                     BdUtilHelper.showToast(getContext(), z ? "结果公布中" : "进入结果公布环节");
                 }
-                LZ(3);
-                if (this.aES != null) {
-                    this.aES.aKa = "";
+                MC(3);
+                if (this.aDh != null) {
+                    this.aDh.aIp = "";
                     return;
                 }
                 return;
@@ -345,16 +345,16 @@ public class DatingNavView extends LinearLayout {
                 if (z2) {
                     BdUtilHelper.showToast(getContext(), z ? "甜蜜告白中" : "进入甜蜜告白环节");
                 }
-                LZ(4);
-                if (this.aES != null) {
-                    this.aES.aKa = "";
+                MC(4);
+                if (this.aDh != null) {
+                    this.aDh.aIp = "";
                     return;
                 }
                 return;
             default:
-                LZ(0);
-                if (this.aES != null) {
-                    this.aES.aKa = "";
+                MC(0);
+                if (this.aDh != null) {
+                    this.aDh.aIp = "";
                     return;
                 }
                 return;
@@ -362,24 +362,24 @@ public class DatingNavView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ca(final int i, String str) {
+    public void bY(final int i, String str) {
         g.a(this.mActivity, str, new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DatingNavView.this.nVJ.h(i + "", "1", g.am(DatingNavView.this.aES), 0);
-                DatingNavView.this.nVE.setEnabled(false);
+                DatingNavView.this.nXm.h(i + "", "1", g.am(DatingNavView.this.aDh), 0);
+                DatingNavView.this.nXh.setEnabled(false);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dXP() {
+    public void dXO() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aES.aJK.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aDh.aHZ.croom_id);
             String str = "";
-            switch (this.nVI) {
+            switch (this.nXl) {
                 case 1:
                     str = "interact";
                     break;
@@ -401,18 +401,18 @@ public class DatingNavView extends LinearLayout {
         g.a(this.mActivity, "确认结束本轮约会", new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.10
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DatingNavView.this.nVK.h(DatingNavView.this.nVI + "", "2", g.am(DatingNavView.this.aES), 0);
-                DatingNavView.this.nVD.setEnabled(false);
+                DatingNavView.this.nXn.h(DatingNavView.this.nXl + "", "2", g.am(DatingNavView.this.aDh), 0);
+                DatingNavView.this.nXg.setEnabled(false);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dXQ() {
+    public void dXP() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aES.aJK.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aDh.aHZ.croom_id);
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -420,30 +420,30 @@ public class DatingNavView extends LinearLayout {
         g.a(this.mActivity, "确定开始约会，进入嘉宾互动环节？", new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DatingNavView.this.nVJ.h("0", "1", g.am(DatingNavView.this.aES), 0);
-                DatingNavView.this.nVG.setEnabled(false);
+                DatingNavView.this.nXm.h("0", "1", g.am(DatingNavView.this.aDh), 0);
+                DatingNavView.this.nXj.setEnabled(false);
             }
         });
     }
 
-    private void Ma(int i) {
+    private void MD(int i) {
         switch (i) {
             case 1:
             case 2:
             case 3:
-                this.nVG.setVisibility(8);
-                this.nVE.setVisibility(0);
-                this.nVD.setVisibility(0);
+                this.nXj.setVisibility(8);
+                this.nXh.setVisibility(0);
+                this.nXg.setVisibility(0);
                 return;
             case 4:
-                this.nVG.setVisibility(8);
-                this.nVE.setVisibility(8);
-                this.nVD.setVisibility(0);
+                this.nXj.setVisibility(8);
+                this.nXh.setVisibility(8);
+                this.nXg.setVisibility(0);
                 return;
             default:
-                this.nVG.setVisibility(0);
-                this.nVD.setVisibility(8);
-                this.nVE.setVisibility(8);
+                this.nXj.setVisibility(0);
+                this.nXg.setVisibility(8);
+                this.nXh.setVisibility(8);
                 return;
         }
     }

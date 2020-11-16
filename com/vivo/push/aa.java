@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public abstract class aa {
 
     /* renamed from: a  reason: collision with root package name */
@@ -35,7 +35,7 @@ public abstract class aa {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes11.dex */
     class a extends Handler {
         public a(Looper looper) {
             super(looper);

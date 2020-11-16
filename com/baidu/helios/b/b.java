@@ -4,10 +4,10 @@ import com.baidu.helios.channels.b;
 import com.baidu.helios.channels.csc.QuantumChannel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class b implements b.a {
     @Override // com.baidu.helios.channels.b.a
-    public List<com.baidu.helios.channels.a> Am() {
+    public List<com.baidu.helios.channels.a> zD() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new QuantumChannel());
         arrayList.add(new com.baidu.helios.channels.a.a());

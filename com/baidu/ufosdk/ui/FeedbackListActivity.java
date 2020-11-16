@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class FeedbackListActivity extends Activity {
     private static com.baidu.ufosdk.a.b x;
 

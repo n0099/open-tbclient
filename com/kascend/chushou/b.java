@@ -3,7 +3,7 @@ package com.kascend.chushou;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class b {
-    private static volatile b phq;
+    private static volatile b piW;
 
     /* renamed from: a  reason: collision with root package name */
     public boolean f4066a = false;
@@ -16,11 +16,11 @@ public class b {
     }
 
     public static b etQ() {
-        if (phq == null) {
+        if (piW == null) {
             synchronized (b.class) {
-                phq = new b();
+                piW = new b();
             }
         }
-        return phq;
+        return piW;
     }
 }

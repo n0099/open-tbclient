@@ -1,5 +1,5 @@
 package com.baidu.ar.face.algo;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class FAUPoint2D {
     float x;
     float y;

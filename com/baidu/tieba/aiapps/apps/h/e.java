@@ -14,7 +14,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class e extends aa {
     public e(j jVar) {
         super(jVar, "/swan/publishThread");
@@ -22,12 +22,12 @@ public class e extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        aK(context, unitedSchemeEntity.getParam("params"));
+        aH(context, unitedSchemeEntity.getParam("params"));
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
 
-    public static boolean aK(Context context, String str) {
+    public static boolean aH(Context context, String str) {
         boolean z;
         if (StringUtils.isNull(str)) {
             return false;

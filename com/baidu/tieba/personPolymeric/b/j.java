@@ -11,7 +11,7 @@ import com.baidu.tbadk.data.n;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class j {
     public static String g(TbPageContext tbPageContext, String str) {
         if (tbPageContext == null || StringUtils.isNull(str)) {
@@ -24,9 +24,9 @@ public class j {
     }
 
     public static void a(n nVar, BdUniqueId bdUniqueId) {
-        if (nVar != null && !StringUtils.isNull(nVar.byX()) && y.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
+        if (nVar != null && !StringUtils.isNull(nVar.byn()) && y.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(1003063);
-            httpMessage.addParam("pic_url", nVar.byX());
+            httpMessage.addParam("pic_url", nVar.byn());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -34,13 +34,13 @@ public class j {
 
     public static void a(n nVar, List<q> list) {
         n nVar2;
-        if (nVar != null && !y.isEmpty(list) && !StringUtils.isNull(nVar.byX())) {
+        if (nVar != null && !y.isEmpty(list) && !StringUtils.isNull(nVar.byn())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 q qVar = list.get(i);
-                if ((qVar instanceof n) && (nVar2 = (n) qVar) != nVar && !nVar2.byY()) {
-                    jSONArray.put(nVar2.byX());
+                if ((qVar instanceof n) && (nVar2 = (n) qVar) != nVar && !nVar2.byo()) {
+                    jSONArray.put(nVar2.byn());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(1003064);
@@ -65,8 +65,8 @@ public class j {
                 q qVar = list.get(i);
                 if (qVar instanceof n) {
                     n nVar = (n) qVar;
-                    if (!nVar.byY()) {
-                        jSONArray.put(nVar.byX());
+                    if (!nVar.byo()) {
+                        jSONArray.put(nVar.byn());
                     }
                 }
             }

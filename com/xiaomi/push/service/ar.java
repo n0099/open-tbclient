@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.ap;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 class ar extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
@@ -22,9 +22,9 @@ class ar extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        if (this.f5064a.f5061a == this.f5064a.f866a.f853a) {
-            com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.f5064a.f866a.g);
-            this.f5064a.f866a.f853a = null;
+        if (this.f5064a.f5061a == this.f5064a.f869a.f856a) {
+            com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.f5064a.f869a.g);
+            this.f5064a.f869a.f856a = null;
         }
     }
 }

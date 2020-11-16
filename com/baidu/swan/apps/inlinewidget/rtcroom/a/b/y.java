@@ -4,11 +4,11 @@ import android.support.annotation.NonNull;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class y extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String avA() {
+    public String auS() {
         return "setRemoteVideoPlayState";
     }
 

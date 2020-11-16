@@ -7,36 +7,36 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class g<K, V> {
-    private final v<V> oTU;
+    private final v<V> oVx;
     @GuardedBy("this")
-    private final LinkedHashMap<K, V> oTV = new LinkedHashMap<>();
+    private final LinkedHashMap<K, V> oVy = new LinkedHashMap<>();
     @GuardedBy("this")
-    private int oTW = 0;
+    private int oVz = 0;
 
     public g(v<V> vVar) {
-        this.oTU = vVar;
+        this.oVx = vVar;
     }
 
     public synchronized int getCount() {
-        return this.oTV.size();
+        return this.oVy.size();
     }
 
     public synchronized int getSizeInBytes() {
-        return this.oTW;
+        return this.oVz;
     }
 
     @Nullable
-    public synchronized K enr() {
-        return this.oTV.isEmpty() ? null : this.oTV.keySet().iterator().next();
+    public synchronized K enp() {
+        return this.oVy.isEmpty() ? null : this.oVy.keySet().iterator().next();
     }
 
     public synchronized ArrayList<Map.Entry<K, V>> a(@Nullable com.facebook.common.internal.h<K> hVar) {
         ArrayList<Map.Entry<K, V>> arrayList;
-        arrayList = new ArrayList<>(this.oTV.entrySet().size());
-        for (Map.Entry<K, V> entry : this.oTV.entrySet()) {
-            if (hVar == null || hVar.ba(entry.getKey())) {
+        arrayList = new ArrayList<>(this.oVy.entrySet().size());
+        for (Map.Entry<K, V> entry : this.oVy.entrySet()) {
+            if (hVar == null || hVar.bb(entry.getKey())) {
                 arrayList.add(entry);
             }
         }
@@ -44,36 +44,36 @@ public class g<K, V> {
     }
 
     public synchronized boolean contains(K k) {
-        return this.oTV.containsKey(k);
+        return this.oVy.containsKey(k);
     }
 
     @Nullable
     public synchronized V get(K k) {
-        return this.oTV.get(k);
+        return this.oVy.get(k);
     }
 
     @Nullable
     public synchronized V put(K k, V v) {
         V remove;
-        remove = this.oTV.remove(k);
-        this.oTW -= bs(remove);
-        this.oTV.put(k, v);
-        this.oTW += bs(v);
+        remove = this.oVy.remove(k);
+        this.oVz -= bt(remove);
+        this.oVy.put(k, v);
+        this.oVz += bt(v);
         return remove;
     }
 
     @Nullable
     public synchronized V remove(K k) {
         V remove;
-        remove = this.oTV.remove(k);
-        this.oTW -= bs(remove);
+        remove = this.oVy.remove(k);
+        this.oVz -= bt(remove);
         return remove;
     }
 
-    private int bs(V v) {
+    private int bt(V v) {
         if (v == null) {
             return 0;
         }
-        return this.oTU.bq(v);
+        return this.oVx.br(v);
     }
 }

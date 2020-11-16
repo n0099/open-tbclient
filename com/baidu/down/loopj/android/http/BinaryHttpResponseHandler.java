@@ -19,7 +19,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
     private static final boolean DEBUG = false;
     private static final String TAG = "BinaryHttpResponseHandler";

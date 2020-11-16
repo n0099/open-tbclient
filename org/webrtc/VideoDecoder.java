@@ -1,13 +1,13 @@
 package org.webrtc;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface VideoDecoder {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public interface Callback {
         void onDecodedFrame(VideoFrame videoFrame, Integer num, Integer num2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class DecodeInfo {
         public final boolean isMissingFrames;
         public final long renderTimeMs;
@@ -18,7 +18,7 @@ public interface VideoDecoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class Settings {
         public final int height;
         public final int numberOfCores;

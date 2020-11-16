@@ -12,8 +12,8 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.GroupData;
+import com.baidu.tbadk.util.ac;
 import com.baidu.tbadk.util.ad;
-import com.baidu.tbadk.util.ae;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.memorycache.b;
@@ -26,7 +26,7 @@ import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public abstract class CommonGroupMsglistModel extends MsglistModel {
     private final CustomMessageListener mCustomListener;
     protected GroupData mGroup;
@@ -84,7 +84,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
         if (getGroup() != null) {
-            return b.cTK().bo(String.valueOf(getGroup().getGroupId()), this.customGroupType);
+            return b.cTq().bn(String.valueOf(getGroup().getGroupId()), this.customGroupType);
         }
         return 0L;
     }
@@ -92,12 +92,12 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void deleteMsg(final ChatMessage chatMessage) {
         if (this.mGroup != null && chatMessage != null) {
-            ae.b(new ad<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.1
+            ad.b(new ac<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.ad
+                @Override // com.baidu.tbadk.util.ac
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tieba.im.db.c.cQU().fo(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(com.baidu.tieba.im.db.c.cQA().fo(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -106,12 +106,12 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void markDeleteMsg(final ChatMessage chatMessage) {
         if (this.mGroup != null && chatMessage != null) {
-            ae.b(new ad<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.2
+            ad.b(new ac<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.ad
+                @Override // com.baidu.tbadk.util.ac
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tieba.im.db.c.cQU().fn(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(com.baidu.tieba.im.db.c.cQA().fn(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }

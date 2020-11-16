@@ -2,7 +2,7 @@ package com.baidu.sofire;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */

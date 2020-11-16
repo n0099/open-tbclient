@@ -1,0 +1,17 @@
+package com.baidu.tieba.l;
+/* loaded from: classes.dex */
+public interface e {
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void Fo(int i);
+
+        void onChange(boolean z);
+
+        void tn(boolean z);
+    }
+
+    void a(a aVar);
+
+    void ddy();
+}

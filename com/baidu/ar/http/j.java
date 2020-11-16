@@ -7,7 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 final class j {
     public static String a(String str, Charset charset) {
         String name;

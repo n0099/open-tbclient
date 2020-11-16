@@ -19,28 +19,28 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class f {
     private static final Map<String, m<e>> Bs = new HashMap();
 
-    public static m<e> bu(Context context, String str) {
-        return com.tb.airbnb.lottie.network.b.bx(context, str);
+    public static m<e> br(Context context, String str) {
+        return com.tb.airbnb.lottie.network.b.bu(context, str);
     }
 
-    public static m<e> bv(Context context, final String str) {
+    public static m<e> bs(Context context, final String str) {
         final Context applicationContext = context.getApplicationContext();
         return b(str, new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: eyx */
+            /* renamed from: eyy */
             public l<e> call() {
-                return f.bw(applicationContext, str);
+                return f.bt(applicationContext, str);
             }
         });
     }
 
     @WorkerThread
-    public static l<e> bw(Context context, String str) {
+    public static l<e> bt(Context context, String str) {
         l<e> k;
         try {
             String str2 = "asset_" + str;
@@ -60,7 +60,7 @@ public class f {
         return b(U(i), new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: eyx */
+            /* renamed from: eyy */
             public l<e> call() {
                 return f.N(applicationContext, i);
             }
@@ -84,7 +84,7 @@ public class f {
         return b(str, new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: eyx */
+            /* renamed from: eyy */
             public l<e> call() {
                 return f.k(inputStream, str);
             }
@@ -111,7 +111,7 @@ public class f {
         return b(str, new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: eyx */
+            /* renamed from: eyy */
             public l<e> call() {
                 return f.d(jsonReader, str);
             }
@@ -122,7 +122,7 @@ public class f {
     public static l<e> d(JsonReader jsonReader, @Nullable String str) {
         try {
             e g = t.g(jsonReader);
-            com.tb.airbnb.lottie.model.g.eyK().a(str, g);
+            com.tb.airbnb.lottie.model.g.eyL().a(str, g);
             return new l<>(g);
         } catch (Exception e) {
             return new l<>(e);
@@ -176,7 +176,7 @@ public class f {
                     return new l<>(new IllegalStateException("There is no image for " + entry2.getValue().getFileName()));
                 }
             }
-            com.tb.airbnb.lottie.model.g.eyK().a(str, eVar2);
+            com.tb.airbnb.lottie.model.g.eyL().a(str, eVar2);
             return new l<>(eVar2);
         } catch (IOException e) {
             return new l<>(e);
@@ -194,12 +194,12 @@ public class f {
     }
 
     private static m<e> b(@Nullable final String str, Callable<l<e>> callable) {
-        final e Zm = com.tb.airbnb.lottie.model.g.eyK().Zm(str);
-        if (Zm != null) {
+        final e YX = com.tb.airbnb.lottie.model.g.eyL().YX(str);
+        if (YX != null) {
             return new m<>(new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: eyx */
+                /* renamed from: eyy */
                 public l<e> call() {
                     Log.d("Gabe", "call\treturning from cache");
                     return new l<>(e.this);
@@ -215,7 +215,7 @@ public class f {
             @Override // com.tb.airbnb.lottie.i
             public void onResult(e eVar) {
                 if (str != null) {
-                    com.tb.airbnb.lottie.model.g.eyK().a(str, eVar);
+                    com.tb.airbnb.lottie.model.g.eyL().a(str, eVar);
                 }
                 f.Bs.remove(str);
             }

@@ -5,14 +5,14 @@ import com.baidu.util.Base64Encoder;
 import com.baidu.util.LogUtil;
 import com.baidu.webkit.internal.ETAG;
 import java.net.URLEncoder;
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private StringBuilder f1324a;
+    private StringBuilder f1327a;
 
     public b(String str) {
-        this.f1324a = new StringBuilder(str);
+        this.f1327a = new StringBuilder(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -20,9 +20,9 @@ class b {
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f1324a.append(ETAG.ITEM_SEPARATOR + str + ETAG.EQUAL);
+        this.f1327a.append(ETAG.ITEM_SEPARATOR + str + ETAG.EQUAL);
         byte[] b64Encode = Base64Encoder.b64Encode(URLEncoder.encode(str2).getBytes());
-        this.f1324a.append(new String(b64Encode));
+        this.f1327a.append(new String(b64Encode));
         LogUtil.logD("ClientUpdateUriHelper", "key: " + str + ", value: " + str2);
         LogUtil.logD("ClientUpdateUriHelper", "b64encode key: " + str + ", value: " + new String(b64Encode));
     }
@@ -32,13 +32,13 @@ class b {
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f1324a.append(ETAG.ITEM_SEPARATOR + str + ETAG.EQUAL);
-        this.f1324a.append(URLEncoder.encode(str2));
+        this.f1327a.append(ETAG.ITEM_SEPARATOR + str + ETAG.EQUAL);
+        this.f1327a.append(URLEncoder.encode(str2));
         LogUtil.logD("ClientUpdateUriHelper", "key: " + str + ", value: " + str2);
         LogUtil.logD("ClientUpdateUriHelper", "b64encode key: " + str + ", value: " + str2);
     }
 
     public String toString() {
-        return this.f1324a.toString();
+        return this.f1327a.toString();
     }
 }

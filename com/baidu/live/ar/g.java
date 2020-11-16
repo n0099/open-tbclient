@@ -3,10 +3,10 @@ package com.baidu.live.ar;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class g {
-    private String aEL;
-    private String aEM;
-    private String aEN;
-    private String aEs;
+    private String aCH;
+    private String aDa;
+    private String aDb;
+    private String aDc;
     private String mFile;
     private String mId;
     private String mName;
@@ -16,20 +16,20 @@ public class g {
         if (jSONObject != null) {
             this.mId = jSONObject.optString("id");
             this.mName = jSONObject.optString("name");
-            this.aEL = jSONObject.optString("bgurl");
+            this.aDa = jSONObject.optString("bgurl");
             this.mType = jSONObject.optString("type");
-            this.aEM = jSONObject.optString("current");
+            this.aDb = jSONObject.optString("current");
             this.mFile = jSONObject.optString("feature_file");
-            this.aEN = jSONObject.optString("feature_file_token");
-            this.aEs = jSONObject.optString("thinface_value");
+            this.aDc = jSONObject.optString("feature_file_token");
+            this.aCH = jSONObject.optString("thinface_value");
         }
     }
 
-    public String Ct() {
-        return this.aEL;
+    public String BK() {
+        return this.aDa;
     }
 
-    public String Cu() {
+    public String BL() {
         return this.mFile;
     }
 
@@ -41,11 +41,11 @@ public class g {
         return this.mType;
     }
 
-    public String Cv() {
-        return this.aEM;
+    public String BM() {
+        return this.aDb;
     }
 
-    public String Cw() {
-        return this.aEs;
+    public String BN() {
+        return this.aCH;
     }
 }

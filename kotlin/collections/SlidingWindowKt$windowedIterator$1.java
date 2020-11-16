@@ -5,9 +5,9 @@ import java.util.Iterator;
 import java.util.List;
 import kotlin.Result;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
-@kotlin.coroutines.jvm.internal.c(c = "kotlin/collections/SlidingWindowKt$windowedIterator$1", eBK = {33, 39, 46, 52, 55}, f = "SlidingWindow.kt", m = "invokeSuspend")
+@kotlin.coroutines.jvm.internal.c(c = "kotlin/collections/SlidingWindowKt$windowedIterator$1", eBL = {33, 39, 46, 52, 55}, f = "SlidingWindow.kt", m = "invokeSuspend")
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda implements kotlin.jvm.a.m<kotlin.sequences.d<? super List<? extends T>>, kotlin.coroutines.a<? super kotlin.l>, Object> {
     final /* synthetic */ Iterator $iterator;
     final /* synthetic */ boolean $partialWindows;
@@ -45,7 +45,7 @@ final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda i
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.a.m
     public final Object invoke(Object obj, kotlin.coroutines.a<? super kotlin.l> aVar) {
-        return ((SlidingWindowKt$windowedIterator$1) create(obj, aVar)).invokeSuspend(kotlin.l.pRS);
+        return ((SlidingWindowKt$windowedIterator$1) create(obj, aVar)).invokeSuspend(kotlin.l.pTv);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [24=11] */
@@ -84,7 +84,7 @@ final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda i
         kotlin.sequences.d dVar6;
         int i6;
         int i7;
-        Object eBJ = kotlin.coroutines.intrinsics.a.eBJ();
+        Object eBK = kotlin.coroutines.intrinsics.a.eBK();
         switch (this.label) {
             case 0:
                 if (obj instanceof Result.Failure) {
@@ -113,8 +113,8 @@ final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda i
                                 this.L$2 = next;
                                 this.L$3 = it2;
                                 this.label = 1;
-                                if (dVar3.a((kotlin.sequences.d) arrayList, (kotlin.coroutines.a<? super kotlin.l>) this) == eBJ) {
-                                    return eBJ;
+                                if (dVar3.a((kotlin.sequences.d) arrayList, (kotlin.coroutines.a<? super kotlin.l>) this) == eBK) {
+                                    return eBK;
                                 }
                                 if (this.$reuseBuffer) {
                                     arrayList = new ArrayList(this.$size);
@@ -140,11 +140,11 @@ final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda i
                                 this.L$0 = arrayList;
                                 this.I$1 = i7;
                                 this.label = 2;
-                                if (dVar3.a((kotlin.sequences.d) arrayList, (kotlin.coroutines.a<? super kotlin.l>) this) == eBJ) {
-                                    return eBJ;
+                                if (dVar3.a((kotlin.sequences.d) arrayList, (kotlin.coroutines.a<? super kotlin.l>) this) == eBK) {
+                                    return eBK;
                                 }
                             }
-                            return kotlin.l.pRS;
+                            return kotlin.l.pTv;
                         }
                     }
                 } else {
@@ -163,13 +163,13 @@ final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda i
                             this.L$2 = next2;
                             this.L$3 = it3;
                             this.label = 3;
-                            if (dVar5.a((kotlin.sequences.d) arrayList2, (kotlin.coroutines.a<? super kotlin.l>) this) == eBJ) {
-                                return eBJ;
+                            if (dVar5.a((kotlin.sequences.d) arrayList2, (kotlin.coroutines.a<? super kotlin.l>) this) == eBK) {
+                                return eBK;
                             }
                             it = it3;
                             i2 = i5;
                             dVar2 = dVar5;
-                            akVar2.Rt(this.$step);
+                            akVar2.RW(this.$step);
                             i5 = i2;
                             dVar5 = dVar2;
                             it3 = it;
@@ -192,13 +192,13 @@ final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda i
                                         this.I$0 = i4;
                                         this.L$1 = akVar2;
                                         this.label = 4;
-                                        if (dVar4.a((kotlin.sequences.d) arrayList3, (kotlin.coroutines.a<? super kotlin.l>) this) == eBJ) {
-                                            return eBJ;
+                                        if (dVar4.a((kotlin.sequences.d) arrayList3, (kotlin.coroutines.a<? super kotlin.l>) this) == eBK) {
+                                            return eBK;
                                         }
                                         akVar = akVar2;
                                         dVar = dVar4;
                                         i = i4;
-                                        akVar.Rt(this.$step);
+                                        akVar.RW(this.$step);
                                         i4 = i;
                                         dVar4 = dVar;
                                         akVar2 = akVar;
@@ -207,14 +207,14 @@ final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda i
                                                 this.I$0 = i4;
                                                 this.L$0 = akVar2;
                                                 this.label = 5;
-                                                if (dVar4.a((kotlin.sequences.d) akVar2, (kotlin.coroutines.a<? super kotlin.l>) this) == eBJ) {
-                                                    return eBJ;
+                                                if (dVar4.a((kotlin.sequences.d) akVar2, (kotlin.coroutines.a<? super kotlin.l>) this) == eBK) {
+                                                    return eBK;
                                                 }
                                             }
                                         }
                                     }
                                 }
-                                return kotlin.l.pRS;
+                                return kotlin.l.pTv;
                             }
                         }
                     }
@@ -250,7 +250,7 @@ final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda i
                 if (obj instanceof Result.Failure) {
                     throw ((Result.Failure) obj).exception;
                 }
-                return kotlin.l.pRS;
+                return kotlin.l.pTv;
             case 3:
                 it = (Iterator) this.L$3;
                 Object obj3 = this.L$2;
@@ -262,7 +262,7 @@ final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda i
                 }
                 dVar2 = dVar8;
                 i2 = i15;
-                akVar2.Rt(this.$step);
+                akVar2.RW(this.$step);
                 i5 = i2;
                 dVar5 = dVar2;
                 it3 = it;
@@ -278,7 +278,7 @@ final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda i
                 }
                 dVar = dVar9;
                 i = i16;
-                akVar.Rt(this.$step);
+                akVar.RW(this.$step);
                 i4 = i;
                 dVar4 = dVar;
                 akVar2 = akVar;
@@ -291,7 +291,7 @@ final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda i
                 if (obj instanceof Result.Failure) {
                     throw ((Result.Failure) obj).exception;
                 }
-                return kotlin.l.pRS;
+                return kotlin.l.pTv;
             default:
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         }

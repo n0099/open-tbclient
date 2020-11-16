@@ -3,12 +3,12 @@ package com.google.ar.core;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class AugmentedFace extends TrackableBase {
-    private FloatBuffer pcn;
-    private FloatBuffer pco;
-    private FloatBuffer pcp;
-    private CharBuffer pcq;
+    private FloatBuffer pdQ;
+    private FloatBuffer pdR;
+    private FloatBuffer pdS;
+    private CharBuffer pdT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public AugmentedFace(long j, Session session) {
@@ -28,7 +28,7 @@ public class AugmentedFace extends TrackableBase {
 
     private native h nativeGetRegionPose(long j, long j2, int i);
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public enum RegionType {
         NOSE_TIP(0),
         FOREHEAD_LEFT(1),
@@ -46,10 +46,10 @@ public class AugmentedFace extends TrackableBase {
     }
 
     void est() {
-        this.pcn = Session.r(nativeGetMeshVerticesByteBuffer(this.pcl.pcm, this.pcm)).asFloatBuffer().asReadOnlyBuffer();
-        this.pco = Session.r(nativeGetMeshNormalsByteBuffer(this.pcl.pcm, this.pcm)).asFloatBuffer().asReadOnlyBuffer();
-        this.pcp = Session.r(nativeGetMeshTextureCoordinatesByteBuffer(this.pcl.pcm, this.pcm)).asFloatBuffer().asReadOnlyBuffer();
-        this.pcq = Session.r(nativeGetMeshTriangleIndicesByteBuffer(this.pcl.pcm, this.pcm)).asCharBuffer().asReadOnlyBuffer();
+        this.pdQ = Session.r(nativeGetMeshVerticesByteBuffer(this.pdO.pdP, this.pdP)).asFloatBuffer().asReadOnlyBuffer();
+        this.pdR = Session.r(nativeGetMeshNormalsByteBuffer(this.pdO.pdP, this.pdP)).asFloatBuffer().asReadOnlyBuffer();
+        this.pdS = Session.r(nativeGetMeshTextureCoordinatesByteBuffer(this.pdO.pdP, this.pdP)).asFloatBuffer().asReadOnlyBuffer();
+        this.pdT = Session.r(nativeGetMeshTriangleIndicesByteBuffer(this.pdO.pdP, this.pdP)).asCharBuffer().asReadOnlyBuffer();
     }
 
     @Override // com.google.ar.core.TrackableBase

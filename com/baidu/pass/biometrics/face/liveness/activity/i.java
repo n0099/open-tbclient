@@ -10,7 +10,7 @@ import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class i extends HttpHandlerWrap {
 
     /* renamed from: a  reason: collision with root package name */

@@ -15,38 +15,38 @@ public class TbadkSettings {
     }
 
     public void saveString(String str, String str2) {
-        b.bqh().putString(str, str2);
+        b.bpu().putString(str, str2);
     }
 
     public String loadString(String str, String str2) {
-        return b.bqh().getString(str, str2);
+        return b.bpu().getString(str, str2);
     }
 
     public boolean loadBoolean(String str, boolean z) {
-        return b.bqh().getBoolean(str, z);
+        return b.bpu().getBoolean(str, z);
     }
 
     public void saveBoolean(String str, boolean z) {
-        b.bqh().putBoolean(str, z);
+        b.bpu().putBoolean(str, z);
     }
 
     public int loadInt(String str, int i) {
-        return b.bqh().getInt(str, i);
+        return b.bpu().getInt(str, i);
     }
 
     public void saveInt(String str, int i) {
-        b.bqh().putInt(str, i);
+        b.bpu().putInt(str, i);
     }
 
     public long loadLong(String str, long j) {
-        return b.bqh().getLong(str, j);
+        return b.bpu().getLong(str, j);
     }
 
     public void saveLong(String str, long j) {
-        b.bqh().putLong(str, j);
+        b.bpu().putLong(str, j);
     }
 
     public boolean isContains(String str) {
-        return b.bqh().isContains(str);
+        return b.bpu().isContains(str);
     }
 }

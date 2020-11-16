@@ -1,22 +1,23 @@
 package com.baidu.tieba.personCenter;
 
 import android.content.Context;
+import android.content.Intent;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private static b lVg;
+    private static b lVy;
     private Context context;
 
-    public static b dtw() {
-        if (lVg == null) {
+    public static b dsW() {
+        if (lVy == null) {
             synchronized (b.class) {
-                if (lVg == null) {
-                    lVg = new b(TbadkCoreApplication.getInst());
+                if (lVy == null) {
+                    lVy = new b(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return lVg;
+        return lVy;
     }
 
     public b(Context context) {
@@ -26,7 +27,7 @@ public class b {
         UfoSDK.setContactDialogSwitch(false);
     }
 
-    public void dtx() {
+    public void dsX() {
         TbadkCoreApplication.getInst();
         if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
             TbadkCoreApplication.getInst();
@@ -34,6 +35,8 @@ public class b {
         }
         UfoSDK.setUserId(TbadkCoreApplication.getCurrentAccount());
         UfoSDK.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
-        this.context.startActivity(UfoSDK.getFeedbackInputIntent(this.context, 0));
+        Intent feedbackInputIntent = UfoSDK.getFeedbackInputIntent(this.context, 0);
+        feedbackInputIntent.addFlags(268435456);
+        this.context.startActivity(feedbackInputIntent);
     }
 }

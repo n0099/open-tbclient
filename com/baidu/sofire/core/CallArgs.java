@@ -2,7 +2,7 @@ package com.baidu.sofire.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class CallArgs implements Parcelable {
     public static final Parcelable.Creator<CallArgs> CREATOR = new Parcelable.Creator<CallArgs>() { // from class: com.baidu.sofire.core.CallArgs.1
         /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */

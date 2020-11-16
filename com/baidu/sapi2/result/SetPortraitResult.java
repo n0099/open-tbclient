@@ -1,7 +1,7 @@
 package com.baidu.sapi2.result;
 
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes10.dex */
+/* loaded from: classes18.dex */
 public class SetPortraitResult extends SapiResult implements NoProguard {
     public static final String ERROR_MSG_UNKNOWN = "设置头像失败";
     public static final int RESULT_CODE_BDUSS_EXPIRED = 160103;

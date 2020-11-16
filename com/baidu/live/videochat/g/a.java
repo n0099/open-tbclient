@@ -29,12 +29,12 @@ public class a {
 
     public static void a(AlaLiveRecorder alaLiveRecorder, AlaLiveRtcConfig alaLiveRtcConfig) {
         if (alaLiveRecorder != null && alaLiveRtcConfig != null) {
-            LiveRecorderConfigHelper.Pn().Po();
+            LiveRecorderConfigHelper.OE().OF();
             alaLiveRecorder.setRtcConfig(alaLiveRtcConfig);
-            LiveRecorderConfigHelper.VideoResolution f = LiveRecorderConfigHelper.Pn().f(true, true);
+            LiveRecorderConfigHelper.VideoResolution f = LiveRecorderConfigHelper.OE().f(true, true);
             AlaLiveVideoConfig videoConfig = alaLiveRecorder.getVideoConfig();
             if (videoConfig != null) {
-                LiveRecorderConfigHelper.Pn().a(true, videoConfig);
+                LiveRecorderConfigHelper.OE().a(true, videoConfig);
             }
             alaLiveRecorder.switchToRtcMode(f.getWidth(), f.getHeight());
         }
@@ -44,11 +44,11 @@ public class a {
         if (alaLiveRecorder == null || alaLiveRtcConfig == null) {
             return false;
         }
-        LiveRecorderConfigHelper.Pn().Po();
+        LiveRecorderConfigHelper.OE().OF();
         alaLiveRtcConfig.mPushUrl = str;
         alaLiveRecorder.setRtcConfig(alaLiveRtcConfig);
-        LiveRecorderConfigHelper.Pn().a(false, alaLiveRecorder.getVideoConfig());
-        LiveRecorderConfigHelper.VideoResolution f = LiveRecorderConfigHelper.Pn().f(false, true);
+        LiveRecorderConfigHelper.OE().a(false, alaLiveRecorder.getVideoConfig());
+        LiveRecorderConfigHelper.VideoResolution f = LiveRecorderConfigHelper.OE().f(false, true);
         alaLiveRecorder.getVideoConfig().setOutputWidth(f.getWidth());
         alaLiveRecorder.getVideoConfig().setOutputHeight(f.getHeight());
         if (!alaLiveRecorder.setDefaultRtcMode()) {

@@ -9,7 +9,7 @@ import com.baidu.ar.record.EncoderParams;
 import com.baidu.ar.recorder.b.c;
 import com.baidu.ar.recorder.b.d;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
     private d tA;
@@ -19,7 +19,7 @@ public class a {
     private volatile boolean tn = false;
 
     /* renamed from: com.baidu.ar.recorder.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     private class C0086a {
         ByteBuffer tR;
         int tS;
@@ -33,7 +33,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public class b extends Handler {
         public b(Looper looper) {
             super(looper);

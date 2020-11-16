@@ -3,33 +3,33 @@ package com.baidu.tieba.frs.videomiddlepage.a;
 import com.baidu.tbadk.core.sharedPref.b;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private int jlR = -1;
-    private long jlS = -1;
-    private int jlO = b.bqh().getInt("nani_key_download_show_position", 3);
-    private Set<Integer> jlP = new HashSet();
-    private Set<String> jlQ = new HashSet();
+    private int jmC = -1;
+    private long jmD = -1;
+    private int jmz = b.bpu().getInt("nani_key_download_show_position", 3);
+    private Set<Integer> jmA = new HashSet();
+    private Set<String> jmB = new HashSet();
 
-    public void bv(int i, String str) {
-        this.jlQ.add(str);
-        if (this.jlR < 0 && this.jlO == this.jlQ.size()) {
-            this.jlR = i;
+    public void bt(int i, String str) {
+        this.jmB.add(str);
+        if (this.jmC < 0 && this.jmz == this.jmB.size()) {
+            this.jmC = i;
         }
     }
 
-    public int cGX() {
-        return this.jlR;
+    public int cGC() {
+        return this.jmC;
     }
 
-    public void fL(long j) {
-        this.jlS = j;
+    public void fO(long j) {
+        this.jmD = j;
     }
 
-    public void cGY() {
-        int i = b.bqh().getInt("nani_key_download_show_rate", 2);
-        if (this.jlS > 0 && i != 1) {
-            b.bqh().putLong("key_horizontal_shown_time", this.jlS);
+    public void cGD() {
+        int i = b.bpu().getInt("nani_key_download_show_rate", 2);
+        if (this.jmD > 0 && i != 1) {
+            b.bpu().putLong("key_horizontal_shown_time", this.jmD);
         }
     }
 }

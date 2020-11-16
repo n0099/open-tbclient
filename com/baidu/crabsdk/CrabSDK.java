@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Future;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class CrabSDK {
     public static final int ANR_CLOSE = 0;
     public static final int ANR_OBSERVER_LOGCAT = 1;
@@ -51,11 +51,11 @@ public class CrabSDK {
     }
 
     public static void disableBlockCatch() {
-        if (b.vg() == null) {
+        if (b.vf() == null) {
             com.baidu.crabsdk.c.a.w("Block Monitor has never been enabled!");
             return;
         }
-        b.vg().stop();
+        b.vf().stop();
         c.ad(T);
         c.stop();
     }
@@ -79,7 +79,7 @@ public class CrabSDK {
             return;
         }
         setUploadLimitOfBlockInOneday(i);
-        if (h.vA()) {
+        if (h.vz()) {
             b.ab(T).start();
             c.ad(T);
             c.start();
@@ -92,7 +92,7 @@ public class CrabSDK {
     }
 
     public static HashMap<String, String> getUsersCustomKV() {
-        return t.vq();
+        return t.vp();
     }
 
     public static void init(Application application, String str) {
@@ -101,7 +101,7 @@ public class CrabSDK {
 
     public static void init(Application application, String str, String str2) {
         if (!TextUtils.isEmpty(str2) && ((str2.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX) || str2.startsWith("http://")) && str2.endsWith("/"))) {
-            com.baidu.crabsdk.c.a.dA("Change upload domain: " + str2);
+            com.baidu.crabsdk.c.a.dC("Change upload domain: " + str2);
             a.O = str2;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -150,10 +150,10 @@ public class CrabSDK {
         boolean z;
         int myPid = Process.myPid();
         CURRENT_PID = myPid;
-        com.baidu.crabsdk.c.a.dA("CrabSDK.init from " + T.getPackageName() + " with pid " + myPid);
+        com.baidu.crabsdk.c.a.dC("CrabSDK.init from " + T.getPackageName() + " with pid " + myPid);
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) application.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses == null || runningAppProcesses.size() == 0) {
-            com.baidu.crabsdk.c.a.dA("getRunningAppProcesses error!!");
+            com.baidu.crabsdk.c.a.dC("getRunningAppProcesses error!!");
             return;
         }
         Iterator<ActivityManager.RunningAppProcessInfo> it = runningAppProcesses.iterator();
@@ -166,10 +166,10 @@ public class CrabSDK {
             if (next.pid == myPid) {
                 if (next.processName.equals(application.getPackageName())) {
                     U = true;
-                    com.baidu.crabsdk.c.a.dA("Main process " + next.processName + ".");
+                    com.baidu.crabsdk.c.a.dC("Main process " + next.processName + ".");
                 } else {
                     U = false;
-                    com.baidu.crabsdk.c.a.dA("Sub process " + next.processName + ".");
+                    com.baidu.crabsdk.c.a.dC("Sub process " + next.processName + ".");
                 }
                 CURRENT_PNAME = next.processName;
                 z = true;
@@ -178,7 +178,7 @@ public class CrabSDK {
         if (z) {
             initCrashSwitch(application);
             initCollector(application);
-            f.vw().e(application);
+            f.vv().e(application);
             initAnrCollector(application, str);
         }
     }
@@ -219,15 +219,15 @@ public class CrabSDK {
 
     public static void resumeAnrWatchThread(int i) {
         try {
-            Thread vm = com.baidu.crabsdk.b.c.vm();
-            if (vm == null) {
+            Thread vl = com.baidu.crabsdk.b.c.vl();
+            if (vl == null) {
                 initAnrCollector(T, a.d);
                 com.baidu.crabsdk.c.a.v("ANR watch thread is null, init anrCollector again");
             } else if (a.I == 0) {
                 a.I = i;
-                new Thread(vm).start();
+                new Thread(vl).start();
             } else {
-                com.baidu.crabsdk.c.a.dB("ANR watch thread is running");
+                com.baidu.crabsdk.c.a.dD("ANR watch thread is running");
             }
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.a("resumeAnrWatchThread->Exception", e);
@@ -279,7 +279,7 @@ public class CrabSDK {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        com.baidu.crabsdk.b.h.aoC = str;
+        com.baidu.crabsdk.b.h.aoI = str;
     }
 
     public static void setDebugAnrExpUrl(String str) {
@@ -295,7 +295,7 @@ public class CrabSDK {
     }
 
     public static void setDeveloperName(String str) {
-        a.f1335a = str;
+        a.f1338a = str;
     }
 
     public static void setEnableLog(boolean z) {
@@ -308,7 +308,7 @@ public class CrabSDK {
 
     public static void setLogcatLineCount(int i) {
         if (i > 1000) {
-            com.baidu.crabsdk.c.a.dB("强烈建议logcat最大行数小于1000！");
+            com.baidu.crabsdk.c.a.dD("强烈建议logcat最大行数小于1000！");
             a.h = 1000;
         } else {
             a.h = i;
@@ -367,7 +367,7 @@ public class CrabSDK {
     }
 
     public static void setUsersCustomKV(String str, String str2) {
-        t.vq().put(str, str2);
+        t.vp().put(str, str2);
     }
 
     public static void setUsersCustomKV(HashMap<String, String> hashMap) {
@@ -376,7 +376,7 @@ public class CrabSDK {
 
     public static void stopUploadLogs(Future future) {
         try {
-            com.baidu.crabsdk.c.a.dB("Stop uploading logs task...");
+            com.baidu.crabsdk.c.a.dD("Stop uploading logs task...");
             if (future != null) {
                 future.cancel(true);
             }
@@ -414,13 +414,13 @@ public class CrabSDK {
             str3 = "";
         }
         if (!TextUtils.isEmpty(str2)) {
-            com.baidu.crabsdk.b.h.aoC = str2;
+            com.baidu.crabsdk.b.h.aoI = str2;
         }
         return k.b(str.trim(), onUploadFilesCallback, "", "", str3);
     }
 
     private static void uploadRecord(Application application) {
-        if (!h.vy() || a.D) {
+        if (!h.vx() || a.D) {
             return;
         }
         k.a(true, (Context) application);

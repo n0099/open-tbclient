@@ -25,8 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
-    private final a bMG;
-    private b bMH;
+    private final a bKW;
+    private b bKX;
     private float mCurrentPositionOffset;
     private int mCurrentTabIndex;
     private final int mIndicatorHeight;
@@ -64,7 +64,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.bMG = new a();
+        this.bKW = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.live.view.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -101,7 +101,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.bMG = new a();
+        this.bKW = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.live.view.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -138,7 +138,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.bMG = new a();
+        this.bKW = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.live.view.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -256,12 +256,12 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public void setViewPager(ViewPager viewPager) {
         this.mPager = viewPager;
         if (viewPager.getAdapter() != null) {
-            viewPager.setOnPageChangeListener(this.bMG);
+            viewPager.setOnPageChangeListener(this.bKW);
         }
     }
 
     public void setScrollTabPageListener(b bVar) {
-        this.bMH = bVar;
+        this.bKX = bVar;
     }
 
     public int getCurrentIndex() {
@@ -367,8 +367,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
-            if (ScrollHorizontalTabView.this.bMH != null) {
-                ScrollHorizontalTabView.this.bMH.onPageScrolled(i, f, i2);
+            if (ScrollHorizontalTabView.this.bKX != null) {
+                ScrollHorizontalTabView.this.bKX.onPageScrolled(i, f, i2);
             }
             if (ScrollHorizontalTabView.this.mTabsContainer.getChildCount() != 0 && !ScrollHorizontalTabView.this.mIsClicked) {
                 if (ScrollHorizontalTabView.this.mCurrentTabIndex != i) {
@@ -393,9 +393,9 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             cq cqVar = (cq) ListUtils.getItem(ScrollHorizontalTabView.this.mTabDataList, i);
-            if (ScrollHorizontalTabView.this.bMH == null || ScrollHorizontalTabView.this.bMH.a(i, cqVar)) {
-                if (ScrollHorizontalTabView.this.bMH != null) {
-                    ScrollHorizontalTabView.this.bMH.b(i, cqVar);
+            if (ScrollHorizontalTabView.this.bKX == null || ScrollHorizontalTabView.this.bKX.a(i, cqVar)) {
+                if (ScrollHorizontalTabView.this.bKX != null) {
+                    ScrollHorizontalTabView.this.bKX.b(i, cqVar);
                 }
                 if (ScrollHorizontalTabView.this.mIsClicked) {
                     if (ScrollHorizontalTabView.this.mCurrentTabIndex != i) {

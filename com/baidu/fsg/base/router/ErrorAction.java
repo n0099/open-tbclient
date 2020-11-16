@@ -2,7 +2,7 @@ package com.baidu.fsg.base.router;
 
 import android.content.Context;
 import java.util.HashMap;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class ErrorAction implements RouterAction {
 
     /* renamed from: a  reason: collision with root package name */

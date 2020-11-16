@@ -17,11 +17,11 @@ import com.baidu.live.utils.l;
 import com.baidu.live.view.YuyinALALevelView;
 /* loaded from: classes4.dex */
 public class OnlineAudienceItemView extends LinearLayout {
-    public TextView aFA;
-    public HeadImageView gxo;
-    public TbImageView gxp;
-    public TextView gxr;
-    public YuyinALALevelView nRT;
+    public TextView aDP;
+    public HeadImageView gwV;
+    public TbImageView gwW;
+    public TextView gwY;
+    public YuyinALALevelView nTw;
 
     public OnlineAudienceItemView(Context context) {
         this(context, null);
@@ -34,55 +34,55 @@ public class OnlineAudienceItemView extends LinearLayout {
 
     public void setData(int i, String str, String str2, long j, int i2) {
         if (i >= 1 && i <= 3 && j > 0) {
-            this.gxp.setVisibility(0);
+            this.gwW.setVisibility(0);
         } else {
-            this.gxp.setVisibility(8);
+            this.gwW.setVisibility(8);
         }
-        l.a(this.gxo, str2, true, false);
+        l.a(this.gwV, str2, true, false);
         if (i2 == 7) {
-            this.gxp.setVisibility(0);
-            this.gxp.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
+            this.gwW.setVisibility(0);
+            this.gwW.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
         } else if (i2 == 6) {
-            this.gxp.setVisibility(0);
-            this.gxp.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
+            this.gwW.setVisibility(0);
+            this.gwW.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
         } else if (i2 == 5) {
-            this.gxp.setVisibility(0);
-            this.gxp.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
+            this.gwW.setVisibility(0);
+            this.gwW.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
         } else if (i2 == 4) {
-            this.gxp.setVisibility(0);
-            this.gxp.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
+            this.gwW.setVisibility(0);
+            this.gwW.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
         } else {
-            this.gxp.setVisibility(8);
+            this.gwW.setVisibility(8);
         }
-        this.aFA.setText(str);
+        this.aDP.setText(str);
         if (j > 0) {
-            this.gxr.setText(String.format("%s", StringHelper.formatYuyinValue(j)));
+            this.gwY.setText(String.format("%s", StringHelper.formatYuyinValue(j)));
         } else {
-            this.gxr.setText("");
+            this.gwY.setText("");
         }
-        this.aFA.setMaxWidth(ScreenHelper.getScreenWidth(getContext()) - BdUtilHelper.dip2px(getContext(), 230.0f));
+        this.aDP.setMaxWidth(ScreenHelper.getScreenWidth(getContext()) - BdUtilHelper.dip2px(getContext(), 230.0f));
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_online_audience_list_item, (ViewGroup) this, true);
         setOrientation(0);
-        HZ();
+        Hq();
         initView();
     }
 
-    private void HZ() {
-        this.gxo = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.gxp = (TbImageView) findViewById(a.f.iv_pendant);
-        this.nRT = (YuyinALALevelView) findViewById(a.f.level);
-        this.aFA = (TextView) findViewById(a.f.tv_name);
-        this.gxr = (TextView) findViewById(a.f.tv_value);
+    private void Hq() {
+        this.gwV = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.gwW = (TbImageView) findViewById(a.f.iv_pendant);
+        this.nTw = (YuyinALALevelView) findViewById(a.f.level);
+        this.aDP = (TextView) findViewById(a.f.tv_name);
+        this.gwY = (TextView) findViewById(a.f.tv_value);
     }
 
     private void initView() {
-        this.gxo.setAutoChangeStyle(false);
-        this.gxo.setDrawBorder(false);
-        this.gxo.setIsRound(true);
-        this.gxp.setDefaultBgResource(a.c.sdk_transparent);
-        this.gxp.setDefaultErrorResource(a.e.sdk_shape_transparent);
+        this.gwV.setAutoChangeStyle(false);
+        this.gwV.setDrawBorder(false);
+        this.gwV.setIsRound(true);
+        this.gwW.setDefaultBgResource(a.c.sdk_transparent);
+        this.gwW.setDefaultErrorResource(a.e.sdk_shape_transparent);
     }
 }

@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class e {
     private final o Bh = new o();
     private final HashSet<String> Bi = new HashSet<>();
@@ -121,7 +121,7 @@ public class e {
     }
 
     @Deprecated
-    /* loaded from: classes10.dex */
+    /* loaded from: classes16.dex */
     public static class a {
         @Deprecated
         public static com.airbnb.lottie.a a(Context context, String str, n nVar) {
@@ -131,7 +131,7 @@ public class e {
         }
 
         /* renamed from: com.airbnb.lottie.e$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes16.dex */
         private static final class C0012a implements com.airbnb.lottie.a, i<e> {
             private final n Br;
             private boolean cancelled;

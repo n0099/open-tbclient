@@ -1,5 +1,5 @@
 package com.baidu.tbadk.widget.timepicker.a.a;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class b implements com.baidu.tbadk.widget.timepicker.wheel.a.a {
     private int maxValue;
     private int minValue;

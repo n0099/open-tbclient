@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public abstract class PaBaseHttpRequest extends BaseHttpRequest {
     protected int mOsType = 1;
 

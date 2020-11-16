@@ -92,12 +92,12 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class HttpUtils {
     private HttpUtils() {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class HttpStatusException extends Exception {
         public static final String ERROR_INFO = "http status code error:";
 
@@ -106,7 +106,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class NetworkUnavailableException extends Exception {
         public static final String ERROR_INFO = "network unavailable";
 
@@ -656,7 +656,7 @@ public class HttpUtils {
         return null;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
@@ -705,7 +705,7 @@ public class HttpUtils {
         return System.getProperty("http.proxyHost");
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class a extends SSLSocketFactory {
 
         /* renamed from: a  reason: collision with root package name */
@@ -734,7 +734,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class b implements X509TrustManager {
 
         /* renamed from: a  reason: collision with root package name */

@@ -12,59 +12,59 @@ import java.io.IOException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final String afk = "performance_" + System.currentTimeMillis();
-    private int cFN = 3000;
-    private HandlerC0411a cFO;
-    private BufferedWriter cFP;
+    private final String afp = "performance_" + System.currentTimeMillis();
+    private int cEd = 3000;
+    private HandlerC0409a cEe;
+    private BufferedWriter cEf;
     private Map<String, Object> mData;
 
     public void startMonitor() {
         if (this.mData == null) {
-            this.mData = b.amf().amg();
+            this.mData = b.alx().aly();
             com.baidu.swan.apps.console.c.i("PropertyLogcat", "Start monitor logcat");
         }
-        if (this.cFO == null) {
-            this.cFO = new HandlerC0411a();
+        if (this.cEe == null) {
+            this.cEe = new HandlerC0409a();
         }
-        if (this.cFP == null) {
+        if (this.cEf == null) {
             File file = new File(getFilePath());
             try {
                 if (!file.exists()) {
                     file.createNewFile();
                 }
-                this.cFP = new BufferedWriter(new FileWriter(file, true));
+                this.cEf = new BufferedWriter(new FileWriter(file, true));
             } catch (IOException e) {
                 com.baidu.swan.apps.console.c.e("PropertyLogcat", "Create log file fail", e);
             }
         }
-        this.cFO.removeMessages(100);
-        this.cFO.sendEmptyMessage(100);
+        this.cEe.removeMessages(100);
+        this.cEe.sendEmptyMessage(100);
     }
 
-    public void hP(int i) {
+    public void hL(int i) {
         if (i >= 1000) {
-            this.cFN = i;
+            this.cEd = i;
         }
     }
 
-    public String ame() {
+    public String alw() {
         if (this.mData != null) {
-            b.amf().recycle();
+            b.alx().recycle();
             this.mData = null;
             com.baidu.swan.apps.console.c.i("PropertyLogcat", "Stop monitor logcat");
         }
-        d.closeSafely(this.cFP);
-        this.cFP = null;
-        return com.baidu.swan.apps.storage.b.cB(getFilePath(), e.aHw());
+        d.closeSafely(this.cEf);
+        this.cEf = null;
+        return com.baidu.swan.apps.storage.b.cA(getFilePath(), e.aGO());
     }
 
     /* renamed from: com.baidu.swan.apps.console.property.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    private class HandlerC0411a extends Handler {
-        private HandlerC0411a() {
+    /* loaded from: classes7.dex */
+    private class HandlerC0409a extends Handler {
+        private HandlerC0409a() {
         }
 
         @Override // android.os.Handler
@@ -79,21 +79,21 @@ public class a {
                         e.printStackTrace();
                     }
                 }
-                a.this.my(jSONObject.toString());
+                a.this.ms(jSONObject.toString());
                 com.baidu.swan.apps.console.c.i("PropertyLogcat", jSONObject.toString());
-                if (a.this.cFO != null) {
-                    a.this.cFO.sendEmptyMessageDelayed(100, a.this.cFN);
+                if (a.this.cEe != null) {
+                    a.this.cEe.sendEmptyMessageDelayed(100, a.this.cEd);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void my(String str) {
-        if (this.cFP != null) {
+    public void ms(String str) {
+        if (this.cEf != null) {
             try {
-                this.cFP.write(str);
-                this.cFP.write(10);
+                this.cEf.write(str);
+                this.cEf.write(10);
                 com.baidu.swan.apps.console.c.i("PropertyLogcat", "Export logcat success");
             } catch (IOException e) {
                 com.baidu.swan.apps.console.c.e("PropertyLogcat", "Logcat write fail", e);
@@ -102,6 +102,6 @@ public class a {
     }
 
     private String getFilePath() {
-        return com.baidu.swan.apps.storage.b.W(e.aHw(), this.afk, TbConfig.TMP_LOG_DIR_NAME);
+        return com.baidu.swan.apps.storage.b.W(e.aGO(), this.afp, TbConfig.TMP_LOG_DIR_NAME);
     }
 }

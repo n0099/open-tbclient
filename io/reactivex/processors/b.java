@@ -3,21 +3,21 @@ package io.reactivex.processors;
 import io.reactivex.internal.util.NotificationLite;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class b<T> extends a<T> {
     volatile boolean done;
     boolean emitting;
-    final a<T> pRl;
+    final a<T> pSO;
     io.reactivex.internal.util.a<Object> queue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a<T> aVar) {
-        this.pRl = aVar;
+        this.pSO = aVar;
     }
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        this.pRl.subscribe(cVar);
+        this.pSO.subscribe(cVar);
     }
 
     @Override // io.reactivex.j, org.a.c
@@ -44,7 +44,7 @@ final class b<T> extends a<T> {
             dVar.cancel();
             return;
         }
-        this.pRl.onSubscribe(dVar);
+        this.pSO.onSubscribe(dVar);
         emitLoop();
     }
 
@@ -63,7 +63,7 @@ final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.pRl.onNext(t);
+                    this.pSO.onNext(t);
                     emitLoop();
                 }
             }
@@ -86,7 +86,7 @@ final class b<T> extends a<T> {
                         aVar = new io.reactivex.internal.util.a<>(4);
                         this.queue = aVar;
                     }
-                    aVar.bO(NotificationLite.error(th));
+                    aVar.bP(NotificationLite.error(th));
                     return;
                 }
                 z = false;
@@ -95,7 +95,7 @@ final class b<T> extends a<T> {
             if (z) {
                 io.reactivex.e.a.onError(th);
             } else {
-                this.pRl.onError(th);
+                this.pSO.onError(th);
             }
         }
     }
@@ -116,7 +116,7 @@ final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.pRl.onComplete();
+                    this.pSO.onComplete();
                 }
             }
         }
@@ -133,7 +133,7 @@ final class b<T> extends a<T> {
                 }
                 this.queue = null;
             }
-            aVar.b(this.pRl);
+            aVar.b(this.pSO);
         }
     }
 }

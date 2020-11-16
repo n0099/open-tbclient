@@ -21,22 +21,22 @@ public class AfdSyncRequestMessage extends HttpMessage {
     private static String _ANDROID_ID = "";
     private static final TbHttpMessageTask task = new TbHttpMessageTask(1003397, "http://afd.baidu.com/afd/entry");
 
-    public AfdSyncRequestMessage(g gVar) {
+    public AfdSyncRequestMessage(h hVar) {
         super(1003397);
         addCommonParams();
         addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
         addParam("pid", "1517888290046");
         addParam("ac", "1");
-        addParam("ft", gVar.rl());
-        addParam("ext", getExt(gVar));
-        addParam("flr", String.valueOf(gVar.rn()));
-        addParam("fc", String.valueOf(gVar.rn()));
+        addParam("ft", hVar.rl());
+        addParam("ext", getExt(hVar));
+        addParam("flr", String.valueOf(hVar.rn()));
+        addParam("fc", String.valueOf(hVar.rn()));
     }
 
-    private static String getExt(g gVar) {
+    private static String getExt(h hVar) {
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : gVar.ro().entrySet()) {
+        for (Map.Entry<String, String> entry : hVar.ro().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();

@@ -14,7 +14,7 @@ import androidx.webkit.internal.WebViewFeatureInternal;
 import java.lang.reflect.InvocationHandler;
 import org.chromium.support_lib_boundary.WebViewClientBoundaryInterface;
 import org.chromium.support_lib_boundary.util.Features;
-/* loaded from: classes15.dex */
+/* loaded from: classes7.dex */
 public class c extends WebViewClient implements WebViewClientBoundaryInterface {
     private static final String[] sSupportedFeatures = {Features.VISUAL_STATE_CALLBACK, Features.RECEIVE_WEB_RESOURCE_ERROR, Features.RECEIVE_HTTP_ERROR, Features.SHOULD_OVERRIDE_WITH_REDIRECTS, Features.SAFE_BROWSING_HIT};
 

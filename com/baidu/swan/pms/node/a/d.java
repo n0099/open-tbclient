@@ -3,13 +3,13 @@ package com.baidu.swan.pms.node.a;
 import android.support.annotation.Nullable;
 import com.baidu.swan.pms.a.g;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class d extends com.baidu.swan.pms.node.a {
     @Override // com.baidu.swan.pms.node.a, com.baidu.swan.pms.node.d
     public void a(JSONObject jSONObject, g gVar, @Nullable g gVar2, @Nullable g gVar3) {
-        a cQ;
-        if (jSONObject != null && (cQ = b.bcn().cQ(jSONObject)) != null) {
-            com.baidu.swan.pms.d.bbb().a(cQ);
+        a cK;
+        if (jSONObject != null && (cK = b.bbG().cK(jSONObject)) != null) {
+            com.baidu.swan.pms.d.bau().a(cK);
         }
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 import tbclient.CommonReq;
 import tbclient.SubTagList.DataReq;
 import tbclient.SubTagList.SubTagListReqIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class RequestSubLabelMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */

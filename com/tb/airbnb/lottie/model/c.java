@@ -2,7 +2,7 @@ package com.tb.airbnb.lottie.model;
 
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class c {
     private final String EF;
     private final float EG;

@@ -15,7 +15,7 @@ public class H5Options implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: QN */
+        /* renamed from: Rq */
         public H5Options[] newArray(int i) {
             return new H5Options[i];
         }

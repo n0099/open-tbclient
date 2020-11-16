@@ -1,5 +1,5 @@
 package com.vivo.push.model;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */

@@ -23,12 +23,12 @@ import com.baidu.live.utils.l;
 import com.tb.airbnb.lottie.LottieAnimationView;
 /* loaded from: classes4.dex */
 public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
-    private RelativeLayout fYK;
-    private HeadImageView heP;
-    private TextView heQ;
-    private LottieAnimationView heR;
-    private Animation heS;
-    private final CustomMessageListener heT;
+    private RelativeLayout fYr;
+    private final CustomMessageListener heA;
+    private HeadImageView hew;
+    private TextView hex;
+    private LottieAnimationView hey;
+    private Animation hez;
     private final Animator.AnimatorListener mAnimatorListener;
 
     public AlaChallengeMvpDynamicAnimView(Context context) {
@@ -51,7 +51,7 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
             public void onAnimationRepeat(Animator animator) {
             }
         };
-        this.heT = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpDynamicAnimView.2
+        this.heA = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpDynamicAnimView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -83,7 +83,7 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
             public void onAnimationRepeat(Animator animator) {
             }
         };
-        this.heT = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpDynamicAnimView.2
+        this.heA = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpDynamicAnimView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -115,7 +115,7 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
             public void onAnimationRepeat(Animator animator) {
             }
         };
-        this.heT = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpDynamicAnimView.2
+        this.heA = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpDynamicAnimView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -129,36 +129,36 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_challenge_mvp_dynamic_view, (ViewGroup) this, true);
-        this.fYK = (RelativeLayout) findViewById(a.f.id_challenge_mvp_dynamic_content_layout);
-        this.heP = (HeadImageView) findViewById(a.f.id_challenge_head_img);
-        this.heP.setIsRound(true);
-        this.heP.setAutoChangeStyle(false);
-        this.heP.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
-        this.heP.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
-        this.heP.setDrawBorder(true);
-        this.heP.setBorderWidth(getResources().getDimensionPixelOffset(a.d.sdk_ds3));
-        this.heP.setBorderColor(getResources().getColor(a.c.sdk_white_alpha100));
-        this.heQ = (TextView) findViewById(a.f.id_challenge_user_name);
-        this.heR = (LottieAnimationView) findViewById(a.f.id_challenge_mvp_anim_lottie_view);
-        JW();
+        this.fYr = (RelativeLayout) findViewById(a.f.id_challenge_mvp_dynamic_content_layout);
+        this.hew = (HeadImageView) findViewById(a.f.id_challenge_head_img);
+        this.hew.setIsRound(true);
+        this.hew.setAutoChangeStyle(false);
+        this.hew.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
+        this.hew.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
+        this.hew.setDrawBorder(true);
+        this.hew.setBorderWidth(getResources().getDimensionPixelOffset(a.d.sdk_ds3));
+        this.hew.setBorderColor(getResources().getColor(a.c.sdk_white_alpha100));
+        this.hex = (TextView) findViewById(a.f.id_challenge_user_name);
+        this.hey = (LottieAnimationView) findViewById(a.f.id_challenge_mvp_anim_lottie_view);
+        Jn();
     }
 
-    private void JW() {
-        this.heR.setAnimation("mvpdynamic.json");
-        this.heR.setImageAssetsFolder("images/");
-        this.heR.addAnimatorListener(this.mAnimatorListener);
-        this.heR.loop(false);
-        this.heS = AnimationUtils.loadAnimation(getContext(), a.C0197a.challenge_mvp_content_anim);
+    private void Jn() {
+        this.hey.setAnimation("mvpdynamic.json");
+        this.hey.setImageAssetsFolder("images/");
+        this.hey.addAnimatorListener(this.mAnimatorListener);
+        this.hey.loop(false);
+        this.hez = AnimationUtils.loadAnimation(getContext(), a.C0195a.challenge_mvp_content_anim);
         BounceInterpolator bounceInterpolator = new BounceInterpolator();
-        this.heS.setDuration(800L);
-        this.heS.setInterpolator(bounceInterpolator);
+        this.hez.setDuration(800L);
+        this.hez.setInterpolator(bounceInterpolator);
     }
 
     public void a(ba baVar) {
         if (baVar == null) {
-            caS();
-        } else if (baVar.aOF < com.baidu.live.aa.a.PQ().bod.aMv) {
-            caS();
+            cal();
+        } else if (baVar.aMU < com.baidu.live.aa.a.Ph().bms.aKK) {
+            cal();
         } else {
             setVisibility(0);
             String str = baVar.mNickName;
@@ -166,41 +166,41 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
                 if (TextHelper.getTextLengthWithEmoji(str) > 22) {
                     str = TextHelper.subStringWithEmoji(str, 22) + StringHelper.STRING_MORE;
                 }
-                this.heQ.setText(str);
+                this.hex.setText(str);
             }
-            l.a(this.heP, baVar.mPortrait, true, false);
+            l.a(this.hew, baVar.mPortrait, true, false);
             startAnim();
         }
     }
 
     private void startAnim() {
-        if (this.heR.isAnimating()) {
-            this.heR.cancelAnimation();
+        if (this.hey.isAnimating()) {
+            this.hey.cancelAnimation();
         }
-        this.heR.setProgress(0.0f);
-        this.heR.playAnimation();
-        this.fYK.clearAnimation();
-        this.fYK.startAnimation(this.heS);
+        this.hey.setProgress(0.0f);
+        this.hey.playAnimation();
+        this.fYr.clearAnimation();
+        this.fYr.startAnimation(this.hez);
     }
 
-    public void caS() {
-        if (this.heR.isAnimating()) {
-            this.heR.cancelAnimation();
+    public void cal() {
+        if (this.hey.isAnimating()) {
+            this.hey.cancelAnimation();
         }
-        this.fYK.clearAnimation();
+        this.fYr.clearAnimation();
         setVisibility(8);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.heT);
+        MessageManager.getInstance().registerListener(this.heA);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        caS();
-        MessageManager.getInstance().unRegisterListener(this.heT);
+        cal();
+        MessageManager.getInstance().unRegisterListener(this.heA);
     }
 }

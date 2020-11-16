@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class f implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

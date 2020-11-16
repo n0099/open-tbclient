@@ -10,35 +10,35 @@ import com.baidu.mario.a.b.c;
 import com.baidu.mario.a.b.d;
 import com.baidu.mario.a.b.e;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private com.baidu.mario.a.b.a bXA;
-    private volatile boolean bXB = false;
-    private e bXi;
-    private HandlerThread bXy;
-    private Handler bXz;
+    private HandlerThread bVO;
+    private Handler bVP;
+    private com.baidu.mario.a.b.a bVQ;
+    private volatile boolean bVR = false;
+    private e bVy;
 
     private void a(e eVar, c cVar) {
-        this.bXy = new HandlerThread("AudioRecorderThread");
-        this.bXy.start();
-        this.bXz = new b(this.bXy.getLooper());
+        this.bVO = new HandlerThread("AudioRecorderThread");
+        this.bVO.start();
+        this.bVP = new b(this.bVO.getLooper());
         try {
-            this.bXA = new com.baidu.mario.a.b.a();
+            this.bVQ = new com.baidu.mario.a.b.a();
         } catch (VerifyError e) {
             Log.e(TAG, "initRecorder verifyError");
-            if (this.bXA == null) {
+            if (this.bVQ == null) {
                 return;
             }
         }
-        this.bXi = eVar;
+        this.bVy = eVar;
         if (Build.VERSION.SDK_INT >= 18) {
-            this.bXA.a(cVar);
+            this.bVQ.a(cVar);
         }
     }
 
     public boolean isRunning() {
-        return this.bXy != null && this.bXy.isAlive();
+        return this.bVO != null && this.bVO.isAlive();
     }
 
     public boolean a(d dVar, e eVar, c cVar) {
@@ -47,43 +47,43 @@ public class a {
             return false;
         }
         a(eVar, cVar);
-        this.bXz.sendMessage(this.bXz.obtainMessage(1001, dVar));
-        this.bXB = true;
+        this.bVP.sendMessage(this.bVP.obtainMessage(1001, dVar));
+        this.bVR = true;
         return true;
     }
 
     public void startRecording() {
-        if (this.bXz != null) {
-            this.bXz.sendMessage(this.bXz.obtainMessage(1002));
+        if (this.bVP != null) {
+            this.bVP.sendMessage(this.bVP.obtainMessage(1002));
         }
     }
 
     public void d(ByteBuffer byteBuffer, int i, long j) {
         if (byteBuffer != null && i > 0) {
-            C0259a c0259a = new C0259a(byteBuffer, i, j);
-            if (this.bXz != null && this.bXB) {
-                this.bXz.sendMessage(this.bXz.obtainMessage(1003, c0259a));
+            C0257a c0257a = new C0257a(byteBuffer, i, j);
+            if (this.bVP != null && this.bVR) {
+                this.bVP.sendMessage(this.bVP.obtainMessage(1003, c0257a));
             }
         }
     }
 
     public void stopRecording() {
-        if (this.bXz != null && this.bXB) {
-            this.bXB = false;
-            this.bXz.sendMessage(this.bXz.obtainMessage(1004));
+        if (this.bVP != null && this.bVR) {
+            this.bVR = false;
+            this.bVP.sendMessage(this.bVP.obtainMessage(1004));
         }
     }
 
-    public void Zy() {
-        if (this.bXz != null) {
-            this.bXz.removeCallbacksAndMessages(null);
-            this.bXz.sendMessage(this.bXz.obtainMessage(1005));
-            this.bXz.sendMessage(this.bXz.obtainMessage(1006));
+    public void YP() {
+        if (this.bVP != null) {
+            this.bVP.removeCallbacksAndMessages(null);
+            this.bVP.sendMessage(this.bVP.obtainMessage(1005));
+            this.bVP.sendMessage(this.bVP.obtainMessage(1006));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends Handler {
         public b(Looper looper) {
             super(looper);
@@ -96,20 +96,20 @@ public class a {
                     a.this.b((d) message.obj);
                     return;
                 case 1002:
-                    a.this.Zz();
+                    a.this.YQ();
                     return;
                 case 1003:
-                    C0259a c0259a = (C0259a) message.obj;
-                    a.this.e(c0259a.bXC, c0259a.bXD, c0259a.bXE);
+                    C0257a c0257a = (C0257a) message.obj;
+                    a.this.e(c0257a.bVS, c0257a.bVT, c0257a.bVU);
                     return;
                 case 1004:
-                    a.this.ZA();
+                    a.this.YR();
                     return;
                 case 1005:
-                    a.this.ZB();
+                    a.this.YS();
                     return;
                 case 1006:
-                    a.this.ZC();
+                    a.this.YT();
                     return;
                 default:
                     return;
@@ -119,67 +119,67 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(d dVar) {
-        if (Build.VERSION.SDK_INT >= 18 && this.bXA != null) {
-            this.bXA.a(dVar, this.bXi);
+        if (Build.VERSION.SDK_INT >= 18 && this.bVQ != null) {
+            this.bVQ.a(dVar, this.bVy);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zz() {
+    public void YQ() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.bXA.ZK();
+            this.bVQ.Zb();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ByteBuffer byteBuffer, int i, long j) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.bXA.b(false, byteBuffer, i, j);
+            this.bVQ.b(false, byteBuffer, i, j);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ZA() {
-        if (Build.VERSION.SDK_INT >= 18 && this.bXA != null) {
-            this.bXA.b(true, (ByteBuffer) null, 0, 0L);
+    public void YR() {
+        if (Build.VERSION.SDK_INT >= 18 && this.bVQ != null) {
+            this.bVQ.b(true, (ByteBuffer) null, 0, 0L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ZB() {
+    public void YS() {
         if (Build.VERSION.SDK_INT >= 18) {
-            if (this.bXA != null) {
-                this.bXA.ZJ();
-                this.bXA.ZI();
+            if (this.bVQ != null) {
+                this.bVQ.Za();
+                this.bVQ.YZ();
             }
-            this.bXA = null;
-            this.bXi = null;
+            this.bVQ = null;
+            this.bVy = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ZC() {
-        if (this.bXz != null) {
-            this.bXz.removeCallbacksAndMessages(null);
-            this.bXz = null;
+    public void YT() {
+        if (this.bVP != null) {
+            this.bVP.removeCallbacksAndMessages(null);
+            this.bVP = null;
         }
-        if (this.bXy != null) {
-            this.bXy.quit();
-            this.bXy = null;
+        if (this.bVO != null) {
+            this.bVO.quit();
+            this.bVO = null;
         }
     }
 
     /* renamed from: com.baidu.mario.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    private class C0259a {
-        ByteBuffer bXC;
-        int bXD;
-        long bXE;
+    /* loaded from: classes6.dex */
+    private class C0257a {
+        ByteBuffer bVS;
+        int bVT;
+        long bVU;
 
-        public C0259a(ByteBuffer byteBuffer, int i, long j) {
-            this.bXC = byteBuffer;
-            this.bXD = i;
-            this.bXE = j;
+        public C0257a(ByteBuffer byteBuffer, int i, long j) {
+            this.bVS = byteBuffer;
+            this.bVT = i;
+            this.bVU = j;
         }
     }
 }

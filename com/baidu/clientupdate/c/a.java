@@ -30,12 +30,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Pattern;
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 public final class a {
     private static StringBuilder A;
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1323a;
+    private static a f1326a;
     private static Context b;
     private static String c;
     private static String d;
@@ -72,10 +72,10 @@ public final class a {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f1323a == null) {
-                f1323a = new a(context);
+            if (f1326a == null) {
+                f1326a = new a(context);
             }
-            aVar = f1323a;
+            aVar = f1326a;
         }
         return aVar;
     }

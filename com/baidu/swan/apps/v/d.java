@@ -13,11 +13,11 @@ import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.swan.apps.v.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface d extends e.b {
-    FullScreenFloatView J(Activity activity);
+    FullScreenFloatView I(Activity activity);
 
-    SwanAppPropertyWindow K(Activity activity);
+    SwanAppPropertyWindow J(Activity activity);
 
     @NonNull
     com.baidu.swan.apps.runtime.config.c a(String str, SwanAppConfigData swanAppConfigData, String str2);
@@ -28,59 +28,59 @@ public interface d extends e.b {
 
     void a(String str, com.baidu.swan.apps.event.a.a aVar);
 
-    void afP();
+    void afh();
 
-    void ain();
+    void ahF();
 
-    void aio();
+    void ahG();
 
-    String aoL();
+    com.baidu.swan.apps.runtime.e anu();
 
-    com.baidu.swan.apps.runtime.e aoc();
+    com.baidu.swan.games.view.d aoS();
 
-    com.baidu.swan.games.view.d apB();
+    com.baidu.swan.games.view.d aoT();
 
-    com.baidu.swan.games.view.d apC();
+    String aod();
 
-    com.baidu.swan.apps.core.d.e apc();
+    com.baidu.swan.apps.core.d.e aou();
 
-    @NonNull
-    Pair<Integer, Integer> azA();
+    void ayF();
 
-    @NonNull
-    Pair<Integer, Integer> azB();
+    void ayG();
 
-    com.baidu.swan.games.q.a azC();
+    void ayH();
 
-    boolean azE();
-
-    void azn();
-
-    void azo();
-
-    void azp();
-
-    SwanCoreVersion azq();
+    SwanCoreVersion ayI();
 
     @DebugTrace
-    com.baidu.swan.apps.adaptation.b.a azr();
+    com.baidu.swan.apps.adaptation.b.a ayJ();
 
-    boolean azs();
+    boolean ayK();
 
-    SwanAppConfigData azt();
+    SwanAppConfigData ayL();
 
     @NonNull
-    com.baidu.swan.apps.storage.b.c azu();
+    com.baidu.swan.apps.storage.b.c ayM();
 
-    String azv();
+    String ayN();
 
-    String azw();
+    String ayO();
 
-    String azx();
+    String ayP();
 
-    SwanAppActivity azy();
+    SwanAppActivity ayQ();
 
-    com.baidu.swan.apps.adaptation.b.d azz();
+    com.baidu.swan.apps.adaptation.b.d ayR();
+
+    @NonNull
+    Pair<Integer, Integer> ayS();
+
+    @NonNull
+    Pair<Integer, Integer> ayT();
+
+    com.baidu.swan.games.q.a ayU();
+
+    boolean ayW();
 
     void b(com.baidu.swan.apps.event.a.a aVar);
 
@@ -96,15 +96,15 @@ public interface d extends e.b {
 
     void i(SwanAppActivity swanAppActivity);
 
-    com.baidu.swan.apps.adaptation.b.e nH(String str);
+    com.baidu.swan.apps.adaptation.b.e nB(String str);
 
     @NonNull
-    com.baidu.swan.apps.runtime.config.c pL(String str);
+    com.baidu.swan.apps.runtime.config.c pF(String str);
 
     @NonNull
-    com.baidu.swan.apps.runtime.config.c pM(String str);
+    com.baidu.swan.apps.runtime.config.c pG(String str);
 
-    AbsoluteLayout pN(String str);
+    AbsoluteLayout pH(String str);
 
     void showLoadingView();
 

@@ -1,11 +1,11 @@
 package com.baidu.swan.games.h.b;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b extends a {
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public String aui() {
+    public String atA() {
         return "key_cur_preset_games_extension_core_ver";
     }
 }

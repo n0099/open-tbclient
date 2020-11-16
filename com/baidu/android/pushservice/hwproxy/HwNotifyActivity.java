@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.f;
 import com.baidu.android.pushservice.i.m;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class HwNotifyActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {

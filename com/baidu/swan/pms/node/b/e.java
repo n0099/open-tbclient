@@ -9,42 +9,42 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class e {
-    private static e ejc;
-    private a ejd = new a();
-    private String eje = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_dialog_msg);
-    private String ejf = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_toast_msg);
+    private static e ehv;
+    private a ehw = new a();
+    private String ehx = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_dialog_msg);
+    private String ehy = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_toast_msg);
 
-    public static e bcs() {
-        if (ejc == null) {
+    public static e bbL() {
+        if (ehv == null) {
             synchronized (e.class) {
-                if (ejc == null) {
-                    ejc = new e();
+                if (ehv == null) {
+                    ehv = new e();
                 }
             }
         }
-        return ejc;
+        return ehv;
     }
 
     private e() {
     }
 
     public String getVersion() {
-        return this.ejd.getString("tips_config_version", "0");
+        return this.ehw.getString("tips_config_version", "0");
     }
 
     public String cV(long j) {
-        return this.ejd.getString(String.format("%04d", Long.valueOf(j)), this.eje);
+        return this.ehw.getString(String.format("%04d", Long.valueOf(j)), this.ehx);
     }
 
     public String cW(long j) {
-        return this.ejd.getString(String.format("%04d", Long.valueOf(j)), this.ejf);
+        return this.ehw.getString(String.format("%04d", Long.valueOf(j)), this.ehy);
     }
 
     public void b(HashMap<String, String> hashMap, String str) {
         if (hashMap != null && !hashMap.isEmpty() && !TextUtils.isEmpty(str)) {
-            SharedPreferences.Editor edit = this.ejd.edit();
+            SharedPreferences.Editor edit = this.ehw.edit();
             edit.clear();
             edit.putString("tips_config_version", str);
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -54,7 +54,7 @@ public class e {
         }
     }
 
-    public void cS(JSONObject jSONObject) {
+    public void cM(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null) {
             String optString = jSONObject.optString("version");
@@ -70,7 +70,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class a extends i {
         a() {
             super("updatecore_node_tipmsgs");

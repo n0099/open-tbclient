@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.xiaomi.push.al;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 class am extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
@@ -23,7 +23,7 @@ class am extends Handler {
         if (message.what == 0) {
             bVar.a();
         } else if (message.what == 1) {
-            bVar.mo229c();
+            bVar.mo232c();
         }
         super.handleMessage(message);
     }

@@ -1,7 +1,7 @@
 package com.baidu.mobstat;
 
 import android.os.Build;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public final class aa {
 
     /* renamed from: a  reason: collision with root package name */

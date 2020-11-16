@@ -6,9 +6,9 @@ import com.google.gson.TypeAdapterFactory;
 import com.google.gson.internal.LinkedTreeMap;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class ObjectTypeAdapter extends TypeAdapter<Object> {
-    public static final TypeAdapterFactory pdR = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ObjectTypeAdapter.1
+    public static final TypeAdapterFactory pfu = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ObjectTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             if (aVar.etp() == Object.class) {

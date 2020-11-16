@@ -5,12 +5,12 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.q;
 import tbclient.TopicList.TopicList;
 import tbclient.TopicList.TopicListModule;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class b implements q {
-    public static final BdUniqueId jOY = BdUniqueId.gen();
-    private long jOV;
-    private String jOW;
-    private String jOX;
+    public static final BdUniqueId jPI = BdUniqueId.gen();
+    private long jPF;
+    private String jPG;
+    private String jPH;
     private long mId;
     private String mName;
     private int mTag;
@@ -18,12 +18,12 @@ public class b implements q {
     String rule_jump_url;
     String tips;
 
-    public String cMR() {
-        return this.jOX;
+    public String cMy() {
+        return this.jPH;
     }
 
-    public String cMS() {
-        return this.jOW;
+    public String cMz() {
+        return this.jPG;
     }
 
     public long getId() {
@@ -34,7 +34,7 @@ public class b implements q {
         return this.mName;
     }
 
-    public String cMT() {
+    public String cMA() {
         return this.module_title;
     }
 
@@ -43,9 +43,9 @@ public class b implements q {
             this.mId = topicList.topic_id.longValue();
             this.mName = topicList.topic_name;
             this.mTag = topicList.tag.intValue();
-            this.jOV = topicList.discuss_num.longValue();
-            this.jOW = topicList.topic_desc;
-            this.jOX = topicList.topic_pic;
+            this.jPF = topicList.discuss_num.longValue();
+            this.jPG = topicList.topic_desc;
+            this.jPH = topicList.topic_pic;
         }
     }
 
@@ -61,6 +61,6 @@ public class b implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jOY;
+        return jPI;
     }
 }

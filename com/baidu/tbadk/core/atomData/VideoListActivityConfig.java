@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 /* loaded from: classes.dex */
 public class VideoListActivityConfig extends IntentConfig {
     public static final String KEY_FORUM_ID = "KEY_FORUM_ID";
@@ -22,7 +22,7 @@ public class VideoListActivityConfig extends IntentConfig {
             Intent intent = getIntent();
             intent.putExtra(KEY_FORUM_ID, str);
             intent.putExtra(KEY_THREAD_ID, str2);
-            if (!at.isEmpty(str3)) {
+            if (!au.isEmpty(str3)) {
                 intent.putExtra(KEY_SOURCE, str3);
             }
             if (!(this.mContext instanceof Activity)) {
@@ -35,7 +35,7 @@ public class VideoListActivityConfig extends IntentConfig {
     public VideoListActivityConfig createNormalCfg(long j, String str) {
         Intent intent = getIntent();
         intent.putExtra("user_id", j);
-        if (!at.isEmpty(str)) {
+        if (!au.isEmpty(str)) {
             intent.putExtra(KEY_SOURCE, str);
         }
         if (!(this.mContext instanceof Activity)) {

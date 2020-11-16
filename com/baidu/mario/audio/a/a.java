@@ -2,7 +2,7 @@ package com.baidu.mario.audio.a;
 
 import com.baidu.mario.audio.AudioParams;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface a {
     void a(boolean z, AudioParams audioParams);
 

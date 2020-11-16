@@ -2,7 +2,7 @@ package com.airbnb.lottie.c;
 
 import android.util.JsonReader;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class i implements aj<Float> {
     public static final i GR = new i();
 

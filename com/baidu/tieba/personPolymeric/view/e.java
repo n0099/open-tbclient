@@ -10,36 +10,36 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class e extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.g> {
-    private View efQ;
-    private HTypeListView lUc;
+    private View eej;
+    private HTypeListView lUu;
     private TbPageContext mPageContext;
     private View mRootView;
     private TextView mTitle;
-    private com.baidu.tieba.personPolymeric.a.o mgt;
+    private com.baidu.tieba.personPolymeric.a.o mgM;
 
     public e(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         this.mRootView = getView();
-        this.efQ = this.mRootView.findViewById(R.id.divider_view);
+        this.eej = this.mRootView.findViewById(R.id.divider_view);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.gift_title);
-        this.lUc = (HTypeListView) this.mRootView.findViewById(R.id.gift_horizontal_list);
-        this.mgt = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.lUc);
+        this.lUu = (HTypeListView) this.mRootView.findViewById(R.id.gift_horizontal_list);
+        this.mgM = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.lUu);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        ap.setBackgroundColor(this.efQ, R.color.cp_bg_line_c);
-        ap.setViewTextColor(this.mTitle, (int) R.color.cp_cont_d);
+        ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
+        ap.setBackgroundColor(this.eej, R.color.CAM_X0204);
+        ap.setViewTextColor(this.mTitle, R.color.CAM_X0109);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -60,13 +60,13 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
                 e.this.b(gVar);
             }
         };
-        this.mgt.aa(onClickListener);
+        this.mgM.Z(onClickListener);
         this.mRootView.setOnClickListener(onClickListener);
-        this.mgt.ab(onClickListener);
-        this.lUc.setData(fu(gVar.mdw));
+        this.mgM.aa(onClickListener);
+        this.lUu.setData(fu(gVar.mdO));
         if (gVar.mIsHost) {
             this.mTitle.setText(R.string.gift_received_by_me);
-        } else if (gVar.mdu) {
+        } else if (gVar.mdM) {
             this.mTitle.setText(R.string.gift_received_by_him);
         } else {
             this.mTitle.setText(R.string.gift_received_by_her);
@@ -78,8 +78,8 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     public void b(com.baidu.tieba.personPolymeric.c.g gVar) {
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
             this.mPageContext.showToast(R.string.gift_load_fail);
-        } else if (bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.NA, gVar.mdv, gVar.mSex)));
+        } else if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.NA, gVar.mdN, gVar.mSex)));
         }
     }
 

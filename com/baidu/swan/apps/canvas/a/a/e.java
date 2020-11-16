@@ -2,12 +2,12 @@ package com.baidu.swan.apps.canvas.a.a;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class e extends a {
-    private float cCg;
-    private float cCh;
-    private float cCi;
-    private float cCj;
+    private float cAw;
+    private float cAx;
+    private float cAy;
+    private float cAz;
     private boolean mIsValid = false;
     private float mX;
     private float mY;
@@ -15,12 +15,12 @@ public class e extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 5) {
-            this.cCg = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(0));
-            this.cCh = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(1));
-            this.cCi = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(2));
-            this.cCj = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(3));
-            this.mX = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(4));
-            this.mY = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(5));
+            this.cAw = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(0));
+            this.cAx = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(1));
+            this.cAy = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(2));
+            this.cAz = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(3));
+            this.mX = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(4));
+            this.mY = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(5));
             this.mIsValid = true;
         }
     }
@@ -28,7 +28,7 @@ public class e extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         if (this.mIsValid) {
-            bVar.mPath.cubicTo(this.cCg, this.cCh, this.cCi, this.cCj, this.mX, this.mY);
+            bVar.mPath.cubicTo(this.cAw, this.cAx, this.cAy, this.cAz, this.mX, this.mY);
         }
     }
 }

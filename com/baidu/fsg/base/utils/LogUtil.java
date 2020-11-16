@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class LogUtil {
 
     /* renamed from: a  reason: collision with root package name */

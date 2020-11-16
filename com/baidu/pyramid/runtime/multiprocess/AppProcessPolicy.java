@@ -6,10 +6,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes16.dex */
+/* loaded from: classes10.dex */
 public @interface AppProcessPolicy {
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes10.dex */
     public enum ProcessType {
         ALL,
         DEFAULT,

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.f.a.d;
+import com.baidu.g.a.d;
 import com.baidu.mapapi.PermissionUtils;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.Polyline;
@@ -213,19 +213,19 @@ public class WalkNavigateHelper {
         create.b(1);
         create.c(walkNaviLaunchParam.getExtraNaviMode());
         create.a(0);
-        create.a(dVar.wu().wF().ck(0), dVar.wu().wF().ck(1), dVar.wu().wL().getCode(), dVar.wu().wF().getFloor(), dVar.wu().wF().xe());
-        int size = dVar.wu().wH().size();
+        create.a(dVar.wt().wE().ci(0), dVar.wt().wE().ci(1), dVar.wt().wK().getCode(), dVar.wt().wE().getFloor(), dVar.wt().wE().xd());
+        int size = dVar.wt().wG().size();
         int[] iArr = new int[size];
         int[] iArr2 = new int[size];
         int[] iArr3 = new int[size];
         String[] strArr = new String[size];
         String[] strArr2 = new String[size];
-        for (int i = 0; i < dVar.wu().wH().size(); i++) {
-            iArr[i] = dVar.wu().cf(i).ck(0);
-            iArr2[i] = dVar.wu().cf(i).ck(1);
-            iArr3[i] = dVar.wu().ch(0).getCode();
-            strArr[i] = dVar.wu().cf(i).getFloor();
-            strArr2[i] = dVar.wu().cf(i).xe();
+        for (int i = 0; i < dVar.wt().wG().size(); i++) {
+            iArr[i] = dVar.wt().cd(i).ci(0);
+            iArr2[i] = dVar.wt().cd(i).ci(1);
+            iArr3[i] = dVar.wt().cf(0).getCode();
+            strArr[i] = dVar.wt().cd(i).getFloor();
+            strArr2[i] = dVar.wt().cd(i).xd();
         }
         create.a(iArr, iArr2, iArr3, strArr, strArr2);
         create.d(2);
@@ -235,19 +235,19 @@ public class WalkNavigateHelper {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(d dVar) {
-        LatLng mc2ll = CoordUtil.mc2ll(new GeoPoint(dVar.wu().wF().ck(1), dVar.wu().wF().ck(0)));
+        LatLng mc2ll = CoordUtil.mc2ll(new GeoPoint(dVar.wt().wE().ci(1), dVar.wt().wE().ci(0)));
         b.a().a(mc2ll);
-        int size = dVar.wu().wH().size();
-        b.a().b(CoordUtil.mc2ll(new GeoPoint(dVar.wu().cf(size - 1).ck(1), dVar.wu().cf(size - 1).ck(0))));
-        String floor = dVar.wu().wF().getFloor();
-        String xe = dVar.wu().wF().xe();
+        int size = dVar.wt().wG().size();
+        b.a().b(CoordUtil.mc2ll(new GeoPoint(dVar.wt().cd(size - 1).ci(1), dVar.wt().cd(size - 1).ci(0))));
+        String floor = dVar.wt().wE().getFloor();
+        String xd = dVar.wt().wE().xd();
         com.baidu.platform.comapi.wnplatform.model.c cVar = new com.baidu.platform.comapi.wnplatform.model.c();
         cVar.a(mc2ll);
-        cVar.a(xe);
+        cVar.a(xd);
         cVar.b(floor);
         b.a().a(cVar);
         GeoPoint ll2mc = CoordUtil.ll2mc(mc2ll);
-        b.a().G().a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), 0, xe, floor);
+        b.a().G().a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), 0, xd, floor);
     }
 
     public List<Polyline> displayRoutePlanResult(MapView mapView, MultiRouteDisplayOption multiRouteDisplayOption) {

@@ -1,7 +1,7 @@
 package com.baidu.pass.biometrics.face.liveness.activity;
 
 import com.baidu.pass.biometrics.face.liveness.d.b;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 class k implements b.a {
 
     /* renamed from: a  reason: collision with root package name */

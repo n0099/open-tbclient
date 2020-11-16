@@ -26,7 +26,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 @Keep
 @TargetApi(17)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 class SingleViewPresentation extends Presentation {
     private final AccessibilityEventsDelegate accessibilityEventsDelegate;
     private FrameLayout container;
@@ -38,7 +38,7 @@ class SingleViewPresentation extends Presentation {
     private final PlatformViewFactory viewFactory;
     private int viewId;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     static class PresentationState {
         private FakeWindowViewGroup fakeWindowViewGroup;
         private PlatformView platformView;
@@ -118,7 +118,7 @@ class SingleViewPresentation extends Presentation {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FakeWindowViewGroup extends ViewGroup {
         private final Rect childRect;
         private final Rect viewBounds;
@@ -160,7 +160,7 @@ class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     private static class ImmContext extends ContextWrapper {
         @NonNull
         private final InputMethodManager inputMethodManager;
@@ -185,7 +185,7 @@ class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     private static class PresentationContext extends ContextWrapper {
         @Nullable
         private WindowManager windowManager;
@@ -211,7 +211,7 @@ class SingleViewPresentation extends Presentation {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class WindowManagerHandler implements InvocationHandler {
         private static final String TAG = "PlatformViewsController";
         private final WindowManager delegate;
@@ -313,7 +313,7 @@ class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     private static class AccessibilityDelegatingFrameLayout extends FrameLayout {
         private final AccessibilityEventsDelegate accessibilityEventsDelegate;
         private final View embeddedView;

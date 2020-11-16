@@ -3,10 +3,10 @@ package com.baidu.h.b.b;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class a {
     String appVersion;
-    int bVZ;
+    int bUp;
     String cuid;
     long num;
     long roomId;
@@ -22,7 +22,7 @@ public class a {
         jSONObject.put("number", this.num);
         jSONObject.put("app_version", this.appVersion);
         jSONObject.put(UgcConstant.SOURCE_TYPE, this.sourceType);
-        jSONObject.put("caller_flag", this.bVZ);
+        jSONObject.put("caller_flag", this.bUp);
         jSONObject.put("version", this.version);
         jSONObject.put("device_id", this.cuid);
         return jSONObject.toString();

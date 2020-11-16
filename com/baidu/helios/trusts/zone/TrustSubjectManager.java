@@ -18,9 +18,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class TrustSubjectManager {
-    a.C0153a awK;
-    private a azm;
-    private TrustSubject azn;
+    a.C0151a auZ;
+    private a axB;
+    private TrustSubject axC;
     private Context d;
 
     /* loaded from: classes11.dex */
@@ -41,7 +41,7 @@ public class TrustSubjectManager {
     /* loaded from: classes11.dex */
     public static class a {
         public Context applicationContext;
-        public com.baidu.helios.common.c.a axd;
+        public com.baidu.helios.common.c.a avs;
     }
 
     /* loaded from: classes11.dex */
@@ -50,13 +50,13 @@ public class TrustSubjectManager {
 
     /* loaded from: classes11.dex */
     public static class c {
-        public int azo = 0;
+        public int axD = 0;
     }
 
     /* loaded from: classes11.dex */
     public static class d {
-        public List<TrustSubject> azp;
-        public TrustSubject azq;
+        public List<TrustSubject> axE;
+        public TrustSubject axF;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -72,9 +72,9 @@ public class TrustSubjectManager {
 
         public static e e(TrustSubject trustSubject) {
             try {
-                String fF = trustSubject.fF("config-pkgs");
-                if (!TextUtils.isEmpty(fF)) {
-                    JSONArray jSONArray = new JSONObject(fF).getJSONArray("value");
+                String fz = trustSubject.fz("config-pkgs");
+                if (!TextUtils.isEmpty(fz)) {
+                    JSONArray jSONArray = new JSONObject(fz).getJSONArray("value");
                     int length = jSONArray.length();
                     ArrayList arrayList = new ArrayList(length);
                     for (int i = 0; i < length; i++) {
@@ -106,9 +106,9 @@ public class TrustSubjectManager {
 
         public static f f(TrustSubject trustSubject) {
             try {
-                String fF = trustSubject.fF("config-revoke-sigs");
-                if (!TextUtils.isEmpty(fF)) {
-                    JSONArray jSONArray = new JSONObject(fF).getJSONArray("revoke-sigs");
+                String fz = trustSubject.fz("config-revoke-sigs");
+                if (!TextUtils.isEmpty(fz)) {
+                    JSONArray jSONArray = new JSONObject(fz).getJSONArray("revoke-sigs");
                     int length = jSONArray.length();
                     HashSet hashSet = new HashSet(length);
                     for (int i = 0; i < length; i++) {
@@ -127,7 +127,7 @@ public class TrustSubjectManager {
         }
     }
 
-    private com.baidu.helios.common.a.b.a AT() {
+    private com.baidu.helios.common.a.b.a Ak() {
         return com.baidu.helios.common.a.c.c(com.baidu.helios.trusts.zone.a.f1823a, com.baidu.helios.trusts.zone.a.b);
     }
 
@@ -154,8 +154,8 @@ public class TrustSubjectManager {
         for (TrustSubject trustSubject : list) {
             hashMap.put(trustSubject.packageName, trustSubject);
         }
-        File AF = this.awK.AF();
-        if (AF == null || (listFiles = AF.listFiles(new TrustSubject.b())) == null) {
+        File zW = this.auZ.zW();
+        if (zW == null || (listFiles = zW.listFiles(new TrustSubject.b())) == null) {
             return;
         }
         for (File file : listFiles) {
@@ -174,9 +174,9 @@ public class TrustSubjectManager {
         }
         Iterator<TrustSubject> it = list.iterator();
         while (it.hasNext()) {
-            Set<String> AR = it.next().AR();
-            if (AR != null && AR.size() > 0) {
-                Iterator<String> it2 = AR.iterator();
+            Set<String> Ai = it.next().Ai();
+            if (Ai != null && Ai.size() > 0) {
+                Iterator<String> it2 = Ai.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         break;
@@ -199,10 +199,10 @@ public class TrustSubjectManager {
         ArrayList arrayList2 = new ArrayList();
         if (queryBroadcastReceivers != null) {
             for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                if (resolveInfo.activityInfo.packageName.equals(this.azn.packageName)) {
-                    trustSubject2 = this.azn;
+                if (resolveInfo.activityInfo.packageName.equals(this.axC.packageName)) {
+                    trustSubject2 = this.axC;
                 } else {
-                    TrustSubject trustSubject3 = new TrustSubject(resolveInfo.activityInfo.packageName, this.d, this.awK);
+                    TrustSubject trustSubject3 = new TrustSubject(resolveInfo.activityInfo.packageName, this.d, this.auZ);
                     trustSubject3.l();
                     trustSubject2 = trustSubject3;
                 }
@@ -211,31 +211,31 @@ public class TrustSubjectManager {
                 boolean z = false;
                 if (!k) {
                     z = true;
-                } else if (trustSubject2.AM().a(3L) == 0) {
+                } else if (trustSubject2.Ad().a(3L) == 0) {
                     z = true;
                 }
                 if (z) {
                     trustSubject2.a(aVar);
                 }
-                if (trustSubject2.AM().a(3L) == 1) {
+                if (trustSubject2.Ad().a(3L) == 1) {
                     hashSet.add(trustSubject2);
                     boolean z2 = false;
                     if (!k) {
                         z2 = true;
-                    } else if (trustSubject2.AM().a(384L) == 0) {
+                    } else if (trustSubject2.Ad().a(384L) == 0) {
                         z2 = true;
                     }
                     if (z2) {
                         trustSubject2.b();
                     }
-                    if (trustSubject2.AM().a(384L) == 128) {
+                    if (trustSubject2.Ad().a(384L) == 128) {
                         arrayList.add(trustSubject2);
                     }
                 }
             }
         }
         TrustSubject trustSubject4 = null;
-        Collections.sort(arrayList, TrustSubject.azi);
+        Collections.sort(arrayList, TrustSubject.axx);
         Iterator it = arrayList.iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -244,12 +244,12 @@ public class TrustSubjectManager {
             TrustSubject trustSubject5 = (TrustSubject) it.next();
             boolean z3 = false;
             if (trustSubject5.k()) {
-                long a2 = trustSubject5.AM().a(48L);
+                long a2 = trustSubject5.Ad().a(48L);
                 if (a2 == 0) {
                     z3 = true;
                 } else if (a2 == 32) {
                     continue;
-                } else if (a2 == 16 && trustSubject5.AM().a(64L) != 64) {
+                } else if (a2 == 16 && trustSubject5.Ad().a(64L) != 64) {
                     z3 = true;
                 }
             } else {
@@ -259,7 +259,7 @@ public class TrustSubjectManager {
                 if (trustSubject5.h()) {
                     if (0 == 0) {
                         trustSubject = trustSubject5;
-                    } else if (trustSubject5.AO() > trustSubject4.AO()) {
+                    } else if (trustSubject5.Af() > trustSubject4.Af()) {
                         trustSubject = trustSubject5;
                     }
                 }
@@ -281,31 +281,31 @@ public class TrustSubjectManager {
             a(arrayList3, trustSubject);
         }
         Collections.sort(arrayList3, TrustSubject.f1820a);
-        dVar.azp = arrayList3;
+        dVar.axE = arrayList3;
         if (trustSubject != null) {
             trustSubject.d();
-            dVar.azq = trustSubject;
+            dVar.axF = trustSubject;
         }
         return dVar;
     }
 
     private void b() {
         boolean z = true;
-        TrustSubject trustSubject = new TrustSubject(this.d.getPackageName(), this.d, this.awK);
+        TrustSubject trustSubject = new TrustSubject(this.d.getPackageName(), this.d, this.auZ);
         trustSubject.l();
         boolean k = trustSubject.k();
-        if (k ? trustSubject.AM().a(3L) == 0 : true) {
-            trustSubject.a(AT());
+        if (k ? trustSubject.Ad().a(3L) == 0 : true) {
+            trustSubject.a(Ak());
         }
-        if (k ? trustSubject.AM().a(384L) == 0 : true) {
+        if (k ? trustSubject.Ad().a(384L) == 0 : true) {
             trustSubject.b();
         }
         if (k) {
-            long a2 = trustSubject.AM().a(48L);
+            long a2 = trustSubject.Ad().a(48L);
             if (a2 != 0) {
                 if (a2 == 32) {
                     z = false;
-                } else if (a2 != 16 || trustSubject.AM().a(64L) == 64) {
+                } else if (a2 != 16 || trustSubject.Ad().a(64L) == 64) {
                     z = false;
                 }
             }
@@ -315,18 +315,18 @@ public class TrustSubjectManager {
         }
         trustSubject.i();
         trustSubject.m();
-        this.azn = trustSubject;
+        this.axC = trustSubject;
     }
 
     private d c(com.baidu.helios.common.a.b.a aVar) {
         TrustSubject trustSubject;
         d dVar = new d();
-        TrustSubject trustSubject2 = this.azn;
-        if (trustSubject2.AQ()) {
+        TrustSubject trustSubject2 = this.axC;
+        if (trustSubject2.Ah()) {
             HashMap hashMap = new HashMap();
             hashMap.put(trustSubject2.packageName, trustSubject2);
             HashSet hashSet = new HashSet();
-            if (trustSubject2.AM().a(3L) == 1) {
+            if (trustSubject2.Ad().a(3L) == 1) {
                 hashSet.add(trustSubject2);
             }
             ArrayList arrayList = new ArrayList();
@@ -345,40 +345,40 @@ public class TrustSubjectManager {
                 ArrayList arrayList2 = new ArrayList();
                 for (String str : a2) {
                     if (!hashMap.containsKey(str)) {
-                        TrustSubject trustSubject5 = trustSubject2.packageName.equals(str) ? trustSubject2 : new TrustSubject(str, this.d, this.awK);
+                        TrustSubject trustSubject5 = trustSubject2.packageName.equals(str) ? trustSubject2 : new TrustSubject(str, this.d, this.auZ);
                         hashMap.put(str, trustSubject5);
-                        if (trustSubject5.AN()) {
+                        if (trustSubject5.Ae()) {
                             trustSubject5.l();
                             arrayList.add(trustSubject5);
                             boolean k = trustSubject5.k();
                             boolean z = false;
                             if (!k) {
                                 z = true;
-                            } else if (trustSubject5.AM().a(3L) == 0) {
+                            } else if (trustSubject5.Ad().a(3L) == 0) {
                                 z = true;
                             }
                             if (z) {
                                 trustSubject5.a(aVar);
                             }
-                            if (trustSubject5.AM().a(3L) == 1) {
+                            if (trustSubject5.Ad().a(3L) == 1) {
                                 hashSet.add(trustSubject5);
                                 boolean z2 = false;
                                 if (!k) {
                                     z2 = true;
-                                } else if (trustSubject5.AM().a(384L) == 0) {
+                                } else if (trustSubject5.Ad().a(384L) == 0) {
                                     z2 = true;
                                 }
                                 if (z2) {
                                     trustSubject5.b();
                                 }
-                                if (trustSubject5.AM().a(384L) == 128) {
+                                if (trustSubject5.Ad().a(384L) == 128) {
                                     arrayList2.add(trustSubject5);
                                 }
                             }
                         }
                     }
                 }
-                Collections.sort(arrayList2, TrustSubject.azi);
+                Collections.sort(arrayList2, TrustSubject.axx);
                 Iterator it = arrayList2.iterator();
                 while (true) {
                     if (!it.hasNext()) {
@@ -387,12 +387,12 @@ public class TrustSubjectManager {
                     trustSubject = (TrustSubject) it.next();
                     boolean z3 = false;
                     if (trustSubject.k()) {
-                        long a3 = trustSubject.AM().a(48L);
+                        long a3 = trustSubject.Ad().a(48L);
                         if (a3 == 0) {
                             z3 = true;
                         } else if (a3 == 32) {
                             continue;
-                        } else if (a3 == 16 && trustSubject.AM().a(64L) != 64) {
+                        } else if (a3 == 16 && trustSubject.Ad().a(64L) != 64) {
                             z3 = true;
                         }
                     } else {
@@ -400,7 +400,7 @@ public class TrustSubjectManager {
                     }
                     if (!z3 || trustSubject.c()) {
                         if (trustSubject.h()) {
-                            if (trustSubject.AO() > trustSubject4.AO()) {
+                            if (trustSubject.Af() > trustSubject4.Af()) {
                             }
                         }
                     }
@@ -425,10 +425,10 @@ public class TrustSubjectManager {
                 a(arrayList3, trustSubject4);
             }
             Collections.sort(arrayList3, TrustSubject.f1820a);
-            dVar.azp = arrayList3;
+            dVar.axE = arrayList3;
             if (trustSubject4 != null) {
                 trustSubject4.d();
-                dVar.azq = trustSubject4;
+                dVar.axF = trustSubject4;
             }
             return dVar;
         }
@@ -436,22 +436,22 @@ public class TrustSubjectManager {
     }
 
     public d a(c cVar) {
-        com.baidu.helios.common.a.b.a AT = AT();
-        if (cVar.azo == 1) {
-            return b(AT);
+        com.baidu.helios.common.a.b.a Ak = Ak();
+        if (cVar.axD == 1) {
+            return b(Ak);
         }
-        if (cVar.azo == 2) {
-            return c(AT);
+        if (cVar.axD == 2) {
+            return c(Ak);
         }
-        d b2 = b(AT);
-        return (b2.azp == null || b2.azp.size() == 0) ? c(AT) : b2;
+        d b2 = b(Ak);
+        return (b2.axE == null || b2.axE.size() == 0) ? c(Ak) : b2;
     }
 
     public void a(a aVar) {
-        this.azm = aVar;
+        this.axB = aVar;
         this.d = aVar.applicationContext;
-        this.awK = aVar.axd.AD().fD("tz");
-        this.awK.AE();
+        this.auZ = aVar.avs.zU().fx("tz");
+        this.auZ.zV();
     }
 
     public void a(b bVar) {

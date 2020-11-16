@@ -2,7 +2,7 @@ package com.bun.miitmdid.supplier;
 
 import android.support.annotation.Keep;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public interface IdSupplier {
     @Keep
     String getAAID();

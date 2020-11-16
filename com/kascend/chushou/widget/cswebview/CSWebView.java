@@ -17,17 +17,17 @@ import tv.chushou.zues.widget.fresco.a;
 import tv.chushou.zues.widget.sweetalert.b;
 /* loaded from: classes6.dex */
 public class CSWebView extends SimpleWebview implements View.OnLongClickListener, DownloadListener {
-    private JSInterface pAN;
+    private JSInterface pCq;
 
     @SuppressLint({"AddJavascriptInterface"})
     public static void a(CSWebView cSWebView, Context context, c cVar, a aVar) {
         if (cSWebView != null && context != null) {
-            JSInterface ewu = aVar != null ? aVar.ewu() : null;
-            JSInterface jSInterface = ewu == null ? new JSInterface(context) : ewu;
-            d ews = aVar != null ? aVar.ews() : null;
-            com.kascend.chushou.toolkit.b ewt = aVar != null ? aVar.ewt() : null;
-            jSInterface.setCloseListener(ews);
-            jSInterface.setJsToNative(ewt);
+            JSInterface ewv = aVar != null ? aVar.ewv() : null;
+            JSInterface jSInterface = ewv == null ? new JSInterface(context) : ewv;
+            d ewt = aVar != null ? aVar.ewt() : null;
+            com.kascend.chushou.toolkit.b ewu = aVar != null ? aVar.ewu() : null;
+            jSInterface.setCloseListener(ewt);
+            jSInterface.setJsToNative(ewu);
             Object d = aVar != null ? aVar.d() : null;
             if (d != null) {
                 jSInterface.setExtraData(d);
@@ -52,7 +52,7 @@ public class CSWebView extends SimpleWebview implements View.OnLongClickListener
         String str;
         super.a();
         WebSettings settings = getSettings();
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.eHq().S(tv.chushou.basis.d.a.b.b.class);
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.eHr().S(tv.chushou.basis.d.a.b.b.class);
         if (bVar == null) {
             str = "Android ChushouTV SDK/5.5.6";
         } else {
@@ -65,7 +65,7 @@ public class CSWebView extends SimpleWebview implements View.OnLongClickListener
     @Override // com.kascend.chushou.widget.cswebview.SimpleWebview
     public void b() {
         super.b();
-        if (Build.VERSION.SDK_INT >= 19 && tv.chushou.zues.utils.e.eHO()) {
+        if (Build.VERSION.SDK_INT >= 19 && tv.chushou.zues.utils.e.eHP()) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
     }
@@ -98,8 +98,8 @@ public class CSWebView extends SimpleWebview implements View.OnLongClickListener
                     }
                     return;
                 }
-                tv.chushou.zues.widget.fresco.a.a(str, com.kascend.chushou.d.c.phK.etW().getAbsolutePath(), new a.InterfaceC1123a() { // from class: com.kascend.chushou.widget.cswebview.CSWebView.1.1
-                    @Override // tv.chushou.zues.widget.fresco.a.InterfaceC1123a
+                tv.chushou.zues.widget.fresco.a.a(str, com.kascend.chushou.d.c.pjq.etW().getAbsolutePath(), new a.InterfaceC1126a() { // from class: com.kascend.chushou.widget.cswebview.CSWebView.1.1
+                    @Override // tv.chushou.zues.widget.fresco.a.InterfaceC1126a
                     public void onComplete(boolean z, String str2) {
                         if (ViewCompat.isAttachedToWindow(CSWebView.this)) {
                             if (z) {
@@ -111,16 +111,16 @@ public class CSWebView extends SimpleWebview implements View.OnLongClickListener
                     }
                 });
             }
-        }).aaL(context.getString(a.i.alert_dialog_cancel)).aaN(context.getString(a.i.alert_dialog_ok)).D(context.getString(a.i.str_download_img)).show();
+        }).aaw(context.getString(a.i.alert_dialog_cancel)).aay(context.getString(a.i.alert_dialog_ok)).E(context.getString(a.i.str_download_img)).show();
     }
 
     @Override // android.view.View
     public boolean canScrollHorizontally(int i) {
-        return (this.pAN != null && this.pAN.isCanScrollHorizontally()) || super.canScrollHorizontally(i);
+        return (this.pCq != null && this.pCq.isCanScrollHorizontally()) || super.canScrollHorizontally(i);
     }
 
     public void setJSInterface(JSInterface jSInterface) {
-        this.pAN = jSInterface;
+        this.pCq = jSInterface;
     }
 
     public void a(String str) {

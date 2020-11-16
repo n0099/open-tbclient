@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.pass.common.Log;
 import com.baidu.pass.common.SharedPreferencesUtil;
 import com.baidu.pass.view.ConfirmDialog;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PermissionsHelperActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */

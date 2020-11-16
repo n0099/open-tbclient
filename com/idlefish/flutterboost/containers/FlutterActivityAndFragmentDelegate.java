@@ -18,7 +18,7 @@ import android.view.WindowManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
-import com.baidu.tieba.t.a;
+import com.baidu.tieba.u.a;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.Utils;
 import com.idlefish.flutterboost.XFlutterView;
@@ -36,7 +36,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer {
     private static int ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = 0;
     private static final String TAG = "FlutterActivityAndFragmentDelegate";
@@ -53,7 +53,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     @Nullable
     private XPlatformPlugin platformPlugin;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public interface Host extends FlutterEngineConfigurator, FlutterEngineProvider, SplashScreenProvider {
         @Override // io.flutter.embedding.android.FlutterEngineConfigurator
         void configureFlutterEngine(@NonNull FlutterEngine flutterEngine);

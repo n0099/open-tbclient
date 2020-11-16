@@ -45,7 +45,7 @@ public class CSTVSdkMainActivityNew extends BaseActivity {
             getWindow().addFlags(256);
             getWindow().addFlags(Integer.MIN_VALUE);
             getWindow().clearFlags(67108864);
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, a.C1108a.transparent));
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, a.C1111a.transparent));
             getWindow().setAttributes(attributes);
             getWindow().getDecorView().setSystemUiVisibility(8448);
             findViewById.setFitsSystemWindows(false);

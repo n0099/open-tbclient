@@ -15,24 +15,24 @@ import com.baidu.live.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.live.tieba.pb.interactionpopupwindow.d;
 /* loaded from: classes4.dex */
 public abstract class a<V extends d, D extends IBaseDialogData> implements c {
-    private DialogInterface.OnDismissListener bCl;
-    protected V bCp;
-    protected D bCq;
+    private DialogInterface.OnDismissListener bAA;
+    protected V bAE;
+    protected D bAF;
     private DialogInterface.OnCancelListener mCancelListenr;
     protected Context mContext;
     private AlertDialog mDialog;
     private DialogInterface.OnKeyListener mOnKeyListener;
     protected TbPageContext mPageContext;
     private int mDialogGravity = -1;
-    private boolean bCm = true;
-    private boolean bCn = false;
-    private boolean bCo = false;
+    private boolean bAB = true;
+    private boolean bAC = false;
+    private boolean bAD = false;
 
     public a(TbPageContext tbPageContext, V v, D d) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.bCp = v;
-        this.bCq = d;
+        this.bAE = v;
+        this.bAF = d;
         a((a<V, D>) d);
     }
 
@@ -41,8 +41,8 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
             ShowUtil.showDialog(this.mDialog, this.mPageContext.getPageActivity());
             return;
         }
-        if (this.bCn) {
-            if (this.bCo) {
+        if (this.bAC) {
+            if (this.bAD) {
                 this.mDialog = new AlertDialog.Builder(this.mContext, a.i.sdk_search_dialog_from_bottom_in).create();
             } else {
                 this.mDialog = new AlertDialog.Builder(this.mContext, a.i.sdk_search_dialog).create();
@@ -50,14 +50,14 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
         } else {
             this.mDialog = new AlertDialog.Builder(this.mContext).create();
         }
-        this.mDialog.setCanceledOnTouchOutside(RJ());
-        this.mDialog.setCancelable(RK());
+        this.mDialog.setCanceledOnTouchOutside(Ra());
+        this.mDialog.setCancelable(Rb());
         this.mDialog.setOnKeyListener(this.mOnKeyListener);
         if (this.mCancelListenr != null) {
             this.mDialog.setOnCancelListener(this.mCancelListenr);
         }
-        if (this.bCl != null) {
-            this.mDialog.setOnDismissListener(this.bCl);
+        if (this.bAA != null) {
+            this.mDialog.setOnDismissListener(this.bAA);
         }
         ShowUtil.showDialog(this.mDialog, this.mPageContext.getPageActivity());
         if (this.mDialog.getWindow().getDecorView().getParent() != null) {
@@ -81,7 +81,7 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.bCp.getViewGroup());
+            window.setContentView(this.bAE.getViewGroup());
         }
     }
 
@@ -93,7 +93,7 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
     }
 
     public a a(DialogInterface.OnDismissListener onDismissListener) {
-        this.bCl = onDismissListener;
+        this.bAA = onDismissListener;
         return this;
     }
 
@@ -105,23 +105,23 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
         return false;
     }
 
-    public a fT(int i) {
+    public a fP(int i) {
         this.mDialogGravity = i;
         return this;
     }
 
-    public a cH(boolean z) {
-        this.bCn = z;
+    public a cJ(boolean z) {
+        this.bAC = z;
         return this;
     }
 
     public void a(D d) {
-        if (this.bCp != null) {
-            this.bCp.a(d);
+        if (this.bAE != null) {
+            this.bAE.a(d);
         }
     }
 
-    public void cI(boolean z) {
-        this.bCo = z;
+    public void cK(boolean z) {
+        this.bAD = z;
     }
 }

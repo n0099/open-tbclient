@@ -6,8 +6,8 @@ import android.animation.ValueAnimator;
 import android.view.View;
 /* loaded from: classes4.dex */
 public class j {
-    protected a ggG;
-    private ValueAnimator ggH;
+    protected a ggn;
+    private ValueAnimator ggo;
     private boolean mShowing;
     View view;
 
@@ -23,11 +23,11 @@ public class j {
     public void show(boolean z) {
         if (!this.mShowing) {
             this.mShowing = true;
-            Pc();
+            Ot();
             if (z) {
-                DV();
+                Dm();
             } else {
-                lv(isShowing());
+                lw(isShowing());
             }
         }
     }
@@ -41,25 +41,25 @@ public class j {
             this.mShowing = false;
             onDismiss();
             if (z) {
-                bOs();
+                bNL();
             } else {
-                lv(isShowing());
+                lw(isShowing());
             }
         }
     }
 
-    private void bOs() {
-        this.ggH = z(0.0f, 1.0f);
+    private void bNL() {
+        this.ggo = z(0.0f, 1.0f);
     }
 
-    private void DV() {
-        lv(isShowing());
-        this.ggH = z(1.0f, 0.0f);
+    private void Dm() {
+        lw(isShowing());
+        this.ggo = z(1.0f, 0.0f);
     }
 
     private ValueAnimator z(float f, float f2) {
-        if (this.ggH != null && this.ggH.isRunning()) {
-            this.ggH.cancel();
+        if (this.ggo != null && this.ggo.isRunning()) {
+            this.ggo.cancel();
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
         ofFloat.setDuration(250L);
@@ -82,7 +82,7 @@ public class j {
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 if (!this.isCanceled) {
-                    j.this.lv(j.this.isShowing());
+                    j.this.lw(j.this.isShowing());
                 }
             }
         });
@@ -93,17 +93,17 @@ public class j {
     protected void a(ValueAnimator valueAnimator) {
     }
 
-    protected void lv(boolean z) {
+    protected void lw(boolean z) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Pc() {
+    public void Ot() {
     }
 
     protected void onDismiss() {
     }
 
     public void a(a aVar) {
-        this.ggG = aVar;
+        this.ggn = aVar;
     }
 }

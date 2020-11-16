@@ -5,7 +5,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public enum GenericScheduledExecutorServiceFactory {
     ;
     
@@ -17,8 +17,8 @@ public enum GenericScheduledExecutorServiceFactory {
     }
 
     public static ScheduledExecutorService create() {
-        rx.functions.e<? extends ScheduledExecutorService> eGs = rx.c.c.eGs();
-        return eGs == null ? createDefault() : eGs.call();
+        rx.functions.e<? extends ScheduledExecutorService> eGt = rx.c.c.eGt();
+        return eGt == null ? createDefault() : eGt.call();
     }
 
     static ScheduledExecutorService createDefault() {

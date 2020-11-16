@@ -3,19 +3,19 @@ package com.baidu.live.gift;
 import android.view.View;
 /* loaded from: classes4.dex */
 public interface ab {
-    View GG();
+    View FX();
 
-    View GH();
+    View FY();
 
-    void GI();
+    void FZ();
 
-    void GJ();
+    void Ga();
 
-    void br(boolean z);
+    void bt(boolean z);
 
-    void dU(int i);
+    void dQ(int i);
 
-    void dV(int i);
+    void dR(int i);
 
     void onDestroy();
 }

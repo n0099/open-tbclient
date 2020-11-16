@@ -2,10 +2,10 @@ package com.heytap.openid.a;
 
 import android.content.Context;
 import com.heytap.openid.a.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static void a(Context context) {
-        b.b = c.b.pgZ.a(b.hi(context));
+        b.b = c.b.piF.a(b.hg(context));
         b.f4060a = true;
     }
 
@@ -18,21 +18,21 @@ public class a {
 
     public static String b(Context context) {
         if (b.f4060a) {
-            return c.b.pgZ.a(b.hi(context), "OUID");
+            return c.b.piF.a(b.hg(context), "OUID");
         }
         throw new RuntimeException("SDK Need Init First!");
     }
 
     public static String c(Context context) {
         if (b.f4060a) {
-            return c.b.pgZ.a(b.hi(context), "DUID");
+            return c.b.piF.a(b.hg(context), "DUID");
         }
         throw new RuntimeException("SDK Need Init First!");
     }
 
     public static String d(Context context) {
         if (b.f4060a) {
-            return c.b.pgZ.a(b.hi(context), "AUID");
+            return c.b.piF.a(b.hg(context), "AUID");
         }
         throw new RuntimeException("SDK Need Init First!");
     }

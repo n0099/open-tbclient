@@ -3,72 +3,71 @@ package com.baidu.live.ac;
 import android.text.TextUtils;
 /* loaded from: classes4.dex */
 public class b {
-    public static String Qq() {
-        return a.bun;
+    public static String PH() {
+        return a.bsA;
     }
 
-    public static String Qr() {
-        return a.bup;
+    public static String PI() {
+        return a.bsC;
+    }
+
+    public static String hU(String str) {
+        return !TextUtils.isEmpty(str) ? PI() + "/" + str : "";
+    }
+
+    public static String hV(String str) {
+        return !TextUtils.isEmpty(str) ? hU(str) + "/dest" : "";
+    }
+
+    public static String hW(String str) {
+        return !TextUtils.isEmpty(str) ? hU(str) + "/video" : "";
+    }
+
+    public static String hX(String str) {
+        return !TextUtils.isEmpty(str) ? hU(str) + "/frame" : "";
+    }
+
+    public static String PJ() {
+        return a.bsD;
+    }
+
+    public static String hY(String str) {
+        return !TextUtils.isEmpty(str) ? PJ() + "/" + str : "";
+    }
+
+    public static String hZ(String str) {
+        return !TextUtils.isEmpty(str) ? hY(str) + "/dest" : "";
     }
 
     public static String ia(String str) {
-        return !TextUtils.isEmpty(str) ? Qr() + "/" + str : "";
+        return !TextUtils.isEmpty(str) ? hY(str) + "/video" : "";
     }
 
     public static String ib(String str) {
-        return !TextUtils.isEmpty(str) ? ia(str) + "/dest" : "";
+        return !TextUtils.isEmpty(str) ? hY(str) + "/frame" : "";
+    }
+
+    public static String PK() {
+        return a.bsE;
+    }
+
+    public static String PL() {
+        return PK() + "/start";
+    }
+
+    public static String PM() {
+        return PL() + "/dest";
+    }
+
+    public static String PN() {
+        return PL() + "/video";
     }
 
     public static String ic(String str) {
-        return !TextUtils.isEmpty(str) ? ia(str) + "/video" : "";
+        return a.bsF + "/" + str + "/dest";
     }
 
     public static String id(String str) {
-        return !TextUtils.isEmpty(str) ? ia(str) + "/frame" : "";
-    }
-
-    public static String Qs() {
-        return a.buq;
-    }
-
-    public static String ie(String str) {
-        return !TextUtils.isEmpty(str) ? Qs() + "/" + str : "";
-    }
-
-    /* renamed from: if  reason: not valid java name */
-    public static String m22if(String str) {
-        return !TextUtils.isEmpty(str) ? ie(str) + "/dest" : "";
-    }
-
-    public static String ig(String str) {
-        return !TextUtils.isEmpty(str) ? ie(str) + "/video" : "";
-    }
-
-    public static String ih(String str) {
-        return !TextUtils.isEmpty(str) ? ie(str) + "/frame" : "";
-    }
-
-    public static String Qt() {
-        return a.bur;
-    }
-
-    public static String Qu() {
-        return Qt() + "/start";
-    }
-
-    public static String Qv() {
-        return Qu() + "/dest";
-    }
-
-    public static String Qw() {
-        return Qu() + "/video";
-    }
-
-    public static String ii(String str) {
-        return a.bus + "/" + str + "/dest";
-    }
-
-    public static String ij(String str) {
-        return a.bus + "/" + str;
+        return a.bsF + "/" + str;
     }
 }

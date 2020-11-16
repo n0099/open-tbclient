@@ -11,19 +11,19 @@ import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.live.guess.a.c;
 /* loaded from: classes4.dex */
 public class f extends b implements View.OnClickListener {
-    private TextView gOj;
-    private TextView gOk;
-    private a gOl;
+    private TextView gNQ;
+    private TextView gNR;
+    private a gNS;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void anm();
+        void amE();
 
-        void bUS();
+        void bUl();
     }
 
     public void a(a aVar) {
-        this.gOl = aVar;
+        this.gNS = aVar;
     }
 
     public f(Context context) {
@@ -31,20 +31,20 @@ public class f extends b implements View.OnClickListener {
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
-    public void GB() {
-        this.gOk.setOnClickListener(this);
-        this.gOj.setOnClickListener(this);
+    public void FS() {
+        this.gNR.setOnClickListener(this);
+        this.gNQ.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
-    void bUY() {
+    void bUr() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.ala_guess_voucher_dialog, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
     public void initView() {
-        this.gOj = (TextView) this.mRootView.findViewById(a.f.tv_guess_continue);
-        this.gOk = (TextView) this.mRootView.findViewById(a.f.tv_guess_voucher);
+        this.gNQ = (TextView) this.mRootView.findViewById(a.f.tv_guess_continue);
+        this.gNR = (TextView) this.mRootView.findViewById(a.f.tv_guess_voucher);
         this.mDialog.setOnKeyListener(new c.b(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.a.f.1
             @Override // android.content.DialogInterface.OnKeyListener
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
@@ -55,13 +55,13 @@ public class f extends b implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gOj) {
-            if (this.gOl != null) {
-                this.gOl.anm();
+        if (view == this.gNQ) {
+            if (this.gNS != null) {
+                this.gNS.amE();
                 dismiss();
             }
-        } else if (view == this.gOk) {
-            this.gOl.bUS();
+        } else if (view == this.gNR) {
+            this.gNS.bUl();
             dismiss();
         }
     }

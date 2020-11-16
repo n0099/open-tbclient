@@ -4,7 +4,7 @@ import com.facebook.imagepipeline.g.e;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class a implements c {
     @Override // com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, Object obj, String str, boolean z) {
@@ -19,7 +19,7 @@ public class a implements c {
     }
 
     @Override // com.facebook.imagepipeline.h.c
-    public void Yh(String str) {
+    public void XS(String str) {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
@@ -47,11 +47,11 @@ public class a implements c {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public void H(String str, String str2, boolean z) {
+    public void I(String str, String str2, boolean z) {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public boolean Ym(String str) {
+    public boolean XX(String str) {
         return false;
     }
 }

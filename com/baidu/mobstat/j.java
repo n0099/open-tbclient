@@ -5,7 +5,7 @@ import android.database.Cursor;
 import java.io.Closeable;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 abstract class j implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */

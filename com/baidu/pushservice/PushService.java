@@ -11,7 +11,7 @@ import com.baidu.android.pushservice.f.a;
 import com.baidu.android.pushservice.g;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class PushService extends Service {
 
     /* renamed from: a  reason: collision with root package name */

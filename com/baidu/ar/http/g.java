@@ -3,7 +3,7 @@ package com.baidu.ar.http;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 class g {
     public String method;
     public Charset qL;

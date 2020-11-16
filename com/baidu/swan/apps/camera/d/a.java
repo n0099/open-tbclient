@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.swan.apps.component.b.b {
-    private String cBz;
     public String cameraId;
+    private String czP;
     private String devicePosition;
 
     public a(String str) {
@@ -23,7 +23,7 @@ public class a extends com.baidu.swan.apps.component.b.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         this.devicePosition = jSONObject.optString("devicePosition", "back");
-        this.cBz = jSONObject.optString("flash", "auto");
+        this.czP = jSONObject.optString("flash", "auto");
         this.cameraId = jSONObject.optString("cameraId");
     }
 
@@ -31,28 +31,28 @@ public class a extends com.baidu.swan.apps.component.b.b {
         return TextUtils.equals(this.devicePosition, "front");
     }
 
-    public String akt() {
-        return C0406a.me(this.cBz);
+    public String ajL() {
+        return C0404a.lY(this.czP);
     }
 
     public int getWidth() {
-        if (this.cDO == null) {
+        if (this.cCe == null) {
             return 0;
         }
-        return this.cDO.getWidth();
+        return this.cCe.getWidth();
     }
 
     public int getHeight() {
-        if (this.cDO == null) {
+        if (this.cCe == null) {
             return 0;
         }
-        return this.cDO.getHeight();
+        return this.cCe.getHeight();
     }
 
     /* renamed from: com.baidu.swan.apps.camera.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    private static class C0406a {
-        static String me(String str) {
+    /* loaded from: classes7.dex */
+    private static class C0404a {
+        static String lY(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case 3551:

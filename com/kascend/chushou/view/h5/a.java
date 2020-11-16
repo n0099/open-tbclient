@@ -33,10 +33,10 @@ import tv.chushou.zues.utils.h;
 public class a extends d {
     public String c;
     private boolean j;
-    private EmptyLoadingView pys;
-    private CustomSwipeRefreshLayout pyt;
-    private com.kascend.chushou.widget.cswebview.a pyu;
-    private InterfaceC1016a pyv;
+    private EmptyLoadingView pzV;
+    private CustomSwipeRefreshLayout pzW;
+    private com.kascend.chushou.widget.cswebview.a pzX;
+    private InterfaceC1019a pzY;
     private boolean d = false;
     private boolean e = true;
     private boolean f = false;
@@ -49,7 +49,7 @@ public class a extends d {
 
     /* renamed from: com.kascend.chushou.view.h5.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1016a {
+    public interface InterfaceC1019a {
         void a(String str);
     }
 
@@ -91,29 +91,29 @@ public class a extends d {
         if (this.i > 0) {
             inflate.setBackgroundColor(this.i);
         }
-        this.pys = (EmptyLoadingView) inflate.findViewById(a.f.empty_view);
-        this.pyd = (CSWebView) inflate.findViewById(a.f.web_view);
-        this.pyt = (CustomSwipeRefreshLayout) inflate.findViewById(a.f.swipeRefreshLayout);
-        this.pyt.setEnabled(this.f);
-        this.pyd.setWebChromeClient(new com.kascend.chushou.widget.cswebview.b() { // from class: com.kascend.chushou.view.h5.a.1
+        this.pzV = (EmptyLoadingView) inflate.findViewById(a.f.empty_view);
+        this.pzG = (CSWebView) inflate.findViewById(a.f.web_view);
+        this.pzW = (CustomSwipeRefreshLayout) inflate.findViewById(a.f.swipeRefreshLayout);
+        this.pzW.setEnabled(this.f);
+        this.pzG.setWebChromeClient(new com.kascend.chushou.widget.cswebview.b() { // from class: com.kascend.chushou.view.h5.a.1
             @Override // android.webkit.WebChromeClient
             public void onReceivedTitle(WebView webView, String str) {
                 super.onReceivedTitle(webView, str);
                 if (a.this.mContext != null && (a.this.mContext instanceof H5Activity)) {
                     ((H5Activity) a.this.mContext).a(str);
                 }
-                if (a.this.pyv != null) {
-                    a.this.pyv.a(str);
+                if (a.this.pzY != null) {
+                    a.this.pzY.a(str);
                 }
             }
         });
         this.q = true;
-        final com.kascend.chushou.widget.cswebview.d ews = this.pyu != null ? this.pyu.ews() : null;
+        final com.kascend.chushou.widget.cswebview.d ewt = this.pzX != null ? this.pzX.ewt() : null;
         com.kascend.chushou.widget.cswebview.d dVar = new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.view.h5.a.2
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
-                if (ews != null) {
-                    ews.a((Object) null);
+                if (ewt != null) {
+                    ewt.a((Object) null);
                     return;
                 }
                 FragmentActivity activity = a.this.getActivity();
@@ -126,17 +126,17 @@ public class a extends d {
             public void a(String str) {
             }
         };
-        if (this.pyu == null) {
-            this.pyu = new com.kascend.chushou.widget.cswebview.a();
+        if (this.pzX == null) {
+            this.pzX = new com.kascend.chushou.widget.cswebview.a();
         }
-        this.pyu.a(dVar);
-        this.pyu.a(this);
-        CSWebView.a(this.pyd, this.mContext, new c() { // from class: com.kascend.chushou.view.h5.a.3
+        this.pzX.a(dVar);
+        this.pzX.a(this);
+        CSWebView.a(this.pzG, this.mContext, new c() { // from class: com.kascend.chushou.view.h5.a.3
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
                 if (!a.this.isFinishing() && a.this.q) {
-                    a.this.pyt.setEnabled(false);
+                    a.this.pzW.setEnabled(false);
                     if (!a.this.n) {
                         a.this.showStatus(1);
                     }
@@ -149,10 +149,10 @@ public class a extends d {
                 e.e(a.this.TAG, "onPageFinished");
                 if (!a.this.isFinishing() && a.this.q) {
                     a.this.n = false;
-                    a.this.pyt.setEnabled(a.this.f);
+                    a.this.pzW.setEnabled(a.this.f);
                     a.this.m = true;
                     String str2 = (String) webView.getTag();
-                    if (tv.chushou.zues.utils.a.eHM()) {
+                    if (tv.chushou.zues.utils.a.eHN()) {
                         if (str2 != null && str2.equals(BdStatsConstant.StatsType.ERROR)) {
                             a.this.showStatus(4);
                         } else {
@@ -179,30 +179,30 @@ public class a extends d {
                         webView.clearView();
                     } catch (Exception e2) {
                     }
-                    a.this.pyt.setEnabled(a.this.f);
+                    a.this.pzW.setEnabled(a.this.f);
                     webView.setTag(BdStatsConstant.StatsType.ERROR);
                 }
             }
-        }, this.pyu);
-        this.pyt.setColorSchemeResources(a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright, a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright);
-        this.pyt.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() { // from class: com.kascend.chushou.view.h5.a.4
+        }, this.pzX);
+        this.pzW.setColorSchemeResources(a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright, a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright);
+        this.pzW.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() { // from class: com.kascend.chushou.view.h5.a.4
             @Override // android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener
             public void onRefresh() {
-                a.this.pyt.setRefreshing(false);
-                if (tv.chushou.zues.utils.a.eHM()) {
+                a.this.pzW.setRefreshing(false);
+                if (tv.chushou.zues.utils.a.eHN()) {
                     a.this.n = true;
                     if (a.this.c == null || a.this.c.length() <= 0) {
-                        a.this.pyd.loadUrl("");
+                        a.this.pzG.loadUrl("");
                         return;
                     } else {
-                        a.this.pyd.loadUrl(a.this.c);
+                        a.this.pzG.loadUrl(a.this.c);
                         return;
                     }
                 }
                 a.this.showStatus(3);
             }
         });
-        this.pys.setReloadListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.h5.a.5
+        this.pzV.setReloadListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.h5.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!a.this.isFinishing()) {
@@ -210,8 +210,8 @@ public class a extends d {
                 }
             }
         });
-        if (!this.h && this.j && this.pyd != null) {
-            this.pyd.resumeTimers();
+        if (!this.h && this.j && this.pzG != null) {
+            this.pzG.resumeTimers();
         }
         return inflate;
     }
@@ -229,29 +229,29 @@ public class a extends d {
     @Override // android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.pyd != null) {
-            this.pyd.onResume();
-            this.pyd.resumeTimers();
+        if (this.pzG != null) {
+            this.pzG.onResume();
+            this.pzG.resumeTimers();
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.pyd != null) {
-            this.pyd.pauseTimers();
-            this.pyd.onPause();
+        if (this.pzG != null) {
+            this.pzG.pauseTimers();
+            this.pzG.onPause();
         }
     }
 
     @Override // com.kascend.chushou.view.base.b, android.support.v4.app.Fragment
     public void onDestroyView() {
         this.q = false;
-        tv.chushou.zues.a.a.ct(this);
-        if (this.pyd != null) {
-            this.pyd.loadUrl("");
-            this.pyd.removeAllViews();
-            this.pyd.destroy();
+        tv.chushou.zues.a.a.cu(this);
+        if (this.pzG != null) {
+            this.pzG.loadUrl("");
+            this.pzG.removeAllViews();
+            this.pzG.destroy();
         }
         super.onDestroyView();
     }
@@ -262,8 +262,8 @@ public class a extends d {
             if (this.c.contains("m/register.htm") || this.c.contains("m/password.htm")) {
                 ((Activity) this.mContext).setResult(-1);
                 ((Activity) this.mContext).finish();
-            } else if (this.pyd != null) {
-                this.pyd.loadUrl(this.c);
+            } else if (this.pzG != null) {
+                this.pzG.loadUrl(this.c);
             }
         }
     }
@@ -273,22 +273,22 @@ public class a extends d {
         switch (i) {
             case 1:
                 if (this.g) {
-                    this.pyd.setVisibility(8);
-                    this.pys.QP(1);
+                    this.pzG.setVisibility(8);
+                    this.pzV.Rs(1);
                     return;
                 }
                 return;
             case 2:
-                this.pyd.setVisibility(0);
-                this.pys.setVisibility(8);
+                this.pzG.setVisibility(0);
+                this.pzV.setVisibility(8);
                 return;
             case 3:
             case 4:
             case 5:
             case 6:
-                this.pyd.setVisibility(8);
-                this.pys.setVisibility(0);
-                this.pys.QP(i);
+                this.pzG.setVisibility(8);
+                this.pzV.setVisibility(0);
+                this.pzV.Rs(i);
                 return;
             default:
                 return;
@@ -296,9 +296,9 @@ public class a extends d {
     }
 
     public void a(com.kascend.chushou.widget.cswebview.a aVar) {
-        this.pyu = aVar;
+        this.pzX = aVar;
         if (aVar != null) {
-            this.pye = aVar.ewt();
+            this.pzH = aVar.ewu();
         }
     }
 
@@ -307,10 +307,10 @@ public class a extends d {
     }
 
     public boolean a() {
-        if (!this.d || this.pyd == null) {
+        if (!this.d || this.pzG == null) {
             return false;
         }
-        return this.pyd.canGoBack();
+        return this.pzG.canGoBack();
     }
 
     public void a(String str) {
@@ -325,13 +325,13 @@ public class a extends d {
     }
 
     public void c() {
-        if (tv.chushou.zues.utils.a.eHM()) {
+        if (tv.chushou.zues.utils.a.eHN()) {
             this.n = true;
             if (this.c != null && this.c.length() > 0) {
-                this.pyd.loadUrl(this.c);
+                this.pzG.loadUrl(this.c);
                 return;
             } else {
-                this.pyd.loadUrl("");
+                this.pzG.loadUrl("");
                 return;
             }
         }
@@ -339,8 +339,8 @@ public class a extends d {
     }
 
     public boolean a(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.d && this.pyd.canGoBack()) {
-            this.pyd.goBack();
+        if (i == 4 && this.d && this.pzG.canGoBack()) {
+            this.pzG.goBack();
             return true;
         }
         return false;
@@ -352,12 +352,12 @@ public class a extends d {
             e.d(this.TAG, "onActivityResult");
             if (this.c != null) {
                 if (this.c.contains("m/bigfans/pay.htm")) {
-                    String str = tv.chushou.common.a.cId() + "m/bigfans/pay.htm";
+                    String str = tv.chushou.common.a.cHI() + "m/bigfans/pay.htm";
                     if (LoginManager.Instance().islogined()) {
                         str = str + "?token=" + LoginManager.Instance().getUserInfo().mToken + "&state=1";
                     }
                     e.d(this.TAG, "refresh pay loayal fans success,  url=" + str);
-                    this.pyd.loadUrl(str);
+                    this.pzG.loadUrl(str);
                 } else if (this.c.contains("m/noble/info.htm")) {
                     if (intent != null) {
                         String str2 = this.c;
@@ -374,7 +374,7 @@ public class a extends d {
                             str2 = str2 + "payResultCode=1&roomId=" + stringExtra3 + "&payLevel=" + stringExtra + "&payCount=" + stringExtra2;
                         }
                         e.d(this.TAG, "refresh pay noble success,  url=" + str2);
-                        this.pyd.loadUrl(str2);
+                        this.pzG.loadUrl(str2);
                     }
                 } else {
                     d();
@@ -391,37 +391,37 @@ public class a extends d {
                     }
                 }
                 if (!h.isEmpty(stringExtra4)) {
-                    this.pyd.a(stringExtra4, arrayList);
+                    this.pzG.a(stringExtra4, arrayList);
                 }
             } else if (!h.isEmpty(stringExtra4)) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("data", parcelableArrayListExtra);
-                this.pyd.a(stringExtra4, hashMap);
+                this.pzG.a(stringExtra4, hashMap);
             }
         }
     }
 
     private void d() {
-        String str = tv.chushou.common.a.cId() + "m/pay.htm";
+        String str = tv.chushou.common.a.cHI() + "m/pay.htm";
         if (LoginManager.Instance().islogined()) {
             str = str + "?token=" + LoginManager.Instance().getUserInfo().mToken + "&state=1";
         }
         e.d(this.TAG, "refreshAfterRechargeSuccess url=" + str);
-        this.pyd.loadUrl(str);
+        this.pzG.loadUrl(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         e.d(this.TAG, "H5=" + this.c);
-        if (this.pyd != null) {
-            this.pyd.setTag(null);
-            this.pyt.setRefreshing(false);
-            if (tv.chushou.zues.utils.a.eHM()) {
+        if (this.pzG != null) {
+            this.pzG.setTag(null);
+            this.pzW.setRefreshing(false);
+            if (tv.chushou.zues.utils.a.eHN()) {
                 if (this.c != null && this.c.length() > 0) {
-                    this.pyd.loadUrl(this.c);
+                    this.pzG.loadUrl(this.c);
                     return;
                 } else {
-                    this.pyd.loadUrl("");
+                    this.pzG.loadUrl("");
                     return;
                 }
             }
@@ -432,23 +432,23 @@ public class a extends d {
     @Subscribe
     public void onSwipeEnableMessgae(com.kascend.chushou.b.a.a.e eVar) {
         if (eVar.f4069a) {
-            this.pyt.setEnabled(this.f);
+            this.pzW.setEnabled(this.f);
         } else {
-            this.pyt.setEnabled(false);
+            this.pzW.setEnabled(false);
         }
     }
 
     @Subscribe
     public void onHardwareEnableMessgae(com.kascend.chushou.b.a.a.d dVar) {
         if (dVar.f4068a) {
-            this.pyd.setLayerType(2, null);
+            this.pzG.setLayerType(2, null);
         } else {
-            this.pyd.setLayerType(1, null);
+            this.pzG.setLayerType(1, null);
         }
     }
 
-    public void a(InterfaceC1016a interfaceC1016a) {
-        this.pyv = interfaceC1016a;
+    public void a(InterfaceC1019a interfaceC1019a) {
+        this.pzY = interfaceC1019a;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -457,11 +457,11 @@ public class a extends d {
         this.j = z;
         if (!this.h) {
             if (z) {
-                if (this.pyd != null) {
-                    this.pyd.resumeTimers();
+                if (this.pzG != null) {
+                    this.pzG.resumeTimers();
                 }
-            } else if (this.pyd != null) {
-                this.pyd.pauseTimers();
+            } else if (this.pzG != null) {
+                this.pzG.pauseTimers();
             }
         }
     }

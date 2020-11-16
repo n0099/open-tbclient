@@ -14,21 +14,21 @@ public class YuyinAlaPrivateMessageInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(af.class, ChatListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(ae.class, SplashChatAcitity.class);
-        efg();
-        efh();
+        efe();
+        eff();
     }
 
-    private static void efg() {
+    private static void efe() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501053) { // from class: com.baidu.yuyinala.privatemessage.YuyinAlaPrivateMessageInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c.eij();
+                c.eih();
             }
         });
     }
 
-    private static void efh() {
+    private static void eff() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501049) { // from class: com.baidu.yuyinala.privatemessage.YuyinAlaPrivateMessageInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

@@ -10,21 +10,21 @@ import com.baidu.tieba.attention.AttentionView;
 import com.baidu.tieba.lately.LatelyView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class SelectForumPagerAdapter extends PagerAdapter {
     private TbPageContext<SelectForumActivity> mPageContext;
-    private int fPG = -1;
-    private List<d> fPF = new ArrayList();
+    private int fPp = -1;
+    private List<d> fPo = new ArrayList();
 
     public SelectForumPagerAdapter(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.fPF.add(new LatelyView(this.mPageContext.getPageActivity()));
-        this.fPF.add(new AttentionView(this.mPageContext.getPageActivity()));
+        this.fPo.add(new LatelyView(this.mPageContext.getPageActivity()));
+        this.fPo.add(new AttentionView(this.mPageContext.getPageActivity()));
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return y.getCount(this.fPF);
+        return y.getCount(this.fPo);
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -34,7 +34,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        return y.getItem(this.fPF, i) == null ? "" : ((d) y.getItem(this.fPF, i)).getTitle();
+        return y.getItem(this.fPo, i) == null ? "" : ((d) y.getItem(this.fPo, i)).getTitle();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,7 +42,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     @NonNull
     /* renamed from: n */
     public d instantiateItem(@NonNull ViewGroup viewGroup, int i) {
-        d dVar = (d) y.getItem(this.fPF, i);
+        d dVar = (d) y.getItem(this.fPo, i);
         if (dVar instanceof View) {
             if (((View) dVar).getParent() != null) {
                 viewGroup.removeView((View) dVar);
@@ -55,17 +55,17 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (this.fPG != i) {
-            this.fPG = i;
-            d dVar = (d) y.getItem(this.fPF, i);
+        if (this.fPp != i) {
+            this.fPp = i;
+            d dVar = (d) y.getItem(this.fPo, i);
             if (dVar != null) {
                 dVar.az(null);
             }
         }
     }
 
-    public void bIB() {
-        for (d dVar : this.fPF) {
+    public void bHV() {
+        for (d dVar : this.fPo) {
             dVar.onChangeSkinType();
         }
     }

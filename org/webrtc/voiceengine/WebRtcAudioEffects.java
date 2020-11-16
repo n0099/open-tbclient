@@ -7,7 +7,7 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import java.util.UUID;
 import org.webrtc.Logging;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class WebRtcAudioEffects {
     private static final UUID AOSP_ACOUSTIC_ECHO_CANCELER = UUID.fromString("bb392ec0-8d4d-11e0-a896-0002a5d5c51b");
     private static final UUID AOSP_NOISE_SUPPRESSOR = UUID.fromString("c06c8400-8e06-11e0-9cb6-0002a5d5c51b");

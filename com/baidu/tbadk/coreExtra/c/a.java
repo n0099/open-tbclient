@@ -11,8 +11,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.util.g;
 import com.baidu.tbadk.core.view.CustomPushPremissionDialogView;
 import com.baidu.tieba.R;
@@ -25,8 +25,8 @@ public class a {
         }
         String format = String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.url_notify), str);
         String string = TbadkCoreApplication.getInst().getContext().getString(R.string.confirm_title);
-        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).Bn(string).Bo(format).a(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(R.string.cancel), bVar2).b(tbPageContext);
-        b.bpc();
+        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).AI(string).AJ(format).a(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(R.string.cancel), bVar2).b(tbPageContext);
+        b.bog();
         return b;
     }
 
@@ -43,8 +43,8 @@ public class a {
             return null;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.Bn(str);
-        aVar.Bo(str2);
+        aVar.AI(str);
+        aVar.AJ(str2);
         aVar.a(str3, bVar);
         aVar.b(str4, bVar2);
         aVar.b(tbPageContext);
@@ -84,23 +84,23 @@ public class a {
     public static boolean w(Context context, int i) {
         boolean z = false;
         if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) {
-            Date date = new Date(com.baidu.tbadk.core.sharedPref.b.bqh().getLong("push_permission_dialog_scene_cold_start_key", 0L));
-            Date date2 = new Date(com.baidu.tbadk.core.sharedPref.b.bqh().getLong("push_permission_dialog_scene_interaction_key", 0L));
+            Date date = new Date(com.baidu.tbadk.core.sharedPref.b.bpu().getLong("push_permission_dialog_scene_cold_start_key", 0L));
+            Date date2 = new Date(com.baidu.tbadk.core.sharedPref.b.bpu().getLong("push_permission_dialog_scene_interaction_key", 0L));
             long currentTimeMillis = System.currentTimeMillis();
             Date date3 = new Date(currentTimeMillis);
-            if (i == 0 && bd.b(date3, date2) >= 7 && !bd.c(date3, date)) {
+            if (i == 0 && be.b(date3, date2) >= 7 && !be.c(date3, date)) {
                 z = true;
             }
-            if (i == 1 && bd.b(date3, date) >= 7 && !bd.c(date3, date2)) {
+            if (i == 1 && be.b(date3, date) >= 7 && !be.c(date3, date2)) {
                 z = true;
             }
             if (z) {
                 switch (i) {
                     case 0:
-                        com.baidu.tbadk.core.sharedPref.b.bqh().putLong("push_permission_dialog_scene_interaction_key", currentTimeMillis);
+                        com.baidu.tbadk.core.sharedPref.b.bpu().putLong("push_permission_dialog_scene_interaction_key", currentTimeMillis);
                         break;
                     case 1:
-                        com.baidu.tbadk.core.sharedPref.b.bqh().putLong("push_permission_dialog_scene_cold_start_key", currentTimeMillis);
+                        com.baidu.tbadk.core.sharedPref.b.bpu().putLong("push_permission_dialog_scene_cold_start_key", currentTimeMillis);
                         break;
                 }
             }
@@ -110,12 +110,12 @@ public class a {
 
     public static void a(final TbPageContext<?> tbPageContext, final int i, long j) {
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.iV(false);
+        aVar.iW(false);
         aVar.a((String) null, (a.b) null);
         aVar.b((String) null, (a.b) null);
-        aVar.oz(4);
+        aVar.ov(4);
         CustomPushPremissionDialogView customPushPremissionDialogView = new CustomPushPremissionDialogView(tbPageContext.getPageActivity());
-        aVar.bf(customPushPremissionDialogView);
+        aVar.bg(customPushPremissionDialogView);
         final int[] iArr = {-1};
         customPushPremissionDialogView.getPushPermissionDialogConfirmButton().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.c.a.1
             @Override // android.view.View.OnClickListener
@@ -135,19 +135,19 @@ public class a {
         aVar.d(new DialogInterface.OnDismissListener() { // from class: com.baidu.tbadk.coreExtra.c.a.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                aq aqVar = new aq("c13673");
-                aqVar.al("obj_source", i);
-                aqVar.al("obj_type", iArr[0]);
-                TiebaStatic.log(aqVar);
+                ar arVar = new ar("c13673");
+                arVar.ak("obj_source", i);
+                arVar.ak("obj_type", iArr[0]);
+                TiebaStatic.log(arVar);
             }
         });
         if (j > 0) {
             aVar.b(tbPageContext).dl(j);
         } else {
-            aVar.b(tbPageContext).bpc();
+            aVar.b(tbPageContext).bog();
         }
-        aq aqVar = new aq("c13674");
-        aqVar.al("obj_source", i);
-        TiebaStatic.log(aqVar);
+        ar arVar = new ar("c13674");
+        arVar.ak("obj_source", i);
+        TiebaStatic.log(arVar);
     }
 }

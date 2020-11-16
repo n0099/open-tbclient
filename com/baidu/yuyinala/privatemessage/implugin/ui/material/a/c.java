@@ -14,106 +14,106 @@ import com.baidu.yuyinala.privatemessage.implugin.common.ChatInfo;
 import com.baidu.yuyinala.privatemessage.implugin.f.k;
 /* loaded from: classes4.dex */
 public class c {
-    private View hYh;
+    private View hYH;
     private Context mContext;
     private View mRootView;
     private long mUserId;
-    private LinearLayout oBs;
-    private Button oBt;
-    private TextView oBu;
-    private ImageView oBv;
-    private LinearLayout oBx;
-    private int oBy;
-    private boolean oBj = false;
-    private int oBw = 300;
+    private LinearLayout oCW;
+    private Button oCX;
+    private TextView oCY;
+    private ImageView oCZ;
+    private LinearLayout oDb;
+    private int oDc;
+    private boolean oCN = false;
+    private int oDa = 300;
 
     public c(Context context, View view, int i, long j) {
-        this.oBy = 1;
+        this.oDc = 1;
         this.mUserId = -1L;
         this.mContext = context.getApplicationContext();
         this.mRootView = view;
-        this.oBy = i;
+        this.oDc = i;
         this.mUserId = j;
-        bUY();
+        bUr();
     }
 
-    private void bUY() {
-        this.oBs = (LinearLayout) this.mRootView.findViewById(a.f.bd_im_subscribe_dialog_ll);
-        this.oBt = (Button) this.mRootView.findViewById(a.f.subscribe_button);
-        this.oBx = (LinearLayout) this.mRootView.findViewById(a.f.subscribe_text_root);
-        this.oBu = (TextView) this.mRootView.findViewById(a.f.subscribe_text);
-        this.hYh = this.mRootView.findViewById(a.f.subscribe_space_line);
-        this.oBv = (ImageView) this.mRootView.findViewById(a.f.subscribe_close);
-        this.oBv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c.1
+    private void bUr() {
+        this.oCW = (LinearLayout) this.mRootView.findViewById(a.f.bd_im_subscribe_dialog_ll);
+        this.oCX = (Button) this.mRootView.findViewById(a.f.subscribe_button);
+        this.oDb = (LinearLayout) this.mRootView.findViewById(a.f.subscribe_text_root);
+        this.oCY = (TextView) this.mRootView.findViewById(a.f.subscribe_text);
+        this.hYH = this.mRootView.findViewById(a.f.subscribe_space_line);
+        this.oCZ = (ImageView) this.mRootView.findViewById(a.f.subscribe_close);
+        this.oCZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 c.this.dismiss();
-                if (c.this.oBy != 1) {
-                    if (c.this.oBy == 0) {
-                        com.baidu.yuyinala.privatemessage.implugin.util.b.b.e(c.this.mContext, com.baidu.yuyinala.privatemessage.implugin.util.b.a.oFg + c.this.mUserId, System.currentTimeMillis());
+                if (c.this.oDc != 1) {
+                    if (c.this.oDc == 0) {
+                        com.baidu.yuyinala.privatemessage.implugin.util.b.b.e(c.this.mContext, com.baidu.yuyinala.privatemessage.implugin.util.b.a.oGK + c.this.mUserId, System.currentTimeMillis());
                     }
                 } else {
-                    com.baidu.yuyinala.privatemessage.implugin.util.b.b.e(c.this.mContext, com.baidu.yuyinala.privatemessage.implugin.util.b.a.oFf + ChatInfo.mPaid + ChatInfo.owP, System.currentTimeMillis());
+                    com.baidu.yuyinala.privatemessage.implugin.util.b.b.e(c.this.mContext, com.baidu.yuyinala.privatemessage.implugin.util.b.a.oGJ + ChatInfo.mPaid + ChatInfo.oyt, System.currentTimeMillis());
                 }
-                com.baidu.yuyinala.privatemessage.implugin.e.a.gE(c.this.mContext.getApplicationContext()).add("416", "subscribe_close");
+                com.baidu.yuyinala.privatemessage.implugin.e.a.gC(c.this.mContext.getApplicationContext()).add("416", "subscribe_close");
             }
         });
-        if (this.oBy == 1) {
-            this.oBu.setText(this.mContext.getString(a.h.bd_im_subscribe_tip_text));
-        } else if (this.oBy == 0) {
-            this.oBu.setText(this.mContext.getString(a.h.bd_im_game_user_sub_tip));
+        if (this.oDc == 1) {
+            this.oCY.setText(this.mContext.getString(a.h.bd_im_subscribe_tip_text));
+        } else if (this.oDc == 0) {
+            this.oCY.setText(this.mContext.getString(a.h.bd_im_game_user_sub_tip));
         }
     }
 
     public void c(final String str, final long j, final IIsSubscribedListener iIsSubscribedListener) {
-        if (this.oBs != null && this.oBs.getVisibility() != 0) {
-            this.oBs.setVisibility(0);
+        if (this.oCW != null && this.oCW.getVisibility() != 0) {
+            this.oCW.setVisibility(0);
         }
         if (iIsSubscribedListener != null) {
-            this.oBt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c.2
+            this.oCX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (c.this.oBy == 1) {
-                        k.gF(c.this.mContext).a(str, j, iIsSubscribedListener);
-                    } else if (c.this.oBy == 0) {
-                        k.gF(c.this.mContext).b(str, j, iIsSubscribedListener);
+                    if (c.this.oDc == 1) {
+                        k.gD(c.this.mContext).a(str, j, iIsSubscribedListener);
+                    } else if (c.this.oDc == 0) {
+                        k.gD(c.this.mContext).b(str, j, iIsSubscribedListener);
                     }
                 }
             });
         } else {
-            this.oBt.setClickable(false);
+            this.oCX.setClickable(false);
         }
-        this.oBj = true;
+        this.oCN = true;
     }
 
     public void dismiss() {
         Handler handler = new Handler();
-        this.oBs.startAnimation(AnimationUtils.loadAnimation(this.mContext, a.C0197a.bd_im_dimiss_tip));
+        this.oCW.startAnimation(AnimationUtils.loadAnimation(this.mContext, a.C0195a.bd_im_dimiss_tip));
         handler.postDelayed(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c.3
             @Override // java.lang.Runnable
             public void run() {
-                c.this.egV();
+                c.this.egT();
             }
-        }, this.oBw);
+        }, this.oDa);
     }
 
-    public void egY() {
-        egV();
+    public void egW() {
+        egT();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void egV() {
-        if (this.oBj) {
-            this.oBs.setVisibility(8);
+    public void egT() {
+        if (this.oCN) {
+            this.oCW.setVisibility(8);
         }
-        this.oBj = false;
+        this.oCN = false;
     }
 
-    public boolean egZ() {
-        return this.oBj;
+    public boolean egX() {
+        return this.oCN;
     }
 
-    public int eha() {
-        return this.oBy;
+    public int egY() {
+        return this.oDc;
     }
 }

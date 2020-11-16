@@ -7,11 +7,11 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.remote.RemotePlayerService;
 import com.baidu.cyberplayer.sdk.remote.a;
 import com.baidu.cyberplayer.sdk.remote.e;
-/* loaded from: classes12.dex */
-public class c extends a.AbstractBinderC0111a {
+/* loaded from: classes17.dex */
+public class c extends a.AbstractBinderC0110a {
 
     /* renamed from: a  reason: collision with root package name */
-    private CyberExtractor f1384a;
+    private CyberExtractor f1387a;
     private RemotePlayerService b;
 
     public c(RemotePlayerService remotePlayerService) {
@@ -19,14 +19,14 @@ public class c extends a.AbstractBinderC0111a {
     }
 
     private CyberExtractor c() {
-        if (this.f1384a == null) {
+        if (this.f1387a == null) {
             synchronized (this) {
-                if (this.f1384a == null) {
-                    this.f1384a = new CyberExtractor(false);
+                if (this.f1387a == null) {
+                    this.f1387a = new CyberExtractor(false);
                 }
             }
         }
-        return this.f1384a;
+        return this.f1387a;
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.a
@@ -48,9 +48,9 @@ public class c extends a.AbstractBinderC0111a {
     public void b() throws RemoteException {
         CyberLog.i("RemoteExtractor", "release");
         synchronized (this) {
-            if (this.f1384a != null) {
-                this.f1384a.release();
-                this.f1384a = null;
+            if (this.f1387a != null) {
+                this.f1387a.release();
+                this.f1387a = null;
             }
         }
         this.b = null;

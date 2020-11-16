@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class b<T extends b> {
 
     /* renamed from: a  reason: collision with root package name */
@@ -63,7 +63,7 @@ public class b<T extends b> {
     private File v;
     private g y;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class a<T extends a> {
         private String b;
         private Object c;
@@ -91,8 +91,8 @@ public class b<T extends b> {
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.b.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1026b<T extends C1026b> {
+    /* loaded from: classes15.dex */
+    public static class C1029b<T extends C1029b> {
         private int b;
         private String c;
         private Object d;
@@ -109,7 +109,7 @@ public class b<T extends b> {
         private HashMap<String, String> j = new HashMap<>();
         private HashMap<String, String> k = new HashMap<>();
 
-        public C1026b(String str) {
+        public C1029b(String str) {
             this.b = 0;
             this.c = str;
             this.b = 0;
@@ -129,7 +129,7 @@ public class b<T extends b> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class c<T extends c> {
         private String b;
         private Object c;
@@ -169,7 +169,7 @@ public class b<T extends b> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class d<T extends d> {
         private int b;
         private String c;
@@ -244,7 +244,7 @@ public class b<T extends b> {
         this.K = aVar.k;
     }
 
-    public b(C1026b c1026b) {
+    public b(C1029b c1029b) {
         this.i = new HashMap<>();
         this.j = new HashMap<>();
         this.k = new HashMap<>();
@@ -263,19 +263,19 @@ public class b<T extends b> {
         this.K = null;
         this.L = null;
         this.d = 0;
-        this.b = c1026b.b;
-        this.c = c1026b.f4313a;
-        this.e = c1026b.c;
-        this.g = c1026b.d;
-        this.i = c1026b.i;
-        this.F = c1026b.e;
-        this.H = c1026b.g;
-        this.G = c1026b.f;
-        this.I = c1026b.h;
-        this.m = c1026b.j;
-        this.n = c1026b.k;
-        this.J = c1026b.l;
-        this.K = c1026b.m;
+        this.b = c1029b.b;
+        this.c = c1029b.f4313a;
+        this.e = c1029b.c;
+        this.g = c1029b.d;
+        this.i = c1029b.i;
+        this.F = c1029b.e;
+        this.H = c1029b.g;
+        this.G = c1029b.f;
+        this.I = c1029b.h;
+        this.m = c1029b.j;
+        this.n = c1029b.k;
+        this.J = c1029b.l;
+        this.K = c1029b.m;
     }
 
     public b(c cVar) {

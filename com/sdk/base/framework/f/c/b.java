@@ -7,7 +7,7 @@ import com.sdk.base.framework.c.f;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class b extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */

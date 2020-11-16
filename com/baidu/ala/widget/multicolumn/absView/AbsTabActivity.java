@@ -84,11 +84,11 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         });
         this.mTabHost.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.ds80));
         this.mTabHost.reset();
-        this.mTabHost.getFragmentTabWidget().setDiverColor(getResources().getColor(R.color.cp_cont_b));
+        this.mTabHost.getFragmentTabWidget().setDiverColor(getResources().getColor(R.color.CAM_X0105));
         this.mTabHost.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.ds12));
         this.mTabHost.getFragmentTabWidget().setDviderRectWidth(l.getDimens(getActivity(), R.dimen.ds64));
         this.mTabHost.getFragmentTabWidget().setDviderRectHeight(l.getDimens(getActivity(), R.dimen.ds4));
-        this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(R.color.cp_bg_line_d);
+        this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(R.color.CAM_X0201);
         initTabSpec();
         this.mTabHost.setCurrentTab(getCurrentIndex());
     }
@@ -120,7 +120,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
             fragmentTabIndicator.setIsSupportNight(this.isSupportNight);
             fragmentTabIndicator.setContentWidthWrapContent();
-            bVar.eLs = fragmentTabIndicator;
+            bVar.eKr = fragmentTabIndicator;
             this.mTabHost.a(bVar);
         }
     }
@@ -148,7 +148,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         if (this.mTabHost != null) {
             this.mTabHost.setNeedShowThemeStyle(false);
-            this.mTabHost.getFragmentTabWidget().setDiverColor(i == 1 ? getResources().getColor(R.color.cp_cont_b_1) : getResources().getColor(R.color.cp_cont_b));
+            this.mTabHost.getFragmentTabWidget().setDiverColor(i == 1 ? getResources().getColor(R.color.CAM_X0105_1) : getResources().getColor(R.color.CAM_X0105));
             this.mTabHost.onChangeSkinType(i);
         }
     }

@@ -1,5 +1,5 @@
 package com.airbnb.lottie.model.content;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public enum GradientType {
     Linear,
     Radial

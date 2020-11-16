@@ -3,12 +3,12 @@ package kotlin.collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State pRT = State.NotReady;
-    private T pRU;
+    private State pTw = State.NotReady;
+    private T pTx;
 
-    protected abstract void eBt();
+    protected abstract void eBu();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (this.pRT != State.Failed) {
-            switch (this.pRT) {
+        if (this.pTw != State.Failed) {
+            switch (this.pTw) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return eBs();
+                    return eBt();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.pRT = State.NotReady;
-            return this.pRU;
+            this.pTw = State.NotReady;
+            return this.pTx;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean eBs() {
-        this.pRT = State.Failed;
-        eBt();
-        return this.pRT == State.Ready;
+    private final boolean eBt() {
+        this.pTw = State.Failed;
+        eBu();
+        return this.pTw == State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void bT(T t) {
-        this.pRU = t;
-        this.pRT = State.Ready;
+    public final void bU(T t) {
+        this.pTx = t;
+        this.pTw = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.pRT = State.Done;
+        this.pTw = State.Done;
     }
 }

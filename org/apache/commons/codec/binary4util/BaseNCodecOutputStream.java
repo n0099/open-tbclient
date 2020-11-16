@@ -4,7 +4,7 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public class BaseNCodecOutputStream extends FilterOutputStream {
     private final BaseNCodec baseNCodec;
     private final BaseNCodec.Context context;

@@ -10,7 +10,7 @@ import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class d extends c<SubAliasStatus> {
 
     /* renamed from: a  reason: collision with root package name */

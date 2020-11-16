@@ -7,14 +7,14 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
     public static final String TYPE = "vmhd";
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_4 = null;
     private int graphicsmode;
     private int[] opcolor;
 
@@ -83,7 +83,7 @@ public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
     }
 
     public void setGraphicsmode(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.RD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.Sg(i)));
         this.graphicsmode = i;
     }
 }

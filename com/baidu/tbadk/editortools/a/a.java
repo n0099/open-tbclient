@@ -8,10 +8,11 @@ import com.baidu.tieba.R;
 public class a extends m {
     public a(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_at), 9, i);
-        this.foc = R.drawable.ic_icon_pure_post_at24;
-        this.foe = R.drawable.icon_pure_more_at40_svg;
-        this.fof = true;
-        this.foh = true;
-        this.fol = new int[]{16};
+        this.fnk = R.drawable.icon_pure_post_at24;
+        this.fnm = R.drawable.icon_pure_post_more_at64;
+        this.fnn = false;
+        this.fno = true;
+        this.fnp = true;
+        this.fnt = new int[]{16};
     }
 }

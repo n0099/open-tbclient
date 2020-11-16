@@ -16,46 +16,46 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0203a bwA;
-    private List<com.baidu.live.talentshow.b.d> bwz = new ArrayList();
+    private List<com.baidu.live.talentshow.b.d> buO = new ArrayList();
+    private InterfaceC0201a buP;
 
     /* renamed from: com.baidu.live.talentshow.components.selector.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0203a {
+    public interface InterfaceC0201a {
         void c(com.baidu.live.talentshow.b.d dVar);
     }
 
     public void setDatas(List<com.baidu.live.talentshow.b.d> list) {
         if (list != null) {
-            this.bwz.clear();
-            this.bwz.addAll(list);
+            this.buO.clear();
+            this.buO.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     public void clearData() {
-        if (!ListUtils.isEmpty(this.bwz)) {
-            this.bwz.clear();
+        if (!ListUtils.isEmpty(this.buO)) {
+            this.buO.clear();
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bwz == null) {
+        if (this.buO == null) {
             return 0;
         }
-        return this.bwz.size();
+        return this.buO.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: fn */
+    /* renamed from: fj */
     public com.baidu.live.talentshow.b.d getItem(int i) {
-        if (this.bwz == null) {
+        if (this.buO == null) {
             return null;
         }
-        return this.bwz.get(i);
+        return this.buO.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -69,29 +69,29 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.talent_apply_chat_user_item, viewGroup, false);
             b bVar2 = new b();
-            bVar2.bwE = (HeadImageView) view.findViewById(a.f.talent_item_user_head);
-            bVar2.bwE.setIsRound(true);
-            bVar2.bwE.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            bVar2.bwD = (TBLottieAnimationView) view.findViewById(a.f.lottie_loading);
-            bVar2.bwF = (TextView) view.findViewById(a.f.tv_user_nickname);
-            bVar2.bwG = (TextView) view.findViewById(a.f.tv_confirm);
-            bVar2.bwD.setRepeatCount(-1);
-            bVar2.bwD.setAnimation("live_rtc_connect.json");
+            bVar2.buT = (HeadImageView) view.findViewById(a.f.talent_item_user_head);
+            bVar2.buT.setIsRound(true);
+            bVar2.buT.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            bVar2.buS = (TBLottieAnimationView) view.findViewById(a.f.lottie_loading);
+            bVar2.buU = (TextView) view.findViewById(a.f.tv_user_nickname);
+            bVar2.buV = (TextView) view.findViewById(a.f.tv_confirm);
+            bVar2.buS.setRepeatCount(-1);
+            bVar2.buS.setAnimation("live_rtc_connect.json");
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
             bVar = (b) view.getTag();
         }
         final com.baidu.live.talentshow.b.d item = getItem(i);
-        item.byg = i;
-        bVar.bwF.setText(com.baidu.live.videochat.d.G(item.nickName, 16));
-        bVar.bwE.startLoad(item.portrait, 12, false);
-        a(item.status, bVar.bwG, bVar.bwD);
-        bVar.bwG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.selector.a.1
+        item.bwv = i;
+        bVar.buU.setText(com.baidu.live.videochat.d.G(item.nickName, 16));
+        bVar.buT.startLoad(item.portrait, 12, false);
+        a(item.status, bVar.buV, bVar.buS);
+        bVar.buV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.selector.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (!UtilHelper.isFastDoubleClick() && a.this.bwA != null) {
-                    a.this.bwA.c(item);
+                if (!UtilHelper.isFastDoubleClick() && a.this.buP != null) {
+                    a.this.buP.c(item);
                 }
             }
         });
@@ -100,24 +100,24 @@ public class a extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     public static class b {
-        private TBLottieAnimationView bwD;
-        private HeadImageView bwE;
-        private TextView bwF;
-        private TextView bwG;
+        private TBLottieAnimationView buS;
+        private HeadImageView buT;
+        private TextView buU;
+        private TextView buV;
     }
 
     private void a(int i, TextView textView, TBLottieAnimationView tBLottieAnimationView) {
         if (textView != null && tBLottieAnimationView != null) {
-            if (i == com.baidu.live.talentshow.d.d.byz) {
+            if (i == com.baidu.live.talentshow.d.d.bwO) {
                 b(tBLottieAnimationView);
                 a(textView);
-            } else if (i == com.baidu.live.talentshow.d.d.byD || i == com.baidu.live.talentshow.d.d.byC) {
+            } else if (i == com.baidu.live.talentshow.d.d.bwS || i == com.baidu.live.talentshow.d.d.bwR) {
                 a(tBLottieAnimationView);
                 b(textView);
             } else if (i == 5) {
                 b(tBLottieAnimationView);
                 c(textView);
-            } else if (i == com.baidu.live.talentshow.d.d.byA || i == com.baidu.live.talentshow.d.d.byB) {
+            } else if (i == com.baidu.live.talentshow.d.d.bwP || i == com.baidu.live.talentshow.d.d.bwQ) {
                 b(tBLottieAnimationView);
                 d(textView);
             }
@@ -168,7 +168,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void a(InterfaceC0203a interfaceC0203a) {
-        this.bwA = interfaceC0203a;
+    public void a(InterfaceC0201a interfaceC0201a) {
+        this.buP = interfaceC0201a;
     }
 }

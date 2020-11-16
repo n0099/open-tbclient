@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class e {
     private com.baidu.ar.filter.a A;
     private DuMixInput W;
@@ -56,7 +56,7 @@ public class e {
     private boolean as = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);

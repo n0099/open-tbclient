@@ -4,11 +4,11 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public abstract class b {
     public abstract Context getContext();
 
-    public final boolean Zs(String str) {
+    public final boolean Zd(String str) {
         if (Build.VERSION.SDK_INT < 23) {
             return false;
         }

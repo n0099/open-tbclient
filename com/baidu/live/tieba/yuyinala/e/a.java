@@ -11,10 +11,10 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class a implements TextWatcher, View.OnClickListener {
-    private InterfaceC0223a bGa;
-    private TextView bGr;
-    private EditText bGs;
-    private TextView bGt;
+    private TextView bEG;
+    private EditText bEH;
+    private TextView bEI;
+    private InterfaceC0221a bEp;
     private String mLiveId;
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -23,29 +23,29 @@ public class a implements TextWatcher, View.OnClickListener {
 
     /* renamed from: com.baidu.live.tieba.yuyinala.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0223a {
+    public interface InterfaceC0221a {
         void afterTextChanged(Editable editable);
     }
 
-    public a(TbPageContext tbPageContext, View.OnClickListener onClickListener, InterfaceC0223a interfaceC0223a) {
+    public a(TbPageContext tbPageContext, View.OnClickListener onClickListener, InterfaceC0221a interfaceC0221a) {
         this.mPageContext = tbPageContext;
         this.mOnClickListener = onClickListener;
-        this.bGa = interfaceC0223a;
+        this.bEp = interfaceC0221a;
         initView();
     }
 
     private void initView() {
         this.mView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.yuyin_ala_activity_edit_feedback_reason_layout, (ViewGroup) null);
-        this.bGr = (TextView) this.mView.findViewById(a.f.id_feenback_edit_confirm_btn);
-        this.bGs = (EditText) this.mView.findViewById(a.f.id_feedback_edit_text);
-        this.bGt = (TextView) this.mView.findViewById(a.f.id_feedback_real_textnum);
-        this.bGs.setCursorVisible(false);
-        this.bGr.setEnabled(false);
-        this.bGs.addTextChangedListener(this);
-        this.bGr.setOnClickListener(this);
+        this.bEG = (TextView) this.mView.findViewById(a.f.id_feenback_edit_confirm_btn);
+        this.bEH = (EditText) this.mView.findViewById(a.f.id_feedback_edit_text);
+        this.bEI = (TextView) this.mView.findViewById(a.f.id_feedback_real_textnum);
+        this.bEH.setCursorVisible(false);
+        this.bEG.setEnabled(false);
+        this.bEH.addTextChangedListener(this);
+        this.bEG.setOnClickListener(this);
     }
 
-    public void aQ(String str, String str2) {
+    public void aP(String str, String str2) {
         this.mLiveId = str;
         this.mRoomID = str2;
     }
@@ -76,36 +76,36 @@ public class a implements TextWatcher, View.OnClickListener {
     public void afterTextChanged(Editable editable) {
         if (editable != null) {
             int length = editable.toString().length();
-            this.bGt.setText(String.valueOf(length));
+            this.bEI.setText(String.valueOf(length));
             if (length > 20) {
-                this.bGt.setTextColor(this.mPageContext.getResources().getColor(a.c.sdk_color_FF1E66));
-                this.bGr.setEnabled(false);
+                this.bEI.setTextColor(this.mPageContext.getResources().getColor(a.c.sdk_color_FF1E66));
+                this.bEG.setEnabled(false);
             } else {
-                this.bGt.setTextColor(this.mPageContext.getResources().getColor(a.c.sdk_color_858585));
+                this.bEI.setTextColor(this.mPageContext.getResources().getColor(a.c.sdk_color_858585));
                 if (length == 0) {
-                    this.bGr.setEnabled(false);
+                    this.bEG.setEnabled(false);
                 } else {
-                    this.bGr.setEnabled(true);
+                    this.bEG.setEnabled(true);
                 }
             }
         }
-        if (this.bGa != null) {
-            this.bGa.afterTextChanged(editable);
+        if (this.bEp != null) {
+            this.bEp.afterTextChanged(editable);
         }
     }
 
-    public String Uz() {
-        if (this.bGs.getText() != null) {
-            return this.bGs.getText().toString();
+    public String TQ() {
+        if (this.bEH.getText() != null) {
+            return this.bEH.getText().toString();
         }
         return null;
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
         if (z) {
-            this.bGs.setCursorVisible(true);
+            this.bEH.setCursorVisible(true);
         } else {
-            this.bGs.setCursorVisible(false);
+            this.bEH.setCursorVisible(false);
         }
     }
 }

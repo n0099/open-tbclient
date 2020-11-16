@@ -13,7 +13,7 @@ import org.apache.http.HttpRequest;
 import org.apache.http.ParseException;
 import org.apache.http.StatusLine;
 import org.apache.http.params.HttpParams;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class AndroidHttpClientConnection implements HttpConnection, HttpInetConnection {
     public AndroidHttpClientConnection() {
         throw new RuntimeException("Stub!");

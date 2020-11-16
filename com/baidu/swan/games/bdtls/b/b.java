@@ -5,55 +5,55 @@ import android.util.Log;
 import com.baidu.swan.games.bdtls.e;
 import com.baidu.swan.games.bdtls.model.i;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public abstract class b {
-    protected boolean dSs = false;
-    protected int dSt = 0;
-    private String dSu;
+    protected boolean dQK = false;
+    protected int dQL = 0;
+    private String dQM;
 
     public abstract void Y(byte[] bArr);
 
     public abstract void b(IOException iOException);
 
-    public abstract void mc(int i);
+    public abstract void lY(int i);
 
     public final String Z(byte[] bArr) {
         String str = new String(bArr);
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
         }
-        if (this.dSs) {
-            i a2 = com.baidu.swan.games.bdtls.d.aTa().a(e.aTb().aTc(), bArr);
+        if (this.dQK) {
+            i a2 = com.baidu.swan.games.bdtls.d.aSs().a(e.aSt().aSu(), bArr);
             if (a2 != null) {
                 if (!TextUtils.isEmpty(a2.getResponseMessage())) {
                     str = a2.getResponseMessage();
                 }
-                this.dSt = a2.aTZ().intValue();
+                this.dQL = a2.aTr().intValue();
             } else {
-                this.dSt = -1;
+                this.dQL = -1;
             }
-            e.aTb().aTc().mb(this.dSt);
-            if (this.dSt == -1) {
-                com.baidu.swan.games.bdtls.c.aSZ().setEnable(false);
+            e.aSt().aSu().lX(this.dQL);
+            if (this.dQL == -1) {
+                com.baidu.swan.games.bdtls.c.aSr().setEnable(false);
             }
         }
         return str;
     }
 
-    public final void wv(String str) {
-        this.dSt = 0;
-        com.baidu.swan.games.bdtls.c.aSZ().a(str, this);
+    public final void wq(String str) {
+        this.dQL = 0;
+        com.baidu.swan.games.bdtls.c.aSr().a(str, this);
     }
 
-    public void hs(boolean z) {
-        this.dSs = z;
+    public void hv(boolean z) {
+        this.dQK = z;
     }
 
     public String getMethod() {
-        return this.dSu;
+        return this.dQM;
     }
 
-    public void ww(String str) {
-        this.dSu = str;
+    public void wr(String str) {
+        this.dQM = str;
     }
 }

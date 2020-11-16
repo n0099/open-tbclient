@@ -11,7 +11,7 @@ import io.flutter.plugin.common.StringCodec;
 import io.flutter.view.FlutterCallbackInformation;
 import io.flutter.view.FlutterMain;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DartExecutor implements BinaryMessenger {
     private static final String TAG = "DartExecutor";
     @NonNull
@@ -37,7 +37,7 @@ public class DartExecutor implements BinaryMessenger {
     @Nullable
     private IsolateServiceIdListener isolateServiceIdListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     interface IsolateServiceIdListener {
         void onIsolateServiceIdAvailable(@NonNull String str);
     }
@@ -127,7 +127,7 @@ public class DartExecutor implements BinaryMessenger {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class DartEntrypoint {
         @NonNull
         public final String dartEntrypointFunctionName;
@@ -168,7 +168,7 @@ public class DartExecutor implements BinaryMessenger {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class DartCallback {
         public final AssetManager androidAssetManager;
         public final FlutterCallbackInformation callbackHandle;
@@ -186,7 +186,7 @@ public class DartExecutor implements BinaryMessenger {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     private static class DefaultBinaryMessenger implements BinaryMessenger {
         private final DartMessenger messenger;
 

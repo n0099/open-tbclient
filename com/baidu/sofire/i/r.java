@@ -30,7 +30,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public final class r {
     private static SSLSocketFactory b;
     private static final byte[] c = new byte[1024];
@@ -149,7 +149,7 @@ public final class r {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public class a implements X509TrustManager {
         private X509TrustManager b;
 

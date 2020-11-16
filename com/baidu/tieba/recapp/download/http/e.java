@@ -1,5 +1,5 @@
 package com.baidu.tieba.recapp.download.http;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class e {
     public long LI = -1;
     public long downloadSize = -1;

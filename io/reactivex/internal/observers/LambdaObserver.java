@@ -6,7 +6,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.Functions;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class LambdaObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
     private static final long serialVersionUID = -7251123623727029452L;
     final io.reactivex.c.a onComplete;
@@ -84,6 +84,6 @@ public final class LambdaObserver<T> extends AtomicReference<io.reactivex.dispos
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.pMt;
+        return this.onError != Functions.pNW;
     }
 }

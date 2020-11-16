@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public abstract class a<T> {
-    private List<InterfaceC0624a<T>> gbc;
-    private Runnable gbd;
-    private List<b> gbb = new ArrayList();
+    private List<InterfaceC0624a<T>> gaJ;
+    private Runnable gaK;
+    private List<b> gaI = new ArrayList();
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.baidu.tieba.ala.alaar.makeup.a$a  reason: collision with other inner class name */
@@ -26,12 +26,12 @@ public abstract class a<T> {
         void c(a<T> aVar);
     }
 
-    protected abstract boolean bMA();
+    protected abstract boolean bLT();
 
-    protected abstract boolean bMB();
+    protected abstract boolean bLU();
 
     public void a(final b bVar) {
-        if (!bMA()) {
+        if (!bLT()) {
             this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -48,44 +48,44 @@ public abstract class a<T> {
         }
         synchronized (this) {
             if (bVar != null) {
-                this.gbb.add(bVar);
+                this.gaI.add(bVar);
             }
-            if (this.gbd == null) {
-                this.gbd = new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.2
+            if (this.gaK == null) {
+                this.gaK = new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!a.this.bMB()) {
-                            a.this.bMC();
+                        if (!a.this.bLU()) {
+                            a.this.bLV();
                         }
                     }
                 };
-                ThreadPool.aap().execute(this.gbd);
+                ThreadPool.ZG().execute(this.gaK);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bMC() {
-        this.gbd = null;
+    public void bLV() {
+        this.gaK = null;
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.3
             @Override // java.lang.Runnable
             public void run() {
-                for (b bVar : a.this.gbb) {
+                for (b bVar : a.this.gaI) {
                     bVar.c(a.this);
                 }
-                a.this.gbb.clear();
+                a.this.gaI.clear();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bMD() {
-        if (this.gbc != null && !this.gbc.isEmpty()) {
+    public void bLW() {
+        if (this.gaJ != null && !this.gaJ.isEmpty()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.gbc.size()) {
-                    InterfaceC0624a<T> interfaceC0624a = this.gbc.get(i2);
+                if (i2 < this.gaJ.size()) {
+                    InterfaceC0624a<T> interfaceC0624a = this.gaJ.get(i2);
                     if (interfaceC0624a != null) {
                         interfaceC0624a.b(this);
                     }

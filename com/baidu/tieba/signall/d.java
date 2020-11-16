@@ -5,21 +5,21 @@ import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ah;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class d implements ah {
     private String avatar;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int gpU;
+    private int gpB;
     private boolean isSigned;
-    private int mNE;
-    private int mNF;
-    private int mNG;
-    private boolean mNH;
-    private boolean mNI;
-    private boolean mNJ;
-    private int mNK;
+    private boolean mOA;
+    private boolean mOB;
+    private boolean mOC;
+    private int mOD;
+    private int mOx;
+    private int mOy;
+    private int mOz;
     private int userLevel;
 
     public int getForumId() {
@@ -34,82 +34,82 @@ public class d implements ah {
         return this.avatar;
     }
 
-    public int dHm() {
-        return this.mNE;
+    public int dHd() {
+        return this.mOx;
     }
 
-    public int dHn() {
-        return this.gpU;
+    public int dHe() {
+        return this.gpB;
     }
 
-    public int dHo() {
+    public int dHf() {
         return this.userLevel;
     }
 
-    public int dHp() {
-        return this.mNF;
+    public int dHg() {
+        return this.mOy;
     }
 
-    public int dHq() {
-        return this.mNG;
+    public int dHh() {
+        return this.mOz;
     }
 
-    public void Ji(int i) {
-        this.mNE = i;
+    public void JK(int i) {
+        this.mOx = i;
     }
 
-    public void Jj(int i) {
-        this.gpU = i;
+    public void JL(int i) {
+        this.gpB = i;
     }
 
-    public void Jk(int i) {
+    public void JM(int i) {
         this.userLevel = i;
     }
 
-    public boolean bPL() {
+    public boolean bPe() {
         return this.isSigned;
     }
 
-    public void xd(boolean z) {
+    public void xh(boolean z) {
         this.isSigned = z;
-        this.mNE = 1;
+        this.mOx = 1;
     }
 
-    public boolean dHr() {
-        return this.mNI;
+    public boolean dHi() {
+        return this.mOB;
     }
 
-    public void xe(boolean z) {
-        this.mNI = z;
-        this.mNE = 0;
+    public void xi(boolean z) {
+        this.mOB = z;
+        this.mOx = 0;
     }
 
-    public boolean dHs() {
-        return this.mNJ;
+    public boolean dHj() {
+        return this.mOC;
     }
 
-    public void xf(boolean z) {
-        this.mNJ = z;
+    public void xj(boolean z) {
+        this.mOC = z;
     }
 
-    public int dHt() {
-        return this.mNK;
+    public int dHk() {
+        return this.mOD;
     }
 
-    public void Jl(int i) {
-        this.mNK = i;
+    public void JN(int i) {
+        this.mOD = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean dHu() {
-        return this.mNH;
+    public boolean dHl() {
+        return this.mOA;
     }
 
-    public void xg(boolean z) {
-        this.mNH = z;
+    public void xk(boolean z) {
+        this.mOA = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -117,14 +117,14 @@ public class d implements ah {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.mNE = jSONObject.optInt("is_sign_in");
-            this.gpU = jSONObject.optInt("cont_sign_num");
+            this.mOx = jSONObject.optInt("is_sign_in");
+            this.gpB = jSONObject.optInt("cont_sign_num");
             this.userLevel = jSONObject.optInt("user_level");
-            this.mNF = jSONObject.optInt("user_exp");
-            this.mNG = jSONObject.optInt("need_exp");
-            if (this.mNE != 0) {
+            this.mOy = jSONObject.optInt("user_exp");
+            this.mOz = jSONObject.optInt("need_exp");
+            if (this.mOx != 0) {
                 this.isSigned = true;
-                this.mNI = false;
+                this.mOB = false;
             }
         }
     }

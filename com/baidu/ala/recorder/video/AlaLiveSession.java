@@ -29,7 +29,7 @@ import com.baidu.ala.recorder.video.listener.ImageFilter;
 import com.baidu.ala.recorder.video.listener.TextureViewListener;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICameraStatusHandler, ICameraStatusHandler.Beauty {
     private static final int MIN_SURFACE_CHANGE = 10;
     private static final String TAG = AlaLiveSession.class.getSimpleName();
@@ -251,7 +251,9 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
 
     @Override // com.baidu.ala.recorder.video.IVideoRecorder
     public void setRecorderCallback(RecorderCallback recorderCallback) {
-        this.mHandler.setRecorderCallback(recorderCallback);
+        if (this.mHandler != null) {
+            this.mHandler.setRecorderCallback(recorderCallback);
+        }
     }
 
     @Override // com.baidu.ala.recorder.video.IVideoRecorder

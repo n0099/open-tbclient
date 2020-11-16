@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class d {
     private static long c = 60000;
     private static final ConcurrentHashMap<String, Boolean> d;

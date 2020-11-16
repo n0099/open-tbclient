@@ -3,66 +3,66 @@ package tv.chushou.apollo;
 public class a {
     public int borderColor;
     public boolean isFullScreen;
-    public int qkF;
-    public int qkG;
-    public boolean qkH;
-    public int qkI;
+    public int qmi;
+    public int qmj;
+    public boolean qmk;
+    public int qml;
     public int strokeWidth;
 
-    public a(C1110a c1110a) {
-        this.qkF = 20;
-        this.qkG = 20;
-        this.qkH = true;
+    public a(C1113a c1113a) {
+        this.qmi = 20;
+        this.qmj = 20;
+        this.qmk = true;
         this.strokeWidth = 2;
-        this.qkI = 800;
+        this.qml = 800;
         this.isFullScreen = false;
         this.borderColor = -16711936;
-        this.qkF = c1110a.qkF;
-        this.qkG = c1110a.qkG;
-        this.qkH = c1110a.qkH;
-        this.strokeWidth = c1110a.strokeWidth;
-        this.qkI = c1110a.qkI;
-        this.isFullScreen = c1110a.isFullScreen;
-        this.borderColor = c1110a.borderColor;
+        this.qmi = c1113a.qmi;
+        this.qmj = c1113a.qmj;
+        this.qmk = c1113a.qmk;
+        this.strokeWidth = c1113a.strokeWidth;
+        this.qml = c1113a.qml;
+        this.isFullScreen = c1113a.isFullScreen;
+        this.borderColor = c1113a.borderColor;
     }
 
     /* renamed from: tv.chushou.apollo.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1110a {
+    public static class C1113a {
         public int borderColor;
         public boolean isFullScreen;
-        public int qkF;
-        public int qkG;
-        public boolean qkH;
-        public int qkI;
+        public int qmi;
+        public int qmj;
+        public boolean qmk;
+        public int qml;
         public int strokeWidth;
 
-        public C1110a Bo(boolean z) {
-            this.qkH = z;
+        public C1113a Bv(boolean z) {
+            this.qmk = z;
             return this;
         }
 
-        public C1110a RP(int i) {
+        public C1113a Ss(int i) {
             this.strokeWidth = i;
             return this;
         }
 
-        public C1110a RQ(int i) {
-            this.qkI = i;
+        public C1113a St(int i) {
+            this.qml = i;
             return this;
         }
 
-        public C1110a Bp(boolean z) {
+        public C1113a Bw(boolean z) {
             this.isFullScreen = z;
             return this;
         }
 
-        public C1110a RR(int i) {
+        public C1113a Su(int i) {
             this.borderColor = i;
             return this;
         }
 
-        public a eGZ() {
+        public a eHa() {
             return new a(this);
         }
     }

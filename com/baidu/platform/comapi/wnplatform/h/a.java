@@ -23,14 +23,14 @@ public class a extends ItemizedOverlay {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0295a {
+    public static class C0293a {
 
         /* renamed from: a  reason: collision with root package name */
         static final a f3115a = new a();
     }
 
     public static a b() {
-        return C0295a.f3115a;
+        return C0293a.f3115a;
     }
 
     private a() {

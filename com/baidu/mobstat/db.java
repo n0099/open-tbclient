@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class db {
 
     /* renamed from: a  reason: collision with root package name */
@@ -272,7 +272,7 @@ public class db {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public static class a extends FilterOutputStream {
 
         /* renamed from: a  reason: collision with root package name */

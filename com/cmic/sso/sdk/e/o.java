@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
@@ -20,7 +20,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
@@ -43,8 +43,8 @@ public class o {
             this.f4028a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.e.o.a.2
                 @Override // java.lang.Thread.UncaughtExceptionHandler
                 public void uncaughtException(Thread thread, Throwable th) {
-                    com.cmic.sso.sdk.d.a.oJl.add(th);
-                    com.cmic.sso.sdk.b.a.gT(context).a("200025", "发生未知错误", aVar, null);
+                    com.cmic.sso.sdk.d.a.oKP.add(th);
+                    com.cmic.sso.sdk.b.a.gR(context).a("200025", "发生未知错误", aVar, null);
                 }
             };
         }

@@ -7,7 +7,7 @@ import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.f;
 import com.baidu.ar.statistic.performance.a;
 import java.util.Random;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class PerformanceStatisticApi implements f {
     private a.C0087a wr;
     private int wo = 0;

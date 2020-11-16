@@ -6,16 +6,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class StartPkResponseMessage extends JsonHttpResponsedMessage {
-    private int aKy;
-    private int hyv;
-    private ArrayList<String> hyw;
+    private int aIN;
+    private int hyc;
+    private ArrayList<String> hyd;
     private long logId;
     private long pkID;
 
     public StartPkResponseMessage(int i) {
         super(i);
-        this.hyv = -1;
-        this.hyw = new ArrayList<>();
+        this.hyc = -1;
+        this.hyd = new ArrayList<>();
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -23,15 +23,15 @@ public class StartPkResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.hyv = optJSONObject.optInt("match_status");
+            this.hyc = optJSONObject.optInt("match_status");
             this.pkID = optJSONObject.optLong("pk_id");
-            this.aKy = optJSONObject.optInt("pk_start_interval");
+            this.aIN = optJSONObject.optInt("pk_start_interval");
             JSONArray optJSONArray = optJSONObject.optJSONArray("portrait_list");
             int i2 = 0;
             while (true) {
                 int i3 = i2;
                 if (i3 < optJSONArray.length()) {
-                    this.hyw.add(((JSONObject) optJSONArray.get(i3)).optString("portrait"));
+                    this.hyd.add(((JSONObject) optJSONArray.get(i3)).optString("portrait"));
                     i2 = i3 + 1;
                 } else {
                     this.logId = jSONObject.optLong("logid");
@@ -41,20 +41,20 @@ public class StartPkResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public int ciH() {
-        return this.hyv;
+    public int cia() {
+        return this.hyc;
     }
 
-    public long ciF() {
+    public long chY() {
         return this.pkID;
     }
 
     public int getInterval() {
-        return this.aKy;
+        return this.aIN;
     }
 
-    public ArrayList<String> ciI() {
-        return this.hyw;
+    public ArrayList<String> cib() {
+        return this.hyd;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage

@@ -6,7 +6,7 @@ import kotlin.h;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class EmptyCoroutineContext implements Serializable, c {
     public static final EmptyCoroutineContext INSTANCE = new EmptyCoroutineContext();
     private static final long serialVersionUID = 0;
@@ -19,8 +19,8 @@ public final class EmptyCoroutineContext implements Serializable, c {
     }
 
     @Override // kotlin.coroutines.c
-    public <E extends c.b> E get(c.InterfaceC1078c<E> interfaceC1078c) {
-        q.n(interfaceC1078c, "key");
+    public <E extends c.b> E get(c.InterfaceC1081c<E> interfaceC1081c) {
+        q.n(interfaceC1081c, "key");
         return null;
     }
 
@@ -37,8 +37,8 @@ public final class EmptyCoroutineContext implements Serializable, c {
     }
 
     @Override // kotlin.coroutines.c
-    public c minusKey(c.InterfaceC1078c<?> interfaceC1078c) {
-        q.n(interfaceC1078c, "key");
+    public c minusKey(c.InterfaceC1081c<?> interfaceC1081c) {
+        q.n(interfaceC1081c, "key");
         return this;
     }
 

@@ -9,7 +9,7 @@ import com.baidu.ar.arplay.representation.Quaternion;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public abstract class j extends Observable implements SensorEventListener {
     private static final String TAG = j.class.getSimpleName();
     protected float[] rN;

@@ -14,14 +14,14 @@ public class f extends CustomMessageTask {
                 if (h.isDebug()) {
                     h.d("MakeupDM_TASK", "GetMakeupDataTask run " + customMessage);
                 }
-                g.bMU().a(new a.b() { // from class: com.baidu.tieba.ala.alaar.makeup.f.1.1
+                g.bMn().a(new a.b() { // from class: com.baidu.tieba.ala.alaar.makeup.f.1.1
                     @Override // com.baidu.tieba.ala.alaar.makeup.a.b
                     public void c(a aVar) {
                         com.baidu.live.ar.f fVar = new com.baidu.live.ar.f();
-                        com.baidu.tieba.ala.alaar.makeup.a.c bMW = g.bMU().bMW();
-                        fVar.ba(bMW != null && bMW.Cs());
+                        com.baidu.tieba.ala.alaar.makeup.a.c bMp = g.bMn().bMp();
+                        fVar.bc(bMp != null && bMp.BJ());
                         if (h.isDebug()) {
-                            h.d("MakeupDM_TASK", "GetMakeupDataTask done " + fVar.Cs());
+                            h.d("MakeupDM_TASK", "GetMakeupDataTask done " + fVar.BJ());
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913246, fVar));
                     }

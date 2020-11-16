@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class h {
     private String url = "";
     protected Map<String, String> Mh = new HashMap();

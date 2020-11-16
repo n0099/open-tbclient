@@ -4,9 +4,9 @@ import android.content.Context;
 import android.os.Looper;
 import android.util.Log;
 import com.baidu.q.a.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class c {
-    private static c osn;
+    private static c otQ;
     private Context mCtx;
     private static String TAG = "UnionIDHelper";
     private static boolean DEBUG = false;
@@ -15,24 +15,24 @@ public class c {
         this.mCtx = context.getApplicationContext();
     }
 
-    public static c gq(Context context) {
-        if (osn == null) {
+    public static c gp(Context context) {
+        if (otQ == null) {
             synchronized (c.class) {
-                if (osn == null) {
-                    osn = new c(context);
-                    com.baidu.q.a.a.gr(context);
+                if (otQ == null) {
+                    otQ = new c(context);
+                    com.baidu.q.a.a.gq(context);
                 }
             }
         }
-        return osn;
+        return otQ;
     }
 
     public void a(b bVar) {
-        a(new d().Nl(1).zC(false), bVar, Looper.getMainLooper());
+        a(new d().NO(1).zJ(false), bVar, Looper.getMainLooper());
     }
 
     public void a(d dVar, final b bVar, Looper looper) {
-        e.eej().a(this.mCtx, looper, new com.baidu.q.a.a.b() { // from class: com.baidu.q.c.1
+        e.eeg().a(this.mCtx, looper, new com.baidu.q.a.a.b() { // from class: com.baidu.q.c.1
             @Override // com.baidu.q.a.a.b
             public void a(com.baidu.q.a.a.c cVar) {
                 if (c.DEBUG) {
@@ -40,20 +40,9 @@ public class c {
                     Log.d(c.TAG, "异步回调 (listener != null):" + (bVar != null));
                 }
                 if (bVar != null) {
-                    bVar.a(0, cVar == null ? null : new a(cVar.eed(), cVar.isSupport(), cVar.getOAID(), cVar.getAAID(), cVar.getVAID(), cVar.getStatusCode()));
+                    bVar.a(0, cVar == null ? null : new a(cVar.eel(), cVar.isSupport(), cVar.getOAID(), cVar.getAAID(), cVar.getVAID(), cVar.getStatusCode()));
                 }
             }
         });
-    }
-
-    public a eef() {
-        com.baidu.q.a.a.c gt = e.eej().gt(this.mCtx);
-        if (DEBUG) {
-            Log.d(TAG, "同步 结果:" + gt);
-        }
-        if (gt == null) {
-            return null;
-        }
-        return new a(gt.eed(), gt.isSupport(), gt.getOAID(), gt.getAAID(), gt.getVAID(), gt.getStatusCode());
     }
 }

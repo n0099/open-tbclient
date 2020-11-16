@@ -7,37 +7,37 @@ import java.util.List;
 public interface c {
     void F(String str, boolean z);
 
-    AlaWheatInfoData Xi();
+    List<AlaWheatInfoData> WA();
 
-    List<AlaWheatInfoData> Xj();
+    List<AlaWheatInfoData> WB();
 
-    List<AlaWheatInfoData> Xk();
+    String WC();
 
-    String Xl();
+    String WD();
 
-    String Xm();
+    w WE();
 
-    w Xn();
+    String WF();
 
-    String Xo();
+    void WG();
 
-    void Xp();
+    void WH();
 
-    void Xq();
+    AlaWheatInfoData Wz();
 
     void a(a aVar);
 
     String getCustomRoomId();
 
-    boolean iV(String str);
+    boolean iP(String str);
 
-    boolean iW(String str);
+    boolean iQ(String str);
 
-    boolean iX(String str);
+    boolean iR(String str);
 
-    AlaWheatInfoData iY(String str);
+    AlaWheatInfoData iS(String str);
 
-    boolean iZ(String str);
+    boolean iT(String str);
 
     boolean isApplying();
 

@@ -6,7 +6,7 @@ import com.sdk.base.framework.c.e;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.c.g;
 import com.sdk.base.module.manager.SDKManager;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class a<T> extends com.sdk.base.framework.d.a<T> {
     public a(Context context, com.sdk.base.framework.b.a<T> aVar, e eVar) {
         super(context, aVar, eVar);

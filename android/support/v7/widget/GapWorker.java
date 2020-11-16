@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class GapWorker implements Runnable {
     static final ThreadLocal<GapWorker> sGapWorker = new ThreadLocal<>();
     static Comparator<Task> sTaskComparator = new Comparator<Task>() { // from class: android.support.v7.widget.GapWorker.1
@@ -39,7 +39,7 @@ public final class GapWorker implements Runnable {
     private ArrayList<Task> mTasks = new ArrayList<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes8.dex */
     public static class Task {
         public int distanceToItem;
         public boolean immediate;
@@ -60,7 +60,7 @@ public final class GapWorker implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes8.dex */
     public static class LayoutPrefetchRegistryImpl implements RecyclerView.LayoutManager.LayoutPrefetchRegistry {
         int mCount;
         int[] mPrefetchArray;

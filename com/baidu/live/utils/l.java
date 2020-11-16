@@ -76,7 +76,7 @@ public class l {
         }
     }
 
-    public static boolean iF(String str) {
+    public static boolean iz(String str) {
         if (str.contains("·") || str.contains("•")) {
             if (str.matches("^[\\u4e00-\\u9fa5]+[·•][\\u4e00-\\u9fa5]+$")) {
                 return true;
@@ -87,7 +87,7 @@ public class l {
         return false;
     }
 
-    public static boolean UF() {
+    public static boolean TW() {
         if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
             return !ExtraParamsManager.getSaveFlowStatus();
         }
@@ -98,7 +98,7 @@ public class l {
         return true;
     }
 
-    public static boolean UG() {
+    public static boolean TX() {
         if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
             return !ExtraParamsManager.getSaveFlowStatus();
         }

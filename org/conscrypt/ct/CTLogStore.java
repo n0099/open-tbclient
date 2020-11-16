@@ -1,5 +1,5 @@
 package org.conscrypt.ct;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public interface CTLogStore {
     CTLogInfo getKnownLog(byte[] bArr);
 }

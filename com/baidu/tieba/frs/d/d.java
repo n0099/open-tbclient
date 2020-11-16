@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.d;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public interface d {
-    public static final b iRl = new b();
+    public static final b iRY = new b();
 
     b getStatisticMetaData();
 }

@@ -30,7 +30,7 @@ import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class BdSailor implements INoProGuard {
     public static final String LOG_TAG = BdSailor.class.getSimpleName();
     protected static BdSailor sInstance;
@@ -273,7 +273,7 @@ public class BdSailor implements INoProGuard {
 
     public void initWebkit(String str, boolean z, Class<? extends CrashCallback> cls) {
         long currentTimeMillis = System.currentTimeMillis();
-        boolean z2 = BdWebkitManager.a.f1286a == BdSailorPlatform.getWebkitManager().getWebkitType$630ca8f2();
+        boolean z2 = BdWebkitManager.a.f1289a == BdSailorPlatform.getWebkitManager().getWebkitType$630ca8f2();
         if (z2) {
             ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
         } else {
@@ -430,7 +430,7 @@ public class BdSailor implements INoProGuard {
         this.mClient = bdSailorClient;
         WebKitFactory.setWebKitClient(bdSailorClient);
         setSailorFeatureListener();
-        BdSailorPlatform.getStatic().afu = this.mClient;
+        BdSailorPlatform.getStatic().afz = this.mClient;
     }
 
     public void setSailorCronetListenerInterface(ICronetListenerInterface iCronetListenerInterface) {

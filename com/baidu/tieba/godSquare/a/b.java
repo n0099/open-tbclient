@@ -6,32 +6,33 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.card.ab;
-import com.baidu.tieba.card.data.i;
-/* loaded from: classes24.dex */
-public class b extends com.baidu.adp.widget.ListView.a<i, a> {
-    private ab gSA;
-    private com.baidu.tieba.godSquare.b.a jta;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.card.data.h;
+/* loaded from: classes23.dex */
+public class b extends com.baidu.adp.widget.ListView.a<h, a> {
+    private ab gSh;
+    private com.baidu.tieba.godSquare.b.a jtH;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), i.ibb);
-        this.gSA = new ab() { // from class: com.baidu.tieba.godSquare.a.b.1
+        super(tbPageContext.getPageActivity(), h.ibT);
+        this.gSh = new ab() { // from class: com.baidu.tieba.godSquare.a.b.1
             @Override // com.baidu.tieba.card.ab
-            public void a(View view, com.baidu.tieba.card.data.b bVar) {
-                if (view != null && b.this.jta != null && (bVar instanceof i)) {
-                    i iVar = (i) bVar;
-                    if (iVar.eEK != null && !StringUtils.isNull(iVar.eEK.getUserId())) {
-                        if (view.getId() != b.this.jta.jtl.getId()) {
-                            if (view.getId() == b.this.jta.getView().getId() || view.getId() == b.this.jta.jpv.getId()) {
-                                TiebaStatic.log(new aq("c10951").dR("obj_id", iVar.eEK.getUserId()));
+            public void a(View view, BaseCardInfo baseCardInfo) {
+                if (view != null && b.this.jtH != null && (baseCardInfo instanceof h)) {
+                    h hVar = (h) baseCardInfo;
+                    if (hVar.eDc != null && !StringUtils.isNull(hVar.eDc.getUserId())) {
+                        if (view.getId() != b.this.jtH.jtS.getId()) {
+                            if (view.getId() == b.this.jtH.getView().getId() || view.getId() == b.this.jtH.jqc.getId()) {
+                                TiebaStatic.log(new ar("c10951").dR("obj_id", hVar.eDc.getUserId()));
                                 return;
                             }
                             return;
                         }
-                        TiebaStatic.log(new aq("c10803").al("obj_locate", 4).dR("obj_id", iVar.eEK.getUserId()));
+                        TiebaStatic.log(new ar("c10803").ak("obj_locate", 4).dR("obj_id", hVar.eDc.getUserId()));
                     }
                 }
             }
@@ -42,32 +43,32 @@ public class b extends com.baidu.adp.widget.ListView.a<i, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bB */
+    /* renamed from: bx */
     public a c(ViewGroup viewGroup) {
-        this.jta = new com.baidu.tieba.godSquare.b.a(this.mPageContext);
-        this.jta.l(this.mPageContext.getUniqueId());
-        this.jta.c(this.gSA);
-        return new a(this.jta);
+        this.jtH = new com.baidu.tieba.godSquare.b.a(this.mPageContext);
+        this.jtH.l(this.mPageContext.getUniqueId());
+        this.jtH.c(this.gSh);
+        return new a(this.jtH);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, i iVar, a aVar) {
-        if (aVar == null || aVar.jtc == null) {
+    public View a(int i, View view, ViewGroup viewGroup, h hVar, a aVar) {
+        if (aVar == null || aVar.jtJ == null) {
             return null;
         }
-        aVar.jtc.a(iVar);
+        aVar.jtJ.a(hVar);
         return aVar.getView();
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes23.dex */
     public class a extends af.a {
-        public com.baidu.tieba.godSquare.b.a jtc;
+        public com.baidu.tieba.godSquare.b.a jtJ;
 
         public a(com.baidu.tieba.godSquare.b.a aVar) {
             super(aVar.getView());
-            this.jtc = aVar;
+            this.jtJ = aVar;
         }
     }
 }

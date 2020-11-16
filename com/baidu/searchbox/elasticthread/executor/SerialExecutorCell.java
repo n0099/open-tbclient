@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes12.dex */
 public class SerialExecutorCell extends BaseExecutorCell {
     private static final int SERIAL_MAX_THREAD_NUM = 1;
     private int dredgeCountInRecordLifeCycle;

@@ -10,8 +10,8 @@ import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.b.g;
 import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
+import com.baidu.adp.lib.stats.c.g;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
@@ -28,7 +28,7 @@ public class a {
             switch (message.what) {
                 case 1:
                     if (message.obj instanceof BdUploadStatMsgData) {
-                        g.nZ().ch(((BdUploadStatMsgData) message.obj).parentType);
+                        g.nZ().ci(((BdUploadStatMsgData) message.obj).parentType);
                         return;
                     }
                     return;

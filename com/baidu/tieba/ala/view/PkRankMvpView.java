@@ -15,13 +15,13 @@ import com.baidu.tieba.ala.data.PkInfoData;
 /* loaded from: classes4.dex */
 public class PkRankMvpView extends RelativeLayout {
     Context context;
-    private PkRankView gzq;
-    private RelativeLayout hOk;
-    private HeadImageView hOl;
-    private TextView hOm;
-    private TextView hOn;
-    private RelativeLayout hOo;
-    private ImageView hOp;
+    private PkRankView gyX;
+    private RelativeLayout hNR;
+    private HeadImageView hNS;
+    private TextView hNT;
+    private TextView hNU;
+    private RelativeLayout hNV;
+    private ImageView hNW;
     private View mView;
 
     public PkRankMvpView(Context context, AttributeSet attributeSet) {
@@ -36,55 +36,55 @@ public class PkRankMvpView extends RelativeLayout {
 
     private void initView() {
         this.mView = LayoutInflater.from(getContext()).inflate(a.g.sdk_rank_mvp_layout, (ViewGroup) this, true);
-        cmp();
-        clZ();
+        clI();
+        cls();
     }
 
-    private void cmp() {
-        this.hOk = (RelativeLayout) this.mView.findViewById(a.f.mvp_layout);
-        this.hOl = (HeadImageView) this.mView.findViewById(a.f.mvp_head);
-        this.hOm = (TextView) this.mView.findViewById(a.f.mvp_name);
-        this.hOn = (TextView) this.mView.findViewById(a.f.mvp_score);
-        this.hOo = (RelativeLayout) this.mView.findViewById(a.f.mvp_get_layout);
-        this.hOp = (ImageView) this.mView.findViewById(a.f.mvp_get_image);
-        this.hOl.setDefaultBgResource(a.e.sdk_default_avatar);
-        this.hOl.setIsRound(true);
-        this.hOl.setAutoChangeStyle(false);
-        this.hOl.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.d.sdk_ds4));
-        this.hOl.setBorderColor(872415231);
+    private void clI() {
+        this.hNR = (RelativeLayout) this.mView.findViewById(a.f.mvp_layout);
+        this.hNS = (HeadImageView) this.mView.findViewById(a.f.mvp_head);
+        this.hNT = (TextView) this.mView.findViewById(a.f.mvp_name);
+        this.hNU = (TextView) this.mView.findViewById(a.f.mvp_score);
+        this.hNV = (RelativeLayout) this.mView.findViewById(a.f.mvp_get_layout);
+        this.hNW = (ImageView) this.mView.findViewById(a.f.mvp_get_image);
+        this.hNS.setDefaultBgResource(a.e.sdk_default_avatar);
+        this.hNS.setIsRound(true);
+        this.hNS.setAutoChangeStyle(false);
+        this.hNS.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.d.sdk_ds4));
+        this.hNS.setBorderColor(872415231);
     }
 
     public void e(final PkInfoData pkInfoData) {
-        this.hOk.setVisibility(0);
-        this.hOl.startLoad(pkInfoData.mvpInfoData.bdPortrait, 25, false, false);
-        this.hOm.setText(pkInfoData.mvpInfoData.userNickName);
-        this.hOn.setText(pkInfoData.mvpInfoData.contributionHonor);
-        this.hOn.setText(this.context.getString(a.h.sdk_pk_rank_contribute, String.valueOf(pkInfoData.mvpInfoData.contributionHonor)));
-        this.hOl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankMvpView.1
+        this.hNR.setVisibility(0);
+        this.hNS.startLoad(pkInfoData.mvpInfoData.bdPortrait, 25, false, false);
+        this.hNT.setText(pkInfoData.mvpInfoData.userNickName);
+        this.hNU.setText(pkInfoData.mvpInfoData.contributionHonor);
+        this.hNU.setText(this.context.getString(a.h.sdk_pk_rank_contribute, String.valueOf(pkInfoData.mvpInfoData.contributionHonor)));
+        this.hNS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankMvpView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (pkInfoData.mvpInfoData.userID != PkRankMvpView.this.gzq.aKv.aIV.userId) {
-                    PkRankMvpView.this.gzq.B(pkInfoData.H5URL, pkInfoData.mvpInfoData.userID);
+                if (pkInfoData.mvpInfoData.userID != PkRankMvpView.this.gyX.aIK.aHk.userId) {
+                    PkRankMvpView.this.gyX.B(pkInfoData.H5URL, pkInfoData.mvpInfoData.userID);
                 }
             }
         });
         if (pkInfoData.mvpInfoData.propsType != null && !pkInfoData.mvpInfoData.propsType.isEmpty()) {
-            this.hOo.setVisibility(0);
+            this.hNV.setVisibility(0);
             int parseInt = Integer.parseInt(pkInfoData.mvpInfoData.propsType);
             if (parseInt == 1) {
-                this.hOp.setImageResource(a.e.pk_rank_red_potion);
+                this.hNW.setImageResource(a.e.pk_rank_red_potion);
             } else if (parseInt == 2) {
-                this.hOp.setImageResource(a.e.pk_rank_boom);
+                this.hNW.setImageResource(a.e.pk_rank_boom);
             }
         }
     }
 
-    private void clZ() {
-        this.hOk.setVisibility(8);
-        this.hOo.setVisibility(8);
+    private void cls() {
+        this.hNR.setVisibility(8);
+        this.hNV.setVisibility(8);
     }
 
     public void setPkRankView(PkRankView pkRankView) {
-        this.gzq = pkRankView;
+        this.gyX = pkRankView;
     }
 }

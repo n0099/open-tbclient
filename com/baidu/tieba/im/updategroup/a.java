@@ -2,33 +2,33 @@ package com.baidu.tieba.im.updategroup;
 
 import android.view.View;
 import com.baidu.tbadk.core.dialog.a;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public interface a {
-    void Ng();
+    void MJ(String str);
 
-    void Ni(String str);
+    void Mx();
 
-    void Qj();
+    void PA();
 
     void b(a.b bVar);
 
     void c(a.b bVar);
 
-    View cPP();
+    boolean cPW();
 
-    View cQA();
+    View cPv();
 
-    boolean cQq();
+    View cQg();
 
-    String cVo();
+    String cUU();
 
-    View cVp();
+    View cUV();
 
-    void cVq();
+    void cUW();
 
-    int cVr();
+    int cUX();
 
-    boolean cVs();
+    boolean cUY();
 
     long getGroupId();
 

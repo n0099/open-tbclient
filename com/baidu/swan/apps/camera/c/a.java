@@ -6,7 +6,7 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static void a(MotionEvent motionEvent, Camera camera, int i, int i2) {
         if (motionEvent != null && camera != null) {

@@ -12,51 +12,51 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
     public void r(long j, int i) {
-        d.AZ().putLong("live_guess_last_question", j);
-        d.AZ().putInt("live_guess_last_answer", i);
+        d.Aq().putLong("live_guess_last_question", j);
+        d.Aq().putInt("live_guess_last_answer", i);
     }
 
     public Long getId() {
-        return Long.valueOf(d.AZ().getLong("live_guess_last_question", -1L));
+        return Long.valueOf(d.Aq().getLong("live_guess_last_question", -1L));
     }
 
     public int eJ(long j) {
-        return d.AZ().getInt("live_guess_last_answer", -1);
+        return d.Aq().getInt("live_guess_last_answer", -1);
     }
 
-    public void bUz() {
+    public void bTS() {
         a(ap(UbcStatisticLiveKey.KEY_ID_1394, "display", "missguess_show"));
     }
 
-    public void bUA() {
+    public void bTT() {
         a(ap(UbcStatisticLiveKey.KEY_ID_1394, "display", "wrongguess_show"));
     }
 
-    public void bUB() {
+    public void bTU() {
         a(ap(UbcStatisticLiveKey.KEY_ID_1394, "display", "rightguess_show"));
     }
 
-    public void bUC() {
+    public void bTV() {
         a(ap(UbcStatisticLiveKey.KEY_ID_1396, "click", "guessflw_clk"));
     }
 
-    public void bUD() {
+    public void bTW() {
         a(ap(UbcStatisticLiveKey.KEY_ID_1394, "display", "guessflw_show"));
     }
 
-    public void bUE() {
+    public void bTX() {
         a(ap(UbcStatisticLiveKey.KEY_ID_1396, "click", "getticket_clk"));
     }
 
-    public void bUF() {
+    public void bTY() {
         a(ap(UbcStatisticLiveKey.KEY_ID_1394, "display", "ticketlack_show"));
     }
 
-    public void bUG() {
+    public void bTZ() {
         a(w(UbcStatisticLiveKey.KEY_ID_1395, "click", "guessing_succ", ""));
     }
 
-    public void uP(int i) {
+    public void vn(int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("status", i);
@@ -66,7 +66,7 @@ public class a {
         a(ap(UbcStatisticLiveKey.KEY_ID_1396, "click", "guesschoice_clk").setContentExt(jSONObject));
     }
 
-    public void bUH() {
+    public void bUa() {
         a(ap(UbcStatisticLiveKey.KEY_ID_1394, "display", "guesspop_show"));
     }
 

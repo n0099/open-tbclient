@@ -14,35 +14,35 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class g extends com.baidu.tieba.yuyinala.liveroom.a {
-    private w aES;
-    public PlayIntroduceView nWW;
+    private w aDh;
+    public PlayIntroduceView nYz;
 
     public g(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void U(w wVar) {
-        this.aES = wVar;
+        this.aDh = wVar;
     }
 
-    public void cCz() {
-        if (this.nWW != null) {
-            this.nWW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.g.1
+    public void cCd() {
+        if (this.nYz != null) {
+            this.nYz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.g.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    new d(g.this.getPageContext().getPageActivity()).X(g.this.aES);
-                    g.this.dYg();
+                    new d(g.this.getPageContext().getPageActivity()).X(g.this.aDh);
+                    g.this.dYf();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dYg() {
+    public void dYf() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aES.aJK.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aDh.aHZ.croom_id);
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -50,50 +50,50 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void ax(ViewGroup viewGroup) {
-        super.ax(viewGroup);
-        aF(viewGroup);
+    public void at(ViewGroup viewGroup) {
+        super.at(viewGroup);
+        aB(viewGroup);
     }
 
-    private void aF(ViewGroup viewGroup) {
-        if (this.nWW != null && this.nWW.getParent() != null) {
-            ((ViewGroup) this.nWW.getParent()).removeView(this.nWW);
+    private void aB(ViewGroup viewGroup) {
+        if (this.nYz != null && this.nYz.getParent() != null) {
+            ((ViewGroup) this.nYz.getParent()).removeView(this.nYz);
         }
-        if (this.nWW == null) {
-            this.nWW = new PlayIntroduceView(getPageContext().getPageActivity());
+        if (this.nYz == null) {
+            this.nYz = new PlayIntroduceView(getPageContext().getPageActivity());
         }
-        this.nWW.setId(a.f.ala_liveroom_play_introduce);
+        this.nYz.setId(a.f.ala_liveroom_play_introduce);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(1, a.f.ala_liveroom_charm_rank);
         layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
         layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds19);
         layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds14);
-        viewGroup.addView(this.nWW, layoutParams);
+        viewGroup.addView(this.nYz, layoutParams);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void Dm() {
-        super.Dm();
-        if (this.nWW != null && this.nWW.getParent() != null) {
-            ((ViewGroup) this.nWW.getParent()).removeView(this.nWW);
+    public void CD() {
+        super.CD();
+        if (this.nYz != null && this.nYz.getParent() != null) {
+            ((ViewGroup) this.nYz.getParent()).removeView(this.nYz);
         }
-        if (this.nWW != null) {
-            this.nWW.destory();
-            this.nWW = null;
+        if (this.nYz != null) {
+            this.nYz.destory();
+            this.nYz = null;
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.nWW != null) {
-            this.nWW.destory();
-            this.nWW = null;
+        if (this.nYz != null) {
+            this.nYz.destory();
+            this.nYz = null;
         }
     }
 
-    public void chb() {
+    public void cgu() {
     }
 
-    public void chc() {
+    public void cgv() {
     }
 }

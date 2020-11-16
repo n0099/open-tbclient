@@ -14,52 +14,52 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newinterest.data.b;
 import com.baidu.tieba.newinterest.fragment.InterestSelectionFragment;
 import com.baidu.tieba.newinterest.fragment.InterestedForumFragment;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class a implements View.OnClickListener, InterestSelectionFragment.a {
-    private View iJO;
-    private BaseFragmentActivity ilu;
-    private TextView liQ;
-    private InterestedForumFragment liR;
-    private InterestSelectionFragment liS;
+    private View iKB;
+    private BaseFragmentActivity imj;
+    private TextView ljh;
+    private InterestedForumFragment lji;
+    private InterestSelectionFragment ljj;
     private NavigationBar mNavigationBar;
     private View mRoot;
 
     public a(BaseFragmentActivity baseFragmentActivity) {
-        this.ilu = baseFragmentActivity;
+        this.imj = baseFragmentActivity;
         initUI();
-        cCs();
+        cBW();
     }
 
     private void initUI() {
-        this.mRoot = LayoutInflater.from(this.ilu).inflate(R.layout.activity_interest_guide_layout, (ViewGroup) null);
+        this.mRoot = LayoutInflater.from(this.imj).inflate(R.layout.activity_interest_guide_layout, (ViewGroup) null);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.navigation_bar);
-        this.liQ = new TextView(this.ilu);
-        this.liQ.setClickable(true);
-        this.liQ.setText(this.ilu.getString(R.string.skip));
-        this.liQ.setTextSize(0, l.getDimens(this.ilu, R.dimen.tbds37));
-        ap.setViewTextColor(this.liQ, R.color.cp_cont_j);
+        this.ljh = new TextView(this.imj);
+        this.ljh.setClickable(true);
+        this.ljh.setText(this.imj.getString(R.string.skip));
+        this.ljh.setTextSize(0, l.getDimens(this.imj, R.dimen.tbds37));
+        ap.setViewTextColor(this.ljh, R.color.CAM_X0107);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        layoutParams.rightMargin = l.getDimens(this.ilu, R.dimen.tbds44);
-        this.liQ.setLayoutParams(layoutParams);
-        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.liQ, this);
-        this.iJO = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.liS = new InterestSelectionFragment();
-        getFragmentManager().beginTransaction().add(R.id.content_container, this.liS).commitAllowingStateLoss();
-        TiebaStatic.log(new aq("c13681"));
+        layoutParams.rightMargin = l.getDimens(this.imj, R.dimen.tbds44);
+        this.ljh.setLayoutParams(layoutParams);
+        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.ljh, this);
+        this.iKB = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.ljj = new InterestSelectionFragment();
+        getFragmentManager().beginTransaction().add(R.id.content_container, this.ljj).commitAllowingStateLoss();
+        TiebaStatic.log(new ar("c13681"));
     }
 
-    private void cCs() {
-        this.liQ.setOnClickListener(this);
-        this.iJO.setOnClickListener(this);
-        this.liS.a(this);
+    private void cBW() {
+        this.ljh.setOnClickListener(this);
+        this.iKB.setOnClickListener(this);
+        this.ljj.a(this);
     }
 
     public View getView() {
@@ -68,39 +68,39 @@ public class a implements View.OnClickListener, InterestSelectionFragment.a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.iJO && this.ilu != null) {
-            if (this.liR != null && this.liR.isVisible()) {
+        if (view == this.iKB && this.imj != null) {
+            if (this.lji != null && this.lji.isVisible()) {
                 getFragmentManager().popBackStack();
             } else {
-                dgU();
+                dgr();
             }
-        } else if (view == this.liQ) {
-            dgU();
+        } else if (view == this.ljh) {
+            dgr();
         }
     }
 
-    private void dgU() {
-        aq aqVar = new aq("c13682");
-        aqVar.al("obj_type", 1);
-        TiebaStatic.log(aqVar);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.ilu).createNormalCfg(0)));
+    private void dgr() {
+        ar arVar = new ar("c13682");
+        arVar.ak("obj_type", 1);
+        TiebaStatic.log(arVar);
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.imj).createNormalCfg(0)));
     }
 
     @Override // com.baidu.tieba.newinterest.fragment.InterestSelectionFragment.a
     public void eV(List<b> list) {
-        this.liR = new InterestedForumFragment();
-        this.liR.eW(list);
-        getFragmentManager().beginTransaction().add(R.id.content_container, this.liR).addToBackStack(null).commitAllowingStateLoss();
+        this.lji = new InterestedForumFragment();
+        this.lji.eW(list);
+        getFragmentManager().beginTransaction().add(R.id.content_container, this.lji).addToBackStack(null).commitAllowingStateLoss();
     }
 
     private FragmentManager getFragmentManager() {
-        return this.ilu.getSupportFragmentManager();
+        return this.imj.getSupportFragmentManager();
     }
 
     public void onBackPressed() {
     }
 
     public void onChangeSkinType() {
-        ap.setBackgroundColor(this.mRoot, R.color.cp_bg_line_d);
+        ap.setBackgroundColor(this.mRoot, R.color.CAM_X0201);
     }
 }

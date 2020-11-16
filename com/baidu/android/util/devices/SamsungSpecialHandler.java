@@ -2,7 +2,7 @@ package com.baidu.android.util.devices;
 
 import android.app.Activity;
 import com.baidu.android.util.devices.DeviceUtil;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public final class SamsungSpecialHandler {
     private static final boolean DEBUG = false;
     private static final String TAG = "SamsungSpecialHandler";

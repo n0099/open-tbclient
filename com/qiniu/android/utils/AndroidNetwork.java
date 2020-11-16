@@ -5,14 +5,14 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 /* loaded from: classes6.dex */
 public final class AndroidNetwork {
-    public static boolean eyc() {
+    public static boolean eyd() {
         boolean z;
-        Context eyd = ContextGetter.eyd();
-        if (eyd == null) {
+        Context eye = ContextGetter.eye();
+        if (eye == null) {
             return true;
         }
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) eyd.getSystemService("connectivity")).getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) eye.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null) {
                 if (activeNetworkInfo.isConnected()) {
                     z = true;

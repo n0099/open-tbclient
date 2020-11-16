@@ -4,31 +4,31 @@ import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import javax.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class p {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface b {
-        public static final b oPF = j.oPO;
-        public static final b oPG = i.oPO;
-        public static final b oPH = g.oPO;
-        public static final b oPI = h.oPO;
-        public static final b oPJ = c.oPO;
-        public static final b oPK = e.oPO;
-        public static final b oPL = d.oPO;
-        public static final b oPM = k.oPO;
-        public static final b oPN = f.oPO;
+        public static final b oRi = j.oRr;
+        public static final b oRj = i.oRr;
+        public static final b oRk = g.oRr;
+        public static final b oRl = h.oRr;
+        public static final b oRm = c.oRr;
+        public static final b oRn = e.oRr;
+        public static final b oRo = d.oRr;
+        public static final b oRp = k.oRr;
+        public static final b oRq = f.oRr;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface l {
         Object getState();
     }
 
     @Nullable
-    public static o q(Drawable drawable) {
+    public static o r(Drawable drawable) {
         if (drawable == null) {
             return null;
         }
@@ -36,22 +36,22 @@ public class p {
             return (o) drawable;
         }
         if (drawable instanceof com.facebook.drawee.drawable.c) {
-            return q(((com.facebook.drawee.drawable.c) drawable).getDrawable());
+            return r(((com.facebook.drawee.drawable.c) drawable).getDrawable());
         }
         if (drawable instanceof com.facebook.drawee.drawable.a) {
             com.facebook.drawee.drawable.a aVar = (com.facebook.drawee.drawable.a) drawable;
-            int elM = aVar.elM();
-            for (int i2 = 0; i2 < elM; i2++) {
-                o q = q(aVar.getDrawable(i2));
-                if (q != null) {
-                    return q;
+            int elK = aVar.elK();
+            for (int i2 = 0; i2 < elK; i2++) {
+                o r = r(aVar.getDrawable(i2));
+                if (r != null) {
+                    return r;
                 }
             }
         }
         return null;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class a implements b {
         public abstract void a(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4);
 
@@ -62,9 +62,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class j extends a {
-        public static final b oPO = new j();
+        public static final b oRr = new j();
 
         private j() {
         }
@@ -80,9 +80,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class i extends a {
-        public static final b oPO = new i();
+        public static final b oRr = new i();
 
         private i() {
         }
@@ -99,9 +99,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class f extends a {
-        public static final b oPO = new f();
+        public static final b oRr = new f();
 
         private f() {
         }
@@ -118,9 +118,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class g extends a {
-        public static final b oPO = new g();
+        public static final b oRr = new g();
 
         private g() {
         }
@@ -138,9 +138,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class h extends a {
-        public static final b oPO = new h();
+        public static final b oRr = new h();
 
         private h() {
         }
@@ -158,9 +158,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class c extends a {
-        public static final b oPO = new c();
+        public static final b oRr = new c();
 
         private c() {
         }
@@ -175,9 +175,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class e extends a {
-        public static final b oPO = new e();
+        public static final b oRr = new e();
 
         private e() {
         }
@@ -195,9 +195,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class d extends a {
-        public static final b oPO = new d();
+        public static final b oRr = new d();
 
         private d() {
         }
@@ -223,9 +223,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class k extends a {
-        public static final b oPO = new k();
+        public static final b oRr = new k();
 
         private k() {
         }

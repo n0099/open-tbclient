@@ -1,6 +1,6 @@
 package com.xiaomi.push;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class fr extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
@@ -18,7 +18,7 @@ public class fr extends Thread {
         fm fmVar;
         try {
             fmVar = this.f4910a.f4909a;
-            fmVar.m289a();
+            fmVar.m292a();
         } catch (Exception e) {
             this.f4910a.c(9, e);
         }

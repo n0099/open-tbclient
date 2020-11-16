@@ -5,7 +5,7 @@ import io.reactivex.u;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class ObservableSkipLastTimed<T> extends a<T, T> {
     final int bufferSize;
     final boolean delayError;
@@ -18,7 +18,7 @@ public final class ObservableSkipLastTimed<T> extends a<T, T> {
         this.source.subscribe(new SkipLastTimedObserver(uVar, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class SkipLastTimedObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -5677354903406201275L;
         final u<? super T> actual;

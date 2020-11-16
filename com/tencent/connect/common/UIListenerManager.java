@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class UIListenerManager {
 
     /* renamed from: a  reason: collision with root package name */
@@ -223,7 +223,7 @@ public class UIListenerManager {
         return true;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public class ApiTask {
         public IUiListener mListener;
         public int mRequestCode;

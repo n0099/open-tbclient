@@ -4,20 +4,20 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.ForumData;
 /* loaded from: classes.dex */
 public class o implements com.baidu.adp.widget.ListView.q {
-    private ForumData jpk;
-    private final boolean mVD;
+    private ForumData jpQ;
+    private final boolean mWv;
 
     public o(ForumData forumData, boolean z) {
-        this.jpk = forumData;
-        this.mVD = z;
+        this.jpQ = forumData;
+        this.mWv = z;
     }
 
-    public ForumData bAz() {
-        return this.jpk;
+    public ForumData bzP() {
+        return this.jpQ;
     }
 
-    public boolean dJn() {
-        return this.mVD;
+    public boolean dJe() {
+        return this.mWv;
     }
 
     @Override // com.baidu.adp.widget.ListView.q

@@ -22,7 +22,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.searchbox.ui.CustomLinkMovementMethod;
 import java.lang.ref.WeakReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class BubbleManager implements View.OnClickListener {
     private static final float ANIMATION_OFFSET = 11.0f;
     private static final int AUTO_DISMISS_INTERVAL = 7000;
@@ -78,17 +78,17 @@ public class BubbleManager implements View.OnClickListener {
     private int mTextColor;
     private int mUnit;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public interface OnAnchorClickListener {
         void onAnchorClick();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public interface OnBtnClickListener {
         void onBtnClick();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public interface OnBubbleEventListener {
         void onBubbleClick();
 
@@ -713,7 +713,7 @@ public class BubbleManager implements View.OnClickListener {
         return new Builder();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public static class Builder {
         private BubbleManager mBubbleManager;
 
@@ -863,7 +863,7 @@ public class BubbleManager implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public static class BubbleHandler extends Handler {
         static final int MSG_DISMISS = 0;
         private final WeakReference<BubbleManager> mBubbleManager;

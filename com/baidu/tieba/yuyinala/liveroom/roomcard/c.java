@@ -7,42 +7,42 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes4.dex */
 public class c {
-    public static c nZk;
-    private a nZl;
-    private CustomMessageListener nZm = new CustomMessageListener(2501061) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.c.1
+    public static c oaN;
+    private a oaO;
+    private CustomMessageListener oaP = new CustomMessageListener(2501061) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501061) {
-                if (c.this.nZl != null) {
-                    c.this.nZl.yT(true);
+                if (c.this.oaO != null) {
+                    c.this.oaO.za(true);
                 }
-                MessageManager.getInstance().unRegisterListener(c.this.nZm);
+                MessageManager.getInstance().unRegisterListener(c.this.oaP);
             }
         }
     };
 
     /* loaded from: classes4.dex */
     public interface a {
-        void yT(boolean z);
+        void za(boolean z);
     }
 
-    public static c dYq() {
-        if (nZk == null) {
-            nZk = new c();
+    public static c dYp() {
+        if (oaN == null) {
+            oaN = new c();
         }
-        return nZk;
+        return oaN;
     }
 
     public void a(Context context, Activity activity, a aVar) {
         if (i.a(context, activity)) {
             if (aVar != null) {
-                aVar.yT(true);
+                aVar.za(true);
                 return;
             }
             return;
         }
-        this.nZl = aVar;
-        MessageManager.getInstance().registerListener(this.nZm);
+        this.oaO = aVar;
+        MessageManager.getInstance().registerListener(this.oaP);
     }
 }

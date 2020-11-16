@@ -5,21 +5,21 @@ import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.Callable;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class FlowableCollect<T, U> extends a<T, U> {
     final io.reactivex.c.b<? super U, ? super T> collector;
-    final Callable<? extends U> pMS;
+    final Callable<? extends U> pOv;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
         try {
-            this.pMK.a((j) new CollectSubscriber(cVar, io.reactivex.internal.functions.a.l(this.pMS.call(), "The initial value supplied is null"), this.collector));
+            this.pOn.a((j) new CollectSubscriber(cVar, io.reactivex.internal.functions.a.l(this.pOv.call(), "The initial value supplied is null"), this.collector));
         } catch (Throwable th) {
             EmptySubscription.error(th, cVar);
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class CollectSubscriber<T, U> extends DeferredScalarSubscription<U> implements j<T> {
         private static final long serialVersionUID = -3589550218733891694L;
         final io.reactivex.c.b<? super U, ? super T> collector;

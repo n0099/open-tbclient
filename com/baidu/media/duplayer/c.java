@@ -7,7 +7,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.fsg.face.liveness.video.f;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
@@ -16,13 +15,13 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes16.dex */
+/* loaded from: classes18.dex */
 public class c {
-    private static MediaCodecInfo[] bYO;
+    private static MediaCodecInfo[] bXd;
     private static Map<String, Integer> d = new TreeMap(String.CASE_INSENSITIVE_ORDER);
     private static Map<String, MediaCodecInfo> f = new HashMap();
     public int b = 0;
-    public MediaCodecInfo bYN;
+    public MediaCodecInfo bXc;
     public String c;
 
     static {
@@ -84,7 +83,7 @@ public class c {
         String lowerCase = name.toLowerCase(Locale.US);
         if (!lowerCase.startsWith("omx.")) {
             i = 100;
-        } else if (!lowerCase.startsWith("omx.pv") && ((!lowerCase.startsWith("omx.google.") || lowerCase.equals("omx.google.hevc.decoder")) && !lowerCase.startsWith("omx.ffmpeg.") && !lowerCase.startsWith("omx.k3.ffmpeg.") && !lowerCase.startsWith("omx.avcodec."))) {
+        } else if (!lowerCase.startsWith("omx.pv") && !lowerCase.startsWith("omx.google.") && !lowerCase.startsWith("omx.ffmpeg.") && !lowerCase.startsWith("omx.k3.ffmpeg.") && !lowerCase.startsWith("omx.avcodec.")) {
             if (lowerCase.startsWith("omx.ittiam.")) {
                 i = 0;
             } else if (lowerCase.startsWith("omx.mtk.")) {
@@ -103,7 +102,7 @@ public class c {
             }
         }
         c cVar = new c();
-        cVar.bYN = mediaCodecInfo;
+        cVar.bXc = mediaCodecInfo;
         cVar.b = i;
         cVar.c = str;
         return cVar;
@@ -119,18 +118,18 @@ public class c {
 
     private static String a(String str, int i, int i2, double d2) {
         a();
-        MediaCodecInfo jo = jo(str);
-        if (jo != null) {
+        MediaCodecInfo ji = ji(str);
+        if (ji != null) {
             boolean z = true;
             if (Build.VERSION.SDK_INT >= 21 && i > 0 && i2 > 0) {
-                MediaCodecInfo.CodecCapabilities capabilitiesForType = jo.getCapabilitiesForType(str);
+                MediaCodecInfo.CodecCapabilities capabilitiesForType = ji.getCapabilitiesForType(str);
                 z = d2 > 0.0d ? capabilitiesForType.getVideoCapabilities().areSizeAndRateSupported(i, i2, d2) : capabilitiesForType.getVideoCapabilities().isSizeSupported(i, i2);
             }
             if (z) {
-                CyberLog.d("CyberMediaCodecInfo", "mineType:" + str + " decoder:" + jo.getName());
-                return jo.getName();
+                CyberLog.d("CyberMediaCodecInfo", "mineType:" + str + " decoder:" + ji.getName());
+                return ji.getName();
             }
-            CyberLog.d("CyberMediaCodecInfo", "decoder not support [" + jo.getName() + Constants.ACCEPT_TIME_SEPARATOR_SP + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + Constants.ACCEPT_TIME_SEPARATOR_SP + d2 + "]");
+            CyberLog.d("CyberMediaCodecInfo", "decoder not support [" + ji.getName() + Constants.ACCEPT_TIME_SEPARATOR_SP + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + Constants.ACCEPT_TIME_SEPARATOR_SP + d2 + "]");
         }
         return null;
     }
@@ -138,32 +137,26 @@ public class c {
     public static synchronized void a() {
         synchronized (c.class) {
             try {
-                if (bYO == null && Build.VERSION.SDK_INT >= 16) {
+                if (bXd == null && Build.VERSION.SDK_INT >= 16) {
                     if (Build.VERSION.SDK_INT < 21) {
                         ArrayList arrayList = new ArrayList();
                         int codecCount = MediaCodecList.getCodecCount();
                         for (int i = 0; i < codecCount; i++) {
                             arrayList.add(MediaCodecList.getCodecInfoAt(i));
                         }
-                        bYO = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
+                        bXd = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
                     } else {
-                        bYO = new MediaCodecList(0).getCodecInfos();
+                        bXd = new MediaCodecList(0).getCodecInfos();
                     }
-                    if (CyberCfgManager.getInstance().getCfgBoolValue("enable_mc_google_hevc_decoder", true)) {
-                        d.put("OMX.google.hevc.decoder", 601);
-                        CyberLog.i("CyberMediaCodecInfo", "enable_mc_google_hevc_decoder add");
-                    } else {
-                        d.put("OMX.google.hevc.decoder", 200);
-                    }
-                    jo(f.b);
-                    jo("video/hevc");
+                    ji(f.b);
+                    ji("video/hevc");
                 }
             } catch (Exception e) {
             }
         }
     }
 
-    private static MediaCodecInfo jo(String str) {
+    private static MediaCodecInfo ji(String str) {
         c cVar;
         String[] supportedTypes;
         c a2;
@@ -172,8 +165,8 @@ public class c {
             return mediaCodecInfo;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < bYO.length; i++) {
-            MediaCodecInfo mediaCodecInfo2 = bYO[i];
+        for (int i = 0; i < bXd.length; i++) {
+            MediaCodecInfo mediaCodecInfo2 = bXd[i];
             if (!mediaCodecInfo2.isEncoder() && (supportedTypes = mediaCodecInfo2.getSupportedTypes()) != null) {
                 for (String str2 : supportedTypes) {
                     if (!TextUtils.isEmpty(str2) && str2.equalsIgnoreCase(str) && (a2 = a(mediaCodecInfo2, str)) != null) {
@@ -200,7 +193,7 @@ public class c {
         if (cVar.b < 600) {
             return null;
         }
-        f.put(str, cVar.bYN);
-        return cVar.bYN;
+        f.put(str, cVar.bXc);
+        return cVar.bXc;
     }
 }

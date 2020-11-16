@@ -14,122 +14,122 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public abstract class d {
-    private static String dNt = "ug_";
-    private static String dNu = "ug_business";
-    private static String dNv = "ctkey";
-    private static String dNw = "CTK";
-    private static String dNx = "eqid";
-    private static String dNy = "sid_eid";
-    private static String dNz = "exps";
-    private String dLc;
-    private String dNA;
-    private String dNB;
-    public b dNF;
-    private String dNG;
+    private static String dLL = "ug_";
+    private static String dLM = "ug_business";
+    private static String dLN = "ctkey";
+    private static String dLO = "CTK";
+    private static String dLP = "eqid";
+    private static String dLQ = "sid_eid";
+    private static String dLR = "exps";
+    private String dJu;
+    private String dLS;
+    private String dLT;
+    public b dLX;
+    private String dLY;
     protected Context mContext;
-    private String dNs = "https://mobads.baidu.com/cpro/ui/mads.php";
-    private String dNC = "1";
-    private String dND = "2";
-    private String dNE = "8.800201";
+    private String dLK = "https://mobads.baidu.com/cpro/ui/mads.php";
+    private String dLU = "1";
+    private String dLV = "2";
+    private String dLW = "8.800201";
 
-    protected abstract String aQW();
+    protected abstract String aQo();
 
-    protected abstract HashMap<String, String> aQX();
+    protected abstract HashMap<String, String> aQp();
 
     public d(Context context, b bVar) {
         this.mContext = context;
-        this.dNF = bVar;
-        if (this.dNF != null) {
-            this.dLc = this.dNF.aQT();
-            this.dNA = this.dNF.getAppSid();
-            this.dNB = this.dNF.aQU();
+        this.dLX = bVar;
+        if (this.dLX != null) {
+            this.dJu = this.dLX.aQl();
+            this.dLS = this.dLX.getAppSid();
+            this.dLT = this.dLX.aQm();
         }
-        if (!ak.aNa()) {
-            this.dNG = com.baidu.swan.game.ad.d.e.aRc();
+        if (!ak.aMs()) {
+            this.dLY = com.baidu.swan.game.ad.d.e.aQu();
         }
     }
 
-    public String aQY() {
-        HashMap<String, String> aQZ = aQZ();
-        aQZ.putAll(aQX());
-        return com.baidu.swan.game.ad.d.c.getRequestAdUrl(this.dNs, aQZ);
+    public String aQq() {
+        HashMap<String, String> aQr = aQr();
+        aQr.putAll(aQp());
+        return com.baidu.swan.game.ad.d.c.getRequestAdUrl(this.dLK, aQr);
     }
 
-    protected String aCE() {
-        return com.baidu.swan.apps.t.a.awZ().aij().getCookie(".baidu.com");
+    protected String aBW() {
+        return com.baidu.swan.apps.t.a.awr().ahB().getCookie(".baidu.com");
     }
 
-    private HashMap<String, String> aQZ() {
+    private HashMap<String, String> aQr() {
         String str;
-        b.a aHy;
+        b.a aGQ;
         JSONArray optJSONArray;
         JSONObject jSONObject;
         HashMap<String, String> hashMap = new HashMap<>();
         try {
             hashMap.put(IXAdRequestInfo.QUERY_WIDTH, String.valueOf(Math.round(ah.getDisplayWidth(this.mContext) / ah.getDensity(this.mContext))));
             hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, String.valueOf(Math.round(ah.getDisplayHeight(this.mContext) / ah.getDensity(this.mContext))));
-            hashMap.put("net", "" + aOG());
-            hashMap.put("n", this.dNC);
-            hashMap.put("pk", this.dNB);
-            hashMap.put("appid", this.dNA);
+            hashMap.put("net", "" + aNY());
+            hashMap.put("n", this.dLU);
+            hashMap.put("pk", this.dLT);
+            hashMap.put("appid", this.dLS);
             hashMap.put("sw", "" + ah.getDisplayWidth(this.mContext));
             hashMap.put(IXAdRequestInfo.SCREEN_HEIGHT, "" + ah.getDisplayHeight(this.mContext));
             hashMap.put(IXAdRequestInfo.SN, "" + getSn());
             hashMap.put("os", "android");
-            hashMap.put("apid", "" + this.dLc);
+            hashMap.put("apid", "" + this.dJu);
             hashMap.put("chid", "0");
-            String aMZ = ak.aMZ();
-            if (aMZ.equals("0")) {
-                aMZ = "";
+            String aMr = ak.aMr();
+            if (aMr.equals("0")) {
+                aMr = "";
             }
-            hashMap.put("imei", aMZ);
-            hashMap.put("cuid", com.baidu.swan.apps.t.a.awF().bq(com.baidu.swan.apps.t.a.awA()));
-            hashMap.put(IXAdRequestInfo.OSV, com.baidu.swan.apps.i.c.alr());
+            hashMap.put("imei", aMr);
+            hashMap.put("cuid", com.baidu.swan.apps.t.a.avX().bq(com.baidu.swan.apps.t.a.avS()));
+            hashMap.put(IXAdRequestInfo.OSV, com.baidu.swan.apps.i.c.akJ());
             hashMap.put(IXAdRequestInfo.PHONE_TYPE, com.baidu.swan.apps.i.c.getDeviceModel());
             hashMap.put(IXAdRequestInfo.APP_VERSION_NAME, ak.getVersionName());
-            String cookieValue = ai.getCookieValue(aCE(), "BAIDUID");
+            String cookieValue = ai.getCookieValue(aBW(), "BAIDUID");
             if (!TextUtils.isEmpty(cookieValue) && cookieValue.split(":").length > 0) {
                 str = cookieValue.split(":")[0];
             } else {
                 str = "";
             }
             hashMap.put(ETAG.KEY_BAIDU_ID, str);
-            hashMap.put(IXAdRequestInfo.P_VER, this.dNE);
-            hashMap.put("rpt", this.dND);
+            hashMap.put(IXAdRequestInfo.P_VER, this.dLW);
+            hashMap.put("rpt", this.dLV);
             hashMap.put("tab", "2");
             hashMap.put("req_id", "");
-            com.baidu.swan.apps.runtime.e aHv = com.baidu.swan.apps.runtime.e.aHv();
-            String aQW = aQW();
-            hashMap.put(dNz, aQW);
-            if (aHv != null && (aHy = aHv.aHy()) != null) {
-                hashMap.put("scene", aHy.ayD());
-                JSONObject aym = aHy.aym();
-                if (aym != null) {
-                    hashMap.put("eqid", aym.optString(dNx, ""));
+            com.baidu.swan.apps.runtime.e aGN = com.baidu.swan.apps.runtime.e.aGN();
+            String aQo = aQo();
+            hashMap.put(dLR, aQo);
+            if (aGN != null && (aGQ = aGN.aGQ()) != null) {
+                hashMap.put("scene", aGQ.axV());
+                JSONObject axE = aGQ.axE();
+                if (axE != null) {
+                    hashMap.put("eqid", axE.optString(dLP, ""));
                 }
-                JSONObject ayV = aHy.ayV();
-                if (ayV != null) {
-                    if (ayV.has(dNu) && (jSONObject = ayV.getJSONObject(dNu)) != null) {
+                JSONObject ayn = aGQ.ayn();
+                if (ayn != null) {
+                    if (ayn.has(dLM) && (jSONObject = ayn.getJSONObject(dLM)) != null) {
                         Iterator<String> keys = jSONObject.keys();
                         while (keys != null && keys.hasNext()) {
                             String next = keys.next();
                             if (!TextUtils.isEmpty(next)) {
                                 String optString = jSONObject.optString(next, "none");
-                                if (dNw.equals(next)) {
-                                    hashMap.put(dNv, optString);
-                                    this.dNG = optString;
+                                if (dLO.equals(next)) {
+                                    hashMap.put(dLN, optString);
+                                    this.dLY = optString;
                                 } else {
-                                    hashMap.put(dNt + next, optString);
+                                    hashMap.put(dLL + next, optString);
                                 }
                             }
                         }
                     }
-                    if (ayV.has(dNy) && (optJSONArray = ayV.optJSONArray(dNy)) != null && optJSONArray.length() > 0) {
+                    if (ayn.has(dLQ) && (optJSONArray = ayn.optJSONArray(dLQ)) != null && optJSONArray.length() > 0) {
                         StringBuilder sb = new StringBuilder();
-                        if (!TextUtils.isEmpty(aQW)) {
-                            sb.append(aQW + Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        if (!TextUtils.isEmpty(aQo)) {
+                            sb.append(aQo + Constants.ACCEPT_TIME_SEPARATOR_SP);
                         }
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             String optString2 = optJSONArray.optString(i);
@@ -141,23 +141,23 @@ public abstract class d {
                             }
                         }
                         if (sb.length() > 0) {
-                            hashMap.put(dNz, sb.toString());
+                            hashMap.put(dLR, sb.toString());
                         }
                     }
                 }
             }
-            if (!hashMap.containsKey(dNw) && !TextUtils.isEmpty(this.dNG)) {
-                hashMap.put(dNw, this.dNG);
+            if (!hashMap.containsKey(dLO) && !TextUtils.isEmpty(this.dLY)) {
+                hashMap.put(dLO, this.dLY);
             }
-            hashMap.put("con_name", com.baidu.swan.apps.t.a.axm().getHostName());
+            hashMap.put("con_name", com.baidu.swan.apps.t.a.awE().getHostName());
             return hashMap;
         } catch (Exception e) {
             return hashMap;
         }
     }
 
-    private int aOG() {
-        switch (SwanAppNetworkUtils.aCH()) {
+    private int aNY() {
+        switch (SwanAppNetworkUtils.aBZ()) {
             case NONE:
             default:
                 return 0;
@@ -176,14 +176,14 @@ public abstract class d {
 
     private String getSn() {
         try {
-            String aMZ = ak.aMZ();
-            return TextUtils.isEmpty(aMZ) ? ak.getWifiInfo(this.mContext) : aMZ;
+            String aMr = ak.aMr();
+            return TextUtils.isEmpty(aMr) ? ak.getWifiInfo(this.mContext) : aMr;
         } catch (Exception e) {
             return "";
         }
     }
 
-    public String aRa() {
-        return this.dNG;
+    public String aQs() {
+        return this.dLY;
     }
 }

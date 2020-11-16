@@ -16,7 +16,7 @@ import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class TintTypedArray {
     private final Context mContext;
     private TypedValue mTypedValue;

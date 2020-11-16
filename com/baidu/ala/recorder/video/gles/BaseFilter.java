@@ -8,7 +8,7 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.LinkedList;
 @TargetApi(16)
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public abstract class BaseFilter implements Renderer {
     public static final String BASE_VERT = "attribute vec4 aVertexCo;\nattribute vec2 aTextureCo;\n\nuniform mat4 uVertexMatrix;\nuniform mat4 uTextureMatrix;\n\nvarying vec2 vTextureCo;\n\nvoid main(){\n    gl_Position = uVertexMatrix*aVertexCo;\n    vTextureCo = (uTextureMatrix*vec4(aTextureCo,0,1)).xy;\n}";
     private String mFragment;

@@ -8,84 +8,84 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.a {
-    private w aES;
-    public DatingNavView nVx;
+    private w aDh;
+    public DatingNavView nXa;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void U(w wVar) {
-        this.aES = wVar;
+        this.aDh = wVar;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void ax(ViewGroup viewGroup) {
-        super.ax(viewGroup);
-        aF(viewGroup);
-        if (this.aES != null && this.nVx != null) {
-            this.nVx.e(this.aES, true);
+    public void at(ViewGroup viewGroup) {
+        super.at(viewGroup);
+        aB(viewGroup);
+        if (this.aDh != null && this.nXa != null) {
+            this.nXa.e(this.aDh, true);
         }
     }
 
-    public void cS(ViewGroup viewGroup) {
-        super.ax(viewGroup);
-        aF(viewGroup);
-        if (this.aES != null && this.nVx != null) {
-            this.nVx.e(this.aES, false);
-            this.nVx.setVisibility(4);
+    public void cO(ViewGroup viewGroup) {
+        super.at(viewGroup);
+        aB(viewGroup);
+        if (this.aDh != null && this.nXa != null) {
+            this.nXa.e(this.aDh, false);
+            this.nXa.setVisibility(4);
         }
     }
 
-    public void dXM() {
-        if (this.nVx != null) {
-            this.nVx.setVisibility(0);
+    public void dXL() {
+        if (this.nXa != null) {
+            this.nXa.setVisibility(0);
         }
     }
 
-    private void aF(ViewGroup viewGroup) {
-        if (this.aES != null) {
-            if (this.nVx != null && this.nVx.getParent() != null) {
-                ((ViewGroup) this.nVx.getParent()).removeView(this.nVx);
+    private void aB(ViewGroup viewGroup) {
+        if (this.aDh != null) {
+            if (this.nXa != null && this.nXa.getParent() != null) {
+                ((ViewGroup) this.nXa.getParent()).removeView(this.nXa);
             }
-            this.nVx = new DatingNavView(getPageContext().getPageActivity());
-            this.nVx.setId(a.f.ala_liveroom_dating_nav);
+            this.nXa = new DatingNavView(getPageContext().getPageActivity());
+            this.nXa.setId(a.f.ala_liveroom_dating_nav);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(3, a.f.ala_liveroom_live_id);
             layoutParams.addRule(11);
             layoutParams.rightMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds22);
             layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds32);
             layoutParams.width = BdUtilHelper.getScreenSize(getPageContext().getPageActivity()).widthPixels - BdUtilHelper.dip2px(getPageContext().getPageActivity(), 110.0f);
-            viewGroup.addView(this.nVx, layoutParams);
+            viewGroup.addView(this.nXa, layoutParams);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void Dm() {
-        super.Dm();
-        if (this.nVx != null && this.nVx.getParent() != null) {
-            ((ViewGroup) this.nVx.getParent()).removeView(this.nVx);
+    public void CD() {
+        super.CD();
+        if (this.nXa != null && this.nXa.getParent() != null) {
+            ((ViewGroup) this.nXa.getParent()).removeView(this.nXa);
         }
-        if (this.nVx != null) {
-            this.nVx.destory();
-            this.nVx = null;
+        if (this.nXa != null) {
+            this.nXa.destory();
+            this.nXa = null;
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.nVx != null && this.nVx.getParent() != null) {
-            ((ViewGroup) this.nVx.getParent()).removeView(this.nVx);
+        if (this.nXa != null && this.nXa.getParent() != null) {
+            ((ViewGroup) this.nXa.getParent()).removeView(this.nXa);
         }
-        if (this.nVx != null) {
-            this.nVx.destory();
-            this.nVx = null;
+        if (this.nXa != null) {
+            this.nXa.destory();
+            this.nXa = null;
         }
     }
 
     public void j(w wVar) {
-        if (this.nVx != null) {
-            this.nVx.j(wVar);
+        if (this.nXa != null) {
+            this.nXa.j(wVar);
         }
     }
 }

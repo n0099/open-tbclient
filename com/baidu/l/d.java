@@ -4,14 +4,14 @@ import android.os.Bundle;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 /* loaded from: classes16.dex */
 public class d {
-    public static void aaO() {
+    public static void aaf() {
         if (ProcessUtils.isMainProcess()) {
-            b.aaM().ju("");
+            b.aad().jo("");
         }
     }
 
     public static void k(Bundle bundle) {
-        b.aaM().k(bundle);
+        b.aad().k(bundle);
     }
 
     public static void l(Bundle bundle) {

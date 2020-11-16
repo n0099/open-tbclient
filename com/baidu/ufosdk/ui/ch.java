@@ -3,7 +3,7 @@ package com.baidu.ufosdk.ui;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class ch implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

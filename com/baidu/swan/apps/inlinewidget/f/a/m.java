@@ -3,11 +3,11 @@ package com.baidu.swan.apps.inlinewidget.f.a;
 import android.support.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class m extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.f.c.a> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String avA() {
+    public String auS() {
         return "setDataSource";
     }
 

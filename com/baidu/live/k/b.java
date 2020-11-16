@@ -6,9 +6,9 @@ import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public interface b {
-    void KN();
+    void Ke();
 
-    com.baidu.live.core.a.a Nt();
+    com.baidu.live.core.a.a MK();
 
     void U(View view);
 
@@ -18,11 +18,11 @@ public interface b {
 
     void c(TbPageContext tbPageContext);
 
-    void dI(int i);
+    void dE(int i);
 
     void h(w wVar);
 
-    void hN(String str);
+    void hH(String str);
 
     void onPause();
 

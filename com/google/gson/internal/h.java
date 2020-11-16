@@ -10,14 +10,14 @@ import com.google.gson.stream.MalformedJsonException;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class h {
     public static JsonElement parse(com.google.gson.stream.a aVar) throws JsonParseException {
         boolean z = true;
         try {
             aVar.esW();
             z = false;
-            return TypeAdapters.pfB.read(aVar);
+            return TypeAdapters.phe.read(aVar);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {
@@ -33,31 +33,31 @@ public final class h {
     }
 
     public static void a(JsonElement jsonElement, com.google.gson.stream.b bVar) throws IOException {
-        TypeAdapters.pfB.write(bVar, jsonElement);
+        TypeAdapters.phe.write(bVar, jsonElement);
     }
 
     public static Writer a(Appendable appendable) {
         return appendable instanceof Writer ? (Writer) appendable : new a(appendable);
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     private static final class a extends Writer {
-        private final Appendable pdL;
-        private final C0984a pdM = new C0984a();
+        private final Appendable pfo;
+        private final C0987a pfp = new C0987a();
 
         a(Appendable appendable) {
-            this.pdL = appendable;
+            this.pfo = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.pdM.chars = cArr;
-            this.pdL.append(this.pdM, i, i + i2);
+            this.pfp.chars = cArr;
+            this.pfo.append(this.pfp, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.pdL.append((char) i);
+            this.pfo.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable
@@ -69,11 +69,11 @@ public final class h {
         }
 
         /* renamed from: com.google.gson.internal.h$a$a  reason: collision with other inner class name */
-        /* loaded from: classes17.dex */
-        static class C0984a implements CharSequence {
+        /* loaded from: classes5.dex */
+        static class C0987a implements CharSequence {
             char[] chars;
 
-            C0984a() {
+            C0987a() {
             }
 
             @Override // java.lang.CharSequence

@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class Web2NativeLoginResult extends SapiResult {
     public static final int ERROR_CODE_BDUSS_EMPTY = -101;
     public static final String ERROR_MSG_BDUSS_EMPTY = "BDUSS EMPTY";

@@ -5,40 +5,40 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.storage.c.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private g cVr;
+    private g cTH;
     private SharedPreferences.Editor mEditor;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void aoD();
+        void anV();
     }
 
     private c() {
-        this.cVr = new g("aiapps_guide_dialog_sp");
-        this.mEditor = this.cVr.edit();
+        this.cTH = new g("aiapps_guide_dialog_sp");
+        this.mEditor = this.cTH.edit();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     private static final class b {
-        private static final c cVs = new c();
+        private static final c cTI = new c();
     }
 
-    public static c avs() {
-        return b.cVs;
+    public static c auK() {
+        return b.cTI;
     }
 
     public void a(@NonNull Activity activity, String str, String str2, a aVar) {
-        com.baidu.swan.apps.t.a.axE().a(activity, str, str2, aVar);
+        com.baidu.swan.apps.t.a.awW().a(activity, str, str2, aVar);
     }
 
-    public boolean avt() {
-        e aHu = e.aHu();
-        if (aHu == null) {
+    public boolean auL() {
+        e aGM = e.aGM();
+        if (aGM == null) {
             return false;
         }
-        return aHu.aHM().b("boolean_var_key_fav_guide_show", (Boolean) false).booleanValue();
+        return aGM.aHe().b("boolean_var_key_fav_guide_show", (Boolean) false).booleanValue();
     }
 }

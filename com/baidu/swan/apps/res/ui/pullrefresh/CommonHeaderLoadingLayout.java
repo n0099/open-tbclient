@@ -11,120 +11,120 @@ import android.view.ViewGroup;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.ap.ah;
 import com.baidu.swan.apps.res.ui.pullrefresh.ILoadingLayout;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class CommonHeaderLoadingLayout extends LoadingLayout {
-    private int dpc;
-    private int dpd;
-    private int dpe;
-    private int dpf;
-    private View dpg;
-    private RefreshingAnimView dph;
-    private HeaderRefreshIndicator dpi;
+    private int dnt;
+    private int dnu;
+    private int dnv;
+    private int dnw;
+    private View dnx;
+    private RefreshingAnimView dny;
+    private HeaderRefreshIndicator dnz;
 
     public CommonHeaderLoadingLayout(Context context) {
         super(context);
-        this.dpc = 0;
-        this.dph = (RefreshingAnimView) findViewById(a.f.refreshing_anim_view);
-        this.dpc = ah.dip2px(getContext(), 29.0f);
-        this.dpd = (int) (2.4f * this.dpc);
-        this.dpf = (int) (1.5f * this.dpc);
-        this.dpe = this.dpf;
-        this.dpi = (HeaderRefreshIndicator) findViewById(a.f.refresh_over_tip);
-        this.dpi.adw();
+        this.dnt = 0;
+        this.dny = (RefreshingAnimView) findViewById(a.f.refreshing_anim_view);
+        this.dnt = ah.dip2px(getContext(), 29.0f);
+        this.dnu = (int) (2.4f * this.dnt);
+        this.dnw = (int) (1.5f * this.dnt);
+        this.dnv = this.dnw;
+        this.dnz = (HeaderRefreshIndicator) findViewById(a.f.refresh_over_tip);
+        this.dnz.acN();
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
-        return this.dpg != null ? this.dpg.getHeight() : ah.dip2px(getContext(), 50.0f);
+        return this.dnx != null ? this.dnx.getHeight() : ah.dip2px(getContext(), 50.0f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        this.dpg = LayoutInflater.from(context).inflate(a.g.aiapps_common_pull_to_refresh_header, viewGroup, false);
-        return this.dpg;
+        this.dnx = LayoutInflater.from(context).inflate(a.g.aiapps_common_pull_to_refresh_header, viewGroup, false);
+        return this.dnx;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onReset() {
         setTranslationY(0.0f);
-        this.dph.setAlpha(1.0f);
-        this.dph.stopAnim();
-        this.dpi.setVisibility(4);
+        this.dny.setAlpha(1.0f);
+        this.dny.stopAnim();
+        this.dnz.setVisibility(4);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onPullToRefresh() {
-        this.dph.setAlpha(1.0f);
-        this.dph.stopAnim();
+        this.dny.setAlpha(1.0f);
+        this.dny.stopAnim();
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void setHeaderBackgroundResource(int i) {
         super.setHeaderBackgroundResource(i);
-        this.dpi.aGx();
+        this.dnz.aFP();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void aGv() {
-        this.dph.setAnimPercent(1.0f);
+    public void aFN() {
+        this.dny.setAnimPercent(1.0f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onReleaseToRefresh() {
-        this.dph.setAnimPercent(1.0f);
+        this.dny.setAnimPercent(1.0f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onRefreshing() {
-        this.dph.aGM();
+        this.dny.aGe();
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getCanRefreshPullLength() {
-        return this.dpd;
+        return this.dnu;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void jN(int i) {
+    public void jJ(int i) {
         if (getState() == ILoadingLayout.State.PULL_TO_REFRESH) {
-            this.dph.setAnimPercent(jO(i));
+            this.dny.setAnimPercent(jK(i));
         }
-        if (i > this.dpe) {
-            setTranslationY((this.dpe - i) / 2);
+        if (i > this.dnv) {
+            setTranslationY((this.dnv - i) / 2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getRefreshingHeight() {
-        return this.dpf;
+        return this.dnw;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void a(boolean z, String str, final Runnable runnable) {
         if (z) {
-            this.dph.setAlpha(0.0f);
+            this.dny.setAlpha(0.0f);
             if (TextUtils.isEmpty(str)) {
-                this.dpi.setText(getResources().getText(a.h.aiapps_pull_down_refresh_success));
+                this.dnz.setText(getResources().getText(a.h.aiapps_pull_down_refresh_success));
             } else {
-                this.dpi.setText(str);
+                this.dnz.setText(str);
             }
-            ValueAnimator ofInt = ValueAnimator.ofInt(this.dpi.getHeight(), 0);
+            ValueAnimator ofInt = ValueAnimator.ofInt(this.dnz.getHeight(), 0);
             ofInt.setDuration(150L);
             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.CommonHeaderLoadingLayout.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    CommonHeaderLoadingLayout.this.dpi.setTranslationY(((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    CommonHeaderLoadingLayout.this.dnz.setTranslationY(((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             });
             ofInt.addListener(new Animator.AnimatorListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.CommonHeaderLoadingLayout.2
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
-                    CommonHeaderLoadingLayout.this.dpi.setTranslationY(0.0f);
-                    CommonHeaderLoadingLayout.this.dpi.setVisibility(0);
+                    CommonHeaderLoadingLayout.this.dnz.setTranslationY(0.0f);
+                    CommonHeaderLoadingLayout.this.dnz.setVisibility(0);
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -147,10 +147,10 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         runnable.run();
     }
 
-    protected float jO(int i) {
+    protected float jK(int i) {
         float f;
-        if (i < this.dpd) {
-            f = i < this.dpc ? 0.0f : (i - this.dpc) / (this.dpd - this.dpc);
+        if (i < this.dnu) {
+            f = i < this.dnt ? 0.0f : (i - this.dnt) / (this.dnu - this.dnt);
         } else {
             f = 1.0f;
         }

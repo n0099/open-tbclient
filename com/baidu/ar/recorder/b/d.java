@@ -4,7 +4,7 @@ import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class d {
     private static final String TAG = d.class.getSimpleName();
     private e tB;

@@ -25,7 +25,7 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
@@ -155,7 +155,7 @@ public final class i {
         rotateAnimation.setRepeatCount(-1);
         rotateAnimation.setInterpolator(linearInterpolator);
         progressBar.startAnimation(rotateAnimation);
-        progressBar.setId(R.raw.lottie_tab_live);
+        progressBar.setId(R.raw.lottie_tab_forum);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(a(context, 17.0f), a(context, 17.0f));
         layoutParams.addRule(15);
         layoutParams.setMargins(a(context, 3.0f), 0, 0, 0);

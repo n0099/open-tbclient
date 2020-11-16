@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.ReplyFriend.ReplyFriendReqIdl;
 import tbclient.ReplyFriend.ReqData;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class RequestApplyMessage extends TbSocketMessage {
     private long friendId;
     private String message;

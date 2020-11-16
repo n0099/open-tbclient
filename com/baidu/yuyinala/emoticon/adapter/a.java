@@ -13,7 +13,7 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
     private Context mContext;
-    private List<com.baidu.yuyinala.emoticon.a.a> otz;
+    private List<com.baidu.yuyinala.emoticon.a.a> ovd;
 
     public a(Context context) {
         this.mContext = context;
@@ -21,14 +21,14 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.otz);
+        return ListUtils.getCount(this.ovd);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Nr */
+    /* renamed from: NU */
     public com.baidu.yuyinala.emoticon.a.a getItem(int i) {
-        return (com.baidu.yuyinala.emoticon.a.a) ListUtils.getItem(this.otz, i);
+        return (com.baidu.yuyinala.emoticon.a.a) ListUtils.getItem(this.ovd, i);
     }
 
     @Override // android.widget.Adapter
@@ -38,43 +38,43 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0936a c0936a;
+        C0939a c0939a;
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.item_emoticon, viewGroup, false);
-            C0936a c0936a2 = new C0936a();
-            c0936a2.mIconIv = (TbImageView) view.findViewById(a.f.emoticon_icon_iv);
-            c0936a2.guK = (TextView) view.findViewById(a.f.emoticon_name_tv);
-            c0936a2.mIconIv.setDefaultResource(a.e.loading_ala_audio_emoticon);
-            c0936a2.mIconIv.setDefaultErrorResource(a.e.loading_ala_audio_emoticon);
-            c0936a2.mIconIv.setDefaultBgResource(a.e.loading_ala_audio_emoticon);
-            view.setTag(c0936a2);
-            c0936a = c0936a2;
+            C0939a c0939a2 = new C0939a();
+            c0939a2.mIconIv = (TbImageView) view.findViewById(a.f.emoticon_icon_iv);
+            c0939a2.gur = (TextView) view.findViewById(a.f.emoticon_name_tv);
+            c0939a2.mIconIv.setDefaultResource(a.e.loading_ala_audio_emoticon);
+            c0939a2.mIconIv.setDefaultErrorResource(a.e.loading_ala_audio_emoticon);
+            c0939a2.mIconIv.setDefaultBgResource(a.e.loading_ala_audio_emoticon);
+            view.setTag(c0939a2);
+            c0939a = c0939a2;
         } else {
-            c0936a = (C0936a) view.getTag();
+            c0939a = (C0939a) view.getTag();
         }
         com.baidu.yuyinala.emoticon.a.a item = getItem(i);
         if (item == null) {
-            c0936a.guK.setText("");
-            c0936a.mIconIv.startLoad(null, 10, false);
+            c0939a.gur.setText("");
+            c0939a.mIconIv.startLoad(null, 10, false);
         } else {
-            c0936a.guK.setText(item.getName());
-            c0936a.mIconIv.startLoad(item.getThumbnailUrl(), 10, false);
+            c0939a.gur.setText(item.getName());
+            c0939a.mIconIv.startLoad(item.getThumbnailUrl(), 10, false);
         }
         return view;
     }
 
     public void go(List<com.baidu.yuyinala.emoticon.a.a> list) {
-        this.otz = list;
+        this.ovd = list;
         notifyDataSetChanged();
     }
 
     /* renamed from: com.baidu.yuyinala.emoticon.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0936a {
-        private TextView guK;
+    public class C0939a {
+        private TextView gur;
         private TbImageView mIconIv;
 
-        public C0936a() {
+        public C0939a() {
         }
     }
 }

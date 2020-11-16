@@ -22,31 +22,31 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class k {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static k djj;
-    private String[] djl;
-    private Map<String, JSONArray> djk = new ArrayMap();
+    private static k dhz;
+    private String[] dhB;
+    private Map<String, JSONArray> dhA = new ArrayMap();
     private String mPort = "";
-    private Map<String, String> djm = new HashMap();
+    private Map<String, String> dhC = new HashMap();
 
     private k() {
     }
 
-    public static k aDJ() {
-        if (djj == null) {
+    public static k aDb() {
+        if (dhz == null) {
             synchronized (k.class) {
-                if (djj == null) {
-                    djj = new k();
+                if (dhz == null) {
+                    dhz = new k();
                 }
             }
         }
-        return djj;
+        return dhz;
     }
 
     public boolean isAvailable() {
-        return (this.djl == null || this.djl.length <= 0 || TextUtils.isEmpty(this.mPort)) ? false : true;
+        return (this.dhB == null || this.dhB.length <= 0 || TextUtils.isEmpty(this.mPort)) ? false : true;
     }
 
     public void J(Bundle bundle) {
@@ -66,19 +66,19 @@ public class k {
                 Log.d("TraceDataManager", "Port : " + string2);
                 Log.d("TraceDataManager", "Project ID : " + string3);
             }
-            this.djl = string.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+            this.dhB = string.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             this.mPort = string2;
-            this.djm.put("projectId", string3);
+            this.dhC.put("projectId", string3);
         }
     }
 
-    public void bv(JSONObject jSONObject) {
-        if (this.djk != null && jSONObject != null) {
-            String azT = com.baidu.swan.apps.v.f.azO().azT();
-            JSONArray jSONArray = this.djk.get(azT);
+    public void bp(JSONObject jSONObject) {
+        if (this.dhA != null && jSONObject != null) {
+            String azl = com.baidu.swan.apps.v.f.azg().azl();
+            JSONArray jSONArray = this.dhA.get(azl);
             if (jSONArray == null) {
                 jSONArray = new JSONArray();
-                this.djk.put(azT, jSONArray);
+                this.dhA.put(azl, jSONArray);
             }
             jSONArray.put(jSONObject);
         }
@@ -86,13 +86,13 @@ public class k {
 
     public void a(a aVar) {
         if (!isAvailable()) {
-            com.baidu.swan.apps.res.widget.b.d.k(com.baidu.swan.apps.runtime.d.aHq().aHo(), a.h.aiapps_debug_report_invalid_params).showToast();
-        } else if (this.djk == null || this.djk.size() <= 0) {
-            new g.a(com.baidu.swan.apps.runtime.d.aHq().aHo()).mo33if(a.h.aiapps_debug_report_performance).ie(a.h.aiapps_debug_report_no_data).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null).aHb();
+            com.baidu.swan.apps.res.widget.b.d.k(com.baidu.swan.apps.runtime.d.aGI().aGG(), a.h.aiapps_debug_report_invalid_params).showToast();
+        } else if (this.dhA == null || this.dhA.size() <= 0) {
+            new g.a(com.baidu.swan.apps.runtime.d.aGI().aGG()).ib(a.h.aiapps_debug_report_performance).ia(a.h.aiapps_debug_report_no_data).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null).aGt();
         } else {
             JSONArray jSONArray = new JSONArray();
             try {
-                for (Map.Entry<String, JSONArray> entry : this.djk.entrySet()) {
+                for (Map.Entry<String, JSONArray> entry : this.dhA.entrySet()) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.putOpt("path", entry.getKey());
                     jSONObject.putOpt("data", entry.getValue().toString());
@@ -103,40 +103,40 @@ public class k {
                     Log.e("TraceDataManager", "Maybe the format of the Trace data is incorrect", e);
                 }
             }
-            com.baidu.swan.a.a.f postRequest = com.baidu.swan.a.c.a.baK().postRequest();
+            com.baidu.swan.a.a.f postRequest = com.baidu.swan.a.c.a.bad().postRequest();
             postRequest.requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONArray.toString()));
             postRequest.connectionTimeout(3000);
-            int min = Math.min(this.djl.length, 4);
+            int min = Math.min(this.dhB.length, 4);
             b bVar = new b(min, aVar);
             for (int i = 0; i < min; i++) {
-                postRequest.url(jG(i));
+                postRequest.url(jC(i));
                 postRequest.build().executeAsync(bVar);
             }
         }
     }
 
-    private String jG(int i) {
-        if (!isAvailable() || i >= this.djl.length) {
+    private String jC(int i) {
+        if (!isAvailable() || i >= this.dhB.length) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        sb.append("http://").append(this.djl[i]).append(":").append(this.mPort).append("/uploadTraceData").append("?");
-        for (Map.Entry<String, String> entry : this.djm.entrySet()) {
+        sb.append("http://").append(this.dhB[i]).append(":").append(this.mPort).append("/uploadTraceData").append("?");
+        for (Map.Entry<String, String> entry : this.dhC.entrySet()) {
             sb.append(entry.getKey()).append(ETAG.EQUAL).append(entry.getValue());
         }
         return sb.toString();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     private class b extends ResponseCallback {
-        private AtomicInteger djn = new AtomicInteger(0);
-        private boolean djo;
-        private a djp;
+        private AtomicInteger dhD = new AtomicInteger(0);
+        private boolean dhE;
+        private a dhF;
         private int mCount;
 
         b(int i, a aVar) {
             this.mCount = i;
-            this.djp = aVar;
+            this.dhF = aVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -157,32 +157,32 @@ public class k {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onSuccess(Object obj, int i) {
-            this.djo = true;
-            k.this.djk = new ArrayMap();
-            if (this.djp == null) {
+            this.dhE = true;
+            k.this.dhA = new ArrayMap();
+            if (this.dhF == null) {
                 return;
             }
-            this.djp.jH(a.h.aiapps_debug_report_success);
+            this.dhF.jD(a.h.aiapps_debug_report_success);
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (this.djo || this.djn.incrementAndGet() < this.mCount || this.djp == null) {
+            if (this.dhE || this.dhD.incrementAndGet() < this.mCount || this.dhF == null) {
                 return;
             }
-            this.djp.jH(a.h.aiapps_debug_report_fail);
+            this.dhF.jD(a.h.aiapps_debug_report_fail);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a {
-        public abstract void mT(String str);
+        public abstract void mN(String str);
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void jH(int i) {
-            Application awA = com.baidu.swan.apps.t.a.awA();
-            if (awA != null) {
-                mT(awA.getString(i));
+        public void jD(int i) {
+            Application avS = com.baidu.swan.apps.t.a.avS();
+            if (avS != null) {
+                mN(avS.getString(i));
             }
         }
     }

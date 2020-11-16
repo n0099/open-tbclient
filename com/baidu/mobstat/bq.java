@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class bq extends bn {
 
     /* renamed from: a  reason: collision with root package name */

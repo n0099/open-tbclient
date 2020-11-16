@@ -33,7 +33,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class WebViewFactory {
     private static final String CHROMIUM_HOST_APP = "com.baidu.browser.apps";
     private static final String CHROMIUM_LIBS_PATH = "files/zeus/libs";
@@ -68,7 +68,7 @@ public final class WebViewFactory {
     private static int sIsPreInitWebViewEnable = -1;
     private static final Object sProviderLock = new Object();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface WebKitUnzipCallback {
         void unzipFinished();
     }

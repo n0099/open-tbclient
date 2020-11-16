@@ -13,27 +13,27 @@ import com.baidu.afd.videopaster.view.VideoPasterContentView;
 import com.baidu.afd.videopaster.view.VideoPasterOverlayView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.recapp.s;
-/* loaded from: classes21.dex */
+import com.baidu.tieba.recapp.r;
+/* loaded from: classes20.dex */
 public class d {
-    private VideoPasterContentView Zh;
-    private View Zi;
-    private a Zk;
-    private com.baidu.afd.videopaster.data.a Zm;
-    private int Zo;
+    private VideoPasterContentView Zm;
+    private View Zn;
+    private a Zp;
+    private com.baidu.afd.videopaster.data.a Zr;
+    private int Zt;
     private Context mContext;
     private int mFloor;
     private String mFrom;
     private int mPausePosition;
     private int mStartPosition;
     private ViewGroup rootView;
-    private boolean Zn = false;
-    private boolean Zp = false;
-    private boolean Zq = false;
-    private com.baidu.afd.videopaster.b.b Zl = new com.baidu.afd.videopaster.b.b();
-    private com.baidu.afd.videopaster.a.a Zj = new com.baidu.afd.videopaster.a.a();
+    private boolean Zs = false;
+    private boolean Zu = false;
+    private boolean Zv = false;
+    private com.baidu.afd.videopaster.b.b Zq = new com.baidu.afd.videopaster.b.b();
+    private com.baidu.afd.videopaster.a.a Zo = new com.baidu.afd.videopaster.a.a();
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes20.dex */
     public interface a {
         void rP();
 
@@ -47,68 +47,68 @@ public class d {
     public d(Context context, ViewGroup viewGroup) {
         this.mContext = context;
         this.rootView = viewGroup;
-        this.Zj.a(new a.InterfaceC0033a() { // from class: com.baidu.afd.videopaster.d.1
+        this.Zo.a(new a.InterfaceC0033a() { // from class: com.baidu.afd.videopaster.d.1
             @Override // com.baidu.afd.videopaster.a.a.InterfaceC0033a
             public void b(com.baidu.afd.videopaster.data.a aVar) {
-                d.this.Zm = aVar;
+                d.this.Zr = aVar;
                 d.this.a(aVar);
             }
 
             @Override // com.baidu.afd.videopaster.a.a.InterfaceC0033a
             public void d(int i, String str) {
-                d.this.Zm = null;
+                d.this.Zr = null;
             }
         });
-        this.Zh = new VideoPasterContentView(context);
-        this.Zh.setOverlayViewCallback(new VideoPasterOverlayView.a() { // from class: com.baidu.afd.videopaster.d.2
+        this.Zm = new VideoPasterContentView(context);
+        this.Zm.setOverlayViewCallback(new VideoPasterOverlayView.a() { // from class: com.baidu.afd.videopaster.d.2
             @Override // com.baidu.afd.videopaster.view.VideoPasterOverlayView.a
             public void rL() {
-                d.this.Zl.k(d.this.rH());
-                com.baidu.tieba.lego.card.b.c.a(d.this.Zm);
-                if (d.this.Zm != null && s.aY(d.this.mContext, d.this.Zm.Zu) == 1) {
-                    d.this.Zl.c(d.this.rH(), "title");
+                d.this.Zq.k(d.this.rH());
+                com.baidu.tieba.lego.card.b.c.a(d.this.Zr);
+                if (d.this.Zr != null && r.aV(d.this.mContext, d.this.Zr.Zz) == 1) {
+                    d.this.Zq.c(d.this.rH(), "title");
                 }
             }
 
             @Override // com.baidu.afd.videopaster.view.VideoPasterOverlayView.a
             public void rM() {
-                d.this.Zl.j(d.this.rH());
-                com.baidu.tieba.lego.card.b.c.a(d.this.Zm);
-                if (d.this.Zm != null && s.aY(d.this.mContext, d.this.Zm.Zu) == 1) {
-                    d.this.Zl.c(d.this.rH(), "hotarea");
+                d.this.Zq.j(d.this.rH());
+                com.baidu.tieba.lego.card.b.c.a(d.this.Zr);
+                if (d.this.Zr != null && r.aV(d.this.mContext, d.this.Zr.Zz) == 1) {
+                    d.this.Zq.c(d.this.rH(), "hotarea");
                 }
             }
 
             @Override // com.baidu.afd.videopaster.view.VideoPasterOverlayView.a
             public void rN() {
-                d.this.Zl.l(d.this.rH());
-                com.baidu.tieba.lego.card.b.c.a(d.this.Zm);
-                if (d.this.Zm != null && s.aY(d.this.mContext, d.this.Zm.Zu) == 1) {
-                    d.this.Zl.c(d.this.rH(), "button");
+                d.this.Zq.l(d.this.rH());
+                com.baidu.tieba.lego.card.b.c.a(d.this.Zr);
+                if (d.this.Zr != null && r.aV(d.this.mContext, d.this.Zr.Zz) == 1) {
+                    d.this.Zq.c(d.this.rH(), "button");
                 }
             }
 
             @Override // com.baidu.afd.videopaster.view.VideoPasterOverlayView.a
             public void rO() {
-                d.this.Zp = true;
+                d.this.Zu = true;
                 d.this.rC();
-                d.this.Zl.f(d.this.rH());
+                d.this.Zq.f(d.this.rH());
             }
 
             @Override // com.baidu.afd.videopaster.view.VideoPasterOverlayView.a
             public void rP() {
-                d.this.Zl.m(d.this.rH());
-                if (d.this.Zk != null) {
-                    d.this.Zk.rP();
+                d.this.Zq.m(d.this.rH());
+                if (d.this.Zp != null) {
+                    d.this.Zp.rP();
                 }
             }
         });
-        this.Zh.setContentViewCallback(new VideoPasterContentView.a() { // from class: com.baidu.afd.videopaster.d.3
+        this.Zm.setContentViewCallback(new VideoPasterContentView.a() { // from class: com.baidu.afd.videopaster.d.3
             @Override // com.baidu.afd.videopaster.view.VideoPasterContentView.a
             public void rQ() {
                 d.this.rD();
-                if (d.this.Zk != null) {
-                    d.this.Zk.rQ();
+                if (d.this.Zp != null) {
+                    d.this.Zp.rQ();
                 }
             }
 
@@ -116,23 +116,23 @@ public class d {
             public void onDetachedFromWindow() {
                 int i;
                 boolean z = true;
-                if (d.this.Zh.ik()) {
+                if (d.this.Zm.ik()) {
                     i = 0;
-                } else if (d.this.Zp) {
-                    d.this.Zp = false;
+                } else if (d.this.Zu) {
+                    d.this.Zu = false;
                     i = 1;
                 } else {
                     i = 2;
                 }
-                if (d.this.Zk != null) {
+                if (d.this.Zp != null) {
                     if (i == 0 || i == 1) {
                         d.this.aY(i);
                     } else {
                         z = false;
                     }
-                    if (!d.this.Zk.rS()) {
-                        if (d.this.Zq) {
-                            d.this.Zq = false;
+                    if (!d.this.Zp.rS()) {
+                        if (d.this.Zv) {
+                            d.this.Zv = false;
                         } else if (!z) {
                             d.this.aY(i);
                         }
@@ -140,72 +140,72 @@ public class d {
                 }
             }
         });
-        this.Zi = new View(this.mContext);
-        this.Zi.setBackgroundResource(R.color.black_alpha100);
+        this.Zn = new View(this.mContext);
+        this.Zn.setBackgroundResource(R.color.black_alpha100);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aY(int i) {
-        this.Zl.b(rH(), i);
+        this.Zq.b(rH(), i);
         if (TextUtils.equals(this.mFrom, "VIDEO_LIST") && i == 2) {
-            this.Zl.f(rH());
+            this.Zq.f(rH());
         }
     }
 
     public void a(com.baidu.afd.videopaster.a aVar) {
-        if (this.Zj != null && !this.Zj.isLoading() && this.Zj.rY() == null && aVar != null) {
+        if (this.Zo != null && !this.Zo.isLoading() && this.Zo.rY() == null && aVar != null) {
             this.mFloor = aVar.rn() + 1;
-            this.Zj.a(new VideoPasterRequestData(aVar));
+            this.Zo.a(new VideoPasterRequestData(aVar));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.afd.videopaster.data.a aVar) {
-        if (aVar != null && aVar.ZA) {
-            this.Zl.i(rH());
+        if (aVar != null && aVar.ZF) {
+            this.Zq.i(rH());
         }
     }
 
     public boolean a(boolean z, boolean z2, String str) {
-        if (this.Zj.isLoading()) {
+        if (this.Zo.isLoading()) {
             return false;
         }
-        this.Zn = z2;
+        this.Zs = z2;
         this.mFrom = str;
-        VideoPasterResponseData rY = this.Zj.rY();
+        VideoPasterResponseData rY = this.Zo.rY();
         if (rY != null) {
             com.baidu.afd.videopaster.data.a pasterData = rY.getPasterData();
             if (pasterData == null) {
-                this.Zj.reset();
+                this.Zo.reset();
                 return false;
             } else if (pasterData.isEmpty()) {
-                this.Zl.e(rH());
-                this.Zj.reset();
+                this.Zq.e(rH());
+                this.Zo.reset();
                 return false;
             } else if (!pasterData.isValid()) {
-                this.Zj.reset();
+                this.Zo.reset();
                 return false;
             } else {
-                this.rootView.removeView(this.Zi);
-                this.rootView.addView(this.Zi);
-                this.rootView.removeView(this.Zh);
-                this.rootView.addView(this.Zh);
+                this.rootView.removeView(this.Zn);
+                this.rootView.addView(this.Zn);
+                this.rootView.removeView(this.Zm);
+                this.rootView.addView(this.Zm);
                 if (this.rootView instanceof FrameLayout) {
-                    this.Zh.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 17));
+                    this.Zm.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 17));
                 } else if (this.rootView instanceof RelativeLayout) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                     layoutParams.addRule(13);
-                    this.Zh.setLayoutParams(layoutParams);
+                    this.Zm.setLayoutParams(layoutParams);
                 }
-                this.Zh.setData(pasterData);
-                this.mStartPosition = this.Zh.getCurDuration();
+                this.Zm.setData(pasterData);
+                this.mStartPosition = this.Zm.getCurDuration();
                 if (!rA()) {
-                    this.Zl.e(rH());
-                    com.baidu.tieba.lego.card.b.c.b(this.Zm);
+                    this.Zq.e(rH());
+                    com.baidu.tieba.lego.card.b.c.b(this.Zr);
                 }
-                this.Zh.b(z, z2, str);
-                if (this.Zk != null) {
-                    this.Zk.rR();
+                this.Zm.b(z, z2, str);
+                if (this.Zp != null) {
+                    this.Zp.rR();
                 }
                 return true;
             }
@@ -214,70 +214,70 @@ public class d {
     }
 
     public boolean rz() {
-        return this.Zn;
+        return this.Zs;
     }
 
     public boolean rA() {
-        return this.Zh.rA();
+        return this.Zm.rA();
     }
 
     public boolean rB() {
-        return this.Zh.rB();
+        return this.Zm.rB();
     }
 
     public void reset() {
         rE();
-        this.Zn = false;
+        this.Zs = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void rC() {
         rE();
-        if (this.Zk != null) {
-            this.Zk.rQ();
+        if (this.Zp != null) {
+            this.Zp.rQ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void rD() {
-        this.Zl.h(rH());
+        this.Zq.h(rH());
         rE();
     }
 
     private void rE() {
-        this.Zj.reset();
-        this.Zh.reset();
-        this.rootView.removeView(this.Zh);
-        this.rootView.removeView(this.Zi);
+        this.Zo.reset();
+        this.Zm.reset();
+        this.rootView.removeView(this.Zm);
+        this.rootView.removeView(this.Zn);
     }
 
     public void resume() {
-        this.Zh.resume();
+        this.Zm.resume();
         if (rB()) {
-            this.mStartPosition = this.Zh.getCurDuration();
-            this.Zo = this.mStartPosition;
-            this.Zl.g(rH());
+            this.mStartPosition = this.Zm.getCurDuration();
+            this.Zt = this.mStartPosition;
+            this.Zq.g(rH());
         }
     }
 
     public void rF() {
-        if (this.Zh != null) {
-            this.Zh.rF();
+        if (this.Zm != null) {
+            this.Zm.rF();
         }
     }
 
     public void stop() {
-        this.mPausePosition = this.Zh.getCurDuration();
+        this.mPausePosition = this.Zm.getCurDuration();
         if (rB() && !rG()) {
-            this.Zl.f(rH());
+            this.Zq.f(rH());
         }
-        this.Zh.stop();
+        this.Zm.stop();
     }
 
     private boolean rG() {
-        if (this.Zh != null) {
+        if (this.Zm != null) {
             int[] iArr = new int[2];
-            this.Zh.getLocationOnScreen(iArr);
+            this.Zm.getLocationOnScreen(iArr);
             int i = iArr[1];
             if (UtilHelper.getRealScreenOrientation(this.mContext) == 1 && i == 0 && TextUtils.equals(this.mFrom, "VIDEO_LIST")) {
                 return true;
@@ -287,63 +287,63 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.Zk = aVar;
+        this.Zp = aVar;
     }
 
     public com.baidu.afd.videopaster.b.a rH() {
         com.baidu.afd.videopaster.b.a aVar = new com.baidu.afd.videopaster.b.a();
         aVar.startPosition = this.mStartPosition;
-        aVar.ZR = this.Zo;
-        aVar.ZS = this.mPausePosition;
-        aVar.ZP = this.Zh.getTotalDuration();
-        aVar.ZQ = this.Zh.getCurDuration();
-        aVar.ZO = this.mFloor;
+        aVar.ZW = this.Zt;
+        aVar.ZX = this.mPausePosition;
+        aVar.ZU = this.Zm.getTotalDuration();
+        aVar.ZV = this.Zm.getCurDuration();
+        aVar.ZT = this.mFloor;
         if (UtilHelper.getRealScreenOrientation(this.mContext) == 1) {
-            aVar.ZT = 0;
+            aVar.ZY = 0;
         } else if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-            aVar.ZT = 1;
+            aVar.ZY = 1;
         } else if (UtilHelper.getRealScreenOrientation(this.mContext) == 0) {
-            aVar.ZT = 2;
+            aVar.ZY = 2;
         } else {
-            aVar.ZT = -1;
+            aVar.ZY = -1;
         }
-        if (this.Zm != null) {
-            aVar.ZU = this.Zm.rT();
-            aVar.tplName = this.Zm.tplName;
-            aVar.extraParam = this.Zm.extra;
-            aVar.ZB = this.Zm.ZB;
-            aVar.ZC = this.Zm.ZC;
+        if (this.Zr != null) {
+            aVar.ZZ = this.Zr.rT();
+            aVar.tplName = this.Zr.tplName;
+            aVar.extraParam = this.Zr.extra;
+            aVar.ZG = this.Zr.ZG;
+            aVar.ZH = this.Zr.ZH;
         }
         return aVar;
     }
 
     public void aZ(int i) {
-        if (this.Zh != null) {
-            this.Zh.aZ(i);
+        if (this.Zm != null) {
+            this.Zm.aZ(i);
         }
     }
 
     public void onDestroy() {
-        this.Zj.onDestroy();
+        this.Zo.onDestroy();
     }
 
     public void rI() {
-        if (this.Zh != null) {
-            this.Zh.rI();
+        if (this.Zm != null) {
+            this.Zm.rI();
         }
     }
 
     public void rJ() {
-        if (this.Zh != null) {
-            this.Zh.rJ();
+        if (this.Zm != null) {
+            this.Zm.rJ();
         }
     }
 
     public boolean rK() {
-        return this.Zh != null && this.Zh.rK();
+        return this.Zm != null && this.Zm.rK();
     }
 
     public void aB(boolean z) {
-        this.Zq = z;
+        this.Zv = z;
     }
 }

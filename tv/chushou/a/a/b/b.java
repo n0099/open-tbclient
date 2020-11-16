@@ -9,17 +9,17 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class b implements ThreadFactory {
     private static final AtomicInteger poolNumber = new AtomicInteger(1);
     private final String prefix;
-    private final int qmb;
+    private final int qnE;
     private final AtomicInteger threadNumber = new AtomicInteger(1);
 
     public b(String str, int i) {
-        this.qmb = i;
+        this.qnE = i;
         this.prefix = "Router thread pool No." + poolNumber.getAndDecrement() + ", " + str;
     }
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(@NonNull final Runnable runnable) {
-        final int i = this.qmb;
+        final int i = this.qnE;
         if (runnable instanceof c) {
             i = ((c) runnable).priority;
         }
@@ -29,18 +29,18 @@ public final class b implements ThreadFactory {
                 try {
                     Process.setThreadPriority(i);
                 } catch (Throwable th) {
-                    tv.chushou.a.a.c.a.eHz().e(null, "LinuxPriorityThreadFactory:Process.setThreadPriority failed", th);
+                    tv.chushou.a.a.c.a.eHA().e(null, "LinuxPriorityThreadFactory:Process.setThreadPriority failed", th);
                 }
                 runnable.run();
             }
         };
         String str = this.prefix + ", thread No." + this.threadNumber.getAndIncrement();
-        tv.chushou.a.a.c.a.eHz().i(null, "LinuxPriorityThreadFactory: new Thread, name is [" + str + "]");
+        tv.chushou.a.a.c.a.eHA().i(null, "LinuxPriorityThreadFactory: new Thread, name is [" + str + "]");
         Thread thread = new Thread(runnable2, str);
         thread.setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() { // from class: tv.chushou.a.a.b.b.2
             @Override // java.lang.Thread.UncaughtExceptionHandler
             public void uncaughtException(Thread thread2, Throwable th) {
-                tv.chushou.a.a.c.a.eHz().e(null, "LinuxPriorityThreadFactory: UncaughtExceptionHandler! Thread [" + thread2.getName() + "]", th);
+                tv.chushou.a.a.c.a.eHA().e(null, "LinuxPriorityThreadFactory: UncaughtExceptionHandler! Thread [" + thread2.getName() + "]", th);
             }
         });
         return thread;

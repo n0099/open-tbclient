@@ -5,7 +5,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 class a {
     String wt;
     double wu;
@@ -15,7 +15,7 @@ class a {
     BlockingQueue<C0087a> wy = new LinkedBlockingQueue();
 
     /* renamed from: com.baidu.ar.statistic.performance.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     static class C0087a {
         long wA;
         long wB;
@@ -23,7 +23,7 @@ class a {
         int wz;
 
         /* renamed from: com.baidu.ar.statistic.performance.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes12.dex */
         static class C0088a {
             int count;
             String name;

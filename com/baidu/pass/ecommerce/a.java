@@ -8,7 +8,7 @@ import com.baidu.pass.permissions.PermissionsCallback;
 import com.baidu.pass.permissions.PermissionsDTO;
 import com.baidu.sapi2.ecommerce.activity.GetContactActivty;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes17.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static a b;
 
@@ -16,13 +16,13 @@ public class a {
     private com.baidu.pass.ecommerce.b.a f2761a;
 
     /* renamed from: com.baidu.pass.ecommerce.a$a  reason: collision with other inner class name */
-    /* loaded from: classes17.dex */
-    class C0274a implements com.baidu.pass.ecommerce.b.a {
+    /* loaded from: classes10.dex */
+    class C0272a implements com.baidu.pass.ecommerce.b.a {
 
         /* renamed from: a  reason: collision with root package name */
         final /* synthetic */ com.baidu.pass.ecommerce.b.a f2762a;
 
-        C0274a(com.baidu.pass.ecommerce.b.a aVar) {
+        C0272a(com.baidu.pass.ecommerce.b.a aVar) {
             this.f2762a = aVar;
         }
 
@@ -33,7 +33,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes10.dex */
     class b extends PermissionsCallback {
 
         /* renamed from: a  reason: collision with root package name */
@@ -83,7 +83,7 @@ public class a {
     }
 
     public void a(Context context, com.baidu.pass.ecommerce.b.a aVar) {
-        this.f2761a = new C0274a(aVar);
+        this.f2761a = new C0272a(aVar);
         PermissionsDTO permissionsDTO = new PermissionsDTO();
         permissionsDTO.context = context;
         permissionsDTO.permissions = new String[]{"android.permission.READ_CONTACTS"};

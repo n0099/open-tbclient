@@ -6,10 +6,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.baidu.helios.bridge.multiprocess.f;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public interface e extends IInterface {
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static abstract class a extends Binder implements e {
 
         /* renamed from: a  reason: collision with root package name */
@@ -19,13 +19,13 @@ public interface e extends IInterface {
         static final int d = 3;
 
         /* renamed from: com.baidu.helios.bridge.multiprocess.e$a$a  reason: collision with other inner class name */
-        /* loaded from: classes17.dex */
-        private static class C0146a implements e {
+        /* loaded from: classes5.dex */
+        private static class C0144a implements e {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f1793a;
 
-            C0146a(IBinder iBinder) {
+            C0144a(IBinder iBinder) {
                 this.f1793a = iBinder;
             }
 
@@ -108,7 +108,7 @@ public interface e extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface(f1792a);
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof e)) ? new C0146a(iBinder) : (e) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof e)) ? new C0144a(iBinder) : (e) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

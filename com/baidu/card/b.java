@@ -5,18 +5,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.card.a.a;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-/* loaded from: classes21.dex */
-public abstract class b<T extends AbsThreadDataSupport> implements p<T>, q {
-    protected ak afD;
-    private Boolean afE = false;
-    private com.baidu.tieba.card.ab<T> afF;
-    public a afG;
+import com.baidu.card.view.ThreadCardView;
+import com.baidu.tbadk.core.data.a;
+import com.baidu.tieba.R;
+/* loaded from: classes20.dex */
+public abstract class b<T extends com.baidu.tbadk.core.data.a> implements p<T>, q {
+    protected ak afI;
+    private Boolean afJ = false;
+    private com.baidu.tieba.card.ab<T> afK;
+    public a afL;
     protected Context mContext;
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes20.dex */
     public interface a {
-        void a(AbsThreadDataSupport absThreadDataSupport);
+        void a(com.baidu.tbadk.core.data.a aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,7 +29,7 @@ public abstract class b<T extends AbsThreadDataSupport> implements p<T>, q {
     }
 
     public void a(ak akVar) {
-        this.afD = akVar;
+        this.afI = akVar;
     }
 
     public void bo(int i) {
@@ -41,15 +43,15 @@ public abstract class b<T extends AbsThreadDataSupport> implements p<T>, q {
     }
 
     public com.baidu.tieba.card.ab<T> tB() {
-        return this.afF;
+        return this.afK;
     }
 
     public void setOnCardSubClickListener(com.baidu.tieba.card.ab<T> abVar) {
-        this.afF = abVar;
+        this.afK = abVar;
     }
 
     public void a(int i, a.b bVar) {
-        this.afD.a(i, bVar);
+        this.afI.a(i, bVar);
     }
 
     public void bq(int i) {
@@ -69,10 +71,27 @@ public abstract class b<T extends AbsThreadDataSupport> implements p<T>, q {
     }
 
     public Boolean tC() {
-        return this.afE;
+        return this.afJ;
     }
 
     public void b(Boolean bool) {
-        this.afE = bool;
+        this.afJ = bool;
+    }
+
+    private ThreadCardView d(View view, int i) {
+        if (view == null || view.getParent() == null || i == 0) {
+            return null;
+        }
+        if (view.getParent() instanceof ThreadCardView) {
+            return (ThreadCardView) view.getParent();
+        }
+        return d((View) view.getParent(), i - 1);
+    }
+
+    public void e(View view, int i) {
+        ThreadCardView d = d(view, i);
+        if (d != null) {
+            com.baidu.tbadk.core.elementsMaven.c.bj(d).pb(com.baidu.tbadk.a.d.bhw() ? R.string.J_X02 : R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+        }
     }
 }

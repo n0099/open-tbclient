@@ -604,7 +604,6 @@ public class TbConfig {
     private static String VERSION = "";
     private static String SUB_VERSION = "";
     private static String LEGO_LIB_VERSION = "1.0.0";
-    private static String CRIUS_LIB_VERSION = "1.0";
     private static String SUBAPP_TYPE = "";
     private static String FROM = null;
     private static int THREAD_IMAGE_MAX_WIDTH = 640;
@@ -631,22 +630,26 @@ public class TbConfig {
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
     public static boolean FORCE_UPDATE = false;
-    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds54);
-    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds50);
-    public static final int VALUE_COMMON_FONT_SIZE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44);
-    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds40);
-    public static final int VALUE_COMMON_FONT_LINE_SPACE_XLAGRE = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds11);
-    public static final int VALUE_COMMON_FONT_LINE_SPACE_BIG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds9);
-    public static final int VALUE_COMMON_FONT_LINE_SPACE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7);
-    public static final int VALUE_COMMON_FONT_LINE_SPACE_SMALL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
-    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44);
-    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds39);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds39);
-    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds34);
-    public static final int VALUE_SUBPB_FONT_LINE_SPACE_XLAGRE = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds9);
-    public static final int VALUE_SUBPB_FONT_LINE_SPACE_BIG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-    public static final int VALUE_SUBPB_FONT_LINE_SPACE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-    public static final int VALUE_SUBPB_FONT_LINE_SPACE_SMALL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1);
+    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = getDimens(R.dimen.T_X04);
+    public static final int VALUE_COMMON_FONT_SIZE_BIG = getDimens(R.dimen.T_X05);
+    public static final int VALUE_COMMON_FONT_SIZE_MID = getDimens(R.dimen.T_X06);
+    public static final int VALUE_COMMON_FONT_SIZE_SMALL = getDimens(R.dimen.T_X07);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_XLAGRE = getDimens(R.dimen.tbds29);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_BIG = getDimens(R.dimen.tbds29);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_MID = getDimens(R.dimen.tbds29);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_SMALL = getDimens(R.dimen.tbds29);
+    public static final int VALUE_POST_FONT_LINE_SPACE_XLAGRE = getDimens(R.dimen.tbds21);
+    public static final int VALUE_POST_FONT_LINE_SPACE_BIG = getDimens(R.dimen.tbds21);
+    public static final int VALUE_POST_FONT_LINE_SPACE_MID = getDimens(R.dimen.tbds21);
+    public static final int VALUE_POST_FONT_LINE_SPACE_SMALL = getDimens(R.dimen.tbds21);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = getDimens(R.dimen.T_X05);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = getDimens(R.dimen.T_X07);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = getDimens(R.dimen.T_X08);
+    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = getDimens(R.dimen.T_X08);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_XLAGRE = getDimens(R.dimen.tbds29);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_BIG = getDimens(R.dimen.tbds29);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_MID = getDimens(R.dimen.tbds20);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_SMALL = getDimens(R.dimen.tbds20);
     private static int MAX_PHOTO_MEMORY_CACHE = 60;
     private static int MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS = 10;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
@@ -678,6 +681,10 @@ public class TbConfig {
         return BROADCAST_PAGE_ADDED;
     }
 
+    public static final int getDimens(int i) {
+        return l.getDimens(TbadkCoreApplication.getInst().getContext(), i);
+    }
+
     public static final String getBroadcastActionSignAlert() {
         return BROADCAST_SIGN_ALERT;
     }
@@ -705,14 +712,6 @@ public class TbConfig {
 
     public static void setLegoLibVersion(String str) {
         LEGO_LIB_VERSION = str;
-    }
-
-    public static String getCriusLibVersion() {
-        return CRIUS_LIB_VERSION;
-    }
-
-    public static void setCriusLibVersion(String str) {
-        CRIUS_LIB_VERSION = str;
     }
 
     public static String getVersion() {
@@ -790,7 +789,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.bBd().setPhotoMaxNum(i);
+            c.bAt().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -905,18 +904,18 @@ public class TbConfig {
         }
     }
 
-    public static int getContentSizeOfPostTitle() {
+    public static int getPostLineSpace() {
         switch (TbadkCoreApplication.getInst().getFontSize()) {
             case 0:
-                return VALUE_COMMON_FONT_SIZE_XLAGER;
+                return VALUE_POST_FONT_LINE_SPACE_XLAGRE;
             case 1:
-                return VALUE_COMMON_FONT_SIZE_BIG;
+                return VALUE_POST_FONT_LINE_SPACE_BIG;
             case 2:
-                return VALUE_COMMON_FONT_SIZE_MID;
+                return VALUE_POST_FONT_LINE_SPACE_MID;
             case 3:
-                return VALUE_COMMON_FONT_SIZE_SMALL;
+                return VALUE_POST_FONT_LINE_SPACE_SMALL;
             default:
-                return VALUE_COMMON_FONT_SIZE_SMALL;
+                return VALUE_POST_FONT_LINE_SPACE_SMALL;
         }
     }
 

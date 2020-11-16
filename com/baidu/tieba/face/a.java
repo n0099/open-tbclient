@@ -9,10 +9,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    public static final Pattern itp = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
-    public static final Pattern itq = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    public static final Pattern iud = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
+    public static final Pattern iue = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
-    public static String JD(String str) {
+    public static String Je(String str) {
         String replaceAll = str.replaceAll(d.SHARP_TEXT_PREFIX_SHORT, "meme,");
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);
@@ -40,14 +40,14 @@ public class a {
         return sb.toString();
     }
 
-    public static int JE(String str) {
+    public static int Jf(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
         if (str == null || str.length() == 0) {
             return 0;
         }
-        Matcher matcher = itp.matcher(str);
+        Matcher matcher = iud.matcher(str);
         while (true) {
             i = i2;
             if (!matcher.find()) {

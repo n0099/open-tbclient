@@ -45,7 +45,7 @@ import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.searchbox.ui.animview.praise.resource.CoolPraiseIconResource;
 import com.baidu.searchbox.ui.animview.util.DebugUtil;
 import com.baidu.searchbox.ui.animview.util.LinkageControlUtil;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public class CoolPraiseView extends LinearLayout {
     private static final boolean DEBUG = DebugUtil.isApkInDebug();
     private static final String NET_ERROR_TIP = "网络不给力，请稍后重试";
@@ -87,12 +87,12 @@ public class CoolPraiseView extends LinearLayout {
     private ColorStateList mUnPraisedTextColorStateList;
     private LinearLayout mWrapperLayout;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     public interface ExtraTouchEventListener {
         void onTouchEvent(MotionEvent motionEvent);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     public interface OnClickPraiseListener {
         void onClick(boolean z, int i);
     }
@@ -770,7 +770,7 @@ public class CoolPraiseView extends LinearLayout {
         return this;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     public static class PraiseAnimState {
         public static final int ANIM_STATE_PREVENTED = 3;
         public static final int ANIM_STATE_STARTED = 1;

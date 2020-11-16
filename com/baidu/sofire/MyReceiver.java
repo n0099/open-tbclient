@@ -9,7 +9,7 @@ import com.baidu.sofire.ac.U;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.i.w;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class MyReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */

@@ -17,9 +17,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class c {
-    private String ehI;
-    private ArrayList<String> nDV;
-    private final String nLA = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private String ega;
+    private ArrayList<String> nFs;
+    private final String nNb = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -39,10 +39,10 @@ public class c {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !y.isEmpty(this.nDV)) {
+        if (spannable != null && !y.isEmpty(this.nFs)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.nDV.iterator();
+                Iterator<String> it = this.nFs.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -56,7 +56,7 @@ public class c {
             int length = str2.length();
             while (indexOf >= 0) {
                 int i = indexOf + length;
-                int color = ap.getColor(R.color.cp_cont_a);
+                int color = ap.getColor(R.color.CAM_X0101);
                 int color2 = ap.getColor(R.color.cp_cont_h_alpha85);
                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
                 BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
@@ -91,7 +91,7 @@ public class c {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (y.isEmpty(dST())) {
+        if (y.isEmpty(dSS())) {
             return false;
         }
         return i(editText) || i(editText2);
@@ -113,26 +113,26 @@ public class c {
         }
     }
 
-    public void bk(ArrayList<String> arrayList) {
-        this.nDV = arrayList;
+    public void bl(ArrayList<String> arrayList) {
+        this.nFs = arrayList;
     }
 
-    public ArrayList<String> dST() {
-        return this.nDV;
+    public ArrayList<String> dSS() {
+        return this.nFs;
     }
 
-    public void UA(String str) {
-        this.ehI = str;
+    public void Ul(String str) {
+        this.ega = str;
     }
 
-    public String dSX() {
-        return this.ehI;
+    public String dSW() {
+        return this.ega;
     }
 
     private void c(Spannable spannable) {
         Matcher matcher = Pattern.compile("@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+").matcher(spannable);
         while (matcher.find()) {
-            spannable.setSpan(new ForegroundColorSpan(ap.getColor(R.color.cp_link_tip_c)), matcher.start(), matcher.end(), 33);
+            spannable.setSpan(new ForegroundColorSpan(ap.getColor(R.color.CAM_X0304)), matcher.start(), matcher.end(), 33);
         }
     }
 

@@ -6,7 +6,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Window;
 import android.view.WindowManager;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class f {
     public static void a(Activity activity, int i) {
         if (Build.VERSION.SDK_INT >= 19) {

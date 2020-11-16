@@ -18,7 +18,7 @@ import org.webrtc.Logging;
 import org.webrtc.ThreadUtils;
 import org.webrtc.audio.JavaAudioDeviceModule;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class WebRtcAudioTrack {
     private static final long AUDIO_TRACK_THREAD_JOIN_TIMEOUT_MS = 2000;
     private static final int BITS_PER_SAMPLE = 16;
@@ -43,7 +43,7 @@ public class WebRtcAudioTrack {
     private final ThreadUtils.ThreadChecker threadChecker;
     private final VolumeLogger volumeLogger;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     private class AudioTrackThread extends Thread {
         private volatile boolean keepAlive;
 
@@ -145,7 +145,7 @@ public class WebRtcAudioTrack {
             Logging.w(TAG, "Unable to use fast mode since requested sample rate is not native");
         }
         String str = Build.MODEL;
-        return (a.coX == 2 || str.contains("NV6001") || str.contains("NV6101") || str.contains("XDH-0F-A1") || str.contains("NV5001")) ? new AudioTrack(new AudioAttributes.Builder().setUsage(1).setContentType(2).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0) : new AudioTrack(new AudioAttributes.Builder().setUsage(DEFAULT_USAGE).setContentType(1).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0);
+        return (a.cnl == 2 || str.contains("NV6001") || str.contains("NV6101") || str.contains("XDH-0F-A1") || str.contains("NV5001")) ? new AudioTrack(new AudioAttributes.Builder().setUsage(1).setContentType(2).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0) : new AudioTrack(new AudioAttributes.Builder().setUsage(DEFAULT_USAGE).setContentType(1).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0);
     }
 
     private static AudioTrack createAudioTrackOnLowerThanLollipop(int i, int i2, int i3) {

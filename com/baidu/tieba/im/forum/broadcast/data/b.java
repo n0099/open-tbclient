@@ -3,17 +3,17 @@ package com.baidu.tieba.im.forum.broadcast.data;
 import tbclient.BroadcastInfo;
 import tbclient.RecommendForumInfo;
 import tbclient.ThreadInfo;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class b {
     private String content;
     private String ctr;
-    private long kcZ;
-    private int kda;
-    private long kdb;
-    private int kdc;
-    private int kdd;
-    private RecommendForumInfo kde;
-    private ThreadInfo kdf;
+    private long kdJ;
+    private int kdK;
+    private long kdL;
+    private int kdM;
+    private int kdN;
+    private RecommendForumInfo kdO;
+    private ThreadInfo kdP;
     private String picUrl;
     private String title;
 
@@ -29,51 +29,51 @@ public class b {
         return this.picUrl;
     }
 
-    public long cRx() {
-        return this.kcZ;
+    public long cRd() {
+        return this.kdJ;
     }
 
-    public int cRy() {
-        return this.kda;
+    public int cRe() {
+        return this.kdK;
     }
 
-    public int cRz() {
-        return this.kdc;
+    public int cRf() {
+        return this.kdM;
     }
 
-    public String cRA() {
+    public String cRg() {
         return this.ctr;
     }
 
-    public long cRB() {
-        return this.kdb;
+    public long cRh() {
+        return this.kdL;
     }
 
-    public int cRC() {
-        return this.kdd;
+    public int cRi() {
+        return this.kdN;
     }
 
-    public RecommendForumInfo cRD() {
-        return this.kde;
+    public RecommendForumInfo cRj() {
+        return this.kdO;
     }
 
-    public ThreadInfo cRE() {
-        return this.kdf;
+    public ThreadInfo cRk() {
+        return this.kdP;
     }
 
     public void a(BroadcastInfo broadcastInfo) {
         if (broadcastInfo != null) {
-            this.kdb = broadcastInfo.bcast_id.longValue();
+            this.kdL = broadcastInfo.bcast_id.longValue();
             this.title = broadcastInfo.title;
             this.content = broadcastInfo.content;
             this.picUrl = broadcastInfo.pic_url;
-            this.kcZ = broadcastInfo.publish_time.intValue();
-            this.kda = broadcastInfo.pushuser_cnt.intValue();
-            this.kde = broadcastInfo.forum_info;
-            this.kdf = broadcastInfo.thread_infos;
+            this.kdJ = broadcastInfo.publish_time.intValue();
+            this.kdK = broadcastInfo.pushuser_cnt.intValue();
+            this.kdO = broadcastInfo.forum_info;
+            this.kdP = broadcastInfo.thread_infos;
             this.ctr = broadcastInfo.ctr;
-            this.kdc = broadcastInfo.pv.intValue();
-            this.kdd = broadcastInfo.audit_status.intValue();
+            this.kdM = broadcastInfo.pv.intValue();
+            this.kdN = broadcastInfo.audit_status.intValue();
         }
     }
 }

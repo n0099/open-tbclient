@@ -14,12 +14,12 @@ public interface IComOpenClient extends IInterface {
 
         /* renamed from: com.baidu.mapframework.open.aidl.IComOpenClient$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        private static class C0253a implements IComOpenClient {
+        private static class C0251a implements IComOpenClient {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f2184a;
 
-            C0253a(IBinder iBinder) {
+            C0251a(IBinder iBinder) {
                 this.f2184a = iBinder;
             }
 
@@ -73,7 +73,7 @@ public interface IComOpenClient extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IComOpenClient");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof IComOpenClient)) ? new C0253a(iBinder) : (IComOpenClient) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof IComOpenClient)) ? new C0251a(iBinder) : (IComOpenClient) queryLocalInterface;
         }
 
         @Override // android.os.Binder

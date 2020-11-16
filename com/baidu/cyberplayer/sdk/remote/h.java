@@ -22,11 +22,11 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class h extends PlayerProvider implements g.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.cyberplayer.sdk.remote.b f1414a;
+    private com.baidu.cyberplayer.sdk.remote.b f1417a;
     private CyberPlayerManager.HttpDNS b;
     private CyberPlayerManager.OnPreparedListener c;
     private CyberPlayerManager.OnCompletionListener d;
@@ -35,20 +35,19 @@ public class h extends PlayerProvider implements g.b {
     private CyberPlayerManager.OnVideoSizeChangedListener g;
     private CyberPlayerManager.OnErrorListener h;
     private CyberPlayerManager.OnInfoListener i;
-    private CyberPlayerManager.OnMediaSourceChangedListener j;
-    private a k = new a(this);
-    private Surface l;
-    private b m;
+    private a j = new a(this);
+    private Surface k;
+    private b l;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final WeakReference<h> f1415a;
+        private final WeakReference<h> f1418a;
 
         public a(h hVar) {
-            this.f1415a = new WeakReference<>(hVar);
+            this.f1418a = new WeakReference<>(hVar);
         }
 
         private static void a(h hVar, String str) {
@@ -71,7 +70,7 @@ public class h extends PlayerProvider implements g.b {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            h hVar = this.f1415a.get();
+            h hVar = this.f1418a.get();
             if (hVar == null) {
                 return;
             }
@@ -122,52 +121,46 @@ public class h extends PlayerProvider implements g.b {
                         return;
                     }
                     return;
-                case 7:
-                    if (hVar.j != null) {
-                        hVar.j.onMediaSourceChanged(message.arg1, message.arg2, message.obj);
-                        return;
-                    }
-                    return;
                 default:
                     return;
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     private static class b extends d.a {
 
         /* renamed from: a  reason: collision with root package name */
-        private a f1416a;
+        private a f1419a;
         private CyberPlayerManager.HttpDNS b;
 
         public b(a aVar, CyberPlayerManager.HttpDNS httpDNS) {
-            this.f1416a = aVar;
+            this.f1419a = aVar;
             this.b = httpDNS;
         }
 
         @Override // com.baidu.cyberplayer.sdk.remote.d
         public void a() {
-            if (this.f1416a != null) {
-                this.f1416a.sendEmptyMessage(0);
+            if (this.f1419a != null) {
+                this.f1419a.sendEmptyMessage(0);
             }
         }
 
         @Override // com.baidu.cyberplayer.sdk.remote.d
         public void a(int i) {
-            if (this.f1416a != null) {
-                Message obtain = Message.obtain(this.f1416a, 2);
+            if (this.f1419a != null) {
+                Message obtain = Message.obtain(this.f1419a, 2);
                 obtain.arg1 = i;
-                this.f1416a.sendMessage(obtain);
+                this.f1419a.sendMessage(obtain);
             }
         }
 
         @Override // com.baidu.cyberplayer.sdk.remote.d
         public void a(int i, int i2, int i3, int i4) {
-            if (this.f1416a != null) {
-                Message obtain = Message.obtain(this.f1416a, 4);
+            if (this.f1419a != null) {
+                Message obtain = Message.obtain(this.f1419a, 4);
                 obtain.obj = new int[]{i, i2, i3, i4};
-                this.f1416a.sendMessage(obtain);
+                this.f1419a.sendMessage(obtain);
             }
         }
 
@@ -191,12 +184,12 @@ public class h extends PlayerProvider implements g.b {
 
         @Override // com.baidu.cyberplayer.sdk.remote.d
         public boolean a(int i, int i2, String str) {
-            if (this.f1416a != null) {
-                Message obtain = Message.obtain(this.f1416a, 5);
+            if (this.f1419a != null) {
+                Message obtain = Message.obtain(this.f1419a, 5);
                 obtain.arg1 = i;
                 obtain.arg2 = i2;
                 obtain.obj = str;
-                this.f1416a.sendMessage(obtain);
+                this.f1419a.sendMessage(obtain);
                 return true;
             }
             return true;
@@ -204,19 +197,19 @@ public class h extends PlayerProvider implements g.b {
 
         @Override // com.baidu.cyberplayer.sdk.remote.d
         public synchronized void b() {
-            if (this.f1416a != null) {
-                this.f1416a.sendEmptyMessage(1);
+            if (this.f1419a != null) {
+                this.f1419a.sendEmptyMessage(1);
             }
         }
 
         @Override // com.baidu.cyberplayer.sdk.remote.d
         public boolean b(int i, int i2, String str) {
-            if (this.f1416a != null) {
-                Message obtain = Message.obtain(this.f1416a, 6);
+            if (this.f1419a != null) {
+                Message obtain = Message.obtain(this.f1419a, 6);
                 obtain.arg1 = i;
                 obtain.arg2 = i2;
                 obtain.obj = str;
-                this.f1416a.sendMessage(obtain);
+                this.f1419a.sendMessage(obtain);
                 return true;
             }
             return true;
@@ -224,37 +217,24 @@ public class h extends PlayerProvider implements g.b {
 
         @Override // com.baidu.cyberplayer.sdk.remote.d
         public void c() {
-            if (this.f1416a != null) {
-                this.f1416a.sendEmptyMessage(3);
+            if (this.f1419a != null) {
+                this.f1419a.sendEmptyMessage(3);
             }
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.remote.d
-        public boolean c(int i, int i2, String str) {
-            if (this.f1416a != null) {
-                Message obtain = Message.obtain(this.f1416a, 7);
-                obtain.arg1 = i;
-                obtain.arg2 = i2;
-                obtain.obj = str;
-                this.f1416a.sendMessage(obtain);
-                return true;
-            }
-            return true;
         }
 
         public void d() {
-            this.f1416a = null;
+            this.f1419a = null;
             this.b = null;
         }
     }
 
     private h(com.baidu.cyberplayer.sdk.remote.b bVar, CyberPlayerManager.HttpDNS httpDNS) {
-        this.f1414a = bVar;
+        this.f1417a = bVar;
         this.b = httpDNS;
-        this.m = new b(this.k, httpDNS);
-        if (this.f1414a != null) {
+        this.l = new b(this.j, httpDNS);
+        if (this.f1417a != null) {
             try {
-                this.f1414a.a(this.m);
+                this.f1417a.a(this.l);
                 g.a().a(this);
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -271,11 +251,11 @@ public class h extends PlayerProvider implements g.b {
     }
 
     private void a(Uri uri, Map<String, String> map) {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.a(new e(uri, map));
+            this.f1417a.a(new e(uri, map));
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -286,22 +266,22 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.remote.g.b
     public void a() {
-        if (this.k != null) {
-            Message obtain = Message.obtain(this.k, 5);
+        if (this.j != null) {
+            Message obtain = Message.obtain(this.j, 5);
             obtain.arg1 = CyberPlayerManager.MEDIA_ERROR_REMOTE_DIED;
             obtain.arg2 = 0;
             obtain.obj = null;
-            this.k.sendMessage(obtain);
+            this.j.sendMessage(obtain);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void changeProxyDynamic(String str, boolean z) {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.a(str, z);
+            this.f1417a.a(str, z);
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -312,9 +292,9 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getCurrentPosition() {
-        if (this.f1414a != null) {
+        if (this.f1417a != null) {
             try {
-                return this.f1414a.i();
+                return this.f1417a.i();
             } catch (RemoteException e) {
                 e.printStackTrace();
                 return 0;
@@ -325,9 +305,9 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getCurrentPositionSync() {
-        if (this.f1414a != null) {
+        if (this.f1417a != null) {
             try {
-                return this.f1414a.j();
+                return this.f1417a.j();
             } catch (RemoteException e) {
                 e.printStackTrace();
                 return 0;
@@ -338,9 +318,9 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getDecodeMode() {
-        if (this.f1414a != null) {
+        if (this.f1417a != null) {
             try {
-                return this.f1414a.a();
+                return this.f1417a.a();
             } catch (RemoteException e) {
                 e.printStackTrace();
                 if (this.h != null) {
@@ -355,9 +335,9 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public long getDownloadSpeed() {
-        if (this.f1414a != null) {
+        if (this.f1417a != null) {
             try {
-                return this.f1414a.p();
+                return this.f1417a.p();
             } catch (RemoteException e) {
                 e.printStackTrace();
                 return 0L;
@@ -368,9 +348,9 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getDuration() {
-        if (this.f1414a != null) {
+        if (this.f1417a != null) {
             try {
-                return this.f1414a.k();
+                return this.f1417a.k();
             } catch (RemoteException e) {
                 e.printStackTrace();
                 return 0;
@@ -381,9 +361,9 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public long getPlayedTime() {
-        if (this.f1414a != null) {
+        if (this.f1417a != null) {
             try {
-                return this.f1414a.o();
+                return this.f1417a.o();
             } catch (RemoteException e) {
                 e.printStackTrace();
                 return 0L;
@@ -394,9 +374,9 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getVideoHeight() {
-        if (this.f1414a != null) {
+        if (this.f1417a != null) {
             try {
-                return this.f1414a.g();
+                return this.f1417a.g();
             } catch (RemoteException e) {
                 e.printStackTrace();
                 return 0;
@@ -407,9 +387,9 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getVideoWidth() {
-        if (this.f1414a != null) {
+        if (this.f1417a != null) {
             try {
-                return this.f1414a.f();
+                return this.f1417a.f();
             } catch (RemoteException e) {
                 e.printStackTrace();
                 return 0;
@@ -420,9 +400,9 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public boolean isLooping() {
-        if (this.f1414a != null) {
+        if (this.f1417a != null) {
             try {
-                return this.f1414a.n();
+                return this.f1417a.n();
             } catch (RemoteException e) {
                 e.printStackTrace();
                 return false;
@@ -433,9 +413,9 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public boolean isPlaying() {
-        if (this.f1414a != null) {
+        if (this.f1417a != null) {
             try {
-                return this.f1414a.h();
+                return this.f1417a.h();
             } catch (RemoteException e) {
                 e.printStackTrace();
                 return false;
@@ -451,11 +431,11 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void muteOrUnmuteAudio(boolean z) {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.d(z);
+            this.f1417a.d(z);
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -466,11 +446,11 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void pause() {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.e();
+            this.f1417a.e();
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -481,11 +461,11 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void prepareAsync() {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.b();
+            this.f1417a.b();
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -497,25 +477,25 @@ public class h extends PlayerProvider implements g.b {
     /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.baidu.cyberplayer.sdk.remote.h$a */
     /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: com.baidu.cyberplayer.sdk.remote.h$a */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.cyberplayer.sdk.CyberPlayerManager$OnCompletionListener, android.view.Surface, com.baidu.cyberplayer.sdk.CyberPlayerManager$OnPreparedListener, com.baidu.cyberplayer.sdk.CyberPlayerManager$OnMediaSourceChangedListener, com.baidu.cyberplayer.sdk.CyberPlayerManager$OnInfoListener, com.baidu.cyberplayer.sdk.CyberPlayerManager$OnBufferingUpdateListener, com.baidu.cyberplayer.sdk.CyberPlayerManager$OnErrorListener, com.baidu.cyberplayer.sdk.CyberPlayerManager$OnVideoSizeChangedListener, com.baidu.cyberplayer.sdk.CyberPlayerManager$HttpDNS, com.baidu.cyberplayer.sdk.remote.b, com.baidu.cyberplayer.sdk.remote.h$b, java.lang.Object, com.baidu.cyberplayer.sdk.remote.h$a, com.baidu.cyberplayer.sdk.CyberPlayerManager$OnSeekCompleteListener] */
+    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.cyberplayer.sdk.CyberPlayerManager$OnCompletionListener, android.view.Surface, com.baidu.cyberplayer.sdk.CyberPlayerManager$OnPreparedListener, com.baidu.cyberplayer.sdk.CyberPlayerManager$OnInfoListener, com.baidu.cyberplayer.sdk.CyberPlayerManager$OnBufferingUpdateListener, com.baidu.cyberplayer.sdk.CyberPlayerManager$OnErrorListener, com.baidu.cyberplayer.sdk.CyberPlayerManager$OnVideoSizeChangedListener, com.baidu.cyberplayer.sdk.CyberPlayerManager$HttpDNS, com.baidu.cyberplayer.sdk.remote.b, com.baidu.cyberplayer.sdk.remote.h$b, java.lang.Object, com.baidu.cyberplayer.sdk.remote.h$a, com.baidu.cyberplayer.sdk.CyberPlayerManager$OnSeekCompleteListener] */
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void release() {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.b(this.m);
-            this.f1414a.l();
+            this.f1417a.b(this.l);
+            this.f1417a.l();
         } catch (RemoteException e) {
             e.printStackTrace();
         } finally {
             g.a().b(this);
-            this.f1414a = null;
-            this.l = null;
-            this.k.removeCallbacksAndMessages(null);
-            this.m.d();
-            this.m = null;
+            this.f1417a = null;
             this.k = null;
+            this.j.removeCallbacksAndMessages(null);
+            this.l.d();
+            this.l = null;
+            this.j = null;
             this.b = null;
             this.c = null;
             this.d = null;
@@ -524,18 +504,17 @@ public class h extends PlayerProvider implements g.b {
             this.g = null;
             this.h = null;
             this.i = null;
-            this.j = null;
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void reset() {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.m();
-            this.k.removeCallbacksAndMessages(null);
+            this.f1417a.m();
+            this.j.removeCallbacksAndMessages(null);
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -546,11 +525,11 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void seekTo(long j) {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.a(j);
+            this.f1417a.a(j);
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -561,26 +540,15 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void sendCommand(int i, int i2, long j, String str) {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.a(i, i2, j, str);
+            this.f1417a.a(i, i2, j, str);
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
                 this.h.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, 0, null);
-            }
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.PlayerProvider
-    public void setClarityInfo(String str) {
-        if (this.f1414a != null) {
-            try {
-                this.f1414a.a(str);
-            } catch (RemoteException e) {
-                e.printStackTrace();
             }
         }
     }
@@ -615,7 +583,7 @@ public class h extends PlayerProvider implements g.b {
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setDisplay(SurfaceHolder surfaceHolder) {
         Surface surface;
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         if (surfaceHolder != null) {
@@ -632,16 +600,16 @@ public class h extends PlayerProvider implements g.b {
         } else {
             surface = null;
         }
-        this.f1414a.a(surface);
+        this.f1417a.a(surface);
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setEnableDumediaUA(boolean z) {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.c(z);
+            this.f1417a.c(z);
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -652,11 +620,11 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setLooping(boolean z) {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.b(z);
+            this.f1417a.b(z);
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -686,11 +654,6 @@ public class h extends PlayerProvider implements g.b {
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
-    public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
-        this.j = onMediaSourceChangedListener;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
         this.c = onPreparedListener;
     }
@@ -712,25 +675,11 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOption(String str, String str2) {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.a(str, str2);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            if (this.h != null) {
-                this.h.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, 0, null);
-            }
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.PlayerProvider
-    public void setPlayJson(String str) {
-        try {
-            if (this.f1414a != null) {
-                this.f1414a.b(str);
-            }
+            this.f1417a.a(str, str2);
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -741,11 +690,11 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setScreenOnWhilePlaying(boolean z) {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.a(z);
+            this.f1417a.a(z);
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -756,11 +705,11 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setSpeed(float f) {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.a(f);
+            this.f1417a.a(f);
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -771,30 +720,30 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setSurface(Surface surface) {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
-        if (this.l != surface || this.l == null) {
+        if (this.k != surface || this.k == null) {
             try {
-                this.f1414a.a(surface);
-                this.l = surface;
+                this.f1417a.a(surface);
+                this.k = surface;
             } catch (RemoteException e) {
                 e.printStackTrace();
                 if (this.h != null) {
                     this.h.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, 0, null);
                 }
-                this.l = null;
+                this.k = null;
             }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setVolume(float f, float f2) {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.a(f, f2);
+            this.f1417a.a(f, f2);
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -805,11 +754,11 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setWakeMode(Context context, int i) {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.a(i);
+            this.f1417a.a(i);
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -820,11 +769,11 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void start() {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.c();
+            this.f1417a.c();
         } catch (RemoteException e) {
             e.printStackTrace();
             if (this.h != null) {
@@ -835,24 +784,13 @@ public class h extends PlayerProvider implements g.b {
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void stop() {
-        if (this.f1414a == null) {
+        if (this.f1417a == null) {
             return;
         }
         try {
-            this.f1414a.d();
+            this.f1417a.d();
         } catch (RemoteException e) {
             e.printStackTrace();
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.PlayerProvider
-    public void switchMediaSource(int i) {
-        if (this.f1414a != null) {
-            try {
-                this.f1414a.b(i);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
         }
     }
 }

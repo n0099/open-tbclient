@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
@@ -27,7 +27,7 @@ public class b {
     private String b;
     private SharedPreferences j;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */

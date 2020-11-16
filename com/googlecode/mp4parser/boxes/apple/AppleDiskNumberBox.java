@@ -4,12 +4,12 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AppleDiskNumberBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_3 = null;
 
     /* renamed from: a  reason: collision with root package name */
     int f4053a;
@@ -37,7 +37,7 @@ public class AppleDiskNumberBox extends AppleDataBox {
     }
 
     public void setA(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.RD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Sg(i)));
         this.f4053a = i;
     }
 

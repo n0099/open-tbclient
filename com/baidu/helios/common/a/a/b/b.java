@@ -7,7 +7,7 @@ import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.security.GeneralSecurityException;
 import java.util.Random;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class b {
     private static final int[] b = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
 

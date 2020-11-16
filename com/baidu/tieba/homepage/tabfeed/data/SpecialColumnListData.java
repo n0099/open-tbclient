@@ -3,16 +3,15 @@ package com.baidu.tieba.homepage.tabfeed.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.ar;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.as;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
-/* loaded from: classes22.dex */
-public class SpecialColumnListData extends AbsThreadDataSupport implements Parcelable {
+/* loaded from: classes21.dex */
+public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implements Parcelable {
     public static final int MAX_SIZE = 3;
     private List<SpecialColumnItemData> mListData;
     private List<SpecialColumnItemData> mResultListData;
@@ -28,7 +27,7 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: BP */
+        /* renamed from: Cn */
         public SpecialColumnListData[] newArray(int i) {
             return new SpecialColumnListData[i];
         }
@@ -73,22 +72,22 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
         this.mResultListData = parcel.createTypedArrayList(SpecialColumnItemData.CREATOR);
     }
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
         return TYPE;
     }
 
-    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bjZ() {
+    @Override // com.baidu.tbadk.core.data.a
+    public bx bjd() {
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bkb() {
+    @Override // com.baidu.tbadk.core.data.a
+    public as bjf() {
         return null;
     }
 
-    public List<SpecialColumnItemData> cLR() {
+    public List<SpecialColumnItemData> cLy() {
         return this.mListData;
     }
 
@@ -96,7 +95,7 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
         return this.title;
     }
 
-    public List<SpecialColumnItemData> bPn() {
+    public List<SpecialColumnItemData> bOG() {
         return this.mResultListData;
     }
 

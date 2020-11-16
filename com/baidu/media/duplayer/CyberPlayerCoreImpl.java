@@ -1,7 +1,6 @@
 package com.baidu.media.duplayer;
 
 import android.content.Context;
-import android.util.AttributeSet;
 import com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider;
@@ -11,13 +10,12 @@ import com.baidu.cyberplayer.sdk.extractor.ExtractorProvider;
 import com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder;
 import com.baidu.cyberplayer.sdk.rtc.CaptureManagerProvider;
 import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
-import com.baidu.cyberplayer.sdk.rtc.RTCVideoViewProvider;
 import com.baidu.media.duplayer.monitor.DuplayerQualityMonitorManager;
 import com.baidu.media.recorder.DuAudioRecorder;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes16.dex */
+/* loaded from: classes18.dex */
 public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public long caculateFolderSize() {
@@ -54,12 +52,7 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public RTCRoomProvider createRTCRoom() {
-        return com.baidu.media.ext.a.ZV();
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public RTCVideoViewProvider createRTCVideoView(Context context, AttributeSet attributeSet) {
-        return com.baidu.media.ext.a.a(context, attributeSet);
+        return com.baidu.media.ext.a.Zm();
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider

@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class b extends RecyclerView.Adapter<c> {
     private List<com.baidu.tieba.barselect.data.a> mDataList = new ArrayList();
 

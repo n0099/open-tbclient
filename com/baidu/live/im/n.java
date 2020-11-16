@@ -12,74 +12,74 @@ import com.baidu.live.im.l;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class n implements IConnectListener {
-    public static String bkm = "imlog";
-    private static boolean bkn = false;
-    private a bkp;
-    private String bkq;
-    private boolean bko = false;
+    public static String biB = "imlog";
+    private static boolean biC = false;
+    private a biE;
+    private String biF;
+    private boolean biD = false;
     private boolean mIsInited = false;
 
     public void init(String str) {
-        this.bkq = str;
+        this.biF = str;
         if (!this.mIsInited) {
             this.mIsInited = true;
-            l.LS().init(TbadkCoreApplication.getInst());
-            LX();
-            LW();
-            if (this.bkp == null) {
-                this.bkp = new a();
+            l.Lj().init(TbadkCoreApplication.getInst());
+            Lo();
+            Ln();
+            if (this.biE == null) {
+                this.biE = new a();
             }
-            this.bkp.register();
-            if (!bkn) {
-                bkn = true;
+            this.biE.register();
+            if (!biC) {
+                biC = true;
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                 com.baidu.h.b.a.aJ(inst).a(new com.baidu.h.b.a.a.b(inst, new com.baidu.h.b.a.b(inst)));
-                f.Lu().av(inst);
+                f.KL().av(inst);
             }
         }
     }
 
-    public void LW() {
-        l.LS().a(new l.a() { // from class: com.baidu.live.im.n.1
+    public void Ln() {
+        l.Lj().a(new l.a() { // from class: com.baidu.live.im.n.1
             @Override // com.baidu.live.im.l.a
             public void r(int i, String str) {
-                LogUtils.d(n.bkm + "LiveIMManager", "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str + ", isConnected = " + n.this.bko);
-                if (i == 0 && !n.this.bko) {
+                LogUtils.d(n.biB + "LiveIMManager", "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str + ", isConnected = " + n.this.biD);
+                if (i == 0 && !n.this.biD) {
                     n.this.onResult(0);
                 }
             }
         });
     }
 
-    private void LX() {
-        LogUtils.d(bkm + "LiveIMManager", "registerIMConnectListener");
-        this.bko = false;
+    private void Lo() {
+        LogUtils.d(biB + "LiveIMManager", "registerIMConnectListener");
+        this.biD = false;
         BIMManager.unregisterConnectListener();
         BIMManager.registerConnectListener(this);
     }
 
     @Override // com.baidu.android.imsdk.account.IConnectListener
     public void onResult(int i) {
-        LogUtils.d(bkm + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
-        this.bko = true;
+        LogUtils.d(biB + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
+        this.biD = true;
         if (i == 0) {
-            LogUtils.d(bkm + "LiveIMManager", "IConnectListener net connect");
+            LogUtils.d(biB + "LiveIMManager", "IConnectListener net connect");
         } else if (i == 1) {
-            LogUtils.d(bkm + "LiveIMManager", "IConnectListener net disconnect");
+            LogUtils.d(biB + "LiveIMManager", "IConnectListener net disconnect");
         }
     }
 
-    public void hK(String str) {
-        if (this.bkq == null || this.bkq.equals(str)) {
+    public void hE(String str) {
+        if (this.biF == null || this.biF.equals(str)) {
             this.mIsInited = false;
-            LogUtils.d(bkm + "LiveIMManager", "destroy");
-            this.bko = false;
-            if (this.bkp != null) {
-                this.bkp.destroy();
-                this.bkp = null;
+            LogUtils.d(biB + "LiveIMManager", "destroy");
+            this.biD = false;
+            if (this.biE != null) {
+                this.biE.destroy();
+                this.biE = null;
             }
             BIMManager.unregisterConnectListener();
-            l.LS().destroy();
+            l.Lj().destroy();
         }
     }
 

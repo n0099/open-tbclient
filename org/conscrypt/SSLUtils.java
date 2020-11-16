@@ -14,7 +14,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 final class SSLUtils {
     private static final String KEY_TYPE_EC = "EC";
     private static final String KEY_TYPE_RSA = "RSA";
@@ -24,7 +24,7 @@ final class SSLUtils {
     static final boolean USE_ENGINE_SOCKET_BY_DEFAULT = Boolean.parseBoolean(System.getProperty("org.conscrypt.useEngineSocketByDefault", "false"));
     private static final Charset US_ASCII = Charset.forName("US-ASCII");
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     enum SessionType {
         OPEN_SSL(1),
         OPEN_SSL_WITH_OCSP(2),
@@ -42,7 +42,7 @@ final class SSLUtils {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     static final class EngineStates {
         static final int STATE_CLOSED = 8;
         static final int STATE_CLOSED_INBOUND = 6;

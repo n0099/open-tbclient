@@ -7,26 +7,26 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.z;
 import com.baidu.tieba.frs.j;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes4.dex */
-public class d extends k<bw, a> implements com.baidu.tieba.a.f, z {
-    private String ahu;
-    private com.baidu.tieba.ala.livecard.b.c gSC;
-    private ab<bw> gSD;
+public class d extends k<bx, a> implements com.baidu.tieba.a.f, z {
+    private String ahw;
+    private com.baidu.tieba.ala.livecard.b.c gSj;
+    private ab<bx> gSk;
     private String mForumName;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.gSD = new ab<bw>() { // from class: com.baidu.tieba.ala.livecard.adapters.d.1
+        this.gSk = new ab<bx>() { // from class: com.baidu.tieba.ala.livecard.adapters.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
-            public void a(View view, bw bwVar) {
+            public void a(View view, bx bxVar) {
                 CustomMessage customMessage = null;
                 if (view.getId() == R.id.layout_root) {
                     customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_CLICK);
@@ -36,7 +36,7 @@ public class d extends k<bw, a> implements com.baidu.tieba.a.f, z {
                     customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_VIDEO_CLICK);
                 }
                 if (customMessage != null && d.this.mPageContext != null) {
-                    customMessage.setData(bwVar);
+                    customMessage.setData(bxVar);
                     d.this.mPageContext.sendMessage(customMessage);
                 }
             }
@@ -46,38 +46,39 @@ public class d extends k<bw, a> implements com.baidu.tieba.a.f, z {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: at */
+    /* renamed from: ap */
     public a c(ViewGroup viewGroup) {
         if (this.mPageContext == null) {
             return null;
         }
-        this.gSC = new com.baidu.tieba.ala.livecard.b.c(this.mPageContext, this.mPageId);
-        this.gSC.setForumName(this.mForumName);
-        this.gSC.c(this.gSD);
-        return new a(this.gSC);
+        this.gSj = new com.baidu.tieba.ala.livecard.b.c(this.mPageContext, this.mPageId);
+        this.gSj.o(this.mPageId);
+        this.gSj.setForumName(this.mForumName);
+        this.gSj.c(this.gSk);
+        return new a(this.gSj);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bw bwVar, a aVar) {
+    public View a(int i, View view, ViewGroup viewGroup, bx bxVar, a aVar) {
         CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);
         int i2 = 0;
-        if (this.iGN != null) {
-            i2 = this.iGN.getTopThreadSize();
+        if (this.iHB != null) {
+            i2 = this.iHB.getTopThreadSize();
         }
-        bwVar.eBK = (i + 1) - i2;
-        customMessage.setData(bwVar);
+        bxVar.eAb = (i + 1) - i2;
+        customMessage.setData(bxVar);
         this.mPageContext.sendMessage(customMessage);
-        if (bwVar != null) {
-            if (aVar.gSF instanceof com.baidu.tieba.a.e) {
-                aVar.gSF.setPage(this.ahu);
+        if (bxVar != null) {
+            if (aVar.gSm instanceof com.baidu.tieba.a.e) {
+                aVar.gSm.setPage(this.ahw);
             }
-            aVar.gSF.setForumName(this.mForumName);
-            j.a(aVar.gSF.bVY(), this.iGN);
-            j.a(aVar.gSF.bVZ(), this.iGN);
-            aVar.gSF.a(bwVar);
-            bwVar.bnM();
+            aVar.gSm.setForumName(this.mForumName);
+            j.a(aVar.gSm.bVr(), this.iHB);
+            j.a(aVar.gSm.bVs(), this.iHB);
+            aVar.gSm.a(bxVar);
+            bxVar.bmQ();
         }
         return aVar.getView();
     }
@@ -88,21 +89,21 @@ public class d extends k<bw, a> implements com.baidu.tieba.a.f, z {
     }
 
     @Override // com.baidu.tieba.card.z
-    public void vd(int i) {
+    public void vB(int i) {
     }
 
     @Override // com.baidu.tieba.a.f
-    public void EZ(String str) {
-        this.ahu = str;
+    public void EA(String str) {
+        this.ahw = str;
     }
 
     /* loaded from: classes4.dex */
     public static class a extends af.a {
-        public com.baidu.tieba.ala.livecard.b.c gSF;
+        public com.baidu.tieba.ala.livecard.b.c gSm;
 
         public a(com.baidu.tieba.ala.livecard.b.c cVar) {
             super(cVar.getView());
-            this.gSF = cVar;
+            this.gSm = cVar;
         }
     }
 }

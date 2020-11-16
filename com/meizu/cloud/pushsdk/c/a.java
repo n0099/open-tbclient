@@ -11,7 +11,7 @@ import com.meizu.cloud.pushsdk.c.e.c;
 import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

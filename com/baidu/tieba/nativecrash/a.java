@@ -12,39 +12,39 @@ import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tieba.nativecrash.BdNativeCrash;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private static String lbg = "native_crash_log.log";
-    private static List<String> lbh = new ArrayList();
-    private static BroadcastReceiver Sp = new BroadcastReceiver() { // from class: com.baidu.tieba.nativecrash.a.1
+    private static String lby = "native_crash_log.log";
+    private static List<String> lbz = new ArrayList();
+    private static BroadcastReceiver Sq = new BroadcastReceiver() { // from class: com.baidu.tieba.nativecrash.a.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (intent != null) {
                 String stringExtra = intent.getStringExtra("package_name");
                 if (!TextUtils.isEmpty(stringExtra) && "com.baidu.adp.plugin.installed".equals(intent.getAction())) {
-                    b.bqh().putInt("native_crash_count_" + stringExtra, 0);
+                    b.bpu().putInt("native_crash_count_" + stringExtra, 0);
                 }
             }
         }
     };
-    private static BdNativeCrash.a lbi = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
+    private static BdNativeCrash.a lbA = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
     };
 
-    public static void dfl() {
-        if (BdNativeCrash.lbf) {
-            BdNativeCrash.dfk().fN(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
-            BdNativeCrash.dfk().a(lbi);
-            dfm();
+    public static void deI() {
+        if (BdNativeCrash.lbx) {
+            BdNativeCrash.deH().fN(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
+            BdNativeCrash.deH().a(lbA);
+            deJ();
         }
     }
 
-    private static void dfm() {
+    private static void deJ() {
         try {
             Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.adp.plugin.installed");
             intentFilter.setPriority(-1000);
-            applicationContext.registerReceiver(Sp, intentFilter);
+            applicationContext.registerReceiver(Sq, intentFilter);
         } catch (Exception e) {
             BdLog.e(e);
         }

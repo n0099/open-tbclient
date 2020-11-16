@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.b.a;
 
 import com.meizu.cloud.pushsdk.b.c.k;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class c<T> {
 
     /* renamed from: a  reason: collision with root package name */

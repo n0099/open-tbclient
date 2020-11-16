@@ -13,16 +13,16 @@ import java.util.Iterator;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class c {
-    private static SimpleDateFormat aoU;
-    private static PackageManager aoV;
+    private static SimpleDateFormat apa;
+    private static PackageManager apb;
 
     public static String a(Date date) {
-        if (aoU == null) {
-            aoU = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (apa == null) {
+            apa = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return aoU.format(date);
+        return apa.format(date);
     }
 
     public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -135,7 +135,7 @@ public final class c {
         return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 
-    public static byte[] dD(String str) {
+    public static byte[] dF(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -152,11 +152,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (aoV == null) {
-            aoV = context.getPackageManager();
+        if (apb == null) {
+            apb = context.getPackageManager();
         }
         try {
-            return aoV.checkPermission(str, context.getPackageName()) == 0;
+            return apb.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }
@@ -171,9 +171,9 @@ public final class c {
             th = th.getCause();
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
-        String vo = p.vo();
+        String vn = p.vn();
         for (int i = 0; i < stackTrace.length; i++) {
-            if (stackTrace[i].getClassName().contains(vo)) {
+            if (stackTrace[i].getClassName().contains(vn)) {
                 return stackTrace[i].toString();
             }
         }

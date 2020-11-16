@@ -8,42 +8,42 @@ import android.util.Pair;
 import com.baidu.swan.apps.api.a.d;
 import com.baidu.swan.apps.console.c;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a extends d {
     public a(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b ow(String str) {
+    public com.baidu.swan.apps.api.c.b oq(String str) {
         if (DEBUG) {
             Log.d("Api-GameCenterApi", "postGameCenterMessage: " + str);
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj = com.baidu.swan.apps.api.d.b.bj("Api-GameCenterApi", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bj.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bi = com.baidu.swan.apps.api.d.b.bi("Api-GameCenterApi", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bi.first;
         if (!bVar.isSuccess()) {
             c.e("Api-GameCenterApi", "parse fail");
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) bj.second;
+        JSONObject jSONObject = (JSONObject) bi.second;
         String optString = jSONObject.optString("cb");
         if (TextUtils.isEmpty(optString)) {
             c.e("Api-GameCenterApi", "empty cb");
             return new com.baidu.swan.apps.api.c.b(202, "empty cb");
         }
-        return a(jSONObject, new C0457a(optString));
+        return a(jSONObject, new C0455a(optString));
     }
 
-    public com.baidu.swan.apps.api.c.b ox(String str) {
+    public com.baidu.swan.apps.api.c.b or(String str) {
         if (DEBUG) {
             Log.d("Api-GameCenterApi", "postGameCenterMessageSync: " + str);
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj = com.baidu.swan.apps.api.d.b.bj("Api-GameCenterApi", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bj.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bi = com.baidu.swan.apps.api.d.b.bi("Api-GameCenterApi", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bi.first;
         if (!bVar.isSuccess()) {
             c.e("Api-GameCenterApi", "parse fail");
             return bVar;
         }
-        return a((JSONObject) bj.second, new b());
+        return a((JSONObject) bi.second, new b());
     }
 
     private com.baidu.swan.apps.api.c.b a(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.o.b bVar) {
@@ -55,7 +55,7 @@ public class a extends d {
         if (optJSONObject == null) {
             optJSONObject = new JSONObject();
         }
-        com.baidu.swan.apps.api.c.b a2 = com.baidu.swan.apps.t.a.axx().a(optString, optJSONObject, bVar);
+        com.baidu.swan.apps.api.c.b a2 = com.baidu.swan.apps.t.a.awP().a(optString, optJSONObject, bVar);
         if (a2 == null) {
             return new com.baidu.swan.apps.api.c.b(0);
         }
@@ -64,17 +64,17 @@ public class a extends d {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.o.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C0457a implements com.baidu.swan.apps.o.b {
-        private String cvk;
+    /* loaded from: classes7.dex */
+    public class C0455a implements com.baidu.swan.apps.o.b {
+        private String cty;
 
-        private C0457a(String str) {
-            this.cvk = str;
+        private C0455a(String str) {
+            this.cty = str;
         }
 
         @Override // com.baidu.swan.apps.o.b
-        public void aE(@Nullable JSONObject jSONObject) {
-            a.this.a(this.cvk, jSONObject == null ? new com.baidu.swan.apps.api.c.b(0) : new com.baidu.swan.apps.api.c.b(0, jSONObject));
+        public void ay(@Nullable JSONObject jSONObject) {
+            a.this.a(this.cty, jSONObject == null ? new com.baidu.swan.apps.api.c.b(0) : new com.baidu.swan.apps.api.c.b(0, jSONObject));
         }
 
         @Override // com.baidu.swan.apps.o.b
@@ -82,18 +82,18 @@ public class a extends d {
             if (d.DEBUG && i == 0) {
                 Log.e("Api-GameCenterApi", "GameCenterCallback:onFail errCode cannot be ERR_OK.");
             }
-            a.this.a(this.cvk, str == null ? new com.baidu.swan.apps.api.c.b(i) : new com.baidu.swan.apps.api.c.b(i, str));
+            a.this.a(this.cty, str == null ? new com.baidu.swan.apps.api.c.b(i) : new com.baidu.swan.apps.api.c.b(i, str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public class b implements com.baidu.swan.apps.o.b {
         private b() {
         }
 
         @Override // com.baidu.swan.apps.o.b
-        public void aE(@Nullable JSONObject jSONObject) {
+        public void ay(@Nullable JSONObject jSONObject) {
             if (d.DEBUG) {
                 Log.e("Api-GameCenterApi", "GameCenterEmptyCallback:onSuccess could not be invoked.");
             }

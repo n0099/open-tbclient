@@ -8,9 +8,9 @@ import com.baidu.cesium.g;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.Comparator;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public abstract class a {
-    public static Comparator<a> amd = new Comparator<a>() { // from class: com.baidu.cesium.b.a.1
+    public static Comparator<a> amj = new Comparator<a>() { // from class: com.baidu.cesium.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -19,29 +19,29 @@ public abstract class a {
             return b2 != 0 ? b2 > 0 ? -1 : 1 : aVar.a().compareTo(aVar2.a());
         }
     };
-    protected C0099a amb;
-    protected a.C0102a amc;
+    protected C0098a amh;
+    protected a.C0101a ami;
     private final String e;
     private long f;
 
     /* renamed from: com.baidu.cesium.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0099a {
+    /* loaded from: classes19.dex */
+    public static class C0098a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f1294a;
-        public com.baidu.cesium.e.a ame;
+        public Context f1297a;
+        public com.baidu.cesium.e.a amk;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static abstract class b {
-        private a.C0102a amf;
+        private a.C0101a aml;
         private String b;
         private String c;
         private boolean d = true;
 
-        public b(a.C0102a c0102a, String str) {
-            this.amf = c0102a;
+        public b(a.C0101a c0101a, String str) {
+            this.aml = c0101a;
             this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
@@ -53,7 +53,7 @@ public abstract class a {
         }
 
         public boolean a() {
-            String a2 = this.amf.a(this.c, true);
+            String a2 = this.aml.a(this.c, true);
             if (!TextUtils.isEmpty(a2)) {
                 try {
                     a(new JSONObject(a2));
@@ -72,7 +72,7 @@ public abstract class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     b(jSONObject);
-                    this.amf.c(this.c, jSONObject.toString(), true);
+                    this.aml.c(this.c, jSONObject.toString(), true);
                     a(false);
                     return true;
                 } catch (Exception e) {
@@ -82,15 +82,15 @@ public abstract class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class c {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class d {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class e {
         public Exception e;
         private int f;
@@ -102,41 +102,41 @@ public abstract class a {
             this.e = exc;
         }
 
-        public static e bF(int i) {
+        public static e bD(int i) {
             return new e(-1, i, null);
         }
 
-        public static e ur() {
+        public static e uq() {
             return new e(0, 0, null);
         }
 
-        public static e us() {
-            return bF(0);
+        public static e ur() {
+            return bD(0);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1295a;
+        public boolean f1298a;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public g.a f1296a;
-        public Exception acZ;
+        public g.a f1299a;
+        public Exception adf;
         public int b;
 
         public g(int i, g.a aVar, Exception exc) {
             this.b = i;
-            this.f1296a = aVar;
-            this.acZ = exc;
+            this.f1299a = aVar;
+            this.adf = exc;
         }
 
-        public static g bG(int i) {
+        public static g bE(int i) {
             return new g(i, null, null);
         }
 
@@ -144,7 +144,7 @@ public abstract class a {
             return new g(0, aVar, null);
         }
 
-        public static g ut() {
+        public static g us() {
             return new g(-1, null, null);
         }
 
@@ -166,9 +166,9 @@ public abstract class a {
         return this.e;
     }
 
-    public final void a(C0099a c0099a) {
-        this.amb = c0099a;
-        this.amc = c0099a.ame.uw().m20do(IXAdRequestInfo.CS);
+    public final void a(C0098a c0098a) {
+        this.amh = c0098a;
+        this.ami = c0098a.amk.uv().dq(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

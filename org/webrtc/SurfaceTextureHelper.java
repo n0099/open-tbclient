@@ -10,7 +10,7 @@ import android.support.annotation.Nullable;
 import java.util.concurrent.Callable;
 import org.webrtc.EglBase;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class SurfaceTextureHelper {
     private static final String TAG = "SurfaceTextureHelper";
     private final EglBase eglBase;

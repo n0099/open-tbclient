@@ -11,7 +11,7 @@ import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.utils.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class OneKeyLoginSdkCall {
 
     /* renamed from: a  reason: collision with root package name */
@@ -35,7 +35,7 @@ public class OneKeyLoginSdkCall {
     static String r;
     static String s;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface TokenListener extends NoProguard {
         void onGetTokenComplete(JSONObject jSONObject);
     }
@@ -79,7 +79,7 @@ public class OneKeyLoginSdkCall {
         }
         if ((TextUtils.isEmpty(sapiConfiguration.chinaMobileAppID) || TextUtils.isEmpty(sapiConfiguration.chinaMobileAppKey)) ? false : true) {
             try {
-                jSONObject = com.cmic.sso.sdk.b.a.bt(sapiConfiguration.context, "rsa2048").gU(sapiConfiguration.context);
+                jSONObject = com.cmic.sso.sdk.b.a.bq(sapiConfiguration.context, "rsa2048").gS(sapiConfiguration.context);
             } catch (Throwable th) {
                 Log.e(f3483a, th);
                 jSONObject = null;
@@ -164,7 +164,7 @@ public class OneKeyLoginSdkCall {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put(BaseJsonData.TAG_ERRNO, "-1");
-                jSONObject = com.cmic.sso.sdk.b.a.bt(sapiConfiguration.context, "rsa2048").gU(sapiConfiguration.context);
+                jSONObject = com.cmic.sso.sdk.b.a.bq(sapiConfiguration.context, "rsa2048").gS(sapiConfiguration.context);
             } catch (Throwable th) {
                 Log.e(f3483a, th);
                 jSONObject = null;

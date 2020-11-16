@@ -6,12 +6,12 @@ import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.sysParamters;
 import com.huawei.android.hms.pps.AdvertisingIdClient;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
     private Context f3981a;
-    private SupplierListener oId;
+    private SupplierListener oJH;
     private boolean f = false;
     private String b = "";
     private String c = "";
@@ -27,11 +27,11 @@ public class a implements InnerIdSupplier {
         try {
             this.f = !TextUtils.isEmpty(this.c);
             if (this.f) {
-                if (this.oId != null) {
-                    this.oId.OnSupport(this.f, this);
+                if (this.oJH != null) {
+                    this.oJH.OnSupport(this.f, this);
                 }
-            } else if (this.oId != null) {
-                this.oId.OnSupport(this.f, new com.bun.miitmdid.supplier.a());
+            } else if (this.oJH != null) {
+                this.oJH.OnSupport(this.f, new com.bun.miitmdid.supplier.a());
             }
         } catch (Exception e) {
             com.bun.miitmdid.utils.a.a(getClass().getSimpleName(), "CallBack", e);
@@ -40,7 +40,7 @@ public class a implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void a(SupplierListener supplierListener) {
-        this.oId = supplierListener;
+        this.oJH = supplierListener;
         new Thread(new Runnable() { // from class: com.bun.miitmdid.supplier.b.a.1
             @Override // java.lang.Runnable
             public void run() {

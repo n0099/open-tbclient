@@ -1,9 +1,9 @@
 package a.a.a.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f953a = 10;
+    public int f956a = 10;
     public int b = 2;
 
     public int a() {

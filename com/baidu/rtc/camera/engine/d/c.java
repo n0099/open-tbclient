@@ -1,23 +1,23 @@
 package com.baidu.rtc.camera.engine.d;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public final class c {
-    private com.baidu.rtc.camera.engine.a.b cnH = com.baidu.rtc.camera.engine.a.b.aec();
-    private b cnM;
+    private com.baidu.rtc.camera.engine.a.b clV = com.baidu.rtc.camera.engine.a.b.adu();
+    private b cma;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, com.baidu.rtc.camera.engine.b.a aVar) {
-        this.cnM = bVar;
-        this.cnH.cnC = aVar;
+        this.cma = bVar;
+        this.clV.clQ = aVar;
     }
 
     public c a(com.baidu.rtc.camera.engine.b.b bVar) {
-        this.cnH.cnD = bVar;
+        this.clV.clR = bVar;
         return this;
     }
 
     public void aZ(Context context) {
-        this.cnM.aZ(context);
+        this.cma.aZ(context);
     }
 }

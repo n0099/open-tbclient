@@ -40,7 +40,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class ScreenCapEditActivity extends Activity implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
 
     /* renamed from: a  reason: collision with root package name */
@@ -350,30 +350,6 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         return externalStorageDirectory.toString();
     }
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Failed to check method usage
-    java.lang.NullPointerException: Cannot invoke "jadx.core.dex.nodes.MethodNode.getTopParentClass()" because "m" is null
-    	at jadx.core.codegen.ClassGen.lambda$skipMethod$3(ClassGen.java:331)
-    	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
-    	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
-    	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-    	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-    	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-    	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-    	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
-    	at jadx.core.codegen.ClassGen.skipMethod(ClassGen.java:332)
-    	at jadx.core.codegen.ClassGen.addMethod(ClassGen.java:298)
-    	at jadx.core.codegen.ClassGen.lambda$addInnerClsAndMethods$2(ClassGen.java:272)
-    	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
-    	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-    	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
-    	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
-     */
-    public static /* synthetic */ void b(ScreenCapEditActivity screenCapEditActivity, boolean z) {
-        screenCapEditActivity.a(z);
-    }
-
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void i(ScreenCapEditActivity screenCapEditActivity) {
         int i = 90;
@@ -422,27 +398,6 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.ufosdk.screencapedt.g.onClick(android.view.View):void] */
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ ImageView m(ScreenCapEditActivity screenCapEditActivity) {
-        return screenCapEditActivity.e;
-    }
-
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.ufosdk.screencapedt.g.onClick(android.view.View):void] */
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ Bitmap n(ScreenCapEditActivity screenCapEditActivity) {
-        return screenCapEditActivity.g;
-    }
-
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.ufosdk.screencapedt.g.onClick(android.view.View):void] */
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ Handler o(ScreenCapEditActivity screenCapEditActivity) {
-        return screenCapEditActivity.N;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback

@@ -2,7 +2,7 @@ package com.baidu.util;
 
 import android.content.Context;
 import android.util.Log;
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 public class LogUtil {
 
     /* renamed from: a  reason: collision with root package name */

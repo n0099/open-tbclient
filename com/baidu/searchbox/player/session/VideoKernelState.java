@@ -6,7 +6,7 @@ import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.searchbox.player.event.StateEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.message.IMessenger;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public class VideoKernelState {
     private IMessenger mCourier;
     private PlayerStatus mStatus;

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class b extends SurfaceView implements SurfaceHolder.Callback {
 
     /* renamed from: a  reason: collision with root package name */

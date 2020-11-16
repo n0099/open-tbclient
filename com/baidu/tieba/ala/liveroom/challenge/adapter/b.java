@@ -14,7 +14,7 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
     private List<com.baidu.tieba.ala.liveroom.challenge.a.b> dataList;
-    public String hac;
+    public String gZJ;
     private Context mContext;
 
     public b(Context context, List<com.baidu.tieba.ala.liveroom.challenge.a.b> list) {
@@ -49,7 +49,7 @@ public class b extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.layout_item_mvp_choose_punish, (ViewGroup) null);
             a aVar2 = new a(view);
-            aVar2.had.setDefaultBgResource(a.e.sdk_shape_transparent);
+            aVar2.gZK.setDefaultBgResource(a.e.sdk_shape_transparent);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -57,29 +57,29 @@ public class b extends BaseAdapter {
         }
         com.baidu.tieba.ala.liveroom.challenge.a.b bVar = (com.baidu.tieba.ala.liveroom.challenge.a.b) getItem(i);
         if (bVar != null) {
-            aVar.had.startLoad(bVar.bgurl, 10, false);
-            if (TextUtils.equals(this.hac, bVar.id)) {
-                aVar.hae.setImageResource(a.e.icon_mvp_choose_punish_check);
+            aVar.gZK.startLoad(bVar.bgurl, 10, false);
+            if (TextUtils.equals(this.gZJ, bVar.id)) {
+                aVar.gZL.setImageResource(a.e.icon_mvp_choose_punish_check);
             } else {
-                aVar.hae.setImageResource(a.e.icon_mvp_choose_punish_not_check);
+                aVar.gZL.setImageResource(a.e.icon_mvp_choose_punish_not_check);
             }
-            aVar.haf.setText(bVar.name);
+            aVar.gZM.setText(bVar.name);
         }
         return view;
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        public TbImageView had;
-        public ImageView hae;
-        public TextView haf;
+        public TbImageView gZK;
+        public ImageView gZL;
+        public TextView gZM;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.had = (TbImageView) view.findViewById(a.f.sticker_imageView);
-            this.hae = (ImageView) view.findViewById(a.f.check_imageView);
-            this.haf = (TextView) view.findViewById(a.f.stickerName_textView);
+            this.gZK = (TbImageView) view.findViewById(a.f.sticker_imageView);
+            this.gZL = (ImageView) view.findViewById(a.f.check_imageView);
+            this.gZM = (TextView) view.findViewById(a.f.stickerName_textView);
         }
     }
 }

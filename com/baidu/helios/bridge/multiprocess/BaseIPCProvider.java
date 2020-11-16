@@ -11,18 +11,18 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.helios.bridge.a;
 import com.baidu.helios.bridge.multiprocess.e;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseIPCProvider extends ContentProvider {
-    private e awM;
-    private UriMatcher awN = new UriMatcher(-1);
+    private e avb;
+    private UriMatcher avc = new UriMatcher(-1);
 
     private String a(String str) {
-        return str + Af();
+        return str + zw();
     }
 
     private synchronized void a() {
-        if (this.awM == null) {
-            this.awM = new e.a() { // from class: com.baidu.helios.bridge.multiprocess.BaseIPCProvider.1
+        if (this.avb == null) {
+            this.avb = new e.a() { // from class: com.baidu.helios.bridge.multiprocess.BaseIPCProvider.1
                 private g e;
 
                 {
@@ -31,7 +31,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
 
                 @Override // com.baidu.helios.bridge.multiprocess.e
                 public Bundle a(String str, Bundle bundle) {
-                    a.d c = this.e.Ag().c(str, bundle);
+                    a.d c = this.e.zx().c(str, bundle);
                     if (c == null) {
                         return null;
                     }
@@ -40,7 +40,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
 
                 @Override // com.baidu.helios.bridge.multiprocess.e
                 public void a(String str, Bundle bundle, final f fVar) {
-                    this.e.Ag().a(str, bundle, new a.c<String>() { // from class: com.baidu.helios.bridge.multiprocess.BaseIPCProvider.1.1
+                    this.e.zx().a(str, bundle, new a.c<String>() { // from class: com.baidu.helios.bridge.multiprocess.BaseIPCProvider.1.1
                         @Override // com.baidu.helios.bridge.a.c
                         public void a(int i, Exception exc, Bundle bundle2) {
                             try {
@@ -62,13 +62,11 @@ public abstract class BaseIPCProvider extends ContentProvider {
 
                 @Override // com.baidu.helios.bridge.multiprocess.e
                 public boolean a(String str) {
-                    return this.e.Ag().fx(str);
+                    return this.e.zx().fr(str);
                 }
             };
         }
     }
-
-    public abstract String Af();
 
     @Override // android.content.ContentProvider
     public Bundle call(String str, String str2, Bundle bundle) {
@@ -87,7 +85,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
             switch (c) {
                 case 0:
                     a();
-                    h.a(bundle2, this.awM.asBinder());
+                    h.a(bundle2, this.avb.asBinder());
                     return bundle2;
             }
         }
@@ -111,20 +109,20 @@ public abstract class BaseIPCProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        this.awN.addURI(a(getContext().getPackageName()), "ipc/method/get_bridge", 0);
+        this.avc.addURI(a(getContext().getPackageName()), "ipc/method/get_bridge", 0);
         Log.i("Helios", "provider onCreate");
         return true;
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        int match = this.awN.match(uri);
+        int match = this.avc.match(uri);
         Log.i("Helios", "provider query, code = " + match);
         switch (match) {
             case 0:
                 a();
                 Bundle bundle = new Bundle();
-                h.a(bundle, this.awM.asBinder());
+                h.a(bundle, this.avb.asBinder());
                 return new d(bundle);
             default:
                 return null;
@@ -135,4 +133,6 @@ public abstract class BaseIPCProvider extends ContentProvider {
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         return 0;
     }
+
+    public abstract String zw();
 }

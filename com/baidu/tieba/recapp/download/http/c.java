@@ -9,7 +9,7 @@ import java.util.List;
 import org.apache.http.cookie.SM;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class c {
     private static String MF;
     private static String MG;
@@ -17,8 +17,8 @@ public class c {
     private static String MI;
     private static String sUid;
     private long MQ;
-    private g mun;
-    private d muo;
+    private g muD;
+    private d muE;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
@@ -38,33 +38,33 @@ public class c {
     }
 
     public i b(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.mun = new g();
-        a(this.mun, z);
-        this.mun.dAD().setUrl(str);
-        this.muo = new d(this.mun);
-        this.muo.d(i, i3, i4);
-        return this.mun.dAE();
+        this.muD = new g();
+        a(this.muD, z);
+        this.muD.dAd().setUrl(str);
+        this.muE = new d(this.muD);
+        this.muE.d(i, i3, i4);
+        return this.muD.dAe();
     }
 
     public i b(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.mun = new g();
-        a(this.mun, z);
-        this.mun.dAD().setUrl(str);
+        this.muD = new g();
+        a(this.muD, z);
+        this.muD.dAd().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.mun.dAD().addPostData(basicNameValuePair);
+                this.muD.dAd().addPostData(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.mun.dAD().u(next.getName(), next.getValue());
+                this.muD.dAd().u(next.getName(), next.getValue());
             }
         }
-        this.muo = new d(this.mun);
-        this.muo.f(i, i2, -1);
-        return this.mun.dAE();
+        this.muE = new d(this.muD);
+        this.muE.f(i, i2, -1);
+        return this.muD.dAe();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2) {
@@ -72,11 +72,11 @@ public class c {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2, boolean z3) {
-        this.mun = new g();
-        b(this.mun);
-        this.mun.dAD().setUrl(str);
-        this.muo = new d(this.mun);
-        return this.muo.a(str2, jVar, i, i2, i3, i4, z2, z3);
+        this.muD = new g();
+        b(this.muD);
+        this.muD.dAd().setUrl(str);
+        this.muE = new d(this.muD);
+        return this.muE.a(str2, jVar, i, i2, i3, i4, z2, z3);
     }
 
     public c() {
@@ -84,54 +84,54 @@ public class c {
     }
 
     public void cancel() {
-        if (this.muo != null) {
-            this.muo.cancel();
+        if (this.muE != null) {
+            this.muE.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.muo != null) {
-            return this.muo.isCancel();
+        if (this.muE != null) {
+            return this.muE.isCancel();
         }
         return false;
     }
 
     public void setCancel() {
-        if (this.muo != null) {
-            this.muo.setCancel();
+        if (this.muE != null) {
+            this.muE.setCancel();
         }
     }
 
-    public g dAC() {
-        return this.mun;
+    public g dAc() {
+        return this.muD;
     }
 
     private void a(g gVar, boolean z) {
         if (gVar != null) {
             if (!TextUtils.isEmpty(MF)) {
-                gVar.dAD().u(SM.COOKIE, MF);
+                gVar.dAd().u(SM.COOKIE, MF);
             } else {
-                gVar.dAD().u(SM.COOKIE, "");
+                gVar.dAd().u(SM.COOKIE, "");
             }
             if (!TextUtils.isEmpty(sUid)) {
-                gVar.dAD().u("client_user_token", sUid);
+                gVar.dAd().u("client_user_token", sUid);
             }
             if (!TextUtils.isEmpty(MG)) {
-                gVar.dAD().u("User-Agent", MG);
+                gVar.dAd().u("User-Agent", MG);
             }
             if (z) {
-                gVar.dAD().u(Headers.ACCEPT_ENCODING, "gzip");
+                gVar.dAd().u(Headers.ACCEPT_ENCODING, "gzip");
             } else {
-                gVar.dAD().u(Headers.ACCEPT_ENCODING, "");
+                gVar.dAd().u(Headers.ACCEPT_ENCODING, "");
             }
             if (MH) {
-                gVar.dAD().u(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                gVar.dAd().u(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                gVar.dAD().u(HTTP.CONN_DIRECTIVE, "close");
+                gVar.dAd().u(HTTP.CONN_DIRECTIVE, "close");
             }
-            gVar.dAD().u("client_logid", String.valueOf(this.MQ));
+            gVar.dAd().u("client_logid", String.valueOf(this.MQ));
             if (!TextUtils.isEmpty(MI)) {
-                gVar.dAD().u("cuid", MI);
+                gVar.dAd().u("cuid", MI);
             }
         }
     }

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.u;
 import tbclient.GetBawuInfo.DataReq;
 import tbclient.GetBawuInfo.GetBawuInfoReqIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class BawuTeamRequestMessage extends NetMessage {
     private long forumId;
 

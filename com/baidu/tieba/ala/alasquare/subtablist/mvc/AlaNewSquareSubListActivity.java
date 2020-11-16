@@ -9,18 +9,18 @@ import com.baidu.tbadk.BaseActivity;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {
-    private String gmd;
-    private String gqy;
-    private a grI;
-    private AlaSquareTabInfo grJ;
-    private String grK;
-    private List<String> grL;
+    private String glK;
+    private String gqf;
+    private a grp;
+    private AlaSquareTabInfo grq;
+    private String grr;
+    private List<String> grs;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.grI = new a(getPageContext(), true);
+        this.grp = new a(getPageContext(), true);
         if (getIntent() != null) {
             M(getIntent());
         } else {
@@ -29,27 +29,27 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
     }
 
     private void M(Intent intent) {
-        this.grJ = (AlaSquareTabInfo) intent.getParcelableExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_DATA);
-        this.gmd = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_NAME);
-        this.gqy = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_LABEL_NAME);
-        this.grK = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_BITMAP_RATIO);
-        this.grL = intent.getStringArrayListExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_SUB_TYPE_LIST);
-        if (this.grJ != null) {
-            if (this.grJ.iconType == 1) {
-                this.gmd = this.grJ.name;
-            } else if (this.grJ.iconType == 2) {
-                this.gmd = "游戏";
-                this.gqy = this.grJ.name;
+        this.grq = (AlaSquareTabInfo) intent.getParcelableExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_DATA);
+        this.glK = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_NAME);
+        this.gqf = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_LABEL_NAME);
+        this.grr = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_BITMAP_RATIO);
+        this.grs = intent.getStringArrayListExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_SUB_TYPE_LIST);
+        if (this.grq != null) {
+            if (this.grq.iconType == 1) {
+                this.glK = this.grq.name;
+            } else if (this.grq.iconType == 2) {
+                this.glK = "游戏";
+                this.gqf = this.grq.name;
             }
-            this.grK = this.grJ.bitmapWHRatio;
-            this.grI.a(this.grK, this.gmd, this.gqy, this.grJ.sortTypeList);
-        } else if (!StringUtils.isNull(this.gmd)) {
-            this.grI.a(this.grK, this.gmd, this.gqy, this.grL);
+            this.grr = this.grq.bitmapWHRatio;
+            this.grp.a(this.grr, this.glK, this.gqf, this.grq.sortTypeList);
+        } else if (!StringUtils.isNull(this.glK)) {
+            this.grp.a(this.grr, this.glK, this.gqf, this.grs);
         } else {
             finish();
         }
-        if (this.grI.getRootView() != null) {
-            setContentView(this.grI.getRootView());
+        if (this.grp.getRootView() != null) {
+            setContentView(this.grp.getRootView());
         }
     }
 
@@ -57,15 +57,15 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.grI.refreshData();
+        this.grp.refreshData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.grI != null) {
-            this.grI.onChangeSkinType(getPageContext(), i);
+        if (this.grp != null) {
+            this.grp.onChangeSkinType(getPageContext(), i);
         }
     }
 
@@ -73,8 +73,8 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.grI != null) {
-            this.grI.onDestroy();
+        if (this.grp != null) {
+            this.grp.onDestroy();
         }
     }
 }

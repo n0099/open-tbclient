@@ -10,13 +10,13 @@ import com.baidu.ar.npc.ArBridge;
 public class k extends OrientationEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ArBridge f1224a;
+    final /* synthetic */ ArBridge f1227a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(ArBridge arBridge, Context context, int i) {
         super(context, i);
-        this.f1224a = arBridge;
+        this.f1227a = arBridge;
     }
 
     @Override // android.view.OrientationEventListener
@@ -24,30 +24,30 @@ public class k extends OrientationEventListener {
         int i2;
         int i3;
         int i4;
-        this.f1224a.i = i;
+        this.f1227a.i = i;
         StringBuilder append = new StringBuilder().append("orientation ");
-        i2 = this.f1224a.i;
+        i2 = this.f1227a.i;
         Log.d("orientation", append.append(i2).toString());
-        i3 = this.f1224a.i;
+        i3 = this.f1227a.i;
         if (i3 >= 0) {
-            i4 = this.f1224a.i;
+            i4 = this.f1227a.i;
             int i5 = (i4 + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
             if (i5 <= 45 || i5 > 315) {
-                this.f1224a.j = ArBridge.e.SCREEN_ORIENTATION_PORTRAIT;
+                this.f1227a.j = ArBridge.e.SCREEN_ORIENTATION_PORTRAIT;
                 return;
             } else if (i5 > 45 && i5 <= 135) {
-                this.f1224a.j = ArBridge.e.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
+                this.f1227a.j = ArBridge.e.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
                 return;
             } else if (i5 > 135 && i5 <= 225) {
-                this.f1224a.j = ArBridge.e.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
+                this.f1227a.j = ArBridge.e.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
                 return;
             } else if (i5 > 225 && i5 <= 315) {
-                this.f1224a.j = ArBridge.e.SCREEN_ORIENTATION_LANDSCAPE;
+                this.f1227a.j = ArBridge.e.SCREEN_ORIENTATION_LANDSCAPE;
                 return;
             } else {
                 return;
             }
         }
-        this.f1224a.j = ArBridge.e.SCREEN_ORIENTATION_NOT_DEFINED;
+        this.f1227a.j = ArBridge.e.SCREEN_ORIENTATION_NOT_DEFINED;
     }
 }

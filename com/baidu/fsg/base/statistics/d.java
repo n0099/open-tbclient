@@ -8,7 +8,7 @@ import java.io.StringWriter;
 import java.lang.Thread;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 class d implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
@@ -22,7 +22,7 @@ class d implements Thread.UncaughtExceptionHandler {
         this();
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */

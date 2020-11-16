@@ -8,13 +8,13 @@ import java.util.Random;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class d {
-    private static byte[] W(String str, String str2) {
+    private static byte[] V(String str, String str2) {
         try {
             String substring = str2.substring(0, 16);
             String substring2 = str2.substring(str2.length() - 16, str2.length());
-            Key dE = dE(substring);
+            Key dG = dG(substring);
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             byte[] bytes = str.getBytes();
@@ -24,7 +24,7 @@ public final class d {
             }
             byte[] bArr = new byte[length];
             System.arraycopy(bytes, 0, bArr, 0, bytes.length);
-            cipher.init(1, dE, new IvParameterSpec(substring2.getBytes()));
+            cipher.init(1, dG, new IvParameterSpec(substring2.getBytes()));
             return cipher.doFinal(bArr);
         } catch (Exception e) {
             e.printStackTrace();
@@ -32,8 +32,8 @@ public final class d {
         }
     }
 
-    public static String X(String str, String str2) {
-        return Base64.encodeToString(W(str, str2), 0);
+    public static String W(String str, String str2) {
+        return Base64.encodeToString(V(str, str2), 0);
     }
 
     private static String a(String str, boolean z) {
@@ -49,7 +49,7 @@ public final class d {
         try {
             String substring = str.substring(0, 16);
             String substring2 = str.substring(str.length() - 16, str.length());
-            Key dE = dE(substring);
+            Key dG = dG(substring);
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             int length = bArr.length;
@@ -58,7 +58,7 @@ public final class d {
             }
             byte[] bArr2 = new byte[length];
             System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
-            cipher.init(1, dE, new IvParameterSpec(substring2.getBytes()));
+            cipher.init(1, dG, new IvParameterSpec(substring2.getBytes()));
             return cipher.doFinal(bArr2);
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,7 +70,7 @@ public final class d {
         return h.a(str + str2);
     }
 
-    private static Key dE(String str) {
+    private static Key dG(String str) {
         try {
             return new SecretKeySpec(str.getBytes(), com.baidu.sapi2.utils.e.q);
         } catch (Exception e) {
@@ -79,9 +79,9 @@ public final class d {
         }
     }
 
-    public static String dF(String str) {
+    public static String dH(String str) {
         try {
-            Key dE = dE(vs());
+            Key dG = dG(vr());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             byte[] bytes = str.getBytes();
@@ -91,7 +91,7 @@ public final class d {
             }
             byte[] bArr = new byte[length];
             System.arraycopy(bytes, 0, bArr, 0, bytes.length);
-            cipher.init(1, dE, new IvParameterSpec(vt().getBytes()));
+            cipher.init(1, dG, new IvParameterSpec(vs().getBytes()));
             return new String(Base64.encodeToString(cipher.doFinal(bArr), 0));
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,18 +99,18 @@ public final class d {
         }
     }
 
-    public static String dG(String str) {
+    public static String dI(String str) {
         try {
-            Key dE = dE(vs());
+            Key dG = dG(vr());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-            cipher.init(2, dE, new IvParameterSpec(vt().getBytes()));
+            cipher.init(2, dG, new IvParameterSpec(vs().getBytes()));
             return new String(cipher.doFinal(Base64.decode(str, 0))).trim();
         } catch (Exception e) {
             return null;
         }
     }
 
-    private static String vs() {
+    private static String vr() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(a(ExifInterface.LONGITUDE_WEST, false));
@@ -123,7 +123,7 @@ public final class d {
         return stringBuffer.toString();
     }
 
-    private static String vt() {
+    private static String vs() {
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i < 9; i++) {
             sb.append(String.valueOf(i));

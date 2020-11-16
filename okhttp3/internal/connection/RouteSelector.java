@@ -18,7 +18,7 @@ import okhttp3.EventListener;
 import okhttp3.HttpUrl;
 import okhttp3.Route;
 import okhttp3.internal.Util;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class RouteSelector {
     private final Address address;
     private final Call call;
@@ -149,7 +149,7 @@ public final class RouteSelector {
         return address == null ? inetSocketAddress.getHostName() : address.getHostAddress();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static final class Selection {
         private int nextRouteIndex = 0;
         private final List<Route> routes;

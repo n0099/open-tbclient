@@ -1,5 +1,5 @@
 package com.baidubce.services.bos.model;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class GetBucketLocationResponse extends BosResponse {
     private String locationConstraint = "";
 

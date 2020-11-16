@@ -10,7 +10,7 @@ import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 final class t extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(com.vivo.push.y yVar) {

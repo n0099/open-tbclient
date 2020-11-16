@@ -6,10 +6,10 @@ import rx.internal.operators.NotificationLite;
 import rx.internal.util.a.ae;
 import rx.internal.util.a.q;
 import rx.k;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public class g implements k {
     public static final int SIZE;
-    public volatile Object qiK;
+    public volatile Object qkn;
     private Queue<Object> queue;
     private final int size;
 
@@ -29,12 +29,12 @@ public class g implements k {
         SIZE = i;
     }
 
-    public static g eGc() {
-        return ae.eGl() ? new g(false, SIZE) : new g();
+    public static g eGd() {
+        return ae.eGm() ? new g(false, SIZE) : new g();
     }
 
-    public static g eGd() {
-        return ae.eGl() ? new g(true, SIZE) : new g();
+    public static g eGe() {
+        return ae.eGm() ? new g(true, SIZE) : new g();
     }
 
     private g(Queue<Object> queue, int i) {
@@ -80,8 +80,8 @@ public class g implements k {
     }
 
     public void onCompleted() {
-        if (this.qiK == null) {
-            this.qiK = NotificationLite.eFF();
+        if (this.qkn == null) {
+            this.qkn = NotificationLite.eFG();
         }
     }
 
@@ -96,9 +96,9 @@ public class g implements k {
             Queue<Object> queue = this.queue;
             if (queue != null) {
                 Object poll = queue.poll();
-                obj = this.qiK;
+                obj = this.qkn;
                 if (poll == null && obj != null && queue.peek() == null) {
-                    this.qiK = null;
+                    this.qkn = null;
                 } else {
                     obj = poll;
                 }
@@ -115,7 +115,7 @@ public class g implements k {
                 obj = null;
             } else {
                 Object peek = queue.peek();
-                obj = this.qiK;
+                obj = this.qkn;
                 if (peek != null || obj == null || queue.peek() != null) {
                     obj = peek;
                 }
@@ -124,8 +124,8 @@ public class g implements k {
         return obj;
     }
 
-    public boolean cg(Object obj) {
-        return NotificationLite.cg(obj);
+    public boolean ch(Object obj) {
+        return NotificationLite.ch(obj);
     }
 
     public Object getValue(Object obj) {

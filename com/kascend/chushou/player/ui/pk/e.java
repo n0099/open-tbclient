@@ -4,11 +4,11 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes6.dex */
 public class e {
-    private static final e pwS = new e();
+    private static final e pyv = new e();
     private Handler b = new Handler(Looper.getMainLooper());
 
     public static e evW() {
-        return pwS;
+        return pyv;
     }
 
     private e() {

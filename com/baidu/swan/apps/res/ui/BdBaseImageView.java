@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.swan.apps.ap.z;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class BdBaseImageView extends ImageView {
     private int mColorFilter;
     private boolean mFlagShouldDecorate;

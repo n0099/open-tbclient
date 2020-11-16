@@ -2,10 +2,10 @@ package com.baidu.ala.recorder.video.listener;
 
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public interface ImageFilter {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public interface Output {
         void onImageDone(int i, float[] fArr, long j);
     }

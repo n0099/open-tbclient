@@ -13,10 +13,10 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class ViewUtility implements NoProguard {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     static class a implements View.OnTouchListener {
 
         /* renamed from: a  reason: collision with root package name */

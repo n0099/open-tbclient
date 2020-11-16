@@ -54,7 +54,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SetJavaScriptEnabled"})
 @TargetApi(11)
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class FeedbackReportActivity extends Activity {
     private View A;
     private ScrollView L;
@@ -471,7 +471,7 @@ public class FeedbackReportActivity extends Activity {
     /* JADX WARN: Removed duplicated region for block: B:27:0x0097  */
     /* JADX WARN: Removed duplicated region for block: B:56:0x014d  */
     /* JADX WARN: Type inference failed for: r0v23, types: [android.widget.Toast] */
-    /* JADX WARN: Type inference failed for: r1v13, types: [byte[], java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r1v13, types: [java.lang.Object, byte[]] */
     /* JADX WARN: Type inference failed for: r1v17 */
     /* JADX WARN: Type inference failed for: r1v25 */
     /* JADX WARN: Type inference failed for: r1v26 */
@@ -479,7 +479,7 @@ public class FeedbackReportActivity extends Activity {
     /* JADX WARN: Type inference failed for: r1v34 */
     /* JADX WARN: Type inference failed for: r1v35 */
     /* JADX WARN: Type inference failed for: r1v36 */
-    /* JADX WARN: Type inference failed for: r1v8, types: [byte[], java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.Object, byte[]] */
     /* JADX WARN: Type inference failed for: r2v10 */
     /* JADX WARN: Type inference failed for: r2v11 */
     /* JADX WARN: Type inference failed for: r2v12 */

@@ -1,37 +1,37 @@
 package io.reactivex.internal.util;
 
 import java.util.ArrayList;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public class f {
     final int capacityHint;
-    Object[] pQu;
-    Object[] pQv;
-    int pQw;
+    Object[] pRX;
+    Object[] pRY;
+    int pRZ;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.pQu = new Object[this.capacityHint + 1];
-            this.pQv = this.pQu;
-            this.pQu[0] = obj;
-            this.pQw = 1;
+            this.pRX = new Object[this.capacityHint + 1];
+            this.pRY = this.pRX;
+            this.pRX[0] = obj;
+            this.pRZ = 1;
             this.size = 1;
-        } else if (this.pQw == this.capacityHint) {
+        } else if (this.pRZ == this.capacityHint) {
             Object[] objArr = new Object[this.capacityHint + 1];
             objArr[0] = obj;
-            this.pQv[this.capacityHint] = objArr;
-            this.pQv = objArr;
-            this.pQw = 1;
+            this.pRY[this.capacityHint] = objArr;
+            this.pRY = objArr;
+            this.pRZ = 1;
             this.size++;
         } else {
-            this.pQv[this.pQw] = obj;
-            this.pQw++;
+            this.pRY[this.pRZ] = obj;
+            this.pRZ++;
             this.size++;
         }
     }
 
-    public Object[] eAZ() {
-        return this.pQu;
+    public Object[] eBa() {
+        return this.pRX;
     }
 
     public int size() {
@@ -43,14 +43,14 @@ public class f {
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] eAZ = eAZ();
+        Object[] eBa = eBa();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(eAZ[i4]);
+            arrayList.add(eBa[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                eAZ = (Object[]) eAZ[i];
+                eBa = (Object[]) eBa[i];
                 i4 = 0;
             }
         }

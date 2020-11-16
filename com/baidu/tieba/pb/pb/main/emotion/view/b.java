@@ -3,42 +3,42 @@ package com.baidu.tieba.pb.pb.main.emotion.view;
 import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.tieba.face.SearchEmotionModel;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private SearchEmotionModel.a itz;
-    private SearchEmotionModel lFV;
-    private String lFW;
-    private Runnable lFX = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
+    private SearchEmotionModel.a iun;
+    private SearchEmotionModel lGm;
+    private String lGn;
+    private Runnable lGo = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(b.this.lFW) && b.this.itz != null) {
-                if (b.this.lFV == null) {
-                    b.this.lFV = new SearchEmotionModel();
+            if (!TextUtils.isEmpty(b.this.lGn) && b.this.iun != null) {
+                if (b.this.lGm == null) {
+                    b.this.lGm = new SearchEmotionModel();
                 }
-                b.this.lFV.a(b.this.lFW, 0, 30, b.this.itz);
+                b.this.lGm.a(b.this.lGn, 0, 30, b.this.iun);
             }
         }
     };
     private Handler mHandler = new Handler();
 
-    public void PZ(String str) {
+    public void Pv(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.lFW = "";
+            this.lGn = "";
             return;
         }
-        this.mHandler.removeCallbacks(this.lFX);
-        this.mHandler.postDelayed(this.lFX, 300L);
-        this.lFW = str;
+        this.mHandler.removeCallbacks(this.lGo);
+        this.mHandler.postDelayed(this.lGo, 300L);
+        this.lGn = str;
     }
 
     public void a(SearchEmotionModel.a aVar) {
-        this.itz = aVar;
+        this.iun = aVar;
     }
 
-    public void cBn() {
-        if (this.lFV != null) {
-            this.lFV.cancelLoadData();
+    public void cAQ() {
+        if (this.lGm != null) {
+            this.lGm.cancelLoadData();
         }
-        this.mHandler.removeCallbacks(this.lFX);
+        this.mHandler.removeCallbacks(this.lGo);
     }
 }

@@ -12,7 +12,7 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class fd extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */

@@ -1,5 +1,5 @@
 package com.baidu.android.common.so;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 final class DefaultSoLoader implements ICallingSoLoader {
     private DefaultSoLoader() {
     }

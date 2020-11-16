@@ -10,26 +10,26 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class c {
-    private static c qkW;
+    private static c qmz;
     private Context mContext;
-    private final HashMap<String, d> qkX = new HashMap<>();
-    private String qkY;
+    private final HashMap<String, d> qmA = new HashMap<>();
+    private String qmB;
 
     private c(Context context) {
-        this.qkY = null;
+        this.qmB = null;
         this.mContext = context.getApplicationContext();
-        this.qkY = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
+        this.qmB = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
     }
 
-    public static c hA(Context context) {
-        if (qkW == null) {
+    public static c hy(Context context) {
+        if (qmz == null) {
             synchronized (c.class) {
-                if (qkW == null) {
-                    qkW = new c(context);
+                if (qmz == null) {
+                    qmz = new c(context);
                 }
             }
         }
-        return qkW;
+        return qmz;
     }
 
     public d bu(String str, boolean z) {
@@ -38,31 +38,31 @@ public class c {
         if (!TextUtils.isEmpty(str) && aw(new File(str)) && (packageArchiveInfo = this.mContext.getPackageManager().getPackageArchiveInfo(str, 5)) != null) {
             dVar = b(packageArchiveInfo, str);
             if (z) {
-                aap(str);
+                aaa(str);
             }
         }
         return dVar;
     }
 
     private d b(PackageInfo packageInfo, String str) {
-        d dVar = this.qkX.get(packageInfo.packageName);
+        d dVar = this.qmA.get(packageInfo.packageName);
         if (dVar == null) {
-            d dVar2 = new d(aam(str), a(aan(str)), packageInfo);
-            this.qkX.put(packageInfo.packageName, dVar2);
+            d dVar2 = new d(ZX(str), a(ZY(str)), packageInfo);
+            this.qmA.put(packageInfo.packageName, dVar2);
             return dVar2;
         }
         return dVar;
     }
 
-    private DexClassLoader aam(String str) {
-        return new DexClassLoader(str, eHc(), this.qkY, this.mContext.getClassLoader());
+    private DexClassLoader ZX(String str) {
+        return new DexClassLoader(str, eHd(), this.qmB, this.mContext.getClassLoader());
     }
 
-    public String eHc() {
+    public String eHd() {
         return this.mContext.getDir("dex", 0).getAbsolutePath();
     }
 
-    private AssetManager aan(String str) {
+    private AssetManager ZY(String str) {
         try {
             AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
             assetManager.getClass().getMethod("addAssetPath", String.class).invoke(assetManager, str);
@@ -73,8 +73,8 @@ public class c {
         }
     }
 
-    public d aao(String str) {
-        return this.qkX.get(str);
+    public d ZZ(String str) {
+        return this.qmA.get(str);
     }
 
     private Resources a(AssetManager assetManager) {
@@ -82,8 +82,8 @@ public class c {
         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
     }
 
-    private void aap(String str) {
-        e.eHe().C(this.mContext, str, this.qkY);
+    private void aaa(String str) {
+        e.eHf().C(this.mContext, str, this.qmB);
     }
 
     private boolean aw(File file) {

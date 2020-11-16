@@ -3,41 +3,41 @@ package com.baidu.live.videochat.b;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    private long bHQ;
-    private int bHR;
-    private long bHS;
-    private long bHT;
-    private long bHU;
-    private long bHV;
+    private long bGf;
+    private int bGg;
+    private long bGh;
+    private long bGi;
+    private long bGj;
+    private long bGk;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bHQ = jSONObject.optLong("chat_id");
-            this.bHR = jSONObject.optInt("chat_status");
-            this.bHS = jSONObject.optLong("user_id1");
-            this.bHT = jSONObject.optLong("live_id1");
-            this.bHU = jSONObject.optLong("user_id2");
-            this.bHV = jSONObject.optLong("live_id2");
+            this.bGf = jSONObject.optLong("chat_id");
+            this.bGg = jSONObject.optInt("chat_status");
+            this.bGh = jSONObject.optLong("user_id1");
+            this.bGi = jSONObject.optLong("live_id1");
+            this.bGj = jSONObject.optLong("user_id2");
+            this.bGk = jSONObject.optLong("live_id2");
         }
     }
 
-    public boolean Sc() {
-        return this.bHR == 2;
+    public boolean Rt() {
+        return this.bGg == 2;
     }
 
-    public boolean VD() {
-        return this.bHR == 3 || this.bHR == 4;
+    public boolean UU() {
+        return this.bGg == 3 || this.bGg == 4;
     }
 
-    public long VE() {
-        return this.bHQ;
+    public long UV() {
+        return this.bGf;
     }
 
-    public int Sn() {
-        return this.bHR;
+    public int RE() {
+        return this.bGg;
     }
 
-    public long VF() {
-        return this.bHS;
+    public long UW() {
+        return this.bGh;
     }
 }

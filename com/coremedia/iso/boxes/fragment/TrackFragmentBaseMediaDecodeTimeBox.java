@@ -8,12 +8,12 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
     public static final String TYPE = "tfdt";
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_2 = null;
     private long baseMediaDecodeTime;
 
     static {
@@ -62,7 +62,7 @@ public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
     }
 
     public void setBaseMediaDecodeTime(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.is(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.iv(j)));
         this.baseMediaDecodeTime = j;
     }
 

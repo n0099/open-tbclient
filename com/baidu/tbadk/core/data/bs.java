@@ -1,70 +1,44 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.SimpleForum;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SeniorLottery;
 /* loaded from: classes.dex */
-public class bs implements com.baidu.tbadk.core.view.commonLike.forum.b {
-    public String avatar;
-    private boolean eDa;
-    private boolean eDb;
-    public ab eDc;
-    public String forumId;
-    private int forumLevel;
-    public String forumName;
-    public boolean isBrandForum;
-    public int memberNum;
-    public int postNum;
+public class bs {
+    private aq eBl;
+    private List<h> eBm;
+    private String eBn;
+    private List<i> eBo;
+    private String eBp;
+    private List<ap> eBq;
 
-    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
-    public String getForumId() {
-        return this.forumId;
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
-    public String getForumName() {
-        return this.forumName;
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
-    public void iM(boolean z) {
-        this.eDb = z;
-    }
-
-    public boolean blP() {
-        return this.eDb;
-    }
-
-    public String getAvatar() {
-        return this.avatar;
-    }
-
-    public int blQ() {
-        return this.forumLevel;
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonLike.a
-    public boolean getIsLike() {
-        return this.eDa;
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonLike.a
-    public void setIsLike(boolean z) {
-        this.eDa = z;
-    }
-
-    public void parserProtobuf(SimpleForum simpleForum) {
-        if (simpleForum != null) {
-            this.forumId = String.valueOf(simpleForum.id);
-            this.forumName = simpleForum.name;
-            this.avatar = simpleForum.avatar;
-            this.eDa = simpleForum.is_liked.intValue() == 1;
-            this.forumLevel = simpleForum.level_id.intValue();
-            if (simpleForum.multi_forum_perm != null) {
-                this.eDc = new ab();
-                this.eDc.a(simpleForum.multi_forum_perm);
+    public void a(SeniorLottery seniorLottery) {
+        if (seniorLottery != null) {
+            this.eBl = new aq();
+            this.eBl.a(seniorLottery.theme);
+            this.eBm = new ArrayList();
+            int size = seniorLottery.award_info.size();
+            for (int i = 0; i < size; i++) {
+                h hVar = new h();
+                hVar.a(seniorLottery.award_info.get(i));
+                this.eBm.add(hVar);
             }
-            this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
-            this.memberNum = simpleForum.member_num.intValue();
-            this.postNum = simpleForum.post_num.intValue();
+            this.eBn = seniorLottery.myaward;
+            this.eBo = new ArrayList();
+            int size2 = seniorLottery.luck_users.size();
+            for (int i2 = 0; i2 < size2; i2++) {
+                i iVar = new i();
+                iVar.a(seniorLottery.luck_users.get(i2));
+                this.eBo.add(iVar);
+            }
+            this.eBp = seniorLottery.act_desc;
+            this.eBq = new ArrayList();
+            int size3 = seniorLottery.act_regular.size();
+            for (int i3 = 0; i3 < size3; i3++) {
+                ap apVar = new ap();
+                apVar.a(seniorLottery.act_regular.get(i3));
+                this.eBq.add(apVar);
+            }
         }
     }
 }

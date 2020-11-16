@@ -9,26 +9,26 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class k {
-    public static void aVl() {
-        if (com.baidu.swan.apps.storage.c.h.aKS().getBoolean("swan_game_data_migration", true)) {
-            com.baidu.swan.apps.storage.c.h.aKS().putBoolean("swan_game_data_migration", false);
+    public static void aUD() {
+        if (com.baidu.swan.apps.storage.c.h.aKk().getBoolean("swan_game_data_migration", true)) {
+            com.baidu.swan.apps.storage.c.h.aKk().putBoolean("swan_game_data_migration", false);
             if (com.baidu.swan.apps.s.a.DEBUG) {
                 Log.d("DataMigrationUtils", "before migrate " + System.currentTimeMillis());
             }
-            aVm();
+            aUE();
             if (com.baidu.swan.apps.s.a.DEBUG) {
                 Log.d("DataMigrationUtils", "in migrate " + System.currentTimeMillis());
             }
-            aVn();
+            aUF();
             if (com.baidu.swan.apps.s.a.DEBUG) {
                 Log.d("DataMigrationUtils", "end migrate " + System.currentTimeMillis());
             }
         }
     }
 
-    private static void aVm() {
+    private static void aUE() {
         File[] listFiles;
         String dB = n.dB(AppRuntime.getAppContext());
         if (!TextUtils.isEmpty(dB)) {
@@ -41,8 +41,8 @@ public class k {
                         if (file3.exists() && file3.isDirectory()) {
                             String str2 = dB + File.separator + "swangame/anonymous/sandbox";
                             if (!file3.renameTo(new File(str2))) {
-                                n.da(str, str2);
-                                n.wZ(str);
+                                n.cZ(str, str2);
+                                n.wU(str);
                             }
                         }
                     }
@@ -51,9 +51,9 @@ public class k {
         }
     }
 
-    private static void aVn() {
+    private static void aUF() {
         String absolutePath;
-        File[] listFiles = com.baidu.swan.games.w.b.aXj().listFiles();
+        File[] listFiles = com.baidu.swan.games.w.b.aWB().listFiles();
         if (listFiles != null) {
             ArrayList arrayList = new ArrayList();
             for (File file : listFiles) {

@@ -10,20 +10,20 @@ import com.baidu.webkit.internal.ETAG;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private static volatile b ejt;
+    private static volatile b ehM;
 
-    public static b bcx() {
-        if (ejt == null) {
+    public static b bbQ() {
+        if (ehM == null) {
             synchronized (b.class) {
-                if (ejt == null) {
-                    ejt = new b();
+                if (ehM == null) {
+                    ehM = new b();
                 }
             }
         }
-        return ejt;
+        return ehM;
     }
 
     public void b(JSONArray jSONArray, g gVar, g gVar2, g gVar3) {
@@ -39,7 +39,7 @@ public class b {
             if (gVar3 == null) {
                 cVar = null;
             } else {
-                cVar = gVar3.og("so");
+                cVar = gVar3.nZ("so");
             }
             if (DEBUG) {
                 Log.i("SoBundleId", "updateConfig: soNodeHandler=" + cVar);
@@ -83,7 +83,7 @@ public class b {
                                     com.baidu.swan.pms.model.d dVar = (com.baidu.swan.pms.model.d) com.baidu.swan.pms.utils.e.a(jSONObject2, new com.baidu.swan.pms.model.d());
                                     if (dVar != null) {
                                         a(dVar, fVar);
-                                        aVar.ejr = dVar;
+                                        aVar.ehK = dVar;
                                         break;
                                     } else {
                                         continue;
@@ -92,7 +92,7 @@ public class b {
                                     com.baidu.swan.pms.model.d dVar2 = (com.baidu.swan.pms.model.d) com.baidu.swan.pms.utils.e.a(jSONObject2, new com.baidu.swan.pms.model.d());
                                     if (dVar2 != null) {
                                         a(dVar2, fVar2);
-                                        aVar2.ejq = dVar2;
+                                        aVar2.ehJ = dVar2;
                                         break;
                                     } else {
                                         continue;
@@ -101,7 +101,7 @@ public class b {
                                     com.baidu.swan.pms.model.b bVar = (com.baidu.swan.pms.model.b) com.baidu.swan.pms.utils.e.a(jSONObject2, new com.baidu.swan.pms.model.b());
                                     if (bVar != null) {
                                         a(bVar, fVar);
-                                        aVar.eiE = bVar;
+                                        aVar.egX = bVar;
                                         break;
                                     } else {
                                         continue;
@@ -131,8 +131,8 @@ public class b {
                 Log.i("SoBundleId", "updateConfig: end parse soNodeHandler=" + cVar);
             }
             if (gVar != null) {
-                if (fVar.bcy() == 0) {
-                    gVar.anq();
+                if (fVar.bbR() == 0) {
+                    gVar.amI();
                 } else {
                     gVar.a(fVar);
                     com.baidu.swan.pms.c.a.a.a(aVar, gVar);
@@ -142,8 +142,8 @@ public class b {
                 Log.i("SoBundleId", "updateConfig: handle core end");
             }
             if (gVar2 != null) {
-                if (fVar2.bcy() == 0) {
-                    gVar2.anq();
+                if (fVar2.bbR() == 0) {
+                    gVar2.amI();
                 } else {
                     gVar2.a(fVar2);
                     com.baidu.swan.pms.c.a.a.a(aVar2, gVar2);
@@ -153,7 +153,7 @@ public class b {
                 Log.i("SoBundleId", "updateConfig: handle game end");
             }
             if (cVar != null) {
-                cVar.atK();
+                cVar.atc();
             }
             if (DEBUG) {
                 Log.i("SoBundleId", "updateConfig: handle so end");

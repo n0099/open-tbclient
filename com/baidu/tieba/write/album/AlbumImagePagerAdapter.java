@@ -15,14 +15,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
-    private Map<Integer, Boolean> bEt = new HashMap();
-    private BaseFragmentActivity ilu;
+    private Map<Integer, Boolean> bCI = new HashMap();
+    private BaseFragmentActivity imj;
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(BaseFragmentActivity baseFragmentActivity) {
-        this.ilu = baseFragmentActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.ilu.getPageContext().getPageActivity());
+        this.imj = baseFragmentActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.imj.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -45,15 +45,15 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo Fq(int i) {
+    public ImageFileInfo FO(int i) {
         return (ImageFileInfo) y.getItem(this.mList, i);
     }
 
-    public boolean fY(int i) {
-        if (this.bEt.get(Integer.valueOf(i)) == null) {
+    public boolean fU(int i) {
+        if (this.bCI.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.bEt.get(Integer.valueOf(i)).booleanValue();
+        return this.bCI.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -73,14 +73,14 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         tbImageView2.setDefaultErrorResource(0);
         tbImageView2.setGifIconSupport(false);
         tbImageView2.setLongIconSupport(false);
-        ImageFileInfo Fq = Fq(i);
-        if (Fq != null) {
-            tbImageView2.startLoad(Fq.getFilePath(), 35, false, true);
-            tbImageView.startLoad(Fq.getFilePath(), 36, false);
-            this.bEt.put(Integer.valueOf(i), true);
+        ImageFileInfo FO = FO(i);
+        if (FO != null) {
+            tbImageView2.startLoad(FO.getFilePath(), 35, false, true);
+            tbImageView.startLoad(FO.getFilePath(), 36, false);
+            this.bCI.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
-        ap.setBackgroundColor(inflate, R.color.cp_bg_line_d);
+        ap.setBackgroundColor(inflate, R.color.CAM_X0201);
         return inflate;
     }
 }

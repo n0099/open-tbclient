@@ -2,20 +2,20 @@ package com.baidu.swan.game.ad.e;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class a {
-    private static volatile a dOw;
+    private static volatile a dMO;
     private List<k> mCallbacks = new CopyOnWriteArrayList();
 
-    public static a aRn() {
-        if (dOw == null) {
+    public static a aQF() {
+        if (dMO == null) {
             synchronized (a.class) {
-                if (dOw == null) {
-                    dOw = new a();
+                if (dMO == null) {
+                    dMO = new a();
                 }
             }
         }
-        return dOw;
+        return dMO;
     }
 
     public void a(k kVar) {
@@ -27,9 +27,9 @@ public class a {
     public void aq(int i, String str) {
         for (k kVar : this.mCallbacks) {
             if (i == 16) {
-                kVar.aRN();
+                kVar.aRf();
             } else if (i == 17) {
-                kVar.vQ(str);
+                kVar.vL(str);
             }
             b(kVar);
         }

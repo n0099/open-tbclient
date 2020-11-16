@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import android.database.ContentObserver;
 import android.os.Handler;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 class bt extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
@@ -18,11 +18,11 @@ class bt extends ContentObserver {
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        boolean m515f;
+        boolean m518f;
         super.onChange(z);
-        m515f = this.f5093a.m515f();
-        com.xiaomi.channel.commonutils.logger.b.m54a("ExtremePowerMode:" + m515f);
-        if (m515f) {
+        m518f = this.f5093a.m518f();
+        com.xiaomi.channel.commonutils.logger.b.m57a("ExtremePowerMode:" + m518f);
+        if (m518f) {
             this.f5093a.a(new XMPushService.f(23, null));
         } else {
             this.f5093a.a(true);

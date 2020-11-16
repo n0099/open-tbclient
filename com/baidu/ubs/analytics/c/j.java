@@ -1,7 +1,7 @@
 package com.baidu.ubs.analytics.c;
 
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public final class j {
     public static void b(String str, final String str2, final String str3, final Map<String, String> map) {
         final com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
@@ -20,7 +20,7 @@ public final class j {
                     aVar.w(stringBuffer2.toString());
                 }
                 try {
-                    aVar.x(m.edQ().I());
+                    aVar.x(m.edP().I());
                     aVar.u(String.valueOf(System.currentTimeMillis()));
                     aVar.t(str2);
                     aVar.s(str3 == null ? "" : str3);

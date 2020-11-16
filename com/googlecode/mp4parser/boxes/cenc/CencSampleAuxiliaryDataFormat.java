@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CencSampleAuxiliaryDataFormat {
     public byte[] iv;
     public List<Pair> pairs = new LinkedList();
@@ -22,7 +22,7 @@ public class CencSampleAuxiliaryDataFormat {
         return new Pair(i, j);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class Pair {
         public int clear;
         public long encrypted;

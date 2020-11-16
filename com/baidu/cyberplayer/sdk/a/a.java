@@ -8,19 +8,19 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class a implements b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1357a = Boolean.toString(true);
-    private InterfaceC0109a b;
+    private static final String f1360a = Boolean.toString(true);
+    private InterfaceC0108a b;
     private String c;
     private String d;
     private ArrayList<String> e = null;
 
     /* renamed from: com.baidu.cyberplayer.sdk.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public interface InterfaceC0109a {
+    /* loaded from: classes17.dex */
+    public interface InterfaceC0108a {
         void a(String str, long j);
 
         void a(String str, long j, int i, String str2);
@@ -32,7 +32,7 @@ public class a implements b.a {
 
     private String a() {
         File file;
-        String str = f1357a;
+        String str = f1360a;
         try {
             file = new File(this.d, this.c);
             try {
@@ -102,7 +102,7 @@ public class a implements b.a {
 
     private static String a(String str, ArrayList<String> arrayList) {
         File file;
-        String str2 = f1357a;
+        String str2 = f1360a;
         if (arrayList != null) {
             for (int i = 0; i < arrayList.size(); i++) {
                 try {
@@ -134,7 +134,7 @@ public class a implements b.a {
     }
 
     private String b() {
-        String str = f1357a;
+        String str = f1360a;
         try {
             if (this.e != null) {
                 CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----start");
@@ -174,12 +174,12 @@ public class a implements b.a {
         this.b.a(str, j, -1, str2 + ",networkstatus:" + n.i() + ",url:" + str);
     }
 
-    public void a(String str, String str2, String str3, InterfaceC0109a interfaceC0109a) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0109a == null) {
+    public void a(String str, String str2, String str3, InterfaceC0108a interfaceC0108a) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0108a == null) {
             return;
         }
         this.c = str2;
-        this.b = interfaceC0109a;
+        this.b = interfaceC0108a;
         this.d = str3;
         n.b(this.d);
         CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.d);
@@ -194,19 +194,19 @@ public class a implements b.a {
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void b(String str, long j) {
         String a2 = a();
-        if (!f1357a.equals(a2)) {
+        if (!f1360a.equals(a2)) {
             n.a(this.d, this.e);
             this.b.a(str, j, -2, a2);
             return;
         }
         String b = b();
-        if (!f1357a.equals(b)) {
+        if (!f1360a.equals(b)) {
             n.a(this.d, this.e);
             this.b.a(str, j, -3, b);
             return;
         }
         String a3 = a(this.d, this.e);
-        if (f1357a.equals(a3)) {
+        if (f1360a.equals(a3)) {
             this.b.a(str, j, this.e);
             return;
         }

@@ -15,7 +15,7 @@ import com.baidu.searchbox.player.session.VideoSession;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public abstract class AbsVideoKernel implements IPoolItem {
     public static final String CYBER_PLAYER = "CyberVideoKernel";
     protected static final int DURATION_MIN_DIFF = 2;

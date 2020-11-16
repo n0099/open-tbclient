@@ -1,5 +1,5 @@
 package com.baidu.sapi2.share.face;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class a implements Comparable<a> {
 
     /* renamed from: a  reason: collision with root package name */

@@ -25,7 +25,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     private static final String TAG = "IMPaGetOneInfoRequest";
     private long mAppid;

@@ -64,7 +64,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
     /* renamed from: a  reason: collision with root package name */
     Animation f3028a;
     private a.b ae;
-    private a.C0252a af;
+    private a.C0250a af;
     private View ag;
     private View ah;
     private RelativeLayout ai;
@@ -314,9 +314,9 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
             } else if (com.baidu.platform.comapi.wnplatform.a.a().c() && baseNpcModel.isLoadFromLocal()) {
                 a(baseNpcModel.getDownLoadKey(), baseNpcModel.getLocalPath());
             } else if (!com.baidu.platform.comapi.walknavi.d.a.g.g.b(this.l)) {
-                Toast.makeText(this.l, (int) R.raw.lottie_disagree_1, 0).show();
+                Toast.makeText(this.l, (int) R.raw.lottie_common_pull_refresh_1, 0).show();
             } else if (!com.baidu.platform.comapi.walknavi.d.a.g.g.d(this.l)) {
-                a(baseNpcModel.getDownLoadKey(), com.baidu.platform.comapi.wnplatform.p.a.a.b(this.l, R.raw.lottie_disagree), 4);
+                a(baseNpcModel.getDownLoadKey(), com.baidu.platform.comapi.wnplatform.p.a.a.b(this.l, R.raw.lottie_common_pull_refresh), 4);
             } else {
                 a(baseNpcModel.getDownLoadKey(), new ac(this, baseNpcModel));
             }
@@ -513,7 +513,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
 
     public void c() {
         if (this.V) {
-            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0291c(this));
+            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0289c(this));
             String a2 = com.baidu.platform.comapi.walknavi.d.e.c().a();
             if (TextUtils.isEmpty(a2)) {
                 b(true);
@@ -529,12 +529,12 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0291c implements g.a {
+    public static class C0289c implements g.a {
 
         /* renamed from: a  reason: collision with root package name */
         private WeakReference<com.baidu.platform.comapi.walknavi.g.c.b> f3029a;
 
-        public C0291c(com.baidu.platform.comapi.walknavi.g.c.b bVar) {
+        public C0289c(com.baidu.platform.comapi.walknavi.g.c.b bVar) {
             this.f3029a = null;
             this.f3029a = new WeakReference<>(bVar);
         }
@@ -1090,7 +1090,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
         this.ae = bVar;
     }
 
-    public void a(a.C0252a c0252a) {
-        this.af = c0252a;
+    public void a(a.C0250a c0250a) {
+        this.af = c0250a;
     }
 }

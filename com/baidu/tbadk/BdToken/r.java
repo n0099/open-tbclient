@@ -9,19 +9,19 @@ import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 /* loaded from: classes.dex */
 public class r {
     private static View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.BdToken.r.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TbPageContext<?> bhe;
+            TbPageContext<?> bgx;
             Object tag = view.getTag();
             if (tag instanceof CompleteTaskToastData) {
                 CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
-                if (!TextUtils.isEmpty(completeTaskToastData.url) && (bhe = r.bhe()) != null) {
-                    be.brr().b(bhe, new String[]{completeTaskToastData.url});
+                if (!TextUtils.isEmpty(completeTaskToastData.url) && (bgx = r.bgx()) != null) {
+                    bf.bqF().b(bgx, new String[]{completeTaskToastData.url});
                     com.baidu.tbadk.BdToken.completeTask.c.aK(completeTaskToastData.activityId, completeTaskToastData.missionId);
                 }
             }
@@ -34,7 +34,7 @@ public class r {
 
     public static void n(int i, long j) {
         if (isMainProcess()) {
-            c.bgf().n(i, j);
+            c.bfy().n(i, j);
         } else {
             f(i, j, MissionEvent.MESSAGE_ACTIVITY);
         }
@@ -42,7 +42,7 @@ public class r {
 
     public static void a(int i, int i2, long j) {
         if (isMainProcess()) {
-            c.bgf().p(i, j);
+            c.bfy().p(i, j);
         } else {
             b(i, i2, j, MissionEvent.MESSAGE_RESUME);
         }
@@ -50,7 +50,7 @@ public class r {
 
     public static void r(int i, long j) {
         if (isMainProcess()) {
-            c.bgf().bgq();
+            c.bfy().bfJ();
         } else {
             f(i, j, MissionEvent.MESSAGE_PAUSE);
         }
@@ -58,7 +58,7 @@ public class r {
 
     public static void s(int i, long j) {
         if (isMainProcess()) {
-            c.bgf().bgs();
+            c.bfy().bfL();
         } else {
             f(i, j, MissionEvent.MESSAGE_TOUCH);
         }
@@ -81,7 +81,7 @@ public class r {
         com.baidu.tbadk.mutiprocess.g.publishEvent(missionEvent);
     }
 
-    public static TbPageContext bhe() {
+    public static TbPageContext bgx() {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity instanceof BaseActivity) {
             return ((BaseActivity) currentActivity).getPageContext();
@@ -93,15 +93,15 @@ public class r {
     }
 
     public static com.baidu.tbadk.core.dialog.f a(CompleteTaskToastData completeTaskToastData) {
-        TbPageContext bhe;
-        if (completeTaskToastData == null || (bhe = bhe()) == null || bhe.getUniqueId() == null || completeTaskToastData.pageId != bhe.getUniqueId().getId()) {
+        TbPageContext bgx;
+        if (completeTaskToastData == null || (bgx = bgx()) == null || bgx.getUniqueId() == null || completeTaskToastData.pageId != bgx.getUniqueId().getId()) {
             return null;
         }
-        com.baidu.tbadk.core.dialog.f c = com.baidu.tbadk.core.dialog.f.c(bhe.getPageActivity(), completeTaskToastData.message);
-        c.oI(completeTaskToastData.duration);
+        com.baidu.tbadk.core.dialog.f c = com.baidu.tbadk.core.dialog.f.c(bgx.getPageActivity(), completeTaskToastData.message);
+        c.oE(completeTaskToastData.duration);
         c.setOnClickListener(mOnClickListener);
         c.setTag(completeTaskToastData);
-        c.bpm();
+        c.boq();
         return c;
     }
 

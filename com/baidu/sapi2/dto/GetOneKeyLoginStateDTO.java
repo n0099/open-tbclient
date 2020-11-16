@@ -1,5 +1,5 @@
 package com.baidu.sapi2.dto;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class GetOneKeyLoginStateDTO {
 
     /* renamed from: a  reason: collision with root package name */

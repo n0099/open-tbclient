@@ -4,7 +4,7 @@ import java.util.Map;
 import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public abstract class RFC2617Scheme extends AuthSchemeBase {
     public RFC2617Scheme() {
         throw new RuntimeException("Stub!");

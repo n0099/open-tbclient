@@ -7,7 +7,7 @@ import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class JavaObjectDeserializer implements ObjectDeserializer {
     public static final JavaObjectDeserializer instance = new JavaObjectDeserializer();
 

@@ -5,19 +5,19 @@ import android.webkit.JsResult;
 public interface b {
     boolean E(String str, boolean z);
 
-    void WU();
+    void Wl();
 
     boolean a(String str, JsResult jsResult);
 
     void e(String str, int i, String str2);
 
-    void fa(int i);
+    void eW(int i);
 
-    void hU(String str);
+    void hO(String str);
 
-    void hV(String str);
+    void hP(String str);
 
-    void iP(String str);
+    void iJ(String str);
 
-    boolean iQ(String str);
+    boolean iK(String str);
 }

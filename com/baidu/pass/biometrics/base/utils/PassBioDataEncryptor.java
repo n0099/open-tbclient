@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.common.SecurityUtil;
 import java.util.Random;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class PassBioDataEncryptor {
 
     /* renamed from: a  reason: collision with root package name */

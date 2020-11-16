@@ -23,7 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.HttpStatus;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public final class RSSExpandedReader extends AbstractRSSReader {
     private static final int FINDER_PAT_A = 0;
     private static final int FINDER_PAT_B = 1;

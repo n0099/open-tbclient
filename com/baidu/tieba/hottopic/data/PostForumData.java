@@ -10,13 +10,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Hottopic.RelateForum;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class PostForumData extends com.baidu.tieba.card.data.a implements Serializable {
     public static final BdUniqueId TYPE_POST_FORUM = BdUniqueId.gen();
     private static final long serialVersionUID = -2078662294751243784L;
     public List<q> mRelateForumDataList = null;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
         return TYPE_POST_FORUM;
     }

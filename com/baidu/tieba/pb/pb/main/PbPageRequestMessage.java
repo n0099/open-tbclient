@@ -8,7 +8,7 @@ import com.squareup.wire.Wire;
 import tbclient.PbPage.AdParam;
 import tbclient.PbPage.DataReq;
 import tbclient.PbPage.PbPageReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class PbPageRequestMessage extends NetMessage {
     public static final Wire WIRE = new Wire(new Class[0]);
     private Integer arround;
@@ -348,7 +348,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.d.a.dBc().dBg();
+            builder.app_pos = com.baidu.tieba.recapp.d.a.dAG().dAK();
             builder.forum_id = this.forumId;
             builder.need_repost_recommend_forum = this.needRepostRecommendForum;
             AdParam.Builder builder2 = new AdParam.Builder();
@@ -361,10 +361,10 @@ public class PbPageRequestMessage extends NetMessage {
             builder.ori_ugc_type = Integer.valueOf(this.oriUgcType);
             builder.ori_ugc_vid = this.oriUgcVid;
             builder.after_ad_thread_count = Integer.valueOf(this.mAfterAdThreadCount);
-            builder.ad_context_list = com.baidu.tieba.recapp.report.b.dBj().dBm();
+            builder.ad_context_list = com.baidu.tieba.recapp.report.b.dAN().dAQ();
             builder.up_schema = this.mSchemeUrl;
             builder.from_push = Integer.valueOf(this.from_push);
-            builder.ad_ext_params = AdExtParam.a.bDd().rS(this.updateType).bDe();
+            builder.ad_ext_params = AdExtParam.a.bCw().sq(this.updateType).bCx();
             com.baidu.tbadk.util.u.a(builder, true, false, true);
             PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();
             builder3.data = builder.build(false);

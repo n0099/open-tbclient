@@ -4,30 +4,30 @@ import kotlin.h;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class d {
-    public static final b pSN = new b(null);
-    private static final d pSL = kotlin.internal.c.pSu.eBL();
-    public static final a pSM = a.pSO;
+    public static final b pUq = new b(null);
+    private static final d pUo = kotlin.internal.c.pTX.eBM();
+    public static final a pUp = a.pUr;
 
-    public abstract int Ru(int i);
+    public abstract int RX(int i);
 
     public int nextInt() {
-        return Ru(32);
+        return RX(32);
     }
 
     public int nextInt(int i) {
-        return es(0, i);
+        return et(0, i);
     }
 
-    public int es(int i, int i2) {
+    public int et(int i, int i2) {
         int nextInt;
         int i3;
-        e.eu(i, i2);
+        e.ev(i, i2);
         int i4 = i2 - i;
         if (i4 > 0 || i4 == Integer.MIN_VALUE) {
             if (((-i4) & i4) == i4) {
-                i3 = Ru(c.Rv(i4));
+                i3 = RX(c.RY(i4));
             } else {
                 do {
                     nextInt = nextInt() >>> 1;
@@ -49,15 +49,15 @@ public abstract class d {
     }
 
     public boolean nextBoolean() {
-        return Ru(1) != 0;
+        return RX(1) != 0;
     }
 
     public double nextDouble() {
-        return c.er(Ru(26), Ru(27));
+        return c.es(RX(26), RX(27));
     }
 
     public float nextFloat() {
-        return Ru(24) / 16777216;
+        return RX(24) / 16777216;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x0054  */
@@ -87,9 +87,9 @@ public abstract class d {
                         i += 4;
                     }
                     int i5 = i2 - i;
-                    int Ru = Ru(i5 * 8);
+                    int RX = RX(i5 * 8);
                     for (int i6 = 0; i6 < i5; i6++) {
-                        bArr[i + i6] = (byte) (Ru >>> (i6 * 8));
+                        bArr[i + i6] = (byte) (RX >>> (i6 * 8));
                     }
                     return bArr;
                 }
@@ -107,7 +107,7 @@ public abstract class d {
     }
 
     @h
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class b extends d {
         private b() {
         }
@@ -117,69 +117,69 @@ public abstract class d {
         }
 
         @Override // kotlin.random.d
-        public int Ru(int i) {
-            return d.pSL.Ru(i);
+        public int RX(int i) {
+            return d.pUo.RX(i);
         }
 
         @Override // kotlin.random.d
         public int nextInt() {
-            return d.pSL.nextInt();
+            return d.pUo.nextInt();
         }
 
         @Override // kotlin.random.d
         public int nextInt(int i) {
-            return d.pSL.nextInt(i);
+            return d.pUo.nextInt(i);
         }
 
         @Override // kotlin.random.d
-        public int es(int i, int i2) {
-            return d.pSL.es(i, i2);
+        public int et(int i, int i2) {
+            return d.pUo.et(i, i2);
         }
 
         @Override // kotlin.random.d
         public long nextLong() {
-            return d.pSL.nextLong();
+            return d.pUo.nextLong();
         }
 
         @Override // kotlin.random.d
         public boolean nextBoolean() {
-            return d.pSL.nextBoolean();
+            return d.pUo.nextBoolean();
         }
 
         @Override // kotlin.random.d
         public double nextDouble() {
-            return d.pSL.nextDouble();
+            return d.pUo.nextDouble();
         }
 
         @Override // kotlin.random.d
         public float nextFloat() {
-            return d.pSL.nextFloat();
+            return d.pUo.nextFloat();
         }
 
         @Override // kotlin.random.d
         public byte[] az(byte[] bArr) {
             q.n(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.pSL.az(bArr);
+            return d.pUo.az(bArr);
         }
 
         @Override // kotlin.random.d
         public byte[] z(byte[] bArr, int i, int i2) {
             q.n(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.pSL.z(bArr, i, i2);
+            return d.pUo.z(bArr, i, i2);
         }
     }
 
     @h
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class a extends d {
-        public static final a pSO = new a();
+        public static final a pUr = new a();
 
         private a() {
         }
 
         @Override // kotlin.random.d
-        public int Ru(int i) {
-            return d.pSN.Ru(i);
+        public int RX(int i) {
+            return d.pUq.RX(i);
         }
     }
 }

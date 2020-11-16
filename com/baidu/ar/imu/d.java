@@ -3,7 +3,7 @@ package com.baidu.ar.imu;
 import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
 import com.baidu.ar.arplay.representation.Quaternion;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class d extends j {
     private static final String TAG = d.class.getSimpleName();
     private final Quaternion rj;

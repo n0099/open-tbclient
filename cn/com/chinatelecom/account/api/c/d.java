@@ -6,11 +6,11 @@ import android.text.TextUtils;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f983a = d.class.getCanonicalName();
+    private static final String f986a = d.class.getCanonicalName();
     private static String b = "";
     private static int c = 0;
     private static int d = 5;

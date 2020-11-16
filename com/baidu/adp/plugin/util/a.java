@@ -22,7 +22,7 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0029a {
-        public boolean UN;
+        public boolean UO;
         public String mErrMsg;
     }
 
@@ -73,7 +73,7 @@ public class a {
                         @Override // java.util.Comparator
                         public int compare(Object obj, Object obj2) {
                             if ((obj instanceof String) && (obj2 instanceof String)) {
-                                return a.J((String) obj, (String) obj2);
+                                return a.I((String) obj, (String) obj2);
                             }
                             return 0;
                         }
@@ -293,7 +293,7 @@ public class a {
 
     private static C0029a a(boolean z, Throwable th) {
         C0029a c0029a = new C0029a();
-        c0029a.UN = z;
+        c0029a.UO = z;
         c0029a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0029a;
     }
@@ -339,13 +339,13 @@ public class a {
                 if (file == null || file2 == null) {
                     return 0;
                 }
-                return a.J(file.getAbsolutePath(), file2.getAbsolutePath());
+                return a.I(file.getAbsolutePath(), file2.getAbsolutePath());
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final int J(String str, String str2) {
+    public static final int I(String str, String str2) {
         if (str == null || str2 == null) {
             return 0;
         }

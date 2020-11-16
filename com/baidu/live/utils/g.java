@@ -22,13 +22,13 @@ public class g {
             if ((parcelableSpanArr[i2] instanceof URLSpan) && i2 - 1 >= 0 && (parcelableSpanArr[i2 - 1] instanceof ForegroundColorSpan)) {
                 c cVar = new c((ForegroundColorSpan) parcelableSpanArr[i2 - 1]);
                 cVar.a((URLSpan) parcelableSpanArr[i2]);
-                cVar.bGx = valueOf.getSpanStart(parcelableSpanArr[i2]);
-                cVar.bGy = valueOf.getSpanEnd(parcelableSpanArr[i2]);
+                cVar.bEM = valueOf.getSpanStart(parcelableSpanArr[i2]);
+                cVar.bEN = valueOf.getSpanEnd(parcelableSpanArr[i2]);
                 arrayList.add(cVar);
             } else if ((parcelableSpanArr[i2] instanceof ForegroundColorSpan) && ((i2 + 1 < parcelableSpanArr.length && !(parcelableSpanArr[i2 + 1] instanceof URLSpan)) || i2 == parcelableSpanArr.length - 1)) {
                 c cVar2 = new c((ForegroundColorSpan) parcelableSpanArr[i2]);
-                cVar2.bGx = valueOf.getSpanStart(parcelableSpanArr[i2]);
-                cVar2.bGy = valueOf.getSpanEnd(parcelableSpanArr[i2]);
+                cVar2.bEM = valueOf.getSpanStart(parcelableSpanArr[i2]);
+                cVar2.bEN = valueOf.getSpanEnd(parcelableSpanArr[i2]);
                 arrayList.add(cVar2);
             }
         }
@@ -36,10 +36,10 @@ public class g {
         for (int i3 = 0; i3 < arrayList.size(); i3++) {
             c cVar3 = (c) arrayList.get(i3);
             if (cVar3 != null) {
-                if (cVar3.bGA) {
-                    valueOf2.setSpan(new a(cVar3.mUrl, cVar3.bGz), cVar3.bGx, cVar3.bGy, 33);
+                if (cVar3.bEP) {
+                    valueOf2.setSpan(new a(cVar3.mUrl, cVar3.bEO), cVar3.bEM, cVar3.bEN, 33);
                 } else {
-                    valueOf2.setSpan(new ForegroundColorSpan(cVar3.bGz), cVar3.bGx, cVar3.bGy, 33);
+                    valueOf2.setSpan(new ForegroundColorSpan(cVar3.bEO), cVar3.bEM, cVar3.bEN, 33);
                 }
             }
         }

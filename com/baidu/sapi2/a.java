@@ -5,13 +5,13 @@ import android.app.Application;
 import android.os.Bundle;
 import java.util.Iterator;
 import java.util.Stack;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
     private Stack<Activity> f3290a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static class b {
 
         /* renamed from: a  reason: collision with root package name */

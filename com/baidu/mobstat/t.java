@@ -7,7 +7,7 @@ import android.support.media.ExifInterface;
 import android.support.v7.widget.ActivityChooserView;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public enum t {
     SERVICE(1) { // from class: com.baidu.mobstat.t.1
         @Override // com.baidu.mobstat.t

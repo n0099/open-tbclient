@@ -5,7 +5,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes19.dex */
+/* loaded from: classes6.dex */
 final class b {
     private static final b Aq = new b();
     private final ExecutorService Ar;
@@ -35,7 +35,7 @@ final class b {
         return Aq.At;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes6.dex */
     private static class a implements Executor {
         private ThreadLocal<Integer> Au;
 

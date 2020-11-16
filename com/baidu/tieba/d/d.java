@@ -1,0 +1,71 @@
+package com.baidu.tieba.d;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.R;
+/* loaded from: classes.dex */
+public class d {
+    private RelativeLayout ieN;
+    private ImageView ieO;
+    private MessageRedDotView ieP;
+    private Context mContext;
+    private View mRootView;
+
+    public d(Context context) {
+        this.mContext = context;
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
+        this.ieN = (RelativeLayout) this.mRootView.findViewById(R.id.message_view_layout);
+        this.ieO = (ImageView) this.mRootView.findViewById(R.id.img_message);
+        this.ieP = (MessageRedDotView) this.mRootView.findViewById(R.id.img_red_tip);
+        this.ieP.setShadowEnabled(false);
+    }
+
+    public View getView() {
+        return this.mRootView;
+    }
+
+    public ImageView coU() {
+        return this.ieO;
+    }
+
+    public MessageRedDotView coV() {
+        return this.ieP;
+    }
+
+    public void A(boolean z, int i) {
+        if (z) {
+            this.ieP.refresh(i);
+            this.ieP.setVisibility(0);
+            return;
+        }
+        this.ieP.setVisibility(8);
+    }
+
+    public void onChangeSkinType(int i) {
+        this.ieP.onChangeSkinType();
+        this.ieO.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_information40, ap.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
+    }
+
+    public void setVisibility(int i) {
+        if (this.mRootView != null) {
+            this.mRootView.setVisibility(i);
+        }
+    }
+
+    public void a(NavigationBar.ControlAlign controlAlign, boolean z) {
+        if (!z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
+            ((RelativeLayout.LayoutParams) this.ieO.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
+            ((RelativeLayout.LayoutParams) this.ieP.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
+            this.ieN.getLayoutParams().width = l.getDimens(this.mContext, R.dimen.ds88);
+        }
+    }
+}

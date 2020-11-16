@@ -1,7 +1,7 @@
 package com.baidu.webkit.logsdk.upload;
 
 import android.text.TextUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */

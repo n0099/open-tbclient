@@ -17,43 +17,43 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private static a otJ;
-    private w aES;
-    private AlaEmoticonListDialogData otH = new AlaEmoticonListDialogData();
-    private InterfaceC0937a otI;
+    private static a ovn;
+    private w aDh;
+    private AlaEmoticonListDialogData ovl = new AlaEmoticonListDialogData();
+    private InterfaceC0940a ovm;
 
     /* renamed from: com.baidu.yuyinala.emoticon.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0937a {
-        void Xl(String str);
+    public interface InterfaceC0940a {
+        void WW(String str);
 
         void a(AlaEmoticonListDialogData alaEmoticonListDialogData);
     }
 
     public static a av(w wVar) {
-        if (otJ == null) {
-            otJ = new a(wVar);
+        if (ovn == null) {
+            ovn = new a(wVar);
         }
-        return otJ;
+        return ovn;
     }
 
     public void y(w wVar) {
-        this.aES = wVar;
+        this.aDh = wVar;
     }
 
     private a(w wVar) {
-        this.aES = wVar;
+        this.aDh = wVar;
         registerListener(new HttpMessageListener(1031004) { // from class: com.baidu.yuyinala.emoticon.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaEmoticonListResponseMessage) {
                     AlaEmoticonListResponseMessage alaEmoticonListResponseMessage = (AlaEmoticonListResponseMessage) httpResponsedMessage;
-                    a.this.otH.setEmoticonList(alaEmoticonListResponseMessage.getEmoticonList());
-                    a.this.otH.setSendIntervalTime(alaEmoticonListResponseMessage.getSendIntervalTime());
-                    a.this.otH.setNetError(!alaEmoticonListResponseMessage.isSuccess());
-                    if (a.this.otI != null) {
-                        a.this.otI.a(a.this.otH);
+                    a.this.ovl.setEmoticonList(alaEmoticonListResponseMessage.getEmoticonList());
+                    a.this.ovl.setSendIntervalTime(alaEmoticonListResponseMessage.getSendIntervalTime());
+                    a.this.ovl.setNetError(!alaEmoticonListResponseMessage.isSuccess());
+                    if (a.this.ovm != null) {
+                        a.this.ovm.a(a.this.ovl);
                     }
                 }
             }
@@ -66,11 +66,11 @@ public class a extends BdBaseModel {
                     AlaSendEmoticonResponseMessage alaSendEmoticonResponseMessage = (AlaSendEmoticonResponseMessage) httpResponsedMessage;
                     if (httpResponsedMessage.getError() == 0) {
                         a.this.a(alaSendEmoticonResponseMessage);
-                    } else if (a.this.otI != null) {
+                    } else if (a.this.ovm != null) {
                         if (httpResponsedMessage.getError() == 149010) {
-                            a.this.otI.Xl(((AlaSendEmoticonResponseMessage) httpResponsedMessage).getUserMsg());
+                            a.this.ovm.WW(((AlaSendEmoticonResponseMessage) httpResponsedMessage).getUserMsg());
                         } else {
-                            a.this.otI.Xl(null);
+                            a.this.ovm.WW(null);
                         }
                     }
                 }
@@ -80,44 +80,44 @@ public class a extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaSendEmoticonResponseMessage alaSendEmoticonResponseMessage) {
-        com.baidu.live.im.data.a Li = Li();
-        Li.setMsgType(13);
+        com.baidu.live.im.data.a Kz = Kz();
+        Kz.setMsgType(13);
         try {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("compression_img", alaSendEmoticonResponseMessage.otF);
-            jSONObject2.put("prototype_img", alaSendEmoticonResponseMessage.otE);
-            jSONObject2.put("result_img", alaSendEmoticonResponseMessage.otG);
-            jSONObject.put("user_uk", this.aES.aJr.userUk);
+            jSONObject2.put("compression_img", alaSendEmoticonResponseMessage.ovj);
+            jSONObject2.put("prototype_img", alaSendEmoticonResponseMessage.ovi);
+            jSONObject2.put("result_img", alaSendEmoticonResponseMessage.ovk);
+            jSONObject.put("user_uk", this.aDh.aHG.userUk);
             jSONObject.put("content_type", "audio_emoticon");
             jSONObject.put("emoticon_info", jSONObject2);
-            Li.setContent(jSONObject.toString());
+            Kz.setContent(jSONObject.toString());
             com.baidu.live.data.a aVar = new com.baidu.live.data.a();
-            AlaLiveUserInfoData alaLiveUserInfoData = this.aES.aJr;
+            AlaLiveUserInfoData alaLiveUserInfoData = this.aDh.aHG;
             aVar.userName = alaLiveUserInfoData.userName;
-            aVar.aHE = alaLiveUserInfoData.isAdmin == 1;
-            aVar.aHG = this.aES.aJA;
-            aVar.aHD = alaLiveUserInfoData.isOfficial == 1;
+            aVar.aFT = alaLiveUserInfoData.isAdmin == 1;
+            aVar.aFV = this.aDh.aHP;
+            aVar.aFS = alaLiveUserInfoData.isOfficial == 1;
             aVar.portrait = alaLiveUserInfoData.portrait;
             aVar.userId = String.valueOf(ExtraParamsManager.getDecryptUserId(alaLiveUserInfoData.userUk));
             aVar.level_id = alaLiveUserInfoData.levelId;
-            Li.e(aVar);
-            Li.setUserId(Long.parseLong(aVar.userId));
+            Kz.e(aVar);
+            Kz.setUserId(Long.parseLong(aVar.userId));
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501072, Li));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501072, Kz));
     }
 
-    protected com.baidu.live.im.data.a Li() {
+    protected com.baidu.live.im.data.a Kz() {
         com.baidu.live.im.a aVar = new com.baidu.live.im.a();
         aVar.setBornTime(System.currentTimeMillis());
         aVar.setTime(System.currentTimeMillis());
         aVar.setMsgId(System.currentTimeMillis());
-        if (TextUtils.isEmpty(String.valueOf(this.aES.mLiveInfo.getGroupID()))) {
+        if (TextUtils.isEmpty(String.valueOf(this.aDh.mLiveInfo.getGroupID()))) {
             return null;
         }
-        aVar.hE(String.valueOf(this.aES.aJr.userId));
+        aVar.hy(String.valueOf(this.aDh.aHG.userId));
         return aVar;
     }
 
@@ -131,25 +131,25 @@ public class a extends BdBaseModel {
         return false;
     }
 
-    public void a(InterfaceC0937a interfaceC0937a) {
-        this.otI = interfaceC0937a;
+    public void a(InterfaceC0940a interfaceC0940a) {
+        this.ovm = interfaceC0940a;
     }
 
-    public void eeH() {
+    public void eeF() {
         sendMessage(new HttpMessage(1031004));
     }
 
-    public void Xm(String str) {
+    public void WX(String str) {
         String str2;
         String str3;
         String str4 = null;
-        if (this.aES == null || this.aES.mLiveInfo == null) {
+        if (this.aDh == null || this.aDh.mLiveInfo == null) {
             str2 = null;
             str3 = null;
         } else {
-            str3 = String.valueOf(this.aES.mLiveInfo.live_id);
-            str4 = String.valueOf(this.aES.mLiveInfo.room_id);
-            str2 = String.valueOf(this.aES.mLiveInfo.group_id);
+            str3 = String.valueOf(this.aDh.mLiveInfo.live_id);
+            str4 = String.valueOf(this.aDh.mLiveInfo.room_id);
+            str2 = String.valueOf(this.aDh.mLiveInfo.group_id);
         }
         HttpMessage httpMessage = new HttpMessage(1031025);
         httpMessage.addParam("img_id", str);
@@ -161,9 +161,9 @@ public class a extends BdBaseModel {
     }
 
     public String getCustomRoomId() {
-        if (this.aES == null || this.aES.aJK == null) {
+        if (this.aDh == null || this.aDh.aHZ == null) {
             return null;
         }
-        return this.aES.aJK.croom_id;
+        return this.aDh.aHZ.croom_id;
     }
 }

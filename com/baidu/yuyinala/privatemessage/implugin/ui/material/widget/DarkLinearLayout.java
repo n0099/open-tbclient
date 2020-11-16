@@ -22,7 +22,7 @@ public class DarkLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (ThemeManager.eia() == ThemeManager.ThemeMode.NIGHT) {
+        if (ThemeManager.ehY() == ThemeManager.ThemeMode.NIGHT) {
             canvas.drawColor(2130706432);
         }
     }

@@ -11,17 +11,17 @@ import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class d extends com.baidu.b.b.a {
-    a.C0092a adb;
-    private a adc;
+    a.C0092a adh;
+    private a adi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public class a {
-        private h.a adf;
+        private h.a adk;
         private long c;
         private boolean e;
         private int g;
-        private com.baidu.b.f.b ade = new com.baidu.b.f.b();
+        private com.baidu.b.f.b adj = new com.baidu.b.f.b();
         private boolean f = true;
 
         a() {
@@ -34,7 +34,7 @@ public class d extends com.baidu.b.b.a {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 this.c = jSONObject.getLong("pub_lst_ts");
-                this.adf = h.a(jSONObject.getString("pub_info"));
+                this.adk = h.a(jSONObject.getString("pub_info"));
                 this.g = jSONObject.getInt("d_form_ver");
                 this.e = false;
                 return true;
@@ -48,13 +48,13 @@ public class d extends com.baidu.b.b.a {
         }
 
         public boolean a(PackageInfo packageInfo) {
-            String a2 = d.this.adb.i(new File(packageInfo.applicationInfo.dataDir)).a("pub.dat", true);
+            String a2 = d.this.adh.i(new File(packageInfo.applicationInfo.dataDir)).a("pub.dat", true);
             this.f = false;
             return a(a2);
         }
 
         public h.a b() {
-            return this.adf;
+            return this.adk;
         }
     }
 
@@ -68,7 +68,7 @@ public class d extends com.baidu.b.b.a {
         private h.a g;
 
         public b(String str) {
-            super(d.this.adb, str);
+            super(d.this.adh, str);
         }
 
         public boolean Q(long j) {
@@ -156,7 +156,7 @@ public class d extends com.baidu.b.b.a {
 
     public d() {
         super("isc", 8000000L);
-        this.adc = new a();
+        this.adi = new a();
     }
 
     @Override // com.baidu.b.b.a
@@ -164,14 +164,14 @@ public class d extends com.baidu.b.b.a {
         PackageInfo packageInfo;
         b bVar = null;
         try {
-            packageInfo = this.acT.f1246a.getPackageManager().getPackageInfo(str, 0);
+            packageInfo = this.acY.f1249a.getPackageManager().getPackageInfo(str, 0);
         } catch (PackageManager.NameNotFoundException e) {
             packageInfo = null;
         }
         if (packageInfo == null) {
             return a.e.bj(-2);
         }
-        if (dVar.f1247a) {
+        if (dVar.f1250a) {
             bVar = new b(str);
             bVar.a();
             if (str.equals(bVar.c()) && packageInfo.lastUpdateTime == bVar.e()) {
@@ -180,7 +180,7 @@ public class d extends com.baidu.b.b.a {
         }
         a aVar = new a();
         if (aVar.a(packageInfo)) {
-            if (dVar.f1247a && bVar != null) {
+            if (dVar.f1250a && bVar != null) {
                 bVar.a(aVar);
                 bVar.a(System.currentTimeMillis());
                 bVar.Q(packageInfo.lastUpdateTime);
@@ -194,6 +194,6 @@ public class d extends com.baidu.b.b.a {
 
     @Override // com.baidu.b.b.a
     public void a(a.c cVar) {
-        this.adb = this.acU.cX("isc");
+        this.adh = this.acZ.cZ("isc");
     }
 }

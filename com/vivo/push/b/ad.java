@@ -3,7 +3,7 @@ package com.vivo.push.b;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class ad extends c {
 
     /* renamed from: a  reason: collision with root package name */

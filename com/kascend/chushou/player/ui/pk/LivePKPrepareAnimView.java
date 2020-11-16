@@ -17,8 +17,8 @@ public class LivePKPrepareAnimView extends RelativeLayout {
     private ImageView b;
     private io.reactivex.disposables.b d;
     private int[] e;
-    private AnimationSet pwx;
-    private a pwy;
+    private AnimationSet pya;
+    private a pyb;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -53,7 +53,7 @@ public class LivePKPrepareAnimView extends RelativeLayout {
         inflate(context, a.h.layout_live_pk_prepare_anim_view, this);
         this.f4205a = (TextView) findViewById(a.f.tv_live_pk_prepare);
         this.b = (ImageView) findViewById(a.f.img_live_pk_prepare);
-        this.pwx = (AnimationSet) AnimationUtils.loadAnimation(context, a.C0988a.pk_live_online_count_down_last_three);
+        this.pya = (AnimationSet) AnimationUtils.loadAnimation(context, a.C0991a.pk_live_online_count_down_last_three);
     }
 
     private void b() {
@@ -62,14 +62,14 @@ public class LivePKPrepareAnimView extends RelativeLayout {
 
     public void a(final long j) {
         if (j <= 0) {
-            if (this.pwy != null) {
-                this.pwy.a();
+            if (this.pyb != null) {
+                this.pyb.a();
                 return;
             }
             return;
         }
         setVisibility(0);
-        this.d = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.eAB()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKPrepareAnimView.1
+        this.d = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.eAC()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKPrepareAnimView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: a */
@@ -83,12 +83,12 @@ public class LivePKPrepareAnimView extends RelativeLayout {
                         LivePKPrepareAnimView.this.f4205a.setVisibility(8);
                         LivePKPrepareAnimView.this.b.setVisibility(0);
                         LivePKPrepareAnimView.this.b.setImageResource(LivePKPrepareAnimView.this.e[longValue - 1]);
-                        LivePKPrepareAnimView.this.b.startAnimation(LivePKPrepareAnimView.this.pwx);
+                        LivePKPrepareAnimView.this.b.startAnimation(LivePKPrepareAnimView.this.pya);
                     }
                 } else if (longValue <= 0) {
                     LivePKPrepareAnimView.this.a();
-                    if (LivePKPrepareAnimView.this.pwy != null) {
-                        LivePKPrepareAnimView.this.pwy.a();
+                    if (LivePKPrepareAnimView.this.pyb != null) {
+                        LivePKPrepareAnimView.this.pyb.a();
                     }
                 }
             }
@@ -107,6 +107,6 @@ public class LivePKPrepareAnimView extends RelativeLayout {
     }
 
     public void setCallBack(a aVar) {
-        this.pwy = aVar;
+        this.pyb = aVar;
     }
 }

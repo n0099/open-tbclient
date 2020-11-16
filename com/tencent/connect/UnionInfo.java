@@ -8,7 +8,7 @@ import com.tencent.open.SocialOperation;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.e;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class UnionInfo extends BaseApi {
     public static final String URL_GET_UNION_ID = "https://graph.qq.com/oauth2.0/me";
 

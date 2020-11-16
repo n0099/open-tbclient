@@ -8,7 +8,7 @@ import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.a.r;
 import java.io.Closeable;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public final class f {
     private static final PathMeasure DZ = new PathMeasure();
     private static final Path Eb = new Path();

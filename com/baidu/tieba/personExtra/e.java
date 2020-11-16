@@ -12,13 +12,13 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class e implements com.baidu.tieba.personPolymeric.b.c {
     private BdUniqueId mId;
     private TbPageContext mTbPageContext;
-    private com.baidu.tieba.post.a.a mau;
+    private com.baidu.tieba.post.a.a maN;
     private int mStatus = 0;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(1001506) { // from class: com.baidu.tieba.personExtra.e.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,14 +36,14 @@ public class e implements com.baidu.tieba.personPolymeric.b.c {
                     e.this.mTbPageContext.showToast(R.string.privacy_setting_toast);
                 }
                 e.this.mStatus = 1;
-                e.this.mau.startPullRefresh();
+                e.this.maN.startPullRefresh();
             }
         }
     };
 
     public e(TbPageContext tbPageContext, com.baidu.tieba.post.a.a aVar, BdUniqueId bdUniqueId) {
         this.mTbPageContext = tbPageContext;
-        this.mau = aVar;
+        this.maN = aVar;
         this.mId = bdUniqueId;
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_PRIVACY_STATUS) { // from class: com.baidu.tieba.personExtra.e.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -57,7 +57,7 @@ public class e implements com.baidu.tieba.personPolymeric.b.c {
                         default:
                             return;
                         case 1:
-                            e.this.mau.startPullRefresh();
+                            e.this.maN.startPullRefresh();
                             return;
                     }
                 }
@@ -70,7 +70,7 @@ public class e implements com.baidu.tieba.personPolymeric.b.c {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.c
-    public void duZ() {
+    public void duz() {
         if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
             if (this.mTbPageContext != null) {
                 this.mTbPageContext.showToast(R.string.neterror);
@@ -83,6 +83,6 @@ public class e implements com.baidu.tieba.personPolymeric.b.c {
         httpMessage.addParam("val", String.valueOf(1));
         httpMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(httpMessage);
-        TiebaStatic.log(new aq("c12515").al("obj_locate", 1));
+        TiebaStatic.log(new ar("c12515").ak("obj_locate", 1));
     }
 }

@@ -1,45 +1,53 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
 import com.baidu.tieba.frs.view.FrsTopItemInfoView;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import tbclient.ItemInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class al {
-    private BaseFragment iLY;
-    private FrsTopItemInfoView iLZ;
+    private BaseFragment iML;
+    private FrsTopItemInfoView iMM;
 
     public al(BaseFragment baseFragment) {
         FrsViewData frsViewData;
         if (baseFragment != null) {
-            this.iLY = baseFragment;
-            this.iLZ = new FrsTopItemInfoView(baseFragment.getContext());
-            this.iLZ.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            this.iML = baseFragment;
+            this.iMM = new FrsTopItemInfoView(baseFragment.getContext());
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+            if (com.baidu.tbadk.a.d.bhw()) {
+                layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X002);
+            } else {
+                layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
+            }
+            this.iMM.setLayoutParams(layoutParams);
             onChangeSkinType();
-            if ((this.iLY instanceof FrsCommonTabFragment) && (frsViewData = ((FrsCommonTabFragment) this.iLY).iQj) != null && frsViewData.getForum() != null) {
+            if ((this.iML instanceof FrsCommonTabFragment) && (frsViewData = ((FrsCommonTabFragment) this.iML).iQW) != null && frsViewData.getForum() != null) {
                 ForumData forum = frsViewData.getForum();
-                this.iLZ.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
+                this.iMM.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
             }
         }
     }
 
     public void setData(ItemInfo itemInfo) {
-        if (this.iLZ != null) {
-            this.iLZ.setData(itemInfo);
+        if (this.iMM != null) {
+            this.iMM.setData(itemInfo);
         }
     }
 
     public View getView() {
-        return this.iLZ;
+        return this.iMM;
     }
 
     public void onChangeSkinType() {
-        if (this.iLZ != null) {
-            this.iLZ.onChangeSkinType();
+        if (this.iMM != null) {
+            this.iMM.onChangeSkinType();
         }
     }
 }

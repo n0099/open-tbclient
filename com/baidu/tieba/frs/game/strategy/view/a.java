@@ -4,97 +4,97 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public abstract class a extends BaseAdapter {
-    private f iWA;
-    private boolean iWv = true;
+    private boolean iXh = true;
+    private f iXm;
+
+    public abstract Object Af(int i);
+
+    public abstract long Ag(int i);
+
+    public abstract void Ah(int i);
 
     public abstract View c(int i, View view, ViewGroup viewGroup);
 
-    public abstract int cCE();
+    public abstract int cCi();
 
-    public abstract int cCF();
-
-    public abstract Object zH(int i);
-
-    public abstract long zI(int i);
-
-    public abstract void zJ(int i);
+    public abstract int cCj();
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (cCJ()) {
-            if (this.iWv) {
-                return this.iWA.getArrowIndex() + 1;
+        if (cCn()) {
+            if (this.iXh) {
+                return this.iXm.getArrowIndex() + 1;
             }
-            if (this.iWA != null && this.iWA.cCH()) {
-                return cCF() + 1;
+            if (this.iXm != null && this.iXm.cCl()) {
+                return cCj() + 1;
             }
-            return cCF();
+            return cCj();
         }
-        return cCF();
+        return cCj();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (cCJ()) {
-            int zK = zK(i);
-            if (zK >= 0) {
-                return zH(zK);
+        if (cCn()) {
+            int Ai = Ai(i);
+            if (Ai >= 0) {
+                return Af(Ai);
             }
-            return zH(i);
+            return Af(i);
         }
-        return zH(i);
+        return Af(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (cCJ()) {
-            int zK = zK(i);
-            if (zK >= 0) {
-                return zI(zK);
+        if (cCn()) {
+            int Ai = Ai(i);
+            if (Ai >= 0) {
+                return Ag(Ai);
             }
-            return zI(i);
+            return Ag(i);
         }
-        return zI(i);
+        return Ag(i);
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return getItemViewType(i) == 0 ? c(zK(i), view, viewGroup) : cF(view);
+        return getItemViewType(i) == 0 ? c(Ai(i), view, viewGroup) : cJ(view);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         int arrowIndex;
-        return (cCJ() && (arrowIndex = this.iWA.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0;
+        return (cCn() && (arrowIndex = this.iXm.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return cCJ() ? 2 : 1;
+        return cCn() ? 2 : 1;
     }
 
     public void a(f fVar) {
-        this.iWA = fVar;
+        this.iXm = fVar;
     }
 
-    private View cF(View view) {
-        if (this.iWA != null) {
-            if (view == null || view != this.iWA.getArrowView()) {
-                view = this.iWA.getArrowView();
+    private View cJ(View view) {
+        if (this.iXm != null) {
+            if (view == null || view != this.iXm.getArrowView()) {
+                view = this.iXm.getArrowView();
                 if (view.getLayoutParams() == null) {
-                    view.setLayoutParams(new AbsListView.LayoutParams(-1, cCE()));
+                    view.setLayoutParams(new AbsListView.LayoutParams(-1, cCi()));
                 }
             }
-            this.iWA.cE(view);
+            this.iXm.cI(view);
         }
         return view;
     }
 
-    public int zK(int i) {
+    public int Ai(int i) {
         int arrowIndex;
-        if (this.iWA != null && this.iWA.cCH() && i >= (arrowIndex = this.iWA.getArrowIndex())) {
+        if (this.iXm != null && this.iXm.cCl() && i >= (arrowIndex = this.iXm.getArrowIndex())) {
             if (i == arrowIndex) {
                 return -1;
             }
@@ -103,11 +103,11 @@ public abstract class a extends BaseAdapter {
         return i;
     }
 
-    public boolean cCJ() {
-        return this.iWA != null && this.iWA.cCH() && cCF() + (-1) > this.iWA.getArrowIndex();
+    public boolean cCn() {
+        return this.iXm != null && this.iXm.cCl() && cCj() + (-1) > this.iXm.getArrowIndex();
     }
 
-    public void qd(boolean z) {
-        this.iWv = z;
+    public void qg(boolean z) {
+        this.iXh = z;
     }
 }

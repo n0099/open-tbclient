@@ -9,7 +9,7 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class FlowableSwitchMap<T, R> extends a<T, R> {
     final int bufferSize;
     final boolean delayErrors;
@@ -17,13 +17,13 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        if (!g.a(this.pMK, cVar, this.mapper)) {
-            this.pMK.a((j) new SwitchMapSubscriber(cVar, this.mapper, this.bufferSize, this.delayErrors));
+        if (!g.a(this.pOn, cVar, this.mapper)) {
+            this.pOn.a((j) new SwitchMapSubscriber(cVar, this.mapper, this.bufferSize, this.delayErrors));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class SwitchMapSubscriber<T, R> extends AtomicInteger implements j<T>, org.a.d {
         static final SwitchMapInnerSubscriber<Object, Object> CANCELLED = new SwitchMapInnerSubscriber<>(null, -1, 1);
         private static final long serialVersionUID = -3491074160481096299L;
@@ -269,7 +269,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class SwitchMapInnerSubscriber<T, R> extends AtomicReference<org.a.d> implements j<R> {
         private static final long serialVersionUID = 3837284832786408377L;
         final int bufferSize;

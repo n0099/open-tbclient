@@ -10,10 +10,10 @@ import com.baidu.live.view.web.a.l;
 import com.baidu.live.view.web.a.m;
 /* loaded from: classes4.dex */
 public class g {
-    private SchemeCallback bNO;
-    private f bNP;
-    private AlaLastLiveroomInfo bNQ;
-    private h bNR;
+    private SchemeCallback bMe;
+    private f bMf;
+    private AlaLastLiveroomInfo bMg;
+    private h bMh;
     private BaseActivity baseActivity;
     private Activity context;
     private boolean isHost = false;
@@ -21,11 +21,11 @@ public class g {
     private long userId;
     private String userName;
 
-    public a[] WX() {
-        r0[0].a(this.bNR);
+    public a[] Wo() {
+        r0[0].a(this.bMh);
         com.baidu.live.view.web.a.e eVar = new com.baidu.live.view.web.a.e();
         eVar.setHost(this.isHost);
-        eVar.b(this.bNQ);
+        eVar.b(this.bMg);
         com.baidu.live.view.web.a.i iVar = new com.baidu.live.view.web.a.i(this.context);
         iVar.setHost(this.isHost);
         k kVar = new k();
@@ -33,13 +33,13 @@ public class g {
         kVar.setUserId(this.userId);
         kVar.setUserName(this.userName);
         kVar.setLiveId(this.liveId);
-        com.baidu.live.view.web.a.h hVar = new com.baidu.live.view.web.a.h(this.bNO);
+        com.baidu.live.view.web.a.h hVar = new com.baidu.live.view.web.a.h(this.bMe);
         hVar.b(this.baseActivity);
-        a[] aVarArr = {new l(this.context, this.bNO), eVar, iVar, new com.baidu.live.view.web.a.g(this.bNO), kVar, new com.baidu.live.view.web.a.f(this.bNO), new com.baidu.live.view.web.a.d(), new com.baidu.live.view.web.a.a(this.bNP), new com.baidu.live.view.web.a.b(this.bNO), new m(this.bNO), hVar, new com.baidu.live.view.web.a.c(), new j()};
+        a[] aVarArr = {new l(this.context, this.bMe), eVar, iVar, new com.baidu.live.view.web.a.g(this.bMe), kVar, new com.baidu.live.view.web.a.f(this.bMe), new com.baidu.live.view.web.a.d(), new com.baidu.live.view.web.a.a(this.bMf), new com.baidu.live.view.web.a.b(this.bMe), new m(this.bMe), hVar, new com.baidu.live.view.web.a.c(), new j()};
         return aVarArr;
     }
 
-    public g y(Activity activity) {
+    public g x(Activity activity) {
         this.context = activity;
         return this;
     }
@@ -50,12 +50,12 @@ public class g {
     }
 
     public g a(SchemeCallback schemeCallback) {
-        this.bNO = schemeCallback;
+        this.bMe = schemeCallback;
         return this;
     }
 
     public g a(f fVar) {
-        this.bNP = fVar;
+        this.bMf = fVar;
         return this;
     }
 
@@ -64,18 +64,18 @@ public class g {
         return this;
     }
 
-    public g iS(String str) {
+    public g iM(String str) {
         this.userName = str;
         return this;
     }
 
-    public g dk(boolean z) {
+    public g dm(boolean z) {
         this.isHost = z;
         return this;
     }
 
     public g b(h hVar) {
-        this.bNR = hVar;
+        this.bMh = hVar;
         return this;
     }
 
@@ -85,7 +85,7 @@ public class g {
     }
 
     public g a(AlaLastLiveroomInfo alaLastLiveroomInfo) {
-        this.bNQ = alaLastLiveroomInfo;
+        this.bMg = alaLastLiveroomInfo;
         return this;
     }
 }

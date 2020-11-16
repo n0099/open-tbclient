@@ -18,9 +18,9 @@ public interface l {
 
     void clear();
 
-    master.flame.danmaku.danmaku.model.d eDw();
-
     master.flame.danmaku.danmaku.model.d eDx();
+
+    master.flame.danmaku.danmaku.model.d eDy();
 
     boolean isEmpty();
 
@@ -34,36 +34,36 @@ public interface l {
 
     /* loaded from: classes6.dex */
     public static abstract class b<Progress, Result> {
-        public abstract int bX(Progress progress);
-
-        public void eDy() {
-        }
+        public abstract int bY(Progress progress);
 
         public void eDz() {
         }
 
-        public Result eCx() {
+        public void eDA() {
+        }
+
+        public Result eCy() {
             return null;
         }
     }
 
     /* loaded from: classes6.dex */
     public static class a implements Comparator<master.flame.danmaku.danmaku.model.d> {
-        protected boolean pWw;
+        protected boolean pXZ;
 
         public a(boolean z) {
-            Ba(z);
+            Bh(z);
         }
 
-        public void Ba(boolean z) {
-            this.pWw = z;
+        public void Bh(boolean z) {
+            this.pXZ = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(master.flame.danmaku.danmaku.model.d dVar, master.flame.danmaku.danmaku.model.d dVar2) {
-            if (this.pWw && master.flame.danmaku.danmaku.c.b.b(dVar, dVar2)) {
+            if (this.pXZ && master.flame.danmaku.danmaku.c.b.b(dVar, dVar2)) {
                 return 0;
             }
             return master.flame.danmaku.danmaku.c.b.a(dVar, dVar2);
@@ -94,10 +94,10 @@ public interface l {
         @Override // master.flame.danmaku.danmaku.model.l.a, java.util.Comparator
         /* renamed from: a */
         public int compare(master.flame.danmaku.danmaku.model.d dVar, master.flame.danmaku.danmaku.model.d dVar2) {
-            if (this.pWw && master.flame.danmaku.danmaku.c.b.b(dVar, dVar2)) {
+            if (this.pXZ && master.flame.danmaku.danmaku.c.b.b(dVar, dVar2)) {
                 return 0;
             }
-            return Float.compare(dVar.eDk(), dVar2.eDk());
+            return Float.compare(dVar.eDl(), dVar2.eDl());
         }
     }
 
@@ -111,10 +111,10 @@ public interface l {
         @Override // master.flame.danmaku.danmaku.model.l.a, java.util.Comparator
         /* renamed from: a */
         public int compare(master.flame.danmaku.danmaku.model.d dVar, master.flame.danmaku.danmaku.model.d dVar2) {
-            if (this.pWw && master.flame.danmaku.danmaku.c.b.b(dVar, dVar2)) {
+            if (this.pXZ && master.flame.danmaku.danmaku.c.b.b(dVar, dVar2)) {
                 return 0;
             }
-            return Float.compare(dVar2.eDk(), dVar.eDk());
+            return Float.compare(dVar2.eDl(), dVar.eDl());
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.fsg.base.utils;
 
 import android.app.Activity;
 import android.content.Context;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class RimAnimUtils {
 
     /* renamed from: a  reason: collision with root package name */

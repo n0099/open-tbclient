@@ -27,24 +27,24 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static final long dhE = TimeUnit.HOURS.toMillis(5);
-    private static volatile a dhF;
-    private List<com.baidu.swan.apps.network.c.b.b> dhG;
-    private AtomicInteger dhH;
-    private CopyOnWriteArrayList<com.baidu.swan.apps.network.c.a.a> dhI;
+    private static final long dfX = TimeUnit.HOURS.toMillis(5);
+    private static volatile a dfY;
+    private List<com.baidu.swan.apps.network.c.b.b> dfZ;
+    private AtomicInteger dga;
+    private CopyOnWriteArrayList<com.baidu.swan.apps.network.c.a.a> dgb;
 
-    public static a aCK() {
-        if (dhF == null) {
+    public static a aCc() {
+        if (dfY == null) {
             synchronized (a.class) {
-                if (dhF == null) {
-                    dhF = new a();
+                if (dfY == null) {
+                    dfY = new a();
                 }
             }
         }
-        return dhF;
+        return dfY;
     }
 
     private a() {
@@ -52,28 +52,28 @@ public final class a {
     }
 
     private void init() {
-        aCL();
-        this.dhH = new AtomicInteger(0);
-        this.dhI = new CopyOnWriteArrayList<>();
+        aCd();
+        this.dga = new AtomicInteger(0);
+        this.dgb = new CopyOnWriteArrayList<>();
     }
 
-    private void aCL() {
-        this.dhG = new ArrayList();
-        this.dhG.add(new com.baidu.swan.apps.network.c.b.a());
-        this.dhG.add(new c());
+    private void aCd() {
+        this.dfZ = new ArrayList();
+        this.dfZ.add(new com.baidu.swan.apps.network.c.b.a());
+        this.dfZ.add(new c());
     }
 
-    public void aCM() {
-        boolean aDY = com.baidu.swan.apps.performance.b.c.aDY();
-        boolean z = d.aHq().aHm().aHG().getBoolean("swan_service_update_degraded", false);
-        com.baidu.swan.apps.console.c.i("SwanAppUpdateManager", "tryUpdate, isUpdateAsyncAb = " + aDY + " ; isServiceDegraded = " + z);
-        if (!aDY || !z) {
+    public void aCe() {
+        boolean aDq = com.baidu.swan.apps.performance.b.c.aDq();
+        boolean z = d.aGI().aGE().aGY().getBoolean("swan_service_update_degraded", false);
+        com.baidu.swan.apps.console.c.i("SwanAppUpdateManager", "tryUpdate, isUpdateAsyncAb = " + aDq + " ; isServiceDegraded = " + z);
+        if (!aDq || !z) {
             a((com.baidu.swan.apps.network.c.a.a) null);
         }
     }
 
     public void a(@Nullable com.baidu.swan.apps.network.c.a.a aVar) {
-        if (aCO()) {
+        if (aCg()) {
             if (DEBUG) {
                 Log.d("SwanAppUpdateManager", "tryUpdate: start => cache data invalid");
             }
@@ -84,7 +84,7 @@ public final class a {
             Log.d("SwanAppUpdateManager", "tryUpdate: finish => cache data valid");
         }
         if (aVar != null) {
-            aVar.aCN();
+            aVar.aCf();
         }
     }
 
@@ -94,9 +94,9 @@ public final class a {
 
     public void b(@Nullable com.baidu.swan.apps.network.c.a.a aVar) {
         if (aVar != null) {
-            this.dhI.add(aVar);
+            this.dgb.add(aVar);
         }
-        aI(this.dhG);
+        aI(this.dfZ);
     }
 
     public void a(com.baidu.swan.apps.network.c.b.b bVar) {
@@ -121,9 +121,9 @@ public final class a {
         if (DEBUG) {
             Log.d("SwanAppUpdateManager", "release: ");
         }
-        if (dhF != null) {
-            this.dhI.clear();
-            dhF = null;
+        if (dfY != null) {
+            this.dgb.clear();
+            dfY = null;
         }
     }
 
@@ -132,42 +132,42 @@ public final class a {
             if (DEBUG) {
                 Log.w("SwanAppUpdateManager", "doUpdate: finish => nodes are empty");
             }
-            aCN();
+            aCf();
             return;
         }
         if (DEBUG) {
             Log.d("SwanAppUpdateManager", "doUpdate: start => nodes size " + list.size());
         }
-        if (this.dhH.incrementAndGet() > 1) {
+        if (this.dga.incrementAndGet() > 1) {
             if (DEBUG) {
                 Log.d("SwanAppUpdateManager", "doUpdate: pending => wait previous request");
                 return;
             }
             return;
         }
-        ArrayMap<String, String> aL = aL(this.dhG);
+        ArrayMap<String, String> aL = aL(this.dfZ);
         JSONObject a2 = a(list, aL);
         if (a2 == null) {
             if (DEBUG) {
                 Log.w("SwanAppUpdateManager", "doUpdate: finish => build params is null");
             }
-            aCN();
+            aCf();
             return;
         }
         if (DEBUG) {
             Log.w("SwanAppUpdateManager", "doUpdate: start to request update data");
         }
         FormBody build = new FormBody.Builder().add("data", a2.toString()).build();
-        String ahf = com.baidu.swan.apps.t.a.awM().ahf();
-        com.baidu.swan.apps.console.c.bn("SwanAppUpdateManager", "swan update url = " + ahf);
-        a(ahf, build, list, aL);
+        String agx = com.baidu.swan.apps.t.a.awe().agx();
+        com.baidu.swan.apps.console.c.bm("SwanAppUpdateManager", "swan update url = " + agx);
+        a(agx, build, list, aL);
     }
 
     private void a(String str, RequestBody requestBody, final List<com.baidu.swan.apps.network.c.b.b> list, final ArrayMap<String, String> arrayMap) {
         com.baidu.swan.a.b.a aVar = new com.baidu.swan.a.b.a(str, requestBody, new ResponseCallback() { // from class: com.baidu.swan.apps.network.c.a.1
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public Object parseResponse(Response response, int i) throws Exception {
-                com.baidu.swan.apps.console.c.bn("SwanAppUpdateManager", "response code = " + response.code());
+                com.baidu.swan.apps.console.c.bm("SwanAppUpdateManager", "response code = " + response.code());
                 a.this.a(response, list, arrayMap);
                 return response;
             }
@@ -184,10 +184,10 @@ public final class a {
                 a.this.aJ(list);
             }
         });
-        aVar.ehl = true;
-        aVar.ehm = true;
-        aVar.ehn = false;
-        com.baidu.swan.a.c.a.baK().b(aVar);
+        aVar.efD = true;
+        aVar.efE = true;
+        aVar.efF = false;
+        com.baidu.swan.a.c.a.bad().b(aVar);
     }
 
     @Nullable
@@ -195,18 +195,18 @@ public final class a {
         if (list.size() == 0) {
             return null;
         }
-        String aHw = e.aHw();
-        if (TextUtils.isEmpty(aHw)) {
+        String aGO = e.aGO();
+        if (TextUtils.isEmpty(aGO)) {
             return null;
         }
-        String ayD = e.aHu().afO().ayD();
-        if (TextUtils.isEmpty(ayD)) {
-            ayD = "NA";
+        String axV = e.aGM().afg().axV();
+        if (TextUtils.isEmpty(axV)) {
+            axV = "NA";
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", aHw);
-            jSONObject.put("source", ayD);
+            jSONObject.put("ma_id", aGO);
+            jSONObject.put("source", axV);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -255,7 +255,7 @@ public final class a {
                 e.printStackTrace();
             }
         }
-        com.baidu.swan.apps.console.c.bn("SwanAppUpdateManager", "response body = " + str);
+        com.baidu.swan.apps.console.c.bm("SwanAppUpdateManager", "response body = " + str);
         if (TextUtils.isEmpty(str)) {
             aJ(list);
             return;
@@ -268,7 +268,7 @@ public final class a {
             }
             String optString = jSONObject.optString("request_id", "");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            com.baidu.swan.apps.console.c.bn("SwanAppUpdateManager", "request_id = " + optString);
+            com.baidu.swan.apps.console.c.bm("SwanAppUpdateManager", "request_id = " + optString);
             if (optJSONObject == null) {
                 aJ(list);
             } else {
@@ -287,7 +287,7 @@ public final class a {
         if (DEBUG) {
             Log.d("SwanAppUpdateManager", "doRequestSuccess: start");
         }
-        aCQ();
+        aCi();
         boolean z2 = false;
         for (com.baidu.swan.apps.network.c.b.b bVar : list) {
             JSONObject optJSONObject = jSONObject.optJSONObject(bVar.getNodeName());
@@ -298,12 +298,12 @@ public final class a {
             } else {
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
                 if (optJSONObject2 == null) {
-                    bVar.aCS();
+                    bVar.aCk();
                 } else {
                     if (DEBUG) {
                         Log.d("SwanAppUpdateManager", "doRequestSuccess: node => " + bVar.getNodeName() + " update");
                     }
-                    bVar.u(optJSONObject2, str);
+                    bVar.r(optJSONObject2, str);
                     String optString = optJSONObject.optString("version", "");
                     if (TextUtils.isEmpty(optString)) {
                         z = z2;
@@ -321,7 +321,7 @@ public final class a {
         if (z2) {
             b(list, arrayMap);
         }
-        fQ(true);
+        fT(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -330,19 +330,19 @@ public final class a {
             Log.d("SwanAppUpdateManager", "doRequestFail: ");
         }
         aK(list);
-        fQ(false);
+        fT(false);
     }
 
-    private void fQ(boolean z) {
+    private void fT(boolean z) {
         if (DEBUG) {
             Log.d("SwanAppUpdateManager", "onRequestFinish: request finish");
         }
-        if (this.dhH.decrementAndGet() > 0) {
+        if (this.dga.decrementAndGet() > 0) {
             if (DEBUG) {
                 Log.d("SwanAppUpdateManager", "onRequestFinish: do pending request");
             }
-            this.dhH.set(0);
-            if (com.baidu.swan.apps.performance.b.c.aDY()) {
+            this.dga.set(0);
+            if (com.baidu.swan.apps.performance.b.c.aDq()) {
                 if (!z) {
                     update();
                     return;
@@ -352,25 +352,25 @@ public final class a {
             update();
             return;
         }
-        aCN();
+        aCf();
     }
 
-    private void aCN() {
+    private void aCf() {
         if (DEBUG) {
             Log.d("SwanAppUpdateManager", "onUpdateFinish: real finish update");
         }
-        this.dhH.set(0);
-        Iterator<com.baidu.swan.apps.network.c.a.a> it = this.dhI.iterator();
+        this.dga.set(0);
+        Iterator<com.baidu.swan.apps.network.c.a.a> it = this.dgb.iterator();
         while (it.hasNext()) {
             final com.baidu.swan.apps.network.c.a.a next = it.next();
             com.baidu.swan.apps.setting.oauth.c.h(new Runnable() { // from class: com.baidu.swan.apps.network.c.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    next.aCN();
+                    next.aCf();
                 }
             });
         }
-        this.dhI.clear();
+        this.dgb.clear();
     }
 
     private void aK(@NonNull List<com.baidu.swan.apps.network.c.b.b> list) {
@@ -388,11 +388,11 @@ public final class a {
         for (com.baidu.swan.apps.network.c.b.b bVar : list) {
             arrayMap.put(bVar.getNodeName(), "");
         }
-        e aHu = e.aHu();
-        if (aHu == null) {
+        e aGM = e.aGM();
+        if (aGM == null) {
             return arrayMap;
         }
-        String string = aHu.aHG().getString("update_nodes_version", "");
+        String string = aGM.aGY().getString("update_nodes_version", "");
         if (TextUtils.isEmpty(string)) {
             return arrayMap;
         }
@@ -414,10 +414,10 @@ public final class a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void b(@NonNull List<com.baidu.swan.apps.network.c.b.b> list, @NonNull ArrayMap<String, String> arrayMap) {
-        e aHu;
+        e aGM;
         JSONObject jSONObject;
-        if (list.size() != 0 && (aHu = e.aHu()) != null) {
-            String string = aHu.aHG().getString("update_nodes_version", "");
+        if (list.size() != 0 && (aGM = e.aGM()) != null) {
+            String string = aGM.aGY().getString("update_nodes_version", "");
             JSONObject jSONObject2 = new JSONObject();
             if (!TextUtils.isEmpty(string)) {
                 try {
@@ -443,35 +443,35 @@ public final class a {
                         }
                     }
                 }
-                aHu.aHG().putString("update_nodes_version", jSONObject.toString());
+                aGM.aGY().putString("update_nodes_version", jSONObject.toString());
             }
             jSONObject = jSONObject2;
             while (r4.hasNext()) {
             }
-            aHu.aHG().putString("update_nodes_version", jSONObject.toString());
+            aGM.aGY().putString("update_nodes_version", jSONObject.toString());
         }
     }
 
-    private boolean aCO() {
-        long aCR = aCR();
-        return aCR <= 0 || System.currentTimeMillis() - aCR > dhE;
+    private boolean aCg() {
+        long aCj = aCj();
+        return aCj <= 0 || System.currentTimeMillis() - aCj > dfX;
     }
 
-    public void aCP() {
-        if (d.aHq().aFD()) {
-            d.aHq().aHm().aHG().remove(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME);
+    public void aCh() {
+        if (d.aGI().aEV()) {
+            d.aGI().aGE().aGY().remove(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME);
         }
-        aCM();
+        aCe();
     }
 
-    private void aCQ() {
-        if (d.aHq().aFD()) {
-            d.aHq().aHm().aHG().putLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, System.currentTimeMillis());
+    private void aCi() {
+        if (d.aGI().aEV()) {
+            d.aGI().aGE().aGY().putLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, System.currentTimeMillis());
         }
     }
 
-    public long aCR() {
-        return d.aHq().aFD() ? d.aHq().aHm().aHG().getLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, 0L) : System.currentTimeMillis();
+    public long aCj() {
+        return d.aGI().aEV() ? d.aGI().aGE().aGY().getLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, 0L) : System.currentTimeMillis();
     }
 
     public void a(@NonNull com.baidu.swan.apps.storage.c.b bVar, @NonNull JSONObject jSONObject) {
@@ -481,8 +481,8 @@ public final class a {
             Log.d("SwanAppUpdateManager", "parse increment accredit node start");
         }
         String string = bVar.getString("node_data_accredit_list", "");
-        boolean aDZ = com.baidu.swan.apps.performance.b.c.aDZ();
-        com.baidu.swan.apps.console.c.bn("SwanAppUpdateManager", "cacheData is Empty = " + TextUtils.isEmpty(string) + " ; mergeNodeSwitch = " + aDZ);
+        boolean aDr = com.baidu.swan.apps.performance.b.c.aDr();
+        com.baidu.swan.apps.console.c.bm("SwanAppUpdateManager", "cacheData is Empty = " + TextUtils.isEmpty(string) + " ; mergeNodeSwitch = " + aDr);
         if (TextUtils.isEmpty(string)) {
             JSONObject jSONObject3 = new JSONObject();
             v.b(jSONObject3, "list", jSONObject);
@@ -491,15 +491,15 @@ public final class a {
             if (DEBUG) {
                 Log.d("SwanAppUpdateManager", "local has no cache data, write directly. pending data = " + jSONObject4);
             }
-        } else if (!aDZ) {
+        } else if (!aDr) {
             if (DEBUG) {
                 Log.d("SwanAppUpdateManager", "local has no cache data, mergeNodeSwitch = false");
                 return;
             }
             return;
         } else {
-            HashMap<String, JSONObject> bt = bt(jSONObject);
-            if (bt == null || bt.size() == 0) {
+            HashMap<String, JSONObject> bn = bn(jSONObject);
+            if (bn == null || bn.size() == 0) {
                 if (DEBUG) {
                     Log.e("SwanAppUpdateManager", "local has cache data, but pending data is empty");
                     return;
@@ -520,14 +520,14 @@ public final class a {
             Iterator<String> keys = optJSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
-                if (!TextUtils.isEmpty(next) && (jSONObject2 = bt.get(next)) != null) {
+                if (!TextUtils.isEmpty(next) && (jSONObject2 = bn.get(next)) != null) {
                     v.b(optJSONObject, next, jSONObject2);
                 }
             }
             v.b(parseString, "list", optJSONObject);
             bVar.putString("node_data_accredit_list", parseString.toString());
             if (DEBUG) {
-                Log.d("SwanAppUpdateManager", "local has cache data, pending size = " + bt.size());
+                Log.d("SwanAppUpdateManager", "local has cache data, pending size = " + bn.size());
             }
         }
         if (DEBUG) {
@@ -535,7 +535,7 @@ public final class a {
         }
     }
 
-    private HashMap<String, JSONObject> bt(@NonNull JSONObject jSONObject) {
+    private HashMap<String, JSONObject> bn(@NonNull JSONObject jSONObject) {
         JSONObject optJSONObject;
         HashMap<String, JSONObject> hashMap = new HashMap<>();
         Iterator<String> keys = jSONObject.keys();

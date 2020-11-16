@@ -13,7 +13,7 @@ import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import java.io.File;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class FileUtils {
     private static final String IMAGE_FILE_START = "image/";
     private static final String VIDEO_FILE_START = "video/";

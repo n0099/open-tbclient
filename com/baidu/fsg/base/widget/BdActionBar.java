@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.fsg.base.utils.ResUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class BdActionBar extends RelativeLayout {
     public static final float FOCUS_ALPHA_VALUE = 0.5f;
     public static final float NORMAL_ALPHA_VALUE = 1.0f;

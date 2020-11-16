@@ -29,12 +29,12 @@ import com.tencent.tauth.UiError;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class c extends com.tencent.open.b implements a.InterfaceC1050a {
+/* loaded from: classes11.dex */
+public class c extends com.tencent.open.b implements a.InterfaceC1053a {
     static Toast c = null;
     private String d;
     private IUiListener e;
-    private C1051c f;
+    private C1054c f;
     private Handler g;
     private com.tencent.open.c.a h;
     private com.tencent.open.c.b i;
@@ -45,7 +45,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC1050a {
         super(context, 16973840);
         this.j = new WeakReference<>(context);
         this.d = str2;
-        this.f = new C1051c(context, str, str2, qQToken.getAppId(), iUiListener);
+        this.f = new C1054c(context, str, str2, qQToken.getAppId(), iUiListener);
         this.g = new d(this.f, context.getMainLooper());
         this.e = iUiListener;
         this.k = Math.round(185.0f * context.getResources().getDisplayMetrics().density);
@@ -120,14 +120,14 @@ public class c extends com.tencent.open.b implements a.InterfaceC1050a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public class b extends a.b {
         private b() {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public class a extends WebViewClient {
         private a() {
         }
@@ -219,13 +219,13 @@ public class c extends com.tencent.open.b implements a.InterfaceC1050a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     private class d extends Handler {
-        private C1051c b;
+        private C1054c b;
 
-        public d(C1051c c1051c, Looper looper) {
+        public d(C1054c c1054c, Looper looper) {
             super(looper);
-            this.b = c1051c;
+            this.b = c1054c;
         }
 
         @Override // android.os.Handler
@@ -258,8 +258,8 @@ public class c extends com.tencent.open.b implements a.InterfaceC1050a {
     }
 
     /* renamed from: com.tencent.open.c$c  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    private static class C1051c implements IUiListener {
+    /* loaded from: classes11.dex */
+    private static class C1054c implements IUiListener {
 
         /* renamed from: a  reason: collision with root package name */
         String f4602a;
@@ -268,7 +268,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC1050a {
         private String d;
         private IUiListener e;
 
-        public C1051c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
+        public C1054c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
             this.c = new WeakReference<>(context);
             this.d = str;
             this.f4602a = str2;
@@ -314,7 +314,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC1050a {
         }
     }
 
-    @Override // com.tencent.open.c.a.InterfaceC1050a
+    @Override // com.tencent.open.c.a.InterfaceC1053a
     public void a(int i) {
         if (this.j != null && this.j.get() != null) {
             if (i < this.k && 2 == this.j.get().getResources().getConfiguration().orientation) {
@@ -326,7 +326,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC1050a {
         f.e("openSDK_LOG.PKDialog", "onKeyboardShown keyboard show");
     }
 
-    @Override // com.tencent.open.c.a.InterfaceC1050a
+    @Override // com.tencent.open.c.a.InterfaceC1053a
     public void a() {
         this.i.getLayoutParams().height = this.k;
         f.e("openSDK_LOG.PKDialog", "onKeyboardHidden keyboard hide");

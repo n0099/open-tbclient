@@ -22,17 +22,17 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class d extends com.baidu.cesium.b.a {
-    private g amo;
+    private g amu;
     private Context g;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static final class a implements Comparable<a> {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String[] f1297a = {"read0", "read1", "read2", "read3", "access0", "access1", "access2", "access3", "sync0", "sync1", "sync2", "sync3", "open0", "open1", "open2", "open3"};
+        private static final String[] f1300a = {"read0", "read1", "read2", "read3", "access0", "access1", "access2", "access3", "sync0", "sync1", "sync2", "sync3", "open0", "open1", "open2", "open3"};
         private final int b;
 
         private a(int i) {
@@ -41,10 +41,10 @@ public class d extends com.baidu.cesium.b.a {
 
         public static a b(byte b, boolean z) {
             int i = b & 255;
-            return z ? bH(i >> 4) : bH(i & 15);
+            return z ? bF(i >> 4) : bF(i & 15);
         }
 
-        public static a bH(int i) {
+        public static a bF(int i) {
             if (i < 0 || i >= 16) {
                 throw new IllegalArgumentException("invalid idx " + i);
             }
@@ -52,7 +52,7 @@ public class d extends com.baidu.cesium.b.a {
         }
 
         public String a() {
-            return f1297a[this.b];
+            return f1300a[this.b];
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,17 +81,17 @@ public class d extends com.baidu.cesium.b.a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private Map<a, Integer> f1298a = new HashMap();
+        private Map<a, Integer> f1301a = new HashMap();
 
         b() {
         }
 
         public List<a> a() {
-            ArrayList arrayList = new ArrayList(this.f1298a.entrySet());
+            ArrayList arrayList = new ArrayList(this.f1301a.entrySet());
             Collections.sort(arrayList, new Comparator<Map.Entry<a, Integer>>() { // from class: com.baidu.cesium.b.d.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -113,26 +113,26 @@ public class d extends com.baidu.cesium.b.a {
         }
 
         public void c(a aVar) {
-            Integer num = this.f1298a.get(aVar);
-            this.f1298a.put(aVar, num == null ? 1 : Integer.valueOf(num.intValue() + 1));
+            Integer num = this.f1301a.get(aVar);
+            this.f1301a.put(aVar, num == null ? 1 : Integer.valueOf(num.intValue() + 1));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public class c {
-        private a[] amq;
+        private a[] amw;
         private int b;
         private int d;
 
         public c() {
             this.b = 33;
-            this.amq = new a[this.b];
+            this.amw = new a[this.b];
         }
 
         public c(byte[] bArr) {
             this.b = 33;
-            this.amq = new a[this.b];
+            this.amw = new a[this.b];
             if (bArr == null || bArr.length <= 0) {
                 return;
             }
@@ -145,13 +145,13 @@ public class d extends com.baidu.cesium.b.a {
         }
 
         private void b(int i) {
-            if (i - this.amq.length > 0) {
-                int length = this.amq.length;
+            if (i - this.amw.length > 0) {
+                int length = this.amw.length;
                 int i2 = length + (length >> 1);
                 if (i2 - i >= 0) {
                     i = i2;
                 }
-                this.amq = (a[]) Arrays.copyOf(this.amq, i);
+                this.amw = (a[]) Arrays.copyOf(this.amw, i);
             }
         }
 
@@ -162,24 +162,24 @@ public class d extends com.baidu.cesium.b.a {
         public byte[] b() {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             for (int i = 0; i < this.d / 2; i++) {
-                byteArrayOutputStream.write((byte) ((bH(i * 2).sK() & 255) | ((bH((i * 2) + 1).sK() & 255) << 4)));
+                byteArrayOutputStream.write((byte) ((bF(i * 2).sK() & 255) | ((bF((i * 2) + 1).sK() & 255) << 4)));
             }
             if (this.d % 2 != 0) {
-                byteArrayOutputStream.write((byte) (bH(this.d - 1).sK() & 255));
+                byteArrayOutputStream.write((byte) (bF(this.d - 1).sK() & 255));
             }
             return byteArrayOutputStream.toByteArray();
         }
 
-        public a bH(int i) {
+        public a bF(int i) {
             if (i >= this.d) {
                 throw new IndexOutOfBoundsException("idx " + i + " size " + this.d);
             }
-            return this.amq[i];
+            return this.amw[i];
         }
 
         public void c(a aVar) {
             b(this.d + 1);
-            a[] aVarArr = this.amq;
+            a[] aVarArr = this.amw;
             int i = this.d;
             this.d = i + 1;
             aVarArr[i] = aVar;
@@ -187,61 +187,61 @@ public class d extends com.baidu.cesium.b.a {
     }
 
     /* renamed from: com.baidu.cesium.b.d$d  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    static class C0101d {
+    /* loaded from: classes19.dex */
+    static class C0100d {
 
         /* renamed from: a  reason: collision with root package name */
-        private List<a> f1299a = new ArrayList();
+        private List<a> f1302a = new ArrayList();
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.cesium.b.d$d$a */
-        /* loaded from: classes6.dex */
+        /* loaded from: classes19.dex */
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1300a;
-            private a amt;
+            private int f1303a;
+            private a amz;
 
             public a(a aVar) {
-                this.amt = aVar;
+                this.amz = aVar;
             }
 
             public void a() {
-                this.f1300a++;
+                this.f1303a++;
             }
         }
 
-        C0101d() {
+        C0100d() {
         }
 
         public List<a> a() {
-            ArrayList arrayList = new ArrayList(this.f1299a);
+            ArrayList arrayList = new ArrayList(this.f1302a);
             Collections.sort(arrayList, new Comparator<a>() { // from class: com.baidu.cesium.b.d.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: a */
                 public int compare(a aVar, a aVar2) {
-                    return aVar.f1300a - aVar2.f1300a;
+                    return aVar.f1303a - aVar2.f1303a;
                 }
             });
             return arrayList;
         }
 
         public void c(a aVar) {
-            this.f1299a.add(new a(aVar));
+            this.f1302a.add(new a(aVar));
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        byte[] f1301a;
+        byte[] f1304a;
         byte b;
         byte[] c;
 
         public e(byte[] bArr, byte b, byte[] bArr2) {
-            this.f1301a = bArr;
+            this.f1304a = bArr;
             this.b = b;
             this.c = bArr2;
         }
@@ -258,9 +258,9 @@ public class d extends com.baidu.cesium.b.a {
             }
         }
 
-        public g.a uu() {
+        public g.a ut() {
             try {
-                return com.baidu.cesium.g.l(com.baidu.cesium.d.b.a(this.f1301a, "", true), new String(new byte[]{this.b}, "UTF-8"), this.c != null ? new String(this.c, "UTF-8") : null);
+                return com.baidu.cesium.g.l(com.baidu.cesium.d.b.a(this.f1304a, "", true), new String(new byte[]{this.b}, "UTF-8"), this.c != null ? new String(this.c, "UTF-8") : null);
             } catch (Exception e) {
                 return null;
             }
@@ -268,11 +268,11 @@ public class d extends com.baidu.cesium.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1302a;
+        public int f1305a;
         public int b;
         public int c = 16;
 
@@ -285,11 +285,11 @@ public class d extends com.baidu.cesium.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        private Method f1303a;
+        private Method f1306a;
         private Method b;
         private Method c;
         private Method d;
@@ -300,7 +300,7 @@ public class d extends com.baidu.cesium.b.a {
 
         public int a(Context context, Uri uri, int i, int i2, int i3) {
             try {
-                return ((Integer) this.f1303a.invoke(context, uri, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3))).intValue();
+                return ((Integer) this.f1306a.invoke(context, uri, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3))).intValue();
             } catch (Exception e) {
                 throw new i.a(e);
             }
@@ -308,7 +308,7 @@ public class d extends com.baidu.cesium.b.a {
 
         void a() {
             try {
-                this.f1303a = i.a(Context.class, i.a(com.baidu.cesium.a.d.sF()), new Class[]{Uri.class, Integer.TYPE, Integer.TYPE, Integer.TYPE});
+                this.f1306a = i.a(Context.class, i.a(com.baidu.cesium.a.d.sF()), new Class[]{Uri.class, Integer.TYPE, Integer.TYPE, Integer.TYPE});
                 this.b = i.a(Context.class, i.a(com.baidu.cesium.a.d.sG()), new Class[]{String.class, Uri.class, Integer.TYPE});
                 this.c = i.a(ContentResolver.class, i.a(com.baidu.cesium.a.d.sH()), new Class[]{Uri.class, Integer.TYPE});
                 this.d = i.a(Context.class, i.a(com.baidu.cesium.a.d.g()), new Class[]{Uri.class, Integer.TYPE});
@@ -352,15 +352,15 @@ public class d extends com.baidu.cesium.b.a {
 
     public d() {
         super("upc", 9000000L);
-        this.amo = new g();
-        this.amo.a();
+        this.amu = new g();
+        this.amu.a();
     }
 
-    private a a(String str, int i, List<C0101d.a> list, int i2, f fVar) {
-        for (C0101d.a aVar : list) {
-            if (a(str, i, aVar.amt, i2, fVar)) {
+    private a a(String str, int i, List<C0100d.a> list, int i2, f fVar) {
+        for (C0100d.a aVar : list) {
+            if (a(str, i, aVar.amz, i2, fVar)) {
                 aVar.a();
-                return aVar.amt;
+                return aVar.amz;
             }
         }
         return null;
@@ -393,8 +393,8 @@ public class d extends com.baidu.cesium.b.a {
         Context context = this.g;
         ContentResolver contentResolver = context.getContentResolver();
         try {
-            this.amo.a(context, uri, i);
-            this.amo.b(contentResolver, uri, i);
+            this.amu.a(context, uri, i);
+            this.amu.b(contentResolver, uri, i);
             return true;
         } catch (Exception e2) {
             return false;
@@ -438,7 +438,7 @@ public class d extends com.baidu.cesium.b.a {
                 }
                 if (i < 0 || i >= cVar.a()) {
                     a(uri, 1);
-                } else if (!cVar.bH(i).a().equals(pathSegments.get(3))) {
+                } else if (!cVar.bF(i).a().equals(pathSegments.get(3))) {
                     a(uri, 1);
                 }
             } else if (match == 2) {
@@ -462,7 +462,7 @@ public class d extends com.baidu.cesium.b.a {
         }
         int a2 = cVar.a();
         for (int i2 = 0; i2 < a2; i2++) {
-            if (!a(this.g.getPackageName(), i2, cVar.bH(i2), Process.myUid(), (f) null)) {
+            if (!a(this.g.getPackageName(), i2, cVar.bF(i2), Process.myUid(), (f) null)) {
                 return true;
             }
         }
@@ -486,7 +486,7 @@ public class d extends com.baidu.cesium.b.a {
             }
             if (fVar != null) {
                 try {
-                    fVar.f1302a++;
+                    fVar.f1305a++;
                 } catch (Throwable th) {
                     try {
                         Thread.sleep(5L);
@@ -495,7 +495,7 @@ public class d extends com.baidu.cesium.b.a {
                     i4++;
                 }
             }
-            i3 = this.amo.a(this.g, parse, 0, i2, 1);
+            i3 = this.amu.a(this.g, parse, 0, i2, 1);
             break;
         }
         if (i3 == 0) {
@@ -517,7 +517,7 @@ public class d extends com.baidu.cesium.b.a {
                 break;
             }
             try {
-                i2 = this.amo.a(this.g, parse, 0, i, 1);
+                i2 = this.amu.a(this.g, parse, 0, i, 1);
                 break;
             } catch (Throwable th) {
                 try {
@@ -537,8 +537,8 @@ public class d extends com.baidu.cesium.b.a {
         Context context = this.g;
         ContentResolver contentResolver = context.getContentResolver();
         try {
-            this.amo.a(context, context.getPackageName(), uri, 65);
-            this.amo.a(contentResolver, uri, 1);
+            this.amu.a(context, context.getPackageName(), uri, 65);
+            this.amu.a(contentResolver, uri, 1);
             return true;
         } catch (Exception e2) {
             return false;
@@ -571,7 +571,7 @@ public class d extends com.baidu.cesium.b.a {
     public a.e a(a.d dVar, g.a aVar) {
         e f2;
         if (Build.VERSION.SDK_INT >= 26 && (f2 = e.f(aVar)) != null) {
-            c cVar = new c(f2.f1301a);
+            c cVar = new c(f2.f1304a);
             cVar.c(a.b(f2.b, false));
             cVar.c(a.b(f2.b, true));
             if (f2.c != null) {
@@ -583,21 +583,21 @@ public class d extends com.baidu.cesium.b.a {
             }
             b bVar = new b();
             for (int i = 0; i < cVar.a(); i++) {
-                bVar.c(cVar.bH(i));
+                bVar.c(cVar.bF(i));
             }
             List<a> a2 = bVar.a();
             if (a(cVar, a2)) {
                 for (int a3 = cVar.a() - 1; a3 >= 0; a3--) {
-                    a(a3, cVar.bH(a3));
+                    a(a3, cVar.bF(a3));
                 }
                 for (a aVar2 : a2) {
                     a(aVar2);
                 }
-                return a.e.ur();
+                return a.e.uq();
             }
-            return a.e.ur();
+            return a.e.uq();
         }
-        return a.e.us();
+        return a.e.ur();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:61:0x0190  */
@@ -612,7 +612,7 @@ public class d extends com.baidu.cesium.b.a {
         boolean z;
         byte[] bArr;
         if (Build.VERSION.SDK_INT < 26) {
-            return a.g.ut();
+            return a.g.us();
         }
         int i = -1;
         try {
@@ -620,27 +620,27 @@ public class d extends com.baidu.cesium.b.a {
         } catch (PackageManager.NameNotFoundException e2) {
         }
         if (i < 0) {
-            return a.g.ut();
+            return a.g.us();
         }
         f fVar2 = new f();
         c cVar = new c();
-        C0101d c0101d = new C0101d();
-        C0101d c0101d2 = new C0101d();
+        C0100d c0100d = new C0100d();
+        C0100d c0100d2 = new C0100d();
         for (int i2 = 0; i2 < 16; i2++) {
-            a bH = a.bH(i2);
-            if (a(str, bH, i)) {
-                c0101d.c(bH);
+            a bF = a.bF(i2);
+            if (a(str, bF, i)) {
+                c0100d.c(bF);
             } else {
-                c0101d2.c(bH);
+                c0100d2.c(bF);
             }
         }
         for (int i3 = 0; i3 < 32; i3++) {
-            a a2 = a(str, i3, c0101d.a(), i, fVar2);
+            a a2 = a(str, i3, c0100d.a(), i, fVar2);
             if (a2 == null) {
-                a2 = a(str, i3, c0101d2.a(), i, fVar2);
+                a2 = a(str, i3, c0100d2.a(), i, fVar2);
             }
             if (a2 == null) {
-                return a.g.ut();
+                return a.g.us();
             }
             cVar.c(a2);
         }
@@ -671,12 +671,12 @@ public class d extends com.baidu.cesium.b.a {
         if (b2 == null) {
             c cVar3 = new c();
             for (int i6 = 32; i6 < 34; i6++) {
-                a a3 = a(str, i6, c0101d.a(), i, fVar2);
+                a a3 = a(str, i6, c0100d.a(), i, fVar2);
                 if (a3 == null) {
-                    a3 = a(str, i6, c0101d2.a(), i, fVar2);
+                    a3 = a(str, i6, c0100d2.a(), i, fVar2);
                 }
                 if (a3 == null) {
-                    return a.g.ut();
+                    return a.g.us();
                 }
                 cVar3.c(a3);
             }
@@ -689,9 +689,9 @@ public class d extends com.baidu.cesium.b.a {
         if (z) {
             c cVar4 = new c();
             for (int i7 = 34; i7 < 94; i7++) {
-                a a4 = a(str, i7, c0101d.a(), i, fVar2);
+                a a4 = a(str, i7, c0100d.a(), i, fVar2);
                 if (a4 == null) {
-                    a4 = a(str, i7, c0101d2.a(), i, fVar2);
+                    a4 = a(str, i7, c0100d2.a(), i, fVar2);
                 }
                 if (a4 == null) {
                     break;
@@ -701,7 +701,7 @@ public class d extends com.baidu.cesium.b.a {
             if (cVar4.a() > 0) {
                 bArr = cVar4.b();
                 e eVar = new e(b4, b3.byteValue(), bArr);
-                return eVar != null ? a.g.ut() : a.g.d(eVar.uu());
+                return eVar != null ? a.g.us() : a.g.d(eVar.ut());
             }
         }
         bArr = null;
@@ -712,6 +712,6 @@ public class d extends com.baidu.cesium.b.a {
 
     @Override // com.baidu.cesium.b.a
     public void a(a.c cVar) {
-        this.g = this.amb.f1294a;
+        this.g = this.amh.f1297a;
     }
 }

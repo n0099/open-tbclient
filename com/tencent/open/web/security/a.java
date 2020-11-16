@@ -4,7 +4,7 @@ import android.view.KeyEvent;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import com.tencent.open.a.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class a extends InputConnectionWrapper {
 
     /* renamed from: a  reason: collision with root package name */

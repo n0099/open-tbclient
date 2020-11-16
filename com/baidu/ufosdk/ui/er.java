@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class er extends Dialog {
 
     /* renamed from: a */

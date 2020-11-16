@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class ServiceLoader {
     private static final String PREFIX = "META-INF/services/";
     private static final Set<String> loadedUrls = new HashSet();

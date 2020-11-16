@@ -32,7 +32,7 @@ import com.baidu.searchbox.player.ubc.SimpleVideoStatisticsDispatcher;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     private static final String TAG = "BDVideoPlayer";
     private static boolean sGlobalMute = false;
@@ -815,7 +815,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes11.dex */
     public class AudioFocusChangedListener implements AudioManager.OnAudioFocusChangeListener {
         private AudioFocusChangedListener() {
         }

@@ -10,45 +10,45 @@ import java.lang.reflect.Parameter;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class a implements c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private ClassLoader dEC;
-    private final Object[] dEJ;
-    private final Set<b<?>> dEA = new HashSet();
-    private final Set<Object> dEB = new HashSet();
-    private int dED = 0;
-    private int dEE = 0;
-    private int dEF = 0;
-    private int dEG = 0;
-    private int dEH = -1;
-    private int dEI = 0;
+    private ClassLoader dCV;
+    private final Object[] dDc;
+    private final Set<b<?>> dCT = new HashSet();
+    private final Set<Object> dCU = new HashSet();
+    private int dCW = 0;
+    private int dCX = 0;
+    private int dCY = 0;
+    private int dCZ = 0;
+    private int dDa = -1;
+    private int dDb = 0;
 
     private a(ClassLoader classLoader, Object... objArr) {
-        this.dEC = classLoader;
-        this.dEJ = objArr == null ? new Object[0] : objArr;
+        this.dCV = classLoader;
+        this.dDc = objArr == null ? new Object[0] : objArr;
     }
 
     public static a a(ClassLoader classLoader, Object... objArr) {
         return new a(classLoader, objArr);
     }
 
-    public boolean aNt() {
-        return this.dEI > 0;
+    public boolean aML() {
+        return this.dDb > 0;
     }
 
     public a a(b<?>... bVarArr) {
         if (bVarArr != null) {
-            this.dEA.addAll(Arrays.asList(bVarArr));
+            this.dCT.addAll(Arrays.asList(bVarArr));
         }
         return this;
     }
 
-    public a lt(int i) {
+    public a lp(int i) {
         Object[] objArr;
-        if (!aNt() && i > 0) {
-            this.dEI = i;
-            for (Object obj : this.dEJ) {
+        if (!aML() && i > 0) {
+            this.dDb = i;
+            for (Object obj : this.dDc) {
                 if (obj instanceof Class) {
                     a(i, (Class) obj);
                 } else if (obj instanceof Annotation) {
@@ -64,50 +64,50 @@ public final class a implements c {
                 }
             }
         }
-        this.dEI = 0;
+        this.dDb = 0;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Class<?>... clsArr) {
-        return a(dEK, i, clsArr);
+        return a(dDd, i, clsArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Package... packageArr) {
-        return a(dEL, i, packageArr);
+        return a(dDe, i, packageArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Annotation... annotationArr) {
-        return a(dEM, i, annotationArr);
+        return a(dDf, i, annotationArr);
     }
 
     public a a(int i, @NonNull Method... methodArr) {
-        return a(dEO, i, methodArr);
+        return a(dDh, i, methodArr);
     }
 
     public a a(int i, @NonNull Field... fieldArr) {
-        return a(dEN, i, fieldArr);
+        return a(dDg, i, fieldArr);
     }
 
     public a a(int i, Constructor<?>... constructorArr) {
-        return a(dEP, i, constructorArr);
+        return a(dDi, i, constructorArr);
     }
 
     @RequiresApi(api = 26)
     public a a(int i, Parameter... parameterArr) {
-        return a(dEQ, i, parameterArr);
+        return a(dDj, i, parameterArr);
     }
 
     @SafeVarargs
     private final <TargeT> a a(@NonNull b<TargeT> bVar, int i, TargeT... targetArr) {
-        if (!this.dEA.contains(bVar)) {
+        if (!this.dCT.contains(bVar)) {
             int i2 = i - 1;
             if (i > 0 && targetArr != null && targetArr.length > 0) {
                 for (TargeT target : targetArr) {
                     if (ab(target)) {
-                        bVar.a(this, this.dEC, i2, target);
+                        bVar.a(this, this.dCV, i2, target);
                     }
                 }
             }
@@ -116,15 +116,15 @@ public final class a implements c {
     }
 
     private <TargeT> boolean ab(TargeT target) {
-        this.dED++;
+        this.dCW++;
         if (target == null) {
-            this.dEF++;
+            this.dCY++;
             return false;
-        } else if (this.dEB.contains(target)) {
-            this.dEE++;
+        } else if (this.dCU.contains(target)) {
+            this.dCX++;
             return false;
         } else {
-            this.dEB.add(target);
+            this.dCU.add(target);
             return true;
         }
     }

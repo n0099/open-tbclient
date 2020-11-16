@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class fo {
 
     /* renamed from: a  reason: collision with root package name */
@@ -35,11 +35,11 @@ public class fo {
                 return gr.a(this.f4908a, fsVar);
             }
             if (name.equals("presence")) {
-                return gr.m323a(this.f4908a);
+                return gr.m326a(this.f4908a);
             }
             if (!this.f4908a.getName().equals("stream")) {
                 if (this.f4908a.getName().equals(BdStatsConstant.StatsType.ERROR)) {
-                    throw new gd(gr.m324a(this.f4908a));
+                    throw new gd(gr.m327a(this.f4908a));
                 }
                 if (this.f4908a.getName().equals("warning")) {
                     this.f4908a.next();

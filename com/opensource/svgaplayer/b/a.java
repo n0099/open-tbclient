@@ -2,7 +2,7 @@ package com.opensource.svgaplayer.b;
 
 import kotlin.h;
 @h
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public final class a {
     private final float value;
     private final float x;

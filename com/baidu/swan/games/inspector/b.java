@@ -9,42 +9,42 @@ import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.games.l.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private FullScreenFloatView dVZ;
+    private FullScreenFloatView dUr;
 
     public void a(a.b bVar, Activity activity) {
-        if (activity != null && this.dVZ == null) {
-            if (a.a((bVar == null || bVar.dWz == null) ? null : bVar.dWz.dYr).isEnabled()) {
-                Y(activity);
+        if (activity != null && this.dUr == null) {
+            if (a.a((bVar == null || bVar.dUR == null) ? null : bVar.dUR.dWJ).isEnabled()) {
+                X(activity);
             }
         }
     }
 
-    private void Y(final Activity activity) {
-        this.dVZ = com.baidu.swan.apps.res.ui.b.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
-        this.dVZ.setFloatButtonText(activity.getString(a.h.aiapps_swan_inspector_info_button));
-        this.dVZ.setFloatImageBackground(a.e.aiapps_float_view_button_shape);
-        this.dVZ.setAutoAttachEnable(false);
-        this.dVZ.setDragImageListener(new FullScreenFloatView.b() { // from class: com.baidu.swan.games.inspector.b.1
+    private void X(final Activity activity) {
+        this.dUr = com.baidu.swan.apps.res.ui.b.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
+        this.dUr.setFloatButtonText(activity.getString(a.h.aiapps_swan_inspector_info_button));
+        this.dUr.setFloatImageBackground(a.e.aiapps_float_view_button_shape);
+        this.dUr.setAutoAttachEnable(false);
+        this.dUr.setDragImageListener(new FullScreenFloatView.b() { // from class: com.baidu.swan.games.inspector.b.1
             @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.b
             public void onClick() {
-                b.this.Z(activity);
+                b.this.Y(activity);
             }
 
             @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.b
-            public void azD() {
+            public void ayV() {
             }
         });
-        this.dVZ.setVisibility(0);
+        this.dUr.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Z(Activity activity) {
-        e aHu = e.aHu();
-        if (aHu != null && aHu.afO() != null) {
+    public void Y(Activity activity) {
+        e aGM = e.aGM();
+        if (aGM != null && aGM.afg() != null) {
             Resources resources = activity.getResources();
-            new g.a(activity).f(resources.getString(a.h.aiapps_swan_inspector_info_title)).rR(SwanInspectorEndpoint.aWa().a(resources)).a(new com.baidu.swan.apps.view.c.a()).gr(false).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null).aHb();
+            new g.a(activity).f(resources.getString(a.h.aiapps_swan_inspector_info_title)).rL(SwanInspectorEndpoint.aVs().a(resources)).a(new com.baidu.swan.apps.view.c.a()).gu(false).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null).aGt();
         }
     }
 }

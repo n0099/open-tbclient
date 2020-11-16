@@ -2,22 +2,23 @@ package com.baidu.tieba.personCenter.c;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
-/* loaded from: classes22.dex */
-public class k extends com.baidu.tieba.card.data.b implements q {
-    public static BdUniqueId lWd = BdUniqueId.gen();
-    private List<c> lWe;
+/* loaded from: classes21.dex */
+public class k extends BaseCardInfo implements q {
+    public static BdUniqueId lWv = BdUniqueId.gen();
+    private List<c> lWw;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lWd;
+        return lWv;
     }
 
     public void setData(List<c> list) {
-        this.lWe = list;
+        this.lWw = list;
     }
 
     public List<c> getData() {
-        return this.lWe;
+        return this.lWw;
     }
 }

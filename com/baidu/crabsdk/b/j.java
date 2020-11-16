@@ -12,17 +12,17 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class j {
     public static JSONObject a(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
         JSONObject jSONObject;
         try {
-            byte[] eg = com.baidu.crabsdk.sender.i.eg(str);
-            if (eg == null || eg.length == 0) {
+            byte[] ei = com.baidu.crabsdk.sender.i.ei(str);
+            if (ei == null || ei.length == 0) {
                 onUploadFilesCallback.onFailed("Read file error!");
                 jSONObject = null;
             } else {
-                String encodeToString = Base64.encodeToString(eg, 0);
+                String encodeToString = Base64.encodeToString(ei, 0);
                 jSONObject = a(str2, str3, str4);
                 jSONObject.put("format", 1);
                 jSONObject.put(TbConfig.TMP_LOG_DIR_NAME, encodeToString);
@@ -52,8 +52,8 @@ public final class j {
             jSONObject.put("batVN", "7.5.1");
             jSONObject.put("nativeVN", CrabSDK.NDK_VERSION);
             jSONObject.put("isRoot", q.N());
-            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.vo());
-            jSONObject.put("appLabel", p.vp());
+            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.vn());
+            jSONObject.put("appLabel", p.vo());
             if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
                 jSONObject.put("appVN", p.L());
             } else {

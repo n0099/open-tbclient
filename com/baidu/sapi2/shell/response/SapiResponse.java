@@ -1,5 +1,5 @@
 package com.baidu.sapi2.shell.response;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class SapiResponse {
     public int errorCode;
     public String errorMsg;

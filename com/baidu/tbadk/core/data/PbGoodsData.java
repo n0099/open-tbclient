@@ -6,7 +6,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbGoodsInfo;
 /* loaded from: classes.dex */
-public class PbGoodsData extends com.baidu.tieba.card.data.d implements Serializable {
+public class PbGoodsData extends com.baidu.tieba.card.data.c implements Serializable {
     public String goodsUrlH5;
     public String linkFrom;
     public String linkUrl;
@@ -41,7 +41,7 @@ public class PbGoodsData extends com.baidu.tieba.card.data.d implements Serializ
         }
     }
 
-    @Override // com.baidu.tieba.card.data.d
+    @Override // com.baidu.tieba.card.data.c
     public int sort() {
         return this.sort;
     }

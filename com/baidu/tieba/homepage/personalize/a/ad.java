@@ -2,59 +2,41 @@ package com.baidu.tieba.homepage.personalize.a;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.card.ak;
-import com.baidu.card.am;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-/* loaded from: classes22.dex */
-public class ad extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.g, am<com.baidu.tieba.homepage.personalize.data.g>> {
-    public BdUniqueId fsQ;
-    private TbPageContext mPageContext;
+import com.baidu.tbadk.core.util.ar;
+/* loaded from: classes21.dex */
+public class ad extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.o, com.baidu.tieba.card.a.a<com.baidu.tieba.card.s>> {
+    private TbPageContext<?> mPageContext;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.af$a] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public /* bridge */ /* synthetic */ View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.o oVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.s> aVar) {
+        return a2(i, view, viewGroup, oVar, (com.baidu.tieba.card.a.a) aVar);
+    }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ad(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public ad(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.o.idf);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aV */
-    public am<com.baidu.tieba.homepage.personalize.data.g> c(ViewGroup viewGroup) {
-        ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        com.baidu.tieba.homepage.personalize.view.d dVar = new com.baidu.tieba.homepage.personalize.view.d(this.mPageContext.getPageActivity(), this.mPageContext);
-        dVar.setTag(this.mPageId);
-        aVar.c(dVar);
-        aVar.tU().bz(0);
-        aVar.tU().bA(0);
-        aVar.tU().bB(0);
-        aVar.tU().by(0);
-        aVar.tU().bv(0);
-        ak tV = aVar.tV();
-        tV.setSourceForPb(2);
-        am<com.baidu.tieba.homepage.personalize.data.g> amVar = new am<>(tV);
-        amVar.setPageId(this.fsQ);
-        return amVar;
+    /* renamed from: aL */
+    public com.baidu.tieba.card.a.a c(ViewGroup viewGroup) {
+        com.baidu.tieba.card.s sVar = new com.baidu.tieba.card.s(this.mPageContext);
+        sVar.ax("c10718", "c10719", "c10742");
+        return new com.baidu.tieba.card.a.a(sVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.g gVar, am<com.baidu.tieba.homepage.personalize.data.g> amVar) {
-        if (gVar == null || amVar == null || amVar.getView() == null) {
-            return null;
-        }
-        TiebaStatic.log(new aq("c13742").al("obj_source", 3).al("obj_type", 1));
-        amVar.b((am<com.baidu.tieba.homepage.personalize.data.g>) gVar);
-        amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return amVar.getView();
-    }
-
-    public void setEventCallback(NEGFeedBackView.a aVar) {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    protected View a2(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.o oVar, com.baidu.tieba.card.a.a aVar) {
+        aVar.coz().a(oVar);
+        aVar.coz().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        com.baidu.tieba.card.t.cnT().e(new ar("c10718").dR("obj_id", String.valueOf(oVar.idg)));
+        return aVar.getView();
     }
 }

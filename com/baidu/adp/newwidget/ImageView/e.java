@@ -11,11 +11,11 @@ public class e {
     public boolean mHasBorder;
     public boolean mIsNight;
     public boolean mIsRound;
-    public float mRadius;
+    public float[] mRadius = new float[8];
     public boolean mIsShowLongIcon = false;
     public boolean mIsShowGifIcon = true;
-    public int RE = b.TYPE_NONE;
+    public int RF = b.TYPE_NONE;
     public float mAlpha = 1.0f;
     public boolean isChatPage = false;
-    public boolean RF = false;
+    public boolean RG = false;
 }

@@ -2,11 +2,11 @@ package com.baidu.cyberplayer.sdk;
 
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static c f1371a;
+    private static c f1374a;
     private boolean b = true;
     private String c = null;
     private String d = null;
@@ -21,10 +21,10 @@ public class c {
     public static synchronized c a() {
         c cVar;
         synchronized (c.class) {
-            if (f1371a == null) {
-                f1371a = new c();
+            if (f1374a == null) {
+                f1374a = new c();
             }
-            cVar = f1371a;
+            cVar = f1374a;
         }
         return cVar;
     }

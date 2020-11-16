@@ -1,12 +1,19 @@
 package com.baidu.tieba.k;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
-public interface b {
-    void er(JSONObject jSONObject) throws JSONException;
+public class b extends com.baidu.adp.framework.b.c {
+    public b() {
+        super(0);
+    }
 
-    void es(JSONObject jSONObject) throws JSONException;
-
-    void et(JSONObject jSONObject) throws JSONException;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.b.g
+    /* renamed from: b */
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
+        if (httpResponsedMessage != null && httpResponsedMessage.getError() == 1990055 && !a.BI(httpResponsedMessage.getCmd())) {
+            a.cHK();
+        }
+        return httpResponsedMessage;
+    }
 }

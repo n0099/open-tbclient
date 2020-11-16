@@ -8,87 +8,87 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.data.h;
 import com.baidu.tieba.enterForum.view.a;
 import com.baidu.tieba.enterForum.view.f;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private f ihO;
-    private com.baidu.tieba.enterForum.view.a ike;
-    private a ikf;
+    private f iiC;
+    private com.baidu.tieba.enterForum.view.a ikS;
+    private a ikT;
     private Context mContext;
     private int mSortType;
     private int mStatusBarHeight;
     private TextView mTitle;
-    private boolean ikg = false;
-    private a.InterfaceC0716a ikh = new a.InterfaceC0716a() { // from class: com.baidu.tieba.enterForum.home.b.1
-        @Override // com.baidu.tieba.enterForum.view.a.InterfaceC0716a
+    private boolean ikU = false;
+    private a.InterfaceC0719a ikV = new a.InterfaceC0719a() { // from class: com.baidu.tieba.enterForum.home.b.1
+        @Override // com.baidu.tieba.enterForum.view.a.InterfaceC0719a
         public void onItemClick(int i) {
             b.this.mSortType = i;
-            TiebaStatic.log(new aq("c13369").al("obj_type", i == 1 ? 2 : 1));
-            b.this.csd();
-            if (b.this.ikf != null) {
-                b.this.ikf.xE(b.this.mSortType);
+            TiebaStatic.log(new ar("c13369").ak("obj_type", i == 1 ? 2 : 1));
+            b.this.crG();
+            if (b.this.ikT != null) {
+                b.this.ikT.yc(b.this.mSortType);
             }
         }
     };
-    private View.OnClickListener eUh = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
+    private View.OnClickListener eTp = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!b.this.ihO.ctF()) {
+            if (!b.this.iiC.cti()) {
                 if (view == b.this.mTitle) {
-                    if (b.this.ike == null) {
-                        b.this.ike = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
-                        b.this.ike.setOnDismissListener(b.this.mOnDismissListener);
-                        b.this.ike.a(b.this.ikh);
-                        b.this.ike.xX(b.this.mStatusBarHeight);
+                    if (b.this.ikS == null) {
+                        b.this.ikS = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
+                        b.this.ikS.setOnDismissListener(b.this.mOnDismissListener);
+                        b.this.ikS.a(b.this.ikV);
+                        b.this.ikS.yv(b.this.mStatusBarHeight);
                     }
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(new h(b.this.mContext.getString(R.string.level_sort), 1));
                     arrayList.add(new h(b.this.mContext.getString(R.string.update_sort), 2));
-                    b.this.ike.setData(arrayList, b.this.mSortType);
-                    b.this.ike.O(b.this.mTitle);
+                    b.this.ikS.setData(arrayList, b.this.mSortType);
+                    b.this.ikS.O(b.this.mTitle);
                 }
-                b.this.ikg = true;
-                b.this.oP(b.this.ikg);
+                b.this.ikU = true;
+                b.this.oS(b.this.ikU);
             }
         }
     };
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.enterForum.home.b.3
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            b.this.ikg = false;
-            b.this.oP(b.this.ikg);
+            b.this.ikU = false;
+            b.this.oS(b.this.ikU);
         }
     };
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public interface a {
-        void xE(int i);
+        void yc(int i);
     }
 
     public b(Context context, int i, int i2, f fVar) {
         this.mContext = context;
         this.mSortType = i;
         this.mStatusBarHeight = i2;
-        this.ihO = fVar;
+        this.iiC = fVar;
     }
 
     public void k(TextView textView) {
         this.mTitle = textView;
     }
 
-    public void Um() {
-        if (this.ike != null) {
-            this.ike.Um();
+    public void TD() {
+        if (this.ikS != null) {
+            this.ikS.TD();
         }
     }
 
-    public void csd() {
-        if (cse() && this.mTitle != null) {
+    public void crG() {
+        if (crH() && this.mTitle != null) {
             switch (this.mSortType) {
                 case 1:
                     this.mTitle.setText(R.string.level_sort);
@@ -97,53 +97,53 @@ public class b {
                     this.mTitle.setText(R.string.update_sort);
                     break;
             }
-            this.mTitle.setOnClickListener(this.eUh);
-            oP(this.ikg);
+            this.mTitle.setOnClickListener(this.eTp);
+            oS(this.ikU);
         }
     }
 
-    public boolean cse() {
+    public boolean crH() {
         return this.mSortType == 1 || this.mSortType == 2;
     }
 
     public void setSortType(int i) {
-        if (cse()) {
+        if (crH()) {
             this.mSortType = i;
-            csd();
+            crG();
         }
     }
 
     public void a(a aVar) {
-        this.ikf = aVar;
+        this.ikT = aVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (cse()) {
-            ap.setViewTextColor(this.mTitle, R.color.cp_cont_b, i);
+        if (crH()) {
+            ap.setViewTextColor(this.mTitle, R.color.CAM_X0105, i);
             if (this.mTitle != null) {
-                oP(this.ikg);
+                oS(this.ikU);
             }
         }
-        if (this.ike != null && this.ikg) {
-            this.ike.onChangeSkinType();
+        if (this.ikS != null && this.ikU) {
+            this.ikS.onChangeSkinType();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void oP(boolean z) {
+    public void oS(boolean z) {
         int i = z ? R.drawable.icon_pure_fold12_svg : R.drawable.icon_pure_unfold12_svg;
-        com.baidu.tieba.enterForum.data.c ctL = this.ihO != null ? this.ihO.ctL() : null;
-        if (ctL != null && ctL.iiu) {
-            if (this.ihO != null && this.ihO.isShow()) {
-                ap.setViewTextColor(this.mTitle, R.color.cp_cont_j);
-                this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.brn().a(i, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+        com.baidu.tieba.enterForum.data.c cto = this.iiC != null ? this.iiC.cto() : null;
+        if (cto != null && cto.iji) {
+            if (this.iiC != null && this.iiC.isShow()) {
+                ap.setViewTextColor(this.mTitle, R.color.CAM_X0107);
+                this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bqB().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
                 return;
             }
-            ap.setViewTextColor(this.mTitle, R.color.cp_cont_j);
-            this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.brn().a(i, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+            ap.setViewTextColor(this.mTitle, R.color.CAM_X0107);
+            this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bqB().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
             return;
         }
-        ap.setViewTextColor(this.mTitle, R.color.cp_cont_j);
-        this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.brn().a(i, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+        ap.setViewTextColor(this.mTitle, R.color.CAM_X0107);
+        this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bqB().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
     }
 }

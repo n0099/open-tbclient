@@ -313,14 +313,14 @@ public class a {
 
     public List<Polyline> a(MapView mapView, MultiRouteDisplayOption multiRouteDisplayOption) {
         ArrayList arrayList = new ArrayList();
-        com.baidu.f.a.d Q = com.baidu.platform.comapi.walknavi.b.a().Q();
+        com.baidu.g.a.d Q = com.baidu.platform.comapi.walknavi.b.a().Q();
         if (Q == null) {
             return null;
         }
-        if (Q.vR() > 0) {
-            int vR = Q.vR();
+        if (Q.vQ() > 0) {
+            int vQ = Q.vQ();
             ArrayList arrayList2 = new ArrayList();
-            for (int i = 0; i < vR; i++) {
+            for (int i = 0; i < vQ; i++) {
                 ArrayList<LatLng> b = g.b(Q, i);
                 if (b.size() >= 2) {
                     PolylineOptions polylineOptions = new PolylineOptions();

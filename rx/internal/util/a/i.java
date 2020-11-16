@@ -1,5 +1,5 @@
 package rx.internal.util.a;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class i<E> extends m<E> {
     public i(int i) {
         super(i);
@@ -10,79 +10,79 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.pSe;
-        long j = this.qjb;
-        long eAP = eAP();
-        long iv = iv(eAP);
-        if (b(eArr, iv) != null) {
-            if (eAP - eAQ() > j) {
+        E[] eArr = this.pTH;
+        long j = this.qkE;
+        long eAQ = eAQ();
+        long iy = iy(eAQ);
+        if (b(eArr, iy) != null) {
+            if (eAQ - eAR() > j) {
                 return false;
             }
             do {
-            } while (b(eArr, iv) != null);
-            a(eArr, iv, e);
-            ix(1 + eAP);
+            } while (b(eArr, iy) != null);
+            a(eArr, iy, e);
+            iA(1 + eAQ);
             return true;
         }
-        a(eArr, iv, e);
-        ix(1 + eAP);
+        a(eArr, iy, e);
+        iA(1 + eAQ);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long eAQ;
-        long eGk = eGk();
+        long eAR;
+        long eGl = eGl();
         do {
-            eAQ = eAQ();
-            if (eAQ >= eGk) {
-                long eAP = eAP();
-                if (eAQ >= eAP) {
+            eAR = eAR();
+            if (eAR >= eGl) {
+                long eAQ = eAQ();
+                if (eAR >= eAQ) {
                     return null;
                 }
-                iy(eAP);
+                iB(eAQ);
             }
-        } while (!X(eAQ, 1 + eAQ));
-        long iv = iv(eAQ);
-        E[] eArr = this.pSe;
-        E a2 = a(eArr, iv);
-        b(eArr, iv, null);
+        } while (!X(eAR, 1 + eAR));
+        long iy = iy(eAR);
+        E[] eArr = this.pTH;
+        E a2 = a(eArr, iy);
+        b(eArr, iy, null);
         return a2;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        E iw;
-        long eGk = eGk();
+        E iz;
+        long eGl = eGl();
         do {
-            long eAQ = eAQ();
-            if (eAQ >= eGk) {
-                long eAP = eAP();
-                if (eAQ >= eAP) {
+            long eAR = eAR();
+            if (eAR >= eGl) {
+                long eAQ = eAQ();
+                if (eAR >= eAQ) {
                     return null;
                 }
-                iy(eAP);
+                iB(eAQ);
             }
-            iw = iw(iv(eAQ));
-        } while (iw == null);
-        return iw;
+            iz = iz(iy(eAR));
+        } while (iz == null);
+        return iz;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long eAQ = eAQ();
+        long eAR = eAR();
         while (true) {
-            long eAP = eAP();
-            long eAQ2 = eAQ();
-            if (eAQ == eAQ2) {
-                return (int) (eAP - eAQ2);
+            long eAQ = eAQ();
+            long eAR2 = eAR();
+            if (eAR == eAR2) {
+                return (int) (eAQ - eAR2);
             }
-            eAQ = eAQ2;
+            eAR = eAR2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return eAQ() == eAP();
+        return eAR() == eAQ();
     }
 }

@@ -6,6 +6,7 @@ public class UbcStatConstant {
     public static final String KEY_CONTENT_COMMON = "common";
     public static final String KEY_CONTENT_EXT = "ext";
     public static final String KEY_CONTENT_EXT_ENTRY = "entry";
+    public static final String KEY_CONTENT_EXT_IS_MIX = "isMix";
     public static final String KEY_CONTENT_EXT_LIVESDK = "livesdk";
     public static final String KEY_CONTENT_EXT_LIVE_ID = "live_id";
     public static final String KEY_CONTENT_EXT_LOC = "loc";

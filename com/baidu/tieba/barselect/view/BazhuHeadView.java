@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.d.b;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class BazhuHeadView extends HeadPendantView {
-    private TbImageView hUv;
+    private TbImageView hUV;
 
     public BazhuHeadView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -33,11 +33,11 @@ public class BazhuHeadView extends HeadPendantView {
         if (getPendantView() != null) {
             getPendantView().setLayoutParams(new RelativeLayout.LayoutParams(dimens, dimens2));
         }
-        this.hUv = new TbImageView(getContext());
-        this.hUv.setDefaultBgResource(0);
-        this.hUv.setDefaultResource(0);
-        this.hUv.setDefaultErrorResource(0);
-        this.hUv.setImageDrawable(null);
+        this.hUV = new TbImageView(getContext());
+        this.hUV.setDefaultBgResource(0);
+        this.hUV.setDefaultResource(0);
+        this.hUV.setDefaultErrorResource(0);
+        this.hUV.setImageDrawable(null);
         int dimens3 = l.getDimens(getContext(), R.dimen.tbds115);
         int dimens4 = l.getDimens(getContext(), R.dimen.tbds34);
         int dimens5 = l.getDimens(getContext(), R.dimen.tbds154);
@@ -45,27 +45,27 @@ public class BazhuHeadView extends HeadPendantView {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens3, dimens4);
         layoutParams.topMargin = dimens5;
         layoutParams.leftMargin = dimens6;
-        this.hUv.setLayoutParams(layoutParams);
-        this.hUv.setVisibility(8);
+        this.hUV.setLayoutParams(layoutParams);
+        this.hUV.setVisibility(8);
     }
 
     public void setBawuLogoView(int i) {
         if (i == 0) {
-            this.hUv.setVisibility(8);
+            this.hUV.setVisibility(8);
             return;
         }
-        this.hUv.setImageResource(i);
-        this.hUv.setVisibility(0);
+        this.hUV.setImageResource(i);
+        this.hUV.setVisibility(0);
     }
 
-    public void op(boolean z) {
+    public void or(boolean z) {
         if (z) {
             int dimens = l.getDimens(getContext(), R.dimen.tbds5);
             int dimens2 = l.getDimens(getContext(), R.dimen.tbds130);
             int dimens3 = l.getDimens(getContext(), R.dimen.tbds26);
             int dimens4 = l.getDimens(getContext(), R.dimen.tbds44);
             getHeadView().setBorderWidth(dimens);
-            getHeadView().setBorderColor(b.fv("#FCD442"));
+            getHeadView().setBorderColor(b.sa("#FCD442"));
             getHeadView().setDrawBorder(true);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens2, dimens2);
             layoutParams.leftMargin = dimens3;
@@ -77,8 +77,8 @@ public class BazhuHeadView extends HeadPendantView {
         getHeadView().setBorderWidth(0);
         getHeadView().setDrawBorder(false);
         getHeadView().setLayoutParams(new RelativeLayout.LayoutParams(dimens5, dimens5));
-        if (this.hUv != null) {
-            this.hUv.setVisibility(8);
+        if (this.hUV != null) {
+            this.hUV.setVisibility(8);
         }
         if (getPendantView() != null) {
             getPendantView().setVisibility(8);
@@ -97,6 +97,6 @@ public class BazhuHeadView extends HeadPendantView {
     }
 
     public TbImageView getBawuLogoView() {
-        return this.hUv;
+        return this.hUV;
     }
 }

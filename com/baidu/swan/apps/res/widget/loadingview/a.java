@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.swan.apps.res.ui.BdShimmerView;
 import java.util.WeakHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG & true;
     private static final WeakHashMap<ViewGroup, b> CACHE_VIEWS = new WeakHashMap<>();

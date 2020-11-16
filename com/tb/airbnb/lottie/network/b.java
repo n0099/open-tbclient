@@ -20,48 +20,48 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class b {
     private final Context appContext;
-    private final a pKl;
+    private final a pLO;
     private final String url;
 
-    public static m<e> bx(Context context, String str) {
-        return new b(context, str).ezB();
+    public static m<e> bu(Context context, String str) {
+        return new b(context, str).ezC();
     }
 
     private b(Context context, String str) {
         this.appContext = context.getApplicationContext();
         this.url = str;
-        this.pKl = new a(this.appContext, str);
+        this.pLO = new a(this.appContext, str);
     }
 
-    private m<e> ezB() {
+    private m<e> ezC() {
         return new m<>(new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.network.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: eyx */
+            /* renamed from: eyy */
             public l<e> call() throws Exception {
-                return b.this.ezC();
+                return b.this.ezD();
             }
         });
     }
 
     @WorkerThread
-    public l<e> ezC() {
-        e ezD = ezD();
-        if (ezD != null) {
-            return new l<>(ezD);
+    public l<e> ezD() {
+        e ezE = ezE();
+        if (ezE != null) {
+            return new l<>(ezE);
         }
         d.debug("Animation for " + this.url + " not found in cache. Fetching from network.");
-        return ezE();
+        return ezF();
     }
 
     @WorkerThread
     @Nullable
-    private e ezD() {
+    private e ezE() {
         l<e> k;
-        Pair<FileExtension, InputStream> kL = this.pKl.kL();
+        Pair<FileExtension, InputStream> kL = this.pLO.kL();
         if (kL == null) {
             return null;
         }
@@ -79,16 +79,16 @@ public class b {
     }
 
     @WorkerThread
-    private l<e> ezE() {
+    private l<e> ezF() {
         try {
-            return ezF();
+            return ezG();
         } catch (IOException e) {
             return new l<>(e);
         }
     }
 
     @WorkerThread
-    private l ezF() throws IOException {
+    private l ezG() throws IOException {
         FileExtension fileExtension;
         l<e> c;
         d.debug("Fetching " + this.url);
@@ -127,16 +127,16 @@ public class b {
                 case 0:
                     d.debug("Handling zip response.");
                     fileExtension = FileExtension.Zip;
-                    c = f.c(new ZipInputStream(new FileInputStream(this.pKl.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
+                    c = f.c(new ZipInputStream(new FileInputStream(this.pLO.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
                     break;
                 default:
                     d.debug("Received json response.");
                     fileExtension = FileExtension.Json;
-                    c = f.k(new FileInputStream(new File(this.pKl.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
+                    c = f.k(new FileInputStream(new File(this.pLO.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
                     break;
             }
             if (c.getValue() != null) {
-                this.pKl.a(fileExtension);
+                this.pLO.a(fileExtension);
             }
             d.debug("Completed fetch from network. Success: " + (c.getValue() != null));
             return c;

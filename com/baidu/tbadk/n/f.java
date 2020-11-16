@@ -8,28 +8,28 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class f extends g {
     public long Ls;
     public long costTime;
-    public long fuX;
-    public long fuY;
-    public long fuZ;
-    public int fva;
-    public int fvb;
-    private a fvc = null;
-    private final Handler fvd = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.n.f.1
+    public long fuh;
+    public long fui;
+    public long fuj;
+    public int fuk;
+    public int ful;
+    private a fum = null;
+    private final Handler fun = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.n.f.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            f.this.fvc = new a();
-            f.this.fvc.setSelfExecute(true);
-            f.this.fvc.execute(new String[0]);
+            f.this.fum = new a();
+            f.this.fum.setSelfExecute(true);
+            f.this.fum.execute(new String[0]);
         }
     };
 
-    public void bCn() {
-        this.fvd.sendEmptyMessage(0);
+    public void bBD() {
+        this.fun.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCo() {
-        j jVar = (j) m.bCu().rM(this.mSubType);
+    public void bBE() {
+        j jVar = (j) m.bBK().sk(this.mSubType);
         if (jVar != null) {
             jVar.c(this);
         }
@@ -44,8 +44,8 @@ public class f extends g {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            f.this.fvb = m.bCu().getCpuUsageStatistic();
-            f.this.bCo();
+            f.this.ful = m.bBK().getCpuUsageStatistic();
+            f.this.bBE();
             return Boolean.TRUE;
         }
 

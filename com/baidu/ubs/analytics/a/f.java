@@ -4,41 +4,41 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 final class f {
-    private static f orh;
-    private static SQLiteOpenHelper ori;
-    private AtomicInteger orj = new AtomicInteger();
-    private SQLiteDatabase ork;
+    private static f osK;
+    private static SQLiteOpenHelper osL;
+    private AtomicInteger osM = new AtomicInteger();
+    private SQLiteDatabase osN;
 
     f() {
     }
 
     private static synchronized void b(Context context) {
         synchronized (f.class) {
-            if (orh == null) {
-                orh = new f();
-                ori = new d(context);
+            if (osK == null) {
+                osK = new f();
+                osL = new d(context);
             }
         }
     }
 
-    public static synchronized f edC() {
+    public static synchronized f edB() {
         f fVar;
         synchronized (f.class) {
-            if (orh == null) {
-                b(com.baidu.ubs.analytics.d.edA().getContext());
+            if (osK == null) {
+                b(com.baidu.ubs.analytics.d.edz().getContext());
             }
-            fVar = orh;
+            fVar = osK;
         }
         return fVar;
     }
 
-    public final synchronized SQLiteDatabase asD() {
-        if (this.orj.incrementAndGet() == 1) {
+    public final synchronized SQLiteDatabase arU() {
+        if (this.osM.incrementAndGet() == 1) {
             com.baidu.ubs.analytics.d.b.H("***************新建立了 一个数据库的实例****************");
-            this.ork = ori.getWritableDatabase();
+            this.osN = osL.getWritableDatabase();
         }
-        return this.ork;
+        return this.osN;
     }
 }

@@ -6,15 +6,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class bc {
-    public List<Long> aOI;
+    public List<Long> aMX;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aOI = new ArrayList();
+            this.aMX = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("id");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.aOI.add(Long.valueOf(optJSONArray.optLong(i)));
+                    this.aMX.add(Long.valueOf(optJSONArray.optLong(i)));
                 }
             }
         }

@@ -6,7 +6,7 @@ import com.baidu.ufosdk.UfoSDK;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class dl implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

@@ -5,13 +5,13 @@ import android.view.animation.AnimationUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private TbPageContext<BaseFragmentActivity> eIc;
-    private Animation jht;
+    private TbPageContext<BaseFragmentActivity> eGu;
+    private Animation jif;
 
     public b(TbPageContext<BaseFragmentActivity> tbPageContext) {
-        this.eIc = tbPageContext;
-        this.jht = AnimationUtils.loadAnimation(this.eIc.getPageActivity(), R.anim.frs_like);
+        this.eGu = tbPageContext;
+        this.jif = AnimationUtils.loadAnimation(this.eGu.getPageActivity(), R.anim.frs_like);
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/vibrateLong");
@@ -19,14 +19,14 @@ public class a extends aa {
         if (DEBUG) {
             Log.d("LongVibrateAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        if (eVar != null && eVar.ajA()) {
+        if (eVar != null && eVar.aiS()) {
             if (DEBUG) {
                 Log.d("LongVibrateAction", "LongVibrateAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
             return false;
         }
-        com.baidu.swan.apps.al.j.b.a.aLB().aLD();
+        com.baidu.swan.apps.al.j.b.a.aKT().aKV();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

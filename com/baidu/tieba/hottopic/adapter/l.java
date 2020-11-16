@@ -10,42 +10,42 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.RelateTopicForumActivity;
 import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class l extends BaseAdapter {
-    private String eRa;
-    private RelateTopicForumActivity jNK;
+    private String eQb;
+    private RelateTopicForumActivity jOu;
     private ArrayList<RelateForumItemData> dataList = new ArrayList<>();
-    private View.OnClickListener jNL = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.l.1
+    private View.OnClickListener jOv = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.l.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue;
-            if (l.this.jNK != null && l.this.jNK.checkUpIsLogin() && view.getId() == R.id.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
+            if (l.this.jOu != null && l.this.jOu.checkUpIsLogin() && view.getId() == R.id.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
                 RelateForumItemData relateForumItemData = (RelateForumItemData) l.this.dataList.get(intValue);
                 if (relateForumItemData.forumId != 0) {
-                    TiebaStatic.log(new aq("c10371").dR("fid", String.valueOf(relateForumItemData.forumId)).al("obj_type", com.baidu.tieba.hottopic.data.k.jPW).dR("topic_id", l.this.eRa));
+                    TiebaStatic.log(new ar("c10371").dR("fid", String.valueOf(relateForumItemData.forumId)).ak("obj_type", com.baidu.tieba.hottopic.data.k.jQG).dR("topic_id", l.this.eQb));
                 }
-                if (at.isForumName(relateForumItemData.forumName)) {
-                    l.this.jNK.jxo.gp(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
+                if (au.isForumName(relateForumItemData.forumName)) {
+                    l.this.jOu.jyf.gp(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
                 }
             }
         }
     };
 
     public l(RelateTopicForumActivity relateTopicForumActivity) {
-        this.jNK = relateTopicForumActivity;
+        this.jOu = relateTopicForumActivity;
     }
 
     public void c(List<RelateForumItemData> list, String str) {
         this.dataList.clear();
         this.dataList.addAll(list);
-        this.eRa = str;
+        this.eQb = str;
         notifyDataSetChanged();
     }
 
@@ -68,39 +68,39 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.hottopic.a.f fVar;
         if (view == null) {
-            view = LayoutInflater.from(this.jNK.getPageContext().getContext()).inflate(R.layout.hot_topic_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.jOu.getPageContext().getContext()).inflate(R.layout.hot_topic_list_item, (ViewGroup) null);
             com.baidu.tieba.hottopic.a.f fVar2 = new com.baidu.tieba.hottopic.a.f(view);
             view.setTag(fVar2);
-            fVar2.jQY.setOnClickListener(this.jNL);
+            fVar2.jRI.setOnClickListener(this.jOv);
             fVar = fVar2;
         } else {
             fVar = (com.baidu.tieba.hottopic.a.f) view.getTag();
         }
-        fVar.jQY.setTag(Integer.valueOf(i));
+        fVar.jRI.setTag(Integer.valueOf(i));
         if (this.dataList != null && this.dataList.get(i) != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (fVar.ajq != skinType) {
-                ap.setViewTextColor(fVar.jQV, R.color.cp_cont_b, 1);
-                ap.setViewTextColor(fVar.jof, R.color.cp_cont_c, 1);
-                ap.setViewTextColor(fVar.jog, R.color.cp_cont_c, 1);
-                ap.setViewTextColor(fVar.jQW, R.color.cp_cont_c, 1);
-                ap.setViewTextColor(fVar.jQX, R.color.cp_cont_c, 1);
-                ap.setViewTextColor(fVar.gSc, R.color.cp_cont_d, 1);
-                ap.setBackgroundResource(fVar.hFD, R.color.cp_bg_line_c);
-                ap.setBackgroundResource(fVar.jQY, R.drawable.btn_appdownload);
+            if (fVar.ajv != skinType) {
+                ap.setViewTextColor(fVar.jRF, R.color.CAM_X0105, 1);
+                ap.setViewTextColor(fVar.joR, R.color.CAM_X0108, 1);
+                ap.setViewTextColor(fVar.joS, R.color.CAM_X0108, 1);
+                ap.setViewTextColor(fVar.jRG, R.color.CAM_X0108, 1);
+                ap.setViewTextColor(fVar.jRH, R.color.CAM_X0108, 1);
+                ap.setViewTextColor(fVar.gRJ, R.color.CAM_X0109, 1);
+                ap.setBackgroundResource(fVar.hFk, R.color.CAM_X0204);
+                ap.setBackgroundResource(fVar.jRI, R.drawable.btn_appdownload);
                 ap.setBackgroundResource(view, R.drawable.list_item_selector);
-                fVar.ajq = skinType;
+                fVar.ajv = skinType;
             }
-            fVar.jQV.setText(this.dataList.get(i).forumName);
+            fVar.jRF.setText(this.dataList.get(i).forumName);
             if (!StringUtils.isNULL(this.dataList.get(i).forumAvatar)) {
-                fVar.jQU.startLoad(this.dataList.get(i).forumAvatar, 10, false);
+                fVar.jRE.startLoad(this.dataList.get(i).forumAvatar, 10, false);
             }
-            fVar.jof.setText(at.numberUniformFormat(this.dataList.get(i).postNum));
-            fVar.jog.setText(at.numberUniformFormat(this.dataList.get(i).followNum));
-            fVar.gSc.setText(at.forceLToR(this.dataList.get(i).forumAbstract));
-            d(fVar.jQY, this.dataList.get(i).isLiked);
+            fVar.joR.setText(au.numberUniformFormat(this.dataList.get(i).postNum));
+            fVar.joS.setText(au.numberUniformFormat(this.dataList.get(i).followNum));
+            fVar.gRJ.setText(au.forceLToR(this.dataList.get(i).forumAbstract));
+            d(fVar.jRI, this.dataList.get(i).isLiked);
             if (i == this.dataList.size() - 1) {
-                cO(fVar.hFD);
+                cT(fVar.hFk);
             }
         }
         return view;
@@ -109,18 +109,18 @@ public class l extends BaseAdapter {
     private void d(TextView textView, boolean z) {
         if (z) {
             textView.setEnabled(false);
-            ap.setViewTextColor(textView, R.color.cp_cont_d, 1);
+            ap.setViewTextColor(textView, R.color.CAM_X0109, 1);
             textView.setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             textView.setBackgroundDrawable(null);
             return;
         }
-        ap.setViewTextColor(textView, R.color.cp_cont_a, 1);
+        ap.setViewTextColor(textView, R.color.CAM_X0101, 1);
         textView.setText(TbadkCoreApplication.getInst().getString(R.string.attention));
         ap.setBackgroundResource(textView, R.drawable.btn_appdownload);
         textView.setEnabled(true);
     }
 
-    public void cO(View view) {
+    public void cT(View view) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
         layoutParams.leftMargin = 0;
         layoutParams.rightMargin = 0;

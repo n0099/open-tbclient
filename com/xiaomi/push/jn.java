@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public final class jn {
 
     /* renamed from: a  reason: collision with root package name */

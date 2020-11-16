@@ -5,7 +5,7 @@ import android.os.Looper;
 import android.webkit.JavascriptInterface;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 class JavaScriptChannel {
     private final String javaScriptChannelName;
     private final MethodChannel methodChannel;

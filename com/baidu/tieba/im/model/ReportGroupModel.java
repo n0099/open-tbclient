@@ -3,7 +3,7 @@ package com.baidu.tieba.im.model;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tieba.im.chat.GroupSettingActivity;
 import com.baidu.tieba.im.message.RequestReportGroupMessage;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class ReportGroupModel extends BdBaseModel<GroupSettingActivity> {
     private long mGroupId;
     private int mReportType;

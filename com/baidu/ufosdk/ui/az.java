@@ -6,7 +6,7 @@ import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class az implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

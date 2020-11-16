@@ -12,7 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class o {
     private static int a(byte[] bArr, int i) {
         return bArr[i + 0] | (bArr[i + 1] << 8) | (bArr[i + 2] << 16) | (bArr[i + 3] << 24);

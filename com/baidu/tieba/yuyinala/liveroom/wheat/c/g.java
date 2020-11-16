@@ -4,68 +4,68 @@ import com.baidu.live.data.AlaWheatInfoDataWrapper;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class g {
-    public static int odZ = 1;
-    public static int oea = 2;
-    public static int oeb = 3;
-    private TbPageContext ocV;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.b.a odY;
+    public static int ofD = 1;
+    public static int ofE = 2;
+    public static int ofF = 3;
+    private TbPageContext oey;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.b.a ofC;
 
     public g(TbPageContext tbPageContext) {
-        this.ocV = tbPageContext;
+        this.oey = tbPageContext;
     }
 
     public void b(com.baidu.tieba.yuyinala.liveroom.data.e eVar) {
         AlaWheatInfoDataWrapper alaWheatInfoDataWrapper;
-        if (eVar != null && eVar.gMW != null && (alaWheatInfoDataWrapper = eVar.gMW.aJP) != null) {
+        if (eVar != null && eVar.gMD != null && (alaWheatInfoDataWrapper = eVar.gMD.aIe) != null) {
             if (alaWheatInfoDataWrapper.getRoomMode() == 0) {
-                if (this.odY == null || !(this.odY instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a)) {
-                    this.odY = new com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a(this.ocV);
+                if (this.ofC == null || !(this.ofC instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a)) {
+                    this.ofC = new com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a(this.oey);
                 }
             } else if (alaWheatInfoDataWrapper.getRoomMode() == 1) {
                 switch (alaWheatInfoDataWrapper.getActivityStage()) {
                     case 1:
-                        if (this.odY == null || !(this.odY instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.c)) {
-                            this.odY = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.c(this.ocV);
+                        if (this.ofC == null || !(this.ofC instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.c)) {
+                            this.ofC = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.c(this.oey);
                             break;
                         }
                         break;
                     case 2:
-                        if (this.odY == null || !(this.odY instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.e)) {
-                            this.odY = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.e(this.ocV);
+                        if (this.ofC == null || !(this.ofC instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.e)) {
+                            this.ofC = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.e(this.oey);
                             break;
                         }
                         break;
                     case 3:
-                        if (this.odY == null || !(this.odY instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.d)) {
-                            this.odY = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.d(this.ocV);
+                        if (this.ofC == null || !(this.ofC instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.d)) {
+                            this.ofC = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.d(this.oey);
                             break;
                         }
                         break;
                     case 4:
-                        if (this.odY == null || !(this.odY instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.b)) {
-                            this.odY = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.b(this.ocV);
+                        if (this.ofC == null || !(this.ofC instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.b)) {
+                            this.ofC = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.b(this.oey);
                             break;
                         }
                         break;
                     default:
-                        if (this.odY == null || !(this.odY instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.a)) {
-                            this.odY = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.a(this.ocV);
+                        if (this.ofC == null || !(this.ofC instanceof com.baidu.tieba.yuyinala.liveroom.wheat.b.a.a)) {
+                            this.ofC = new com.baidu.tieba.yuyinala.liveroom.wheat.b.a.a(this.oey);
                             break;
                         }
                         break;
                 }
             }
-            if (this.odY != null) {
-                this.odY.a(eVar.gMW, eVar.nVu, eVar.nVv, eVar.nVw);
-                this.odY.dYT();
+            if (this.ofC != null) {
+                this.ofC.a(eVar.gMD, eVar.nWX, eVar.nWY, eVar.nWZ);
+                this.ofC.dYS();
             }
         }
     }
 
     public void onDestroy() {
-        if (this.odY != null) {
-            this.odY.onDestory();
+        if (this.ofC != null) {
+            this.ofC.onDestory();
         }
-        e.dZk().onDestroy();
+        e.dZj().onDestroy();
     }
 }

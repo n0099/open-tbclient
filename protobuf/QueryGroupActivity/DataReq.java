@@ -2,7 +2,7 @@ package protobuf.QueryGroupActivity;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public final class DataReq extends Message {
     public static final Integer DEFAULT_ACTIVITYID = 0;
     public static final Integer DEFAULT_FROM = 0;
@@ -31,7 +31,7 @@ public final class DataReq extends Message {
         this.from = builder.from;
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes22.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer activityId;
         public Integer from;

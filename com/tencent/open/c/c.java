@@ -6,7 +6,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import com.tencent.open.a.f;
 import com.tencent.open.web.security.SecureJsInterface;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class c extends b {
 
     /* renamed from: a  reason: collision with root package name */

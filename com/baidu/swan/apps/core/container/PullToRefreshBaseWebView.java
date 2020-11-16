@@ -7,20 +7,20 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
 import com.baidu.swan.support.v4.c.f;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<T> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a cJh;
-    private boolean cJi;
+    private a cHx;
+    private boolean cHy;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void i(int i, int i2, int i3, int i4);
     }
 
     public PullToRefreshBaseWebView(Context context, com.baidu.swan.apps.res.ui.pullrefresh.a<T> aVar, PullToRefreshBase.HEADERTYPE headertype) {
         super(context, aVar, headertype);
-        this.cJi = false;
+        this.cHy = false;
     }
 
     public PullToRefreshBaseWebView(Context context) {
@@ -29,7 +29,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
 
     public PullToRefreshBaseWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cJi = false;
+        this.cHy = false;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -37,7 +37,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
         switch (motionEvent.getAction()) {
             case 1:
             case 3:
-                this.cJi = false;
+                this.cHy = false;
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -50,13 +50,13 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     protected boolean isReadyForPullDown() {
-        if (this.dqi == null) {
+        if (this.doB == null) {
             return false;
         }
-        if (getScrollYValue() == 0 && this.cJi) {
+        if (getScrollYValue() == 0 && this.cHy) {
             return false;
         }
-        boolean canScrollVertically = f.canScrollVertically(this.dqi, -1);
+        boolean canScrollVertically = f.canScrollVertically(this.doB, -1);
         if (DEBUG) {
             Log.d("PullToRefreshWebView", "isReadyForPullDown result: " + canScrollVertically);
         }
@@ -71,16 +71,16 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
     @Override // android.view.View
     public void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.cJh != null) {
-            this.cJh.i(i, i2, i3, i4);
+        if (this.cHx != null) {
+            this.cHx.i(i, i2, i3, i4);
         }
     }
 
     public void setOnPullToRefreshScrollChangeListener(a aVar) {
-        this.cJh = aVar;
+        this.cHx = aVar;
     }
 
     public void setIsPreventPullToRefresh(boolean z) {
-        this.cJi = z;
+        this.cHy = z;
     }
 }

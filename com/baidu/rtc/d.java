@@ -1,7 +1,7 @@
 package com.baidu.rtc;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class d {
-    public m cko;
-    public n ckp;
+    public m ciE;
+    public n ciF;
     public String tid;
 }

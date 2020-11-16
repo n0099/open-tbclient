@@ -6,20 +6,20 @@ import java.util.Collection;
 import java.util.Iterator;
 import kotlin.TypeCastException;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class n {
-    private static final Object[] pSG = new Object[0];
+    private static final Object[] pUj = new Object[0];
 
     public static final Object[] r(Collection<?> collection) {
         Object[] objArr;
         q.n(collection, "collection");
         int size = collection.size();
         if (size == 0) {
-            return pSG;
+            return pUj;
         }
         Iterator<?> it = collection.iterator();
         if (!it.hasNext()) {
-            return pSG;
+            return pUj;
         }
         Object[] objArr2 = new Object[size];
         int i = 0;

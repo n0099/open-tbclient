@@ -11,6 +11,6 @@ public class WriteVoteActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bCX() {
+    protected void bCq() {
     }
 }

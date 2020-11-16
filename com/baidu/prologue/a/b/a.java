@@ -4,73 +4,73 @@ import android.content.Context;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public interface a {
-    public static final AtomicReference<a> che = new AtomicReference<>();
+    public static final AtomicReference<a> cft = new AtomicReference<>();
 
     boolean a(String str, com.baidu.prologue.c.b bVar);
 
     @NonNull
-    Context abJ();
+    Context aba();
 
     @NonNull
-    String abK();
+    String abb();
 
     @NonNull
-    String abL();
+    String abc();
 
     @NonNull
-    String abM();
+    String abd();
 
     @NonNull
-    String abN();
+    String abe();
 
     @NonNull
-    String abO();
+    String abf();
 
     @NonNull
-    String abP();
+    String abg();
 
     @NonNull
-    String abQ();
+    String abh();
 
     @NonNull
-    String abR();
+    String abi();
 
     @NonNull
-    String abS();
+    String abj();
 
-    boolean abT();
+    boolean abk();
 
     @NonNull
-    String abU();
+    String abl();
 
-    boolean abV();
+    boolean abm();
 
-    String abW();
+    String abn();
 
-    String abX();
+    String abo();
 
-    String[] abY();
+    String[] abp();
 
-    String abZ();
+    String abq();
 
-    String aca();
+    String abr();
 
     @IdRes
-    int acb();
+    int abs();
 
     @IdRes
-    int acc();
+    int abt();
 
     @IdRes
-    int acd();
+    int abu();
 
-    String ace();
+    String abv();
 
-    int acf();
+    int abw();
 
-    String acg();
+    String abx();
 
     @NonNull
     String androidId();

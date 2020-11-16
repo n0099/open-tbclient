@@ -2,7 +2,7 @@ package com.vivo.push.b;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class v extends u {
 
     /* renamed from: a  reason: collision with root package name */

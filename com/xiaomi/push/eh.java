@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class eh extends ed {
 
     /* renamed from: a  reason: collision with root package name */
@@ -15,19 +15,19 @@ public class eh extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo166a() {
+    public int mo169a() {
         return 9;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo166a() {
+    public ho mo169a() {
         return ho.TopApp;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo166a() {
+    public String mo169a() {
         return null;
     }
 }

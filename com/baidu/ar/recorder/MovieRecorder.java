@@ -17,7 +17,7 @@ import com.baidu.ar.recorder.b.e;
 import com.baidu.platform.comapi.map.NodeType;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class MovieRecorder implements b {
     public static final int ERROR_CODE_ON_START = 4001;
     public static final int ERROR_CODE_ON_STOP = 4002;
@@ -33,7 +33,7 @@ public class MovieRecorder implements b {
     private MovieRecorderCallback tk;
 
     /* renamed from: tv  reason: collision with root package name */
-    private HandlerThread f1240tv;
+    private HandlerThread f1243tv;
     private a ty;
     private com.baidu.ar.recorder.a tz;
     private static final String TAG = MovieRecorder.class.getSimpleName();
@@ -47,7 +47,7 @@ public class MovieRecorder implements b {
     private volatile boolean tI = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -199,14 +199,14 @@ public class MovieRecorder implements b {
         }
         this.tG = new com.baidu.ar.recorder.a.b();
         this.tt = 0;
-        if (!this.tu && this.f1240tv == null) {
-            this.f1240tv = new HandlerThread(TAG);
-            this.f1240tv.start();
+        if (!this.tu && this.f1243tv == null) {
+            this.f1243tv = new HandlerThread(TAG);
+            this.f1243tv.start();
         }
         if (this.ty != null) {
             this.ty.removeCallbacksAndMessages(null);
-        } else if (this.f1240tv != null) {
-            this.ty = new a(this.f1240tv.getLooper());
+        } else if (this.f1243tv != null) {
+            this.ty = new a(this.f1243tv.getLooper());
         } else {
             this.ty = new a(this.mContext.getMainLooper());
         }
@@ -375,9 +375,9 @@ public class MovieRecorder implements b {
             this.ty.removeCallbacksAndMessages(null);
             this.ty = null;
         }
-        if (this.f1240tv != null) {
-            this.f1240tv.quit();
-            this.f1240tv = null;
+        if (this.f1243tv != null) {
+            this.f1243tv.quit();
+            this.f1243tv = null;
         }
     }
 

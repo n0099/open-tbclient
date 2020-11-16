@@ -25,7 +25,7 @@ public class RoundProgressBar extends View {
     private int h;
     private boolean i;
     private int j;
-    private final RectF pzM;
+    private final RectF pBp;
 
     public RoundProgressBar(Context context) {
         this(context, null);
@@ -37,7 +37,7 @@ public class RoundProgressBar extends View {
 
     public RoundProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.pzM = new RectF();
+        this.pBp = new RectF();
         this.f4251a = new Paint();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.RoundProgressBar);
         this.b = obtainStyledAttributes.getColor(a.k.RoundProgressBar_roundColor, SupportMenu.CATEGORY_MASK);
@@ -72,16 +72,16 @@ public class RoundProgressBar extends View {
         }
         this.f4251a.setStrokeWidth(this.f);
         this.f4251a.setColor(this.c);
-        this.pzM.set(width - i, width - i, width + i, width + i);
+        this.pBp.set(width - i, width - i, width + i, width + i);
         switch (this.j) {
             case 0:
                 this.f4251a.setStyle(Paint.Style.STROKE);
-                canvas.drawArc(this.pzM, 90.0f, (this.h * EncoderTextureDrawer.X264_WIDTH) / this.g, false, this.f4251a);
+                canvas.drawArc(this.pBp, 90.0f, (this.h * EncoderTextureDrawer.X264_WIDTH) / this.g, false, this.f4251a);
                 return;
             case 1:
                 this.f4251a.setStyle(Paint.Style.FILL_AND_STROKE);
                 if (this.h != 0) {
-                    canvas.drawArc(this.pzM, 90.0f, (this.h * EncoderTextureDrawer.X264_WIDTH) / this.g, true, this.f4251a);
+                    canvas.drawArc(this.pBp, 90.0f, (this.h * EncoderTextureDrawer.X264_WIDTH) / this.g, true, this.f4251a);
                     return;
                 }
                 return;

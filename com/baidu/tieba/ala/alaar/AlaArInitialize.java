@@ -22,17 +22,17 @@ public class AlaArInitialize {
     private static Context sContext;
 
     static {
-        bMy();
-        bMz();
-        bMt();
-        bMw();
-        bMu();
-        bMv();
-        bMx();
+        bLR();
+        bLS();
+        bLM();
+        bLP();
+        bLN();
+        bLO();
+        bLQ();
         TbConfig.AR_SDK_VERSION = a.getVersion();
     }
 
-    public static void bMt() {
+    public static void bLM() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021158, TbConfig.SERVER_HOST + "liveserver/sys/anticontent");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -42,7 +42,7 @@ public class AlaArInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public static void bMu() {
+    public static void bLN() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021156, TbConfig.SERVER_HOST + "liveserver/sys/getstreamerstickers");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -52,14 +52,14 @@ public class AlaArInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public static void bMv() {
+    public static void bLO() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021206, TbConfig.SERVER_ADDRESS + "ala/sticker/setLiveSticker");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(SetPicTxtStickerHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bMw() {
+    private static void bLP() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913125, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.alaar.AlaArInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.ab.a> run(CustomMessage<Context> customMessage) {
@@ -73,7 +73,7 @@ public class AlaArInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bMx() {
+    private static void bLQ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913177, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.alaar.AlaArInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<j> run(CustomMessage<Context> customMessage) {
@@ -87,7 +87,7 @@ public class AlaArInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static void bMy() {
+    public static void bLR() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021155, TbConfig.SERVER_HOST + "liveserver/sys/getstickers");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -97,12 +97,12 @@ public class AlaArInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bMz() {
+    private static void bLS() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913176, new CustomMessageTask.CustomRunnable<com.baidu.live.ar.a>() { // from class: com.baidu.tieba.ala.alaar.AlaArInitialize.3
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<ILiveMultiBeautyView> run(CustomMessage<com.baidu.live.ar.a> customMessage) {
-                Context unused = AlaArInitialize.sContext = customMessage.getData().aDu.getPageActivity().getApplicationContext();
-                return new CustomResponsedMessage<>(2913176, new AlaLiveMultiBeautyArView(customMessage.getData().aDu.getPageActivity()));
+                Context unused = AlaArInitialize.sContext = customMessage.getData().aBJ.getPageActivity().getApplicationContext();
+                return new CustomResponsedMessage<>(2913176, new AlaLiveMultiBeautyArView(customMessage.getData().aBJ.getPageActivity()));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

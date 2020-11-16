@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.k.a.a;
 import com.baidu.sapi2.SapiAccountManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class a extends Dialog implements com.baidu.sapi2.g.b {
 
     /* renamed from: a  reason: collision with root package name */
@@ -24,13 +24,13 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
     private Context i;
 
     /* renamed from: com.baidu.sapi2.views.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    class View$OnClickListenerC0347a implements View.OnClickListener {
+    /* loaded from: classes15.dex */
+    class View$OnClickListenerC0345a implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
         final /* synthetic */ View.OnClickListener f3579a;
 
-        View$OnClickListenerC0347a(View.OnClickListener onClickListener) {
+        View$OnClickListenerC0345a(View.OnClickListener onClickListener) {
             this.f3579a = onClickListener;
         }
 
@@ -44,7 +44,7 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     class b implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
@@ -135,7 +135,7 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
     @Override // com.baidu.sapi2.g.b
     public com.baidu.sapi2.g.b a(String str, View.OnClickListener onClickListener) {
         this.d.setText(str);
-        this.d.setOnClickListener(new View$OnClickListenerC0347a(onClickListener));
+        this.d.setOnClickListener(new View$OnClickListenerC0345a(onClickListener));
         return this;
     }
 

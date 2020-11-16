@@ -4,8 +4,8 @@ import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.live.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.util.ac;
 import com.baidu.tbadk.util.ad;
-import com.baidu.tbadk.util.ae;
 import com.baidu.tbadk.util.m;
 import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.im.db.d;
@@ -16,7 +16,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class UpdatesModel {
     private List<UpdatesItemData> dataToDelete = new ArrayList();
 
@@ -26,12 +26,12 @@ public class UpdatesModel {
             for (UpdatesItemData updatesItemData : updatesItemDataArr) {
                 linkedList.add(updatesItemData.toGroupNewsPojo());
             }
-            ae.b(new ad<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
+            ad.b(new ac<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.ad
+                @Override // com.baidu.tbadk.util.ac
                 public Boolean doInBackground() {
-                    return d.cQV().m(linkedList);
+                    return d.cQB().m(linkedList);
                 }
             }, mVar);
         }
@@ -39,24 +39,24 @@ public class UpdatesModel {
 
     public static void deleteUpdatesData(final UpdatesItemData updatesItemData, m<Boolean> mVar) {
         if (updatesItemData != null) {
-            ae.b(new ad<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
+            ad.b(new ac<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.ad
+                @Override // com.baidu.tbadk.util.ac
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.cQV().MC(UpdatesItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.cQB().Md(UpdatesItemData.this.getNotice_id()));
                 }
             }, mVar);
         }
     }
 
     public void deleteDatas(m<Boolean> mVar) {
-        ae.b(new ad<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
+        ad.b(new ac<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tbadk.util.ad
+            @Override // com.baidu.tbadk.util.ac
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.cQV().ee(UpdatesModel.this.dataToDelete));
+                return Boolean.valueOf(d.cQB().ee(UpdatesModel.this.dataToDelete));
             }
         }, mVar);
     }
@@ -110,11 +110,11 @@ public class UpdatesModel {
     }
 
     public static void requestUpdatesDataFromDB(m<LinkedList<GroupNewsPojo>> mVar) {
-        ae.b(new ad<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
+        ad.b(new ac<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.ad
+            @Override // com.baidu.tbadk.util.ac
             public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.cQV().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+                return d.cQB().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
             }
         }, mVar);
     }

@@ -6,23 +6,23 @@ import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import com.facebook.drawee.drawable.p;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class o extends g {
     Matrix mDrawMatrix;
     private Matrix mTempMatrix;
-    int oOX;
-    int oOY;
-    p.b oOu;
-    Object oPD;
-    PointF oPE;
+    p.b oPY;
+    int oQB;
+    int oQC;
+    Object oRg;
+    PointF oRh;
 
     public o(Drawable drawable, p.b bVar) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.oPE = null;
-        this.oOX = 0;
-        this.oOY = 0;
+        this.oRh = null;
+        this.oQB = 0;
+        this.oQC = 0;
         this.mTempMatrix = new Matrix();
-        this.oOu = bVar;
+        this.oPY = bVar;
     }
 
     @Override // com.facebook.drawee.drawable.g
@@ -32,25 +32,25 @@ public class o extends g {
         return current;
     }
 
-    public p.b elY() {
-        return this.oOu;
+    public p.b elW() {
+        return this.oPY;
     }
 
     public void a(p.b bVar) {
-        if (!com.facebook.common.internal.f.equal(this.oOu, bVar)) {
-            this.oOu = bVar;
-            this.oPD = null;
+        if (!com.facebook.common.internal.f.equal(this.oPY, bVar)) {
+            this.oPY = bVar;
+            this.oRg = null;
             configureBounds();
             invalidateSelf();
         }
     }
 
     public void d(PointF pointF) {
-        if (!com.facebook.common.internal.f.equal(this.oPE, pointF)) {
-            if (this.oPE == null) {
-                this.oPE = new PointF();
+        if (!com.facebook.common.internal.f.equal(this.oRh, pointF)) {
+            if (this.oRh == null) {
+                this.oRh = new PointF();
             }
-            this.oPE.set(pointF);
+            this.oRh.set(pointF);
             configureBounds();
             invalidateSelf();
         }
@@ -58,7 +58,7 @@ public class o extends g {
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        elU();
+        elS();
         if (this.mDrawMatrix != null) {
             int save = canvas.save();
             canvas.clipRect(getBounds());
@@ -75,17 +75,17 @@ public class o extends g {
         configureBounds();
     }
 
-    private void elU() {
+    private void elS() {
         boolean z;
         boolean z2 = false;
-        if (this.oOu instanceof p.l) {
-            Object state = ((p.l) this.oOu).getState();
-            z = state == null || !state.equals(this.oPD);
-            this.oPD = state;
+        if (this.oPY instanceof p.l) {
+            Object state = ((p.l) this.oPY).getState();
+            z = state == null || !state.equals(this.oRg);
+            this.oRg = state;
         } else {
             z = false;
         }
-        if (this.oOX != getCurrent().getIntrinsicWidth() || this.oOY != getCurrent().getIntrinsicHeight()) {
+        if (this.oQB != getCurrent().getIntrinsicWidth() || this.oQC != getCurrent().getIntrinsicHeight()) {
             z2 = true;
         }
         if (z2 || z) {
@@ -99,21 +99,21 @@ public class o extends g {
         int width = bounds.width();
         int height = bounds.height();
         int intrinsicWidth = current.getIntrinsicWidth();
-        this.oOX = intrinsicWidth;
+        this.oQB = intrinsicWidth;
         int intrinsicHeight = current.getIntrinsicHeight();
-        this.oOY = intrinsicHeight;
+        this.oQC = intrinsicHeight;
         if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
             current.setBounds(bounds);
             this.mDrawMatrix = null;
         } else if (intrinsicWidth == width && intrinsicHeight == height) {
             current.setBounds(bounds);
             this.mDrawMatrix = null;
-        } else if (this.oOu == p.b.oPF) {
+        } else if (this.oPY == p.b.oRi) {
             current.setBounds(bounds);
             this.mDrawMatrix = null;
         } else {
             current.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
-            this.oOu.a(this.mTempMatrix, bounds, intrinsicWidth, intrinsicHeight, this.oPE != null ? this.oPE.x : 0.5f, this.oPE != null ? this.oPE.y : 0.5f);
+            this.oPY.a(this.mTempMatrix, bounds, intrinsicWidth, intrinsicHeight, this.oRh != null ? this.oRh.x : 0.5f, this.oRh != null ? this.oRh.y : 0.5f);
             this.mDrawMatrix = this.mTempMatrix;
         }
     }
@@ -121,7 +121,7 @@ public class o extends g {
     @Override // com.facebook.drawee.drawable.g, com.facebook.drawee.drawable.r
     public void getTransform(Matrix matrix) {
         getParentTransform(matrix);
-        elU();
+        elS();
         if (this.mDrawMatrix != null) {
             matrix.preConcat(this.mDrawMatrix);
         }

@@ -87,7 +87,7 @@ public class a {
 
     /* renamed from: com.baidu.mapapi.bikenavi.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0251a {
+    public static class C0249a {
 
         /* renamed from: a  reason: collision with root package name */
         private String f1977a;

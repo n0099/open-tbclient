@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
@@ -11,7 +11,7 @@ public class d {
     String c;
     String d;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */

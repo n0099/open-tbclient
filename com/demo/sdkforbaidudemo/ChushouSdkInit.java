@@ -6,9 +6,9 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.helios.b;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.y;
 import com.kascend.cstvsdk.CSTVSdk;
 import com.kascend.cstvsdk.SdkConfig;
 import java.util.HashMap;
@@ -31,11 +31,7 @@ public class ChushouSdkInit {
 
     public static final void testStartLiveRoom(Context context, String str, String str2) {
         if (!CyberPlayerManager.isCoreLoaded(1)) {
-            try {
-                CyberPlayerManager.install(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getCuidGalaxy2(), null, 1, null, null, null);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            CyberPlayerManager.install(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getCuidGalaxy2(), null, 1, null, null, null);
         }
         CSTVSdk.INSTANCE.startLiveRoom(context, str, str2);
     }
@@ -60,9 +56,9 @@ public class ChushouSdkInit {
             hashMap.put("from", from);
         }
         hashMap.put("net_type", String.valueOf(j.netType()));
-        String bDP = y.bDP();
-        if (!TextUtils.isEmpty(bDP)) {
-            hashMap.put("oaid", bDP);
+        String zr = b.aj(TbadkCoreApplication.getInst()).zr();
+        if (!TextUtils.isEmpty(zr)) {
+            hashMap.put("oaid", zr);
         }
         hashMap.put("cuid", TbadkCoreApplication.getInst().getCuid());
         hashMap.put("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());

@@ -10,7 +10,7 @@ import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class e implements a {
 
     /* renamed from: a  reason: collision with root package name */

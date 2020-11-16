@@ -5,12 +5,12 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bl;
-import com.baidu.tbadk.core.data.bn;
+import com.baidu.tbadk.core.data.bm;
+import com.baidu.tbadk.core.data.bo;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
-public class z extends k<bl, a> {
-    private com.baidu.tieba.frs.view.e iLo;
+/* loaded from: classes21.dex */
+public class z extends k<bm, a> {
+    private com.baidu.tieba.frs.view.e iMb;
 
     public z(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -19,49 +19,49 @@ public class z extends k<bl, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bk */
+    /* renamed from: bg */
     public a c(ViewGroup viewGroup) {
-        this.iLo = new com.baidu.tieba.frs.view.e(this.mPageContext, this.mPageId);
-        return new a(this.iLo);
+        this.iMb = new com.baidu.tieba.frs.view.e(this.mPageContext, this.mPageId);
+        return new a(this.iMb);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bl blVar, a aVar) {
-        super.a(i, view, viewGroup, (ViewGroup) blVar, (bl) aVar);
-        this.iLo = aVar.iLp;
-        ArrayList<bn> blH = blVar.blH();
-        if (blH.size() <= 0) {
+    public View a(int i, View view, ViewGroup viewGroup, bm bmVar, a aVar) {
+        super.a(i, view, viewGroup, (ViewGroup) bmVar, (bm) aVar);
+        this.iMb = aVar.iMc;
+        ArrayList<bo> bkJ = bmVar.bkJ();
+        if (bkJ.size() <= 0) {
             return null;
         }
         aa aaVar = new aa();
         aaVar.showTopDivider = true;
-        aaVar.mGroupTitle = blVar.getTitle();
-        for (int i2 = 0; i2 != blH.size(); i2++) {
-            bn bnVar = blH.get(i2);
-            if (bnVar != null) {
+        aaVar.mGroupTitle = bmVar.getTitle();
+        for (int i2 = 0; i2 != bkJ.size(); i2++) {
+            bo boVar = bkJ.get(i2);
+            if (boVar != null) {
                 bb bbVar = new bb();
-                bbVar.metaData.setUserId(bnVar.getUid());
-                bbVar.metaData.setUserName(bnVar.blL());
-                bbVar.metaData.setPortrait(bnVar.getPortrait());
-                bbVar.metaData.getGodUserData().setIsLike(bnVar.getIsLike() == 1);
-                bbVar.metaData.getGodUserData().setIntro(bnVar.blM());
+                bbVar.metaData.setUserId(boVar.getUid());
+                bbVar.metaData.setUserName(boVar.bkN());
+                bbVar.metaData.setPortrait(boVar.getPortrait());
+                bbVar.metaData.getGodUserData().setIsLike(boVar.getIsLike() == 1);
+                bbVar.metaData.getGodUserData().setIntro(boVar.bkO());
                 aaVar.a(bbVar);
             }
         }
-        this.iLo.onChangeSkinType(this.mPageContext, this.mSkinType);
-        aVar.iLp.a(aaVar);
+        this.iMb.onChangeSkinType(this.mPageContext, this.mSkinType);
+        aVar.iMc.a(aaVar);
         return aVar.getView();
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public class a extends af.a {
-        public com.baidu.tieba.frs.view.e iLp;
+        public com.baidu.tieba.frs.view.e iMc;
 
         public a(com.baidu.tieba.frs.view.e eVar) {
             super(eVar.getView());
-            this.iLp = eVar;
+            this.iMc = eVar;
         }
     }
 }

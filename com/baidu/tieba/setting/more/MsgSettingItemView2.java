@@ -8,9 +8,9 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.R;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class MsgSettingItemView2 extends LinearLayout {
-    private CheckBox mJb;
+    private CheckBox mJA;
 
     public MsgSettingItemView2(Context context) {
         super(context);
@@ -25,19 +25,19 @@ public class MsgSettingItemView2 extends LinearLayout {
     public void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.msg_setting_item_view2, (ViewGroup) this, true);
-        this.mJb = (CheckBox) findViewById(R.id.setting_check_view);
+        this.mJA = (CheckBox) findViewById(R.id.setting_check_view);
     }
 
     public void setText(String str) {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.mJb.setText(str);
+        this.mJA.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.mJb.setText(i);
+            this.mJA.setText(i);
         }
     }
 
@@ -46,6 +46,6 @@ public class MsgSettingItemView2 extends LinearLayout {
     }
 
     public CheckBox getSwitchView() {
-        return this.mJb;
+        return this.mJA;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.ufosdk;
 import android.graphics.Bitmap;
 import android.support.v4.view.ViewCompat;
 import java.util.HashMap;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */

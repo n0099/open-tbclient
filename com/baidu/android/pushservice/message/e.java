@@ -1,9 +1,9 @@
 package com.baidu.android.pushservice.message;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected short f1178a;
+    protected short f1181a;
     protected byte[] b;
     protected boolean c;
     protected boolean d = false;
@@ -11,11 +11,11 @@ public class e {
     private k f;
 
     public e(short s) {
-        this.f1178a = s;
+        this.f1181a = s;
     }
 
     public short a() {
-        return this.f1178a;
+        return this.f1181a;
     }
 
     public void a(k kVar) {
@@ -45,7 +45,7 @@ public class e {
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("type : ");
-        stringBuffer.append((int) this.f1178a);
+        stringBuffer.append((int) this.f1181a);
         stringBuffer.append(", needReply: ");
         stringBuffer.append(this.c);
         return stringBuffer.toString();

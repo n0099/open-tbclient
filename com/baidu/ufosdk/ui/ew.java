@@ -3,7 +3,7 @@ package com.baidu.ufosdk.ui;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.ufosdk.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class ew implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */

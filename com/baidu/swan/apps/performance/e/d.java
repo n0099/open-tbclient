@@ -2,52 +2,52 @@ package com.baidu.swan.apps.performance.e;
 
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class d {
-    private static volatile d dki;
-    private HashMap<String, e> dkj;
-    private HashMap<String, e> dkk;
-    private HashMap<String, e> dkl;
+    private static volatile d diB;
+    private HashMap<String, e> diC;
+    private HashMap<String, e> diD;
+    private HashMap<String, e> diE;
 
     private d() {
-        aEp();
+        aDH();
     }
 
-    public static d aEo() {
-        if (dki == null) {
+    public static d aDG() {
+        if (diB == null) {
             synchronized (d.class) {
-                if (dki == null) {
-                    dki = new d();
+                if (diB == null) {
+                    diB = new d();
                 }
             }
         }
-        return dki;
+        return diB;
     }
 
     public static synchronized void releaseInstance() {
         synchronized (d.class) {
-            if (dki != null) {
-                dki.release();
-                dki = null;
+            if (diB != null) {
+                diB.release();
+                diB = null;
             }
         }
     }
 
     private void release() {
-        if (this.dkj != null) {
-            this.dkj.clear();
+        if (this.diC != null) {
+            this.diC.clear();
         }
-        if (this.dkk != null) {
-            this.dkk.clear();
+        if (this.diD != null) {
+            this.diD.clear();
         }
-        if (this.dkl != null) {
-            this.dkl.clear();
+        if (this.diE != null) {
+            this.diE.clear();
         }
     }
 
     public void d(String str, String str2, long j) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
-            aEp();
+            aDH();
             char c = 65535;
             switch (str2.hashCode()) {
                 case -1880922749:
@@ -104,15 +104,15 @@ public final class d {
         }
     }
 
-    private void aEp() {
-        if (this.dkj == null) {
-            this.dkj = new HashMap<>();
+    private void aDH() {
+        if (this.diC == null) {
+            this.diC = new HashMap<>();
         }
-        if (this.dkk == null) {
-            this.dkk = new HashMap<>();
+        if (this.diD == null) {
+            this.diD = new HashMap<>();
         }
-        if (this.dkl == null) {
-            this.dkl = new HashMap<>();
+        if (this.diE == null) {
+            this.diE = new HashMap<>();
         }
     }
 
@@ -142,26 +142,26 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.dkj.get(str);
+                    eVar = this.diC.get(str);
                     if (eVar == null) {
                         eVar = new b();
-                        this.dkj.put(str, eVar);
+                        this.diC.put(str, eVar);
                         break;
                     }
                     break;
                 case 1:
-                    eVar = this.dkk.get(str);
+                    eVar = this.diD.get(str);
                     if (eVar == null) {
                         eVar = new a();
-                        this.dkk.put(str, eVar);
+                        this.diD.put(str, eVar);
                         break;
                     }
                     break;
                 case 2:
-                    eVar = this.dkl.get(str);
+                    eVar = this.diE.get(str);
                     if (eVar == null) {
                         eVar = new c();
-                        this.dkl.put(str, eVar);
+                        this.diE.put(str, eVar);
                         break;
                     }
                     break;
@@ -198,18 +198,18 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.dkj.remove(str);
+                    eVar = this.diC.remove(str);
                     break;
                 case 1:
-                    eVar = this.dkk.remove(str);
+                    eVar = this.diD.remove(str);
                     break;
                 case 2:
-                    eVar = this.dkl.remove(str);
+                    eVar = this.diE.remove(str);
                     break;
             }
             if (eVar != null) {
                 eVar.setEnd(j);
-                r(eVar.getType(), eVar.apZ());
+                r(eVar.getType(), eVar.apr());
             }
         }
     }
@@ -239,13 +239,13 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    com.baidu.swan.apps.am.e.dCM.aa(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.dBf.aa(Long.valueOf(j));
                     return;
                 case 1:
-                    com.baidu.swan.apps.am.e.dCN.aa(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.dBg.aa(Long.valueOf(j));
                     return;
                 case 2:
-                    com.baidu.swan.apps.am.e.dCO.aa(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.dBh.aa(Long.valueOf(j));
                     return;
                 default:
                     return;

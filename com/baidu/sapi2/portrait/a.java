@@ -1,5 +1,5 @@
 package com.baidu.sapi2.portrait;
-/* loaded from: classes10.dex */
+/* loaded from: classes18.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */

@@ -10,9 +10,9 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class LocalBannerLayout extends RelativeLayout {
-    private com.baidu.tbadk.core.flow.a.d<h> aiY;
-    private com.baidu.tbadk.core.flow.a.d<h> aiZ;
-    private CoverFlowLocalView<h> iMc;
+    private com.baidu.tbadk.core.flow.a.d<h> ajd;
+    private com.baidu.tbadk.core.flow.a.d<h> aje;
+    private CoverFlowLocalView<h> iMP;
     private List<h> mData;
 
     public LocalBannerLayout(Context context) {
@@ -25,19 +25,19 @@ public class LocalBannerLayout extends RelativeLayout {
 
     public LocalBannerLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aiZ = new com.baidu.tbadk.core.flow.a.d<h>() { // from class: com.baidu.tieba.frs.LocalBannerLayout.2
+        this.aje = new com.baidu.tbadk.core.flow.a.d<h>() { // from class: com.baidu.tieba.frs.LocalBannerLayout.2
             @Override // com.baidu.tbadk.core.flow.a.d
             public void e(int i2, String str) {
-                if (i2 >= 0 && LocalBannerLayout.this.mData != null && i2 <= LocalBannerLayout.this.mData.size() + 1 && LocalBannerLayout.this.aiY != null) {
-                    LocalBannerLayout.this.aiY.e(i2, str);
+                if (i2 >= 0 && LocalBannerLayout.this.mData != null && i2 <= LocalBannerLayout.this.mData.size() + 1 && LocalBannerLayout.this.ajd != null) {
+                    LocalBannerLayout.this.ajd.e(i2, str);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i2, h hVar) {
-                if (i2 >= 0 && LocalBannerLayout.this.mData != null && i2 <= LocalBannerLayout.this.mData.size() + 1 && LocalBannerLayout.this.aiY != null) {
-                    LocalBannerLayout.this.aiY.a(i2, hVar);
+                if (i2 >= 0 && LocalBannerLayout.this.mData != null && i2 <= LocalBannerLayout.this.mData.size() + 1 && LocalBannerLayout.this.ajd != null) {
+                    LocalBannerLayout.this.ajd.a(i2, hVar);
                 }
             }
         };
@@ -45,7 +45,7 @@ public class LocalBannerLayout extends RelativeLayout {
     }
 
     private void init() {
-        this.iMc = new CoverFlowLocalView<>(getContext());
+        this.iMP = new CoverFlowLocalView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.frs.LocalBannerLayout.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.e uf() {
@@ -67,30 +67,30 @@ public class LocalBannerLayout extends RelativeLayout {
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.c ug() {
                 com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
-                cVar.oL(R.drawable.icon_mask_goods_select8);
-                cVar.oM(R.drawable.icon_mask_goods_unselect8);
+                cVar.pg(R.drawable.icon_mask_goods_select8);
+                cVar.ph(R.drawable.icon_mask_goods_unselect8);
                 cVar.setGravity(81);
-                cVar.oN(R.dimen.tbds36);
+                cVar.pi(R.dimen.tbds36);
                 cVar.setSpacing(R.dimen.tbds20);
                 return cVar;
             }
         };
-        this.iMc.setIndicatorNoOffet(false);
-        this.iMc.setDisableParentEvent(false);
-        this.iMc.setCoverFlowFactory(bVar);
-        this.iMc.setIndicatorVisible(0);
-        this.iMc.setIsAutoPlayDragging(false);
-        this.iMc.setAutoPlay(false);
-        this.iMc.setCallback(this.aiZ);
-        addView(this.iMc);
+        this.iMP.setIndicatorNoOffet(false);
+        this.iMP.setDisableParentEvent(false);
+        this.iMP.setCoverFlowFactory(bVar);
+        this.iMP.setIndicatorVisible(0);
+        this.iMP.setIsAutoPlayDragging(false);
+        this.iMP.setAutoPlay(false);
+        this.iMP.setCallback(this.aje);
+        addView(this.iMP);
     }
 
     public void setData(List<h> list) {
         this.mData = list;
-        this.iMc.setData(list);
+        this.iMP.setData(list);
     }
 
     public void setOnCoverViewCallback(com.baidu.tbadk.core.flow.a.d<h> dVar) {
-        this.aiY = dVar;
+        this.ajd = dVar;
     }
 }

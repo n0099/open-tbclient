@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "SwanAppParam";
-    private boolean dge;
+    private boolean dex;
     private String mBaseUrl;
     private String mPage;
     private String mParams;
@@ -21,12 +21,12 @@ public final class c {
         return this.mParams;
     }
 
-    public String azv() {
+    public String ayN() {
         return this.mBaseUrl;
     }
 
-    public void aoY() {
-        this.dge = false;
+    public void aoq() {
+        this.dex = false;
     }
 
     public String toJSONString() {
@@ -35,7 +35,7 @@ public final class c {
             jSONObject.put("page", this.mPage);
             jSONObject.put("params", this.mParams);
             jSONObject.put("baseUrl", this.mBaseUrl);
-            jSONObject.put("isFirstPage", this.dge);
+            jSONObject.put("isFirstPage", this.dex);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e(TAG, "toJSONString error: " + Log.getStackTraceString(e));
@@ -44,7 +44,7 @@ public final class c {
         return jSONObject.toString();
     }
 
-    public static c qo(String str) {
+    public static c qi(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -54,7 +54,7 @@ public final class c {
             cVar.mPage = jSONObject.optString("page");
             cVar.mParams = jSONObject.optString("params");
             cVar.mBaseUrl = jSONObject.optString("baseUrl");
-            cVar.dge = jSONObject.optBoolean("isFirstPage");
+            cVar.dex = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -65,32 +65,32 @@ public final class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        private c cJZ = new c();
+        private c cIp = new c();
 
-        public a qp(String str) {
-            this.cJZ.mPage = str;
+        public a qj(String str) {
+            this.cIp.mPage = str;
             return this;
         }
 
-        public a qq(String str) {
-            this.cJZ.mParams = str;
+        public a qk(String str) {
+            this.cIp.mParams = str;
             return this;
         }
 
-        public a qr(String str) {
-            this.cJZ.mBaseUrl = str;
+        public a ql(String str) {
+            this.cIp.mBaseUrl = str;
             return this;
         }
 
-        public a fJ(boolean z) {
-            this.cJZ.dge = z;
+        public a fM(boolean z) {
+            this.cIp.dex = z;
             return this;
         }
 
-        public c aBZ() {
-            return this.cJZ;
+        public c aBr() {
+            return this.cIp;
         }
     }
 }

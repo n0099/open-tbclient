@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e {
-    private List<com.baidu.live.im.data.a> aTP;
-    private com.baidu.live.im.data.a aTQ;
+    private List<com.baidu.live.im.data.a> aSe;
+    private com.baidu.live.im.data.a aSf;
 
-    public static e Fv() {
-        return a.aTS;
+    public static e EM() {
+        return a.aSh;
     }
 
     public void j(com.baidu.live.im.data.a aVar) {
-        if (this.aTP == null) {
-            this.aTP = new ArrayList();
+        if (this.aSe == null) {
+            this.aSe = new ArrayList();
         }
-        if (k(aVar) || this.aTP.size() < com.baidu.live.aa.a.PQ().bod.aNc) {
-            this.aTP.add(aVar);
+        if (k(aVar) || this.aSe.size() < com.baidu.live.aa.a.Ph().bms.aLr) {
+            this.aSe.add(aVar);
         }
     }
 
@@ -27,30 +27,30 @@ public class e {
     }
 
     public boolean hasMsg() {
-        return (this.aTP == null || this.aTP.isEmpty()) ? false : true;
+        return (this.aSe == null || this.aSe.isEmpty()) ? false : true;
     }
 
-    public boolean Fr() {
-        return this.aTQ != null;
+    public boolean EI() {
+        return this.aSf != null;
     }
 
-    public com.baidu.live.im.data.a Fs() {
+    public com.baidu.live.im.data.a EJ() {
         if (hasMsg()) {
-            this.aTQ = this.aTP.remove(0);
+            this.aSf = this.aSe.remove(0);
         } else {
-            this.aTQ = null;
+            this.aSf = null;
         }
-        return this.aTQ;
+        return this.aSf;
     }
 
-    public com.baidu.live.im.data.a Ft() {
-        return this.aTQ;
+    public com.baidu.live.im.data.a EK() {
+        return this.aSf;
     }
 
     public void release() {
-        this.aTQ = null;
-        if (this.aTP != null) {
-            this.aTP.clear();
+        this.aSf = null;
+        if (this.aSe != null) {
+            this.aSe.clear();
         }
     }
 
@@ -59,6 +59,6 @@ public class e {
 
     /* loaded from: classes4.dex */
     private static class a {
-        private static final e aTS = new e();
+        private static final e aSh = new e();
     }
 }

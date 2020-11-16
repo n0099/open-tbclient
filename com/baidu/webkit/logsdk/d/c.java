@@ -19,7 +19,7 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */

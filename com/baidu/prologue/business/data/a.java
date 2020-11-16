@@ -12,25 +12,25 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
 
-    public static List<e> aY(String str, String str2) throws ParseError {
+    public static List<e> aX(String str, String str2) throws ParseError {
         if (TextUtils.isEmpty(str)) {
             throw new ParseError(1, "afd/entry retun null");
         }
         try {
-            return o(new JSONObject(str), str2);
+            return l(new JSONObject(str), str2);
         } catch (JSONException e) {
             e.printStackTrace();
             throw new ParseError(1, "afd/entry retun invalid json");
         }
     }
 
-    public static List<e> o(JSONObject jSONObject, String str) throws ParseError {
+    public static List<e> l(JSONObject jSONObject, String str) throws ParseError {
         List<e> list;
-        List<e> acw;
+        List<e> abN;
         if (DEBUG) {
             Log.d("AfdResponseParser", "AFD response : " + jSONObject.toString());
         }
@@ -46,7 +46,7 @@ public class a {
         JSONArray optJSONArray = optJSONObject.optJSONArray(MapBundleKey.MapObjKey.OBJ_AD);
         if (optJSONObject2 != null) {
             String optString = optJSONObject2.optString("cmd");
-            SplashStyleRecorder.aw(optJSONObject2.optJSONObject("style_desc"));
+            SplashStyleRecorder.aq(optJSONObject2.optJSONObject("style_desc"));
             if (TextUtils.equals(IMTrack.DbBuilder.ACTION_UPDATE, optString)) {
                 list = a(optJSONArray, str, false);
                 String optString2 = optJSONObject2.optString("empty_ext_info");
@@ -60,9 +60,9 @@ public class a {
                     list = a(optJSONArray, str, true);
                 } else {
                     String optString3 = optJSONObject2.optString("ukey");
-                    if (!TextUtils.isEmpty(optString3) && (acw = d.acw()) != null) {
-                        for (e eVar : acw) {
-                            if (TextUtils.equals(eVar.chE, optString3)) {
+                    if (!TextUtils.isEmpty(optString3) && (abN = d.abN()) != null) {
+                        for (e eVar : abN) {
+                            if (TextUtils.equals(eVar.cfT, optString3)) {
                                 arrayList.add(eVar);
                                 list = arrayList;
                                 break;
@@ -86,15 +86,15 @@ public class a {
         List<e> p = e.p(jSONArray);
         if (z) {
             for (e eVar : p) {
-                eVar.chO = true;
+                eVar.cgd = true;
             }
         } else {
             new ArrayList();
-            HashMap<String, e> acx = d.acx();
-            if (acx == null || acx.size() == 0) {
+            HashMap<String, e> abO = d.abO();
+            if (abO == null || abO.size() == 0) {
                 d.au(p);
             } else {
-                d.acv();
+                d.abM();
                 d.au(p);
             }
             d.av(p);

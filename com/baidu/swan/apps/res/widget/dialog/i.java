@@ -7,97 +7,97 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.BdTimePicker;
 import com.baidu.swan.apps.res.widget.dialog.h;
 import java.util.Date;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class i extends h {
-    private int UV;
-    private Date dmQ;
-    private Date dmR;
-    private String dmZ;
-    private boolean dna;
-    private int dno;
-    private BdTimePicker dsb;
-    private boolean dsc;
+    private int UW;
+    private int dlH;
+    private Date dlj;
+    private Date dlk;
+    private String dls;
+    private boolean dlt;
+    private BdTimePicker dqt;
+    private boolean dqu;
 
     i(Context context) {
         super(context, a.i.NoTitleDialog);
-        this.dsc = false;
+        this.dqu = false;
     }
 
     public void setHour(int i) {
-        this.dno = i;
+        this.dlH = i;
     }
 
     public int getHour() {
-        return this.dsb.getHour();
+        return this.dqt.getHour();
     }
 
     public void setMinute(int i) {
-        this.UV = i;
+        this.UW = i;
     }
 
     public int getMinute() {
-        return this.dsb.getMinute();
+        return this.dqt.getMinute();
     }
 
-    private void aGT() {
-        this.dsb = new BdTimePicker(getContext());
+    private void aGl() {
+        this.dqt = new BdTimePicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
-        this.dsb.setLayoutParams(layoutParams);
-        this.dsb.setScrollCycle(true);
-        this.dsb.setStartDate(this.dmQ);
-        this.dsb.setmEndDate(this.dmR);
-        this.dsb.setHour(this.dno);
-        this.dsb.setMinute(this.UV);
-        this.dsb.aGe();
-        this.dsb.setDisabled(this.dna);
+        this.dqt.setLayoutParams(layoutParams);
+        this.dqt.setScrollCycle(true);
+        this.dqt.setStartDate(this.dlj);
+        this.dqt.setmEndDate(this.dlk);
+        this.dqt.setHour(this.dlH);
+        this.dqt.setMinute(this.UW);
+        this.dqt.aFw();
+        this.dqt.setDisabled(this.dlt);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
-        if (this.dsc) {
+        if (this.dqu) {
             getWindow().addFlags(4718592);
         }
-        aGT();
-        aHc().aB(this.dsb);
+        aGl();
+        aGu().aB(this.dqt);
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.c, android.app.Dialog
     public void show() {
-        if (this.dsb != null) {
-            if (this.dno != this.dsb.getHour()) {
-                this.dsb.setHour(this.dno);
+        if (this.dqt != null) {
+            if (this.dlH != this.dqt.getHour()) {
+                this.dqt.setHour(this.dlH);
             }
-            if (this.UV != this.dsb.getMinute()) {
-                this.dsb.setMinute(this.UV);
+            if (this.UW != this.dqt.getMinute()) {
+                this.dqt.setMinute(this.UW);
             }
         }
         super.show();
     }
 
     public void setFields(String str) {
-        this.dmZ = str;
+        this.dls = str;
     }
 
     public void setDisabled(boolean z) {
-        this.dna = z;
+        this.dlt = z;
     }
 
     public void setStartDate(Date date) {
-        this.dmQ = date;
+        this.dlj = date;
     }
 
     public void setEndDate(Date date) {
-        this.dmR = date;
+        this.dlk = date;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class a extends h.a {
-        public Date drA;
-        public Date drB;
-        public Date drC;
-        private String drD;
-        private boolean drE;
+        public Date dpS;
+        public Date dpT;
+        public Date dpU;
+        private String dpV;
+        private boolean dpW;
 
         public a(Context context) {
             super(context);
@@ -109,44 +109,44 @@ public class i extends h {
         }
 
         public a i(Date date) {
-            this.drA = date;
+            this.dpS = date;
             return this;
         }
 
         public a j(Date date) {
-            this.drB = date;
+            this.dpT = date;
             return this;
         }
 
         public a k(Date date) {
-            this.drC = date;
+            this.dpU = date;
             return this;
         }
 
-        public a rS(String str) {
-            this.drD = str;
+        public a rM(String str) {
+            this.dpV = str;
             return this;
         }
 
-        public a gy(boolean z) {
-            this.drE = z;
+        public a gB(boolean z) {
+            this.dpW = z;
             return this;
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.h.a
-        public h aGU() {
-            i iVar = (i) super.aGU();
-            iVar.setFields(this.drD);
-            iVar.setDisabled(this.drE);
-            if (this.drC != null) {
-                iVar.setHour(this.drC.getHours());
-                iVar.setMinute(this.drC.getMinutes());
+        public h aGm() {
+            i iVar = (i) super.aGm();
+            iVar.setFields(this.dpV);
+            iVar.setDisabled(this.dpW);
+            if (this.dpU != null) {
+                iVar.setHour(this.dpU.getHours());
+                iVar.setMinute(this.dpU.getMinutes());
             }
-            if (this.drA != null) {
-                iVar.setStartDate(this.drA);
+            if (this.dpS != null) {
+                iVar.setStartDate(this.dpS);
             }
-            if (this.drB != null) {
-                iVar.setEndDate(this.drB);
+            if (this.dpT != null) {
+                iVar.setEndDate(this.dpT);
             }
             return iVar;
         }

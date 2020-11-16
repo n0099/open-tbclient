@@ -5,16 +5,16 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.api.module.a.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class u implements com.baidu.swan.apps.adaptation.a.i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.adaptation.a.i
-    public com.baidu.swan.apps.adaptation.a.c ahW() {
+    public com.baidu.swan.apps.adaptation.a.c aho() {
         return new a();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     private class a implements com.baidu.swan.apps.adaptation.a.c {
         private a() {
         }
@@ -39,7 +39,7 @@ public class u implements com.baidu.swan.apps.adaptation.a.i {
 
         @Override // com.baidu.swan.apps.adaptation.a.c
         @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.c W(Context context, String str) {
+        public com.baidu.swan.apps.setting.oauth.a.c T(Context context, String str) {
             return new p(context, str);
         }
 
@@ -63,7 +63,7 @@ public class u implements com.baidu.swan.apps.adaptation.a.i {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.i
-    public com.baidu.swan.apps.adaptation.a.b ahX() {
+    public com.baidu.swan.apps.adaptation.a.b ahp() {
         return new m();
     }
 }

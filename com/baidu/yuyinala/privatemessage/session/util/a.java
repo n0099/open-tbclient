@@ -14,17 +14,17 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes4.dex */
 public final class a {
-    private static long oGZ = -1;
+    private static long oID = -1;
 
     public static String h(Context context, long j) {
-        Calendar calendar = Calendar.getInstance(eiz());
+        Calendar calendar = Calendar.getInstance(eix());
         calendar.setTimeInMillis(j);
         Date time = calendar.getTime();
-        Calendar calendar2 = Calendar.getInstance(eiz());
-        calendar2.setTimeInMillis(hx(System.currentTimeMillis()));
+        Calendar calendar2 = Calendar.getInstance(eix());
+        calendar2.setTimeInMillis(hA(System.currentTimeMillis()));
         SimpleDateFormat simpleDateFormat = null;
         if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5)) {
-            simpleDateFormat = new SimpleDateFormat("HH:mm", eiz());
+            simpleDateFormat = new SimpleDateFormat("HH:mm", eix());
         } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5) - 1) {
             return "昨天";
         } else {
@@ -52,29 +52,29 @@ public final class a {
                     return "星期日";
                 }
             } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) != calendar2.get(5)) {
-                simpleDateFormat = new SimpleDateFormat("MM-dd", eiz());
+                simpleDateFormat = new SimpleDateFormat("MM-dd", eix());
             } else {
-                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", eiz());
+                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", eix());
             }
         }
         return simpleDateFormat.format(time);
     }
 
-    public static long hx(long j) {
-        if (oGZ < 0) {
-            oGZ = j;
+    public static long hA(long j) {
+        if (oID < 0) {
+            oID = j;
         }
-        if (Math.abs(oGZ - j) > 1000) {
-            oGZ = j;
+        if (Math.abs(oID - j) > 1000) {
+            oID = j;
         }
-        return oGZ;
+        return oID;
     }
 
-    public static Locale eiz() {
+    public static Locale eix() {
         return BdBaseApplication.getInst().getResources().getConfiguration().locale;
     }
 
-    public static String hy(long j) {
+    public static String hB(long j) {
         if (j <= 0) {
             return null;
         }
@@ -88,8 +88,8 @@ public final class a {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ae(context, j + "", str, str4, z, str2, str3, j2 + "", str5)));
     }
 
-    public static void hz(long j) {
-        b.eiw().hw(j);
+    public static void hC(long j) {
+        b.eiu().hz(j);
     }
 
     public static String b(ChatSession chatSession) {

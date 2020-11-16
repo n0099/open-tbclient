@@ -12,13 +12,13 @@ public class y extends a<z, aa> {
     private int mSkinType;
 
     public y(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), z.Xs);
+        super(tbPageContext.getPageActivity(), z.Xw);
         this.mSkinType = 3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: i */
+    /* renamed from: e */
     public aa c(ViewGroup viewGroup) {
         return new aa(LayoutInflater.from(this.mContext).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false));
     }
@@ -29,7 +29,7 @@ public class y extends a<z, aa> {
         aaVar.mTextView.setText(zVar.showText);
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             ap.setImageResource(aaVar.mImageView, zVar.resId);
-            ap.setViewTextColor(aaVar.mTextView, R.color.cp_cont_d);
+            ap.setViewTextColor(aaVar.mTextView, R.color.CAM_X0109);
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
         return view;

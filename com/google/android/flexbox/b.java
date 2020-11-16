@@ -4,27 +4,27 @@ import android.support.v7.widget.ActivityChooserView;
 import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     int mItemCount;
-    int pbA;
-    int pbB;
-    int pbr;
-    int pbs;
-    int pbt;
-    int pbu;
-    float pbv;
-    float pbw;
-    int pbx;
-    int pby;
+    int pcU;
+    int pcV;
+    int pcW;
+    int pcX;
+    float pcY;
+    float pcZ;
+    int pda;
+    int pdb;
+    int pdd;
+    int pde;
     int mLeft = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     int mTop = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     int mRight = Integer.MIN_VALUE;
     int mBottom = Integer.MIN_VALUE;
-    List<Integer> pbz = new ArrayList();
+    List<Integer> pdc = new ArrayList();
 
     public int esl() {
-        return this.pbt;
+        return this.pcW;
     }
 
     public int getItemCount() {
@@ -32,7 +32,7 @@ public class b {
     }
 
     public int esm() {
-        return this.mItemCount - this.pbu;
+        return this.mItemCount - this.pcX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

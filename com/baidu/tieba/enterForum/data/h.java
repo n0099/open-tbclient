@@ -1,11 +1,11 @@
 package com.baidu.tieba.enterForum.data;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class h {
-    public String iiU;
+    public String ijI;
     public int sortType;
 
     public h(String str, int i) {
-        this.iiU = str;
+        this.ijI = str;
         this.sortType = i;
     }
 }

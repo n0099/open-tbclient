@@ -9,20 +9,20 @@ import io.reactivex.y;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class SingleTakeUntil<T, U> extends w<T> {
-    final org.a.b<U> pNj;
+    final org.a.b<U> pOM;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         TakeUntilMainObserver takeUntilMainObserver = new TakeUntilMainObserver(yVar);
         yVar.onSubscribe(takeUntilMainObserver);
-        this.pNj.subscribe(takeUntilMainObserver.other);
+        this.pOM.subscribe(takeUntilMainObserver.other);
         this.source.a(takeUntilMainObserver);
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class TakeUntilMainObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = -622603812305745221L;
         final y<? super T> actual;
@@ -78,7 +78,7 @@ public final class SingleTakeUntil<T, U> extends w<T> {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class TakeUntilOtherSubscriber extends AtomicReference<d> implements j<Object> {
         private static final long serialVersionUID = 5170026210238877381L;
         final TakeUntilMainObserver<?> parent;

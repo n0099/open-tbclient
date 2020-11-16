@@ -2,11 +2,11 @@ package com.baidu.swan.apps.inlinewidget.d.a;
 
 import android.support.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class e extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.d.c> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String avA() {
+    public String auS() {
         return "showConfirmBar";
     }
 
@@ -15,6 +15,6 @@ public class e extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.d.c cVar) {
         int i = command.arg1;
         a(cVar, command.what, "(keyboardHeight)" + i, false);
-        cVar.iT(i);
+        cVar.iP(i);
     }
 }

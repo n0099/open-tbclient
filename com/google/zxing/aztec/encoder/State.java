@@ -3,7 +3,7 @@ package com.google.zxing.aztec.encoder;
 import com.google.zxing.common.BitArray;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public final class State {
     static final State INITIAL_STATE = new State(Token.EMPTY, 0, 0, 0);
     private final int binaryShiftByteCount;

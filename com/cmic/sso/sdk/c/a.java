@@ -9,7 +9,7 @@ import com.cmic.sso.sdk.c.d.b;
 import com.cmic.sso.sdk.e.s;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
@@ -40,8 +40,8 @@ public class a {
                 }
             }
         }
-        c a2 = a(this.b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.eiQ().a()));
-        a2.f(cVar.eiP());
+        c a2 = a(this.b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.eiO().a()));
+        a2.f(cVar.eiN());
         return a2;
     }
 
@@ -55,8 +55,8 @@ public class a {
             s.a(aVar, "NONE");
         }
         s.b(aVar, String.valueOf(bVar.a()));
-        c a2 = a("http://www.cmpassport.com/unisdk" + this.f4006a, cVar.f(), "POST", new d(cVar.eiQ().a(), "1.0", bVar.c()));
-        a2.f(cVar.eiP());
+        c a2 = a("http://www.cmpassport.com/unisdk" + this.f4006a, cVar.f(), "POST", new d(cVar.eiO().a(), "1.0", bVar.c()));
+        a2.f(cVar.eiN());
         this.f4006a = null;
         return a2;
     }

@@ -9,55 +9,55 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes4.dex */
 public class a {
-    public long aBv;
-    public d aBw;
+    public long azK;
+    public d azL;
     public String roomId;
     public String token = "";
     public String rtcAppId = "";
-    public List<d> aBx = new CopyOnWriteArrayList();
+    public List<d> azM = new CopyOnWriteArrayList();
 
-    public UserPermission BI() {
-        return (this.aBw == null || this.aBw.aBD == null || this.aBw.aBD.aBA == null) ? UserPermission.UNKNOWN : this.aBw.aBD.aBA;
+    public UserPermission AZ() {
+        return (this.azL == null || this.azL.azS == null || this.azL.azS.azP == null) ? UserPermission.UNKNOWN : this.azL.azS.azP;
     }
 
-    public boolean BJ() {
-        if (this.aBw != null) {
-            return this.aBw.BV();
+    public boolean Ba() {
+        if (this.azL != null) {
+            return this.azL.Bm();
         }
         return false;
     }
 
-    public String BK() {
+    public String Bb() {
         StringBuilder sb = new StringBuilder();
-        synchronized (this.aBx) {
-            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.aBx)) {
-                for (int i = 0; i < this.aBx.size(); i++) {
-                    d dVar = this.aBx.get(i);
-                    if (dVar != null && dVar.aBD != null) {
-                        sb.append(" other").append(i).append(ETAG.EQUAL).append(dVar.aBD.aBv);
+        synchronized (this.azM) {
+            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.azM)) {
+                for (int i = 0; i < this.azM.size(); i++) {
+                    d dVar = this.azM.get(i);
+                    if (dVar != null && dVar.azS != null) {
+                        sb.append(" other").append(i).append(ETAG.EQUAL).append(dVar.azS.azK);
                     }
                 }
             }
         }
-        return "roomId=" + this.roomId + " , token=" + this.token + " , rtcAppId=" + this.rtcAppId + " , imUk=" + this.aBv + " othersImUk(对方的)=" + sb.toString();
+        return "roomId=" + this.roomId + " , token=" + this.token + " , rtcAppId=" + this.rtcAppId + " , imUk=" + this.azK + " othersImUk(对方的)=" + sb.toString();
     }
 
     public static boolean b(a aVar) {
-        return (aVar == null || TextUtils.isEmpty(aVar.roomId) || TextUtils.isEmpty(aVar.token) || TextUtils.isEmpty(aVar.rtcAppId) || aVar.aBv == 0) ? false : true;
+        return (aVar == null || TextUtils.isEmpty(aVar.roomId) || TextUtils.isEmpty(aVar.token) || TextUtils.isEmpty(aVar.rtcAppId) || aVar.azK == 0) ? false : true;
     }
 
     public boolean Z(long j) {
-        return (j == 0 || this.aBw == null || this.aBw.aBD == null || this.aBw.aBD.aBv != j) ? false : true;
+        return (j == 0 || this.azL == null || this.azL.azS == null || this.azL.azS.azK != j) ? false : true;
     }
 
     public void a(d dVar, BLMStateType bLMStateType) {
-        if (dVar != null && dVar.aBD != null) {
-            c cVar = dVar.aBD;
-            if (cVar.aBv != 0 && cVar.aBv != 0) {
-                synchronized (this.aBx) {
-                    d ab = ab(cVar.aBv);
+        if (dVar != null && dVar.azS != null) {
+            c cVar = dVar.azS;
+            if (cVar.azK != 0 && cVar.azK != 0) {
+                synchronized (this.azM) {
+                    d ab = ab(cVar.azK);
                     if (ab == null) {
-                        this.aBx.add(dVar);
+                        this.azM.add(dVar);
                     } else {
                         ab.b(dVar, bLMStateType);
                         ab.a(dVar);
@@ -69,20 +69,20 @@ public class a {
 
     public void c(long j, String str) {
         c ac;
-        com.baidu.live.alablmsdk.module.a.b fP;
-        if (j != 0 && !TextUtils.isEmpty(str) && (ac = ac(j)) != null && (fP = com.baidu.live.alablmsdk.module.a.b.fP(str)) != null && fP.aBv != 0 && fP.aBv == ac.aBv) {
-            ac.order = fP.order;
+        com.baidu.live.alablmsdk.module.a.b fJ;
+        if (j != 0 && !TextUtils.isEmpty(str) && (ac = ac(j)) != null && (fJ = com.baidu.live.alablmsdk.module.a.b.fJ(str)) != null && fJ.azK != 0 && fJ.azK == ac.azK) {
+            ac.order = fJ.order;
         }
     }
 
     public void aa(long j) {
-        com.baidu.live.alablmsdk.a.b.ah(" remote other user state info , imUk=" + j, "");
+        com.baidu.live.alablmsdk.a.b.ag(" remote other user state info , imUk=" + j, "");
         if (j != 0 && j != 0) {
-            synchronized (this.aBx) {
+            synchronized (this.azM) {
                 d ab = ab(j);
                 if (ab != null) {
                     ab.release();
-                    this.aBx.remove(ab);
+                    this.azM.remove(ab);
                 }
             }
         }
@@ -90,11 +90,11 @@ public class a {
 
     public void t(List<c> list) {
         if (!com.baidu.live.alablmsdk.a.a.isEmpty(list)) {
-            com.baidu.live.alablmsdk.a.b.ah(" remove other list : before  , list size=" + list.size(), "");
-            synchronized (this.aBx) {
-                for (int i = 0; i < this.aBx.size(); i++) {
+            com.baidu.live.alablmsdk.a.b.ag(" remove other list : before  , list size=" + list.size(), "");
+            synchronized (this.azM) {
+                for (int i = 0; i < this.azM.size(); i++) {
                     try {
-                        d dVar = this.aBx.get(i);
+                        d dVar = this.azM.get(i);
                         if (dVar != null) {
                             int i2 = 0;
                             while (true) {
@@ -102,12 +102,12 @@ public class a {
                                     break;
                                 }
                                 c cVar = list.get(i2);
-                                if (cVar == null || cVar.aBv == 0 || dVar.BT() != cVar.aBv) {
+                                if (cVar == null || cVar.azK == 0 || dVar.Bk() != cVar.azK) {
                                     i2++;
                                 } else {
                                     dVar.release();
-                                    this.aBx.remove(dVar);
-                                    com.baidu.live.alablmsdk.a.b.ah(" remove other user ", "");
+                                    this.azM.remove(dVar);
+                                    com.baidu.live.alablmsdk.a.b.ag(" remove other user ", "");
                                     break;
                                 }
                             }
@@ -115,27 +115,27 @@ public class a {
                     } catch (Exception e) {
                     }
                 }
-                com.baidu.live.alablmsdk.a.b.ah(" remove other list : after , list size=" + list.size(), "");
+                com.baidu.live.alablmsdk.a.b.ag(" remove other list : after , list size=" + list.size(), "");
             }
         }
     }
 
-    public boolean BL() {
+    public boolean Bc() {
         boolean z;
-        synchronized (this.aBx) {
-            z = com.baidu.live.alablmsdk.a.a.isEmpty(this.aBx);
+        synchronized (this.azM) {
+            z = com.baidu.live.alablmsdk.a.a.isEmpty(this.azM);
         }
         return z;
     }
 
     public d ab(long j) {
-        synchronized (this.aBx) {
+        synchronized (this.azM) {
             if (j != 0 && j != 0) {
-                if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.aBx)) {
-                    int size = this.aBx.size();
+                if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.azM)) {
+                    int size = this.azM.size();
                     for (int i = 0; i < size; i++) {
-                        d dVar = this.aBx.get(i);
-                        if (dVar != null && dVar.aBD != null && dVar.aBD.aBv == j) {
+                        d dVar = this.azM.get(i);
+                        if (dVar != null && dVar.azS != null && dVar.azS.azK == j) {
                             return dVar;
                         }
                     }
@@ -151,33 +151,33 @@ public class a {
         if (j == 0 || (ab = ab(j)) == null) {
             return null;
         }
-        return ab.aBD;
+        return ab.azS;
     }
 
-    public c BM() {
-        if (this.aBw == null || this.aBw.aBD == null) {
+    public c Bd() {
+        if (this.azL == null || this.azL.azS == null) {
             return null;
         }
-        return this.aBw.aBD;
+        return this.azL.azS;
     }
 
     public boolean ad(long j) {
         boolean z;
-        synchronized (this.aBx) {
+        synchronized (this.azM) {
             z = ab(j) != null;
         }
         return z;
     }
 
     public void a(BLMSignalState bLMSignalState) {
-        if (this.aBw != null) {
-            this.aBw.b(bLMSignalState);
+        if (this.azL != null) {
+            this.azL.b(bLMSignalState);
         }
     }
 
     public void a(BLMRtcState bLMRtcState) {
-        if (this.aBw != null) {
-            this.aBw.b(bLMRtcState);
+        if (this.azL != null) {
+            this.azL.b(bLMRtcState);
         }
     }
 
@@ -188,19 +188,19 @@ public class a {
         }
     }
 
-    public void BN() {
-        if (this.aBw != null && this.aBw.aBE != null) {
-            this.aBw.aBE.cancelTimer();
+    public void Be() {
+        if (this.azL != null && this.azL.azT != null) {
+            this.azL.azT.cancelTimer();
         }
     }
 
-    public void BO() {
-        synchronized (this.aBx) {
-            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.aBx)) {
-                for (int i = 0; i < this.aBx.size(); i++) {
-                    d dVar = this.aBx.get(i);
-                    if (dVar != null && dVar.aBE != null) {
-                        dVar.aBE.cancelTimer();
+    public void Bf() {
+        synchronized (this.azM) {
+            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.azM)) {
+                for (int i = 0; i < this.azM.size(); i++) {
+                    d dVar = this.azM.get(i);
+                    if (dVar != null && dVar.azT != null) {
+                        dVar.azT.cancelTimer();
                     }
                 }
             }

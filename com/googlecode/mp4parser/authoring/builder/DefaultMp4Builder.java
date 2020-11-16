@@ -49,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DefaultMp4Builder implements Mp4Builder {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static Logger LOG;
@@ -336,11 +336,11 @@ public class DefaultMp4Builder implements Mp4Builder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements Box {
         Container parent;
-        List<List<Sample>> pgp;
-        long pgq;
+        List<List<Sample>> phS;
+        long phT;
         List<Track> tracks;
 
         @Override // com.coremedia.iso.boxes.Box
@@ -363,8 +363,8 @@ public class DefaultMp4Builder implements Mp4Builder {
         }
 
         private a(Movie movie, Map<Track, int[]> map, long j) {
-            this.pgp = new ArrayList();
-            this.pgq = j;
+            this.phS = new ArrayList();
+            this.phT = j;
             this.tracks = movie.getTracks();
             int i = 0;
             while (true) {
@@ -376,7 +376,7 @@ public class DefaultMp4Builder implements Mp4Builder {
                         for (int i3 = 0; i3 < i2; i3++) {
                             j2 += iArr[i3];
                         }
-                        this.pgp.add(DefaultMp4Builder.this.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i2])));
+                        this.phS.add(DefaultMp4Builder.this.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i2])));
                     }
                     i = i2 + 1;
                 } else {
@@ -408,10 +408,10 @@ public class DefaultMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            return 16 + this.pgq;
+            return 16 + this.phT;
         }
 
-        private boolean hU(long j) {
+        private boolean hX(long j) {
             return 8 + j < AccountConstants.TYPE_MODIFY_EXT_FIELDS;
         }
 
@@ -419,20 +419,20 @@ public class DefaultMp4Builder implements Mp4Builder {
         public void getBox(WritableByteChannel writableByteChannel) throws IOException {
             ByteBuffer allocate = ByteBuffer.allocate(16);
             long size = getSize();
-            if (hU(size)) {
+            if (hX(size)) {
                 IsoTypeWriter.writeUInt32(allocate, size);
             } else {
                 IsoTypeWriter.writeUInt32(allocate, 1L);
             }
             allocate.put(IsoFile.fourCCtoBytes(MediaDataBox.TYPE));
-            if (hU(size)) {
+            if (hX(size)) {
                 allocate.put(new byte[8]);
             } else {
                 IsoTypeWriter.writeUInt64(allocate, size);
             }
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (List<Sample> list : this.pgp) {
+            for (List<Sample> list : this.phS) {
                 for (Sample sample : list) {
                     sample.writeTo(writableByteChannel);
                 }

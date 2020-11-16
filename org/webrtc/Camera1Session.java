@@ -13,7 +13,7 @@ import org.webrtc.Camera1Session;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class Camera1Session implements CameraSession {
     private static final int NUMBER_OF_CAPTURE_BUFFERS = 3;
     private static final String TAG = "Camera1Session";
@@ -35,7 +35,7 @@ public class Camera1Session implements CameraSession {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.webrtc.Camera1Session$2  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public class AnonymousClass2 implements Camera.PreviewCallback {
         AnonymousClass2() {
         }
@@ -78,7 +78,7 @@ public class Camera1Session implements CameraSession {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public enum SessionState {
         RUNNING,
         STOPPED

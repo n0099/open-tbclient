@@ -7,16 +7,16 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static boolean b;
-    public static volatile e pCT;
+    public static volatile e pEw;
     public Boolean g;
-    public BroadcastReceiver pCY;
-    public a pCU = new a("udid");
-    public a pCV = new a("oaid");
-    public a pCX = new a("vaid");
-    public a pCW = new a("aaid");
+    public BroadcastReceiver pEB;
+    public a pEx = new a("udid");
+    public a pEy = new a("oaid");
+    public a pEA = new a("vaid");
+    public a pEz = new a("aaid");
 
     public static c A(Cursor cursor) {
         c cVar = new c(null, 0);
@@ -54,27 +54,27 @@ public class e {
         }
     }
 
-    public static final e ewz() {
-        if (pCT == null) {
+    public static final e ewA() {
+        if (pEw == null) {
             synchronized (e.class) {
-                pCT = new e();
+                pEw = new e();
             }
         }
-        return pCT;
+        return pEw;
     }
 
-    public a YQ(String str) {
+    public a YB(String str) {
         if ("oaid".equals(str)) {
-            return this.pCV;
+            return this.pEy;
         }
         if ("vaid".equals(str)) {
-            return this.pCX;
+            return this.pEA;
         }
         if ("aaid".equals(str)) {
-            return this.pCW;
+            return this.pEz;
         }
         if ("udid".equals(str)) {
-            return this.pCU;
+            return this.pEx;
         }
         return null;
     }
@@ -186,11 +186,11 @@ public class e {
     }
 
     public final synchronized void a(Context context) {
-        if (this.pCY == null) {
+        if (this.pEB == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.meizu.flyme.openid.ACTION_OPEN_ID_CHANGE");
-            this.pCY = new d();
-            context.registerReceiver(this.pCY, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
+            this.pEB = new d();
+            context.registerReceiver(this.pEB, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
         }
     }
 

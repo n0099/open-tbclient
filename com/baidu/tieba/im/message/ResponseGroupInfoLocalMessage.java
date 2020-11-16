@@ -14,7 +14,7 @@ import protobuf.GroupInfo;
 import protobuf.Photo;
 import protobuf.QueryGroupDetail.QueryGroupDetailResIdl;
 import protobuf.UserInfo;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
     private QueryGroupDetailResIdl mResData;
     private a selfData;
@@ -31,86 +31,86 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         this.selfData = null;
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes22.dex */
     public static class a {
         private boolean isMemGroup;
-        private boolean kjR;
-        private boolean kjS;
-        private GroupData kme;
-        private List<MemberData> kmf;
-        private List<PhotoUrlData> kmg;
-        private int kmh;
-        private int kmi;
-        private boolean kmj;
-        private boolean kmk;
-        private GroupActivityData kml;
+        private boolean kkB;
+        private boolean kkC;
+        private GroupData kmO;
+        private List<MemberData> kmP;
+        private List<PhotoUrlData> kmQ;
+        private int kmR;
+        private int kmS;
+        private boolean kmT;
+        private boolean kmU;
+        private GroupActivityData kmV;
 
-        public GroupActivityData cTZ() {
-            return this.kml;
+        public GroupActivityData cTF() {
+            return this.kmV;
         }
 
         public void a(GroupActivityData groupActivityData) {
-            this.kml = groupActivityData;
+            this.kmV = groupActivityData;
         }
 
         public GroupData getGroup() {
-            return this.kme;
+            return this.kmO;
         }
 
         public void setGroup(GroupData groupData) {
-            this.kme = groupData;
+            this.kmO = groupData;
         }
 
-        public List<MemberData> cUa() {
-            return this.kmf;
+        public List<MemberData> cTG() {
+            return this.kmP;
         }
 
         public void eq(List<MemberData> list) {
-            this.kmf = list;
+            this.kmP = list;
         }
 
-        public List<PhotoUrlData> cUb() {
-            return this.kmg;
+        public List<PhotoUrlData> cTH() {
+            return this.kmQ;
         }
 
         public void er(List<PhotoUrlData> list) {
-            this.kmg = list;
+            this.kmQ = list;
         }
 
-        public int cUc() {
-            return this.kmh;
+        public int cTI() {
+            return this.kmR;
         }
 
-        public void Dk(int i) {
-            this.kmh = i;
+        public void DI(int i) {
+            this.kmR = i;
         }
 
-        public int cUd() {
-            return this.kmi;
+        public int cTJ() {
+            return this.kmS;
         }
 
-        public void Dl(int i) {
-            this.kmi = i;
+        public void DJ(int i) {
+            this.kmS = i;
         }
 
-        public boolean cUe() {
-            return this.kjR;
+        public boolean cTK() {
+            return this.kkB;
         }
 
-        public void sh(boolean z) {
-            this.kjR = z;
+        public void sk(boolean z) {
+            this.kkB = z;
         }
 
-        public boolean cUf() {
-            return this.kjS;
+        public boolean cTL() {
+            return this.kkC;
         }
 
-        public void si(boolean z) {
-            this.kjS = z;
+        public void sl(boolean z) {
+            this.kkC = z;
         }
 
-        public void sj(boolean z) {
-            this.kmj = z;
+        public void sm(boolean z) {
+            this.kmT = z;
         }
 
         public boolean isMemGroup() {
@@ -121,12 +121,12 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isMemGroup = z;
         }
 
-        public boolean cUg() {
-            return this.kmk;
+        public boolean cTM() {
+            return this.kmU;
         }
 
-        public void sk(boolean z) {
-            this.kmk = z;
+        public void sn(boolean z) {
+            this.kmU = z;
         }
     }
 
@@ -144,13 +144,13 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         setError(this.mResData.error.errorno.intValue());
         setErrorString(this.mResData.error.usermsg);
         if (getError() == 0) {
-            this.selfData.Dl(this.mResData.data.canJoinGroupNum.intValue());
-            this.selfData.si(this.mResData.data.isGroupManager.intValue() != 0);
-            this.selfData.sj(this.mResData.data.hideRecommendGroup.intValue() != 0);
-            this.selfData.sh(this.mResData.data.isJoin.intValue() != 0);
-            this.selfData.Dk(this.mResData.data.joinGroupNum.intValue());
+            this.selfData.DJ(this.mResData.data.canJoinGroupNum.intValue());
+            this.selfData.sl(this.mResData.data.isGroupManager.intValue() != 0);
+            this.selfData.sm(this.mResData.data.hideRecommendGroup.intValue() != 0);
+            this.selfData.sk(this.mResData.data.isJoin.intValue() != 0);
+            this.selfData.DI(this.mResData.data.joinGroupNum.intValue());
             this.selfData.setMemGroup(this.mResData.data.group.isMemberGroup.intValue() == 1);
-            this.selfData.sk(this.mResData.data.canCreateMember.intValue() == 1);
+            this.selfData.sn(this.mResData.data.canCreateMember.intValue() == 1);
             GroupInfo groupInfo = this.mResData.data.group;
             GroupData groupData = new GroupData();
             GroupInfo2GroupData(groupInfo, groupData);

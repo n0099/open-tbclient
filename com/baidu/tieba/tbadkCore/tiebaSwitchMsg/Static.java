@@ -43,7 +43,7 @@ public class Static {
                                         }
                                         qe = str.substring(0, str.length() - 1);
                                     }
-                                    if (Util.L(string, qe) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
+                                    if (Util.K(string, qe) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
                                         PluginNetConfigInfos.PluginConfig pluginConfig = parse.getConfigs().get(0);
                                         PluginNetConfigInfos.PluginConfig pluginConfig2 = PluginPackageManager.pT().getPluginConfig(pluginConfig.package_name);
                                         d.qp().qq().addOrUpdateConfig(pluginConfig);

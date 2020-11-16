@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class BiometricsManager implements NoProguard {
     public static final String LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN = "authtoken";
     public static final String LIVENESS_RECOGNIZE_TYPE_BDUSS = "bduss";
@@ -48,7 +48,7 @@ public class BiometricsManager implements NoProguard {
     private static BiometricsManager d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class a extends PassFaceRecogCallback {
 
         /* renamed from: a  reason: collision with root package name */
@@ -77,7 +77,7 @@ public class BiometricsManager implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class b extends ClickableSpan {
 
         /* renamed from: a  reason: collision with root package name */
@@ -97,7 +97,7 @@ public class BiometricsManager implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class c implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
@@ -126,7 +126,7 @@ public class BiometricsManager implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class d implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
@@ -147,7 +147,7 @@ public class BiometricsManager implements NoProguard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class e {
         public static final String p = "bduss";
         public static final String q = "certinfo";

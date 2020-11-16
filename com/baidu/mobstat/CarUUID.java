@@ -14,7 +14,7 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class CarUUID {
 
     /* renamed from: a  reason: collision with root package name */

@@ -5,7 +5,7 @@ import io.reactivex.m;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class MaybeDelay<T> extends a<T, T> {
     final long delay;
     final v scheduler;
@@ -16,7 +16,7 @@ public final class MaybeDelay<T> extends a<T, T> {
         this.source.a(new DelayMaybeObserver(mVar, this.delay, this.unit, this.scheduler));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class DelayMaybeObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T>, Runnable {
         private static final long serialVersionUID = 5566860102500855068L;
         final m<? super T> actual;

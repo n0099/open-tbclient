@@ -4,7 +4,7 @@ import com.baidu.searchbox.elasticthread.ElasticConfig;
 import com.baidu.searchbox.elasticthread.executor.BaseExecutorCell;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import com.baidu.searchbox.elasticthread.task.ElasticTask;
-/* loaded from: classes17.dex */
+/* loaded from: classes12.dex */
 public class ArteryManager implements Recordable {
     private BaseExecutorCell mUserRelatedArteryExecutor = BaseExecutorCell.build(ElasticConfig.ARTERY_CONFIG_UI_CORE_POOL_SIZE, BaseExecutorCell.ExecutorType.ARTERY);
     private BaseExecutorCell mInTimeArteryExecutor = BaseExecutorCell.build(ElasticConfig.ARTERY_CONFIG_INTIME_CORE_POOL_SIZE, BaseExecutorCell.ExecutorType.ARTERY);

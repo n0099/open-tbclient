@@ -41,8 +41,8 @@ public class c {
         this.tipView = LayoutInflater.from(this.mContext).inflate(R.layout.image_toast_view, (ViewGroup) null);
         this.tipText = (TextView) this.tipView.findViewById(R.id.tip_text);
         this.tipImage = (ImageView) this.tipView.findViewById(R.id.tip_iamge);
-        this.tipView.setBackgroundDrawable(ap.aO(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32), ap.getColor(R.color.cp_hud_a)));
-        ap.setViewTextColor(this.tipText, R.color.cp_cont_a);
+        this.tipView.setBackgroundDrawable(ap.aP(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32), ap.getColor(R.color.CAM_X0701)));
+        ap.setViewTextColor(this.tipText, R.color.CAM_X0101);
         this.tipText.setText(i2);
         this.tipImage.setImageResource(i);
         showViewToast(this.tipView);
@@ -64,8 +64,8 @@ public class c {
         this.tipView = LayoutInflater.from(this.mContext).inflate(R.layout.image_toast_view, (ViewGroup) null);
         this.tipText = (TextView) this.tipView.findViewById(R.id.tip_text);
         this.tipImage = (ImageView) this.tipView.findViewById(R.id.tip_iamge);
-        this.tipView.setBackgroundDrawable(ap.aO(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32), ap.getColor(R.color.cp_hud_a)));
-        ap.setViewTextColor(this.tipText, R.color.cp_cont_a);
+        this.tipView.setBackgroundDrawable(ap.aP(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32), ap.getColor(R.color.CAM_X0701)));
+        ap.setViewTextColor(this.tipText, R.color.CAM_X0101);
         this.tipText.setText(charSequence);
         this.tipImage.setImageResource(R.drawable.icon_toast_game_ok);
         showViewToast(this.tipView);
@@ -75,8 +75,8 @@ public class c {
         this.tipView = LayoutInflater.from(this.mContext).inflate(R.layout.image_toast_view, (ViewGroup) null);
         this.tipText = (TextView) this.tipView.findViewById(R.id.tip_text);
         this.tipImage = (ImageView) this.tipView.findViewById(R.id.tip_iamge);
-        this.tipView.setBackgroundDrawable(ap.aO(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32), ap.getColor(R.color.cp_hud_a)));
-        ap.setViewTextColor(this.tipText, R.color.cp_cont_a);
+        this.tipView.setBackgroundDrawable(ap.aP(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32), ap.getColor(R.color.CAM_X0701)));
+        ap.setViewTextColor(this.tipText, R.color.CAM_X0101);
         this.tipText.setText(charSequence);
         this.tipImage.setImageResource(R.drawable.icon_toast_game_error);
         showViewToast(this.tipView);

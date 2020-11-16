@@ -21,11 +21,11 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    static final char[] f1332a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    static final char[] f1335a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     private static String b = "";
 
     public static Object a(Object obj, String str, Class[] clsArr, Object[] objArr) {

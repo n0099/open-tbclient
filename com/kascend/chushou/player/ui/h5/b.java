@@ -21,10 +21,10 @@ public class b extends FrameLayout implements View.OnClickListener {
     private View b;
     private View c;
     private int e;
-    private com.kascend.chushou.player.ui.h5.c.b puK;
-    private CommonH5Item pun;
-    private H5Positon puo;
-    private com.kascend.chushou.widget.cswebview.d puq;
+    private CommonH5Item pvQ;
+    private H5Positon pvR;
+    private com.kascend.chushou.widget.cswebview.d pvT;
+    private com.kascend.chushou.player.ui.h5.c.b pwo;
 
     public b(@NonNull Context context) {
         super(context);
@@ -35,8 +35,8 @@ public class b extends FrameLayout implements View.OnClickListener {
     public void a(int i, H5Positon h5Positon, com.kascend.chushou.player.ui.h5.c.b bVar) {
         int i2;
         this.e = i;
-        this.puo = h5Positon;
-        this.puK = bVar;
+        this.pvR = h5Positon;
+        this.pwo = bVar;
         if (this.b == null) {
             b();
         }
@@ -51,7 +51,7 @@ public class b extends FrameLayout implements View.OnClickListener {
             i2 = 0;
         }
         setBackgroundColor(i2);
-        this.pun.a(bVar);
+        this.pvQ.a(bVar);
     }
 
     private void b() {
@@ -61,13 +61,13 @@ public class b extends FrameLayout implements View.OnClickListener {
         }
         this.b = LayoutInflater.from(this.f4168a).inflate(i, (ViewGroup) this, false);
         this.c = this.b.findViewById(a.f.view_redpacketlist_close);
-        if (this.puK.i == 0) {
+        if (this.pwo.i == 0) {
             this.c.setVisibility(4);
         } else {
             this.c.setOnClickListener(this);
         }
-        this.pun = (CommonH5Item) this.b.findViewById(a.f.view_smallh5);
-        this.pun.setListener(new e() { // from class: com.kascend.chushou.player.ui.h5.b.1
+        this.pvQ = (CommonH5Item) this.b.findViewById(a.f.view_smallh5);
+        this.pvQ.setListener(new e() { // from class: com.kascend.chushou.player.ui.h5.b.1
             @Override // com.kascend.chushou.widget.cswebview.e, com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
                 b.this.a();
@@ -82,29 +82,29 @@ public class b extends FrameLayout implements View.OnClickListener {
         layoutParams.height = -1;
         layoutParams.gravity = 17;
         this.b.setLayoutParams(layoutParams);
-        Point hD = tv.chushou.zues.utils.a.hD(this.f4168a);
+        Point hB = tv.chushou.zues.utils.a.hB(this.f4168a);
         int statusBarHeight = tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.f4168a);
-        int i = hD.x;
-        int i2 = hD.y - statusBarHeight;
+        int i = hB.x;
+        int i2 = hB.y - statusBarHeight;
         View findViewById = this.b.findViewById(a.f.empty_view);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
-        int i3 = (int) (((((100 - this.puo.mHeight) * 1.0d) / 2.0d) / 100.0d) * i2);
+        int i3 = (int) (((((100 - this.pvR.mHeight) * 1.0d) / 2.0d) / 100.0d) * i2);
         layoutParams2.height = i3;
         findViewById.setLayoutParams(layoutParams2);
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.pun.getLayoutParams();
-        layoutParams3.width = (int) (i * ((this.puo.mWidth * 1.0d) / 100.0d));
-        layoutParams3.height = (int) (((this.puo.mHeight * 1.0d) / 100.0d) * i2);
-        this.pun.setLayoutParams(layoutParams3);
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.pvQ.getLayoutParams();
+        layoutParams3.width = (int) (i * ((this.pvR.mWidth * 1.0d) / 100.0d));
+        layoutParams3.height = (int) (((this.pvR.mHeight * 1.0d) / 100.0d) * i2);
+        this.pvQ.setLayoutParams(layoutParams3);
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.c.getLayoutParams();
         layoutParams4.topMargin = (int) (i3 * 0.2d);
         this.c.setLayoutParams(layoutParams4);
     }
 
     private void d() {
-        Point hD = tv.chushou.zues.utils.a.hD(this.f4168a);
-        int i = (int) (((this.puo.mHeight * 1.0d) / 100.0d) * hD.y);
-        int i2 = (int) (((this.puo.mAspectRadio * 1.0d) / 100.0d) * i);
-        if (this.puK.i == 0) {
+        Point hB = tv.chushou.zues.utils.a.hB(this.f4168a);
+        int i = (int) (((this.pvR.mHeight * 1.0d) / 100.0d) * hB.y);
+        int i2 = (int) (((this.pvR.mAspectRadio * 1.0d) / 100.0d) * i);
+        if (this.pwo.i == 0) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
             layoutParams.width = i2;
             layoutParams.height = i;
@@ -113,25 +113,25 @@ public class b extends FrameLayout implements View.OnClickListener {
             return;
         }
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-        layoutParams2.topMargin = (int) (hD.y * 0.05d);
+        layoutParams2.topMargin = (int) (hB.y * 0.05d);
         this.c.setLayoutParams(layoutParams2);
         int dip2px = tv.chushou.zues.utils.a.dip2px(this.f4168a, 60.0f);
         FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) this.b.getLayoutParams();
         layoutParams3.width = dip2px + i2;
         layoutParams3.height = i;
         layoutParams3.gravity = 16;
-        layoutParams3.leftMargin = (hD.x - i2) / 2;
+        layoutParams3.leftMargin = (hB.x - i2) / 2;
         this.b.setLayoutParams(layoutParams3);
     }
 
     public void a() {
-        if (this.puq != null) {
-            this.puq.a(this);
+        if (this.pvT != null) {
+            this.pvT.a(this);
         }
     }
 
     public void setCloseH5Listener(com.kascend.chushou.widget.cswebview.d dVar) {
-        this.puq = dVar;
+        this.pvT = dVar;
     }
 
     @Override // android.view.View.OnClickListener

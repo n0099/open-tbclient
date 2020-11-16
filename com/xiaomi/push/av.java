@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 class av implements ar {
     @Override // com.xiaomi.push.ar
     public String a() {
@@ -13,7 +13,7 @@ class av implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo135b() {
+    public String mo138b() {
         return null;
     }
 

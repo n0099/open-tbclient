@@ -29,7 +29,7 @@ public class AlaInfoData implements Serializable {
     public boolean haveRedpkg;
     public String hls_url;
     public boolean isChushou;
-    public d label;
+    public e label;
     public String label_name;
     public boolean liveStageForceTop;
     public String liveStagePicUrl;
@@ -95,7 +95,7 @@ public class AlaInfoData implements Serializable {
                 this.thread_id = jSONObject.optLong("thread_id");
                 JSONObject optJSONObject = jSONObject.optJSONObject("label");
                 if (optJSONObject != null) {
-                    this.label = new d();
+                    this.label = new e();
                     this.label.parserJson(optJSONObject);
                 }
                 JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");

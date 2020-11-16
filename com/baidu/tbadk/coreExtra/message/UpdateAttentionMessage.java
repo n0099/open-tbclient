@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.a.c;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
@@ -13,10 +13,10 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes.dex */
     public static class a {
         public String blockUrl;
-        public c eOm;
+        public c eNq;
+        public boolean eZL;
         public String errorString;
-        public boolean faD;
-        public BlockPopInfoData feD;
+        public BlockPopInfoData fdL;
         public boolean hasShownForbiddenAlert;
         public boolean isAttention;
         public boolean isSucc;
@@ -56,12 +56,12 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                 String optString = jSONObject.optString("block_content");
                 String optString2 = jSONObject.optString("block_confirm");
                 String optString3 = jSONObject.optString("block_cancel");
-                if (!at.isEmpty(optString) && !at.isEmpty(this.blockUrl) && !at.isEmpty(optString2) && !at.isEmpty(optString3)) {
-                    this.feD = new BlockPopInfoData();
-                    this.feD.block_info = optString;
-                    this.feD.ahead_url = this.blockUrl;
-                    this.feD.ahead_info = optString2;
-                    this.feD.ok_info = optString3;
+                if (!au.isEmpty(optString) && !au.isEmpty(this.blockUrl) && !au.isEmpty(optString2) && !au.isEmpty(optString3)) {
+                    this.fdL = new BlockPopInfoData();
+                    this.fdL.block_info = optString;
+                    this.fdL.ahead_url = this.blockUrl;
+                    this.fdL.ahead_info = optString2;
+                    this.fdL.ok_info = optString3;
                 }
             }
         }

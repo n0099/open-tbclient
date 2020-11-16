@@ -1,56 +1,62 @@
 package com.baidu.tbadk.n;
 
 import android.os.Process;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class m {
-    private static String fvP = "tb_perfor_samllflow_time";
-    private static volatile m fvS;
-    private long fvR;
-    private boolean azB = false;
-    private long fvQ = 86400;
-    private long fvO = com.baidu.tbadk.core.sharedPref.b.bqh().getLong(fvP, 0);
+    private static String fuZ = "tb_perfor_samllflow_time";
+    private static volatile m fvc;
+    private long fvb;
+    private boolean axQ = false;
+    private long fva = 86400;
+    private long fuY = com.baidu.tbadk.core.sharedPref.b.bpu().getLong(fuZ, 0);
 
-    public static m bCu() {
-        if (fvS == null) {
+    public static m bBK() {
+        if (fvc == null) {
             synchronized (m.class) {
-                if (fvS == null) {
-                    fvS = new m();
+                if (fvc == null) {
+                    fvc = new m();
                 }
             }
         }
-        return fvS;
+        return fvc;
     }
 
     private m() {
-        this.fvR = 0L;
-        this.fvR = this.fvQ;
+        this.fvb = 0L;
+        BdBaseApplication.getInst().setStartSmallFlowTime(this.fuY);
+        this.fvb = this.fva;
+        BdBaseApplication.getInst().setSmallFlowInterval(this.fvb);
     }
 
-    public boolean bCv() {
-        if (!this.azB || (System.currentTimeMillis() - this.fvO) / 1000 <= this.fvR) {
-            return this.azB;
+    public boolean isSmallFlow() {
+        if (!this.axQ || (System.currentTimeMillis() - this.fuY) / 1000 <= this.fvb) {
+            return this.axQ;
         }
         return false;
     }
 
-    public void ky(boolean z) {
+    public void kz(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.fvO || currentTimeMillis - this.fvO >= this.fvR) {
-                this.fvO = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.bqh().putLong(fvP, this.fvO);
+            if (0 == this.fuY || currentTimeMillis - this.fuY >= this.fvb) {
+                this.fuY = currentTimeMillis;
+                BdBaseApplication.getInst().setStartSmallFlowTime(this.fuY);
+                com.baidu.tbadk.core.sharedPref.b.bpu().putLong(fuZ, this.fuY);
             }
         } else {
-            this.fvO = 0L;
-            com.baidu.tbadk.core.sharedPref.b.bqh().putLong(fvP, this.fvO);
+            this.fuY = 0L;
+            BdBaseApplication.getInst().setStartSmallFlowTime(0L);
+            com.baidu.tbadk.core.sharedPref.b.bpu().putLong(fuZ, this.fuY);
         }
-        this.azB = z;
+        this.axQ = z;
+        BdBaseApplication.getInst().setIsSmallFlow(z);
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.bCz().bCA();
+            n.bBO().bBP();
         }
     }
 
@@ -73,7 +79,7 @@ public class m {
         return "2G";
     }
 
-    public static String rL(int i) {
+    public static String sj(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -86,7 +92,7 @@ public class m {
         return "WIFI";
     }
 
-    public long bCw() {
+    public long bBL() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
@@ -96,8 +102,8 @@ public class m {
         }
     }
 
-    public l rM(int i) {
-        if (bCv()) {
+    public l sk(int i) {
+        if (isSmallFlow()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -153,9 +159,10 @@ public class m {
         return null;
     }
 
-    public void dH(long j) {
+    public void setSmallFlowInterval(long j) {
         if (j > 0) {
-            this.fvR = j;
+            this.fvb = j;
+            BdBaseApplication.getInst().setSmallFlowInterval(j);
         }
     }
 

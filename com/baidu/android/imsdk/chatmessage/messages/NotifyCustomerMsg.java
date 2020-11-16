@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class NotifyCustomerMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<NotifyCustomerMsg> CREATOR = new Parcelable.Creator<NotifyCustomerMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.NotifyCustomerMsg.1
         /* JADX DEBUG: Method merged with bridge method */

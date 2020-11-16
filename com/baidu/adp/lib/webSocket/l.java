@@ -1,32 +1,31 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private int QS;
     private int QT;
-    private boolean QU;
+    private int QU;
     private boolean QV;
-    private int QW;
+    private boolean QW;
     private int QX;
-    private boolean QY;
+    private int QY;
     private boolean QZ;
-    private String Qi;
+    private String Qj;
+    private boolean Ra;
 
     public l() {
-        this.Qi = null;
-        this.QS = 32768;
-        this.QT = 131072;
-        this.QU = false;
-        this.QV = true;
-        this.QW = 30000;
+        this.Qj = null;
+        this.QT = 32768;
+        this.QU = 131072;
+        this.QV = false;
+        this.QW = true;
         this.QX = 30000;
-        this.QY = true;
+        this.QY = 30000;
         this.QZ = true;
-        this.Qi = null;
+        this.Ra = true;
+        this.Qj = null;
     }
 
     public l(l lVar) {
-        this.Qi = null;
-        this.QS = lVar.QS;
+        this.Qj = null;
         this.QT = lVar.QT;
         this.QU = lVar.QU;
         this.QV = lVar.QV;
@@ -34,46 +33,47 @@ public class l {
         this.QX = lVar.QX;
         this.QY = lVar.QY;
         this.QZ = lVar.QZ;
-        this.Qi = lVar.Qi;
+        this.Ra = lVar.Ra;
+        this.Qj = lVar.Qj;
     }
 
     public boolean oQ() {
-        return this.QU;
-    }
-
-    public int oR() {
-        return this.QS;
-    }
-
-    public int oS() {
-        return this.QT;
-    }
-
-    public boolean getTcpNoDelay() {
         return this.QV;
     }
 
-    public int oT() {
+    public int oR() {
+        return this.QT;
+    }
+
+    public int oS() {
+        return this.QU;
+    }
+
+    public boolean getTcpNoDelay() {
         return this.QW;
     }
 
-    public int oU() {
+    public int oT() {
         return this.QX;
     }
 
-    public boolean oV() {
+    public int oU() {
         return this.QY;
     }
 
-    public boolean oW() {
+    public boolean oV() {
         return this.QZ;
     }
 
-    public String oX() {
-        return this.Qi;
+    public boolean oW() {
+        return this.Ra;
     }
 
-    public void ck(String str) {
-        this.Qi = str;
+    public String oX() {
+        return this.Qj;
+    }
+
+    public void cl(String str) {
+        this.Qj = str;
     }
 }

@@ -2,7 +2,7 @@ package com.sdk.base.framework.a.c;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 final class j implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */

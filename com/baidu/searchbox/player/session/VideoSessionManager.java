@@ -5,7 +5,7 @@ import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.event.SystemEventTrigger;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.pool.SynchronizedFIFOPool;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public class VideoSessionManager {
     private SynchronizedFIFOPool<VideoSession> mSessionCache;
     private SystemEventTrigger mSystemEventTrigger;
@@ -66,7 +66,7 @@ public class VideoSessionManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes11.dex */
     public static final class Holder {
         public static final VideoSessionManager mInstance = new VideoSessionManager();
 

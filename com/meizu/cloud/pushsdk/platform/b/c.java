@@ -10,7 +10,7 @@ import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public abstract class c<T extends BasicPushStatus> {
     protected ScheduledExecutorService d;
     protected Context e;

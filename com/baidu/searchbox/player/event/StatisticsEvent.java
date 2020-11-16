@@ -3,7 +3,7 @@ package com.baidu.searchbox.player.event;
 import android.support.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.interfaces.INeuron;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public class StatisticsEvent extends VideoEvent {
     public static final String ACTION_ADD_PLAY_SPEED_RECORD = "monitor_add_play_speed_record";
     public static final String ACTION_BUFFER_END = "statistics_player_buffer_end";

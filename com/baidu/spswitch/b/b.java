@@ -1,5 +1,5 @@
 package com.baidu.spswitch.b;
-/* loaded from: classes19.dex */
+/* loaded from: classes6.dex */
 public class b {
     private static boolean sDebug = false;
 

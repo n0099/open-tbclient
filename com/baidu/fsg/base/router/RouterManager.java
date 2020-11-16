@@ -5,7 +5,7 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class RouterManager {
 
     /* renamed from: a  reason: collision with root package name */

@@ -36,22 +36,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static Map<Long, Boolean> boN = new HashMap();
-    private static Set<Long> boO = new HashSet();
-    private static int boP = 0;
-    private static boolean boQ = true;
+    private static Map<Long, Boolean> bnc = new HashMap();
+    private static Set<Long> bnd = new HashSet();
+    private static int bne = 0;
+    private static boolean bnf = true;
 
     public static void b(long j, boolean z) {
-        boN.clear();
-        boN.put(Long.valueOf(j), Boolean.valueOf(z));
-        if (TbadkCoreApplication.getCurrentAccountId() > 0 && !boO.contains(Long.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
+        bnc.clear();
+        bnc.put(Long.valueOf(j), Boolean.valueOf(z));
+        if (TbadkCoreApplication.getCurrentAccountId() > 0 && !bnd.contains(Long.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "defaultname"));
-            boO.add(Long.valueOf(TbadkCoreApplication.getCurrentAccountId()));
+            bnd.add(Long.valueOf(TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 
-    public static void cl(boolean z) {
-        boQ = z;
+    public static void cn(boolean z) {
+        bnf = z;
     }
 
     public static void b(long j, int i) {
@@ -68,41 +68,41 @@ public class a {
     public static boolean c(long j, int i) {
         boolean z;
         boolean z2 = true;
-        if (TbadkCoreApplication.isLogin() && boQ) {
+        if (TbadkCoreApplication.isLogin() && bnf) {
             if (isDebug()) {
                 return true;
             }
-            if (boN.containsKey(Long.valueOf(j)) && boN.get(Long.valueOf(j)).booleanValue()) {
-                if ((!TbadkCoreApplication.getInst().isQuanmin() && !TbadkCoreApplication.getInst().isYinbo() && !TbadkCoreApplication.getInst().isMobileBaidu()) || UtilHelper.getRealScreenOrientation(TbadkCoreApplication.getInst().getContext()) == 2 || com.baidu.live.aa.a.PQ().bod == null || com.baidu.live.aa.a.PQ().bod.aNx == null || com.baidu.live.aa.a.PQ().bod.aNx.aPS == 0) {
+            if (bnc.containsKey(Long.valueOf(j)) && bnc.get(Long.valueOf(j)).booleanValue()) {
+                if ((!TbadkCoreApplication.getInst().isQuanmin() && !TbadkCoreApplication.getInst().isYinbo() && !TbadkCoreApplication.getInst().isMobileBaidu()) || UtilHelper.getRealScreenOrientation(TbadkCoreApplication.getInst().getContext()) == 2 || com.baidu.live.aa.a.Ph().bms == null || com.baidu.live.aa.a.Ph().bms.aLM == null || com.baidu.live.aa.a.Ph().bms.aLM.aOh == 0) {
                     return false;
                 }
                 if (i == 0) {
-                    z = boN.get(Long.valueOf(j)).booleanValue();
+                    z = bnc.get(Long.valueOf(j)).booleanValue();
                 } else if (i == 1) {
-                    z = com.baidu.live.aa.a.PQ().bod.aNx.aPT == 1;
+                    z = com.baidu.live.aa.a.Ph().bms.aLM.aOi == 1;
                 } else if (i == 2) {
-                    z = com.baidu.live.aa.a.PQ().bod.aNx.aPU == 1;
+                    z = com.baidu.live.aa.a.Ph().bms.aLM.aOj == 1;
                 } else if (i == 3) {
-                    z = com.baidu.live.aa.a.PQ().bod.aNx.aPV == 1;
+                    z = com.baidu.live.aa.a.Ph().bms.aLM.aOk == 1;
                 } else if (i == 4) {
-                    z = com.baidu.live.aa.a.PQ().bod.aNx.aPX == 1;
+                    z = com.baidu.live.aa.a.Ph().bms.aLM.aOm == 1;
                 } else if (i == 5) {
-                    z = com.baidu.live.aa.a.PQ().bod.aNx.aPW == 1;
+                    z = com.baidu.live.aa.a.Ph().bms.aLM.aOl == 1;
                 } else if (i == 6) {
-                    z = com.baidu.live.aa.a.PQ().bod.aNx.aPY == 1;
+                    z = com.baidu.live.aa.a.Ph().bms.aLM.aOn == 1;
                 } else if (i == 7) {
-                    z = com.baidu.live.aa.a.PQ().bod.aNx.aPZ == 1;
+                    z = com.baidu.live.aa.a.Ph().bms.aLM.aOo == 1;
                 } else if (i == 8) {
-                    z = com.baidu.live.aa.a.PQ().bod.aNx.aQa == 1;
+                    z = com.baidu.live.aa.a.Ph().bms.aLM.aOp == 1;
                 } else {
                     z = false;
                 }
                 if (z) {
-                    int i2 = com.baidu.live.aa.a.PQ().bod.aNx.aQc;
+                    int i2 = com.baidu.live.aa.a.Ph().bms.aLM.aOr;
                     if (i2 <= 0) {
                         i2 = 1;
                     }
-                    String string = d.AZ().getString("modify_nickame_show_every_days", "");
+                    String string = d.Aq().getString("modify_nickame_show_every_days", "");
                     if (!TextUtils.isEmpty(string)) {
                         try {
                             String b = k.b(new Date());
@@ -125,8 +125,8 @@ public class a {
     }
 
     private static void aC(final long j) {
-        if (com.baidu.live.aa.a.PQ().bod.aNx != null) {
-            long j2 = com.baidu.live.aa.a.PQ().bod.aNx.aQb * 1000;
+        if (com.baidu.live.aa.a.Ph().bms.aLM != null) {
+            long j2 = com.baidu.live.aa.a.Ph().bms.aLM.aOq * 1000;
             if (isDebug()) {
                 Log.i("ModifyNicknameHelper", "@@ ModifyNickname dealWatch debug duration =" + j2);
                 j2 = 10000;
@@ -137,9 +137,9 @@ public class a {
                 public void onComplete(boolean z) {
                     if (a.c(j, 0)) {
                         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                            a.eR(0);
+                            a.eN(0);
                         } else if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                            a.eS(0);
+                            a.eO(0);
                         }
                     }
                 }
@@ -153,30 +153,30 @@ public class a {
 
     private static void d(long j, int i) {
         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-            eR(i);
+            eN(i);
         } else if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            eS(i);
+            eO(i);
         }
     }
 
-    private static void Os() {
-        d.AZ().putString("modify_nickame_show_every_days", k.b(new Date()));
+    private static void NJ() {
+        d.Aq().putString("modify_nickame_show_every_days", k.b(new Date()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void eR(int i) {
+    public static void eN(int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("title", "设置专属昵称");
             jSONObject.put("subtitle", "让主播更好地认识你");
             jSONObject.put(TrackReferenceTypeBox.TYPE1, "输入昵称");
             jSONObject.put("from", "live");
-            String eT = eT(i);
+            String eP = eP(i);
             JSONObject jSONObject2 = new JSONObject();
-            if (eT == null) {
-                eT = "";
+            if (eP == null) {
+                eP = "";
             }
-            jSONObject2.put("source", eT);
+            jSONObject2.put("source", eP);
             jSONObject.put("extra", jSONObject2);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -185,12 +185,12 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void eS(int i) {
-        boP = i;
+    public static void eO(int i) {
+        bne = i;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913235));
     }
 
-    public static void t(Activity activity) {
+    public static void s(Activity activity) {
         HashMap hashMap = new HashMap();
         hashMap.put(PushConstants.INTENT_ACTIVITY_NAME, activity);
         hashMap.put(GroupInfoActivityConfig.REQUEST_CODE, Integer.valueOf((int) RequestResponseCode.REQUEST_MOBILE_MODIFY_NICKNAME_DIALOG));
@@ -199,7 +199,7 @@ public class a {
         ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap2);
     }
 
-    private static String eT(int i) {
+    private static String eP(int i) {
         switch (i) {
             case 0:
                 return "read";
@@ -224,20 +224,20 @@ public class a {
         }
     }
 
-    public static void F(Context context, String str) {
+    public static void C(Context context, String str) {
         if (isDebug()) {
             BdUtilHelper.showToast(context, str);
         }
         if (!TextUtils.isEmpty(str)) {
             if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                G(context, str);
+                D(context, str);
             } else if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                H(context, str);
+                E(context, str);
             }
         }
     }
 
-    private static void G(Context context, String str) {
+    private static void D(Context context, String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             jSONObject.optString("new_nickname");
@@ -245,14 +245,14 @@ public class a {
             if (jSONObject.has("op_type")) {
                 int optInt = jSONObject.optInt("op_type");
                 if (optInt == 0) {
-                    Os();
+                    NJ();
                     LiveTimerManager.getInstance().removeLiveTimerTask("ModifyNickname", false);
                     UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", SdkStaticKeys.RENAME_SHOW);
                     ubcStatisticItem.setContentExt(optString, "popup", null);
                     UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
                 } else if (optInt == 1) {
                     Log.i("ModifyNicknameHelper", "@@ ModifyNickname noticeModifyNickname success");
-                    Ot();
+                    NK();
                     UbcStatisticItem ubcStatisticItem2 = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "renamed");
                     ubcStatisticItem2.setContentExt(optString, null, null);
                     UbcStatisticManager.getInstance().logEvent(ubcStatisticItem2);
@@ -263,8 +263,8 @@ public class a {
         }
     }
 
-    private static void H(Context context, String str) {
-        String eT = eT(boP);
+    private static void E(Context context, String str) {
+        String eP = eP(bne);
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("action");
@@ -272,18 +272,18 @@ public class a {
             if (TextUtils.equals(optString, "show")) {
                 LiveTimerManager.getInstance().removeLiveTimerTask("ModifyNickname", false);
                 if (optInt == 0) {
-                    Os();
+                    NJ();
                     UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", SdkStaticKeys.RENAME_SHOW);
-                    ubcStatisticItem.setContentExt(eT, "popup", null);
+                    ubcStatisticItem.setContentExt(eP, "popup", null);
                     UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913236));
             } else if (TextUtils.equals(optString, "modify")) {
                 if (optInt == 0) {
-                    Ot();
+                    NK();
                     UbcStatisticItem ubcStatisticItem2 = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "renamed");
-                    ubcStatisticItem2.setContentExt(eT, null, null);
+                    ubcStatisticItem2.setContentExt(eP, null, null);
                     UbcStatisticManager.getInstance().logEvent(ubcStatisticItem2);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913236));
@@ -293,7 +293,7 @@ public class a {
         }
     }
 
-    private static void Ot() {
+    private static void NK() {
         HttpMessage httpMessage = new HttpMessage(1021125);
         httpMessage.addParam("no_cache", 1);
         MessageManager.getInstance().sendMessage(httpMessage);

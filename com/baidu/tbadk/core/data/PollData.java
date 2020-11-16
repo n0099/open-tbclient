@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.PollInfo;
 /* loaded from: classes.dex */
-public class PollData extends m implements Serializable {
+public class PollData extends n implements Serializable {
     private int endTime;
     private int isMulti;
     private int isPolled;
@@ -20,7 +20,7 @@ public class PollData extends m implements Serializable {
     private long totalNum;
     private long totalPoll;
 
-    @Override // com.baidu.tbadk.core.data.m
+    @Override // com.baidu.tbadk.core.data.n
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {

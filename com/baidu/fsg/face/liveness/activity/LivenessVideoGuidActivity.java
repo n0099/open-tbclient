@@ -36,7 +36,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class LivenessVideoGuidActivity extends LivenessBaseActivity {
 
     /* renamed from: a  reason: collision with root package name */
@@ -260,7 +260,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         RimStatisticsUtil.getInstance().triggerSending();
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public class ViewPagerAdapter extends PagerAdapter {
         private List<View> b;
 
@@ -312,7 +312,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         imageView.setLayoutParams(layoutParams);
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public class a extends Scroller {
         private int b;
 

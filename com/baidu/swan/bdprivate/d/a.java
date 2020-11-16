@@ -13,15 +13,15 @@ import com.baidu.swan.apps.res.widget.b.d;
 import com.baidu.swan.bdprivate.b;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends ActivityDelegation {
 
     /* renamed from: com.baidu.swan.bdprivate.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0504a {
-        void aOg();
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0502a {
+        void aNy();
 
-        void cM(String str, String str2);
+        void cL(String str, String str2);
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
@@ -31,7 +31,7 @@ public class a extends ActivityDelegation {
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     if (i == 0) {
-                        a.this.aOH();
+                        a.this.aNZ();
                         return;
                     }
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "login failed");
@@ -40,24 +40,24 @@ public class a extends ActivityDelegation {
             });
             return false;
         }
-        aOH();
+        aNZ();
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aOH() {
-        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0504a() { // from class: com.baidu.swan.bdprivate.d.a.2
-            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0504a
-            public void cM(String str, String str2) {
+    public void aNZ() {
+        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0502a() { // from class: com.baidu.swan.bdprivate.d.a.2
+            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0502a
+            public void cL(String str, String str2) {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "invoiceId == null or invoiceType == null");
                     a.this.finish();
                 }
-                a.this.cL(str, str2);
+                a.this.cK(str, str2);
             }
 
-            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0504a
-            public void aOg() {
+            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0502a
+            public void aNy() {
                 a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "choose invoiceId failed");
                 a.this.finish();
             }
@@ -65,11 +65,11 @@ public class a extends ActivityDelegation {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cL(String str, String str2) {
+    public void cK(String str, String str2) {
         if (!SwanAppNetworkUtils.isNetworkConnected(getAgent())) {
             d.k(getAgent(), b.g.invoice_network_none);
         } else {
-            com.baidu.swan.a.c.a.dL(AppRuntime.getAppContext()).getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aOI())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(com.baidu.swan.apps.t.a.awZ().aij()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.d.a.3
+            com.baidu.swan.a.c.a.dL(AppRuntime.getAppContext()).getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aOa())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(com.baidu.swan.apps.t.a.awr().ahB()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.d.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: a */
@@ -108,7 +108,7 @@ public class a extends ActivityDelegation {
         }
     }
 
-    private static String aOI() {
+    private static String aOa() {
         return String.format("%s/ma/invoice/detail", "https://mbd.baidu.com");
     }
 }

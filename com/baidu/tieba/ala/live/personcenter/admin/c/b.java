@@ -13,41 +13,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel {
-    private a gPH;
-    private com.baidu.tieba.ala.live.personcenter.admin.b.a gPM;
-    private HttpMessageListener guU;
+    private a gPo;
+    private com.baidu.tieba.ala.live.personcenter.admin.b.a gPt;
+    private HttpMessageListener guB;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void aE(int i, String str);
+        void aC(int i, String str);
 
-        void lR(boolean z);
+        void lS(boolean z);
     }
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.guU = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
+        this.guB = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaAdminListResponseMessage) {
                     AlaAdminListResponseMessage alaAdminListResponseMessage = (AlaAdminListResponseMessage) httpResponsedMessage;
                     if (!alaAdminListResponseMessage.isSuccess()) {
-                        if (b.this.gPH != null) {
-                            b.this.gPH.aE(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
+                        if (b.this.gPo != null) {
+                            b.this.gPo.aC(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    b.this.gPM = alaAdminListResponseMessage.bVo();
-                    if (b.this.gPH != null) {
-                        b.this.gPH.lR(false);
+                    b.this.gPt = alaAdminListResponseMessage.bUH();
+                    if (b.this.gPo != null) {
+                        b.this.gPo.lS(false);
                     }
                 }
             }
         };
         registerTask();
-        registerListener(this.guU);
+        registerListener(this.guB);
     }
 
     private void registerTask() {
@@ -59,13 +59,13 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bVp() {
+    public void bUI() {
         sendMessage(new com.baidu.tieba.ala.live.personcenter.admin.message.a());
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     protected boolean loadData() {
-        bVp();
+        bUI();
         return true;
     }
 
@@ -76,30 +76,30 @@ public class b extends BdBaseModel {
     }
 
     public List<IAdapterData> getUserList() {
-        return hasData() ? new ArrayList(this.gPM.getUserList()) : new ArrayList();
+        return hasData() ? new ArrayList(this.gPt.getUserList()) : new ArrayList();
     }
 
-    public int bVn() {
+    public int bUG() {
         if (hasData()) {
-            return this.gPM.bVn();
+            return this.gPt.bUG();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.gPH = aVar;
+        this.gPo = aVar;
     }
 
     public void a(com.baidu.tieba.ala.live.personcenter.admin.b.b bVar) {
         if (hasData()) {
-            this.gPM.getUserList().remove(bVar);
-            if (this.gPH != null) {
-                this.gPH.lR(false);
+            this.gPt.getUserList().remove(bVar);
+            if (this.gPo != null) {
+                this.gPo.lS(false);
             }
         }
     }
 
     private boolean hasData() {
-        return (this.gPM == null || this.gPM.getUserList() == null || this.gPM.getUserList().isEmpty()) ? false : true;
+        return (this.gPt == null || this.gPt.getUserList() == null || this.gPt.getUserList().isEmpty()) ? false : true;
     }
 }

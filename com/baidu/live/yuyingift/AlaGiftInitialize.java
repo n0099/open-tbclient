@@ -24,22 +24,22 @@ import com.baidu.live.yuyingift.message.YuyinAlaGiftSendHttpResponseMessage;
 /* loaded from: classes4.dex */
 public class AlaGiftInitialize {
     static {
-        FD();
-        FK();
-        FL();
-        FM();
-        FN();
-        FE();
-        FF();
-        FG();
+        EU();
+        Fb();
+        Fc();
+        Fd();
+        Fe();
+        EV();
+        EW();
+        EX();
         TbadkCoreApplication.getInst().RegisterIntent(ab.class, AlaGiftTabActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(ac.class, AlaGiftLuckyStarActivity.class);
-        FR();
-        FS();
-        com.baidu.live.yuyingift.b.b.XE();
+        Fi();
+        Fj();
+        com.baidu.live.yuyingift.b.b.WV();
     }
 
-    private static void FD() {
+    private static void EU() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031058, TbConfig.SERVER_ADDRESS + "ala/sdk/v1/open/getDynamicGiftList");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -48,7 +48,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void FE() {
+    private static void EV() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2501040, new CustomMessageTask.CustomRunnable<f>() { // from class: com.baidu.live.yuyingift.AlaGiftInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.gift.ab> run(CustomMessage<f> customMessage) {
@@ -59,7 +59,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void FF() {
+    private static void EW() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2501041, new CustomMessageTask.CustomRunnable<com.baidu.live.gift.a>() { // from class: com.baidu.live.yuyingift.AlaGiftInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<z> run(CustomMessage<com.baidu.live.gift.a> customMessage) {
@@ -70,7 +70,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void FG() {
+    private static void EX() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2501042, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.live.yuyingift.AlaGiftInitialize.3
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<ad> run(CustomMessage<Context> customMessage) {
@@ -81,7 +81,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void FK() {
+    private static void Fb() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031055, TbConfig.SERVER_ADDRESS + "ala/audio/gift/placeOrder");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -90,7 +90,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void FL() {
+    private static void Fc() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031056, TbConfig.SERVER_ADDRESS + "ala/sdk/v1/open/sendPetalGift");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -99,7 +99,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void FM() {
+    private static void Fd() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031065, TbConfig.SERVER_HOST + "liveserver/knapsack/knapsackquery");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -108,7 +108,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void FN() {
+    private static void Fe() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031057, TbConfig.SERVER_HOST + "liveserver/knapsack/KnapsackConsumeAudio");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -117,7 +117,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void FR() {
+    private static void Fi() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2501043, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.live.yuyingift.AlaGiftInitialize.4
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Object> run(CustomMessage customMessage) {
@@ -128,7 +128,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void FS() {
+    private static void Fj() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031066, TbConfig.SERVER_ADDRESS + "ala/message/giftBroadCast");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);

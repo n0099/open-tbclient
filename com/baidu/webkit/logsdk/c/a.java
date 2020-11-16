@@ -3,7 +3,7 @@ package com.baidu.webkit.logsdk.c;
 import java.util.Collection;
 import java.util.Vector;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */

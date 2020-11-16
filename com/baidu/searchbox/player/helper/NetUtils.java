@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public class NetUtils {
     public static final String NETWORK_TYPE_CELL_2G = "2g";
     public static final String NETWORK_TYPE_CELL_3G = "3g";
@@ -27,7 +27,7 @@ public class NetUtils {
     public static NetStatus mOldStatus = NetStatus.NET_DOWN;
     public static NetStatus mStatus = NetStatus.NET_DOWN;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes11.dex */
     public enum NetStatus {
         NET_DOWN,
         NET_WIFI,

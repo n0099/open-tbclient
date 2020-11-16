@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public final class bp {
 
     /* renamed from: a  reason: collision with root package name */

@@ -6,7 +6,7 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class FlowableTakeLastTimed<T> extends a<T, T> {
     final int bufferSize;
     final long count;
@@ -17,10 +17,10 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pMK.a((j) new TakeLastTimedSubscriber(cVar, this.count, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
+        this.pOn.a((j) new TakeLastTimedSubscriber(cVar, this.count, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class TakeLastTimedSubscriber<T> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = -5677354903406201275L;
         final org.a.c<? super T> actual;

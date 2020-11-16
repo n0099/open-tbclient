@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NavigationBarShadowView;
@@ -46,41 +46,41 @@ import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusRequestMessage;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
-    private BdListView VY;
-    private RelativeLayout bET;
-    private List<com.baidu.tieba.myCollection.baseHistory.a> bSh;
+    private BdListView Wa;
+    private RelativeLayout bDi;
+    private List<com.baidu.tieba.myCollection.baseHistory.a> bQx;
     private List<Long> closeLives;
-    private d<com.baidu.tieba.myCollection.baseHistory.a, b, a> ktN;
-    private NavigationBarShadowView kud;
-    private TextView laT;
-    private PbHistoryCacheModel laV;
+    private NavigationBarShadowView kuN;
+    private d<com.baidu.tieba.myCollection.baseHistory.a, b, a> kux;
+    private TextView lbm;
     private NavigationBar mNavigationBar;
-    private boolean laU = false;
-    private final CacheModel.a<com.baidu.tieba.myCollection.baseHistory.a> ftK = new CacheModel.a<com.baidu.tieba.myCollection.baseHistory.a>() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.1
+    private PbHistoryCacheModel model;
+    private boolean lbn = false;
+    private final CacheModel.a<com.baidu.tieba.myCollection.baseHistory.a> callback = new CacheModel.a<com.baidu.tieba.myCollection.baseHistory.a>() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.1
         @Override // com.baidu.tbadk.mvc.model.CacheModel.a
-        public void a(ReadCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.a>> readCacheRespMsg, ReadCacheMessage<com.baidu.tieba.myCollection.baseHistory.a> readCacheMessage) {
+        public void onCacheDataGet(ReadCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.a>> readCacheRespMsg, ReadCacheMessage<com.baidu.tieba.myCollection.baseHistory.a> readCacheMessage) {
             if (readCacheRespMsg != null && readCacheRespMsg.getData() != null) {
-                PbHistoryActivity.this.bSh = readCacheRespMsg.getData();
+                PbHistoryActivity.this.bQx = readCacheRespMsg.getData();
                 ArrayList arrayList = new ArrayList();
                 for (com.baidu.tieba.myCollection.baseHistory.a aVar : readCacheRespMsg.getData()) {
                     if (!StringUtils.isNull(aVar.getLiveId()) && Long.valueOf(aVar.getLiveId()).longValue() != 0) {
                         arrayList.add(Long.valueOf(aVar.getLiveId()));
                     }
                 }
-                if (PbHistoryActivity.this.laU) {
-                    PbHistoryActivity.this.dfi();
-                    PbHistoryActivity.this.eM(PbHistoryActivity.this.bSh);
+                if (PbHistoryActivity.this.lbn) {
+                    PbHistoryActivity.this.deF();
+                    PbHistoryActivity.this.eM(PbHistoryActivity.this.bQx);
                     return;
                 }
                 PbHistoryActivity.this.a((List<Long>) arrayList, (Long) 0L);
-                PbHistoryActivity.this.laU = true;
+                PbHistoryActivity.this.lbn = true;
             }
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.a
-        public void a(WriteCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.a>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.myCollection.baseHistory.a> writeCacheMessage) {
+        public void onCacheDataWrite(WriteCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.a>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.myCollection.baseHistory.a> writeCacheMessage) {
             if (writeCacheRespMsg != null && writeCacheRespMsg.isSuccess()) {
                 if (writeCacheMessage.isClear()) {
                     PbHistoryActivity.this.eM(new ArrayList());
@@ -90,7 +90,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             }
         }
     };
-    private final HttpMessageListener ffI = new HttpMessageListener(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED) { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.2
+    private final HttpMessageListener feQ = new HttpMessageListener(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED) { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -98,8 +98,8 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                 if (httpResponsedMessage instanceof AlaMGetLiveStatusHttpResponseMessage) {
                     PbHistoryActivity.this.closeLives = ((AlaMGetLiveStatusHttpResponseMessage) httpResponsedMessage).getCloseLives();
                 }
-                PbHistoryActivity.this.dfi();
-                PbHistoryActivity.this.eM(PbHistoryActivity.this.bSh);
+                PbHistoryActivity.this.deF();
+                PbHistoryActivity.this.eM(PbHistoryActivity.this.bQx);
             }
         }
     };
@@ -107,7 +107,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
             if (i == 1) {
-                PbHistoryActivity.this.kud.show();
+                PbHistoryActivity.this.kuN.show();
             }
         }
 
@@ -115,7 +115,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             View childAt;
             if (i == 0 && (childAt = absListView.getChildAt(0)) != null && childAt.getTop() == 0) {
-                PbHistoryActivity.this.kud.hide();
+                PbHistoryActivity.this.kuN.hide();
             }
         }
     };
@@ -124,25 +124,25 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.laV = new PbHistoryCacheModel(getPageContext());
-        this.laV.a(this.ftK);
-        registerListener(this.ffI);
-        this.bET = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.pb_history_activity, (ViewGroup) null);
-        setContentView(this.bET);
+        this.model = new PbHistoryCacheModel(getPageContext());
+        this.model.a(this.callback);
+        registerListener(this.feQ);
+        this.bDi = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.pb_history_activity, (ViewGroup) null);
+        setContentView(this.bDi);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.my_history));
-        this.kud = (NavigationBarShadowView) findViewById(R.id.navi_shadow_view_pb_history);
-        this.laT = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.clear_all_text));
-        this.laT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.4
+        this.kuN = (NavigationBarShadowView) findViewById(R.id.navi_shadow_view_pb_history);
+        this.lbm = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.clear_all_text));
+        this.lbm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(PbHistoryActivity.this.getPageContext().getPageActivity());
-                aVar.ow(R.string.pb_history_clear_tip);
+                aVar.os(R.string.pb_history_clear_tip);
                 aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.4.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        PbHistoryActivity.this.laV.clearCache();
+                        PbHistoryActivity.this.model.clearCache();
                         aVar2.dismiss();
                     }
                 });
@@ -152,21 +152,21 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(PbHistoryActivity.this.getPageContext()).bpc();
+                aVar.b(PbHistoryActivity.this.getPageContext()).bog();
             }
         });
-        this.laT.setVisibility(8);
-        this.VY = (BdListView) findViewById(R.id.list);
+        this.lbm.setVisibility(8);
+        this.Wa = (BdListView) findViewById(R.id.list);
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.getDimens(getActivity(), R.dimen.ds88)));
-        this.VY.addHeaderView(textView, 0);
-        this.ktN = new d<>(getPageContext(), a.class, R.layout.pb_history_list_item, null);
-        this.ktN.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.ds190)), NoDataViewFactory.d.dS(null, getResources().getString(R.string.pb_history_no_data_tip_2)), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
-        this.VY.setAdapter((ListAdapter) this.ktN);
-        this.VY.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.5
+        this.Wa.addHeaderView(textView, 0);
+        this.kux = new d<>(getPageContext(), a.class, R.layout.pb_history_list_item, null);
+        this.kux.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.ds190)), NoDataViewFactory.d.dS(null, getResources().getString(R.string.pb_history_no_data_tip_2)), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
+        this.Wa.setAdapter((ListAdapter) this.kux);
+        this.Wa.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.5
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tieba.myCollection.baseHistory.a aVar = (com.baidu.tieba.myCollection.baseHistory.a) PbHistoryActivity.this.ktN.getItem(i);
+                com.baidu.tieba.myCollection.baseHistory.a aVar = (com.baidu.tieba.myCollection.baseHistory.a) PbHistoryActivity.this.kux.getItem(i);
                 if (aVar != null) {
                     if (aVar.getThreadType() == 49) {
                         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
@@ -179,7 +179,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                     } else if (aVar.isManga()) {
                         if (TbadkCoreApplication.getInst().appResponseToIntentClass(MangaBrowserActivityConfig.class)) {
                             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                                bg.skipToLoginActivity(PbHistoryActivity.this.getActivity());
+                                bh.skipToLoginActivity(PbHistoryActivity.this.getActivity());
                                 return;
                             } else {
                                 PbHistoryActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MangaBrowserActivityConfig(PbHistoryActivity.this.getPageContext().getPageActivity(), aVar.getCartoonId(), aVar.getChapterId(), 5)));
@@ -188,7 +188,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                         }
                         l.showToast(PbHistoryActivity.this.getPageContext().getPageActivity(), R.string.manga_plugin_not_install_tip);
                     } else {
-                        PbActivityConfig createHistoryCfg = new PbActivityConfig(PbHistoryActivity.this.getPageContext().getPageActivity()).createHistoryCfg(aVar.getThreadId(), aVar.bzZ(), aVar.dff(), aVar.dfg(), null);
+                        PbActivityConfig createHistoryCfg = new PbActivityConfig(PbHistoryActivity.this.getPageContext().getPageActivity()).createHistoryCfg(aVar.getThreadId(), aVar.bzp(), aVar.deC(), aVar.deD(), null);
                         createHistoryCfg.setStartFrom(11);
                         createHistoryCfg.setIsShareThread(aVar.isShareThread());
                         PbHistoryActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createHistoryCfg));
@@ -196,7 +196,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                 }
             }
         });
-        this.VY.setOnScrollListener(this.mOnScrollListener);
+        this.Wa.setOnScrollListener(this.mOnScrollListener);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -207,12 +207,12 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dfi() {
-        if (!y.isEmpty(this.closeLives) && !y.isEmpty(this.bSh)) {
-            for (com.baidu.tieba.myCollection.baseHistory.a aVar : this.bSh) {
+    public void deF() {
+        if (!y.isEmpty(this.closeLives) && !y.isEmpty(this.bQx)) {
+            for (com.baidu.tieba.myCollection.baseHistory.a aVar : this.bQx) {
                 if (!StringUtils.isNull(aVar.getLiveId()) && Long.valueOf(aVar.getLiveId()).longValue() != 0) {
                     if (this.closeLives.contains(Long.valueOf(aVar.getLiveId()))) {
-                        aVar.ty(false);
+                        aVar.tB(false);
                     }
                 }
             }
@@ -224,25 +224,25 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ap.setNavbarTitleColor(this.laT, R.color.cp_cont_f, R.color.navi_op_text_skin);
-        this.ktN.b(getPageContext(), i);
-        getLayoutMode().onModeChanged(this.bET);
+        ap.setNavbarTitleColor(this.lbm, R.color.CAM_X0106, R.color.navi_op_text_skin);
+        this.kux.b(getPageContext(), i);
+        getLayoutMode().onModeChanged(this.bDi);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshData() {
-        this.laV.bBG();
+        this.model.bAW();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void eM(List<com.baidu.tieba.myCollection.baseHistory.a> list) {
-        if (this.ktN != null) {
-            this.ktN.bC(list);
+        if (this.kux != null) {
+            this.kux.bC(list);
         }
         if (list == null || list.size() == 0) {
-            this.laT.setVisibility(8);
+            this.lbm.setVisibility(8);
         } else {
-            this.laT.setVisibility(0);
+            this.lbm.setVisibility(0);
         }
     }
 
@@ -257,7 +257,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.ffI);
+        MessageManager.getInstance().unRegisterListener(this.feQ);
         super.onDestroy();
     }
 }

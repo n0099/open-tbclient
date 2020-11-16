@@ -1,6 +1,7 @@
 package com.baidu.tieba.mainentrance;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -9,7 +10,9 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
@@ -22,31 +25,35 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CreateBarGuideActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.SquareSearchActivityConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.mainentrance.HotForumModel;
 import com.baidu.tieba.mainentrance.searchSuggestList.SearchListHttpResMessage;
 import com.baidu.tieba.mainentrance.searchSuggestList.SearchListSocketResMessage;
+import com.baidu.tieba.mainentrance.view.SquareSearchViewController;
 import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 import tbclient.SearchSug.ForumInfo;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivity> implements HotForumModel.a {
-    private HotForumModel kLZ;
-    private com.baidu.tieba.mainentrance.a.e kMa;
-    private HotSearchInfoData kMd;
+    private HotForumModel kMo;
+    private SquareSearchViewController kMp;
+    private HotSearchInfoData kMs;
     private HotSearchInfoData mHotSearchInfo;
-    private boolean kLX = false;
-    private boolean kLY = false;
-    private com.baidu.adp.framework.listener.a kMb = new com.baidu.adp.framework.listener.a(1003196, CmdConfigSocket.CMD_SEARCH_LIST) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.1
+    private boolean kMm = false;
+    private boolean kMn = false;
+    private com.baidu.adp.framework.listener.a kMq = new com.baidu.adp.framework.listener.a(1003196, CmdConfigSocket.CMD_SEARCH_LIST) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             List<String> list;
             List<ForumInfo> list2 = null;
             if ((responsedMessage instanceof SearchListHttpResMessage) || (responsedMessage instanceof SearchListSocketResMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (!NewSquareSearchActivity.this.kLX) {
+                    if (!NewSquareSearchActivity.this.kMm) {
                         NewSquareSearchActivity.this.showToast(NewSquareSearchActivity.this.getActivity().getString(R.string.neterror));
-                        NewSquareSearchActivity.this.kLX = true;
+                        NewSquareSearchActivity.this.kMm = true;
                         return;
                     }
                     return;
@@ -62,17 +69,17 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                 } else {
                     list = null;
                 }
-                NewSquareSearchActivity.this.kMa.eF(list);
-                NewSquareSearchActivity.this.kMa.eG(list2);
+                NewSquareSearchActivity.this.kMp.eF(list);
+                NewSquareSearchActivity.this.kMp.eG(list2);
             }
         }
     };
-    private CustomMessageListener kMc = new CustomMessageListener(CmdConfigCustom.CMD_SEARCH_CREATE_BAR) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.2
+    private CustomMessageListener kMr = new CustomMessageListener(CmdConfigCustom.CMD_SEARCH_CREATE_BAR) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                NewSquareSearchActivity.this.NZ(customResponsedMessage.getData().toString());
+                NewSquareSearchActivity.this.Nx(customResponsedMessage.getData().toString());
             }
         }
     };
@@ -84,75 +91,83 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         setSwipeBackEnabled(false);
         initData();
         getWindow().setSoftInputMode(0);
-        registerListener(this.kMb);
-        registerListener(this.kMc);
-        this.kMa = new com.baidu.tieba.mainentrance.a.e(this, this.kLY);
-        this.kLZ = new HotForumModel(getPageContext(), this);
-        dbi();
+        registerListener(this.kMq);
+        registerListener(this.kMr);
+        this.kMp = new SquareSearchViewController(this, this.kMn);
+        this.kMo = new HotForumModel(getPageContext(), this);
+        daF();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.kMa != null) {
-            this.kMa.onResume();
+        if (this.kMp != null) {
+            this.kMp.onResume();
         }
+        registerGetShareContentTask();
     }
 
     private void initData() {
         Intent intent = getIntent();
         if (intent != null) {
-            this.kLY = intent.getBooleanExtra(SquareSearchActivityConfig.IS_FROM_ENTER_FROUM, false);
+            this.kMn = intent.getBooleanExtra(SquareSearchActivityConfig.IS_FROM_ENTER_FROUM, false);
             String stringExtra = intent.getStringExtra("search");
             String stringExtra2 = intent.getStringExtra(SquareSearchActivityConfig.SEARCH_VALUE);
             if (!TextUtils.isEmpty(stringExtra)) {
-                this.kMd = new HotSearchInfoData();
+                this.kMs = new HotSearchInfoData();
                 if (StringUtils.isNull(stringExtra2)) {
-                    this.kMd.setName(stringExtra);
+                    this.kMs.setName(stringExtra);
                 } else {
-                    this.kMd.setName(stringExtra2);
+                    this.kMs.setName(stringExtra2);
                 }
-                this.kMd.NY(stringExtra);
+                this.kMs.Nw(stringExtra);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        MessageManager.getInstance().unRegisterTask(2016568);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.kMa != null) {
-            this.kMa.onDestroy();
+        if (this.kMp != null) {
+            this.kMp.onDestroy();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921504, null));
     }
 
-    private void dbi() {
-        if (this.kMd != null && !TextUtils.isEmpty(this.kMd.cra()) && !TextUtils.isEmpty(this.kMd.getName())) {
-            this.kMa.b(this.kMd);
+    private void daF() {
+        if (this.kMs != null && !TextUtils.isEmpty(this.kMs.cqD()) && !TextUtils.isEmpty(this.kMs.getName())) {
+            this.kMp.b(this.kMs);
             return;
         }
-        this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.bqh().getString(SharedPrefConfig.HOT_SEARCH_INFO, ""), HotSearchInfoData.class);
-        if (this.mHotSearchInfo != null && !TextUtils.isEmpty(this.mHotSearchInfo.cra()) && !TextUtils.isEmpty(this.mHotSearchInfo.getName())) {
-            this.kMa.b(this.mHotSearchInfo);
+        this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.bpu().getString(SharedPrefConfig.HOT_SEARCH_INFO, ""), HotSearchInfoData.class);
+        if (this.mHotSearchInfo != null && !TextUtils.isEmpty(this.mHotSearchInfo.cqD()) && !TextUtils.isEmpty(this.mHotSearchInfo.getName())) {
+            this.kMp.b(this.mHotSearchInfo);
         } else {
-            this.kLZ.dbg();
+            this.kMo.daD();
         }
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.a
-    public void NX(String str) {
+    public void Nv(String str) {
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.a
     public void a(List<b> list, List<c> list2, HotSearchInfoData hotSearchInfoData, String str) {
         a(hotSearchInfoData);
-        this.kMa.b(this.mHotSearchInfo);
+        this.kMp.b(this.mHotSearchInfo);
     }
 
     private void a(HotSearchInfoData hotSearchInfoData) {
-        if (!this.kLY && hotSearchInfoData != null) {
+        if (!this.kMn && hotSearchInfoData != null) {
             this.mHotSearchInfo = hotSearchInfoData;
         }
     }
@@ -160,15 +175,15 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.kMa.onChangeSkinType(i);
+        this.kMp.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            BaseWebView dce = this.kMa.dce();
-            if (i == 4 && dce != null && dce.canGoBack()) {
-                dce.goBack();
+            BaseWebView dbB = this.kMp.dbB();
+            if (i == 4 && dbB != null && dbB.canGoBack()) {
+                dbB.goBack();
                 return true;
             }
             com.baidu.adp.lib.f.e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.3
@@ -203,7 +218,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void NZ(String str) {
+    public void Nx(String str) {
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
         } else if (!StringUtils.isNull(str)) {
@@ -213,5 +228,58 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateBarGuideActivityConfig(getPageContext().getPageActivity(), str)));
             }
         }
+    }
+
+    private void registerGetShareContentTask() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2016568, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.4
+            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<ShareItem> run(CustomMessage<String> customMessage) {
+                if (customMessage == null || !(customMessage.getData() instanceof String)) {
+                    return null;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(customMessage.getData());
+                    String optString = jSONObject.optString("title");
+                    String optString2 = jSONObject.optString("desc");
+                    String optString3 = jSONObject.optString("img");
+                    String optString4 = jSONObject.optString("url");
+                    String optString5 = jSONObject.optString("topic");
+                    String optString6 = jSONObject.optString("wbtitle");
+                    String optString7 = jSONObject.optString("wbcontent");
+                    ShareItem shareItem = new ShareItem();
+                    shareItem.title = optString;
+                    shareItem.linkUrl = optString4;
+                    shareItem.content = optString2;
+                    if (!TextUtils.isEmpty(optString3)) {
+                        shareItem.imageUri = Uri.parse(optString3);
+                    }
+                    shareItem.topic = optString5;
+                    shareItem.fgk = optString6;
+                    shareItem.fgl = optString7;
+                    shareItem.shareType = jSONObject.optInt("shareimg");
+                    shareItem.fgs = jSONObject.optInt("weixin_disable");
+                    String optString8 = jSONObject.optString("extdata");
+                    if (!StringUtils.isNull(optString8)) {
+                        try {
+                            JSONObject jSONObject2 = new JSONObject(optString8);
+                            String optString9 = jSONObject2.optString("activityid");
+                            String optString10 = jSONObject2.optString("missionid");
+                            if (!StringUtils.isNull(optString9) && !StringUtils.isNull(optString10)) {
+                                JSONObject jSONObject3 = new JSONObject();
+                                jSONObject3.put(optString9, optString10);
+                                shareItem.taskCompleteId = jSONObject3.toString();
+                            }
+                        } catch (JSONException e) {
+                        }
+                    }
+                    return new CustomResponsedMessage<>(2016568, shareItem);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                    return null;
+                }
+            }
+        });
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 }

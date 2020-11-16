@@ -14,49 +14,49 @@ import com.baidu.tieba.ala.view.PkRankView;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class f implements com.baidu.live.r.a {
-    w aKv;
-    private boolean aQr;
-    private PendantParentView gvR;
-    private PendantChildView gvS;
-    protected PkRankView gzq;
+    w aIK;
+    private boolean aOG;
+    private PendantParentView gvy;
+    private PendantChildView gvz;
+    protected PkRankView gyX;
     private boolean isHost = false;
     private Context mContext;
 
     public f(Context context) {
-        this.aQr = false;
+        this.aOG = false;
         this.mContext = context;
-        if (com.baidu.live.aa.a.PQ().bod.aNw != null) {
-            this.aQr = com.baidu.live.aa.a.PQ().bod.aNw.aQr;
+        if (com.baidu.live.aa.a.Ph().bms.aLL != null) {
+            this.aOG = com.baidu.live.aa.a.Ph().bms.aLL.aOG;
         } else {
-            this.aQr = false;
+            this.aOG = false;
         }
     }
 
     @Override // com.baidu.live.r.a
     public void b(ViewGroup viewGroup, w wVar) {
-        this.aKv = wVar;
+        this.aIK = wVar;
         if (viewGroup != null) {
             if (viewGroup instanceof PendantParentView) {
-                this.gvR = (PendantParentView) viewGroup;
-                bRg();
+                this.gvy = (PendantParentView) viewGroup;
+                bQz();
             }
-            if (this.gzq == null || (this.gvS != null && this.gvS.indexOfChild(this.gzq) < 0)) {
-                this.gzq = new PkRankView(this.gvS.getContext(), this.isHost, wVar);
-                this.gvS.addView(this.gzq, new FrameLayout.LayoutParams(-2, -2));
+            if (this.gyX == null || (this.gvz != null && this.gvz.indexOfChild(this.gyX) < 0)) {
+                this.gyX = new PkRankView(this.gvz.getContext(), this.isHost, wVar);
+                this.gvz.addView(this.gyX, new FrameLayout.LayoutParams(-2, -2));
             }
-            if (this.aQr) {
-                this.gzq.cmB();
-                if (wVar.aJy) {
-                    this.gzq.setInSeason(true);
+            if (this.aOG) {
+                this.gyX.clU();
+                if (wVar.aHN) {
+                    this.gyX.setInSeason(true);
                 } else {
-                    this.gzq.setInSeason(false);
+                    this.gyX.setInSeason(false);
                 }
             }
         }
     }
 
-    private void bRg() {
-        this.gvS = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.f.1
+    private void bQz() {
+        this.gvz = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.f.1
             @Override // com.baidu.live.pendantview.PendantChildView
             public PendantParentView.Position getVerticalPosition() {
                 return PendantParentView.Position.LEFT;
@@ -82,41 +82,41 @@ public class f implements com.baidu.live.r.a {
                 return 31;
             }
         };
-        this.gvS.setBackgroundColor(0);
-        if (this.gvR != null) {
-            this.gvR.a(this.gvS, new LinearLayout.LayoutParams(-2, -2));
+        this.gvz.setBackgroundColor(0);
+        if (this.gvy != null) {
+            this.gvy.a(this.gvz, new LinearLayout.LayoutParams(-2, -2));
         }
     }
 
     @Override // com.baidu.live.r.a
     public void a(w wVar) {
-        if (this.aQr) {
-            this.aKv = wVar;
+        if (this.aOG) {
+            this.aIK = wVar;
             if (wVar != null && wVar.mLiveInfo != null) {
                 if (!this.isHost) {
-                    this.gzq.cmB();
+                    this.gyX.clU();
                 }
-                if (wVar.aJy) {
-                    this.gzq.setInSeason(true);
+                if (wVar.aHN) {
+                    this.gyX.setInSeason(true);
                 } else {
-                    this.gzq.setInSeason(false);
+                    this.gyX.setInSeason(false);
                 }
             }
         }
     }
 
     @Override // com.baidu.live.r.a
-    public boolean R(JSONObject jSONObject) {
-        int dD;
-        if (this.aQr && (dD = dD(jSONObject)) != -1) {
-            this.gzq.f(jSONObject, dD);
+    public boolean L(JSONObject jSONObject) {
+        int dx;
+        if (this.aOG && (dx = dx(jSONObject)) != -1) {
+            this.gyX.f(jSONObject, dx);
             return true;
         }
         return false;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private int dD(JSONObject jSONObject) {
+    private int dx(JSONObject jSONObject) {
         char c;
         int i = 4;
         if (jSONObject == null) {
@@ -184,7 +184,7 @@ public class f implements com.baidu.live.r.a {
                 i = 16;
                 break;
             case 1:
-                if (this.aKv.mLiveInfo.room_id == jSONObject.optJSONObject("first_blood_info").optLong("room_id")) {
+                if (this.aIK.mLiveInfo.room_id == jSONObject.optJSONObject("first_blood_info").optLong("room_id")) {
                     i = 11;
                     break;
                 } else {
@@ -199,7 +199,7 @@ public class f implements com.baidu.live.r.a {
             case 4:
                 long optLong = jSONObject.optLong("props_type");
                 if (optLong == 1) {
-                    if (this.aKv.mLiveInfo.room_id == jSONObject.optLong("send_room_id")) {
+                    if (this.aIK.mLiveInfo.room_id == jSONObject.optLong("send_room_id")) {
                         i = 14;
                         break;
                     } else {
@@ -208,7 +208,7 @@ public class f implements com.baidu.live.r.a {
                     }
                 } else {
                     if (optLong == 2) {
-                        if (this.aKv.mLiveInfo.room_id == jSONObject.optLong("send_room_id")) {
+                        if (this.aIK.mLiveInfo.room_id == jSONObject.optLong("send_room_id")) {
                             i = 12;
                             break;
                         } else {
@@ -230,12 +230,12 @@ public class f implements com.baidu.live.r.a {
                 break;
         }
         if (i != -1) {
-            u(optString, jSONObject);
+            s(optString, jSONObject);
         }
         return i;
     }
 
-    private void u(String str, JSONObject jSONObject) {
+    private void s(String str, JSONObject jSONObject) {
         if (!"pk_send_props".equals(str) && !"pk_first_blood".equals(str) && !"pk_honor_change".equals(str)) {
             AlaStatsItem alaStatsItem = new AlaStatsItem();
             alaStatsItem.addValue(CameraActivityConfig.KEY_CONTENT_TYPE, str);
@@ -249,14 +249,14 @@ public class f implements com.baidu.live.r.a {
 
     @Override // com.baidu.live.r.a
     public void setCanVisible(boolean z) {
-        if (this.gzq != null) {
-            this.gzq.setCanVisible(z);
+        if (this.gyX != null) {
+            this.gyX.setCanVisible(z);
         }
     }
 
     @Override // com.baidu.live.r.a
-    public void KJ() {
-        lC(true);
+    public void Ka() {
+        lD(true);
         onDestroy();
     }
 
@@ -265,28 +265,28 @@ public class f implements com.baidu.live.r.a {
         this.isHost = z;
     }
 
-    private void lC(boolean z) {
-        if (this.gzq != null && (this.gzq.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gzq.getParent()).removeView(this.gzq);
+    private void lD(boolean z) {
+        if (this.gyX != null && (this.gyX.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gyX.getParent()).removeView(this.gyX);
         }
-        if (z && this.gvS != null && (this.gvS.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gvS.getParent()).removeView(this.gvS);
+        if (z && this.gvz != null && (this.gvz.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gvz.getParent()).removeView(this.gvz);
         }
     }
 
     @Override // com.baidu.live.r.a
-    public boolean Dl() {
-        return this.gzq.hPp >= 10 && this.gzq.hPp <= 30;
+    public boolean CC() {
+        return this.gyX.hOW >= 10 && this.gyX.hOW <= 30;
     }
 
     @Override // com.baidu.live.r.a
-    public boolean ON() {
-        return this.gzq.hPp == 2;
+    public boolean Oe() {
+        return this.gyX.hOW == 2;
     }
 
     @Override // com.baidu.live.r.a
     public void onDestroy() {
-        lC(true);
-        this.gzq.onDestroy();
+        lD(true);
+        this.gyX.onDestroy();
     }
 }

@@ -8,72 +8,72 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class ah {
     private static final boolean DEBUG = AppConfig.isDebug();
-    private boolean emX = false;
-    private JSONArray dnf = new JSONArray();
-    private SparseArray<Integer> emT = new SparseArray<>();
-    private ArrayList<String> emU = new ArrayList<>();
-    private long emV = 0;
-    private long emW = 0;
-    private String elY = "0";
+    private boolean elq = false;
+    private JSONArray dly = new JSONArray();
+    private SparseArray<Integer> elm = new SparseArray<>();
+    private ArrayList<String> eln = new ArrayList<>();
+    private long elo = 0;
+    private long elp = 0;
+    private String ekr = "0";
 
-    public final void dj(JSONObject jSONObject) {
-        this.dnf.put(jSONObject);
+    public final void dd(JSONObject jSONObject) {
+        this.dly.put(jSONObject);
     }
 
-    public final SparseArray<Integer> bec() {
-        return this.emT;
+    public final SparseArray<Integer> bdv() {
+        return this.elm;
     }
 
     public final void aF(int i, int i2) {
-        this.emT.put(i, Integer.valueOf(i2));
+        this.elm.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList bed() {
-        return this.emU;
+    public final ArrayList bdw() {
+        return this.eln;
     }
 
-    public final void zd(String str) {
-        if (!this.emU.contains(str)) {
-            this.emU.add(str);
+    public final void yY(String str) {
+        if (!this.eln.contains(str)) {
+            this.eln.add(str);
         }
     }
 
     public final void r(long j, long j2) {
-        if ((j < this.emV || this.emV == 0) && j != 0) {
-            this.emV = j;
+        if ((j < this.elo || this.elo == 0) && j != 0) {
+            this.elo = j;
         }
-        if (j2 > this.emW) {
-            this.emW = j2;
+        if (j2 > this.elp) {
+            this.elp = j2;
         }
     }
 
-    public boolean np(int i) {
-        return this.dnf.toString().getBytes().length >= i;
+    public boolean nl(int i) {
+        return this.dly.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.dnf.length() == 0;
+        return this.dly.length() == 0;
     }
 
-    public JSONObject edx() {
+    public JSONObject edw() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject.put("data", this.dnf);
-            if (this.emV == 0 || this.emW == 0) {
-                this.emV = this.emW;
+            jSONObject.put("data", this.dly);
+            if (this.elo == 0 || this.elp == 0) {
+                this.elo = this.elp;
             }
-            jSONObject2.put("mintime", Long.toString(this.emV));
-            jSONObject2.put("maxtime", Long.toString(this.emW));
+            jSONObject2.put("mintime", Long.toString(this.elo));
+            jSONObject2.put("maxtime", Long.toString(this.elp));
             jSONObject2.put("createtime", Long.toString(System.currentTimeMillis()));
             jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
-            jSONObject2.put("md5", af.toMd5(this.dnf.toString().getBytes(), true));
+            jSONObject2.put("md5", af.toMd5(this.dly.toString().getBytes(), true));
             jSONObject.put("metadata", jSONObject2);
-            jSONObject.put("isAbtest", this.elY);
-            jSONObject.put("isreal", this.emX ? "1" : "0");
+            jSONObject.put("isAbtest", this.ekr);
+            jSONObject.put("isreal", this.elq ? "1" : "0");
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCUploadData", "json exception:");
@@ -83,36 +83,36 @@ public class ah {
     }
 
     public void clearData() {
-        this.emT.clear();
-        this.emU.clear();
-        this.dnf = null;
+        this.elm.clear();
+        this.eln.clear();
+        this.dly = null;
     }
 
-    public void ze(String str) {
-        this.elY = str;
+    public void yZ(String str) {
+        this.ekr = str;
     }
 
-    public String bef() {
-        return this.elY;
+    public String bdy() {
+        return this.ekr;
     }
 
-    public long beg() {
-        return this.emV;
+    public long bdz() {
+        return this.elo;
     }
 
     public long getMaxTime() {
-        return this.emW;
+        return this.elp;
     }
 
-    public JSONArray beh() {
-        return this.dnf;
+    public JSONArray bdA() {
+        return this.dly;
     }
 
-    public boolean bei() {
-        return this.emX;
+    public boolean bdB() {
+        return this.elq;
     }
 
-    public void ia(boolean z) {
-        this.emX = z;
+    public void id(boolean z) {
+        this.elq = z;
     }
 }

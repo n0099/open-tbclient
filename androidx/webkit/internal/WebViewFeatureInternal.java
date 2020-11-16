@@ -2,7 +2,7 @@ package androidx.webkit.internal;
 
 import android.os.Build;
 import org.chromium.support_lib_boundary.util.Features;
-/* loaded from: classes15.dex */
+/* loaded from: classes7.dex */
 public enum WebViewFeatureInternal {
     VISUAL_STATE_CALLBACK_FEATURE(Features.VISUAL_STATE_CALLBACK, 23),
     OFF_SCREEN_PRERASTER(Features.OFF_SCREEN_PRERASTER, 23),
@@ -37,7 +37,7 @@ public enum WebViewFeatureInternal {
     private final String mFeatureValue;
     private final int mOsVersion;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes7.dex */
     private static class a {
         static final String[] Aj = d.hT().hO();
     }

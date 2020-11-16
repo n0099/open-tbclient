@@ -7,13 +7,13 @@ import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.i;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.j;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.subtablist.b.b, j> {
-    private i gpB;
-    private com.baidu.tieba.ala.alasquare.subtablist.c.i gpC;
+    private i gpi;
+    private com.baidu.tieba.ala.alasquare.subtablist.c.i gpj;
     private int mFrom;
     private TbPageContext<?> mPageContext;
 
     public f(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.grG);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.grn);
         this.mPageContext = tbPageContext;
     }
 
@@ -24,27 +24,27 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ac */
+    /* renamed from: Y */
     public j c(ViewGroup viewGroup) {
-        this.gpB = new i(this.mPageContext, viewGroup);
-        if (this.gpC != null) {
-            this.gpB.d(this.gpC);
+        this.gpi = new i(this.mPageContext, viewGroup);
+        if (this.gpj != null) {
+            this.gpi.d(this.gpj);
         }
-        return new j(this.gpB);
+        return new j(this.gpi);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, j jVar) {
-        jVar.gpB.a(bVar, this.mFrom);
+        jVar.gpi.a(bVar, this.mFrom);
         return jVar.getView();
     }
 
     public void b(com.baidu.tieba.ala.alasquare.subtablist.c.i iVar) {
-        this.gpC = iVar;
-        if (this.gpB != null) {
-            this.gpB.d(this.gpC);
+        this.gpj = iVar;
+        if (this.gpi != null) {
+            this.gpi.d(this.gpj);
         }
     }
 }

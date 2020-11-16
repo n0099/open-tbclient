@@ -8,7 +8,7 @@ import com.sina.weibo.sdk.network.base.WbUserInfo;
 import com.sina.weibo.sdk.network.base.WbUserInfoHelper;
 import com.sina.weibo.sdk.network.exception.InterceptException;
 import com.sina.weibo.wcfc.sobusiness.UtilitySo;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class GuestParamInterception implements IRequestIntercept {
     @Override // com.sina.weibo.sdk.network.IRequestIntercept
     public boolean needIntercept(IRequestParam iRequestParam, Bundle bundle) {

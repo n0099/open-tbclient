@@ -5,13 +5,13 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.swan.apps.runtime.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.swan.apps.process.a.a.a {
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(@NonNull Bundle bundle) {
-        e aHv = e.aHv();
-        if (aHv != null && !TextUtils.equals(aHv.getAppKey(), "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
-            SwanFavorDataManager.aur().W(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
+        e aGN = e.aGN();
+        if (aGN != null && !TextUtils.equals(aGN.getAppKey(), "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
+            SwanFavorDataManager.atJ().W(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
         }
     }
 }

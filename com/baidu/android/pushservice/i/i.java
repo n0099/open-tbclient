@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class i {
     public static String a(Context context, String str) {
         return context.getSharedPreferences("pst", 0).getString(str, "");
@@ -52,7 +52,7 @@ public class i {
             edit.putString("request_id", str4);
             edit.putString("user_id", str5);
             edit.putBoolean("bind_status", true);
-            m.f1154a = 1;
+            m.f1157a = 1;
             edit.putLong("version_code", m.c(context, context.getPackageName()));
             edit.apply();
         } catch (Exception e) {

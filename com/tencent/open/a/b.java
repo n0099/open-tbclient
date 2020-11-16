@@ -6,11 +6,11 @@ import com.tencent.open.a.d;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f4576a = d.C1049d.a("yy.MM.dd.HH");
+    private static SimpleDateFormat f4576a = d.C1052d.a("yy.MM.dd.HH");
     private File g;
     private String b = "Tracer.File";
     private int c = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;

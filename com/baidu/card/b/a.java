@@ -6,29 +6,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tbadk.core.data.l;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.m;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.h.f;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private ArrayList<com.baidu.tbadk.mvc.b.a> aiK = new ArrayList<>();
-    private boolean aiL;
-    private f<bi> aiM;
+    private ArrayList<com.baidu.tbadk.mvc.b.a> aiP = new ArrayList<>();
+    private boolean aiQ;
+    private f<bj> aiR;
     private int mFrom;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
-    public void setOnItemCoverListener(f<bi> fVar) {
-        this.aiM = fVar;
+    public void setOnItemCoverListener(f<bj> fVar) {
+        this.aiR = fVar;
     }
 
     public a(TbPageContext<?> tbPageContext, int i) {
@@ -38,8 +39,8 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public void setData(ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList) {
         if (arrayList != null) {
-            this.aiK.clear();
-            this.aiK.addAll(arrayList);
+            this.aiP.clear();
+            this.aiP.addAll(arrayList);
             notifyDataSetChanged();
         }
     }
@@ -48,20 +49,20 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @NonNull
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View inflate = this.mPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.recommend_forum_horizontal_item_view, (ViewGroup) null);
-        return i == 2 ? new C0098a(inflate) : new b(inflate);
+        return i == 2 ? new C0097a(inflate) : new b(inflate);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        if (this.aiK != null && this.aiK.size() > 0) {
-            com.baidu.tbadk.mvc.b.a aVar = this.aiK.get(i);
-            if ((viewHolder instanceof C0098a) && (aVar instanceof l)) {
-                ((C0098a) viewHolder).a((l) aVar);
-            } else if ((viewHolder instanceof b) && (aVar instanceof bi)) {
-                bi biVar = (bi) aVar;
-                ((b) viewHolder).a(biVar);
-                if (this.aiM != null) {
-                    this.aiM.b(viewHolder.itemView, biVar, i, i);
+        if (this.aiP != null && this.aiP.size() > 0) {
+            com.baidu.tbadk.mvc.b.a aVar = this.aiP.get(i);
+            if ((viewHolder instanceof C0097a) && (aVar instanceof m)) {
+                ((C0097a) viewHolder).a((m) aVar);
+            } else if ((viewHolder instanceof b) && (aVar instanceof bj)) {
+                bj bjVar = (bj) aVar;
+                ((b) viewHolder).a(bjVar);
+                if (this.aiR != null) {
+                    this.aiR.b(viewHolder.itemView, bjVar, i, i);
                 }
             }
         }
@@ -69,10 +70,10 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        if (this.aiK.get(i) instanceof bi) {
+        if (this.aiP.get(i) instanceof bj) {
             return 1;
         }
-        if (this.aiK.get(i) instanceof l) {
+        if (this.aiP.get(i) instanceof m) {
             return 2;
         }
         return 0;
@@ -80,19 +81,19 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.aiK == null) {
+        if (this.aiP == null) {
             return 0;
         }
-        return this.aiK.size();
+        return this.aiP.size();
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes20.dex */
     class b extends RecyclerView.ViewHolder {
-        private BarImageView aiN;
-        private ImageView aiO;
-        private TextView aiP;
-        private TextView aiQ;
-        private bi aiU;
+        private BarImageView aiS;
+        private ImageView aiT;
+        private TextView aiU;
+        private TextView aiV;
+        private bj aiZ;
         private String attention;
         private View mRootView;
 
@@ -100,91 +101,91 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             super(view);
             this.mRootView = view;
             this.attention = TbadkCoreApplication.getInst().getString(R.string.attention);
-            this.aiN = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
-            this.aiO = (ImageView) this.mRootView.findViewById(R.id.square_icon);
-            this.aiP = (TextView) this.mRootView.findViewById(R.id.forum_name);
-            this.aiQ = (TextView) this.mRootView.findViewById(R.id.desc);
+            this.aiS = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
+            this.aiT = (ImageView) this.mRootView.findViewById(R.id.square_icon);
+            this.aiU = (TextView) this.mRootView.findViewById(R.id.forum_name);
+            this.aiV = (TextView) this.mRootView.findViewById(R.id.desc);
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.b.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.aiM != null) {
+                    if (a.this.aiR != null) {
                         int adapterPosition = b.this.getAdapterPosition();
-                        a.this.aiM.a(view2, b.this.aiU, adapterPosition, adapterPosition);
+                        a.this.aiR.a(view2, b.this.aiZ, adapterPosition, adapterPosition);
                     }
                 }
             });
         }
 
-        public void a(bi biVar) {
-            if (biVar != null) {
-                this.aiU = biVar;
-                this.aiN.setShowOval(true);
-                this.aiN.setShowOuterBorder(false);
-                this.aiN.setShowInnerBorder(true);
-                this.aiN.setStrokeWith(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-                this.aiN.setStrokeColorResId(R.color.cp_border_a);
-                this.aiO.setVisibility(8);
-                this.aiN.setVisibility(0);
-                this.aiN.startLoad(biVar.getAvatar(), 10, false);
-                if (at.getChineseAndEnglishLength(biVar.getForumName()) <= 10) {
-                    this.aiP.setText(biVar.getForumName());
+        public void a(bj bjVar) {
+            if (bjVar != null) {
+                this.aiZ = bjVar;
+                this.aiS.setShowOval(true);
+                this.aiS.setShowOuterBorder(false);
+                this.aiS.setShowInnerBorder(true);
+                this.aiS.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+                this.aiS.setStrokeColorResId(R.color.CAM_X0401);
+                this.aiT.setVisibility(8);
+                this.aiS.setVisibility(0);
+                this.aiS.startLoad(bjVar.getAvatar(), 10, false);
+                if (au.getChineseAndEnglishLength(bjVar.getForumName()) <= 10) {
+                    this.aiU.setText(bjVar.getForumName());
                 } else {
-                    this.aiP.setText(at.cutChineseAndEnglishWithSuffix(biVar.getForumName(), 8, StringHelper.STRING_MORE));
+                    this.aiU.setText(au.cutChineseAndEnglishWithSuffix(bjVar.getForumName(), 8, StringHelper.STRING_MORE));
                 }
-                this.aiQ.setText(this.attention + " " + at.dA(biVar.blE()));
+                this.aiV.setText(this.attention + " " + au.dA(bjVar.bkG()));
                 onChangeSkinType();
             }
         }
 
         public void onChangeSkinType() {
-            ap.setViewTextColor(this.aiP, R.color.cp_cont_b);
-            ap.setViewTextColor(this.aiQ, R.color.cp_cont_d);
+            ap.setViewTextColor(this.aiU, R.color.CAM_X0105);
+            ap.setViewTextColor(this.aiV, R.color.CAM_X0109);
         }
     }
 
     /* renamed from: com.baidu.card.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes21.dex */
-    class C0098a extends RecyclerView.ViewHolder {
-        private BarImageView aiN;
-        private ImageView aiO;
-        private TextView aiP;
-        private TextView aiQ;
+    /* loaded from: classes20.dex */
+    class C0097a extends RecyclerView.ViewHolder {
+        private BarImageView aiS;
+        private ImageView aiT;
+        private TextView aiU;
+        private TextView aiV;
         private String attention;
         private View mRootView;
 
-        public C0098a(View view) {
+        public C0097a(View view) {
             super(view);
             this.mRootView = view;
             this.attention = TbadkCoreApplication.getInst().getString(R.string.attention);
-            this.aiN = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
-            this.aiO = (ImageView) this.mRootView.findViewById(R.id.square_icon);
-            this.aiP = (TextView) this.mRootView.findViewById(R.id.forum_name);
-            this.aiQ = (TextView) this.mRootView.findViewById(R.id.desc);
+            this.aiS = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
+            this.aiT = (ImageView) this.mRootView.findViewById(R.id.square_icon);
+            this.aiU = (TextView) this.mRootView.findViewById(R.id.forum_name);
+            this.aiV = (TextView) this.mRootView.findViewById(R.id.desc);
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.b.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.aiM != null) {
-                        int adapterPosition = C0098a.this.getAdapterPosition();
-                        a.this.aiM.a(view2, null, adapterPosition, adapterPosition);
+                    if (a.this.aiR != null) {
+                        int adapterPosition = C0097a.this.getAdapterPosition();
+                        a.this.aiR.a(view2, null, adapterPosition, adapterPosition);
                     }
                 }
             });
         }
 
-        public void a(l lVar) {
-            if (lVar != null) {
-                this.aiO.setVisibility(0);
-                this.aiN.setVisibility(8);
-                SvgManager.brn().a(this.aiO, R.drawable.ic_icon_pure_square28, (SvgManager.SvgResourceStateType) null);
-                this.aiP.setText(R.string.forum_square_title);
-                this.aiQ.setText(R.string.forum_square_desc_1);
+        public void a(m mVar) {
+            if (mVar != null) {
+                this.aiT.setVisibility(0);
+                this.aiS.setVisibility(8);
+                SvgManager.bqB().a(this.aiT, R.drawable.ic_icon_pure_square28, (SvgManager.SvgResourceStateType) null);
+                this.aiU.setText(R.string.forum_square_title);
+                this.aiV.setText(R.string.forum_square_desc_1);
                 onChangeSkinType();
             }
         }
 
         public void onChangeSkinType() {
-            ap.setViewTextColor(this.aiP, R.color.cp_cont_b);
-            ap.setViewTextColor(this.aiQ, R.color.cp_cont_d);
+            ap.setViewTextColor(this.aiU, R.color.CAM_X0105);
+            ap.setViewTextColor(this.aiV, R.color.CAM_X0109);
         }
     }
 
@@ -193,6 +194,6 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public void setHasLikeForum(boolean z) {
-        this.aiL = z;
+        this.aiQ = z;
     }
 }

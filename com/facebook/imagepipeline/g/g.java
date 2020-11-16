@@ -1,36 +1,36 @@
 package com.facebook.imagepipeline.g;
 
 import android.support.v7.widget.ActivityChooserView;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class g implements h {
-    public static final h oWX = k(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, true, true);
+    public static final h oYA = k(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, true, true);
     int mQuality;
-    boolean oWY;
-    boolean oWZ;
+    boolean oYB;
+    boolean oYC;
 
     private g(int i, boolean z, boolean z2) {
         this.mQuality = i;
-        this.oWY = z;
-        this.oWZ = z2;
+        this.oYB = z;
+        this.oYC = z2;
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public int eqd() {
+    public int eqb() {
         return this.mQuality;
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public boolean eqe() {
-        return this.oWY;
+    public boolean eqc() {
+        return this.oYB;
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public boolean eqf() {
-        return this.oWZ;
+    public boolean eqd() {
+        return this.oYC;
     }
 
     public int hashCode() {
-        return ((this.oWY ? 4194304 : 0) ^ this.mQuality) ^ (this.oWZ ? 8388608 : 0);
+        return ((this.oYB ? 4194304 : 0) ^ this.mQuality) ^ (this.oYC ? 8388608 : 0);
     }
 
     public boolean equals(Object obj) {
@@ -39,7 +39,7 @@ public class g implements h {
         }
         if (obj instanceof g) {
             g gVar = (g) obj;
-            return this.mQuality == gVar.mQuality && this.oWY == gVar.oWY && this.oWZ == gVar.oWZ;
+            return this.mQuality == gVar.mQuality && this.oYB == gVar.oYB && this.oYC == gVar.oYC;
         }
         return false;
     }

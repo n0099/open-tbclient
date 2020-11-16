@@ -3,9 +3,9 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ac {
-    private boolean aKj;
-    private String aKk;
-    private String aKl;
+    private String aIA;
+    private boolean aIy;
+    private String aIz;
     private int height;
     private int position;
     private int width;
@@ -15,9 +15,9 @@ public class ac {
             this.position = jSONObject.optInt("position");
             this.height = jSONObject.optInt("high");
             this.width = jSONObject.optInt("wide");
-            this.aKj = jSONObject.optInt("is_show") == 1;
-            this.aKk = jSONObject.optString("pk_url");
-            this.aKl = jSONObject.optString("pk_data");
+            this.aIy = jSONObject.optInt("is_show") == 1;
+            this.aIz = jSONObject.optString("pk_url");
+            this.aIA = jSONObject.optString("pk_data");
         }
     }
 
@@ -25,23 +25,23 @@ public class ac {
         return this.height;
     }
 
-    public String Ep() {
-        return this.aKk;
+    public String DG() {
+        return this.aIz;
     }
 
-    public String Eq() {
-        return this.aKl;
+    public String DH() {
+        return this.aIA;
     }
 
     public int getWidth() {
         return this.width;
     }
 
-    public boolean Er() {
-        return this.aKj;
+    public boolean DI() {
+        return this.aIy;
     }
 
     public String toString() {
-        return "AlaPkPanelInfo{position=" + this.position + ", height=" + this.height + ", width=" + this.width + ", isOpenAction=" + this.aKj + ", pkUrl='" + this.aKk + "', urlDataParams='" + this.aKl + "'}";
+        return "AlaPkPanelInfo{position=" + this.position + ", height=" + this.height + ", width=" + this.width + ", isOpenAction=" + this.aIy + ", pkUrl='" + this.aIz + "', urlDataParams='" + this.aIA + "'}";
     }
 }

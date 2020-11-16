@@ -3,56 +3,56 @@ package com.baidu.swan.apps.ap.d;
 import com.baidu.swan.apps.ap.ak;
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c implements b {
-    private final Queue<a> dES = new ArrayDeque();
-    private a dET;
+    private final Queue<a> dDl = new ArrayDeque();
+    private a dDm;
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.dES) {
-                this.dES.offer(aVar.a(this));
+            synchronized (this.dDl) {
+                this.dDl.offer(aVar.a(this));
             }
         }
-        aNu();
+        aMM();
     }
 
     @Override // com.baidu.swan.apps.ap.d.b
     public void a(a aVar) {
-        synchronized (this.dES) {
-            if (aVar == this.dET) {
+        synchronized (this.dDl) {
+            if (aVar == this.dDm) {
                 runNextTask();
             }
         }
     }
 
-    private void aNu() {
-        synchronized (this.dES) {
-            if (this.dET == null) {
+    private void aMM() {
+        synchronized (this.dDl) {
+            if (this.dDm == null) {
                 runNextTask();
             }
         }
     }
 
     private void runNextTask() {
-        synchronized (this.dES) {
-            this.dET = null;
-            if (!this.dES.isEmpty()) {
-                this.dET = this.dES.poll();
-                if (this.dET == null) {
+        synchronized (this.dDl) {
+            this.dDm = null;
+            if (!this.dDl.isEmpty()) {
+                this.dDm = this.dDl.poll();
+                if (this.dDm == null) {
                     runNextTask();
                 } else {
-                    ak.m(this.dET);
+                    ak.m(this.dDm);
                 }
             }
         }
     }
 
     public synchronized void clear() {
-        if (this.dET != null) {
-            this.dET.finish();
-            this.dET = null;
+        if (this.dDm != null) {
+            this.dDm.finish();
+            this.dDm = null;
         }
-        this.dES.clear();
+        this.dDl.clear();
     }
 }

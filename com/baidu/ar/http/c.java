@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 class c implements l {
     private Object mLock;
     private com.baidu.ar.ihttp.a qp;

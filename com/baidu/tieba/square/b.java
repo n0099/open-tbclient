@@ -29,20 +29,20 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.view.ForumHeaderView;
 import com.baidu.tieba.square.a.a;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private View ctR;
-    private g gso;
-    public ForumHeaderView ikq;
+    private View csf;
+    private g grV;
+    public ForumHeaderView ile;
     private Context mActivity;
     public NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
-    private RelativeLayout mPB;
-    private TextView mPC;
-    private View mPD;
-    private com.baidu.tieba.square.view.b mPE;
-    private RelativeLayout mPF;
-    private View.OnClickListener mPG;
+    private RelativeLayout mQu;
+    private TextView mQv;
+    private View mQw;
+    private com.baidu.tieba.square.view.b mQx;
+    private RelativeLayout mQy;
+    private View.OnClickListener mQz;
     private h mRefreshView;
     private final TbPageContext mTbPageContext;
     private CustomMessageListener skinChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.square.b.1
@@ -58,7 +58,7 @@ public class b {
     public b(Context context, TbPageContext tbPageContext) {
         this.mActivity = context;
         this.mTbPageContext = tbPageContext;
-        this.ctR = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_square_activity, (ViewGroup) null);
+        this.csf = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_square_activity, (ViewGroup) null);
         initUI();
         initListener();
     }
@@ -68,187 +68,187 @@ public class b {
     }
 
     public View getRootLayout() {
-        return this.ctR;
+        return this.csf;
     }
 
     private void initUI() {
-        this.mNavigationBar = (NavigationBar) this.ctR.findViewById(R.id.navigation_bar);
+        this.mNavigationBar = (NavigationBar) this.csf.findViewById(R.id.navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(this.mActivity.getString(R.string.forum_square));
-        this.mPD = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null);
-        this.mPC = (TextView) this.mPD.findViewById(R.id.right_textview);
-        this.mPC.setText(this.mActivity.getString(R.string.forum_square_create_bar));
-        this.mPB = (RelativeLayout) this.ctR.findViewById(R.id.forum_header_serch_container);
-        this.ikq = (ForumHeaderView) this.ctR.findViewById(R.id.forum_header_serch_view);
-        this.ikq.setFrom(1);
-        this.ikq.setSearchHint(TbSingleton.getInstance().getHotSearch());
-        this.mPE = new com.baidu.tieba.square.view.b(this.mTbPageContext, this.ctR);
-        this.mPF = (RelativeLayout) this.ctR.findViewById(R.id.layout_container);
+        this.mQw = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null);
+        this.mQv = (TextView) this.mQw.findViewById(R.id.right_textview);
+        this.mQv.setText(this.mActivity.getString(R.string.forum_square_create_bar));
+        this.mQu = (RelativeLayout) this.csf.findViewById(R.id.forum_header_serch_container);
+        this.ile = (ForumHeaderView) this.csf.findViewById(R.id.forum_header_serch_view);
+        this.ile.setFrom(1);
+        this.ile.setSearchHint(TbSingleton.getInstance().getHotSearch());
+        this.mQx = new com.baidu.tieba.square.view.b(this.mTbPageContext, this.csf);
+        this.mQy = (RelativeLayout) this.csf.findViewById(R.id.layout_container);
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void dHV() {
+    public void dHM() {
         this.mNavigationBar.setVisibility(8);
-        this.ikq.setVisibility(8);
-        this.mPB.setVisibility(8);
-        ((LinearLayout.LayoutParams) this.mPF.getLayoutParams()).bottomMargin = l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds22);
+        this.ile.setVisibility(8);
+        this.mQu.setVisibility(8);
+        ((LinearLayout.LayoutParams) this.mQy.getLayoutParams()).bottomMargin = l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds22);
     }
 
-    public void xi(boolean z) {
-        this.mPD.setVisibility(z ? 0 : 8);
+    public void xm(boolean z) {
+        this.mQw.setVisibility(z ? 0 : 8);
     }
 
-    public Pair<Integer, Integer> dHX() {
-        return this.mPE != null ? this.mPE.dHX() : new Pair<>(0, 0);
+    public Pair<Integer, Integer> dHO() {
+        return this.mQx != null ? this.mQx.dHO() : new Pair<>(0, 0);
     }
 
     public void scrollToPositionWithOffset(int i, int i2) {
-        if (this.mPE != null) {
-            this.mPE.scrollToPositionWithOffset(i, i2);
+        if (this.mQx != null) {
+            this.mQx.scrollToPositionWithOffset(i, i2);
         }
     }
 
-    public void a(a.InterfaceC0846a interfaceC0846a) {
-        if (this.mPE != null) {
-            this.mPE.a(interfaceC0846a);
+    public void a(a.InterfaceC0849a interfaceC0849a) {
+        if (this.mQx != null) {
+            this.mQx.a(interfaceC0849a);
         }
     }
 
     public void e(BdListView.e eVar) {
-        if (this.mPE != null) {
-            this.mPE.e(eVar);
+        if (this.mQx != null) {
+            this.mQx.e(eVar);
         }
     }
 
     public void b(RecyclerView.OnScrollListener onScrollListener) {
-        if (this.mPE != null) {
-            this.mPE.b(onScrollListener);
+        if (this.mQx != null) {
+            this.mQx.b(onScrollListener);
         }
     }
 
-    public String dHY() {
-        return this.mPE.dHY();
+    public String dHP() {
+        return this.mQx.dHP();
     }
 
-    public void Su(String str) {
-        if (this.mPE != null) {
-            this.mPE.Su(str);
+    public void RV(String str) {
+        if (this.mQx != null) {
+            this.mQx.RV(str);
         }
     }
 
     public void c(String str, List<String> list, boolean z) {
-        if (this.mPE != null) {
-            this.mPE.c(str, list, z);
+        if (this.mQx != null) {
+            this.mQx.c(str, list, z);
         }
     }
 
     public void fF(List<q> list) {
-        if (this.mPE != null) {
-            this.mPE.fF(list);
+        if (this.mQx != null) {
+            this.mQx.fF(list);
         }
     }
 
     public void v(List<q> list, int i) {
-        if (this.mPE != null) {
-            this.mPE.v(list, i);
+        if (this.mQx != null) {
+            this.mQx.v(list, i);
         }
     }
 
-    public void dHZ() {
-        if (this.mPE != null) {
-            this.mPE.dHZ();
+    public void dHQ() {
+        if (this.mQx != null) {
+            this.mQx.dHQ();
         }
     }
 
     public void ai(View.OnClickListener onClickListener) {
-        if (this.mPC != null) {
-            this.mPC.setOnClickListener(onClickListener);
+        if (this.mQv != null) {
+            this.mQv.setOnClickListener(onClickListener);
         }
     }
 
     public void changeSkinType(int i) {
-        if (this.ikq != null) {
-            this.ikq.onChangeSkinType();
+        if (this.ile != null) {
+            this.ile.onChangeSkinType();
         }
         if (this.mNavigationBar != null && this.mActivity != null) {
             this.mNavigationBar.onChangeSkinType(this.mTbPageContext, i);
         }
-        if (this.mPE != null) {
-            this.mPE.onChangeSkinType(i);
+        if (this.mQx != null) {
+            this.mQx.onChangeSkinType(i);
         }
-        if (this.gso != null) {
-            this.gso.onChangeSkinType();
+        if (this.grV != null) {
+            this.grV.onChangeSkinType();
         }
         if (this.mRefreshView != null) {
             this.mRefreshView.onChangeSkinType();
         }
         if (this.mNoDataView != null && this.mActivity != null) {
-            this.mNoDataView.setSubTitleTextColor(R.color.cp_cont_b);
+            this.mNoDataView.setSubTitleTextColor(R.color.CAM_X0105);
             this.mNoDataView.onChangeSkinType(this.mTbPageContext, i);
         }
-        ap.setViewTextColor(this.mPC, R.color.cp_cont_b, 1);
-        ap.setBackgroundColor(this.ctR, R.color.cp_bg_line_e);
-        ap.setBackgroundColor(this.mPB, R.color.cp_bg_line_h);
-        ap.setBackgroundColor(this.mNavigationBar, R.color.cp_bg_line_h, i);
+        ap.setViewTextColor(this.mQv, R.color.CAM_X0105, 1);
+        ap.setBackgroundColor(this.csf, R.color.CAM_X0205);
+        ap.setBackgroundColor(this.mQu, R.color.CAM_X0207);
+        ap.setBackgroundColor(this.mNavigationBar, R.color.CAM_X0207, i);
     }
 
     public void setSearchHint(String str) {
-        if (this.ikq != null) {
-            this.ikq.setSearchHint(str);
+        if (this.ile != null) {
+            this.ile.setSearchHint(str);
         }
     }
 
     public void aj(View.OnClickListener onClickListener) {
-        this.mPG = onClickListener;
+        this.mQz = onClickListener;
     }
 
-    public void oY(boolean z) {
-        if (!cmK()) {
+    public void pb(boolean z) {
+        if (!cmm()) {
             if (this.mRefreshView == null) {
-                this.mRefreshView = new h(this.mActivity, this.mPG);
+                this.mRefreshView = new h(this.mActivity, this.mQz);
                 this.mRefreshView.setLayoutMargin(l.getDimens(this.mActivity, R.dimen.ds250));
             }
-            this.mRefreshView.attachView(this.mPF, z);
+            this.mRefreshView.attachView(this.mQy, z);
             this.mRefreshView.showRefreshButton();
         }
     }
 
-    private boolean cmK() {
+    private boolean cmm() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
         return false;
     }
 
-    public void Wk() {
+    public void VB() {
         if (this.mRefreshView != null) {
-            this.mRefreshView.dettachView(this.mPF);
+            this.mRefreshView.dettachView(this.mQy);
             this.mRefreshView = null;
         }
     }
 
     public void hideLoadingView() {
-        if (this.gso != null) {
-            this.gso.dettachView(this.mPF);
-            this.gso = null;
+        if (this.grV != null) {
+            this.grV.dettachView(this.mQy);
+            this.grV = null;
         }
     }
 
-    public boolean cmJ() {
-        if (this.gso != null) {
-            return this.gso.isViewAttached();
+    public boolean cml() {
+        if (this.grV != null) {
+            return this.grV.isViewAttached();
         }
         return false;
     }
 
-    public void hJ(boolean z) {
-        if (!cmJ()) {
-            if (this.gso == null) {
-                this.gso = new g(this.mActivity);
-                this.gso.setTopMargin(l.getDimens(this.mActivity, R.dimen.ds250));
+    public void hM(boolean z) {
+        if (!cml()) {
+            if (this.grV == null) {
+                this.grV = new g(this.mActivity);
+                this.grV.setTopMargin(l.getDimens(this.mActivity, R.dimen.ds250));
             }
-            this.gso.onChangeSkinType();
-            this.gso.attachView(this.mPF, z);
+            this.grV.onChangeSkinType();
+            this.grV.attachView(this.mQy, z);
         }
     }
 
@@ -258,75 +258,75 @@ public class b {
         }
     }
 
-    public void dIa() {
+    public void dHR() {
         hideLoadingView();
         hideNoDataView();
-        oY(true);
-        if (this.mPE != null) {
-            this.mPE.He(8);
+        pb(true);
+        if (this.mQx != null) {
+            this.mQx.HC(8);
         }
     }
 
-    public void dIb() {
-        Wk();
+    public void dHS() {
+        VB();
         hideNoDataView();
-        hJ(true);
+        hM(true);
     }
 
-    public void dIc() {
+    public void dHT() {
         hideLoadingView();
-        Wk();
+        VB();
         hideNoDataView();
-        if (this.mPE != null) {
-            this.mPE.hideLoadingView();
-            this.mPE.He(0);
+        if (this.mQx != null) {
+            this.mQx.hideLoadingView();
+            this.mQx.HC(0);
         }
     }
 
-    public void dId() {
+    public void dHU() {
         hideLoadingView();
-        Wk();
+        VB();
         hideNoDataView();
-        if (this.mPE != null) {
-            this.mPE.hJ(true);
-            this.mPE.Js(8);
+        if (this.mQx != null) {
+            this.mQx.hM(true);
+            this.mQx.JU(8);
         }
     }
 
-    public void dIe() {
-        if (this.mPE != null) {
-            this.mPE.dIe();
+    public void dHV() {
+        if (this.mQx != null) {
+            this.mQx.dHV();
         }
     }
 
-    public void dIf() {
-        if (this.mPE != null) {
-            this.mPE.dIf();
+    public void dHW() {
+        if (this.mQx != null) {
+            this.mQx.dHW();
         }
     }
 
-    public void dIg() {
-        if (this.mPE != null) {
-            this.mPE.dIg();
+    public void dHX() {
+        if (this.mQx != null) {
+            this.mQx.dHX();
         }
     }
 
-    public void bPW() {
-        if (this.mPE != null) {
-            this.mPE.bPW();
+    public void bPp() {
+        if (this.mQx != null) {
+            this.mQx.bPp();
         }
     }
 
-    public boolean xj(boolean z) {
+    public boolean xn(boolean z) {
         if (z) {
             if (j.isNetWorkAvailable()) {
-                dIg();
+                dHX();
             } else {
-                dIe();
+                dHV();
             }
             return true;
         }
-        dIf();
+        dHW();
         return false;
     }
 }

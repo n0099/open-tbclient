@@ -4,33 +4,33 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class b {
-    private static final b oUw = enM().enU();
-    public final boolean oUA;
-    public final boolean oUB;
-    public final Bitmap.Config oUC;
+    private static final b oVZ = enK().enS();
+    public final int oWa;
+    public final boolean oWb;
+    public final boolean oWc;
+    public final boolean oWd;
+    public final boolean oWe;
+    public final Bitmap.Config oWf;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b oUD;
-    public final int oUx;
-    public final boolean oUy;
-    public final boolean oUz;
+    public final com.facebook.imagepipeline.decoder.b oWg;
 
     public b(c cVar) {
-        this.oUx = cVar.enN();
-        this.oUy = cVar.enO();
-        this.oUz = cVar.enP();
-        this.oUA = cVar.enQ();
-        this.oUB = cVar.enS();
-        this.oUC = cVar.enT();
-        this.oUD = cVar.enR();
+        this.oWa = cVar.enL();
+        this.oWb = cVar.enM();
+        this.oWc = cVar.enN();
+        this.oWd = cVar.enO();
+        this.oWe = cVar.enQ();
+        this.oWf = cVar.enR();
+        this.oWg = cVar.enP();
     }
 
-    public static b enL() {
-        return oUw;
+    public static b enJ() {
+        return oVZ;
     }
 
-    public static c enM() {
+    public static c enK() {
         return new c();
     }
 
@@ -42,14 +42,14 @@ public class b {
             return false;
         }
         b bVar = (b) obj;
-        return this.oUy == bVar.oUy && this.oUz == bVar.oUz && this.oUA == bVar.oUA && this.oUB == bVar.oUB && this.oUC == bVar.oUC && this.oUD == bVar.oUD;
+        return this.oWb == bVar.oWb && this.oWc == bVar.oWc && this.oWd == bVar.oWd && this.oWe == bVar.oWe && this.oWf == bVar.oWf && this.oWg == bVar.oWg;
     }
 
     public int hashCode() {
-        return (((((((this.oUA ? 1 : 0) + (((this.oUz ? 1 : 0) + (((this.oUy ? 1 : 0) + (this.oUx * 31)) * 31)) * 31)) * 31) + (this.oUB ? 1 : 0)) * 31) + this.oUC.ordinal()) * 31) + (this.oUD != null ? this.oUD.hashCode() : 0);
+        return (((((((this.oWd ? 1 : 0) + (((this.oWc ? 1 : 0) + (((this.oWb ? 1 : 0) + (this.oWa * 31)) * 31)) * 31)) * 31) + (this.oWe ? 1 : 0)) * 31) + this.oWf.ordinal()) * 31) + (this.oWg != null ? this.oWg.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.oUx), Boolean.valueOf(this.oUy), Boolean.valueOf(this.oUz), Boolean.valueOf(this.oUA), Boolean.valueOf(this.oUB), this.oUC.name(), this.oUD);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.oWa), Boolean.valueOf(this.oWb), Boolean.valueOf(this.oWc), Boolean.valueOf(this.oWd), Boolean.valueOf(this.oWe), this.oWf.name(), this.oWg);
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.fsg.face.base.d;
 
 import android.graphics.Rect;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */

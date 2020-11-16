@@ -8,18 +8,18 @@ import android.widget.LinearLayout;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.ap.ak;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class h extends com.baidu.swan.apps.api.a.d {
     public h(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b lN(String str) {
+    public com.baidu.swan.apps.api.c.b lH(String str) {
         if (DEBUG) {
             Log.d("Api-FullScreenApi", "start set full screen");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj = com.baidu.swan.apps.api.d.b.bj("Api-FullScreenApi", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bj.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bi = com.baidu.swan.apps.api.d.b.bi("Api-FullScreenApi", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bi.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-FullScreenApi", "parse fail");
@@ -27,7 +27,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
             }
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) bj.second;
+        JSONObject jSONObject = (JSONObject) bi.second;
         ag(i(jSONObject.optBoolean("fullScreen"), jSONObject.optInt("direction")), jSONObject.optString("cb"));
         return new com.baidu.swan.apps.api.c.b(0);
     }
@@ -44,58 +44,58 @@ public class h extends com.baidu.swan.apps.api.a.d {
             @Override // java.lang.Runnable
             public void run() {
                 View actionBar = com.baidu.swan.apps.res.widget.a.getActionBar();
-                LinearLayout aGP = com.baidu.swan.apps.res.widget.a.aGP();
-                if (actionBar == null || aGP == null) {
+                LinearLayout aGh = com.baidu.swan.apps.res.widget.a.aGh();
+                if (actionBar == null || aGh == null) {
                     h.this.a(str, new com.baidu.swan.apps.api.c.b(1001));
                     return;
                 }
                 switch (i) {
                     case -90:
                         actionBar.setVisibility(8);
-                        aGP.setVisibility(8);
-                        com.baidu.swan.apps.res.widget.a.aGR();
+                        aGh.setVisibility(8);
+                        com.baidu.swan.apps.res.widget.a.aGj();
                         com.baidu.swan.apps.res.widget.a.setImmersive(true);
-                        h.hz(8);
+                        h.hv(8);
                         break;
                     case 90:
                         actionBar.setVisibility(8);
-                        aGP.setVisibility(8);
-                        com.baidu.swan.apps.res.widget.a.aGR();
+                        aGh.setVisibility(8);
+                        com.baidu.swan.apps.res.widget.a.aGj();
                         com.baidu.swan.apps.res.widget.a.setImmersive(true);
-                        h.hz(0);
+                        h.hv(0);
                         break;
                     default:
-                        com.baidu.swan.apps.res.widget.a.aGQ();
+                        com.baidu.swan.apps.res.widget.a.aGi();
                         actionBar.setVisibility(0);
-                        aGP.setVisibility(0);
-                        h.akb();
+                        aGh.setVisibility(0);
+                        h.ajt();
                         break;
                 }
-                j.akd().hB(i);
+                j.ajv().hx(i);
                 h.this.a(str, new com.baidu.swan.apps.api.c.b(0));
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void akb() {
-        SwanAppActivity azy = com.baidu.swan.apps.v.f.azO().azy();
-        azy.setRequestedOrientation(1);
-        if (!com.baidu.swan.apps.res.widget.a.isImmersionEnabled(com.baidu.swan.apps.res.widget.a.getDecorView(azy))) {
+    public static void ajt() {
+        SwanAppActivity ayQ = com.baidu.swan.apps.v.f.azg().ayQ();
+        ayQ.setRequestedOrientation(1);
+        if (!com.baidu.swan.apps.res.widget.a.isImmersionEnabled(com.baidu.swan.apps.res.widget.a.getDecorView(ayQ))) {
             com.baidu.swan.apps.res.widget.a.setImmersive(false);
         }
-        if (azy.getWindow() != null) {
-            azy.getWindow().clearFlags(1024);
+        if (ayQ.getWindow() != null) {
+            ayQ.getWindow().clearFlags(1024);
         }
-        if (com.baidu.swan.apps.v.f.azO().apc() != null) {
-            com.baidu.swan.apps.v.f.azO().apc().resetWithCurImmersion();
+        if (com.baidu.swan.apps.v.f.azg().aou() != null) {
+            com.baidu.swan.apps.v.f.azg().aou().resetWithCurImmersion();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void hz(int i) {
-        SwanAppActivity azy = com.baidu.swan.apps.v.f.azO().azy();
-        azy.setRequestedOrientation(i);
-        azy.getWindow().setFlags(1024, 1024);
+    public static void hv(int i) {
+        SwanAppActivity ayQ = com.baidu.swan.apps.v.f.azg().ayQ();
+        ayQ.setRequestedOrientation(i);
+        ayQ.getWindow().setFlags(1024, 1024);
     }
 }

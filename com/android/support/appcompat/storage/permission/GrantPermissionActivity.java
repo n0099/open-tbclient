@@ -10,7 +10,7 @@ import com.android.support.appcompat.a;
 import com.android.support.appcompat.storage.b;
 import java.io.FileNotFoundException;
 import java.io.OutputStream;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class GrantPermissionActivity extends Activity {
     private b HE;
     private int mRequestCode = -1;

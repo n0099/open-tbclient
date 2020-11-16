@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */

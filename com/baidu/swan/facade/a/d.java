@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.baidu.swan.apps.scheme.j;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 interface d {
     void a(j jVar);
 

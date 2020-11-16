@@ -8,7 +8,7 @@ import com.sdk.base.framework.bean.PInfo;
 import com.sdk.base.framework.bean.SInfo;
 import com.sdk.base.module.config.BaseConfig;
 import java.util.ArrayList;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */

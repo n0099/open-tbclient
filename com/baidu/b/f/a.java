@@ -5,12 +5,12 @@ import java.io.ByteArrayOutputStream;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1267a;
+    private String f1270a;
     private boolean b;
     private boolean c;
 
     public a(String str, boolean z, boolean z2) {
-        this.f1267a = str;
+        this.f1270a = str;
         this.b = z;
         this.c = z2;
     }
@@ -56,7 +56,7 @@ public class a {
             iArr[6] = (byte) (((sArr[3] & 3) << 3) | ((sArr[4] >> 5) & 7));
             iArr[7] = (byte) (sArr[4] & 31);
             for (int i4 = 0; i4 < iArr.length - a2; i4++) {
-                char charAt = this.f1267a.charAt(iArr[i4]);
+                char charAt = this.f1270a.charAt(iArr[i4]);
                 if (this.c) {
                     charAt = Character.toLowerCase(charAt);
                 }

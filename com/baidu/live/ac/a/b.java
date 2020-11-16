@@ -3,46 +3,46 @@ package com.baidu.live.ac.a;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 /* loaded from: classes4.dex */
 public class b {
-    private boolean bln;
-    private com.baidu.live.ac.a.a but;
+    private boolean bjC;
+    private com.baidu.live.ac.a.a bsG;
     private long mQuota;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void Qy();
+        void PP();
     }
 
-    public static b Qx() {
-        return C0169b.buw;
+    public static b PO() {
+        return C0167b.bsJ;
     }
 
-    public void cy(boolean z) {
-        this.bln = z;
+    public void cA(boolean z) {
+        this.bjC = z;
         a(null);
     }
 
     public synchronized boolean K(Object obj) {
         boolean z = true;
         synchronized (this) {
-            if (this.bln && this.mQuota > 0 && this.but != null) {
-                z = this.but.a(this.mQuota, obj);
+            if (this.bjC && this.mQuota > 0 && this.bsG != null) {
+                z = this.bsG.a(this.mQuota, obj);
             }
         }
         return z;
     }
 
     public void release() {
-        if (this.but != null) {
-            this.but.release();
+        if (this.bsG != null) {
+            this.bsG.release();
         }
         this.mQuota = 0L;
-        this.bln = false;
+        this.bjC = false;
     }
 
     private void a(final a aVar) {
-        if (!this.bln || this.mQuota <= 0) {
+        if (!this.bjC || this.mQuota <= 0) {
             if (aVar != null) {
-                aVar.Qy();
+                aVar.PP();
                 return;
             }
             return;
@@ -61,19 +61,19 @@ public class b {
             public void onPostExecute(Boolean bool) {
                 super.onPostExecute((AnonymousClass1) bool);
                 if (aVar != null) {
-                    aVar.Qy();
+                    aVar.PP();
                 }
             }
         }.execute(new Void[0]);
     }
 
     private b() {
-        this.but = new c();
+        this.bsG = new c();
     }
 
     /* renamed from: com.baidu.live.ac.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0169b {
-        private static final b buw = new b();
+    private static class C0167b {
+        private static final b bsJ = new b();
     }
 }

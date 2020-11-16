@@ -7,7 +7,7 @@ import com.google.gson.stream.a;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class JsonParser {
     public JsonElement parse(String str) throws JsonSyntaxException {
         return parse(new StringReader(str));
@@ -32,7 +32,7 @@ public final class JsonParser {
 
     public JsonElement parse(a aVar) throws JsonIOException, JsonSyntaxException {
         boolean etq = aVar.etq();
-        aVar.Az(true);
+        aVar.AG(true);
         try {
             try {
                 return h.parse(aVar);
@@ -42,7 +42,7 @@ public final class JsonParser {
                 throw new JsonParseException("Failed parsing JSON source: " + aVar + " to Json", e2);
             }
         } finally {
-            aVar.Az(etq);
+            aVar.AG(etq);
         }
     }
 }

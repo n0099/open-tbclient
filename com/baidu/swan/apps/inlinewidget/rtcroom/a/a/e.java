@@ -2,11 +2,11 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.a.a;
 
 import android.support.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class e extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.a> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String avA() {
+    public String auS() {
         return "setItemType";
     }
 
@@ -15,7 +15,7 @@ public class e extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.a aVar) {
         a(aVar, command.what, "" + command.obj, true);
         if (command.obj instanceof String) {
-            aVar.oF((String) command.obj);
+            aVar.oz((String) command.obj);
         }
     }
 }

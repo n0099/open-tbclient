@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import com.baidu.searchbox.ugc.model.MusicData;
 import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface IUgcHostInterface<T> {
     public static final IUgcHostInterface EMPTY = new IUgcHostInterface() { // from class: com.baidu.searchbox.ugc.bridge.IUgcHostInterface.1
         @Override // com.baidu.searchbox.ugc.bridge.IUgcHostInterface
@@ -68,7 +68,7 @@ public interface IUgcHostInterface<T> {
     };
     public static final String LOG_TAG = "IUgcHostInterface";
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface RequestPermissionCallBack {
         void isAllAgree(Boolean bool);
 
@@ -102,7 +102,7 @@ public interface IUgcHostInterface<T> {
 
     void setUgcRNInitData(Activity activity, String str);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Impl {
         private static IUgcHostInterface sUgcHostImpl = UgcRuntime.getUgcInterface();
 

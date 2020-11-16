@@ -12,7 +12,7 @@ import kotlin.jvm.internal.q;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @h
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public final class f {
     private final List<g> frames;
     private final String imageKey;
@@ -21,7 +21,7 @@ public final class f {
         return this.imageKey;
     }
 
-    public final List<g> exw() {
+    public final List<g> exx() {
         return this.frames;
     }
 
@@ -36,7 +36,7 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.jz().isEmpty()) && ((SVGAVideoShapeEntity) o.gQ(gVar.jz())).exm() && arrayList.size() > 0) {
+                    if ((!gVar.jz().isEmpty()) && ((SVGAVideoShapeEntity) o.gQ(gVar.jz())).exn() && arrayList.size() > 0) {
                         gVar.gG(((g) o.gR(arrayList)).jz());
                     }
                     arrayList.add(gVar);
@@ -47,7 +47,7 @@ public final class f {
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList eBx;
+        ArrayList eBy;
         q.n(spriteEntity, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
@@ -59,16 +59,16 @@ public final class f {
             for (FrameEntity frameEntity : list2) {
                 q.m(frameEntity, AdvanceSetting.NETWORK_TYPE);
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.jz().isEmpty()) && ((SVGAVideoShapeEntity) o.gQ(gVar3.jz())).exm() && gVar2 != null) {
+                if ((!gVar3.jz().isEmpty()) && ((SVGAVideoShapeEntity) o.gQ(gVar3.jz())).exn() && gVar2 != null) {
                     gVar3.gG(gVar2.jz());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            eBx = arrayList;
+            eBy = arrayList;
         } else {
-            eBx = o.eBx();
+            eBy = o.eBy();
         }
-        this.frames = eBx;
+        this.frames = eBy;
     }
 }

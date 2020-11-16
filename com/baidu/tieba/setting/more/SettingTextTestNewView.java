@@ -6,16 +6,16 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public final class SettingTextTestNewView extends TbSettingTextTipView {
     public SettingTextTestNewView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         hideArrow();
-        u(0, 0, l.getDimens(context, R.dimen.ds30), 0);
+        v(0, 0, l.getDimens(context, R.dimen.ds30), 0);
     }
 
     public void refresh() {
@@ -26,14 +26,14 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             z = true;
         }
         if (z) {
-            this.fkd.setText("new");
-            this.fkd.setTextAppearance(this.mContext, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
-            ap.setBackgroundResource(this.fkd, R.drawable.icon_news_text_prompt);
+            this.fjl.setText("new");
+            this.fjl.setTextAppearance(this.mContext, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
+            ap.setBackgroundResource(this.fjl, R.drawable.icon_news_text_prompt);
             return;
         }
         String version = TbConfig.getVersion();
-        this.fkd.setText((TbConfig.getVersionType() != 1 || at.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
-        this.fkd.setBackgroundDrawable(null);
-        this.fkd.setTextAppearance(this.mContext, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
+        this.fjl.setText((TbConfig.getVersionType() != 1 || au.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
+        this.fjl.setBackgroundDrawable(null);
+        this.fjl.setTextAppearance(this.mContext, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
     }
 }

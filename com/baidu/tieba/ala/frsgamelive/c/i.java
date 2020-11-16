@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class i extends com.baidu.adp.widget.ListView.c {
-    private ImageView gEo;
-    private TextView gEp;
+    private ImageView gDV;
+    private TextView gDW;
     private View mBottomLine;
     private View.OnClickListener mClickListener;
     private Context mContext;
@@ -26,29 +26,29 @@ public class i extends com.baidu.adp.widget.ListView.c {
     @Override // com.baidu.adp.widget.ListView.c
     public View createView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.ala_frs_game_more_live_layout, (ViewGroup) null);
-        this.gEp = (TextView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_tip);
-        this.gEo = (ImageView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_icon);
+        this.gDW = (TextView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_tip);
+        this.gDV = (ImageView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_icon);
         this.mTopLine = this.mRootView.findViewById(R.id.ala_game_frs_more_live_top_line);
         this.mBottomLine = this.mRootView.findViewById(R.id.ala_game_frs_more_live_bottom_line);
-        uE(TbadkCoreApplication.getInst().getSkinType());
+        vc(TbadkCoreApplication.getInst().getSkinType());
         return this.mRootView;
     }
 
-    public void uE(int i) {
+    public void vc(int i) {
         if (this.mRootView != null) {
             ap.setBackgroundResource(this.mRootView, R.drawable.addresslist_item_bg);
         }
-        if (this.gEp != null) {
-            ap.setViewTextColor(this.gEp, (int) R.color.cp_link_tip_c);
+        if (this.gDW != null) {
+            ap.setViewTextColor(this.gDW, R.color.CAM_X0304);
         }
-        if (this.gEo != null) {
-            ap.setImageResource(this.gEo, R.drawable.icon_inf_arrowblue_n);
+        if (this.gDV != null) {
+            ap.setImageResource(this.gDV, R.drawable.icon_inf_arrowblue_n);
         }
         if (this.mTopLine != null) {
-            ap.setBackgroundResource(this.mTopLine, R.color.cp_bg_line_c);
+            ap.setBackgroundResource(this.mTopLine, R.color.CAM_X0204);
         }
         if (this.mBottomLine != null) {
-            ap.setBackgroundResource(this.mBottomLine, R.color.cp_bg_line_c);
+            ap.setBackgroundResource(this.mBottomLine, R.color.CAM_X0204);
         }
     }
 

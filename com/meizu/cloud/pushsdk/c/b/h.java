@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.c.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public enum h {
     HTTP,
     HTTPS

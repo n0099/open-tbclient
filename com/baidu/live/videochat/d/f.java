@@ -7,9 +7,9 @@ public interface f {
 
     void C(String str, boolean z);
 
-    void Vc();
+    void Ut();
 
-    void Vd();
+    void Uu();
 
     void a(int i, boolean z, int i2, String str, String str2, String str3);
 

@@ -7,44 +7,44 @@ import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.g;
 import com.baidu.tieba.ala.alasquare.subtablist.c.h;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.b.e, g> {
-    private String gmd;
-    private h gpA;
-    private com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f gpz;
+    private String glK;
+    private com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f gpg;
+    private h gph;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.gjR);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.gjy);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aa */
+    /* renamed from: W */
     public g c(ViewGroup viewGroup) {
-        this.gpz = new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f(this.mPageContext, viewGroup);
-        if (this.gpA != null) {
-            this.gpz.c(this.gpA);
+        this.gpg = new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f(this.mPageContext, viewGroup);
+        if (this.gph != null) {
+            this.gpg.c(this.gph);
         }
-        return new g(this.gpz);
+        return new g(this.gpg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.b.e eVar, g gVar) {
-        gVar.gpz.a(eVar, this.gmd);
+        gVar.gpg.a(eVar, this.glK);
         return gVar.getView();
     }
 
     public void a(h hVar) {
-        this.gpA = hVar;
-        if (this.gpz != null) {
-            this.gpz.c(this.gpA);
+        this.gph = hVar;
+        if (this.gpg != null) {
+            this.gpg.c(this.gph);
         }
     }
 
     public void setEntryName(String str) {
-        this.gmd = str;
+        this.glK = str;
     }
 }

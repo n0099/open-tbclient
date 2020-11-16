@@ -8,47 +8,47 @@ import tbclient.FloatStrategy;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class a {
-    private DataRes ete;
-    public NewUserRedPackageData eti;
-    public ActiveCenterData etj;
+    public NewUserRedPackageData erC;
+    public ActiveCenterData erD;
+    private DataRes ery;
     public boolean isNewUser = false;
-    public String etf = "";
-    private final ArrayList<com.baidu.tbadk.BdToken.b> etg = new ArrayList<>();
-    private final ArrayList<FloatStrategy> eth = new ArrayList<>();
+    public String erz = "";
+    private final ArrayList<com.baidu.tbadk.BdToken.b> erA = new ArrayList<>();
+    private final ArrayList<FloatStrategy> erB = new ArrayList<>();
 
-    public ArrayList<com.baidu.tbadk.BdToken.b> bhp() {
-        return this.etg;
+    public ArrayList<com.baidu.tbadk.BdToken.b> bgI() {
+        return this.erA;
     }
 
-    public ArrayList<FloatStrategy> bhq() {
-        return this.eth;
+    public ArrayList<FloatStrategy> bgJ() {
+        return this.erB;
     }
 
     public void a(DataRes dataRes) {
-        this.ete = dataRes;
-        this.etg.clear();
-        this.eth.clear();
+        this.ery = dataRes;
+        this.erA.clear();
+        this.erB.clear();
         if (dataRes != null) {
             this.isNewUser = dataRes.is_new_user.intValue() == 1;
-            this.etf = dataRes.active_url;
-            this.eth.addAll(dataRes.float_list);
-            for (MissionInfo missionInfo : this.ete.mission_list) {
+            this.erz = dataRes.active_url;
+            this.erB.addAll(dataRes.float_list);
+            for (MissionInfo missionInfo : this.ery.mission_list) {
                 if (missionInfo != null) {
                     com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b(missionInfo);
                     if (missionInfo.tasktype.intValue() == 5) {
-                        com.baidu.tbadk.core.f.a.bqd().a(missionInfo);
+                        com.baidu.tbadk.core.f.a.bpq().a(missionInfo);
                     } else if (missionInfo.tasktype.intValue() == 9) {
-                        p.bgK().q(bVar);
-                    } else if (bVar.bfI()) {
-                        this.etg.add(bVar);
+                        p.bgd().q(bVar);
+                    } else if (bVar.bfb()) {
+                        this.erA.add(bVar);
                     }
                 }
             }
-            this.eti = new NewUserRedPackageData();
-            this.eti.parseProto(dataRes);
+            this.erC = new NewUserRedPackageData();
+            this.erC.parseProto(dataRes);
             if (dataRes.active_center != null) {
-                this.etj = new ActiveCenterData();
-                this.etj.parseProto(dataRes);
+                this.erD = new ActiveCenterData();
+                this.erD.parseProto(dataRes);
             }
         }
     }

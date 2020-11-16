@@ -4,7 +4,7 @@ import com.xiaomi.push.ek;
 import com.xiaomi.push.ft;
 import com.xiaomi.push.fw;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 class br extends ft {
 
     /* renamed from: a  reason: collision with root package name */
@@ -19,13 +19,13 @@ class br extends ft {
 
     @Override // com.xiaomi.push.ft
     /* renamed from: a */
-    public byte[] mo301a() {
+    public byte[] mo304a() {
         try {
             ek.b bVar = new ek.b();
-            bVar.a(be.a().m562a());
+            bVar.a(be.a().m565a());
             return bVar.a();
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m54a("getOBBString err: " + e.toString());
+            com.xiaomi.channel.commonutils.logger.b.m57a("getOBBString err: " + e.toString());
             return null;
         }
     }

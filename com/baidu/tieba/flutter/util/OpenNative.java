@@ -72,9 +72,9 @@ import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
@@ -99,7 +99,7 @@ import tbclient.ItemInfo;
 import tbclient.ItemTable;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class OpenNative {
     public static final String kNativeBarBroadcastHistoryPage = "kNativeBarBroadcastHistoryPage";
     public static final String kNativePageKeyAddFriend = "kNativePageKeyAddFriend";
@@ -386,7 +386,7 @@ public class OpenNative {
     private static void openNativeCustomVideo(Context context, Map<String, Object> map) {
         String str = (String) map.get("videoUrl");
         SimpleVideoPlayActivityConfig.a aVar = new SimpleVideoPlayActivityConfig.a();
-        aVar.AL(str).AK(str);
+        aVar.Ag(str).Af(str);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, aVar.dV(context)));
     }
 
@@ -437,7 +437,7 @@ public class OpenNative {
 
     private static void openNativePersonal(Context context, Map<String, Object> map) {
         String str = (String) map.get("uid");
-        if (at.isEmpty(str)) {
+        if (au.isEmpty(str)) {
             BdLog.e("openPageByUrl param is empty.");
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, str, "")));
@@ -491,7 +491,7 @@ public class OpenNative {
     private static void openNativeBarOrgMember(Context context, Map<String, Object> map) {
         String str = (String) map.get(TbTitleActivityConfig.FORUM_ID);
         String str2 = (String) map.get(TbTitleActivityConfig.FORUM_NAME);
-        if (at.isEmpty(str)) {
+        if (au.isEmpty(str)) {
             BdLog.e("openPageByUrl param is empty.");
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumMemberActivityConfig(context, str, str2)));
@@ -500,7 +500,7 @@ public class OpenNative {
 
     private static void openNativeEmojiCenter(Context context, Map<String, Object> map) {
         String str = (String) map.get("url");
-        if (at.isEmpty(str)) {
+        if (au.isEmpty(str)) {
             BdLog.e("openPageByUrl param is empty.");
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CommonEmotionManagerActivityConfig(context, str)));
@@ -550,7 +550,7 @@ public class OpenNative {
     private static void openNativeVitalityPB(Context context, Map<String, Object> map) {
         String str = (String) map.get("tid");
         int i = b.toInt((String) map.get("threadType"), 0);
-        if (at.isEmpty(str)) {
+        if (au.isEmpty(str)) {
             BdLog.e("openPageByUrl param is empty.");
             return;
         }
@@ -586,12 +586,12 @@ public class OpenNative {
         String str8 = (String) map.get("info_forum_image_url");
         int intValue = map.containsKey("transition_type") ? ((Integer) map.get("transition_type")).intValue() : 0;
         String str9 = (String) map.get(MapController.ITEM_LAYER_TAG);
-        if (at.isEmpty(str2)) {
+        if (au.isEmpty(str2)) {
             BdLog.e("openPageByUrl param is empty.");
             return;
         }
         FrsActivityConfig createNormalCfg = new FrsActivityConfig(context).createNormalCfg(str2, str3);
-        if (!at.isEmpty(str4)) {
+        if (!au.isEmpty(str4)) {
             createNormalCfg.setCallFrom(b.toInt(str4, 0));
         }
         long j = b.toLong(str5, 0L);
@@ -631,13 +631,13 @@ public class OpenNative {
 
     private static void openNativeWebView(Context context, Map<String, Object> map) {
         String str = (String) map.get("url");
-        if (at.isEmpty(str)) {
+        if (au.isEmpty(str)) {
             BdLog.e("openPageByUrl param is empty.");
             return;
         }
         try {
             if (TbadkApplication.getInst().getCurrentActivity() != null) {
-                be.brr().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{str});
+                bf.bqF().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{str});
             }
         } catch (Exception e) {
             BdLog.e("openPageByUrl fail:" + e.toString());
@@ -647,7 +647,7 @@ public class OpenNative {
     private static void openNativeWKWebView(Context context, Map<String, Object> map) {
         String str = (String) map.get("title");
         String str2 = (String) map.get("url");
-        if (at.isEmpty(str2)) {
+        if (au.isEmpty(str2)) {
             BdLog.e("openNativeWKWebView param is empty.");
         } else {
             a.startWebActivity(true, context, str, str2);
@@ -683,7 +683,7 @@ public class OpenNative {
 
     private static void openNativeForumGroup(Context context, Map<String, Object> map) {
         String str = (String) map.get("barID");
-        if (at.isEmpty(str)) {
+        if (au.isEmpty(str)) {
             BdLog.e("openPageByUrl param is empty.");
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FrsGroupActivityConfig(context, str, "")));
@@ -756,7 +756,7 @@ public class OpenNative {
                 str = arrayList.get(arrayList.size() - 1);
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).nP(((Integer) map.get("index")).intValue()).AE((String) map.get("forum_name")).AF((String) map.get("forum_id")).AG((String) map.get("thread_id")).ix(true).AH(str).iy(true).iz(true);
+            aVar.x(arrayList).nL(((Integer) map.get("index")).intValue()).zZ((String) map.get("forum_name")).Aa((String) map.get("forum_id")).Ab((String) map.get("thread_id")).iy(true).Ac(str).iz(true).iA(true);
             ImageViewerConfig dU = aVar.dU(context);
             dU.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, false);
             dU.getIntent().putExtra("from", "index");
@@ -799,7 +799,7 @@ public class OpenNative {
                 i = i2 + 1;
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).nP(((Integer) map.get("index")).intValue()).AE(str3).AF(str2).AG(str4).ix(true).AH(str).iy(true).a(concurrentHashMap).iz(true);
+            aVar.x(arrayList).nL(((Integer) map.get("index")).intValue()).zZ(str3).Aa(str2).Ab(str4).iy(true).Ac(str).iz(true).a(concurrentHashMap).iA(true);
             ImageViewerConfig dU = aVar.dU(context);
             dU.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, true);
             if (map.get("from") != null && (map.get("from") instanceof String)) {
@@ -824,7 +824,7 @@ public class OpenNative {
     }
 
     private static void openNativeEvaluationPage(Context context, Map<String, Object> map) {
-        if (bg.checkUpIsLogin(context)) {
+        if (bh.checkUpIsLogin(context)) {
             String str = (String) map.get(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
             double parseDouble = Double.parseDouble(String.valueOf(map.get("iconSize")));
             String str2 = (String) map.get("iconUrl");
@@ -859,7 +859,7 @@ public class OpenNative {
     private static void openNativeCreateForumPage(Context context, Map<String, Object> map) {
         try {
             if (TbadkApplication.getInst().getCurrentActivity() != null) {
-                be.brr().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
+                bf.bqF().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
             }
         } catch (Exception e) {
             BdLog.e("openPageByUrl fail:" + e.toString());
@@ -879,44 +879,44 @@ public class OpenNative {
     }
 
     public static ArrayList<Integer> getGradientColor(ThemeElement themeElement, ThemeElement themeElement2, ThemeElement themeElement3) {
-        int fv;
+        int sa;
         int i;
-        int fv2;
+        int sa2;
         int i2;
-        int fv3;
-        int fv4;
+        int sa3;
+        int sa4;
         if (themeElement == null) {
-            int fv5 = com.baidu.tieba.lego.card.d.b.fv("#2BB8FF");
-            fv = com.baidu.tieba.lego.card.d.b.fv("#2BB8FF");
-            i = fv5;
+            int sa5 = com.baidu.tieba.lego.card.d.b.sa("#2BB8FF");
+            sa = com.baidu.tieba.lego.card.d.b.sa("#2BB8FF");
+            i = sa5;
         } else {
-            int fv6 = com.baidu.tieba.lego.card.d.b.fv(themeElement.common_color);
-            fv = com.baidu.tieba.lego.card.d.b.fv(themeElement.common_color);
-            i = fv6;
+            int sa6 = com.baidu.tieba.lego.card.d.b.sa(themeElement.common_color);
+            sa = com.baidu.tieba.lego.card.d.b.sa(themeElement.common_color);
+            i = sa6;
         }
         if (themeElement2 == null) {
-            int fv7 = com.baidu.tieba.lego.card.d.b.fv("#249BD6");
-            fv2 = com.baidu.tieba.lego.card.d.b.fv("#246CD6");
-            i2 = fv7;
+            int sa7 = com.baidu.tieba.lego.card.d.b.sa("#249BD6");
+            sa2 = com.baidu.tieba.lego.card.d.b.sa("#246CD6");
+            i2 = sa7;
         } else {
-            int fv8 = com.baidu.tieba.lego.card.d.b.fv(themeElement2.common_color);
-            fv2 = com.baidu.tieba.lego.card.d.b.fv(themeElement2.common_color);
-            i2 = fv8;
+            int sa8 = com.baidu.tieba.lego.card.d.b.sa(themeElement2.common_color);
+            sa2 = com.baidu.tieba.lego.card.d.b.sa(themeElement2.common_color);
+            i2 = sa8;
         }
         if (themeElement3 == null) {
-            fv3 = com.baidu.tieba.lego.card.d.b.fv("#249BD6");
-            fv4 = com.baidu.tieba.lego.card.d.b.fv("#246CD6");
+            sa3 = com.baidu.tieba.lego.card.d.b.sa("#249BD6");
+            sa4 = com.baidu.tieba.lego.card.d.b.sa("#246CD6");
         } else {
-            fv3 = com.baidu.tieba.lego.card.d.b.fv(themeElement3.common_color);
-            fv4 = com.baidu.tieba.lego.card.d.b.fv(themeElement3.common_color);
+            sa3 = com.baidu.tieba.lego.card.d.b.sa(themeElement3.common_color);
+            sa4 = com.baidu.tieba.lego.card.d.b.sa(themeElement3.common_color);
         }
         ArrayList<Integer> arrayList = new ArrayList<>();
         arrayList.add(Integer.valueOf(i));
-        arrayList.add(Integer.valueOf(fv));
+        arrayList.add(Integer.valueOf(sa));
         arrayList.add(Integer.valueOf(i2));
-        arrayList.add(Integer.valueOf(fv2));
-        arrayList.add(Integer.valueOf(fv3));
-        arrayList.add(Integer.valueOf(fv4));
+        arrayList.add(Integer.valueOf(sa2));
+        arrayList.add(Integer.valueOf(sa3));
+        arrayList.add(Integer.valueOf(sa4));
         return arrayList;
     }
 }

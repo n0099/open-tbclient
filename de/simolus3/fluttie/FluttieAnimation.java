@@ -12,7 +12,7 @@ import com.airbnb.lottie.g;
 import com.baidu.adp.lib.util.BdLog;
 import io.flutter.view.TextureRegistry;
 @RequiresApi(api = 15)
-/* loaded from: classes16.dex */
+/* loaded from: classes18.dex */
 public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
     private e composition;
     private g drawable;

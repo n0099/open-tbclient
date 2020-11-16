@@ -1,50 +1,50 @@
 package com.baidu.swan.apps.database;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class b {
     private String appTitle;
-    private String cRg;
-    private String cRh;
-    private String cRi;
-    public String cRj;
-    public int cRk;
+    public int cPA;
+    private String cPw;
+    private String cPx;
+    private String cPy;
+    public String cPz;
 
     public b(String str) {
-        this.cRg = str;
+        this.cPw = str;
     }
 
     public String getAppID() {
-        return this.cRg;
+        return this.cPw;
     }
 
     public void setAppID(String str) {
-        this.cRg = str;
+        this.cPw = str;
     }
 
-    public String asF() {
+    public String arW() {
         return this.appTitle;
     }
 
-    public void nL(String str) {
+    public void nF(String str) {
         this.appTitle = str;
     }
 
-    public String asG() {
-        return this.cRi;
+    public String arX() {
+        return this.cPy;
     }
 
-    public void nM(String str) {
-        this.cRi = str;
+    public void nG(String str) {
+        this.cPy = str;
     }
 
-    public void it(String str) {
-        this.cRj = str;
+    public void in(String str) {
+        this.cPz = str;
     }
 
-    public void nN(String str) {
-        this.cRh = str;
+    public void nH(String str) {
+        this.cPx = str;
     }
 
     public void setAppFrameType(int i) {
-        this.cRk = i;
+        this.cPA = i;
     }
 }

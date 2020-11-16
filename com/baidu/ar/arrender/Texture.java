@@ -1,5 +1,5 @@
 package com.baidu.ar.arrender;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class Texture {
     private long ia = -1;
     private int mId = -1;

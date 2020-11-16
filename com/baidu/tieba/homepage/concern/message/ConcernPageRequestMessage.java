@@ -9,7 +9,7 @@ import com.baidu.tbadk.util.u;
 import com.baidu.tieba.homepage.concern.d;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class ConcernPageRequestMessage extends NetMessage {
     private String pageTag;
 
@@ -22,15 +22,15 @@ public class ConcernPageRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.page_tag = this.pageTag;
-            if (d.cIP()) {
-                if (!d.cIT()) {
-                    builder.page_tag = d.cIR();
+            if (d.cIu()) {
+                if (!d.cIy()) {
+                    builder.page_tag = d.cIw();
                 } else {
-                    builder.page_tag = d.cIQ();
+                    builder.page_tag = d.cIv();
                 }
             }
-            builder.last_req_unix = Long.valueOf(b.bqh().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
-            builder.follow_type = Integer.valueOf(com.baidu.tbadk.a.d.bid() ? b.bqh().getInt("key_home_concern_all_status", 0) : 1);
+            builder.last_req_unix = Long.valueOf(b.bpu().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
+            builder.follow_type = Integer.valueOf(com.baidu.tbadk.a.d.bhv() ? b.bpu().getInt("key_home_concern_all_status", 0) : 1);
             if (z) {
                 u.a(builder, true);
             }

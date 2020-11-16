@@ -7,32 +7,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b implements d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private long cIj;
-    private long djA;
-    private c dju;
-    private SimpleDateFormat djv;
-    private HashMap<String, List<a>> djw;
-    private String djx;
-    private boolean djy;
-    private boolean djz;
+    private long cGz;
+    private c dhK;
+    private SimpleDateFormat dhL;
+    private HashMap<String, List<a>> dhM;
+    private String dhN;
+    private boolean dhO;
+    private boolean dhP;
+    private long dhQ;
     private final Object mLock = new Object();
 
-    private void aDO() {
-        if (this.djw == null) {
+    private void aDg() {
+        if (this.dhM == null) {
             synchronized (this.mLock) {
-                if (this.djw == null) {
-                    this.djw = new HashMap<>();
-                    this.djv = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
-                    this.dju = new c() { // from class: com.baidu.swan.apps.performance.a.b.1
+                if (this.dhM == null) {
+                    this.dhM = new HashMap<>();
+                    this.dhL = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
+                    this.dhK = new c() { // from class: com.baidu.swan.apps.performance.a.b.1
                         @Override // com.baidu.swan.apps.performance.a.c
                         public boolean a(a aVar) {
-                            if (aVar == null || aVar.apZ() < 0) {
+                            if (aVar == null || aVar.apr() < 0) {
                                 return false;
                             }
-                            if (b.DEBUG || !d.djC.contains(aVar.getApiName())) {
+                            if (b.DEBUG || !d.dhS.contains(aVar.getApiName())) {
                                 return b.this.bZ(aVar.getStart());
                             }
                             return false;
@@ -45,32 +45,32 @@ public class b implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean bZ(long j) {
-        return j >= this.djA && j <= this.djA + this.cIj;
+        return j >= this.dhQ && j <= this.dhQ + this.cGz;
     }
 
     public String format() {
         int i;
         int i2;
-        if (!this.djz) {
+        if (!this.dhP) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        sb.append("----- ").append("launch start time ").append(this.djv.format(Long.valueOf(this.djA))).append("\n");
-        sb.append("----- ").append("launch end time ").append(this.djv.format(Long.valueOf(this.djA + this.cIj))).append("\n");
-        sb.append("----- ").append("swan js version ").append(this.djx).append("\n");
+        sb.append("----- ").append("launch start time ").append(this.dhL.format(Long.valueOf(this.dhQ))).append("\n");
+        sb.append("----- ").append("launch end time ").append(this.dhL.format(Long.valueOf(this.dhQ + this.cGz))).append("\n");
+        sb.append("----- ").append("swan js version ").append(this.dhN).append("\n");
         int i3 = 0;
         int i4 = 0;
         synchronized (this.mLock) {
-            for (Map.Entry<String, List<a>> entry : this.djw.entrySet()) {
+            for (Map.Entry<String, List<a>> entry : this.dhM.entrySet()) {
                 List<a> value = entry.getValue();
                 if (value != null && value.size() > 0) {
                     StringBuilder sb2 = new StringBuilder();
                     int i5 = 0;
                     for (a aVar : value) {
-                        if (this.dju == null || this.dju.a(aVar)) {
-                            sb2.append("----- start time ").append(this.djv.format(Long.valueOf(aVar.getStart()))).append("\n");
-                            sb2.append("----- end time ").append(this.djv.format(Long.valueOf(aVar.getEnd()))).append("\n");
-                            sb2.append("----- cost time ").append(aVar.apZ()).append("ms\n");
+                        if (this.dhK == null || this.dhK.a(aVar)) {
+                            sb2.append("----- start time ").append(this.dhL.format(Long.valueOf(aVar.getStart()))).append("\n");
+                            sb2.append("----- end time ").append(this.dhL.format(Long.valueOf(aVar.getEnd()))).append("\n");
+                            sb2.append("----- cost time ").append(aVar.apr()).append("ms\n");
                             sb2.append("----------------------------\n");
                             i4++;
                             i2 = i5 + 1;
@@ -105,37 +105,37 @@ public class b implements d {
 
     @Override // com.baidu.swan.apps.performance.a.e
     public void start(long j) {
-        aDO();
+        aDg();
         reset();
-        this.djA = j;
+        this.dhQ = j;
         log("launch start time-" + j);
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
     public void bX(long j) {
-        this.djz = true;
-        this.cIj = j;
-        rc(format());
-        log("launch end time-" + (this.djA + this.cIj));
+        this.dhP = true;
+        this.cGz = j;
+        qW(format());
+        log("launch end time-" + (this.dhQ + this.cGz));
     }
 
     private void reset() {
-        if (this.djw.size() > 0) {
+        if (this.dhM.size() > 0) {
             synchronized (this.mLock) {
-                this.djw.clear();
+                this.dhM.clear();
             }
         }
-        this.djy = false;
-        this.djz = false;
-        this.cIj = 0L;
-        this.djA = 0L;
-        this.djx = null;
-        rc("===== loading... =====");
+        this.dhO = false;
+        this.dhP = false;
+        this.cGz = 0L;
+        this.dhQ = 0L;
+        this.dhN = null;
+        qW("===== loading... =====");
     }
 
-    private void rc(String str) {
+    private void qW(String str) {
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.apps.am.e.dCS.aa(str);
+            com.baidu.swan.apps.am.e.dBl.aa(str);
         }
     }
 }

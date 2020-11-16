@@ -2,7 +2,7 @@ package com.baidu.swan.apps.adaptation.implementation;
 
 import android.content.Context;
 import com.baidu.swan.apps.adaptation.a.ar;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class y implements ar {
     @Override // com.baidu.swan.apps.adaptation.a.ar
     public void onForeground() {
@@ -14,7 +14,7 @@ public class y implements ar {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ar
-    public ar ahS() {
+    public ar ahk() {
         return null;
     }
 

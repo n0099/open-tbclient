@@ -7,7 +7,7 @@ import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import pl.droidsonroids.gif.GifViewUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class GifImageView extends ImageView {
     private boolean mFreezesAnimation;
 

@@ -4,7 +4,7 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.ala.AlaSharedPrefConfig;
 import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.a.c;
@@ -12,15 +12,16 @@ import com.baidu.tieba.ala.alasquare.live_tab.b.k;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
 import com.baidu.tieba.ala.alasquare.special_forum.data.e;
 import com.baidu.tieba.ala.alasquare.special_forum.data.g;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private static long ewV = 604800000;
-    private List<q> glE = new ArrayList();
-    private List<q> glF = new ArrayList();
-    private List<q> glG = new ArrayList();
-    private List<q> glH = new ArrayList();
+    private static long evm = 604800000;
+    private List<q> gll = new ArrayList();
+    private List<q> glm = new ArrayList();
+    private List<q> gln = new ArrayList();
+    private List<q> glo = new ArrayList();
     private TbPageContext mTbPageContext;
 
     public b(TbPageContext tbPageContext) {
@@ -37,20 +38,20 @@ public class b {
         if (!y.isEmpty(b2)) {
             arrayList.addAll(b2);
         }
-        List<q> bPl = bPl();
-        if (!y.isEmpty(bPl)) {
-            arrayList.addAll(bPl);
+        List<q> bOE = bOE();
+        if (!y.isEmpty(bOE)) {
+            arrayList.addAll(bOE);
         }
         return arrayList;
     }
 
-    private List<q> bPl() {
+    private List<q> bOE() {
         ArrayList arrayList = new ArrayList();
-        if (!y.isEmpty(this.glH)) {
+        if (!y.isEmpty(this.glo)) {
             g gVar = new g();
-            gVar.gpN = this.mTbPageContext.getResources().getString(R.string.live_tab_recommend_title_txt);
+            gVar.gpu = this.mTbPageContext.getResources().getString(R.string.live_tab_recommend_title_txt);
             arrayList.add(gVar);
-            arrayList.addAll(bZ(this.glH));
+            arrayList.addAll(bZ(this.glo));
         }
         return arrayList;
     }
@@ -60,11 +61,11 @@ public class b {
         if (alaLiveTabMyConcernResponse != null) {
             if (alaLiveTabMyConcernResponse.followStatus != 1) {
                 g gVar = new g();
-                gVar.gpN = this.mTbPageContext.getResources().getString(R.string.live_sub_tab_online_title, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
+                gVar.gpu = this.mTbPageContext.getResources().getString(R.string.live_sub_tab_online_title, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
                 arrayList.add(gVar);
             }
-            if (!y.isEmpty(this.glF)) {
-                arrayList.addAll(bPm());
+            if (!y.isEmpty(this.glm)) {
+                arrayList.addAll(bOF());
             } else if (z) {
                 e eVar = new e();
                 eVar.followStatus = alaLiveTabMyConcernResponse.followStatus;
@@ -78,7 +79,7 @@ public class b {
         if (alaLiveTabMyConcernResponse == null) {
             return false;
         }
-        return (alaLiveTabMyConcernResponse.followStatus == 1 || a.m(this.mTbPageContext) || !(((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) > ewV ? 1 : ((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) == ewV ? 0 : -1)) > 0)) ? false : true;
+        return (alaLiveTabMyConcernResponse.followStatus == 1 || a.m(this.mTbPageContext) || !(((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) > evm ? 1 : ((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) == evm ? 0 : -1)) > 0)) ? false : true;
     }
 
     private List<q> b(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse) {
@@ -87,16 +88,16 @@ public class b {
             return arrayList;
         }
         if (alaLiveTabMyConcernResponse.followStatus != 1) {
-            if (!y.isEmpty(this.glG) && a(alaLiveTabMyConcernResponse)) {
+            if (!y.isEmpty(this.gln) && a(alaLiveTabMyConcernResponse)) {
                 arrayList.add(new com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a());
             }
-            if (!y.isEmpty(this.glG)) {
+            if (!y.isEmpty(this.gln)) {
                 g gVar = new g();
-                gVar.gpN = this.mTbPageContext.getResources().getString(R.string.live_sub_tab_offline_title, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
+                gVar.gpu = this.mTbPageContext.getResources().getString(R.string.live_sub_tab_offline_title, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
                 arrayList.add(gVar);
             }
-            if (!y.isEmpty(this.glG)) {
-                for (q qVar : this.glG) {
+            if (!y.isEmpty(this.gln)) {
+                for (q qVar : this.gln) {
                     arrayList.add(qVar);
                 }
             }
@@ -104,27 +105,27 @@ public class b {
         return arrayList;
     }
 
-    private List<q> bPm() {
+    private List<q> bOF() {
         ArrayList arrayList = new ArrayList();
-        if (!y.isEmpty(this.glF)) {
-            int size = this.glF.size();
+        if (!y.isEmpty(this.glm)) {
+            int size = this.glm.size();
             for (int i = 0; i < size; i += 2) {
                 k kVar = new k();
                 c cVar = new c();
-                cVar.ghO = (bw) this.glF.get(i);
+                cVar.ghv = (bx) this.glm.get(i);
                 cVar.isLeft = true;
-                kVar.gke = cVar;
+                kVar.gjL = cVar;
                 if (i + 1 < size) {
                     c cVar2 = new c();
-                    cVar2.ghO = (bw) this.glF.get(i + 1);
-                    kVar.gkf = cVar2;
+                    cVar2.ghv = (bx) this.glm.get(i + 1);
+                    kVar.gjM = cVar2;
                     cVar2.isRight = true;
                 } else {
                     cVar.isLeft = false;
-                    cVar.ghM = true;
+                    cVar.ght = true;
                 }
                 if ((size % 2 == 0 && i == size - 2) || (size % 2 != 0 && i == size - 1)) {
-                    kVar.gkg = true;
+                    kVar.gjN = true;
                 }
                 arrayList.add(kVar);
             }
@@ -139,20 +140,20 @@ public class b {
             for (int i = 0; i < size; i += 3) {
                 com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c cVar = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c();
                 c cVar2 = new c();
-                cVar2.ghO = (bw) list.get(i);
-                cVar2.ghQ = false;
-                cVar.gke = cVar2;
+                cVar2.ghv = (bx) list.get(i);
+                cVar2.ghx = false;
+                cVar.gjL = cVar2;
                 if (i + 1 < size) {
                     c cVar3 = new c();
-                    cVar3.ghO = (bw) list.get(i + 1);
-                    cVar3.ghQ = false;
-                    cVar.glz = cVar3;
+                    cVar3.ghv = (bx) list.get(i + 1);
+                    cVar3.ghx = false;
+                    cVar.glg = cVar3;
                 }
                 if (i + 2 < size) {
                     c cVar4 = new c();
-                    cVar4.ghO = (bw) list.get(i + 2);
-                    cVar4.ghQ = false;
-                    cVar.gkf = cVar4;
+                    cVar4.ghv = (bx) list.get(i + 2);
+                    cVar4.ghx = false;
+                    cVar.gjM = cVar4;
                 }
                 arrayList.add(cVar);
             }
@@ -160,12 +161,12 @@ public class b {
         return arrayList;
     }
 
-    public void x(Class<? extends com.baidu.tieba.card.data.b> cls) {
-        if (!y.isEmpty(this.glE)) {
-            for (int size = this.glE.size() - 1; size >= 0; size--) {
-                q qVar = (q) y.getItem(this.glE, size);
+    public void x(Class<? extends BaseCardInfo> cls) {
+        if (!y.isEmpty(this.gll)) {
+            for (int size = this.gll.size() - 1; size >= 0; size--) {
+                q qVar = (q) y.getItem(this.gll, size);
                 if (qVar != null && qVar.getClass().equals(cls)) {
-                    this.glE.remove(size);
+                    this.gll.remove(size);
                 }
             }
         }
@@ -174,37 +175,37 @@ public class b {
     public void c(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse, boolean z) {
         if (alaLiveTabMyConcernResponse != null) {
             if (z) {
-                this.glE.clear();
+                this.gll.clear();
             }
             if (!y.isEmpty(alaLiveTabMyConcernResponse.followList)) {
-                this.glF.addAll(alaLiveTabMyConcernResponse.followList);
+                this.glm.addAll(alaLiveTabMyConcernResponse.followList);
             }
             if (!y.isEmpty(alaLiveTabMyConcernResponse.followCloseList)) {
-                this.glG.addAll(alaLiveTabMyConcernResponse.followCloseList);
+                this.gln.addAll(alaLiveTabMyConcernResponse.followCloseList);
             }
             if (!y.isEmpty(alaLiveTabMyConcernResponse.recommendList)) {
-                this.glH.addAll(alaLiveTabMyConcernResponse.recommendList);
+                this.glo.addAll(alaLiveTabMyConcernResponse.recommendList);
             }
-            this.glE = a(alaLiveTabMyConcernResponse, z);
+            this.gll = a(alaLiveTabMyConcernResponse, z);
         }
     }
 
-    public List<q> bPn() {
-        return this.glE;
+    public List<q> bOG() {
+        return this.gll;
     }
 
     public void clearData() {
-        if (this.glF != null) {
-            this.glF.clear();
+        if (this.glm != null) {
+            this.glm.clear();
         }
-        if (this.glG != null) {
-            this.glG.clear();
+        if (this.gln != null) {
+            this.gln.clear();
         }
-        if (this.glH != null) {
-            this.glH.clear();
+        if (this.glo != null) {
+            this.glo.clear();
         }
-        if (this.glE != null) {
-            this.glE.clear();
+        if (this.gll != null) {
+            this.gll.clear();
         }
     }
 }

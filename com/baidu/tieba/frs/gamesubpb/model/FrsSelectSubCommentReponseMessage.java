@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.gamesubpb.model;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class FrsSelectSubCommentReponseMessage extends JsonHttpResponsedMessage {
     private c mData;
 

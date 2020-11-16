@@ -1,5 +1,5 @@
 package org.java_websocket.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public interface b extends a, c {
-    void aad(String str);
+    void ZO(String str);
 }

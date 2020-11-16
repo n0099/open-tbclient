@@ -3,14 +3,14 @@ package com.baidu.live.videochat.d.a;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    public static String bJb = "84";
-    public static String bJc = "86";
-    public static String bJd = "1";
+    public static String bHq = "84";
+    public static String bHr = "86";
+    public static String bHs = "1";
     public String action;
-    public String bxZ;
-    public String bya;
-    public String byb = "";
-    public String byc;
-    public String byd;
+    public String bwo;
+    public String bwp;
+    public String bwq = "";
+    public String bwr;
+    public String bws;
     public JSONObject ext;
 }

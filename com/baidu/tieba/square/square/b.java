@@ -13,61 +13,61 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.square.view.BestStringsFitTextView;
 import java.util.ArrayList;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class b extends BaseAdapter {
-    private Activity bNY;
-    private ArrayList<e> mSi;
-    View.OnClickListener mSj = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
+    private Activity bMo;
+    private ArrayList<e> mTe;
+    View.OnClickListener mTf = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar;
             Object tag = view.getTag();
-            if ((tag instanceof a) && (eVar = ((a) tag).mSn) != null) {
-                if (eVar.mQk == null) {
-                    com.baidu.tieba.square.square.a.g(b.this.dIG(), null);
+            if ((tag instanceof a) && (eVar = ((a) tag).mTk) != null) {
+                if (eVar.mRe == null) {
+                    com.baidu.tieba.square.square.a.g(b.this.dIx(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.dIG(), eVar.mQj, eVar.mQk, eVar.mQl)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.dIx(), eVar.mRd, eVar.mRe, eVar.mRf)));
                 }
             }
         }
     };
 
     public b(Activity activity, c cVar, boolean z) {
-        this.bNY = activity;
-        this.mSi = cVar.dIF();
+        this.bMo = activity;
+        this.mTe = cVar.dIw();
     }
 
-    public ArrayList<e> dIF() {
-        return this.mSi;
+    public ArrayList<e> dIw() {
+        return this.mTe;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes23.dex */
+    /* loaded from: classes22.dex */
     public static class a {
-        public TextView ebD;
-        public BarImageView mSl;
-        public BestStringsFitTextView mSm;
-        public e mSn;
+        public TextView dZV;
+        public BarImageView mTh;
+        public BestStringsFitTextView mTi;
+        public e mTk;
 
         protected a() {
         }
     }
 
-    public void bg(ArrayList<e> arrayList) {
-        this.mSi = arrayList;
+    public void bh(ArrayList<e> arrayList) {
+        this.mTe = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.mSi == null) {
+        if (this.mTe == null) {
             return 0;
         }
-        return (this.mSi.size() * 2) + 1;
+        return (this.mTe.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
@@ -75,9 +75,9 @@ public class b extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = N(viewGroup, itemViewType);
-            bg.bj(view);
+            bh.bm(view);
         }
-        bg.bi(view);
+        bh.bl(view);
         if (itemViewType != 3) {
             TbadkCoreApplication.getInst().getSkinType();
             View findViewById = view.findViewById(R.id.container);
@@ -95,39 +95,39 @@ public class b extends BaseAdapter {
 
     private View N(ViewGroup viewGroup, int i) {
         if (i == 3) {
-            return LayoutInflater.from(this.bNY).inflate(R.layout.bar_home_list_line, viewGroup, false);
+            return LayoutInflater.from(this.bMo).inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
         if (i == 2) {
-            return LayoutInflater.from(this.bNY).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
+            return LayoutInflater.from(this.bMo).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
-        View inflate = LayoutInflater.from(this.bNY).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.mSj);
+        View inflate = LayoutInflater.from(this.bMo).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
+        inflate.setOnClickListener(this.mTf);
         a aVar = new a();
-        aVar.mSl = (BarImageView) inflate.findViewById(R.id.portrait);
-        aVar.ebD = (TextView) inflate.findViewById(R.id.name);
-        aVar.mSm = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        aVar.mTh = (BarImageView) inflate.findViewById(R.id.portrait);
+        aVar.dZV = (TextView) inflate.findViewById(R.id.name);
+        aVar.mTi = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(aVar);
         return inflate;
     }
 
     private void a(ViewGroup viewGroup, a aVar, int i) {
-        e eVar = this.mSi.get(i / 2);
-        aVar.mSn = eVar;
-        aVar.ebD.setText(eVar.mQj);
-        if (eVar.mSr != null) {
-            aVar.mSm.setVisibility(0);
-            String[] strArr = new String[eVar.mSr.size()];
-            for (int i2 = 0; i2 < eVar.mSr.size(); i2++) {
-                strArr[i2] = eVar.mSr.get(i2).mQj;
+        e eVar = this.mTe.get(i / 2);
+        aVar.mTk = eVar;
+        aVar.dZV.setText(eVar.mRd);
+        if (eVar.mTn != null) {
+            aVar.mTi.setVisibility(0);
+            String[] strArr = new String[eVar.mTn.size()];
+            for (int i2 = 0; i2 < eVar.mTn.size(); i2++) {
+                strArr[i2] = eVar.mTn.get(i2).mRd;
             }
-            aVar.mSm.setTextArray(strArr);
+            aVar.mTi.setTextArray(strArr);
         } else {
-            aVar.mSm.setVisibility(8);
+            aVar.mTi.setVisibility(8);
         }
         if (eVar.logoUrl != null) {
-            int dip2px = l.dip2px(this.bNY, 45.0f);
-            aVar.mSl.setTag(eVar.logoUrl);
-            aVar.mSl.a(eVar.logoUrl, 10, dip2px, dip2px, false);
+            int dip2px = l.dip2px(this.bMo, 45.0f);
+            aVar.mTh.setTag(eVar.logoUrl);
+            aVar.mTh.a(eVar.logoUrl, 10, dip2px, dip2px, false);
         }
     }
 
@@ -154,7 +154,7 @@ public class b extends BaseAdapter {
         return 2;
     }
 
-    protected Activity dIG() {
-        return this.bNY;
+    protected Activity dIx() {
+        return this.bMo;
     }
 }

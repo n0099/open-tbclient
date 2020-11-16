@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public class ComboPraiseProvider implements IResourceProvider {
     private static final boolean DEBUG = DebugUtil.isApkInDebug();
     public static final String DIR_NAME_ERUPTION = "exploding";
@@ -263,7 +263,7 @@ public class ComboPraiseProvider implements IResourceProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     public static class ResourcePackage implements IResourcePackage {
         public static final int LRU_SIZE = 4;
         private Context mContext;
@@ -549,7 +549,7 @@ public class ComboPraiseProvider implements IResourceProvider {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     public static class Builder {
         private static final String DEFAULT_UNZIP_DIR_NAME = "lottie_unzip";
         Context mContext;

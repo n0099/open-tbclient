@@ -22,8 +22,8 @@ import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
 /* loaded from: classes4.dex */
 public class BubbleImageView extends ImageView {
-    private static final Bitmap.Config oBJ = Bitmap.Config.ARGB_8888;
-    private Paint fnh;
+    private static final Bitmap.Config oDn = Bitmap.Config.ARGB_8888;
+    private Paint fmo;
     private int mAngle;
     private int mArrowHeight;
     private int mArrowWidth;
@@ -33,41 +33,41 @@ public class BubbleImageView extends ImageView {
     private BitmapShader mBitmapShader;
     private int mBitmapWidth;
     private Matrix mShaderMatrix;
-    private int oBK;
-    private int oBL;
-    private int oBM;
-    private Rect oBN;
+    private int oDo;
+    private int oDp;
+    private int oDq;
+    private Rect oDr;
 
     public BubbleImageView(Context context) {
         super(context);
-        this.mAngle = vF(10);
-        this.oBK = vF(40);
-        this.mArrowWidth = vF(20);
-        this.mArrowHeight = vF(20);
-        this.oBL = 0;
-        this.oBM = 0;
-        i((AttributeSet) null);
+        this.mAngle = wd(10);
+        this.oDo = wd(40);
+        this.mArrowWidth = wd(20);
+        this.mArrowHeight = wd(20);
+        this.oDp = 0;
+        this.oDq = 0;
+        i(null);
     }
 
     public BubbleImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mAngle = vF(10);
-        this.oBK = vF(40);
-        this.mArrowWidth = vF(20);
-        this.mArrowHeight = vF(20);
-        this.oBL = 0;
-        this.oBM = 0;
+        this.mAngle = wd(10);
+        this.oDo = wd(40);
+        this.mArrowWidth = wd(20);
+        this.mArrowHeight = wd(20);
+        this.oDp = 0;
+        this.oDq = 0;
         i(attributeSet);
     }
 
     public BubbleImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mAngle = vF(10);
-        this.oBK = vF(40);
-        this.mArrowWidth = vF(20);
-        this.mArrowHeight = vF(20);
-        this.oBL = 0;
-        this.oBM = 0;
+        this.mAngle = wd(10);
+        this.oDo = wd(40);
+        this.mArrowWidth = wd(20);
+        this.mArrowHeight = wd(20);
+        this.oDp = 0;
+        this.oDq = 0;
         i(attributeSet);
     }
 
@@ -76,10 +76,10 @@ public class BubbleImageView extends ImageView {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.BubbleImageView);
             this.mAngle = (int) obtainStyledAttributes.getDimension(a.j.BubbleImageView_bubble_angle, this.mAngle);
             this.mArrowHeight = (int) obtainStyledAttributes.getDimension(a.j.BubbleImageView_bubble_arrowHeight, this.mArrowHeight);
-            this.oBL = (int) obtainStyledAttributes.getDimension(a.j.BubbleImageView_bubble_arrowOffset, this.oBL);
-            this.oBK = (int) obtainStyledAttributes.getDimension(a.j.BubbleImageView_bubble_arrowTop, this.oBK);
+            this.oDp = (int) obtainStyledAttributes.getDimension(a.j.BubbleImageView_bubble_arrowOffset, this.oDp);
+            this.oDo = (int) obtainStyledAttributes.getDimension(a.j.BubbleImageView_bubble_arrowTop, this.oDo);
             this.mArrowWidth = (int) obtainStyledAttributes.getDimension(a.j.BubbleImageView_bubble_arrowWidth, this.mAngle);
-            this.oBM = obtainStyledAttributes.getInt(a.j.BubbleImageView_bubble_arrowLocation, this.oBM);
+            this.oDq = obtainStyledAttributes.getInt(a.j.BubbleImageView_bubble_arrowLocation, this.oDq);
             obtainStyledAttributes.recycle();
         }
     }
@@ -92,9 +92,9 @@ public class BubbleImageView extends ImageView {
             Path path = new Path();
             a(rectF, path);
             canvas.drawPath(path, this.mBitmapPaint);
-            canvas.drawPath(path, this.fnh);
+            canvas.drawPath(path, this.fmo);
             try {
-                if (ThemeManager.eia() == ThemeManager.ThemeMode.NIGHT) {
+                if (ThemeManager.ehY() == ThemeManager.ThemeMode.NIGHT) {
                     Paint paint = new Paint();
                     paint.setColor(1342177280);
                     canvas.drawPath(path, paint);
@@ -134,18 +134,18 @@ public class BubbleImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         super.setImageDrawable(drawable);
-        this.mBitmap = i(drawable);
+        this.mBitmap = j(drawable);
         setup();
     }
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
         super.setImageResource(i);
-        this.mBitmap = i(getDrawable());
+        this.mBitmap = j(getDrawable());
         setup();
     }
 
-    private Bitmap i(Drawable drawable) {
+    private Bitmap j(Drawable drawable) {
         Bitmap createBitmap;
         Bitmap bitmap = null;
         if (drawable == null) {
@@ -156,9 +156,9 @@ public class BubbleImageView extends ImageView {
         }
         try {
             if (drawable instanceof ColorDrawable) {
-                createBitmap = Bitmap.createBitmap(1, 1, oBJ);
+                createBitmap = Bitmap.createBitmap(1, 1, oDn);
             } else {
-                createBitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), oBJ);
+                createBitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), oDn);
             }
             Canvas canvas = new Canvas(createBitmap);
             drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -180,11 +180,11 @@ public class BubbleImageView extends ImageView {
             this.mBitmapPaint = new Paint();
             this.mBitmapPaint.setAntiAlias(true);
             this.mBitmapPaint.setShader(this.mBitmapShader);
-            this.fnh = new Paint();
-            this.fnh.setColor(getLineColor());
-            this.fnh.setStrokeWidth(1.0f);
-            this.fnh.setStyle(Paint.Style.STROKE);
-            this.fnh.setAntiAlias(true);
+            this.fmo = new Paint();
+            this.fmo.setColor(getLineColor());
+            this.fmo.setStrokeWidth(1.0f);
+            this.fmo.setStyle(Paint.Style.STROKE);
+            this.fmo.setAntiAlias(true);
             this.mBitmapHeight = this.mBitmap.getHeight();
             this.mBitmapWidth = this.mBitmap.getWidth();
             updateShaderMatrix();
@@ -198,21 +198,21 @@ public class BubbleImageView extends ImageView {
         float f2 = 0.0f;
         this.mShaderMatrix = new Matrix();
         this.mShaderMatrix.set(null);
-        this.oBN = new Rect(0, 0, getRight() - getLeft(), getBottom() - getTop());
-        if (this.mBitmapWidth * this.oBN.height() > this.oBN.width() * this.mBitmapHeight) {
-            width = this.oBN.height() / this.mBitmapHeight;
-            f = (this.oBN.width() - (this.mBitmapWidth * width)) * 0.5f;
+        this.oDr = new Rect(0, 0, getRight() - getLeft(), getBottom() - getTop());
+        if (this.mBitmapWidth * this.oDr.height() > this.oDr.width() * this.mBitmapHeight) {
+            width = this.oDr.height() / this.mBitmapHeight;
+            f = (this.oDr.width() - (this.mBitmapWidth * width)) * 0.5f;
         } else {
-            width = this.oBN.width() / this.mBitmapWidth;
+            width = this.oDr.width() / this.mBitmapWidth;
             f = 0.0f;
-            f2 = (this.oBN.height() - (this.mBitmapHeight * width)) * 0.5f;
+            f2 = (this.oDr.height() - (this.mBitmapHeight * width)) * 0.5f;
         }
         this.mShaderMatrix.setScale(width, width);
         this.mShaderMatrix.postTranslate((int) (f + 0.5f), (int) (f2 + 0.5f));
         this.mBitmapShader.setLocalMatrix(this.mShaderMatrix);
     }
 
-    private int vF(int i) {
+    private int wd(int i) {
         return (int) TypedValue.applyDimension(1, i, getContext().getResources().getDisplayMetrics());
     }
 }

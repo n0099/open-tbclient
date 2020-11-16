@@ -6,7 +6,7 @@ import com.baidu.tbadk.util.u;
 import tbclient.CommonReq;
 import tbclient.TopicList.DataReq;
 import tbclient.TopicList.TopicListReqIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class RequestHotRanklistMessage extends NetMessage {
     private String call_from;
 

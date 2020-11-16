@@ -8,9 +8,9 @@ import com.baidu.platform.comapi.map.b.f;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a.C0281a f2902a;
-    public a.C0281a b;
-    public a.C0281a c;
+    public a.C0279a f2902a;
+    public a.C0279a b;
+    public a.C0279a c;
     public MotionEvent d;
     private a f;
     public f e = new f();
@@ -56,7 +56,7 @@ public class b {
     }
 
     private void c(MotionEvent motionEvent) {
-        a.C0281a a2 = a.C0281a.a(motionEvent);
+        a.C0279a a2 = a.C0279a.a(motionEvent);
         this.b = this.c != null ? this.c : a2;
         this.c = a2;
         if (this.f2902a == null) {

@@ -34,18 +34,18 @@ public class a extends Service implements LLSInterface {
     private boolean i = true;
 
     /* renamed from: a  reason: collision with root package name */
-    static HandlerC0249a f1941a = null;
+    static HandlerC0247a f1941a = null;
     private static long g = 0;
     public static long c = 0;
 
     /* renamed from: com.baidu.location.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class HandlerC0249a extends Handler {
+    public static class HandlerC0247a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
         private final WeakReference<a> f1942a;
 
-        public HandlerC0249a(Looper looper, a aVar) {
+        public HandlerC0247a(Looper looper, a aVar) {
             super(looper);
             this.f1942a = new WeakReference<>(aVar);
         }
@@ -190,9 +190,9 @@ public class a extends Service implements LLSInterface {
             this.d = this.e.getLooper();
         }
         if (this.d == null) {
-            f1941a = new HandlerC0249a(Looper.getMainLooper(), this);
+            f1941a = new HandlerC0247a(Looper.getMainLooper(), this);
         } else {
-            f1941a = new HandlerC0249a(this.d, this);
+            f1941a = new HandlerC0247a(this.d, this);
         }
         c = System.currentTimeMillis();
         this.b = new Messenger(f1941a);

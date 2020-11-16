@@ -10,11 +10,11 @@ public final class TagTextHelper {
 
     /* loaded from: classes.dex */
     private enum HotTopicTag {
-        NEW(R.string.tag_str_new, R.color.cp_link_tip_d),
-        HOT(R.string.tag_str_hot, R.color.cp_cont_h),
-        REC(R.string.tag_str_rec, R.color.cp_link_tip_a),
-        BAO(R.string.tag_str_bao, R.color.cp_other_b),
-        FEI(R.string.tag_str_fei, R.color.cp_other_k);
+        NEW(R.string.tag_str_new, R.color.CAM_X0305),
+        HOT(R.string.tag_str_hot, R.color.CAM_X0301),
+        REC(R.string.tag_str_rec, R.color.CAM_X0302),
+        BAO(R.string.tag_str_bao, R.color.CAM_X0308),
+        FEI(R.string.tag_str_fei, R.color.CAM_X0317);
         
         @ColorRes
         int tagColorRes;
@@ -50,22 +50,22 @@ public final class TagTextHelper {
     }
 
     @ColorRes
-    public static int pd(int i) {
+    public static int pz(int i) {
         HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
         return hotTopicTag != null ? hotTopicTag.tagColorRes : R.color.transparent;
     }
 
     @ColorRes
-    public static int pe(int i) {
+    public static int pA(int i) {
         switch (i) {
             case 1:
-                return R.color.cp_cont_h;
+                return R.color.CAM_X0301;
             case 2:
-                return R.color.cp_link_tip_d;
+                return R.color.CAM_X0305;
             case 3:
-                return R.color.cp_other_f;
+                return R.color.CAM_X0312;
             default:
-                return R.color.cp_cont_e;
+                return R.color.CAM_X0110;
         }
     }
 }

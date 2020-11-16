@@ -1,7 +1,7 @@
 package com.airbnb.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class b extends f<Integer> {
     public b(List<com.airbnb.lottie.e.a<Integer>> list) {
         super(list);

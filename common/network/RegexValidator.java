@@ -4,7 +4,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class RegexValidator implements Serializable {
     private static final long serialVersionUID = -8832409930574867162L;
     private final Pattern[] patterns;

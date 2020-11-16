@@ -9,7 +9,7 @@ import com.baidu.android.common.ui.R;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.facebook.drawee.drawable.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class BdPlaceHolderDrawable extends g {
     private static final boolean DEBUG = false;
     private static final String TAG = "BdPlaceHolderDrawable";

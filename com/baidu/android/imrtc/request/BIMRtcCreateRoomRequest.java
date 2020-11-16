@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     private static final String TAG = "BIMRtcCreateRoomRequest";
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};

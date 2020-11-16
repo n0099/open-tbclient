@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class ez extends com.xiaomi.clientreport.processor.b {
     public ez(Context context) {
         super(context);

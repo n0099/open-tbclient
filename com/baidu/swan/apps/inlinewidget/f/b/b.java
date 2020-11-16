@@ -4,43 +4,43 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.swan.apps.inlinewidget.f.b.a.c;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private static final com.baidu.swan.apps.inlinewidget.f.b.a.a cWV = new com.baidu.swan.apps.inlinewidget.f.b.a.b();
-    private static volatile com.baidu.swan.apps.inlinewidget.f.b.a.a cWW = cWV;
+    private static final com.baidu.swan.apps.inlinewidget.f.b.a.a cVl = new com.baidu.swan.apps.inlinewidget.f.b.a.b();
+    private static volatile com.baidu.swan.apps.inlinewidget.f.b.a.a cVm = cVl;
 
     @NonNull
-    public static com.baidu.swan.apps.inlinewidget.f.b.a.a awb() {
-        return cWW;
+    public static com.baidu.swan.apps.inlinewidget.f.b.a.a avt() {
+        return cVm;
     }
 
     private static void a(@NonNull com.baidu.swan.apps.inlinewidget.f.b.a.a aVar) {
-        cWW = aVar;
+        cVm = aVar;
     }
 
-    public static void oR(String str) {
+    public static void oL(String str) {
         a(new c(str));
     }
 
-    public static void awc() {
-        a(cWV);
+    public static void avu() {
+        a(cVl);
     }
 
-    public static void awd() {
-        awb().awf();
+    public static void avv() {
+        avt().avx();
     }
 
-    public static void awe() {
-        awb().awf();
+    public static void avw() {
+        avt().avx();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class a implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ap.e.b
         /* renamed from: a */
         public void M(HybridUbcFlow hybridUbcFlow) {
-            b.awb().fn(TextUtils.equals(hybridUbcFlow.aDk().optString("type"), "3") || hybridUbcFlow.oP("na_first_meaningful_paint"));
+            b.avt().fq(TextUtils.equals(hybridUbcFlow.aCC().optString("type"), "3") || hybridUbcFlow.oJ("na_first_meaningful_paint"));
         }
     }
 }

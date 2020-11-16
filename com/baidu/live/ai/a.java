@@ -8,13 +8,13 @@ import com.baidu.live.data.w;
 public interface a {
     void L(Object obj);
 
-    boolean QF();
+    boolean PW();
 
-    void UM();
+    void Ud();
 
-    boolean UN();
+    boolean Ue();
 
-    void UO();
+    void Uf();
 
     void a(FrameLayout frameLayout);
 
@@ -28,7 +28,7 @@ public interface a {
 
     void setMute(boolean z);
 
-    void y(ViewGroup viewGroup);
+    void u(ViewGroup viewGroup);
 
-    void z(ViewGroup viewGroup);
+    void v(ViewGroup viewGroup);
 }

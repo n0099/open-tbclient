@@ -7,20 +7,20 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 /* renamed from: com.xiaomi.push.do  reason: invalid class name */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class Cdo implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
     private Context f4864a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f225a;
+    private String f228a;
     private String b;
 
     public Cdo(Context context, String str) {
-        this.f225a = "";
+        this.f228a = "";
         this.f4864a = context;
-        this.f225a = str;
+        this.f228a = str;
     }
 
     private void a(String str) {
@@ -42,16 +42,16 @@ public class Cdo implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
         String localClassName = activity.getLocalClassName();
-        if (TextUtils.isEmpty(this.f225a) || TextUtils.isEmpty(localClassName)) {
+        if (TextUtils.isEmpty(this.f228a) || TextUtils.isEmpty(localClassName)) {
             return;
         }
         this.b = "";
         if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.b, localClassName)) {
-            this.f225a = "";
+            this.f228a = "";
             return;
         }
-        a(this.f4864a.getPackageName() + "|" + localClassName + ":" + this.f225a + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(System.currentTimeMillis() / 1000));
-        this.f225a = "";
+        a(this.f4864a.getPackageName() + "|" + localClassName + ":" + this.f228a + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(System.currentTimeMillis() / 1000));
+        this.f228a = "";
         this.b = "";
     }
 
@@ -60,7 +60,7 @@ public class Cdo implements Application.ActivityLifecycleCallbacks {
         if (TextUtils.isEmpty(this.b)) {
             this.b = activity.getLocalClassName();
         }
-        this.f225a = String.valueOf(System.currentTimeMillis() / 1000);
+        this.f228a = String.valueOf(System.currentTimeMillis() / 1000);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

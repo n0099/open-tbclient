@@ -2,20 +2,20 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import java.lang.reflect.Method;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 class as implements ar {
 
     /* renamed from: a  reason: collision with root package name */
     private Context f4799a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Class<?> f111a;
+    private Class<?> f114a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Object f112a;
+    private Object f115a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Method f113a = null;
+    private Method f116a = null;
     private Method b = null;
     private Method c = null;
     private Method d = null;
@@ -26,9 +26,9 @@ class as implements ar {
     }
 
     private String a(Context context, Method method) {
-        if (this.f112a != null && method != null) {
+        if (this.f115a != null && method != null) {
             try {
-                Object invoke = method.invoke(this.f112a, context);
+                Object invoke = method.invoke(this.f115a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }
@@ -41,35 +41,35 @@ class as implements ar {
 
     private void a(Context context) {
         try {
-            this.f111a = t.a(context, "com.android.id.impl.IdProviderImpl");
-            this.f112a = this.f111a.newInstance();
-            this.f113a = this.f111a.getMethod("getUDID", Context.class);
-            this.b = this.f111a.getMethod("getOAID", Context.class);
-            this.c = this.f111a.getMethod("getVAID", Context.class);
-            this.d = this.f111a.getMethod("getAAID", Context.class);
+            this.f114a = t.a(context, "com.android.id.impl.IdProviderImpl");
+            this.f115a = this.f114a.newInstance();
+            this.f116a = this.f114a.getMethod("getUDID", Context.class);
+            this.b = this.f114a.getMethod("getOAID", Context.class);
+            this.c = this.f114a.getMethod("getVAID", Context.class);
+            this.d = this.f114a.getMethod("getAAID", Context.class);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a("miui load class error", e);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m138a(Context context) {
+    public static boolean m141a(Context context) {
         return "com.xiaomi.xmsf".equals(context.getPackageName());
     }
 
     @Override // com.xiaomi.push.ar
     public String a() {
-        return a(this.f4799a, this.f113a);
+        return a(this.f4799a, this.f116a);
     }
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return (this.f111a == null || this.f112a == null) ? false : true;
+        return (this.f114a == null || this.f115a == null) ? false : true;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo135b() {
+    public String mo138b() {
         return a(this.f4799a, this.b);
     }
 

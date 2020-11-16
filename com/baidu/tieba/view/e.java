@@ -12,7 +12,7 @@ public class e extends ShapeDrawable {
 
     public e(Path path, float f, float f2) {
         super(new PathShape(path, f, f2));
-        this.color = TbadkCoreApplication.getInst().getResources().getColor(R.color.cp_bg_line_d);
+        this.color = TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0201);
     }
 
     public void setColor(int i) {

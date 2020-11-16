@@ -6,7 +6,7 @@ import java.lang.Thread;
 import java.util.LinkedList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class g extends Thread implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
@@ -171,7 +171,7 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */

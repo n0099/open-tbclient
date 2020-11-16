@@ -5,7 +5,7 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
     private long mAudienceCount;
-    private b nRW;
+    private b nTz;
 
     public OnlineListHttpResponseMessage() {
         super(1031031);
@@ -18,17 +18,17 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.mAudienceCount = optJSONObject.optLong("user_count");
             if (optJSONObject.optJSONArray("user_info") != null) {
-                this.nRW = new b();
-                this.nRW.parserJson(optJSONObject);
+                this.nTz = new b();
+                this.nTz.parserJson(optJSONObject);
             }
         }
     }
 
-    public long bRp() {
+    public long bQI() {
         return this.mAudienceCount;
     }
 
-    public b dXk() {
-        return this.nRW;
+    public b dXj() {
+        return this.nTz;
     }
 }

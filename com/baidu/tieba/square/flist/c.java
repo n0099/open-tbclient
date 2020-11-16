@@ -20,120 +20,120 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.g;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class c {
-    TextView bEW;
+    TextView bDl;
     private boolean isShow;
-    LinearLayout iux;
+    LinearLayout ivl;
     NavigationBar mNavigationBar;
     ProgressBar mProgressBar;
-    g mRA;
-    PopupWindow mRB;
-    View mRC;
-    ForumListActivity mRD;
-    ListView mRE;
-    a mRF;
-    LinearLayout mRG;
-    final View mRk;
-    final View mRl;
-    LinearLayout mRm;
-    private ImageView mRo;
-    BdListView mRp;
-    BdListView mRq;
-    TextView mRr;
-    TextView mRs;
-    LinearLayout mRt;
-    TextView mRu;
-    ImageView mRv;
-    LinearLayout mRw;
-    TextView mRx;
-    ImageView mRy;
-    g mRz;
+    LinearLayout mSA;
+    final View mSd;
+    final View mSe;
+    LinearLayout mSf;
+    private ImageView mSh;
+    BdListView mSi;
+    BdListView mSj;
+    TextView mSk;
+    TextView mSl;
+    LinearLayout mSm;
+    TextView mSn;
+    ImageView mSo;
+    LinearLayout mSq;
+    TextView mSr;
+    ImageView mSs;
+    g mSt;
+    g mSu;
+    PopupWindow mSv;
+    View mSw;
+    ForumListActivity mSx;
+    ListView mSy;
+    a mSz;
     ViewPager mViewPager;
-    boolean mRn = true;
-    private int mRH = 0;
+    boolean mSg = true;
+    private int mSB = 0;
 
     public c(ForumListActivity forumListActivity) {
         this.isShow = false;
-        this.iux = (LinearLayout) forumListActivity.findViewById(R.id.forum_list_root);
+        this.ivl = (LinearLayout) forumListActivity.findViewById(R.id.forum_list_root);
         this.mViewPager = (ViewPager) forumListActivity.findViewById(R.id.view_pager);
         this.mViewPager.setOnPageChangeListener(forumListActivity);
-        this.mRm = (LinearLayout) forumListActivity.findViewById(R.id.tab_strip);
+        this.mSf = (LinearLayout) forumListActivity.findViewById(R.id.tab_strip);
         this.mNavigationBar = (NavigationBar) forumListActivity.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mRG = (LinearLayout) this.mNavigationBar.setTitleView(R.layout.nb_item_forum_list, (View.OnClickListener) null);
-        this.bEW = (TextView) this.mRG.findViewById(R.id.title_text);
-        this.mRo = (ImageView) this.mRG.findViewById(R.id.forum_list_title_arrow);
-        this.mRr = (TextView) forumListActivity.findViewById(R.id.tab_recommends);
-        this.mRr.setOnClickListener(forumListActivity);
-        this.mRs = (TextView) forumListActivity.findViewById(R.id.tab_hot);
-        this.mRs.setOnClickListener(forumListActivity);
-        this.mRz = new g(forumListActivity.getPageContext());
-        this.mRA = new g(forumListActivity.getPageContext());
-        this.mRt = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
-        this.mRk = this.mRt.findViewById(R.id.footer_background);
-        this.mRu = (TextView) this.mRt.findViewById(R.id.footer_text);
-        this.mRv = (ImageView) this.mRt.findViewById(R.id.footer_icon);
-        this.mRw = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
-        this.mRl = this.mRw.findViewById(R.id.footer_background);
-        this.mRx = (TextView) this.mRw.findViewById(R.id.footer_text);
-        this.mRy = (ImageView) this.mRw.findViewById(R.id.footer_icon);
+        this.mSA = (LinearLayout) this.mNavigationBar.setTitleView(R.layout.nb_item_forum_list, (View.OnClickListener) null);
+        this.bDl = (TextView) this.mSA.findViewById(R.id.title_text);
+        this.mSh = (ImageView) this.mSA.findViewById(R.id.forum_list_title_arrow);
+        this.mSk = (TextView) forumListActivity.findViewById(R.id.tab_recommends);
+        this.mSk.setOnClickListener(forumListActivity);
+        this.mSl = (TextView) forumListActivity.findViewById(R.id.tab_hot);
+        this.mSl.setOnClickListener(forumListActivity);
+        this.mSt = new g(forumListActivity.getPageContext());
+        this.mSu = new g(forumListActivity.getPageContext());
+        this.mSm = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
+        this.mSd = this.mSm.findViewById(R.id.footer_background);
+        this.mSn = (TextView) this.mSm.findViewById(R.id.footer_text);
+        this.mSo = (ImageView) this.mSm.findViewById(R.id.footer_icon);
+        this.mSq = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
+        this.mSe = this.mSq.findViewById(R.id.footer_background);
+        this.mSr = (TextView) this.mSq.findViewById(R.id.footer_text);
+        this.mSs = (ImageView) this.mSq.findViewById(R.id.footer_icon);
         this.mProgressBar = (ProgressBar) forumListActivity.findViewById(R.id.loading);
         this.isShow = false;
-        this.mRD = forumListActivity;
-        this.mRF = new a(this.mRD.getPageContext().getContext());
+        this.mSx = forumListActivity;
+        this.mSz = new a(this.mSx.getPageContext().getContext());
     }
 
     public View a(int i, AdapterView.OnItemClickListener onItemClickListener) {
-        View inflate = LayoutInflater.from(this.mRD.getPageContext().getPageActivity()).inflate(R.layout.forum_list__dir_menu, (ViewGroup) null);
-        this.mRE = (ListView) inflate.findViewById(R.id.dir_menu_list);
-        this.mRE.setOnItemClickListener(onItemClickListener);
+        View inflate = LayoutInflater.from(this.mSx.getPageContext().getPageActivity()).inflate(R.layout.forum_list__dir_menu, (ViewGroup) null);
+        this.mSy = (ListView) inflate.findViewById(R.id.dir_menu_list);
+        this.mSy.setOnItemClickListener(onItemClickListener);
         inflate.setBackgroundResource(R.drawable.bg_allsproutpop_dropdown);
-        this.mRH = this.mRF.getCount();
-        this.mRE.setAdapter((ListAdapter) this.mRF);
+        this.mSB = this.mSz.getCount();
+        this.mSy.setAdapter((ListAdapter) this.mSz);
         return inflate;
     }
 
     public void c(AdapterView.OnItemClickListener onItemClickListener) {
         if (!this.isShow) {
             this.isShow = true;
-            if (this.mRC == null) {
-                this.mRC = a(0, onItemClickListener);
+            if (this.mSw == null) {
+                this.mSw = a(0, onItemClickListener);
             }
-            int dip2px = (l.dip2px(this.mRD.getPageContext().getPageActivity(), 160.0f) - this.mRG.getWidth()) / 2;
-            if (this.mRB == null) {
-                this.mRB = new PopupWindow(this.mRC, l.dip2px(this.mRD.getPageContext().getPageActivity(), 160.0f), -2, true);
-                this.mRB.setBackgroundDrawable(new ColorDrawable(17170445));
-                if (this.mRH > 6) {
-                    this.mRB.setHeight(l.dip2px(this.mRD.getPageContext().getPageActivity(), 272.0f));
+            int dip2px = (l.dip2px(this.mSx.getPageContext().getPageActivity(), 160.0f) - this.mSA.getWidth()) / 2;
+            if (this.mSv == null) {
+                this.mSv = new PopupWindow(this.mSw, l.dip2px(this.mSx.getPageContext().getPageActivity(), 160.0f), -2, true);
+                this.mSv.setBackgroundDrawable(new ColorDrawable(17170445));
+                if (this.mSB > 6) {
+                    this.mSv.setHeight(l.dip2px(this.mSx.getPageContext().getPageActivity(), 272.0f));
                 }
             }
-            this.mRB.setOutsideTouchable(true);
-            this.mRB.setFocusable(true);
-            this.mRC.setFocusable(true);
-            this.mRC.setFocusableInTouchMode(true);
-            com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(this.mRB, this.mRG, 0 - dip2px, l.dip2px(this.mRD.getPageContext().getPageActivity(), 0.0f));
-            this.mRC.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.tieba.square.flist.c.1
+            this.mSv.setOutsideTouchable(true);
+            this.mSv.setFocusable(true);
+            this.mSw.setFocusable(true);
+            this.mSw.setFocusableInTouchMode(true);
+            com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(this.mSv, this.mSA, 0 - dip2px, l.dip2px(this.mSx.getPageContext().getPageActivity(), 0.0f));
+            this.mSw.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.tieba.square.flist.c.1
                 @Override // android.view.View.OnKeyListener
                 public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                    if (i == 4 && c.this.mRB.isShowing()) {
-                        com.baidu.adp.lib.f.g.dismissPopupWindow(c.this.mRB, c.this.mRD.getPageContext().getPageActivity());
+                    if (i == 4 && c.this.mSv.isShowing()) {
+                        com.baidu.adp.lib.f.g.dismissPopupWindow(c.this.mSv, c.this.mSx.getPageContext().getPageActivity());
                         return false;
                     }
                     return false;
                 }
             });
-            this.mRC.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.square.flist.c.2
+            this.mSw.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.square.flist.c.2
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                    if (c.this.mRB.isShowing()) {
-                        com.baidu.adp.lib.f.g.dismissPopupWindow(c.this.mRB, c.this.mRD.getPageContext().getPageActivity());
+                    if (c.this.mSv.isShowing()) {
+                        com.baidu.adp.lib.f.g.dismissPopupWindow(c.this.mSv, c.this.mSx.getPageContext().getPageActivity());
                         return false;
                     }
                     return false;
                 }
             });
-            this.mRB.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.square.flist.c.3
+            this.mSv.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.square.flist.c.3
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     c.this.isShow = false;
@@ -141,38 +141,38 @@ public class c {
             });
             return;
         }
-        com.baidu.adp.lib.f.g.dismissPopupWindow(this.mRB, this.mRD.getPageContext().getPageActivity());
+        com.baidu.adp.lib.f.g.dismissPopupWindow(this.mSv, this.mSx.getPageContext().getPageActivity());
         this.isShow = false;
     }
 
-    public void dIz() {
-        this.mRm.setVisibility(0);
+    public void dIq() {
+        this.mSf.setVisibility(0);
     }
 
-    public void dIA() {
-        this.mRm.setVisibility(8);
+    public void dIr() {
+        this.mSf.setVisibility(8);
     }
 
-    public void dIB() {
+    public void dIs() {
         if (this.mProgressBar != null) {
             this.mProgressBar.setVisibility(8);
         }
         if (this.mViewPager != null) {
-            if (this.mViewPager.getCurrentItem() == 0 && this.mRp != null) {
-                this.mRp.completePullRefreshPostDelayed(0L);
-            } else if (this.mRq != null) {
-                this.mRq.completePullRefreshPostDelayed(0L);
+            if (this.mViewPager.getCurrentItem() == 0 && this.mSi != null) {
+                this.mSi.completePullRefreshPostDelayed(0L);
+            } else if (this.mSj != null) {
+                this.mSj.completePullRefreshPostDelayed(0L);
             }
         }
     }
 
-    public void dIC() {
-        this.mRo.setVisibility(4);
-        this.mRG.setClickable(false);
-        this.mRG.setOnClickListener(null);
+    public void dIt() {
+        this.mSh.setVisibility(4);
+        this.mSA.setClickable(false);
+        this.mSA.setOnClickListener(null);
     }
 
-    public void dID() {
-        this.mRo.setVisibility(0);
+    public void dIu() {
+        this.mSh.setVisibility(0);
     }
 }

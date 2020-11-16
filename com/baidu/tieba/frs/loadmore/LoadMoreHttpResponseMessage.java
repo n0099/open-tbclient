@@ -6,8 +6,9 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ak;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.al;
+import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.recapp.report.b;
 import com.squareup.wire.Wire;
@@ -18,7 +19,7 @@ import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     private BannerListData bannerListData;
     private ArrayList<q> threadList;
@@ -35,6 +36,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        boolean z;
         Message<?> orginalMessage;
         ThreadListResIdl threadListResIdl = (ThreadListResIdl) new Wire(new Class[0]).parseFrom(bArr, ThreadListResIdl.class);
         if (threadListResIdl != null && threadListResIdl.error != null) {
@@ -55,8 +57,15 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                         }
                     }
                 }
+                long j = 0;
                 Message<?> orginalMessage2 = getOrginalMessage();
-                boolean isBrandForum = (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) ? false : ((LoadMoreRequestMessage) orginalMessage2.getExtra()).isBrandForum();
+                if (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
+                    z = false;
+                } else {
+                    LoadMoreRequestMessage loadMoreRequestMessage = (LoadMoreRequestMessage) orginalMessage2.getExtra();
+                    z = loadMoreRequestMessage.isBrandForum();
+                    j = loadMoreRequestMessage.getForumId();
+                }
                 if (y.getCount(threadListResIdl.data.thread_list) > 0) {
                     this.threadList = new ArrayList<>();
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
@@ -64,30 +73,31 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                         ArrayList arrayList = new ArrayList();
                         for (int i3 = 0; i3 < list2.size(); i3++) {
                             ThreadInfo threadInfo = list2.get(i3);
-                            bw bwVar = new bw();
-                            bwVar.setUserMap(this.userMap);
-                            bwVar.a(threadInfo);
-                            bwVar.bny();
-                            bwVar.eGz = isBrandForum;
-                            if (!TextUtils.isEmpty(bwVar.bnK())) {
-                                ak akVar = new ak();
-                                akVar.AQ(bwVar.bnK());
-                                this.threadList.add(akVar);
+                            bx bxVar = new bx();
+                            aq.a(j, bxVar);
+                            bxVar.setUserMap(this.userMap);
+                            bxVar.a(threadInfo);
+                            bxVar.bmC();
+                            bxVar.eER = z;
+                            if (!TextUtils.isEmpty(bxVar.bmO())) {
+                                al alVar = new al();
+                                alVar.Al(bxVar.bmO());
+                                this.threadList.add(alVar);
                             } else {
-                                this.threadList.add(bwVar);
+                                this.threadList.add(bxVar);
                                 JSONObject f = b.f(threadInfo);
                                 if (f != null) {
                                     arrayList.add(f);
                                 }
                             }
                         }
-                        b.dBj().fz(arrayList);
+                        b.dAN().fz(arrayList);
                     }
                 }
                 this.bannerListData = null;
                 if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {
-                    LoadMoreRequestMessage loadMoreRequestMessage = (LoadMoreRequestMessage) orginalMessage.getExtra();
-                    if (loadMoreRequestMessage.getPageType() == 1 || loadMoreRequestMessage.getPageType() == 2 || loadMoreRequestMessage.getPageType() == 3) {
+                    LoadMoreRequestMessage loadMoreRequestMessage2 = (LoadMoreRequestMessage) orginalMessage.getExtra();
+                    if (loadMoreRequestMessage2.getPageType() == 1 || loadMoreRequestMessage2.getPageType() == 2 || loadMoreRequestMessage2.getPageType() == 3) {
                         this.bannerListData = new BannerListData();
                         this.bannerListData.parserProtobuf(threadListResIdl.data.banner_list);
                     }

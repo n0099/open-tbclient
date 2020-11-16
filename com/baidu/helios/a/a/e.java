@@ -8,24 +8,24 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes19.dex */
 class e implements h {
     @Override // com.baidu.helios.a.a.h
     public String a(Context context) {
-        return com.baidu.helios.b.aj(context.getApplicationContext()).zZ();
+        return com.baidu.helios.b.aj(context.getApplicationContext()).zq();
     }
 
     @Override // com.baidu.helios.a.a.h
     public JSONArray an(Context context) {
-        b.C0140b c0140b;
+        b.C0138b c0138b;
         c cVar = new c();
         com.baidu.helios.b.aj(context).a(cVar);
         boolean a2 = cVar.a(10000);
         JSONArray jSONArray = new JSONArray();
         if (a2) {
-            c.b At = cVar.At();
-            if (At != null && At.result != 0 && (c0140b = (b.C0140b) At.result) != null && c0140b.Ad() != null) {
-                for (b.c cVar2 : c0140b.Ad()) {
+            c.b zK = cVar.zK();
+            if (zK != null && zK.result != 0 && (c0138b = (b.C0138b) zK.result) != null && c0138b.zu() != null) {
+                for (b.c cVar2 : c0138b.zu()) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("aid", cVar2.aid);
@@ -38,7 +38,7 @@ class e implements h {
                 }
             }
         } else {
-            cVar.Au();
+            cVar.zL();
         }
         return jSONArray;
     }
@@ -48,14 +48,14 @@ class e implements h {
         c cVar = new c();
         com.baidu.helios.b.aj(context).b(cVar);
         if (!cVar.a(10000)) {
-            cVar.Au();
+            cVar.zL();
             return null;
         }
-        c.b At = cVar.At();
-        if (At == null || TextUtils.isEmpty((CharSequence) At.result)) {
+        c.b zK = cVar.zK();
+        if (zK == null || TextUtils.isEmpty((CharSequence) zK.result)) {
             return null;
         }
-        return (String) At.result;
+        return (String) zK.result;
     }
 
     @Override // com.baidu.helios.a.a.h
@@ -63,14 +63,14 @@ class e implements h {
         c cVar = new c();
         com.baidu.helios.b.aj(context).c(cVar);
         if (!cVar.a(10000)) {
-            cVar.Au();
+            cVar.zL();
             return null;
         }
-        c.b At = cVar.At();
-        if (At == null || TextUtils.isEmpty((CharSequence) At.result)) {
+        c.b zK = cVar.zK();
+        if (zK == null || TextUtils.isEmpty((CharSequence) zK.result)) {
             return null;
         }
-        return (String) At.result;
+        return (String) zK.result;
     }
 
     @Override // com.baidu.helios.a.a.h

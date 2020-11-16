@@ -24,13 +24,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.yuyinala.privatemessage.model.a {
     private Handler mHandler;
-    private boolean oGU;
-    private volatile CopyOnWriteArrayList<com.baidu.yuyinala.privatemessage.session.b.a> oGT = new CopyOnWriteArrayList<>();
-    private com.baidu.yuyinala.privatemessage.session.a oGV = new com.baidu.yuyinala.privatemessage.session.a(BdBaseApplication.getInst());
+    private boolean oIy;
+    private volatile CopyOnWriteArrayList<com.baidu.yuyinala.privatemessage.session.b.a> oIx = new CopyOnWriteArrayList<>();
+    private com.baidu.yuyinala.privatemessage.session.a oIz = new com.baidu.yuyinala.privatemessage.session.a(BdBaseApplication.getInst());
 
     @Override // com.baidu.yuyinala.privatemessage.model.a
     public synchronized List<com.baidu.yuyinala.privatemessage.session.b.a> getDataList() {
-        return this.oGT;
+        return this.oIx;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.model.a
@@ -49,16 +49,16 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
             }
             return;
         }
-        this.oGU = true;
-        this.oGV.a(new a.InterfaceC0955a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.c.a.1
-            @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0955a
+        this.oIy = true;
+        this.oIz.a(new a.InterfaceC0958a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.c.a.1
+            @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0958a
             public void a(a.b<ChatSession> bVar2) {
-                a.this.oGU = false;
+                a.this.oIy = false;
                 if (bVar2 != null) {
-                    a.this.oGT.clear();
-                    a.this.oGT.addAll(a.this.gx(bVar2.getList()));
+                    a.this.oIx.clear();
+                    a.this.oIx.addAll(a.this.gx(bVar2.getList()));
                     if (bVar != null) {
-                        bVar.Oa(i);
+                        bVar.OD(i);
                     }
                 } else if (bVar != null) {
                     bVar.w("", -1, "无消息");
@@ -98,7 +98,7 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
                 break;
             }
             if (a(chatSession)) {
-                eVar = new i().aV(chatSession);
+                eVar = new i().aW(chatSession);
             } else {
                 eVar = null;
             }
@@ -119,8 +119,8 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.oGV != null) {
-            this.oGV.destory();
+        if (this.oIz != null) {
+            this.oIz.destory();
         }
     }
 
@@ -128,10 +128,10 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
     public void a(Context context, j jVar, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
         if (jVar != null) {
             if (jVar.isMediaRole) {
-                BIMManager.mediaDeleteChatSession(context, jVar.oGP, jVar.oGO, null);
+                BIMManager.mediaDeleteChatSession(context, jVar.oIt, jVar.oIs, null);
             } else {
-                IMBoxManager.setMarkTop(context, jVar.oGP, 0, null);
-                BIMManager.deleteMsgs(context, jVar.oGN, jVar.contacter, false);
+                IMBoxManager.setMarkTop(context, jVar.oIt, 0, null);
+                BIMManager.deleteMsgs(context, jVar.oIr, jVar.contacter, false);
             }
             if (iMediaDeleteChatSessionListener != null) {
                 iMediaDeleteChatSessionListener.onMediaDeleteChatSessionResult(0, "success");

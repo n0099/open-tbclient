@@ -1,5 +1,5 @@
 package com.baidubce;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidubce";
     public static final String BUILD_TYPE = "release";

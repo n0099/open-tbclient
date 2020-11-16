@@ -1,5 +1,5 @@
 package com.baidu.ar.record;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public interface IRecord {
     void pauseRecord();
 

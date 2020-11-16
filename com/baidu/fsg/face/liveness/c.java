@@ -2,7 +2,7 @@ package com.baidu.fsg.face.liveness;
 
 import android.content.Context;
 import com.baidu.fsg.base.utils.ResUtils;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
@@ -20,7 +20,7 @@ public class c {
     public void a() {
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public class a extends com.baidu.fsg.face.base.c.a {
 
         /* renamed from: a  reason: collision with root package name */

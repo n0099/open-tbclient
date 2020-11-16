@@ -4,9 +4,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class PersonGaussianBlurView extends PersonExpandImageView {
-    a mhe;
+    a mhx;
 
     public PersonGaussianBlurView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -14,18 +14,18 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
 
     public void setSrc(Bitmap bitmap) {
         if (bitmap != null && !bitmap.isRecycled()) {
-            if (this.mhe != null) {
-                this.mhe.cancel();
+            if (this.mhx != null) {
+                this.mhx.cancel();
             }
-            this.mhe = new a();
-            this.mhe.execute(bitmap);
+            this.mhx = new a();
+            this.mhx.execute(bitmap);
         }
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes23.dex */
     class a extends BdAsyncTask<Bitmap, String, Bitmap> {
-        private final float mhf = 0.5f;
-        private final int mhg = 15;
+        private final float mhy = 0.5f;
+        private final int mhz = 15;
 
         a() {
         }

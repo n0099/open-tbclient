@@ -7,15 +7,15 @@ import com.baidu.live.talentshow.d.d;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class a {
-    private w aES;
-    private LiveBCChatEnterView bvM;
-    private b bvN;
-    private View.OnClickListener bvO = new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.enter.a.1
+    private w aDh;
+    private LiveBCChatEnterView bua;
+    private b bub;
+    private View.OnClickListener buc = new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.enter.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.fj(0);
-            if (a.this.bvN != null) {
-                a.this.bvN.Z(view);
+            a.this.ff(0);
+            if (a.this.bub != null) {
+                a.this.bub.Z(view);
             }
         }
     };
@@ -29,67 +29,67 @@ public class a {
     }
 
     public void s(w wVar) {
-        this.aES = wVar;
+        this.aDh = wVar;
     }
 
-    public void Rk() {
-        if (this.bvM != null) {
-            this.bvM.setEnterVisible(false);
+    public void QB() {
+        if (this.bua != null) {
+            this.bua.setEnterVisible(false);
         }
     }
 
     public View getEnterView() {
-        if (this.aES == null) {
+        if (this.aDh == null) {
             return null;
         }
-        if (this.bvM == null) {
-            this.bvM = new LiveBCChatEnterView(this.mContext.getPageActivity());
-            this.bvM.setOnClickListener(this.bvO);
-            this.bvM.setEnterVisible(true);
+        if (this.bua == null) {
+            this.bua = new LiveBCChatEnterView(this.mContext.getPageActivity());
+            this.bua.setOnClickListener(this.buc);
+            this.bua.setEnterVisible(true);
         }
         if (this.isHost) {
-            b(this.bvM);
+            b(this.bua);
         } else {
-            a(this.bvM);
+            a(this.bua);
         }
-        return this.bvM;
+        return this.bua;
     }
 
-    public void fj(int i) {
-        if (this.bvM != null) {
+    public void ff(int i) {
+        if (this.bua != null) {
             if (this.isHost) {
                 if (i > 0) {
-                    this.bvM.setRedDotVisible(true);
+                    this.bua.setRedDotVisible(true);
                     return;
                 } else {
-                    this.bvM.setRedDotVisible(false);
+                    this.bua.setRedDotVisible(false);
                     return;
                 }
             }
-            this.bvM.setRedDotVisible(false);
+            this.bua.setRedDotVisible(false);
         }
     }
 
-    public void fk(int i) {
+    public void fg(int i) {
         if (!this.isHost) {
-            fl(i);
+            fh(i);
         }
     }
 
-    private void fl(int i) {
-        if (this.bvM != null) {
-            if (i == d.byB || i == d.byA || i == d.byC) {
-                this.bvM.setEnterImageDrawable(a.e.liveshow_enter_connecting);
-            } else if (i == d.byD) {
-                this.bvM.setEnterImageDrawable(a.e.liveshow_enter_connected);
+    private void fh(int i) {
+        if (this.bua != null) {
+            if (i == d.bwQ || i == d.bwP || i == d.bwR) {
+                this.bua.setEnterImageDrawable(a.e.liveshow_enter_connecting);
+            } else if (i == d.bwS) {
+                this.bua.setEnterImageDrawable(a.e.liveshow_enter_connected);
             } else {
-                this.bvM.setEnterImageDrawable(a.e.liveshow_enter_idle);
+                this.bua.setEnterImageDrawable(a.e.liveshow_enter_idle);
             }
         }
     }
 
     public void a(b bVar) {
-        this.bvN = bVar;
+        this.bub = bVar;
     }
 
     private void a(LiveBCChatEnterView liveBCChatEnterView) {

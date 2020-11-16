@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FlutterEngineCache {
     private static FlutterEngineCache instance;
     private final Map<String, FlutterEngine> cachedEngines = new HashMap();

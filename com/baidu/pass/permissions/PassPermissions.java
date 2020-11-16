@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PassPermissions implements com.baidu.pass.a {
     public static final String TAG = "PassPermissions";
 

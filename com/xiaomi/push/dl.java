@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class dl implements LoggerInterface {
 
     /* renamed from: a  reason: collision with root package name */

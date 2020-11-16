@@ -51,7 +51,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class BIMRtcManager {
     private static final String TAG = "BIMRtcManager";
     private static Context mContext;

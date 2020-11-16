@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.d;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b {
-    public boolean jfB = false;
-    public int jfC = 0;
-    public String jfD = null;
-    public int jfE = -1;
-    public int jfF = -1;
-    public int jfG = -1;
-    public int jfH = -1;
+    public boolean jgm = false;
+    public int jgn = 0;
+    public String jgo = null;
+    public int jgp = -1;
+    public int jgq = -1;
+    public int jgr = -1;
+    public int jgs = -1;
 }

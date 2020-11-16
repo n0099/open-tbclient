@@ -12,7 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class CooperService implements ICooperService {
 
     /* renamed from: a  reason: collision with root package name */

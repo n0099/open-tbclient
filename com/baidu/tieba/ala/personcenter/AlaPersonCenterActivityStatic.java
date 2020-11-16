@@ -22,8 +22,8 @@ public class AlaPersonCenterActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaPersonCenterActivityConfig.class, AlaPersonCenterActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AlaPrivilegeListActivityConfig.class, AlaPersonCenterPrivilegeActivity.class);
-        bpx();
-        cjx();
+        boK();
+        ciQ();
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_ADD_TAB) { // from class: com.baidu.tieba.ala.personcenter.AlaPersonCenterActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -36,7 +36,7 @@ public class AlaPersonCenterActivityStatic {
                         aVar.setForumId(amVar.getForumId());
                         aVar.setForumName(amVar.getForumName());
                         aVar.setForumGameLabel(amVar.getForumGameLabel());
-                        aVar.IG(amVar.cAw());
+                        aVar.Ih(amVar.czZ());
                         aVar.a(amVar);
                     }
                 }
@@ -44,7 +44,7 @@ public class AlaPersonCenterActivityStatic {
         });
     }
 
-    private static final void bpx() {
+    private static final void boK() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_GLOBAL_PUSH_SWITCH, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_GLOBAL_PUSH_SWITCH_URL);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -52,7 +52,7 @@ public class AlaPersonCenterActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void cjx() {
+    private static void ciQ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_ENTER_EFFECT);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);

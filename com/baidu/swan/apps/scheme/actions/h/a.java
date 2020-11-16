@@ -9,7 +9,7 @@ import com.baidu.swan.apps.core.d.f;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/hideNavigationBarLoading");
@@ -20,18 +20,18 @@ public class a extends aa {
         if (DEBUG) {
             Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        f afM = com.baidu.swan.apps.v.f.azO().afM();
-        if (afM == null) {
+        f afe = com.baidu.swan.apps.v.f.azg().afe();
+        if (afe == null) {
             com.baidu.swan.apps.console.c.e("navigationLoading", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.c apb = afM.apb();
-        if (apb == null) {
+        com.baidu.swan.apps.core.d.c aot = afe.aot();
+        if (aot == null) {
             com.baidu.swan.apps.console.c.e("navigationLoading", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!apb.aox()) {
+        } else if (!aot.anP()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("navigationLoading", "hide navigation loading progressbar fail");
             return false;

@@ -7,41 +7,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private BdTypeListView bkA;
-    private List<AbsDelegateAdapter> bky = new ArrayList();
-    private b hAm;
-    private c hAn;
-    private e hAo;
-    private f hAp;
-    private d hAq;
+    private List<AbsDelegateAdapter> biN = new ArrayList();
+    private BdTypeListView biP;
+    private b hzT;
+    private c hzU;
+    private e hzV;
+    private f hzW;
+    private d hzX;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.bkA = bdTypeListView;
-        LY();
+        this.biP = bdTypeListView;
+        Lp();
     }
 
-    private void LY() {
-        this.hAm = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.hAt);
-        this.hAn = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.hAw);
-        this.hAo = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.hAy);
-        this.hAp = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.hAz);
-        this.hAq = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.hAx);
-        this.bky.add(this.hAm);
-        this.bky.add(this.hAn);
-        this.bky.add(this.hAo);
-        this.bky.add(this.hAp);
-        this.bky.add(this.hAq);
-        this.bkA.addAdapters(this.bky);
+    private void Lp() {
+        this.hzT = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.hAa);
+        this.hzU = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.hAd);
+        this.hzV = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.hAf);
+        this.hzW = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.hAg);
+        this.hzX = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.hAe);
+        this.biN.add(this.hzT);
+        this.biN.add(this.hzU);
+        this.biN.add(this.hzV);
+        this.biN.add(this.hzW);
+        this.biN.add(this.hzX);
+        this.biP.addAdapters(this.biN);
     }
 
     public void onDestroy() {
-        if (this.hAm != null) {
-            this.hAm.onDestroy();
+        if (this.hzT != null) {
+            this.hzT.onDestroy();
         }
-        if (this.hAn != null) {
-            this.hAn.onDestroy();
+        if (this.hzU != null) {
+            this.hzU.onDestroy();
         }
     }
 }

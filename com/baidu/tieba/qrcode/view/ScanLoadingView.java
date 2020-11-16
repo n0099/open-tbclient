@@ -10,9 +10,9 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class ScanLoadingView extends LinearLayout {
-    private TBLottieAnimationView mls;
+    private TBLottieAnimationView mlM;
 
     public ScanLoadingView(Context context) {
         this(context, null);
@@ -29,27 +29,27 @@ public class ScanLoadingView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_scan_loading, (ViewGroup) this, true);
-        this.mls = (TBLottieAnimationView) findViewById(R.id.loading_anim);
-        this.mls.loop(true);
-        this.mls.setFrame(0);
-        ap.a(this.mls, R.raw.scan_refresh);
-        ap.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.cp_cont_c, 1);
+        this.mlM = (TBLottieAnimationView) findViewById(R.id.loading_anim);
+        this.mlM.loop(true);
+        this.mlM.setFrame(0);
+        ap.a(this.mlM, R.raw.scan_refresh);
+        ap.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.CAM_X0108, 1);
         setVisibility(8);
     }
 
     public void showLoading() {
         setVisibility(0);
-        if (this.mls != null) {
-            if (this.mls.isAnimating()) {
-                this.mls.cancelAnimation();
+        if (this.mlM != null) {
+            if (this.mlM.isAnimating()) {
+                this.mlM.cancelAnimation();
             }
-            this.mls.playAnimation();
+            this.mlM.playAnimation();
         }
     }
 
     public void hideLoading() {
-        if (this.mls != null) {
-            this.mls.cancelAnimation();
+        if (this.mlM != null) {
+            this.mlM.cancelAnimation();
         }
         setVisibility(8);
     }

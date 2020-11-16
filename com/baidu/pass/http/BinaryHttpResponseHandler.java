@@ -3,7 +3,7 @@ package com.baidu.pass.http;
 import android.os.Looper;
 import com.baidu.android.util.media.MimeType;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BinaryHttpResponseHandler extends HttpResponseHandler implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */

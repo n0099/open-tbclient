@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.LongBuffer;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with root package name */

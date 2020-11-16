@@ -1,5 +1,5 @@
 package androidx.lifecycle;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class a implements Lifecycle {
     private final android.arch.lifecycle.Lifecycle Ae;
 

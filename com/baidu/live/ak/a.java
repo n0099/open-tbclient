@@ -13,82 +13,82 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes4.dex */
 public class a {
-    private Activity bNY;
-    private d bNZ;
-    private CustomMessageListener bOa;
+    private Activity bMo;
+    private d bMp;
+    private CustomMessageListener bMq;
 
     public a(Activity activity) {
-        this.bNY = activity;
-        WY();
+        this.bMo = activity;
+        Wp();
     }
 
     public void a(c cVar) {
         if (cVar != null && !TextUtils.isEmpty(cVar.url)) {
             String str = cVar.url;
             dismiss();
-            this.bNZ = new d(this.bNY);
-            this.bNZ.WZ().setBackgroundColor(hW(str));
+            this.bMp = new d(this.bMo);
+            this.bMp.Wq().setBackgroundColor(hQ(str));
             g gVar = new g();
-            gVar.y(this.bNY).a(this.bNZ).a(this.bNZ.WZ().getSchemeCallback());
-            com.baidu.live.view.web.a[] WX = gVar.WX();
-            for (com.baidu.live.view.web.a aVar : WX) {
-                this.bNZ.WZ().addJavascriptInterface(aVar, aVar.getName());
+            gVar.x(this.bMo).a(this.bMp).a(this.bMp.Wq().getSchemeCallback());
+            com.baidu.live.view.web.a[] Wo = gVar.Wo();
+            for (com.baidu.live.view.web.a aVar : Wo) {
+                this.bMp.Wq().addJavascriptInterface(aVar, aVar.getName());
             }
-            this.bNZ.b(cVar);
+            this.bMp.b(cVar);
         }
     }
 
     public void resume() {
-        if (this.bNZ != null && this.bNZ.isShowing() && this.bNZ.WZ() != null) {
-            this.bNZ.WZ().onResume();
+        if (this.bMp != null && this.bMp.isShowing() && this.bMp.Wq() != null) {
+            this.bMp.Wq().onResume();
         }
     }
 
     public void pause() {
-        if (this.bNZ != null && this.bNZ.isShowing() && this.bNZ.WZ() != null) {
-            this.bNZ.WZ().onPause();
+        if (this.bMp != null && this.bMp.isShowing() && this.bMp.Wq() != null) {
+            this.bMp.Wq().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.bNZ != null) {
-            this.bNZ.Xa();
-            this.bNZ = null;
+        if (this.bMp != null) {
+            this.bMp.Wr();
+            this.bMp = null;
         }
     }
 
-    public void dI(int i) {
-        if (this.bNZ != null && this.bNZ.isShowing()) {
-            this.bNZ.dI(i);
+    public void dE(int i) {
+        if (this.bMp != null && this.bMp.isShowing()) {
+            this.bMp.dE(i);
         }
     }
 
-    public void Ht() {
+    public void GK() {
         dismiss();
     }
 
     public void release() {
-        Ht();
-        MessageManager.getInstance().unRegisterListener(this.bOa);
-        this.bOa = null;
+        GK();
+        MessageManager.getInstance().unRegisterListener(this.bMq);
+        this.bMq = null;
     }
 
-    private void WY() {
-        if (this.bOa == null) {
-            this.bOa = new CustomMessageListener(2913123) { // from class: com.baidu.live.ak.a.1
+    private void Wp() {
+        if (this.bMq == null) {
+            this.bMq = new CustomMessageListener(2913123) { // from class: com.baidu.live.ak.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (a.this.bNZ != null && a.this.bNZ.isShowing()) {
-                        a.this.bNZ.dismiss();
+                    if (a.this.bMp != null && a.this.bMp.isShowing()) {
+                        a.this.bMp.dismiss();
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.bOa);
+            MessageManager.getInstance().registerListener(this.bMq);
         }
     }
 
-    private int hW(String str) {
+    private int hQ(String str) {
         String str2 = null;
         try {
             str2 = Uri.parse(str).getQueryParameter("background");

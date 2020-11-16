@@ -5,29 +5,29 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.data.bn;
 /* loaded from: classes4.dex */
 public class a {
-    private boolean aDo;
+    private boolean aBD;
 
-    public static a Cl() {
-        return C0176a.aDp;
+    public static a BC() {
+        return C0174a.aBE;
     }
 
-    public boolean Cm() {
-        bn bnVar = com.baidu.live.aa.a.PQ().btT;
-        if (bnVar != null && bnVar.aPA != null && !bnVar.aPA.aRV) {
+    public boolean BD() {
+        bn bnVar = com.baidu.live.aa.a.Ph().bsh;
+        if (bnVar != null && bnVar.aNP != null && !bnVar.aNP.aQk) {
             return false;
         }
-        Log.e("entereffect", "云控透明视频开关： " + this.aDo);
-        return this.aDo;
+        Log.e("entereffect", "云控透明视频开关： " + this.aBD);
+        return this.aBD;
     }
 
     private a() {
-        this.aDo = MessageManager.getInstance().findTask(2913180) != null;
+        this.aBD = MessageManager.getInstance().findTask(2913180) != null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.alphavideo.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0176a {
-        private static a aDp = new a();
+    public static class C0174a {
+        private static a aBE = new a();
     }
 }

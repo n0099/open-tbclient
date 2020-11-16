@@ -2,11 +2,11 @@ package io.reactivex.internal.observers;
 
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     protected final u<? super R> actual;
     protected boolean done;
-    protected io.reactivex.internal.a.b<T> pMB;
+    protected io.reactivex.internal.a.b<T> pOe;
     protected io.reactivex.disposables.b s;
     protected int sourceMode;
 
@@ -19,20 +19,20 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;
             if (bVar instanceof io.reactivex.internal.a.b) {
-                this.pMB = (io.reactivex.internal.a.b) bVar;
+                this.pOe = (io.reactivex.internal.a.b) bVar;
             }
-            if (eAG()) {
+            if (eAH()) {
                 this.actual.onSubscribe(this);
-                eAH();
+                eAI();
             }
         }
     }
 
-    protected boolean eAG() {
+    protected boolean eAH() {
         return true;
     }
 
-    protected void eAH() {
+    protected void eAI() {
     }
 
     @Override // io.reactivex.u
@@ -61,8 +61,8 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int Rj(int i) {
-        io.reactivex.internal.a.b<T> bVar = this.pMB;
+    public final int RM(int i) {
+        io.reactivex.internal.a.b<T> bVar = this.pOe;
         if (bVar == null || (i & 4) != 0) {
             return 0;
         }
@@ -86,12 +86,12 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
 
     @Override // io.reactivex.internal.a.g
     public boolean isEmpty() {
-        return this.pMB.isEmpty();
+        return this.pOe.isEmpty();
     }
 
     @Override // io.reactivex.internal.a.g
     public void clear() {
-        this.pMB.clear();
+        this.pOe.clear();
     }
 
     @Override // io.reactivex.internal.a.g

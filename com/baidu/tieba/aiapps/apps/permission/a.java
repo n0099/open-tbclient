@@ -5,15 +5,15 @@ import android.app.Activity;
 import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class a {
-    private static List<String> fXd = null;
+    private static List<String> fWK = null;
 
     @TargetApi(23)
     public static void eQ(Context context) {
         if (!eR(context)) {
             eS(context);
-            ((Activity) context).requestPermissions((String[]) fXd.toArray(new String[fXd.size()]), 102);
+            ((Activity) context).requestPermissions((String[]) fWK.toArray(new String[fWK.size()]), 102);
         } else if (context instanceof PermissionActivity) {
             ((Activity) context).finish();
         }
@@ -26,14 +26,14 @@ public class a {
 
     @TargetApi(23)
     private static void eS(Context context) {
-        if (fXd == null) {
-            fXd = new ArrayList();
+        if (fWK == null) {
+            fWK = new ArrayList();
         } else {
-            fXd.clear();
+            fWK.clear();
         }
         if (context.checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") != 0) {
-            fXd.add("android.permission.WRITE_EXTERNAL_STORAGE");
-            fXd.add("android.permission.READ_EXTERNAL_STORAGE");
+            fWK.add("android.permission.WRITE_EXTERNAL_STORAGE");
+            fWK.add("android.permission.READ_EXTERNAL_STORAGE");
         }
     }
 

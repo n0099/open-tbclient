@@ -35,7 +35,7 @@ import java.util.TimeZone;
 import javax.crypto.BadPaddingException;
 import javax.security.auth.x500.X500Principal;
 import org.conscrypt.OpenSSLX509CertificateFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public final class OpenSSLX509Certificate extends X509Certificate {
     private static final long serialVersionUID = 1992239142393372128L;
     private final transient long mContext;

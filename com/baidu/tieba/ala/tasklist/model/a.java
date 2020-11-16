@@ -14,10 +14,10 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private AlaLiveUserInfoData hKh;
-    private an hKi;
-    private InterfaceC0705a hKj;
-    private HttpMessageListener hKk = new HttpMessageListener(1021065) { // from class: com.baidu.tieba.ala.tasklist.model.a.1
+    private AlaLiveUserInfoData hJO;
+    private an hJP;
+    private InterfaceC0705a hJQ;
+    private HttpMessageListener hJR = new HttpMessageListener(1021065) { // from class: com.baidu.tieba.ala.tasklist.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -26,21 +26,21 @@ public class a extends BdBaseModel {
                 int error = httpResponsedMessage.getError();
                 LiveFlowerTaskListResponsedMessage liveFlowerTaskListResponsedMessage = (LiveFlowerTaskListResponsedMessage) httpResponsedMessage;
                 if (statusCode != 200 || error != 0) {
-                    if (a.this.hKj != null) {
-                        a.this.hKj.aE(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (a.this.hJQ != null) {
+                        a.this.hJQ.aC(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
-                a.this.hKh = liveFlowerTaskListResponsedMessage.hKh;
-                a.this.hKi = liveFlowerTaskListResponsedMessage.hKi;
-                if (a.this.hKj != null) {
-                    a.this.hKj.a(liveFlowerTaskListResponsedMessage.hKh, liveFlowerTaskListResponsedMessage.hKi);
+                a.this.hJO = liveFlowerTaskListResponsedMessage.hJO;
+                a.this.hJP = liveFlowerTaskListResponsedMessage.hJP;
+                if (a.this.hJQ != null) {
+                    a.this.hJQ.a(liveFlowerTaskListResponsedMessage.hJO, liveFlowerTaskListResponsedMessage.hJP);
                 }
             }
         }
     };
-    private HttpMessageListener hKl = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.tasklist.model.a.2
+    private HttpMessageListener hJS = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.tasklist.model.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -49,17 +49,17 @@ public class a extends BdBaseModel {
                 int error = httpResponsedMessage.getError();
                 LiveFlowerTaskRewardResponsedMessage liveFlowerTaskRewardResponsedMessage = (LiveFlowerTaskRewardResponsedMessage) httpResponsedMessage;
                 if (statusCode != 200 || error != 0) {
-                    if (a.this.hKj != null) {
-                        a.this.hKj.aE(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (a.this.hJQ != null) {
+                        a.this.hJQ.aC(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
-                a.this.hKh = liveFlowerTaskRewardResponsedMessage.hKh;
-                a.this.hKi = liveFlowerTaskRewardResponsedMessage.hKi;
-                a.this.cln();
-                if (a.this.hKj != null) {
-                    a.this.hKj.a(liveFlowerTaskRewardResponsedMessage.hKh, liveFlowerTaskRewardResponsedMessage.hKi);
+                a.this.hJO = liveFlowerTaskRewardResponsedMessage.hJO;
+                a.this.hJP = liveFlowerTaskRewardResponsedMessage.hJP;
+                a.this.ckG();
+                if (a.this.hJQ != null) {
+                    a.this.hJQ.a(liveFlowerTaskRewardResponsedMessage.hJO, liveFlowerTaskRewardResponsedMessage.hJP);
                 }
             }
         }
@@ -70,22 +70,22 @@ public class a extends BdBaseModel {
     public interface InterfaceC0705a {
         void a(AlaLiveUserInfoData alaLiveUserInfoData, an anVar);
 
-        void aE(int i, String str);
+        void aC(int i, String str);
     }
 
     public a() {
-        clk();
-        cll();
-        MessageManager.getInstance().registerListener(this.hKk);
-        MessageManager.getInstance().registerListener(this.hKl);
+        ckD();
+        ckE();
+        MessageManager.getInstance().registerListener(this.hJR);
+        MessageManager.getInstance().registerListener(this.hJS);
     }
 
-    public an clj() {
-        return this.hKi;
+    public an ckC() {
+        return this.hJP;
     }
 
-    private void clk() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021065, b.azU);
+    private void ckD() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021065, b.ayj);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -93,8 +93,8 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void cll() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021066, b.azV);
+    private void ckE() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021066, b.ayk);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -102,13 +102,13 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void clm() {
+    public void ckF() {
         HttpMessage httpMessage = new HttpMessage(1021065);
         httpMessage.setTag(getUniqueId());
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void wE(int i) {
+    public void xc(int i) {
         HttpMessage httpMessage = new HttpMessage(1021066);
         httpMessage.setTag(getUniqueId());
         httpMessage.addParam("task_id", i);
@@ -116,13 +116,13 @@ public class a extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cln() {
+    public void ckG() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "petal_pickup"));
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hKk);
-        MessageManager.getInstance().unRegisterListener(this.hKl);
+        MessageManager.getInstance().unRegisterListener(this.hJR);
+        MessageManager.getInstance().unRegisterListener(this.hJS);
         MessageManager.getInstance().unRegisterTask(1021065);
         MessageManager.getInstance().unRegisterTask(1021066);
         cancelMessage();
@@ -140,6 +140,6 @@ public class a extends BdBaseModel {
     }
 
     public void a(InterfaceC0705a interfaceC0705a) {
-        this.hKj = interfaceC0705a;
+        this.hJQ = interfaceC0705a;
     }
 }

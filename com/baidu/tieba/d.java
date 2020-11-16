@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public interface d<T> {
-    void EQ(String str);
+    void Er(String str);
 
     void az(T t);
 

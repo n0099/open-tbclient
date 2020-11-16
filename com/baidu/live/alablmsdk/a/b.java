@@ -7,26 +7,26 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes4.dex */
 public class b {
-    private static a aAs;
+    private static a ayH;
     private static boolean isDebug = false;
-    private static StringBuilder aAr = new StringBuilder();
+    private static StringBuilder ayG = new StringBuilder();
 
     /* loaded from: classes4.dex */
     public interface a {
-        void fI(String str);
+        void fC(String str);
     }
 
     public static void a(a aVar) {
-        aAs = aVar;
+        ayH = aVar;
     }
 
-    public static void Bf() {
-        if (aAs != null) {
-            aAs = null;
+    public static void Aw() {
+        if (ayH != null) {
+            ayH = null;
         }
     }
 
-    public static void aZ(boolean z) {
+    public static void bb(boolean z) {
         isDebug = z;
     }
 
@@ -40,17 +40,17 @@ public class b {
         }
     }
 
-    public static void ah(String str, String str2) {
+    public static void ag(String str, String str2) {
         if (isDebug) {
             Log.d("blmsdk", str + str2);
         }
-        fJ(str);
+        fD(str);
     }
 
-    public static void fJ(String str) {
+    public static void fD(String str) {
         String f = f(4000, str);
-        if (aAs != null) {
-            aAs.fI(f);
+        if (ayH != null) {
+            ayH.fC(f);
         }
     }
 
@@ -59,34 +59,34 @@ public class b {
     }
 
     public static synchronized String f(int i, String str) {
-        String Bg;
+        String Ax;
         synchronized (b.class) {
             try {
-                if (aAr == null) {
-                    aAr = new StringBuilder();
+                if (ayG == null) {
+                    ayG = new StringBuilder();
                 }
-                if (aAr.length() != 0) {
-                    aAr.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                if (ayG.length() != 0) {
+                    ayG.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
-                aAr.append("[").append(b(System.currentTimeMillis(), "HH:mm:ss.SSS")).append("|").append(i).append("|").append(str).append("]");
+                ayG.append("[").append(b(System.currentTimeMillis(), "HH:mm:ss.SSS")).append("|").append(i).append("|").append(str).append("]");
             } catch (Exception e) {
             }
-            Bg = Bg();
+            Ax = Ax();
         }
-        return Bg;
+        return Ax;
     }
 
-    public static synchronized String Bg() {
+    public static synchronized String Ax() {
         String sb;
         synchronized (b.class) {
-            if (aAr == null) {
+            if (ayG == null) {
                 sb = "";
             } else {
-                sb = aAr.toString();
+                sb = ayG.toString();
                 try {
-                    aAr.delete(0, aAr.length());
+                    ayG.delete(0, ayG.length());
                 } catch (Exception e) {
-                    aAr = new StringBuilder();
+                    ayG = new StringBuilder();
                 }
             }
         }

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class LocalVideoSelectNoDataView extends LinearLayout {
     public LocalVideoSelectNoDataView(Context context) {
         super(context);

@@ -9,7 +9,7 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.support.v4.util.LongSparseArray;
 import com.airbnb.lottie.model.content.GradientType;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class h extends a {
     private final com.airbnb.lottie.a.b.a<com.airbnb.lottie.model.content.c, com.airbnb.lottie.model.content.c> Df;
     private final LongSparseArray<LinearGradient> Dg;

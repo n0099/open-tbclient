@@ -3,7 +3,7 @@ package com.sdk.base.module.permission;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class PermissionActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */

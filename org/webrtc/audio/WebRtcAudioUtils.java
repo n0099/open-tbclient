@@ -8,7 +8,7 @@ import android.media.AudioManager;
 import android.os.Build;
 import java.util.Arrays;
 import org.webrtc.Logging;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 final class WebRtcAudioUtils {
     private static final String TAG = "WebRtcAudioUtilsExternal";
 

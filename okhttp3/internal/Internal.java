@@ -15,7 +15,7 @@ import okhttp3.internal.cache.InternalCache;
 import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.RouteDatabase;
 import okhttp3.internal.connection.StreamAllocation;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public abstract class Internal {
     public static Internal instance;
 

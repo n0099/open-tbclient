@@ -28,41 +28,41 @@ import com.baidu.live.yuyingift.panel.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class GiftPanelDrawContainerView extends LinearLayout implements View.OnClickListener {
-    public AlaGiftDrawPanel bRP;
-    private a bRQ;
-    private AlaGiftDrawPanel.a bRR;
-    public View bfo;
-    public TextView bfp;
-    public ImageButton bfq;
-    public ImageButton bfr;
-    public ImageButton bft;
+    public AlaGiftDrawPanel bQf;
+    private a bQg;
+    private AlaGiftDrawPanel.a bQh;
+    public View bdA;
+    public TextView bdB;
+    public ImageButton bdC;
+    public ImageButton bdD;
+    public ImageButton bdE;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void Ij();
+        void HA();
 
-        void ej(int i);
+        void ef(int i);
     }
 
     public GiftPanelDrawContainerView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bRR = new AlaGiftDrawPanel.a() { // from class: com.baidu.live.yuyingift.widget.panel.GiftPanelDrawContainerView.3
+        this.bQh = new AlaGiftDrawPanel.a() { // from class: com.baidu.live.yuyingift.widget.panel.GiftPanelDrawContainerView.3
             @Override // com.baidu.live.yuyingift.graffitigift.AlaGiftDrawPanel.a
             public void d(int i, long j) {
-                GiftPanelDrawContainerView.this.bfp.setText(String.format(GiftPanelDrawContainerView.this.getResources().getString(a.h.ala_gift_draw_title_drawing), Long.valueOf(GiftPanelDrawContainerView.this.getSelectWheatsCount() * j)));
+                GiftPanelDrawContainerView.this.bdB.setText(String.format(GiftPanelDrawContainerView.this.getResources().getString(a.h.ala_gift_draw_title_drawing), Long.valueOf(GiftPanelDrawContainerView.this.getSelectWheatsCount() * j)));
                 if (i <= 0) {
-                    GiftPanelDrawContainerView.this.Kr();
-                    GiftPanelDrawContainerView.this.bfp.setVisibility(8);
-                    GiftPanelDrawContainerView.this.bfq.setEnabled(false);
-                    GiftPanelDrawContainerView.this.bfr.setEnabled(false);
+                    GiftPanelDrawContainerView.this.JI();
+                    GiftPanelDrawContainerView.this.bdB.setVisibility(8);
+                    GiftPanelDrawContainerView.this.bdC.setEnabled(false);
+                    GiftPanelDrawContainerView.this.bdD.setEnabled(false);
                 } else {
-                    GiftPanelDrawContainerView.this.bfp.setVisibility(0);
-                    GiftPanelDrawContainerView.this.bfq.setEnabled(true);
-                    GiftPanelDrawContainerView.this.bfr.setEnabled(true);
-                    GiftPanelDrawContainerView.this.Kr();
+                    GiftPanelDrawContainerView.this.bdB.setVisibility(0);
+                    GiftPanelDrawContainerView.this.bdC.setEnabled(true);
+                    GiftPanelDrawContainerView.this.bdD.setEnabled(true);
+                    GiftPanelDrawContainerView.this.JI();
                 }
-                if (GiftPanelDrawContainerView.this.bRQ != null) {
-                    GiftPanelDrawContainerView.this.bRQ.ej(i);
+                if (GiftPanelDrawContainerView.this.bQg != null) {
+                    GiftPanelDrawContainerView.this.bQg.ef(i);
                 }
             }
         };
@@ -70,15 +70,15 @@ public class GiftPanelDrawContainerView extends LinearLayout implements View.OnC
     }
 
     public void setCallback(a aVar) {
-        this.bRQ = aVar;
+        this.bQg = aVar;
     }
 
     public void h(boolean z, final String str) {
         if (z) {
-            if (this.bRP.getVisibility() == 0) {
-                Ks();
+            if (this.bQf.getVisibility() == 0) {
+                JJ();
             }
-            Kr();
+            JI();
             if (!TextUtils.isEmpty(str)) {
                 BdResourceLoader.getInstance().loadResource(str, 10, new BdResourceCallback<BdImage>() { // from class: com.baidu.live.yuyingift.widget.panel.GiftPanelDrawContainerView.1
                     /* JADX DEBUG: Method merged with bridge method */
@@ -87,107 +87,107 @@ public class GiftPanelDrawContainerView extends LinearLayout implements View.OnC
                     public void onLoaded(BdImage bdImage, String str2, int i) {
                         super.onLoaded((AnonymousClass1) bdImage, str2, i);
                         if (bdImage == null || bdImage.getRawBitmap() == null) {
-                            GiftPanelDrawContainerView.this.Kt();
+                            GiftPanelDrawContainerView.this.JK();
                         } else if (str2 != null && str2.equals(str)) {
-                            GiftPanelDrawContainerView.this.bRP.setGiftBitmp(bdImage.getRawBitmap());
+                            GiftPanelDrawContainerView.this.bQf.setGiftBitmp(bdImage.getRawBitmap());
                         }
                     }
                 }, null);
             } else {
-                Kt();
+                JK();
             }
-            if (this.bRP != null && this.bRP.getCurrentPointSize() > 0) {
-                if (this.bfp != null) {
-                    this.bfp.setVisibility(0);
+            if (this.bQf != null && this.bQf.getCurrentPointSize() > 0) {
+                if (this.bdB != null) {
+                    this.bdB.setVisibility(0);
                     return;
                 }
                 return;
-            } else if (this.bfp != null) {
-                this.bfp.setVisibility(8);
+            } else if (this.bdB != null) {
+                this.bdB.setVisibility(8);
                 return;
             } else {
                 return;
             }
         }
-        bP(true);
-        if (this.bRP != null) {
-            this.bRP.Jf();
+        bR(true);
+        if (this.bQf != null) {
+            this.bQf.Iw();
         }
     }
 
     public void setGiftItem(g gVar) {
-        if (this.bRP != null) {
-            this.bRP.setAlaGiftItem(gVar);
+        if (this.bQf != null) {
+            this.bQf.setAlaGiftItem(gVar);
         }
     }
 
     public k getGraffitiData() {
-        if (this.bRP == null) {
+        if (this.bQf == null) {
             return null;
         }
         k kVar = new k();
-        kVar.aVU = BdUtilHelper.dip2px(getContext().getApplicationContext(), 32.0f);
-        kVar.aVV.addAll(this.bRP.getPoints());
-        kVar.aVS = this.bRP.getMeasuredHeight();
-        kVar.aVR = this.bRP.getMeasuredWidth();
+        kVar.aUj = BdUtilHelper.dip2px(getContext().getApplicationContext(), 32.0f);
+        kVar.aUk.addAll(this.bQf.getPoints());
+        kVar.aUh = this.bQf.getMeasuredHeight();
+        kVar.aUg = this.bQf.getMeasuredWidth();
         Rect rect = new Rect();
-        this.bRP.getGlobalVisibleRect(rect);
-        kVar.aVP = rect.left;
-        kVar.aVQ = rect.top;
-        kVar.aVW = kVar.aVV.size();
-        kVar.aVY = this.bRP.getGraffitiPointDesDatas();
-        kVar.aVX = new Rect(0, 0, rect.width(), rect.height());
+        this.bQf.getGlobalVisibleRect(rect);
+        kVar.aUe = rect.left;
+        kVar.aUf = rect.top;
+        kVar.aUl = kVar.aUk.size();
+        kVar.aUn = this.bQf.getGraffitiPointDesDatas();
+        kVar.aUm = new Rect(0, 0, rect.width(), rect.height());
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(getContext().getApplicationContext());
-        kVar.aVN = screenDimensions[0];
-        kVar.aVO = screenDimensions[1];
+        kVar.aUc = screenDimensions[0];
+        kVar.aUd = screenDimensions[1];
         return kVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bfq) {
-            if (this.bRP != null) {
-                this.bRP.Ji();
+        if (view == this.bdC) {
+            if (this.bQf != null) {
+                this.bQf.Iz();
             }
-        } else if (view == this.bfr) {
-            this.bfr.setEnabled(false);
-            this.bfq.setEnabled(false);
-            bP(false);
-            this.bRR.d(0, 0L);
-        } else if (view == this.bft && this.bRQ != null) {
-            this.bRQ.Ij();
+        } else if (view == this.bdD) {
+            this.bdD.setEnabled(false);
+            this.bdC.setEnabled(false);
+            bR(false);
+            this.bQh.d(0, 0L);
+        } else if (view == this.bdE && this.bQg != null) {
+            this.bQg.HA();
         }
     }
 
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_live_gift_panel_draw_container, (ViewGroup) this, true);
-        HZ();
-        Kn();
-        Ko();
-        Kp();
-        Kq();
-        Ib();
+        Hq();
+        JE();
+        JF();
+        JG();
+        JH();
+        Hs();
     }
 
-    private void HZ() {
-        this.bfo = findViewById(a.f.layout_title);
-        this.bfp = (TextView) findViewById(a.f.tv_title);
-        this.bfq = (ImageButton) findViewById(a.f.btn_revert);
-        this.bfr = (ImageButton) findViewById(a.f.btn_clean);
-        this.bft = (ImageButton) findViewById(a.f.btn_hide);
-        this.bRP = (AlaGiftDrawPanel) findViewById(a.f.panel_draw);
+    private void Hq() {
+        this.bdA = findViewById(a.f.layout_title);
+        this.bdB = (TextView) findViewById(a.f.tv_title);
+        this.bdC = (ImageButton) findViewById(a.f.btn_revert);
+        this.bdD = (ImageButton) findViewById(a.f.btn_clean);
+        this.bdE = (ImageButton) findViewById(a.f.btn_hide);
+        this.bQf = (AlaGiftDrawPanel) findViewById(a.f.panel_draw);
     }
 
-    private void Kn() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bfo.getLayoutParams();
+    private void JE() {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bdA.getLayoutParams();
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             layoutParams.height = getResources().getDimensionPixelSize(a.d.sdk_ds128);
         } else {
             layoutParams.height = getResources().getDimensionPixelSize(a.d.sdk_ds128) - UtilHelper.getStatusBarHeight();
         }
-        this.bfo.setLayoutParams(layoutParams);
-        this.bfo.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.live.yuyingift.widget.panel.GiftPanelDrawContainerView.2
+        this.bdA.setLayoutParams(layoutParams);
+        this.bdA.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.live.yuyingift.widget.panel.GiftPanelDrawContainerView.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 return true;
@@ -195,31 +195,31 @@ public class GiftPanelDrawContainerView extends LinearLayout implements View.OnC
         });
     }
 
-    private void Ko() {
-        this.bfq.setOnClickListener(this);
-        this.bfq.setEnabled(false);
+    private void JF() {
+        this.bdC.setOnClickListener(this);
+        this.bdC.setEnabled(false);
     }
 
-    private void Kp() {
-        this.bfr.setOnClickListener(this);
-        this.bfr.setEnabled(false);
+    private void JG() {
+        this.bdD.setOnClickListener(this);
+        this.bdD.setEnabled(false);
     }
 
-    private void Kq() {
-        this.bft.setOnClickListener(this);
+    private void JH() {
+        this.bdE.setOnClickListener(this);
     }
 
-    private void Ib() {
-        this.bRP.setGiftDrawEventListener(this.bRR);
-        this.bRP.setGiftCountRange(10, 100);
+    private void Hs() {
+        this.bQf.setGiftDrawEventListener(this.bQh);
+        this.bQf.setGiftCountRange(10, 100);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getSelectWheatsCount() {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501048, a.InterfaceC0239a.class);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501048, a.InterfaceC0237a.class);
         List<AlaWheatInfoData> list = null;
         if (runTask != null && runTask.getData() != null) {
-            list = ((a.InterfaceC0239a) runTask.getData()).Xz().bSx;
+            list = ((a.InterfaceC0237a) runTask.getData()).WQ().bQN;
         }
         if (list == null) {
             return 0;
@@ -227,38 +227,38 @@ public class GiftPanelDrawContainerView extends LinearLayout implements View.OnC
         return list.size();
     }
 
-    public void XO() {
-        if (this.bRR != null && this.bRP != null && this.bRP.getCurrentPointSize() > 0) {
-            this.bRR.d(this.bRP.getCurrentPointSize(), this.bRP.getTotalPrice());
+    public void Xf() {
+        if (this.bQh != null && this.bQf != null && this.bQf.getCurrentPointSize() > 0) {
+            this.bQh.d(this.bQf.getCurrentPointSize(), this.bQf.getTotalPrice());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kr() {
-        if (this.bRP != null) {
-            if (this.bRP.getCurrentPointSize() > 0) {
-                this.bRP.setTipImageVisibility(8);
+    public void JI() {
+        if (this.bQf != null) {
+            if (this.bQf.getCurrentPointSize() > 0) {
+                this.bQf.setTipImageVisibility(8);
             } else {
-                this.bRP.setTipImageVisibility(0);
+                this.bQf.setTipImageVisibility(0);
             }
         }
     }
 
-    private void Ks() {
-        if (this.bRP != null) {
-            this.bRP.Jg();
-            this.bRP.Jh();
+    private void JJ() {
+        if (this.bQf != null) {
+            this.bQf.Ix();
+            this.bQf.Iy();
         }
     }
 
-    private void bP(boolean z) {
-        if (this.bRP != null) {
-            this.bRP.bP(z);
+    private void bR(boolean z) {
+        if (this.bQf != null) {
+            this.bQf.bR(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kt() {
+    public void JK() {
         BdUtilHelper.showToast(getContext().getApplicationContext(), getResources().getString(a.h.ala_gift_noimage_tip));
     }
 }

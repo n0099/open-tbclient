@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 import com.baidu.pass.biometrics.face.R;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class b extends AppCompatDialog {
 
     /* renamed from: a  reason: collision with root package name */

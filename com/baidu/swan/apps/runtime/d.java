@@ -12,52 +12,52 @@ import java.util.ArrayDeque;
 import java.util.HashSet;
 import java.util.Queue;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public abstract class d extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static d dsz;
+    private static d dqQ;
     private static Handler sMainHandler;
-    private com.baidu.swan.apps.adaptation.a dsB;
-    private com.baidu.swan.pms.c.f dsG;
-    public final com.baidu.swan.apps.u.c.a.c dsA = new c.a();
-    private final Set<com.baidu.swan.apps.ap.e.b<i.a>> dsC = new HashSet();
-    public volatile int dsD = 0;
-    private final Queue<Runnable> dsE = new ArrayDeque();
-    private Runnable dsF = null;
+    private com.baidu.swan.apps.adaptation.a dqS;
+    private com.baidu.swan.pms.c.f dqX;
+    public final com.baidu.swan.apps.u.c.a.c dqR = new c.a();
+    private final Set<com.baidu.swan.apps.ap.e.b<i.a>> dqT = new HashSet();
+    public volatile int dqU = 0;
+    private final Queue<Runnable> dqV = new ArrayDeque();
+    private Runnable dqW = null;
     private boolean inited = false;
 
-    protected abstract com.baidu.swan.pms.c.f aHp();
+    protected abstract com.baidu.swan.pms.c.f aGH();
 
-    public static d aHq() {
-        d aHr = aHr();
-        if (!aHr.inited) {
-            aHr.init();
+    public static d aGI() {
+        d aGJ = aGJ();
+        if (!aGJ.inited) {
+            aGJ.init();
         }
-        return aHr;
+        return aGJ;
     }
 
-    private static d aHr() {
-        if (dsz instanceof j) {
-            return dsz;
+    private static d aGJ() {
+        if (dqQ instanceof j) {
+            return dqQ;
         }
         synchronized (d.class) {
-            if (dsz instanceof j) {
-                return dsz;
+            if (dqQ instanceof j) {
+                return dqQ;
             }
             SwanAppProcessInfo current = SwanAppProcessInfo.current();
             if (current.isSwanClient) {
-                dsz = new j();
-                return dsz;
+                dqQ = new j();
+                return dqQ;
             } else if (current.isSwanService) {
-                if (!(dsz instanceof l)) {
-                    dsz = new l();
+                if (!(dqQ instanceof l)) {
+                    dqQ = new l();
                 }
-                return dsz;
+                return dqQ;
             } else {
-                if (dsz == null) {
-                    dsz = new c();
+                if (dqQ == null) {
+                    dqQ = new c();
                 }
-                return dsz;
+                return dqQ;
             }
         }
     }
@@ -71,21 +71,21 @@ public abstract class d extends a {
 
     private void init() {
         if (!this.inited) {
-            aHt();
+            aGL();
             com.baidu.swan.apps.process.b.c.init();
         }
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.adaptation.a aHs() {
-        if (this.dsB == null) {
-            this.dsB = new com.baidu.swan.apps.adaptation.a();
+    public com.baidu.swan.apps.adaptation.a aGK() {
+        if (this.dqS == null) {
+            this.dqS = new com.baidu.swan.apps.adaptation.a();
         }
-        return this.dsB;
+        return this.dqS;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public void rT(String str) {
+    public void rN(String str) {
         f(str, null);
     }
 
@@ -97,14 +97,14 @@ public abstract class d extends a {
     @Override // com.baidu.swan.apps.runtime.h
     public void i(final i.a aVar) {
         if (DEBUG) {
-            Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.dsC.size());
+            Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.dqT.size());
         }
         if (aVar != null) {
             g(new Runnable() { // from class: com.baidu.swan.apps.runtime.d.1
                 @Override // java.lang.Runnable
                 public void run() {
                     boolean z = Looper.getMainLooper() == Looper.myLooper();
-                    for (final com.baidu.swan.apps.ap.e.b bVar : d.this.dsC) {
+                    for (final com.baidu.swan.apps.ap.e.b bVar : d.this.dqT) {
                         if (z && !aVar.getBoolean("event_flag_force_post", false)) {
                             bVar.M(aVar);
                         } else {
@@ -127,7 +127,7 @@ public abstract class d extends a {
             g(new Runnable() { // from class: com.baidu.swan.apps.runtime.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.dsC.add(bVar);
+                    d.this.dqT.add(bVar);
                 }
             });
         }
@@ -139,29 +139,29 @@ public abstract class d extends a {
             g(new Runnable() { // from class: com.baidu.swan.apps.runtime.d.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.dsC.remove(bVar);
+                    d.this.dqT.remove(bVar);
                 }
             });
         }
     }
 
     private synchronized void g(@NonNull Runnable runnable) {
-        this.dsE.offer(runnable);
-        if (this.dsF == null) {
-            while (!this.dsE.isEmpty()) {
-                this.dsF = this.dsE.poll();
-                if (this.dsF != null) {
-                    this.dsF.run();
+        this.dqV.offer(runnable);
+        if (this.dqW == null) {
+            while (!this.dqV.isEmpty()) {
+                this.dqW = this.dqV.poll();
+                if (this.dqW != null) {
+                    this.dqW.run();
                 }
-                this.dsF = null;
+                this.dqW = null;
             }
         }
     }
 
-    public com.baidu.swan.pms.c.f aHt() {
-        if (this.dsG == null) {
-            this.dsG = aHp();
+    public com.baidu.swan.pms.c.f aGL() {
+        if (this.dqX == null) {
+            this.dqX = aGH();
         }
-        return this.dsG;
+        return this.dqX;
     }
 }

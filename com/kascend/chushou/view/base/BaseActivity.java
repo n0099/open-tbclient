@@ -49,7 +49,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(bundle);
         CSTVSdk.INSTANCE.check();
         this.w = this;
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.eHq().S(ThirdParty.class);
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.eHr().S(ThirdParty.class);
         if (thirdParty != null) {
             thirdParty.onEnterLiveRoom(this);
         }
@@ -69,7 +69,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected int y() {
-        return tv.chushou.zues.utils.systemBar.b.aH(this);
+        return tv.chushou.zues.utils.systemBar.b.aG(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -91,8 +91,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             this.x.dismiss();
         }
         this.x = null;
-        com.kascend.chushou.d.d.phL.a();
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.eHq().S(ThirdParty.class);
+        com.kascend.chushou.d.d.pjr.a();
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.eHr().S(ThirdParty.class);
         if (thirdParty != null) {
             thirdParty.onExitLiveRoom(this);
         }

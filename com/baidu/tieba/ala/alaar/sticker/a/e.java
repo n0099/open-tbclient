@@ -10,8 +10,8 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e {
-    private static File aEO = i.getPrivateCaptureRootChildDir("duFilter");
-    private static List<String> gcL = Collections.synchronizedList(new ArrayList());
+    private static File aDd = i.getPrivateCaptureRootChildDir("duFilter");
+    private static List<String> gcs = Collections.synchronizedList(new ArrayList());
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -24,38 +24,38 @@ public class e {
         void onStarted();
     }
 
-    public static String FZ(String str) {
-        File Gb;
-        if (TextUtils.isEmpty(str) || (Gb = Gb(Md5.toMd5(str))) == null || !Gb.exists()) {
+    public static String FA(String str) {
+        File FC;
+        if (TextUtils.isEmpty(str) || (FC = FC(Md5.toMd5(str))) == null || !FC.exists()) {
             return null;
         }
-        return Gb.getAbsolutePath();
+        return FC.getAbsolutePath();
     }
 
-    public static boolean Ga(String str) {
-        return !TextUtils.isEmpty(FZ(str));
+    public static boolean FB(String str) {
+        return !TextUtils.isEmpty(FA(str));
     }
 
-    public static boolean cG(String str) {
+    public static boolean cI(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return com.baidu.tieba.ala.alaar.sticker.download.b.bNs().isRunning(str);
+        return com.baidu.tieba.ala.alaar.sticker.download.b.bML().isRunning(str);
     }
 
     public static void a(final String str, final a aVar) {
         if (!TextUtils.isEmpty(str)) {
-            String FZ = FZ(str);
-            if (!TextUtils.isEmpty(FZ)) {
+            String FA = FA(str);
+            if (!TextUtils.isEmpty(FA)) {
                 if (aVar != null) {
-                    aVar.onCompleted(FZ);
+                    aVar.onCompleted(FA);
                     return;
                 }
                 return;
             }
             final String md5 = Md5.toMd5(str);
-            gcL.add(str);
-            com.baidu.tieba.ala.alaar.sticker.download.b.bNs().a(str, aEO, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.e.1
+            gcs.add(str);
+            com.baidu.tieba.ala.alaar.sticker.download.b.bML().a(str, aDd, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.e.1
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onStarted() {
                     super.onStarted();
@@ -85,12 +85,12 @@ public class e {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onCompleted(String str2) {
                     super.onCompleted(str2);
-                    e.gcL.remove(str);
+                    e.gcs.remove(str);
                     if (!TextUtils.isEmpty(str2) && a.this != null) {
                         File file = new File(str2);
-                        File Gb = e.Gb(md5);
-                        if (file.exists() && file.renameTo(Gb) && Gb != null) {
-                            a.this.onCompleted(Gb.getAbsolutePath());
+                        File FC = e.FC(md5);
+                        if (file.exists() && file.renameTo(FC) && FC != null) {
+                            a.this.onCompleted(FC.getAbsolutePath());
                             return;
                         }
                     }
@@ -110,7 +110,7 @@ public class e {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void a(DownloadException downloadException) {
                     int i;
-                    e.gcL.remove(str);
+                    e.gcs.remove(str);
                     super.a(downloadException);
                     if (a.this != null) {
                         String str2 = null;
@@ -128,10 +128,10 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static File Gb(String str) {
+    public static File FC(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return new File(aEO, str + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX);
+        return new File(aDd, str + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX);
     }
 }

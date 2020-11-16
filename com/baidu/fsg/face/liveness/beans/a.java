@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class a extends UploadBean {
 
     /* renamed from: a  reason: collision with root package name */

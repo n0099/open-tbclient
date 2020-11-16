@@ -30,22 +30,22 @@ import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class g {
-    private static volatile g bMU;
+    private static volatile g bLk;
     private HashMap<String, LinkedList<cu>> mUserAttentionRequestMap = new HashMap<>();
     private HashMap<String, a> mAttentionTaskMap = new HashMap<>();
 
     private g() {
     }
 
-    public static g WP() {
-        if (bMU == null) {
+    public static g Wg() {
+        if (bLk == null) {
             synchronized (g.class) {
-                if (bMU == null) {
-                    bMU = new g();
+                if (bLk == null) {
+                    bLk = new g();
                 }
             }
         }
-        return bMU;
+        return bLk;
     }
 
     public void a(String str, cu cuVar) {
@@ -63,7 +63,7 @@ public class g {
     private void a(LinkedList<cu> linkedList, cu cuVar) {
         if (linkedList.size() < 1) {
             b(linkedList, cuVar);
-        } else if (linkedList.getLast().Fe().equals(cuVar.Fe())) {
+        } else if (linkedList.getLast().Ev().equals(cuVar.Ev())) {
             if (BdLog.isDebugMode()) {
                 try {
                     throw new IllegalArgumentException("new attention data is the same as the nearest attention data");
@@ -99,8 +99,8 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<Integer, Integer, String> {
-        private BdUniqueId bLl;
-        private String bMW;
+        private BdUniqueId bJA;
+        private String bLm;
         private String from;
         private boolean isAttention;
         private boolean isGod;
@@ -119,11 +119,11 @@ public class g {
         }
 
         public void a(cu cuVar) {
-            this.bMW = cuVar.Fe();
+            this.bLm = cuVar.Ev();
             this.liveId = cuVar.getLiveId();
             this.roomId = cuVar.getRoomId();
             this.isAttention = cuVar.isAttention();
-            this.bLl = cuVar.Fc();
+            this.bJA = cuVar.Et();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,8 +137,8 @@ public class g {
                 } else {
                     this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + "ala/audio/user/unfollow");
                 }
-                if (!StringUtils.isNull(this.bMW)) {
-                    this.mNetwork.addPostData("follow_user_uk", this.bMW);
+                if (!StringUtils.isNull(this.bLm)) {
+                    this.mNetwork.addPostData("follow_user_uk", this.bLm);
                     this.mNetwork.addPostData("live_id", this.liveId);
                     this.mNetwork.addPostData("room_id", this.roomId);
                 }
@@ -160,7 +160,7 @@ public class g {
                 updateAttentionData.isSucc = this.mNetwork.isRequestSuccess();
                 updateAttentionData.errorString = this.mNetwork.getErrorString();
                 updateAttentionData.isAttention = this.isAttention;
-                updateAttentionData.toUid = this.bMW;
+                updateAttentionData.toUid = this.bLm;
                 updateAttentionData.isGod = this.isGod;
                 updateAttentionData.parserJson(str, true);
                 updateAttentionData.response = this.mNetwork.getHttpResponse();
@@ -169,14 +169,14 @@ public class g {
                     updateAttentionData.isSucc = updateAttentionData.response.mServerErrorCode == 0;
                 }
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bLl));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bJA));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
                 g.this.a(updateAttentionData, this.from);
             }
-            g.this.mAttentionTaskMap.remove(this.bMW);
-            if (g.this.mUserAttentionRequestMap.containsKey(this.bMW)) {
-                g.this.removeRequestListFirstByUid(this.bMW);
-                g.this.executeAttentionTask(this.bMW);
+            g.this.mAttentionTaskMap.remove(this.bLm);
+            if (g.this.mUserAttentionRequestMap.containsKey(this.bLm)) {
+                g.this.removeRequestListFirstByUid(this.bLm);
+                g.this.executeAttentionTask(this.bLm);
             }
         }
 
@@ -221,12 +221,12 @@ public class g {
     /* renamed from: com.baidu.live.view.g$1  reason: invalid class name */
     /* loaded from: classes4.dex */
     public class AnonymousClass1 implements View.OnClickListener {
-        final /* synthetic */ Dialog bLh;
-        final /* synthetic */ TbPageContext bLi;
+        final /* synthetic */ Dialog bJw;
+        final /* synthetic */ TbPageContext bJx;
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ShowUtil.dismissDialog(this.bLh, this.bLi.getPageActivity());
+            ShowUtil.dismissDialog(this.bJw, this.bJx.getPageActivity());
         }
     }
 

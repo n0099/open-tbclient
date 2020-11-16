@@ -5,16 +5,16 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.NavigationBarCoverTip;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class al {
-    private NavigationBarCoverTip jku;
-    private int jkv;
+    private NavigationBarCoverTip jle;
+    private int jlf;
     private com.baidu.adp.base.e mContext;
     private TextView mTipView;
 
     public al(com.baidu.adp.base.e eVar, NavigationBarCoverTip navigationBarCoverTip) {
         this.mContext = eVar;
-        this.jku = navigationBarCoverTip;
+        this.jle = navigationBarCoverTip;
         init();
     }
 
@@ -28,26 +28,26 @@ public class al {
         this.mTipView.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
     }
 
-    public void PL(String str) {
-        if (this.jku != null) {
-            if (com.baidu.tbadk.core.util.at.isEmpty(str) || this.jkv > 0) {
+    public void Ph(String str) {
+        if (this.jle != null) {
+            if (com.baidu.tbadk.core.util.au.isEmpty(str) || this.jlf > 0) {
                 onDestory();
-                this.jku.setVisibility(8);
+                this.jle.setVisibility(8);
                 return;
             }
-            this.jku.setVisibility(0);
-            this.jkv++;
+            this.jle.setVisibility(0);
+            this.jlf++;
             this.mTipView.setText(str);
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.mTipView, R.color.cp_cont_a);
-            this.jku.removeAllViews();
-            this.jku.addView(this.mTipView);
-            this.jku.h(this.mContext.getPageActivity(), 5000);
+            com.baidu.tbadk.core.util.ap.setViewTextColor(this.mTipView, R.color.CAM_X0101);
+            this.jle.removeAllViews();
+            this.jle.addView(this.mTipView);
+            this.jle.i(this.mContext.getPageActivity(), 5000);
         }
     }
 
     public void onDestory() {
-        if (this.jku != null) {
-            this.jku.onDestroy();
+        if (this.jle != null) {
+            this.jle.onDestroy();
         }
     }
 }

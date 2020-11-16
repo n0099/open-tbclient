@@ -3,10 +3,10 @@ package com.baidu.live.message;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes4.dex */
 public class YuyinSupportRoomMessage extends CustomResponsedMessage<SupportRoom> {
-    private SupportRoom bos;
+    private SupportRoom bmH;
 
     public YuyinSupportRoomMessage(SupportRoom supportRoom) {
         super(2501034);
-        this.bos = supportRoom;
+        this.bmH = supportRoom;
     }
 }

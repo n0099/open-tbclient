@@ -1,7 +1,7 @@
 package com.sina.weibo.wcfc.sobusiness;
 
 import android.content.Context;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class UtilitySo {
     private static UtilitySo sInstance;
 

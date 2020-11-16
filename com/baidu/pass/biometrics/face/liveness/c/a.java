@@ -11,7 +11,7 @@ import com.baidu.pass.biometrics.base.utils.StatService;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

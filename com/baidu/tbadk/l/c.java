@@ -18,12 +18,12 @@ import java.util.List;
 import java.util.Stack;
 /* loaded from: classes.dex */
 public class c {
-    private static boolean bCb() {
+    private static boolean bBr() {
         return TbadkCoreApplication.getInst().isDebugMode();
     }
 
     private static final void h(Object obj, String str) {
-        if (bCb()) {
+        if (bBr()) {
             if (obj != null) {
                 str = obj.getClass().getSimpleName() + " : " + str;
             }
@@ -32,13 +32,13 @@ public class c {
     }
 
     public static final void printLog(String str) {
-        if (bCb()) {
+        if (bBr()) {
             Log.d("TbPageKeyHelper", str);
         }
     }
 
     private static final void c(FragmentManager fragmentManager) {
-        if (bCb()) {
+        if (bBr()) {
             List<Fragment> fragments = fragmentManager.getFragments();
             if (!y.isEmpty(fragments)) {
                 printLog("FragmentManager---->" + fragmentManager);
@@ -54,16 +54,16 @@ public class c {
     }
 
     private static final void a(b bVar) {
-        if (bCb() && bVar != null) {
+        if (bBr() && bVar != null) {
             String currentPageKey = bVar.getCurrentPageKey();
-            String bCa = bVar.bCa();
-            ArrayList<String> bBY = bVar.bBY();
-            ArrayList<String> bBZ = bVar.bBZ();
+            String bBq = bVar.bBq();
+            ArrayList<String> bBo = bVar.bBo();
+            ArrayList<String> bBp = bVar.bBp();
             StringBuilder sb = new StringBuilder("Current TbPageExtra:");
             sb.append("currentPageKey=").append(currentPageKey).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("prePageKey=").append(bCa).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("preList=").append(bBY.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("nextList=").append(bBZ.toString());
+            sb.append("prePageKey=").append(bBq).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("preList=").append(bBo.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("nextList=").append(bBp.toString());
             h(bVar, sb.toString());
         }
     }
@@ -91,15 +91,15 @@ public class c {
             h(context, "context is not Activity, so getCurrentActivity()");
             eq = TbadkCoreApplication.getInst().getCurrentActivity();
         }
-        b ah = ah(eq);
-        if (ah == null) {
+        b ag = ag(eq);
+        if (ag == null) {
             h(context, "------Not Activity，No TbPageExtra!------");
         }
         printLog("**************************End**************************");
-        return ah;
+        return ag;
     }
 
-    private static b ah(Activity activity) {
+    private static b ag(Activity activity) {
         if (activity instanceof BaseFragmentActivity) {
             BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) activity;
             h(baseFragmentActivity, "context is BaseFragmentActivity");

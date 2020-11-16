@@ -5,7 +5,7 @@ import android.content.pm.PackageManager;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

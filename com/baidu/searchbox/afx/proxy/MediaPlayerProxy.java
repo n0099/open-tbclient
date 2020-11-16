@@ -13,7 +13,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class MediaPlayerProxy extends PlayerProxy {
     private static final String TAG = "MediaPlayerProxy";
     private GLTextureView mGLTextureView;

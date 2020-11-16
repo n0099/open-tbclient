@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
@@ -23,22 +23,22 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b fmQ = null;
-    private static DownloadData fmS = null;
+    private static b flX = null;
+    private static DownloadData flZ = null;
     private static List<DownloadData> mTaskList = new LinkedList();
     private final int MAX = 5;
-    private a fmR = null;
+    private a flY = null;
 
     private b() {
     }
 
-    public static b bzq() {
+    public static b byG() {
         synchronized (b.class) {
-            if (fmQ == null) {
-                fmQ = new b();
+            if (flX == null) {
+                flX = new b();
             }
         }
-        return fmQ;
+        return flX;
     }
 
     public void a(String str, String str2, String str3, String[] strArr) {
@@ -66,7 +66,7 @@ public class b {
 
     public void a(DownloadData downloadData) {
         if (downloadData != null) {
-            List<DownloadData> downloadList = d.bzt().getDownloadList();
+            List<DownloadData> downloadList = d.byJ().getDownloadList();
             if (downloadList != null && downloadList.size() >= 5) {
                 downloadData.setStatus(2);
                 downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_over_max));
@@ -75,18 +75,18 @@ public class b {
                 return;
             }
             mTaskList.add(downloadData);
-            bzr();
+            byH();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bzr() {
-        if (fmS == null) {
-            fmS = (DownloadData) y.getItem(mTaskList, 0);
-            if (fmS != null) {
-                this.fmR = new a();
-                this.fmR.setPriority(3);
-                this.fmR.execute(fmS);
+    public void byH() {
+        if (flZ == null) {
+            flZ = (DownloadData) y.getItem(mTaskList, 0);
+            if (flZ != null) {
+                this.flY = new a();
+                this.flY.setPriority(3);
+                this.flY.execute(flZ);
             }
         }
     }
@@ -114,18 +114,18 @@ public class b {
 
     public void L(ArrayList<AdvertAppInfo> arrayList) {
         try {
-            new C0589b().execute(arrayList);
+            new C0588b().execute(arrayList);
         } catch (Exception e) {
         }
     }
 
     /* renamed from: com.baidu.tbadk.download.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0589b extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
-        ArrayList<AdvertAppInfo> fmU;
+    private class C0588b extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
+        ArrayList<AdvertAppInfo> fmb;
 
-        private C0589b() {
-            this.fmU = null;
+        private C0588b() {
+            this.fmb = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -138,11 +138,11 @@ public class b {
             if (arrayList == null) {
                 return linkedList;
             }
-            this.fmU = arrayList;
+            this.fmb = arrayList;
             Iterator<AdvertAppInfo> it = arrayList.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                String str = next.eyR;
+                String str = next.exf;
                 if (n.GetFile(b.this.getFileOfUrl(next.apkUrl)) != null) {
                     DownloadData downloadData = new DownloadData(str);
                     downloadData.setStatus(3);
@@ -161,16 +161,16 @@ public class b {
             if (list == null) {
                 list = new LinkedList<>();
             }
-            for (DownloadData downloadData : d.bzt().getDownloadList()) {
-                Iterator<AdvertAppInfo> it = this.fmU.iterator();
+            for (DownloadData downloadData : d.byJ().getDownloadList()) {
+                Iterator<AdvertAppInfo> it = this.fmb.iterator();
                 while (it.hasNext()) {
-                    if (TextUtils.equals(it.next().eyR, downloadData.getId())) {
+                    if (TextUtils.equals(it.next().exf, downloadData.getId())) {
                         list.add(downloadData);
                     }
                 }
             }
             b.this.bz(list);
-            this.fmU = null;
+            this.fmb = null;
         }
     }
 
@@ -202,7 +202,7 @@ public class b {
             if (downloadData != null) {
                 String id = downloadData.getId();
                 String name = downloadData.getName();
-                if (!at.isEmpty(id) && !at.isEmpty(name)) {
+                if (!au.isEmpty(id) && !au.isEmpty(name)) {
                     boolean isForceDownload = downloadData.isForceDownload();
                     String str = id.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk";
                     String filePath = b.this.getFilePath(str);
@@ -231,7 +231,7 @@ public class b {
         /* renamed from: e */
         public void onPostExecute(DownloadData downloadData) {
             super.onPostExecute(downloadData);
-            b.this.fmR = null;
+            b.this.flY = null;
             if (downloadData != null) {
                 if (downloadData.getStatus() == 3) {
                     b.this.b(downloadData);
@@ -239,19 +239,19 @@ public class b {
                         UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
                     }
                 } else {
-                    d.bzt().a(downloadData, 5);
+                    d.byJ().a(downloadData, 5);
                     int dX = b.this.dX(downloadData.getId(), downloadData.getName());
                     if (downloadData.isNeedNotify() && dX <= 0) {
                         String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_will_begin);
-                        NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getName() + string, 0, string, downloadData.getName(), b.this.Dx(downloadData.getAction()), false);
+                        NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getName() + string, 0, string, downloadData.getName(), b.this.CW(downloadData.getAction()), false);
                     } else {
                         b.this.c(downloadData);
                     }
                 }
-                DownloadData unused = b.fmS = null;
+                DownloadData unused = b.flZ = null;
                 if (!b.mTaskList.isEmpty()) {
                     b.mTaskList.remove(0);
-                    b.this.bzr();
+                    b.this.byH();
                 }
             }
         }
@@ -260,12 +260,12 @@ public class b {
     public void c(DownloadData downloadData) {
         if (downloadData != null && downloadData.isNeedNotify()) {
             int dX = dX(downloadData.getId(), downloadData.getName());
-            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, dX, dX + "%", downloadData.getName(), Dx(downloadData.getAction()), false);
+            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, dX, dX + "%", downloadData.getName(), CW(downloadData.getAction()), false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PendingIntent Dx(String str) {
+    public PendingIntent CW(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -275,8 +275,8 @@ public class b {
         return PendingIntent.getActivity(TbadkCoreApplication.getInst(), 0, intent, 0);
     }
 
-    public boolean Dy(String str) {
-        for (DownloadData downloadData : d.bzt().getDownloadList()) {
+    public boolean CX(String str) {
+        for (DownloadData downloadData : d.byJ().getDownloadList()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
                 return true;
             }
@@ -296,9 +296,9 @@ public class b {
         return 0;
     }
 
-    public void Dz(String str) {
+    public void CY(String str) {
         if (!StringUtils.isNull(str)) {
-            d.bzt().cancelDownLoadByUrl(str);
+            d.byJ().cancelDownLoadByUrl(str);
         }
     }
 
@@ -310,7 +310,7 @@ public class b {
         return -1L;
     }
 
-    public boolean DA(String str) {
+    public boolean CZ(String str) {
         return (TextUtils.isEmpty(str) || n.GetFile(new StringBuilder().append(str.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)).append(".apk").toString()) == null) ? false : true;
     }
 }

@@ -32,7 +32,7 @@ public class c {
         }
         multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
         multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-        ap.setViewTextColor(multiImgToolView.getMutiImageTips(), R.color.cp_cont_c, 1);
+        ap.setViewTextColor(multiImgToolView.getMutiImageTips(), R.color.CAM_X0108, 1);
         return multiImgToolView;
     }
 

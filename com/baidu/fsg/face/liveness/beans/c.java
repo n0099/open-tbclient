@@ -10,7 +10,7 @@ import com.baidu.fsg.base.utils.SharedPreferencesUtils;
 import com.baidu.fsg.face.base.dto.SapiBiometricDto;
 import java.util.HashMap;
 import org.json.JSONException;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */

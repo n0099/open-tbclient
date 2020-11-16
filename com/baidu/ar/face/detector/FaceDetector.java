@@ -9,7 +9,7 @@ import com.baidu.ar.arplay.core.engine.pixel.PixelType;
 import com.baidu.ar.bus.CallBack;
 import com.baidu.ar.databasic.AlgoHandleController;
 import com.baidu.ar.face.a.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class FaceDetector extends com.baidu.ar.b.a.a {
     private PixelReadParams mU;
     private j oF;
@@ -25,7 +25,7 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
     private long oJ = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public class a {
         protected a() {
         }

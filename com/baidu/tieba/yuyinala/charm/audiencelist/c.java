@@ -13,55 +13,55 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    private List<com.baidu.live.liveroom.d.d> aGc = new LinkedList();
-    private boolean aKf;
+    private List<com.baidu.live.liveroom.d.d> aEr = new LinkedList();
+    private boolean aIu;
     private View contentView;
     private View mRootView;
-    private YuyinALaAudiencesActivity nRB;
-    private NobilityAlaLiveRoomPanelTabHost nRC;
-    private f nRD;
+    private YuyinALaAudiencesActivity nTe;
+    private NobilityAlaLiveRoomPanelTabHost nTf;
+    private f nTg;
 
     public c(YuyinALaAudiencesActivity yuyinALaAudiencesActivity) {
-        this.nRB = yuyinALaAudiencesActivity;
+        this.nTe = yuyinALaAudiencesActivity;
         initView();
-        bRu();
+        bQN();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.nRB).inflate(a.g.yuyin_ala_charm_activity_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.nTe).inflate(a.g.yuyin_ala_charm_activity_layout, (ViewGroup) null);
         this.contentView = this.mRootView.findViewById(a.f.ala_charm_root_view);
         this.contentView.setBackgroundResource(a.e.yuyin_ala_audiencelist_white_corner);
-        this.nRC = (NobilityAlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
-        this.nRC.setIndicatorWidthAuto(false);
-        this.nRC.setmIndicatorHeight(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds8));
-        this.nRC.setmIndicatorWidth(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds40));
+        this.nTf = (NobilityAlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
+        this.nTf.setIndicatorWidthAuto(false);
+        this.nTf.setmIndicatorHeight(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds8));
+        this.nTf.setmIndicatorWidth(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds40));
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    private void bRu() {
-        Intent intent = this.nRB.getIntent();
+    private void bQN() {
+        Intent intent = this.nTe.getIntent();
         intent.getStringExtra("user_name");
         intent.getStringExtra("group_id");
         String stringExtra = intent.getStringExtra("live_id");
-        this.aKf = intent.getBooleanExtra("live_owner_flag", false);
+        this.aIu = intent.getBooleanExtra("live_owner_flag", false);
         String stringExtra2 = intent.getStringExtra("live_owner_uid");
         String stringExtra3 = intent.getStringExtra("login_user_id");
         boolean booleanExtra = intent.getBooleanExtra(YuyinAlaCharmCardActivityConfig.IS_SHOW_BUY_ENTRY, false);
-        this.nRD = new f(this.nRB);
-        this.nRD.Vi(stringExtra).createView();
-        this.aGc.add(this.nRD);
-        final g gVar = new g(this.nRB);
-        gVar.yQ(this.aKf).Vj(stringExtra).Vk(stringExtra2).Vl(stringExtra3).yP(booleanExtra).createView();
-        this.aGc.add(gVar);
-        this.nRC.setData(this.aGc);
-        this.nRC.setPageSelectedListener(new NobilityAlaLiveRoomPanelTabHost.b() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.c.1
+        this.nTg = new f(this.nTe);
+        this.nTg.UT(stringExtra).createView();
+        this.aEr.add(this.nTg);
+        final g gVar = new g(this.nTe);
+        gVar.yX(this.aIu).UU(stringExtra).UV(stringExtra2).UW(stringExtra3).yW(booleanExtra).createView();
+        this.aEr.add(gVar);
+        this.nTf.setData(this.aEr);
+        this.nTf.setPageSelectedListener(new NobilityAlaLiveRoomPanelTabHost.b() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.c.1
             @Override // com.baidu.live.bottompanel.NobilityAlaLiveRoomPanelTabHost.b
             public void onPageSelected(int i) {
                 if (i == 0) {
-                    c.this.nRD.loadData();
+                    c.this.nTg.loadData();
                 } else if (i == 1) {
                     gVar.loadData();
                 }
@@ -70,7 +70,7 @@ public class c {
     }
 
     public void onDestory() {
-        for (com.baidu.live.liveroom.d.d dVar : this.aGc) {
+        for (com.baidu.live.liveroom.d.d dVar : this.aEr) {
             dVar.onDestroy();
         }
     }

@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class g extends aa {
     public g(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/networkStatusChange");
@@ -33,7 +33,7 @@ public class g extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        eVar.aHI().b(callbackHandler, optString);
+        eVar.aHa().b(callbackHandler, optString);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams((JSONObject) null, 0));
         return true;
     }

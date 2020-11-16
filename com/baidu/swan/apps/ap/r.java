@@ -12,15 +12,15 @@ import com.baidu.searchbox.ugc.transcoder.TranscoderPlugin;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class r {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Pattern dDL = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
-    private static HashMap<String, Integer> dDM = new HashMap<>();
-    private static HashMap<String, Integer> dDN = new HashMap<>();
-    private static HashMap<String, String> dDO = new HashMap<>();
-    private static HashMap<String, String> dDP = new HashMap<>();
-    private static final Pattern dDQ;
+    private static final Pattern dCe = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+    private static HashMap<String, Integer> dCf = new HashMap<>();
+    private static HashMap<String, Integer> dCg = new HashMap<>();
+    private static HashMap<String, String> dCh = new HashMap<>();
+    private static HashMap<String, String> dCi = new HashMap<>();
+    private static final Pattern dCj;
 
     static {
         h("application/andrew-inset", "ez", 5);
@@ -341,19 +341,19 @@ public final class r {
         h("audio/aac", TranscoderPlugin.AUDIO_CODEC, 1);
         h("application/vnd.rn-realmedia", "rm", 0);
         h("message/rfc822", "mht", 11);
-        dDQ = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        dCj = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void h(String str, String str2, int i) {
-        dDM.put(str2, Integer.valueOf(i));
-        dDN.put(str, Integer.valueOf(i));
-        dDO.put(str2, str);
-        if (!dDP.containsKey(str)) {
-            dDP.put(str, str2);
+        dCf.put(str2, Integer.valueOf(i));
+        dCg.put(str, Integer.valueOf(i));
+        dCh.put(str2, str);
+        if (!dCi.containsKey(str)) {
+            dCi.put(str, str2);
         }
     }
 
-    public static String uj(String str) {
+    public static String ue(String str) {
         int lastIndexOf;
         if (str == null || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
             return "";
@@ -362,23 +362,23 @@ public final class r {
     }
 
     @Nullable
-    public static String uk(String str) {
+    public static String uf(String str) {
         if (str == null) {
             return null;
         }
-        return dDP.get(str);
+        return dCi.get(str);
     }
 
-    public static String ul(String str) {
+    public static String ug(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return dDO.get(str);
+        return dCh.get(str);
     }
 
-    public static String um(String str) {
+    public static String uh(String str) {
         try {
-            Matcher matcher = dDL.matcher(str);
+            Matcher matcher = dCe.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }

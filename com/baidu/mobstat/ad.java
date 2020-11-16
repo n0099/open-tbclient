@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import android.content.Context;
 import java.lang.Thread;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class ad implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */

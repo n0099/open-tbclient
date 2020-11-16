@@ -6,15 +6,15 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class d {
-    private static BlockPopInfo nlj;
-    private static BlockPopInfo nlk;
-    private TbPageContext eIc;
+    private static BlockPopInfo nmq;
+    private static BlockPopInfo nmr;
+    private TbPageContext eGu;
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.ueg.d.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -27,13 +27,13 @@ public class d {
     };
 
     public d(TbPageContext tbPageContext) {
-        this.eIc = tbPageContext;
-        this.eIc.registerListener(this.mAccountChangedListener);
+        this.eGu = tbPageContext;
+        this.eGu.registerListener(this.mAccountChangedListener);
     }
 
     private boolean a(BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null && blockPopInfo.appeal_status != null && blockPopInfo.appeal_status.intValue() == 1) {
-            BdToast.a(this.eIc.getPageActivity(), blockPopInfo.appeal_msg, R.drawable.icon_pure_toast_mistake40_svg, 3000, false).bpi();
+            BdToast.a(this.eGu.getPageActivity(), blockPopInfo.appeal_msg, R.drawable.icon_pure_toast_mistake40_svg, 3000, false).bom();
             return true;
         } else if (blockPopInfo == null || blockPopInfo.can_post.intValue() != 0 || (!(blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2) || blockPopInfo.appeal_status.intValue() == 1)) {
             return false;
@@ -41,8 +41,8 @@ public class d {
             if (blockPopInfo.ahead_type.intValue() == 1) {
                 String str = blockPopInfo.block_info;
                 String str2 = blockPopInfo.ok_info;
-                if (at.isEmpty(str) || at.isEmpty(str2)) {
-                    BdToast.a(this.eIc.getPageActivity(), this.eIc.getString(R.string.hanpen_error), R.drawable.icon_pure_toast_mistake40_svg, 3000, false).bpi();
+                if (au.isEmpty(str) || au.isEmpty(str2)) {
+                    BdToast.a(this.eGu.getPageActivity(), this.eGu.getString(R.string.hanpen_error), R.drawable.icon_pure_toast_mistake40_svg, 3000, false).bom();
                     return true;
                 }
                 b(blockPopInfo);
@@ -56,18 +56,18 @@ public class d {
         }
     }
 
-    public boolean dNP() {
-        return a(nlj);
+    public boolean dNO() {
+        return a(nmq);
     }
 
-    public boolean dNQ() {
-        return a(nlk);
+    public boolean dNP() {
+        return a(nmr);
     }
 
     private void b(final BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eIc.getPageActivity());
-            aVar.Bo(blockPopInfo.block_info);
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eGu.getPageActivity());
+            aVar.AJ(blockPopInfo.block_info);
             aVar.b(blockPopInfo.ok_info, new a.b() { // from class: com.baidu.tieba.ueg.d.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -80,22 +80,22 @@ public class d {
                     d.this.c(blockPopInfo);
                 }
             });
-            aVar.b(this.eIc).bpc();
+            aVar.b(this.eGu).bog();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null) {
-            AntiHelper.bn(this.eIc.getPageActivity(), blockPopInfo.ahead_url);
+            AntiHelper.bk(this.eGu.getPageActivity(), blockPopInfo.ahead_url);
         }
     }
 
     public static void d(BlockPopInfo blockPopInfo) {
-        nlj = blockPopInfo;
+        nmq = blockPopInfo;
     }
 
     public static void e(BlockPopInfo blockPopInfo) {
-        nlk = blockPopInfo;
+        nmr = blockPopInfo;
     }
 }

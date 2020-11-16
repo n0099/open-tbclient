@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class j extends Dialog {
 
     /* renamed from: a */

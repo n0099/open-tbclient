@@ -21,7 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes16.dex */
+/* loaded from: classes9.dex */
 public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     private static final long ACTIVE_ANIMATION_DURATION_MS = 115;
     private final int mActiveItemMaxWidth;

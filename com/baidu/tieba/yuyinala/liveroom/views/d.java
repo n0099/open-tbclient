@@ -8,11 +8,11 @@ public interface d {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void cff();
+        void ceC();
 
-        void cfg();
+        void cey();
 
-        void cfj();
+        void cez();
 
         void onCloseClicked();
     }

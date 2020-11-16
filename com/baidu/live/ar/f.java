@@ -1,13 +1,13 @@
 package com.baidu.live.ar;
 /* loaded from: classes4.dex */
 public class f {
-    private boolean aEK;
+    private boolean aCZ;
 
-    public boolean Cs() {
-        return this.aEK;
+    public boolean BJ() {
+        return this.aCZ;
     }
 
-    public void ba(boolean z) {
-        this.aEK = z;
+    public void bc(boolean z) {
+        this.aCZ = z;
     }
 }

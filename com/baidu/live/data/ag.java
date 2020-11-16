@@ -3,11 +3,11 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ag {
-    public String aKq;
+    public String aIF;
 
     public void parser(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aKq = jSONObject.optString("dynamic_gift_id");
+            this.aIF = jSONObject.optString("dynamic_gift_id");
         }
     }
 }

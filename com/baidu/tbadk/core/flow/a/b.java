@@ -12,11 +12,11 @@ public class b implements com.baidu.tbadk.core.flow.a {
     @Override // com.baidu.tbadk.core.flow.a
     public c ug() {
         c cVar = new c();
-        cVar.oL(R.drawable.icon_banner_n);
-        cVar.oM(R.drawable.icon_banner_s);
+        cVar.pg(R.drawable.icon_banner_n);
+        cVar.ph(R.drawable.icon_banner_s);
         cVar.setSpacing(R.dimen.ds22);
         cVar.setGravity(81);
-        cVar.oN(R.dimen.ds22);
+        cVar.pi(R.dimen.ds22);
         return cVar;
     }
 
@@ -39,7 +39,7 @@ public class b implements com.baidu.tbadk.core.flow.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a
-    public View bpy() {
+    public View boL() {
         return null;
     }
 }

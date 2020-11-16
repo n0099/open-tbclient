@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private String bnP;
+    private String bme;
     private boolean mIsHost;
     private List<cv> mList = new ArrayList();
     private String mLiveId;
@@ -32,7 +32,7 @@ public class a extends BaseAdapter {
     public a(TbPageContext tbPageContext, String str, String str2, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.bnP = str2;
+        this.bme = str2;
         this.mIsHost = z;
     }
 
@@ -67,25 +67,25 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0241a c0241a;
+        C0239a c0239a;
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.yuyin_ala_noble_item_layout, viewGroup, false);
-            c0241a = new C0241a();
-            c0241a.bTZ = (LinearLayout) view.findViewById(a.f.ll_container);
-            c0241a.boT = (HeadImageView) view.findViewById(a.f.avatar_noble);
-            c0241a.boU = (TextView) view.findViewById(a.f.tv_noble_name);
-            c0241a.boW = (ImageView) view.findViewById(a.f.avatar_noble_wrapper_box);
-            c0241a.bTY = (YuyinALALevelView) view.findViewById(a.f.mark_noble);
-            a(c0241a.boT);
-            view.setTag(c0241a);
+            c0239a = new C0239a();
+            c0239a.bSp = (LinearLayout) view.findViewById(a.f.ll_container);
+            c0239a.bni = (HeadImageView) view.findViewById(a.f.avatar_noble);
+            c0239a.bnj = (TextView) view.findViewById(a.f.tv_noble_name);
+            c0239a.bnl = (ImageView) view.findViewById(a.f.avatar_noble_wrapper_box);
+            c0239a.bSo = (YuyinALALevelView) view.findViewById(a.f.mark_noble);
+            a(c0239a.bni);
+            view.setTag(c0239a);
         } else {
-            c0241a = (C0241a) view.getTag();
+            c0239a = (C0239a) view.getTag();
         }
         final cv cvVar = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
         if (cvVar != null) {
-            c0241a.boU.setText(cvVar.aSL);
-            c0241a.bTY.setData4Yuyin(cvVar);
-            c0241a.bTZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyinnoble.a.a.1
+            c0239a.bnj.setText(cvVar.aRa);
+            c0239a.bSo.setData4Yuyin(cvVar);
+            c0239a.bSp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyinnoble.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     try {
@@ -95,7 +95,7 @@ public class a extends BaseAdapter {
                     }
                 }
             });
-            a(cvVar, c0241a.boT, c0241a.boW);
+            a(cvVar, c0239a.bni, c0239a.bnl);
         }
         return view;
     }
@@ -110,21 +110,21 @@ public class a extends BaseAdapter {
 
     private void a(cv cvVar, HeadImageView headImageView, ImageView imageView) {
         if (cvVar != null && headImageView != null && imageView != null) {
-            headImageView.startLoad(cvVar.aSK, 10, false);
+            headImageView.startLoad(cvVar.aQZ, 10, false);
             int dimens = BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.d.sdk_ds8);
-            if (cvVar.aSM == 7) {
+            if (cvVar.aRb == 7) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (cvVar.aSM == 6) {
+            } else if (cvVar.aRb == 6) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (cvVar.aSM == 5) {
+            } else if (cvVar.aRb == 5) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (cvVar.aSM == 4) {
+            } else if (cvVar.aRb == 4) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
@@ -138,20 +138,20 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(cv cvVar) {
         if (cvVar != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.mTbPageContext.getPageActivity(), ExtraParamsManager.getDecryptUserId(cvVar.uk), cvVar.aSL, cvVar.aSK, 0, 0, null, null, 0L, 0L, 0L, 0, null, this.mLiveId, this.bnP != null && this.bnP.equals(TbadkCoreApplication.getCurrentAccount()), this.bnP, null, cvVar.aSL, "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.mTbPageContext.getPageActivity(), ExtraParamsManager.getDecryptUserId(cvVar.uk), cvVar.aRa, cvVar.aQZ, 0, 0, null, null, 0L, 0L, 0L, 0, null, this.mLiveId, this.bme != null && this.bme.equals(TbadkCoreApplication.getCurrentAccount()), this.bme, null, cvVar.aRa, "")));
         }
     }
 
     /* renamed from: com.baidu.live.yuyinnoble.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0241a {
-        public YuyinALALevelView bTY;
-        public LinearLayout bTZ;
-        public HeadImageView boT;
-        public TextView boU;
-        public ImageView boW;
+    private class C0239a {
+        public YuyinALALevelView bSo;
+        public LinearLayout bSp;
+        public HeadImageView bni;
+        public TextView bnj;
+        public ImageView bnl;
 
-        private C0241a() {
+        private C0239a() {
         }
     }
 }

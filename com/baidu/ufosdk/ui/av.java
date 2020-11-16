@@ -8,7 +8,7 @@ import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.Timer;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class av extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */

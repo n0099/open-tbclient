@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public enum es {
     ACTIVITY(PushConstants.INTENT_ACTIVITY_NAME),
     SERVICE_ACTION("service_action"),
@@ -10,9 +10,9 @@ public enum es {
     
 
     /* renamed from: a  reason: collision with other field name */
-    public String f309a;
+    public String f312a;
 
     es(String str) {
-        this.f309a = str;
+        this.f312a = str;
     }
 }

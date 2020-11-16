@@ -2,19 +2,19 @@ package com.baidu.swan.pms.model;
 
 import android.text.TextUtils;
 import com.baidu.swan.pms.utils.AbiType;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class i extends e {
-    public String cSs;
-    public AbiType ehM;
+    public String cQI;
+    public AbiType ege;
     public long maxAge;
 
     @Override // com.baidu.swan.pms.model.e
-    public boolean are() {
-        return (TextUtils.isEmpty(this.ehG) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.cSs) || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.downloadUrl) || this.ehM == null) ? false : true;
+    public boolean aqw() {
+        return (TextUtils.isEmpty(this.efY) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.cQI) || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.downloadUrl) || this.ege == null) ? false : true;
     }
 
     @Override // com.baidu.swan.pms.model.e
     public String toString() {
-        return "libName=" + this.cSs + ", abi=" + this.ehM + ", maxAge=" + this.maxAge + " " + super.toString();
+        return "libName=" + this.cQI + ", abi=" + this.ege + ", maxAge=" + this.maxAge + " " + super.toString();
     }
 }

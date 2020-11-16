@@ -10,7 +10,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.io.File;
@@ -20,9 +20,9 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class f {
-    private a euv;
+    private a esP;
     private final Context mContext;
     private final String TIEBA = TbConfig.getTempDirName();
     private int mMediaLoaderType = 0;
@@ -36,7 +36,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public g bis() {
+    public g bhM() {
         this.mAlbumHashMap.clear();
         g gVar = new g();
         List<ImageFileInfo> imageList = getImageList();
@@ -78,7 +78,7 @@ public class f {
                     if (f.this.TIEBA.equals(aVar2.getName())) {
                         return 1;
                     }
-                    long sortTime = aVar2.bin().getSortTime() - aVar.bin().getSortTime();
+                    long sortTime = aVar2.bhH().getSortTime() - aVar.bhH().getSortTime();
                     if (sortTime == 0) {
                         return 0;
                     }
@@ -138,7 +138,7 @@ public class f {
                                     imageFileInfo.setContentUriStr(str);
                                     imageFileInfo.setFilePath(string3);
                                     imageFileInfo.setIsGif(endsWith);
-                                    imageFileInfo.setModifyTime(at.getChineseFormatTimeString(j2));
+                                    imageFileInfo.setModifyTime(au.getChineseFormatTimeString(j2));
                                     imageFileInfo.setSortTime(j);
                                     arrayList.add(imageFileInfo);
                                     com.baidu.tbadk.album.a aVar2 = this.mAlbumHashMap.get(string);
@@ -152,7 +152,7 @@ public class f {
                                     aVar.setAlbumId(string);
                                     aVar.setName(string2);
                                     aVar.addCount();
-                                    if (aVar.bin() == null) {
+                                    if (aVar.bhH() == null) {
                                         aVar.a(imageFileInfo);
                                     }
                                     List<MediaFileInfo> fileList = aVar.getFileList();
@@ -262,19 +262,19 @@ public class f {
         }
         cancelLoadTask();
         this.mMediaLoaderType = i;
-        this.euv = new a(eVar);
-        this.euv.setPriority(3);
-        this.euv.execute(new Object[0]);
+        this.esP = new a(eVar);
+        this.esP.setPriority(3);
+        this.esP.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes21.dex */
+    /* loaded from: classes20.dex */
     public class a extends BdAsyncTask<Object, Integer, g> {
-        private final e eux;
+        private final e esR;
 
         public a(e eVar) {
-            this.eux = eVar;
+            this.esR = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -282,15 +282,15 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: o */
         public g doInBackground(Object... objArr) {
-            return f.this.bis();
+            return f.this.bhM();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.eux != null) {
-                this.eux.onPreLoad();
+            if (this.esR != null) {
+                this.esR.onPreLoad();
             }
         }
 
@@ -300,16 +300,16 @@ public class f {
         /* renamed from: b */
         public void onPostExecute(g gVar) {
             super.onPostExecute(gVar);
-            if (this.eux != null) {
-                this.eux.a(gVar);
+            if (this.esR != null) {
+                this.esR.a(gVar);
             }
         }
     }
 
     public void cancelLoadTask() {
-        if (this.euv != null) {
-            this.euv.cancel();
-            this.euv = null;
+        if (this.esP != null) {
+            this.esP.cancel();
+            this.esP = null;
         }
     }
 }

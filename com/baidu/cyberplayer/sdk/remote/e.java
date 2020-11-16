@@ -5,7 +5,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class e implements Parcelable {
     public static final Parcelable.Creator<e> CREATOR = new Parcelable.Creator<e>() { // from class: com.baidu.cyberplayer.sdk.remote.e.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -24,16 +24,16 @@ public class e implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private Uri f1408a;
+    private Uri f1411a;
     private Map<String, String> b;
 
     public e(Uri uri, Map<String, String> map) {
-        this.f1408a = uri;
+        this.f1411a = uri;
         this.b = map;
     }
 
     protected e(Parcel parcel) {
-        this.f1408a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
+        this.f1411a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
         this.b = new HashMap();
         int readInt = parcel.readInt();
         for (int i = 0; i < readInt; i++) {
@@ -42,7 +42,7 @@ public class e implements Parcelable {
     }
 
     public Uri a() {
-        return this.f1408a;
+        return this.f1411a;
     }
 
     public Map<String, String> b() {
@@ -56,7 +56,7 @@ public class e implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f1408a, i);
+        parcel.writeParcelable(this.f1411a, i);
         if (this.b == null || this.b.size() <= 0) {
             parcel.writeInt(0);
             return;

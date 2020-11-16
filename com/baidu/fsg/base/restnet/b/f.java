@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class f implements com.baidu.fsg.base.restnet.rest.e {
 
     /* renamed from: a  reason: collision with root package name */

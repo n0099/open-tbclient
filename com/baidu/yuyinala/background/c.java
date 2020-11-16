@@ -24,25 +24,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudioBackgroundDialogData> implements DialogInterface.OnDismissListener, View.OnClickListener, AdapterView.c {
-    private CommonEmptyView bpJ;
-    private com.baidu.live.tieba.pb.interactionpopupwindow.c bxf;
-    private HListView ggP;
-    private View osR;
-    private View osS;
-    private View osT;
-    private com.baidu.yuyinala.background.a.a osU;
-    private a osV;
-    private AlaAudioBackgroundDialogData osW;
-    private boolean osX;
-    private com.baidu.yuyinala.background.b.a osY;
+    private CommonEmptyView bnY;
+    private com.baidu.live.tieba.pb.interactionpopupwindow.c bvu;
+    private HListView ggw;
+    private AlaAudioBackgroundDialogData ouA;
+    private boolean ouB;
+    private com.baidu.yuyinala.background.b.a ouC;
+    private View ouv;
+    private View ouw;
+    private View oux;
+    private com.baidu.yuyinala.background.a.a ouy;
+    private a ouz;
 
     /* loaded from: classes4.dex */
     public interface a {
         void a(com.baidu.yuyinala.background.b.a aVar, Bitmap bitmap);
 
-        void eeq();
+        void eeo();
 
-        void eer();
+        void eep();
 
         String getCustomRoomId();
 
@@ -54,7 +54,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
     }
 
     public void a(a aVar) {
-        this.osV = aVar;
+        this.ouz = aVar;
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
@@ -69,10 +69,10 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
     }
 
     public void a(AlaAudioBackgroundDialogData alaAudioBackgroundDialogData, com.baidu.yuyinala.background.b.a aVar, boolean z) {
-        this.osW = alaAudioBackgroundDialogData;
+        this.ouA = alaAudioBackgroundDialogData;
         if (z) {
-            if (this.osW == null || ListUtils.isEmpty(alaAudioBackgroundDialogData.getBgList())) {
-                eev();
+            if (this.ouA == null || ListUtils.isEmpty(alaAudioBackgroundDialogData.getBgList())) {
+                eet();
             } else {
                 a(alaAudioBackgroundDialogData.getBgList(), aVar);
             }
@@ -81,45 +81,45 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void initView() {
-        this.osU = new com.baidu.yuyinala.background.a.a(this.mTbPageContext.getPageActivity());
-        this.ggP = (HListView) getViewGroup().findViewById(a.f.background_lv);
-        this.ggP.setAdapter((ListAdapter) this.osU);
-        this.ggP.setDividerWidth(this.mTbPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds8));
-        this.ggP.setSelector(this.mTbPageContext.getResources().getDrawable(a.e.sdk_transparent_bg));
-        this.osR = getViewGroup().findViewById(a.f.cancle_tv);
-        this.osS = getViewGroup().findViewById(a.f.confirm_tv);
-        this.bpJ = (CommonEmptyView) getViewGroup().findViewById(a.f.bg_empty_view);
-        this.osT = getViewGroup().findViewById(a.f.bg_succ_view);
-        this.osR.setOnClickListener(this);
-        this.osS.setOnClickListener(this);
-        this.ggP.setOnItemClickListener(this);
+        this.ouy = new com.baidu.yuyinala.background.a.a(this.mTbPageContext.getPageActivity());
+        this.ggw = (HListView) getViewGroup().findViewById(a.f.background_lv);
+        this.ggw.setAdapter((ListAdapter) this.ouy);
+        this.ggw.setDividerWidth(this.mTbPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds8));
+        this.ggw.setSelector(this.mTbPageContext.getResources().getDrawable(a.e.sdk_transparent_bg));
+        this.ouv = getViewGroup().findViewById(a.f.cancle_tv);
+        this.ouw = getViewGroup().findViewById(a.f.confirm_tv);
+        this.bnY = (CommonEmptyView) getViewGroup().findViewById(a.f.bg_empty_view);
+        this.oux = getViewGroup().findViewById(a.f.bg_succ_view);
+        this.ouv.setOnClickListener(this);
+        this.ouw.setOnClickListener(this);
+        this.ggw.setOnItemClickListener(this);
     }
 
     public void a(com.baidu.live.tieba.pb.interactionpopupwindow.c cVar) {
-        this.bxf = cVar;
+        this.bvu = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.osR) {
-            eeu();
-            if (this.bxf != null) {
-                this.bxf.dismiss();
+        if (view == this.ouv) {
+            ees();
+            if (this.bvu != null) {
+                this.bvu.dismiss();
             }
-        } else if (view == this.osS) {
-            this.osX = true;
-            eeq();
-            if (this.bxf != null) {
-                this.bxf.dismiss();
+        } else if (view == this.ouw) {
+            this.ouB = true;
+            eeo();
+            if (this.bvu != null) {
+                this.bvu.dismiss();
             }
-            eet();
+            eer();
         }
     }
 
     @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
     public void a(AdapterView<?> adapterView, View view, int i, long j) {
-        Np(i);
-        com.baidu.yuyinala.background.b.a item = this.osU.getItem(i);
+        NS(i);
+        com.baidu.yuyinala.background.b.a item = this.ouy.getItem(i);
         b(item);
         a(item);
     }
@@ -139,19 +139,19 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
         jSONObject.put("background_id", id);
         jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "background");
         jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-        if (this.osV != null) {
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.osV.getCustomRoomId());
+        if (this.ouz != null) {
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.ouz.getCustomRoomId());
         }
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "background_clk").setContentExt(jSONObject));
     }
 
-    private void eet() {
+    private void eer() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "background");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (this.osV != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.osV.getCustomRoomId());
+            if (this.ouz != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.ouz.getCustomRoomId());
             }
         } catch (JSONException e) {
             BdLog.e(e);
@@ -159,37 +159,37 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "backchange_cfm").setContentExt(jSONObject));
     }
 
-    public void Np(int i) {
+    public void NS(int i) {
         if (i >= 0) {
-            this.ggP.smoothScrollToPosition(i);
+            this.ggw.smoothScrollToPosition(i);
         }
     }
 
     private void b(final com.baidu.yuyinala.background.b.a aVar) {
-        if (aVar != null && !StringUtils.isNull(aVar.getOriginalUrl()) && aVar != this.osY) {
-            if (this.osY != null) {
-                BdResourceLoader.getInstance().cancelLoad(this.osY.getOriginalUrl(), 10, null);
-                this.osY.setLoading(false);
+        if (aVar != null && !StringUtils.isNull(aVar.getOriginalUrl()) && aVar != this.ouC) {
+            if (this.ouC != null) {
+                BdResourceLoader.getInstance().cancelLoad(this.ouC.getOriginalUrl(), 10, null);
+                this.ouC.setLoading(false);
             }
-            this.osY = aVar;
-            this.osY.setLoading(true);
-            this.osU.notifyDataSetChanged();
-            BdResourceLoader.getInstance().loadResource(this.osY.getOriginalUrl(), 10, new BdResourceCallback<BdImage>() { // from class: com.baidu.yuyinala.background.c.1
+            this.ouC = aVar;
+            this.ouC.setLoading(true);
+            this.ouy.notifyDataSetChanged();
+            BdResourceLoader.getInstance().loadResource(this.ouC.getOriginalUrl(), 10, new BdResourceCallback<BdImage>() { // from class: com.baidu.yuyinala.background.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.resourceloader.BdResourceCallback
                 public void onLoaded(BdImage bdImage, String str, int i) {
                     super.onLoaded((AnonymousClass1) bdImage, str, i);
-                    if (bdImage != null && c.this.osY != null && !StringUtils.isNull(c.this.osY.getOriginalUrl()) && c.this.osY.getOriginalUrl().equals(str)) {
-                        if (c.this.osV != null) {
+                    if (bdImage != null && c.this.ouC != null && !StringUtils.isNull(c.this.ouC.getOriginalUrl()) && c.this.ouC.getOriginalUrl().equals(str)) {
+                        if (c.this.ouz != null) {
                             if (bdImage.getImage() == null || bdImage.getImage().isRecycled()) {
                                 c.this.c(aVar);
                             } else {
-                                c.this.osV.a(c.this.osY, Bitmap.createBitmap(bdImage.getImage()));
+                                c.this.ouz.a(c.this.ouC, Bitmap.createBitmap(bdImage.getImage()));
                             }
                         }
-                        c.this.osY.setLoading(false);
-                        c.this.osU.notifyDataSetChanged();
+                        c.this.ouC.setLoading(false);
+                        c.this.ouy.notifyDataSetChanged();
                     }
                 }
             }, getTbPageContext().getUniqueId());
@@ -198,63 +198,63 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.yuyinala.background.b.a aVar) {
-        if (aVar != null && aVar == this.osY) {
+        if (aVar != null && aVar == this.ouC) {
             if (aVar != null) {
                 aVar.setLoading(false);
             }
-            this.osY = null;
-            this.osU.notifyDataSetChanged();
+            this.ouC = null;
+            this.ouy.notifyDataSetChanged();
         }
     }
 
-    private void eeq() {
-        if (this.osV != null) {
-            this.osV.eeq();
+    private void eeo() {
+        if (this.ouz != null) {
+            this.ouz.eeo();
         }
     }
 
-    private void eeu() {
-        if (this.osV != null) {
-            this.osV.eer();
+    private void ees() {
+        if (this.ouz != null) {
+            this.ouz.eep();
         }
-        this.osU.notifyDataSetChanged();
+        this.ouy.notifyDataSetChanged();
     }
 
     private void a(List<com.baidu.yuyinala.background.b.a> list, com.baidu.yuyinala.background.b.a aVar) {
-        this.osT.setVisibility(0);
-        this.bpJ.setVisibility(8);
-        this.osU.setBgList(list);
-        Np(ListUtils.getPosition(list, aVar));
+        this.oux.setVisibility(0);
+        this.bnY.setVisibility(8);
+        this.ouy.setBgList(list);
+        NS(ListUtils.getPosition(list, aVar));
     }
 
-    private void eev() {
-        this.bpJ.reset();
-        this.bpJ.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.yuyinala.background.c.2
+    private void eet() {
+        this.bnY.reset();
+        this.bnY.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.yuyinala.background.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.osV != null) {
-                    c.this.osV.loadData();
+                if (c.this.ouz != null) {
+                    c.this.ouz.loadData();
                 }
-                c.this.bpJ.setVisibility(8);
-                c.this.osT.setVisibility(0);
+                c.this.bnY.setVisibility(8);
+                c.this.oux.setVisibility(0);
             }
         });
-        this.bpJ.setTitle(a.h.sdk_net_no);
-        this.bpJ.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
-        this.bpJ.setVisibility(0);
-        this.osT.setVisibility(8);
+        this.bnY.setTitle(a.h.sdk_net_no);
+        this.bnY.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
+        this.bnY.setVisibility(0);
+        this.oux.setVisibility(8);
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        if (this.osX) {
-            this.osX = false;
+        if (this.ouB) {
+            this.ouB = false;
         } else {
-            eeu();
+            ees();
         }
-        if (this.osY != null) {
-            BdResourceLoader.getInstance().cancelLoad(this.osY.getOriginalUrl(), 10, null);
-            this.osY = null;
+        if (this.ouC != null) {
+            BdResourceLoader.getInstance().cancelLoad(this.ouC.getOriginalUrl(), 10, null);
+            this.ouC = null;
         }
         a((List<com.baidu.yuyinala.background.b.a>) null, (com.baidu.yuyinala.background.b.a) null);
     }

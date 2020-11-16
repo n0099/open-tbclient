@@ -10,7 +10,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class IMDatabase {
     private static DbOpenHelper mDbHelper = null;
 
@@ -74,7 +74,7 @@ public class IMDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         private Context mContext;
 

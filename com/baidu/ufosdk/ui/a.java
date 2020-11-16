@@ -3,7 +3,7 @@ package com.baidu.ufosdk.ui;
 import android.content.Context;
 import android.widget.LinearLayout;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class a {
     private Context c;
     private d e;

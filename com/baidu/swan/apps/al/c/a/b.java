@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public abstract class b extends aa {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(j jVar, String str) {
@@ -45,11 +45,11 @@ public abstract class b extends aa {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public JSONObject a(@NonNull a.C0376a c0376a) {
+    public JSONObject a(@NonNull a.C0374a c0374a) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("level", String.valueOf(c0376a.level <= 100 ? c0376a.level : 100));
-            jSONObject.put("isCharging", c0376a.dBD);
+            jSONObject.put("level", String.valueOf(c0374a.level <= 100 ? c0374a.level : 100));
+            jSONObject.put("isCharging", c0374a.dzW);
             return jSONObject;
         } catch (JSONException e) {
             return null;

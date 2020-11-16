@@ -2,7 +2,7 @@ package com.baidu.ufosdk.f;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class e extends LinkedList {
 
     /* renamed from: a  reason: collision with root package name */

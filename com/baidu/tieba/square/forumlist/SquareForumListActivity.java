@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetForumsFromForumClass.ForumSpaceForumInfo;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassResIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumListActivity> {
     private static final int DEFAULT_PAGE_LIMIT = 20;
     private static final int MAX_LIST_SIZE = 50;
@@ -196,12 +196,12 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         super.onChangeSkinType(i);
         getLayoutMode().onModeChanged(this.mRootView);
         getLayoutMode().onModeChanged(this.mListFooter);
-        ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        ap.setBackgroundColor(this.mListFooter.findViewById(R.id.footer_divider), R.color.cp_bg_line_c);
+        ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
+        ap.setBackgroundColor(this.mListFooter.findViewById(R.id.footer_divider), R.color.CAM_X0204);
         if (this.mHasMore) {
             ap.setBackgroundResource(this.mListFooter, R.drawable.square_list_item_bg_selector);
         } else {
-            ap.setBackgroundColor(this.mListFooter, R.color.cp_bg_line_d);
+            ap.setBackgroundColor(this.mListFooter, R.color.CAM_X0201);
         }
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.mListAdapter.notifyDataSetChanged();
@@ -221,7 +221,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
             }
             this.mIsLoading = true;
             this.mFooterText.setText(R.string.flist_loading);
-            ap.setViewTextColor(this.mFooterText, R.color.cp_cont_d);
+            ap.setViewTextColor(this.mFooterText, R.color.CAM_X0109);
             sendMessage(new SquareForumListReq(this.mPageType, this.mPageNum, 20));
         }
     }
@@ -236,11 +236,11 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         }
         this.mListFooter.setVisibility(0);
         this.mFooterText.setText(this.mHasMore ? R.string.recommend_frs_hot_thread_more : R.string.list_no_more);
-        ap.setViewTextColor(this.mFooterText, this.mHasMore ? R.color.cp_link_tip_a : R.color.cp_cont_d);
+        ap.setViewTextColor(this.mFooterText, this.mHasMore ? R.color.CAM_X0302 : R.color.CAM_X0109);
         if (this.mHasMore) {
             ap.setBackgroundResource(this.mListFooter, R.drawable.square_list_item_bg_selector);
         } else {
-            ap.setBackgroundColor(this.mListFooter, R.color.cp_bg_line_d);
+            ap.setBackgroundColor(this.mListFooter, R.color.CAM_X0201);
         }
         updateForumList(getForumsFromForumClassResIdl.data.forum_info, this.mPageNum == 1);
         this.mListAdapter.setData(this.mListData);

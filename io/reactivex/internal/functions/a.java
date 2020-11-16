@@ -1,9 +1,9 @@
 package io.reactivex.internal.functions;
 
 import io.reactivex.c.d;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class a {
-    static final d<Object, Object> pMA = new C1069a();
+    static final d<Object, Object> pOd = new C1072a();
 
     public static <T> T l(T t, String str) {
         if (t == null) {
@@ -30,7 +30,7 @@ public final class a {
         return j > j2 ? 1 : 0;
     }
 
-    public static int cc(int i, String str) {
+    public static int ca(int i, String str) {
         if (i <= 0) {
             throw new IllegalArgumentException(str + " > 0 required but it was " + i);
         }
@@ -45,9 +45,9 @@ public final class a {
     }
 
     /* renamed from: io.reactivex.internal.functions.a$a  reason: collision with other inner class name */
-    /* loaded from: classes17.dex */
-    static final class C1069a implements d<Object, Object> {
-        C1069a() {
+    /* loaded from: classes5.dex */
+    static final class C1072a implements d<Object, Object> {
+        C1072a() {
         }
 
         @Override // io.reactivex.c.d

@@ -19,16 +19,16 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ChatClipImageItemView extends TbImageView implements k.a {
-    private boolean iQn;
+    private boolean iRa;
     private boolean isLeft;
-    public k jZV;
-    private a jZW;
+    public k kaG;
+    private a kaH;
     private final Path mDefaultPath;
     public int position;
 
     /* loaded from: classes.dex */
     public interface a {
-        void Z(Canvas canvas);
+        void ac(Canvas canvas);
     }
 
     public ChatClipImageItemView(Context context) {
@@ -44,8 +44,8 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         this.isLeft = true;
         this.position = 0;
         this.mDefaultPath = new Path();
-        this.iQn = true;
-        this.jZW = null;
+        this.iRa = true;
+        this.kaH = null;
         init(context, attributeSet, i);
     }
 
@@ -78,20 +78,20 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
             }
         }
         if (z) {
-            this.jZV = new h();
+            this.kaG = new h();
         } else {
-            this.jZV = new n();
+            this.kaG = new n();
         }
-        this.Ry.isChatPage = true;
-        this.jZV.a(this);
-        this.Rz = this.jZV;
-        this.Rz.a(this.Ry);
+        this.Rz.isChatPage = true;
+        this.kaG.a(this);
+        this.RA = this.kaG;
+        this.RA.a(this.Rz);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        this.jZV.releaseMemory();
+        this.kaG.releaseMemory();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,12 +99,12 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i != 0) {
-            this.jZV.releaseMemory();
-        } else if (!this.iQn) {
-            this.jZV.onFinishComputeBounds();
+            this.kaG.releaseMemory();
+        } else if (!this.iRa) {
+            this.kaG.onFinishComputeBounds();
             invalidate();
         } else {
-            this.iQn = false;
+            this.iRa = false;
         }
     }
 
@@ -116,9 +116,9 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         this.isLeft = z;
     }
 
-    public void cPu() {
-        this.jZV.onFinishComputeBounds();
-        this.jZV.setPathAvailable(true);
+    public void cPa() {
+        this.kaG.onFinishComputeBounds();
+        this.kaG.setPathAvailable(true);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
@@ -127,7 +127,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         com.baidu.adp.widget.ImageView.a bdImage = super.getBdImage();
         boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
         boolean z3 = bdImage != null && bdImage.isValidNow();
-        k kVar = this.jZV;
+        k kVar = this.kaG;
         if (z3 || z2) {
             z = true;
         }
@@ -138,7 +138,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
     public com.baidu.adp.widget.ImageView.a getDefaultBdImage() {
-        this.jZV.setPathAvailable(false);
+        this.kaG.setPathAvailable(false);
         return super.getDefaultBdImage();
     }
 
@@ -203,15 +203,15 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.jZW == null) {
-            ap.setBackgroundColor(this, R.color.cp_bg_line_c);
+        if (this.kaH == null) {
+            ap.setBackgroundColor(this, R.color.CAM_X0204);
         } else {
-            this.jZW.Z(canvas);
+            this.kaH.ac(canvas);
         }
         super.onDraw(canvas);
     }
 
     public void setOnDrawCallback(a aVar) {
-        this.jZW = aVar;
+        this.kaH = aVar;
     }
 }

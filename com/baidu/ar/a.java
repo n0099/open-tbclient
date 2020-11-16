@@ -2,7 +2,7 @@ package com.baidu.ar;
 
 import com.baidu.ar.audio.IEasyAudio;
 import com.baidu.ar.g.n;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class a {
     public static com.baidu.ar.imu.c a() {
         return (com.baidu.ar.imu.c) n.aS("com.baidu.ar.imu.IMUController");

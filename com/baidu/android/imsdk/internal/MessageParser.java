@@ -33,7 +33,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class MessageParser {
     private static final String TAG = "MessageParser";
 
@@ -456,7 +456,7 @@ public class MessageParser {
                 for (List<NewAckMessage.Tripule> list2 : splitList) {
                     NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                     newAckMessage.addTriples(list2);
-                    if (!a.azB) {
+                    if (!a.axQ) {
                         IMConnection.getInstance(context).sendMessage(newAckMessage, false);
                     }
                 }
@@ -490,7 +490,7 @@ public class MessageParser {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     public static class DuParser {
         private int category;
         private String content;

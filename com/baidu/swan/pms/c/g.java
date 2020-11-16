@@ -4,12 +4,12 @@ import com.baidu.searchbox.http.callback.StatResponseCallback;
 import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.swan.pms.c.f;
 import okhttp3.Response;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class g implements StatResponseCallback<String> {
-    private final f.a ehS;
+    private final f.a egk;
 
     public g(f.a aVar) {
-        this.ehS = aVar;
+        this.egk = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,8 +22,8 @@ public class g implements StatResponseCallback<String> {
             str = response.request().url().toString();
             str2 = response.body().string();
         }
-        if (ST()) {
-            this.ehS.b(str, str2, networkStatRecord.toUBCJson());
+        if (Sk()) {
+            this.egk.b(str, str2, networkStatRecord.toUBCJson());
         }
         return str2;
     }
@@ -31,19 +31,19 @@ public class g implements StatResponseCallback<String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     public void onSuccess(String str, int i) {
-        if (ST()) {
-            this.ehS.onSuccess(str, i);
+        if (Sk()) {
+            this.egk.onSuccess(str, i);
         }
     }
 
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     public void onFail(Exception exc) {
-        if (ST()) {
-            this.ehS.onFail(exc);
+        if (Sk()) {
+            this.egk.onFail(exc);
         }
     }
 
-    private boolean ST() {
-        return this.ehS != null;
+    private boolean Sk() {
+        return this.egk != null;
     }
 }

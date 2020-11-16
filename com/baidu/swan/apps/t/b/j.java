@@ -3,35 +3,35 @@ package com.baidu.swan.apps.t.b;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.FrameLayout;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface j {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void b(j jVar);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         boolean a(j jVar, int i, int i2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         void e(j jVar);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         void a(j jVar);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         void c(j jVar);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface f {
         void d(j jVar);
     }
@@ -54,13 +54,13 @@ public interface j {
 
     void a(f fVar);
 
-    void ayg();
+    void axy();
 
     void b(com.baidu.swan.apps.media.b.c cVar);
 
     void f(FrameLayout frameLayout);
 
-    void fs(boolean z);
+    void fv(boolean z);
 
     int getCurrentPosition();
 
@@ -74,7 +74,7 @@ public interface j {
 
     void mute(boolean z);
 
-    void oX(String str);
+    void oR(String str);
 
     boolean onBackPressed();
 

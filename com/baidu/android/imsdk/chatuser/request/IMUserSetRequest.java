@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class IMUserSetRequest extends IMUserBaseHttpRequest {
     private long mAppid;
     private int mBlack;

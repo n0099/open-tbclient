@@ -26,11 +26,11 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes18.dex */
 public class PortraitService extends AbstractService implements NoProguard {
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes18.dex */
     public class a extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -92,7 +92,7 @@ public class PortraitService extends AbstractService implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes18.dex */
     public class b extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -143,7 +143,7 @@ public class PortraitService extends AbstractService implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes18.dex */
     public class c extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -190,7 +190,7 @@ public class PortraitService extends AbstractService implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes18.dex */
     public class d extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */

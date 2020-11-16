@@ -3,7 +3,7 @@ package com.baidu.live.guardclub;
 import android.content.Context;
 /* loaded from: classes4.dex */
 public interface i {
-    void KK();
+    void Kb();
 
     String au(long j);
 

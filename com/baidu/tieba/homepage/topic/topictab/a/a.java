@@ -4,23 +4,23 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.adp.widget.ListView.v;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bky;
-    private v imM;
+    private List<com.baidu.adp.widget.ListView.a> biN;
+    private v inB;
 
     public void notifyDataSetChanged() {
-        if (this.imM != null) {
-            this.imM.getListAdapter().notifyDataSetChanged();
+        if (this.inB != null) {
+            this.inB.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<q> list) {
-        this.imM.setData(list);
+        this.inB.setData(list);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bky) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.biN) {
             aVar.setPageId(bdUniqueId);
         }
     }

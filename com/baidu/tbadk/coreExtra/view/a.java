@@ -11,117 +11,117 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class a {
-    private ImageViewerBottomLayout fiS;
-    private AbsFloorImageTextView fiT;
-    private LinearLayout fiU;
-    private boolean fiV = true;
-    private final ImageViewerBottomLayout.a fiW = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.a.1
+    private ImageViewerBottomLayout fhX;
+    private AbsFloorImageTextView fhY;
+    private LinearLayout fhZ;
+    private boolean fia = true;
+    private final ImageViewerBottomLayout.a fib = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.a.1
         @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.a
         public void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z) {
-            a.this.fiV = z;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(a.this.fiV)));
-            a.this.jN(z);
+            a.this.fia = z;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(a.this.fia)));
+            a.this.jO(z);
         }
     };
     private Context mContext;
 
     public a(@NonNull Context context, @NonNull RelativeLayout relativeLayout) {
         this.mContext = context;
-        this.fiU = new LinearLayout(context);
-        this.fiU.setOrientation(1);
-        this.fiU.setVisibility(8);
-        ap.a(this.fiU, R.color.cp_mask_b_alpha66, GradientDrawable.Orientation.BOTTOM_TOP);
+        this.fhZ = new LinearLayout(context);
+        this.fhZ.setOrientation(1);
+        this.fhZ.setVisibility(8);
+        ap.a(this.fhZ, R.color.CAM_X0608, GradientDrawable.Orientation.BOTTOM_TOP);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        relativeLayout.addView(this.fiU, layoutParams);
-        bxJ();
-        bxI();
+        relativeLayout.addView(this.fhZ, layoutParams);
+        bwZ();
+        bwY();
     }
 
-    private void bxI() {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.fiY);
-        this.fiS = new ImageViewerBottomLayout(this.mContext);
-        this.fiU.addView(this.fiS, layoutParams);
-        this.fiS.setExpandButtonListener(this.fiW);
+    private void bwY() {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.fie);
+        this.fhX = new ImageViewerBottomLayout(this.mContext);
+        this.fhZ.addView(this.fhX, layoutParams);
+        this.fhX.setExpandButtonListener(this.fib);
     }
 
-    private void bxJ() {
+    private void bwZ() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.fiT = new FloorImageTextViewNew(this.mContext);
-        this.fiU.addView(this.fiT, layoutParams);
+        this.fhY = new FloorImageTextViewNew(this.mContext);
+        this.fhZ.addView(this.fhY, layoutParams);
     }
 
-    public void jN(boolean z) {
-        if (this.fiT != null) {
-            this.fiT.jN(z);
+    public void jO(boolean z) {
+        if (this.fhY != null) {
+            this.fhY.jO(z);
         }
-        if (this.fiS != null) {
-            this.fiS.jO(!z);
+        if (this.fhX != null) {
+            this.fhX.jP(!z);
         }
     }
 
     public void setUserId(String str) {
-        if (this.fiT != null) {
-            this.fiT.setUserId(str);
+        if (this.fhY != null) {
+            this.fhY.setUserId(str);
         }
-        if (this.fiS != null) {
-            this.fiS.setUserId(str);
+        if (this.fhX != null) {
+            this.fhX.setUserId(str);
         }
     }
 
     public void setAssistUrl(ImageUrlData imageUrlData) {
-        if (this.fiT != null) {
-            this.fiT.a(imageUrlData);
+        if (this.fhY != null) {
+            this.fhY.a(imageUrlData);
         }
-        if (this.fiS != null) {
-            this.fiS.b(imageUrlData);
+        if (this.fhX != null) {
+            this.fhX.b(imageUrlData);
         }
     }
 
-    private boolean by(View view) {
+    private boolean bB(View view) {
         return view != null && view.getVisibility() == 0;
     }
 
     public boolean isShown() {
-        return by(this.fiU);
+        return bB(this.fhZ);
     }
 
-    public boolean bxK() {
-        return this.fiV;
+    public boolean bxa() {
+        return this.fia;
     }
 
     public void setVisibility(int i) {
-        if (this.fiU != null) {
-            this.fiU.clearAnimation();
-            this.fiU.setVisibility(i);
+        if (this.fhZ != null) {
+            this.fhZ.clearAnimation();
+            this.fhZ.setVisibility(i);
         }
     }
 
     public void be(int i, int i2) {
         if (i == 0) {
-            com.baidu.tieba.v.a.B(this.fiU, i2);
+            com.baidu.tieba.w.a.D(this.fhZ, i2);
         } else {
-            com.baidu.tieba.v.a.A(this.fiU, i2);
+            com.baidu.tieba.w.a.C(this.fhZ, i2);
         }
     }
 
     public void setOnShareImageListener(ImageViewerBottomLayout.c cVar) {
-        if (this.fiS != null) {
-            this.fiS.setOnShareImageListener(cVar);
+        if (this.fhX != null) {
+            this.fhX.setOnShareImageListener(cVar);
         }
     }
 
     public void setOnDownloadImageListener(ImageViewerBottomLayout.b bVar) {
-        if (this.fiS != null) {
-            this.fiS.setOnDownloadImageListener(bVar);
+        if (this.fhX != null) {
+            this.fhX.setOnDownloadImageListener(bVar);
         }
     }
 
     public void setOnReplyClickListener(View.OnClickListener onClickListener) {
-        if (this.fiS != null) {
-            this.fiS.setOnReplyClickListener(onClickListener);
+        if (this.fhX != null) {
+            this.fhX.setOnReplyClickListener(onClickListener);
         }
     }
 }

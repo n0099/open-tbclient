@@ -12,8 +12,8 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public abstract class g {
-    private final int hbN = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_tbds589);
-    protected n hbO;
+    private final int hbu = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_tbds589);
+    protected n hbv;
     protected Context mContext;
     protected View mRootView;
 
@@ -21,7 +21,7 @@ public abstract class g {
 
     public g(Context context, n nVar) {
         this.mContext = context;
-        this.hbO = nVar;
+        this.hbv = nVar;
         if (this.mContext != null) {
             this.mRootView = createView();
             if (this.mRootView != null) {
@@ -36,8 +36,8 @@ public abstract class g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int cad() {
-        return this.hbN;
+    public int bZw() {
+        return this.hbu;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -47,14 +47,14 @@ public abstract class g {
                 ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
             }
             if (this.mRootView.getLayoutParams() == null) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, cad());
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, bZw());
                 layoutParams.gravity = 80;
                 frameLayout.addView(this.mRootView, layoutParams);
             } else {
                 frameLayout.addView(this.mRootView);
             }
             if (i <= 0) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0197a.sdk_push_up_in);
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0195a.sdk_push_up_in);
                 loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.2
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
@@ -62,7 +62,7 @@ public abstract class g {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        g.this.Pc();
+                        g.this.Ot();
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
@@ -70,8 +70,8 @@ public abstract class g {
                     }
                 });
                 this.mRootView.startAnimation(loadAnimation);
-            } else if (i != cad()) {
-                ValueAnimator ofInt = ValueAnimator.ofInt(i, cad());
+            } else if (i != bZw()) {
+                ValueAnimator ofInt = ValueAnimator.ofInt(i, bZw());
                 ofInt.setDuration(300L);
                 ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.3
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -90,7 +90,7 @@ public abstract class g {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        g.this.Pc();
+                        g.this.Ot();
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
@@ -103,17 +103,17 @@ public abstract class g {
                 });
                 ofInt.start();
             } else {
-                Pc();
+                Ot();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Pc() {
+    public void Ot() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cav() {
+    public void bZO() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

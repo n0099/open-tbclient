@@ -2,7 +2,7 @@ package com.baidu.ufosdk.ui;
 
 import android.content.Intent;
 import android.view.View;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class cb implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

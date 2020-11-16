@@ -2,23 +2,23 @@ package com.baidu.swan.apps.canvas.b;
 
 import com.baidu.swan.apps.ap.ah;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class d extends a {
-    public String cCs;
-    public float cCt;
-    public boolean cCu;
-    public boolean cCv;
+    public String cAI;
+    public float cAJ;
+    public boolean cAK;
+    public boolean cAL;
     public boolean mItalic;
     public String mText;
 
     public d(String str) {
         super(str);
         String[] split;
-        this.cCs = "sans-serif";
-        this.cCt = ah.N(10.0f);
-        this.cCu = false;
+        this.cAI = "sans-serif";
+        this.cAJ = ah.M(10.0f);
+        this.cAK = false;
         this.mItalic = false;
-        this.cCv = true;
+        this.cAL = true;
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.mText = jSONObject.optString("text");
@@ -30,9 +30,9 @@ public class d extends a {
                     } else if (str2.contains("oblique")) {
                         this.mItalic = true;
                     } else if (str2.contains("bold")) {
-                        this.cCu = true;
+                        this.cAK = true;
                     } else if (str2.contains("normal")) {
-                        this.cCv = true;
+                        this.cAL = true;
                     } else if (Character.isDigit(str2.charAt(0))) {
                         int length = str2.length();
                         int i = 0;
@@ -46,9 +46,9 @@ public class d extends a {
                                 i++;
                             }
                         }
-                        this.cCt = ah.N(Float.parseFloat(str2.substring(0, i)));
+                        this.cAJ = ah.M(Float.parseFloat(str2.substring(0, i)));
                     } else {
-                        this.cCs = str2;
+                        this.cAI = str2;
                     }
                 }
             }

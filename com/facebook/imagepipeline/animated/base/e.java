@@ -2,58 +2,58 @@ package com.facebook.imagepipeline.animated.base;
 
 import android.graphics.Bitmap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private final b oSK;
-    private int oSL;
-    private com.facebook.common.references.a<Bitmap> oSM;
-    private List<com.facebook.common.references.a<Bitmap>> oSN;
+    private final b oUn;
+    private int oUo;
+    private com.facebook.common.references.a<Bitmap> oUp;
+    private List<com.facebook.common.references.a<Bitmap>> oUq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.oSK = bVar;
+        this.oUn = bVar;
     }
 
-    public b ene() {
-        return this.oSK;
+    public b enb() {
+        return this.oUn;
     }
 
-    public com.facebook.common.references.a<Bitmap> enf() {
-        return com.facebook.common.references.a.b(this.oSM);
+    public com.facebook.common.references.a<Bitmap> enc() {
+        return com.facebook.common.references.a.b(this.oUp);
     }
 
     public e j(com.facebook.common.references.a<Bitmap> aVar) {
-        this.oSM = com.facebook.common.references.a.b(aVar);
+        this.oUp = com.facebook.common.references.a.b(aVar);
         return this;
     }
 
-    public int eng() {
-        return this.oSL;
+    public int ene() {
+        return this.oUo;
     }
 
-    public e OY(int i) {
-        this.oSL = i;
+    public e PB(int i) {
+        this.oUo = i;
         return this;
     }
 
-    public List<com.facebook.common.references.a<Bitmap>> enh() {
-        return com.facebook.common.references.a.m(this.oSN);
+    public List<com.facebook.common.references.a<Bitmap>> enf() {
+        return com.facebook.common.references.a.m(this.oUq);
     }
 
     public e gA(List<com.facebook.common.references.a<Bitmap>> list) {
-        this.oSN = com.facebook.common.references.a.m(list);
+        this.oUq = com.facebook.common.references.a.m(list);
         return this;
     }
 
     /* JADX WARN: Type inference failed for: r2v0, types: [java.util.List<com.facebook.common.references.a<android.graphics.Bitmap>>, com.facebook.common.references.a<android.graphics.Bitmap>] */
-    public d eni() {
+    public d eng() {
         try {
             return new d(this);
         } finally {
-            com.facebook.common.references.a.c(this.oSM);
-            this.oSM = null;
-            com.facebook.common.references.a.b(this.oSN);
-            this.oSN = null;
+            com.facebook.common.references.a.c(this.oUp);
+            this.oUp = null;
+            com.facebook.common.references.a.b(this.oUq);
+            this.oUq = null;
         }
     }
 }

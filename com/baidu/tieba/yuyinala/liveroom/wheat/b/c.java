@@ -18,7 +18,7 @@ public class c {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, wVar.aJK.croom_id);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, wVar.aHZ.croom_id);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -30,10 +30,10 @@ public class c {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            w Xn = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Xn();
-            if (Xn != null && Xn.aJK != null) {
-                jSONObject.put("live_id", Xn.aJK.live_id);
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Xn.aJK.croom_id);
+            w WE = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().WE();
+            if (WE != null && WE.aHZ != null) {
+                jSONObject.put("live_id", WE.aHZ.live_id);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WE.aHZ.croom_id);
             }
             jSONObject.put("loc", i);
             boolean z = false;

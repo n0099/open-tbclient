@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class OauthActivity extends BaseActivity {
     private static final String A = "extra_calling_app_id";
     private static final String B = "extra_oauth_result_json";

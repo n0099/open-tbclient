@@ -7,13 +7,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class q extends BaseData {
-    public String aWh;
-    public String aWi;
-    public long aWj;
-    public String aWk;
-    public String aWl;
-    public int aWm;
-    public ArrayList<r> aWn;
+    public String aUA;
+    public int aUB;
+    public ArrayList<r> aUC;
+    public String aUw;
+    public String aUx;
+    public long aUy;
+    public String aUz;
     public long anchorId;
     public int countDown;
     public String giftId;
@@ -24,46 +24,46 @@ public class q extends BaseData {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.giftId = jSONObject.optString(LogConfig.LOG_GIFT_ID);
-            this.aWh = jSONObject.optString("tying_gift_id");
-            this.aWi = jSONObject.optString("tying_gift_name");
+            this.aUw = jSONObject.optString("tying_gift_id");
+            this.aUx = jSONObject.optString("tying_gift_name");
             this.liveId = jSONObject.optLong("live_id");
             this.anchorId = jSONObject.optLong("anchor_id");
-            this.aWj = jSONObject.optLong("pay_userid");
-            this.aWk = jSONObject.optString("im_test");
-            this.aWl = jSONObject.optString("pay_username");
+            this.aUy = jSONObject.optLong("pay_userid");
+            this.aUz = jSONObject.optString("im_test");
+            this.aUA = jSONObject.optString("pay_username");
             this.countDown = jSONObject.optInt("count_down");
             this.subappType = jSONObject.optString("subapp_type");
-            this.aWm = jSONObject.optInt("tying_status");
-            I(jSONObject);
+            this.aUB = jSONObject.optInt("tying_status");
+            C(jSONObject);
         }
     }
 
-    private void I(JSONObject jSONObject) {
+    private void C(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject.has("gift_member") && (optJSONArray = jSONObject.optJSONArray("gift_member")) != null && optJSONArray.length() > 0) {
-            if (this.aWn == null) {
-                this.aWn = new ArrayList<>();
+            if (this.aUC == null) {
+                this.aUC = new ArrayList<>();
             }
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     r rVar = new r();
                     rVar.parserJson(optJSONObject);
-                    this.aWn.add(rVar);
+                    this.aUC.add(rVar);
                 }
             }
         }
     }
 
-    public String GT() {
-        return this.aWi;
+    public String Gk() {
+        return this.aUx;
     }
 
-    public String GU() {
-        return this.aWk;
+    public String Gl() {
+        return this.aUz;
     }
 
-    public int GV() {
-        return this.aWm;
+    public int Gm() {
+        return this.aUB;
     }
 }

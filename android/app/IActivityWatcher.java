@@ -5,13 +5,13 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public interface IActivityWatcher extends IInterface {
     void activityResuming(int i) throws RemoteException;
 
     void closingSystemDialogs(String str) throws RemoteException;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes12.dex */
     public static abstract class Stub extends Binder implements IActivityWatcher {
         private static final String DESCRIPTOR = "android.app.IActivityWatcher";
         static final int TRANSACTION_activityResuming = 1;
@@ -56,7 +56,7 @@ public interface IActivityWatcher extends IInterface {
             }
         }
 
-        /* loaded from: classes19.dex */
+        /* loaded from: classes12.dex */
         private static class Proxy implements IActivityWatcher {
             private IBinder mRemote;
 

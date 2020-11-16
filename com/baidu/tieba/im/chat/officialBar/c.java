@@ -1,18 +1,18 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class c {
-    public static c jXJ = new c();
-    private com.baidu.adp.lib.d.b<MultiImageTextTopView> jXw;
-    private com.baidu.adp.lib.d.b<MultiImageTextBottomView> jXx;
-    private com.baidu.adp.lib.d.b<SingleImageTextView> jXy;
+    public static c jYt = new c();
+    private com.baidu.adp.lib.d.b<MultiImageTextTopView> jYg;
+    private com.baidu.adp.lib.d.b<MultiImageTextBottomView> jYh;
+    private com.baidu.adp.lib.d.b<SingleImageTextView> jYi;
 
-    private void ft(final Context context) {
-        this.jXw = new com.baidu.adp.lib.d.b<MultiImageTextTopView>(new com.baidu.adp.lib.d.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.1
+    private void fs(final Context context) {
+        this.jYg = new com.baidu.adp.lib.d.b<MultiImageTextTopView>(new com.baidu.adp.lib.d.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cPa */
+            /* renamed from: cOG */
             public MultiImageTextTopView makeObject() {
                 return new MultiImageTextTopView(context);
             }
@@ -46,11 +46,11 @@ public class c {
         };
     }
 
-    private void fu(final Context context) {
-        this.jXx = new com.baidu.adp.lib.d.b<MultiImageTextBottomView>(new com.baidu.adp.lib.d.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.3
+    private void ft(final Context context) {
+        this.jYh = new com.baidu.adp.lib.d.b<MultiImageTextBottomView>(new com.baidu.adp.lib.d.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cPb */
+            /* renamed from: cOH */
             public MultiImageTextBottomView makeObject() {
                 return new MultiImageTextBottomView(context);
             }
@@ -84,11 +84,11 @@ public class c {
         };
     }
 
-    private void fv(final Context context) {
-        this.jXy = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.5
+    private void fu(final Context context) {
+        this.jYi = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cPc */
+            /* renamed from: cOI */
             public SingleImageTextView makeObject() {
                 return new SingleImageTextView(context);
             }
@@ -121,24 +121,24 @@ public class c {
         }, 1, 0);
     }
 
-    public com.baidu.adp.lib.d.b<MultiImageTextTopView> fw(Context context) {
-        if (this.jXw == null) {
+    public com.baidu.adp.lib.d.b<MultiImageTextTopView> fv(Context context) {
+        if (this.jYg == null) {
+            fs(context);
+        }
+        return this.jYg;
+    }
+
+    public com.baidu.adp.lib.d.b<MultiImageTextBottomView> fw(Context context) {
+        if (this.jYh == null) {
             ft(context);
         }
-        return this.jXw;
+        return this.jYh;
     }
 
-    public com.baidu.adp.lib.d.b<MultiImageTextBottomView> fx(Context context) {
-        if (this.jXx == null) {
+    public com.baidu.adp.lib.d.b<SingleImageTextView> fx(Context context) {
+        if (this.jYi == null) {
             fu(context);
         }
-        return this.jXx;
-    }
-
-    public com.baidu.adp.lib.d.b<SingleImageTextView> fy(Context context) {
-        if (this.jXy == null) {
-            fv(context);
-        }
-        return this.jXy;
+        return this.jYi;
     }
 }

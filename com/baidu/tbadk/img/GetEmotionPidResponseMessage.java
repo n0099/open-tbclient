@@ -15,7 +15,7 @@ public class GetEmotionPidResponseMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
-            this.mPid = c.du(jSONObject);
+            this.mPid = c.m39do(jSONObject);
         }
     }
 

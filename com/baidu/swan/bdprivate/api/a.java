@@ -10,45 +10,45 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends d {
     public a(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
     @SuppressLint({"SwanBindApiNote"})
-    public com.baidu.swan.apps.api.c.b uK(String str) {
+    public com.baidu.swan.apps.api.c.b uF(String str) {
         return a(str, new com.baidu.swan.apps.api.a.c("getBDUSS") { // from class: com.baidu.swan.bdprivate.api.a.1
             @Override // com.baidu.swan.apps.api.a.c
-            protected boolean ajz() {
-                return com.baidu.swan.apps.runtime.d.aHq().aFD() && com.baidu.swan.apps.runtime.d.aHq().aHm().aHG().sN("mapp_i_get_bduss");
+            protected boolean aiR() {
+                return com.baidu.swan.apps.runtime.d.aGI().aEV() && com.baidu.swan.apps.runtime.d.aGI().aGE().aGY().sI("mapp_i_get_bduss");
             }
 
             @Override // com.baidu.swan.apps.api.a.c
             @NonNull
             protected com.baidu.swan.apps.api.c.b a(@NonNull JSONObject jSONObject, @NonNull final c.a aVar) {
-                e aHv = e.aHv();
-                if (aHv == null) {
+                e aGN = e.aGN();
+                if (aGN == null) {
                     if (d.DEBUG) {
                         Log.e("Api-Base-getBduss", "getBduss failed: null swan runtime");
                     }
                     return new com.baidu.swan.apps.api.c.b(1001, "null swan runtime");
                 }
-                aHv.aHG().b(com.baidu.swan.apps.runtime.d.aHq(), "mapp_i_get_bduss", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.a.1.1
+                aGN.aGY().b(com.baidu.swan.apps.runtime.d.aGI(), "mapp_i_get_bduss", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.a.1.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.ap.e.b
                     /* renamed from: a */
                     public void M(h<b.d> hVar) {
                         if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                            aVar.b(a.this.aOi());
+                            aVar.b(a.this.aNA());
                             return;
                         }
                         int errorCode = hVar.getErrorCode();
-                        String hD = com.baidu.swan.apps.setting.oauth.c.hD(errorCode);
+                        String hz = com.baidu.swan.apps.setting.oauth.c.hz(errorCode);
                         if (d.DEBUG) {
-                            Log.e("Api-Base-getBduss", "getBduss failed: auth fail(" + errorCode + ", " + hD + ")");
+                            Log.e("Api-Base-getBduss", "getBduss failed: auth fail(" + errorCode + ", " + hz + ")");
                         }
-                        aVar.b(new com.baidu.swan.apps.api.c.b(errorCode, hD));
+                        aVar.b(new com.baidu.swan.apps.api.c.b(errorCode, hz));
                     }
                 });
                 return new com.baidu.swan.apps.api.c.b(0);
@@ -56,16 +56,16 @@ public class a extends d {
 
             @Override // com.baidu.swan.apps.api.a.c
             @NonNull
-            protected com.baidu.swan.apps.api.c.b aI(@NonNull JSONObject jSONObject) {
-                return a.this.aOi();
+            protected com.baidu.swan.apps.api.c.b aC(@NonNull JSONObject jSONObject) {
+                return a.this.aNA();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @NonNull
-    public com.baidu.swan.apps.api.c.b aOi() {
-        String cY = com.baidu.swan.bdprivate.a.a.cY(com.baidu.swan.apps.runtime.d.aHq());
+    public com.baidu.swan.apps.api.c.b aNA() {
+        String cY = com.baidu.swan.bdprivate.a.a.cY(com.baidu.swan.apps.runtime.d.aGI());
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", cY);

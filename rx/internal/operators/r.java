@@ -3,15 +3,15 @@ package rx.internal.operators;
 import java.util.concurrent.TimeUnit;
 import rx.g;
 import rx.h;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class r<T> implements h.a<T> {
     final long delay;
-    final h.a<T> qhm;
+    final h.a<T> qiQ;
     final rx.g scheduler;
     final TimeUnit unit;
 
     public r(h.a<T> aVar, long j, TimeUnit timeUnit, rx.g gVar) {
-        this.qhm = aVar;
+        this.qiQ = aVar;
         this.scheduler = gVar;
         this.delay = j;
         this.unit = timeUnit;
@@ -25,22 +25,22 @@ public final class r<T> implements h.a<T> {
         a aVar = new a(iVar, createWorker, this.delay, this.unit);
         iVar.add(createWorker);
         iVar.add(aVar);
-        this.qhm.call(aVar);
+        this.qiQ.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public static final class a<T> extends rx.i<T> implements rx.functions.a {
         final rx.i<? super T> actual;
         final long delay;
         Throwable error;
-        final g.a qhn;
+        final g.a qiR;
         final TimeUnit unit;
         T value;
 
         public a(rx.i<? super T> iVar, g.a aVar, long j, TimeUnit timeUnit) {
             this.actual = iVar;
-            this.qhn = aVar;
+            this.qiR = aVar;
             this.delay = j;
             this.unit = timeUnit;
         }
@@ -48,13 +48,13 @@ public final class r<T> implements h.a<T> {
         @Override // rx.i
         public void onSuccess(T t) {
             this.value = t;
-            this.qhn.a(this, this.delay, this.unit);
+            this.qiR.a(this, this.delay, this.unit);
         }
 
         @Override // rx.i
         public void onError(Throwable th) {
             this.error = th;
-            this.qhn.a(this, this.delay, this.unit);
+            this.qiR.a(this, this.delay, this.unit);
         }
 
         @Override // rx.functions.a
@@ -70,7 +70,7 @@ public final class r<T> implements h.a<T> {
                     this.actual.onSuccess(t);
                 }
             } finally {
-                this.qhn.unsubscribe();
+                this.qiR.unsubscribe();
             }
         }
     }

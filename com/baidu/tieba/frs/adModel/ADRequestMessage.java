@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.util.u;
 import tbclient.GetADList.DataReq;
 import tbclient.GetADList.GetADListReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class ADRequestMessage extends NetMessage {
     private long fid;
     private long offset;

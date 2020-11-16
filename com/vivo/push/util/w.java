@@ -1,7 +1,7 @@
 package com.vivo.push.util;
 
 import android.content.Context;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class w extends a {
     private static w b;
 

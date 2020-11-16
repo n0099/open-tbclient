@@ -15,7 +15,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
     public static final AwtCodec instance = new AwtCodec();
 

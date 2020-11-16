@@ -16,21 +16,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class PolyActivity extends Activity implements m.l {
-    private static com.baidu.poly.d.a.c cdK;
-    private static a.b cdL;
-    private static PolyActivity cdM;
+    private static com.baidu.poly.d.a.c cbX;
+    private static a.b cbY;
+    private static PolyActivity cbZ;
     private static boolean o;
-    private m cdN;
-    private Bundle cdO;
+    private m cca;
+    private Bundle ccb;
 
     private static void Y() {
-        if (cdM != null) {
-            if (cdL != null) {
+        if (cbZ != null) {
+            if (cbY != null) {
                 String a2 = com.baidu.poly.util.b.a(2, null, "repeat_pay_cancel");
-                cdL.onResult(2, a2);
+                cbY.onResult(2, a2);
                 d.b(2, a2);
             }
-            cdM.finish();
+            cbZ.finish();
         }
     }
 
@@ -38,8 +38,8 @@ public class PolyActivity extends Activity implements m.l {
         if (o) {
             Y();
         }
-        cdK = cVar;
-        cdL = bVar;
+        cbX = cVar;
+        cbY = bVar;
         Intent intent = new Intent(context, PolyActivity.class);
         intent.putExtra("pay_arguements", bundle);
         if (!(context instanceof Activity)) {
@@ -49,11 +49,11 @@ public class PolyActivity extends Activity implements m.l {
         context.startActivity(intent);
     }
 
-    private void abs() {
-        this.cdO = getIntent().getBundleExtra("pay_arguements");
+    private void aaJ() {
+        this.ccb = getIntent().getBundleExtra("pay_arguements");
     }
 
-    private String abt() {
+    private String aaK() {
         try {
             return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
@@ -67,8 +67,8 @@ public class PolyActivity extends Activity implements m.l {
             return new Bundle();
         }
         d.nd = bundle.getString("bduss");
-        d.ccK = bundle.getString("tpOrderId");
-        d.ccN = bundle.getString("nativeAppId");
+        d.caY = bundle.getString("tpOrderId");
+        d.cbb = bundle.getString("nativeAppId");
         bundle.putString(CashierData.DEVICE_TYPE, "ANDROID");
         bundle.putString("channel", "cashiersdk");
         bundle.putString(CommandMessage.SDK_VERSION, "2.7.5");
@@ -86,12 +86,12 @@ public class PolyActivity extends Activity implements m.l {
     }
 
     private void clear() {
-        this.cdN = null;
-        cdK = null;
-        this.cdO = null;
-        cdL = null;
+        this.cca = null;
+        cbX = null;
+        this.ccb = null;
+        cbY = null;
         o = false;
-        cdM = null;
+        cbZ = null;
     }
 
     @Override // android.app.Activity
@@ -107,10 +107,10 @@ public class PolyActivity extends Activity implements m.l {
         super.onActivityResult(i, i2, intent);
         if (i == 200) {
             if (i2 == -1) {
-                com.baidu.poly.a.j.a.abl().a((Context) this, intent.getExtras(), this.cdN, true);
+                com.baidu.poly.a.j.a.aaC().a((Context) this, intent.getExtras(), this.cca, true);
                 return;
             }
-            m mVar = this.cdN;
+            m mVar = this.cca;
             if (mVar != null) {
                 mVar.a(3, "pay canceled , back from H5. ");
             }
@@ -119,7 +119,7 @@ public class PolyActivity extends Activity implements m.l {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        m mVar = this.cdN;
+        m mVar = this.cca;
         if (mVar == null) {
             super.onBackPressed();
             return;
@@ -138,11 +138,11 @@ public class PolyActivity extends Activity implements m.l {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         o = true;
-        cdM = this;
+        cbZ = this;
         d.H();
         super.onCreate(bundle);
         overridePendingTransition(0, 0);
-        abs();
+        aaJ();
         com.baidu.poly.util.d.info("PolyActivity onCreate");
     }
 
@@ -170,19 +170,19 @@ public class PolyActivity extends Activity implements m.l {
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && this.cdN == null && !isFinishing() && this.cdO != null) {
-            this.cdN = new m(this);
-            setContentView(this.cdN);
-            this.cdN.setResultListener(cdL);
-            this.cdN.setCloseListener(this);
-            this.cdN.setWalletList(new com.baidu.poly.a.j.c(new com.baidu.poly.a.j.b(this, cdK)));
-            String string = this.cdO.getString("chosenChannel");
-            if (TextUtils.equals(this.cdO.getString("panelType"), "NONE") && !TextUtils.isEmpty(string)) {
-                this.cdN.c(c(this.cdO), string);
+        if (z && this.cca == null && !isFinishing() && this.ccb != null) {
+            this.cca = new m(this);
+            setContentView(this.cca);
+            this.cca.setResultListener(cbY);
+            this.cca.setCloseListener(this);
+            this.cca.setWalletList(new com.baidu.poly.a.j.c(new com.baidu.poly.a.j.b(this, cbX)));
+            String string = this.ccb.getString("chosenChannel");
+            if (TextUtils.equals(this.ccb.getString("panelType"), "NONE") && !TextUtils.isEmpty(string)) {
+                this.cca.c(c(this.ccb), string);
                 return;
             }
-            this.cdN.a(c(this.cdO));
-            this.cdN.abD();
+            this.cca.a(c(this.ccb));
+            this.cca.aaU();
         }
     }
 
@@ -197,7 +197,7 @@ public class PolyActivity extends Activity implements m.l {
                     jSONObject.put(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, string);
                     jSONObject.put("mac", com.baidu.poly.util.a.getMacAddress());
                     jSONObject.put("app", "android");
-                    jSONObject.put("ver", abt());
+                    jSONObject.put("ver", aaK());
                     bundle.putString("deviceInfo", jSONObject.toString());
                 }
             } catch (Exception e) {

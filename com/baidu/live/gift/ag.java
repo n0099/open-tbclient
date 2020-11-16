@@ -4,13 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes4.dex */
 public interface ag {
-    void GI();
+    void FZ();
 
-    void Hv();
+    void GM();
 
     void a(int i, int i2, Intent intent, com.baidu.live.data.w wVar, String str);
 
     void a(Context context, long j, String str, long j2, String str2, String str3);
 
-    void bu(boolean z);
+    void bw(boolean z);
 }

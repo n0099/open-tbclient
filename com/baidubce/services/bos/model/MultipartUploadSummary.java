@@ -2,7 +2,7 @@ package com.baidubce.services.bos.model;
 
 import com.baidubce.model.User;
 import java.util.Date;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class MultipartUploadSummary {
     private Date initiated;
     private String key;

@@ -14,7 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    public static void BE(String str) {
+    public static void Bd(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -41,13 +41,13 @@ public class j {
             }
         }
         if (i > 0) {
-            aq aqVar = new aq(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
-            aqVar.al("obj_param1", i);
-            TiebaStatic.log(aqVar);
+            ar arVar = new ar(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
+            arVar.ak("obj_param1", i);
+            TiebaStatic.log(arVar);
         }
     }
 
-    public static void bqv() {
+    public static void bpI() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.j.1
             @Override // java.lang.Runnable
             public void run() {
@@ -66,10 +66,10 @@ public class j {
                             try {
                                 mainDBDatabaseManager.notifySQLException(th, "EmotionsDBManager.listMyEmotions");
                                 com.baidu.adp.lib.util.n.close(cursor);
-                                aq aqVar = new aq(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                                aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-                                aqVar.al("obj_param1", i);
-                                TiebaStatic.log(aqVar);
+                                ar arVar = new ar(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
+                                arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+                                arVar.ak("obj_param1", i);
+                                TiebaStatic.log(arVar);
                             } catch (Throwable th3) {
                                 com.baidu.adp.lib.util.n.close(cursor);
                                 throw th3;
@@ -82,10 +82,10 @@ public class j {
                     th = th4;
                     i = 0;
                 }
-                aq aqVar2 = new aq(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                aqVar2.dR("uid", TbadkCoreApplication.getCurrentAccount());
-                aqVar2.al("obj_param1", i);
-                TiebaStatic.log(aqVar2);
+                ar arVar2 = new ar(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
+                arVar2.dR("uid", TbadkCoreApplication.getCurrentAccount());
+                arVar2.ak("obj_param1", i);
+                TiebaStatic.log(arVar2);
             }
         }).start();
     }

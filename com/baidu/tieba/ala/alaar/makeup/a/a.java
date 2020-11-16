@@ -36,7 +36,7 @@ public class a implements l.a {
     }
 
     @Override // com.baidu.live.ar.l.a
-    public Object CE() {
+    public Object BV() {
         Makeup makeup = new Makeup();
         makeup.setResPath(getResPath());
         makeup.setType(BeautyType.valueOf(getType()));

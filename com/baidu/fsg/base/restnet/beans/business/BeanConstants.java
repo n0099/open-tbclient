@@ -2,7 +2,7 @@ package com.baidu.fsg.base.restnet.beans.business;
 
 import com.baidu.fsg.base.a;
 import com.baidu.fsg.base.utils.ResUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public abstract class BeanConstants {
     public static final boolean DEBUG = false;
     public static final String ENCODE_GBK = "gbk";

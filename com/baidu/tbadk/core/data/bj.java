@@ -1,56 +1,91 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.adp.lib.util.BdLog;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
-public class bj extends u {
-    public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public String className;
-    public int eCC;
-    private ArrayList<bi> eCD;
-    public String title;
+public class bj extends v implements com.baidu.tbadk.mvc.b.a {
+    private boolean eAS;
+    private String mAvatar;
+    private long mForumId;
+    private String mForumName;
+    private int member_count;
+    private String recom_reason;
+    private int thread_count;
 
     public bj() {
-        nT(9);
-        this.eCD = new ArrayList<>();
+        nP(8);
     }
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return eAo;
+    public String getAvatar() {
+        return this.mAvatar;
     }
 
-    @Override // com.baidu.tbadk.core.data.u, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bjZ() {
-        return null;
+    public String getForumName() {
+        return this.mForumName;
     }
 
-    @Override // com.baidu.tbadk.core.data.u, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bkb() {
-        return new ar();
+    public long getForumId() {
+        return this.mForumId;
     }
 
-    public void bj(List<RecommendForumInfo> list) {
-        if (list != null && list.size() > 0) {
-            ArrayList arrayList = new ArrayList();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                RecommendForumInfo recommendForumInfo = list.get(i);
-                bi biVar = new bi();
-                if (recommendForumInfo != null && recommendForumInfo.forum_id != null && recommendForumInfo.forum_id.longValue() != 0 && !StringUtils.isNull(recommendForumInfo.forum_name) && recommendForumInfo.is_like != null && recommendForumInfo.is_like.intValue() != 1) {
-                    biVar.a(recommendForumInfo);
-                    arrayList.add(biVar);
-                }
+    public boolean isLike() {
+        return this.eAS;
+    }
+
+    public void setLike(boolean z) {
+        this.eAS = z;
+    }
+
+    public int bkG() {
+        return this.member_count;
+    }
+
+    public void oa(int i) {
+        this.member_count = i;
+    }
+
+    public int bkH() {
+        return this.thread_count;
+    }
+
+    public void ob(int i) {
+        this.thread_count = i;
+    }
+
+    public void a(RecommendForumInfo recommendForumInfo) {
+        if (recommendForumInfo != null) {
+            try {
+                this.mForumId = recommendForumInfo.forum_id.longValue();
+                this.mAvatar = recommendForumInfo.avatar;
+                this.mForumName = recommendForumInfo.forum_name;
+                this.eAS = recommendForumInfo.is_like.intValue() == 1;
+                this.member_count = recommendForumInfo.member_count.intValue();
+                this.thread_count = recommendForumInfo.thread_count.intValue();
+                this.recom_reason = recommendForumInfo.recom_reason;
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
-            this.eCD.clear();
-            this.eCD.addAll(com.baidu.tbadk.core.util.y.trimToSize(arrayList, 15));
         }
     }
 
-    public ArrayList<bi> blG() {
-        return this.eCD;
+    public void df(long j) {
+        this.mForumId = j;
+    }
+
+    public void Ap(String str) {
+        this.mAvatar = str;
+    }
+
+    public void Aq(String str) {
+        this.mForumName = str;
+    }
+
+    @Override // com.baidu.tbadk.core.data.a
+    public String bje() {
+        return this.recom_reason;
+    }
+
+    public void Ar(String str) {
+        this.recom_reason = str;
     }
 }

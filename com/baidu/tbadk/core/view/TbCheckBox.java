@@ -4,13 +4,15 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private int eVw;
-    private int eVx;
-    private a eVy;
+    private int eUH;
+    private int eUI;
+    private boolean eUJ;
+    private a eUK;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -26,58 +28,70 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        bsD();
+        brT();
     }
 
     public TbCheckBox(Context context) {
         super(context);
-        this.eVw = R.drawable.icon_set_list_ok_s;
-        this.eVx = R.drawable.icon_set_list_ok_n;
+        this.eUH = R.drawable.icon_set_list_ok_s;
+        this.eUI = R.drawable.icon_set_list_ok_n;
         initialize();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eVw = R.drawable.icon_set_list_ok_s;
-        this.eVx = R.drawable.icon_set_list_ok_n;
+        this.eUH = R.drawable.icon_set_list_ok_s;
+        this.eUI = R.drawable.icon_set_list_ok_n;
         initialize();
     }
 
     public void setBackgroundDrawableId(int i, int i2) {
-        this.eVw = i;
-        this.eVx = i2;
+        this.eUH = i;
+        this.eUI = i2;
+    }
+
+    public void setBackgroundDrawableIdIsWebP(boolean z) {
+        this.eUJ = z;
     }
 
     private void initialize() {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.TbCheckBox.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TbCheckBox.this.setChecked(!TbCheckBox.this.bsE());
+                TbCheckBox.this.setChecked(!TbCheckBox.this.brU());
             }
         });
-        bsD();
+        brT();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.eVy = aVar;
+        this.eUK = aVar;
     }
 
-    public void bsD() {
-        if (bsE()) {
-            ap.setImageResource(this, this.eVw);
+    public void brT() {
+        if (brU()) {
+            if (this.eUJ) {
+                setImageDrawable(WebPManager.a(this.eUH, ap.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+            } else {
+                ap.setImageResource(this, this.eUH);
+            }
             setContentDescription(getResources().getString(R.string.check_box_checked));
             return;
         }
-        ap.setImageResource(this, this.eVx);
+        if (this.eUJ) {
+            setImageDrawable(WebPManager.a(this.eUI, ap.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+        } else {
+            ap.setImageResource(this, this.eUI);
+        }
         setContentDescription(getResources().getString(R.string.check_box_not_checked));
     }
 
     public boolean isChecked() {
-        return bsE();
+        return brU();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bsE() {
+    public boolean brU() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -90,9 +104,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        bsD();
-        if (this.eVy != null) {
-            this.eVy.a(this, z, getTag());
+        brT();
+        if (this.eUK != null) {
+            this.eUK.a(this, z, getTag());
         }
     }
 }

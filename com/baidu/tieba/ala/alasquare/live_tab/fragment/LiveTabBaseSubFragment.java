@@ -6,77 +6,77 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.k.h;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
-    protected String fyR;
-    protected LinearLayout gki;
-    private h gkj;
-    protected String gkl;
+    protected String fyg;
+    protected LinearLayout gjP;
+    private h gjQ;
+    protected String gjS;
     protected Context mContext;
-    public final String gkh = "c13008";
-    protected boolean gjE = false;
-    protected boolean gkk = false;
-    protected CustomMessageListener gkm = new CustomMessageListener(2921442) { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment.1
+    public final String gjO = "c13008";
+    protected boolean gjl = false;
+    protected boolean gjR = false;
+    protected CustomMessageListener gjT = new CustomMessageListener(2921442) { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Boolean bool = (Boolean) customResponsedMessage.getData();
             if (bool != null && bool.booleanValue()) {
-                LiveTabBaseSubFragment.this.gkk = false;
+                LiveTabBaseSubFragment.this.gjR = false;
             }
         }
     };
 
-    public abstract void TL();
+    public abstract void Tc();
 
-    public abstract void bPg();
+    public abstract void bOz();
 
     public abstract void loadData();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bPe() {
-        this.gki.setVisibility(0);
-        if (this.gkj == null) {
-            this.gkj = new h(this.mContext, null);
+    public void bOx() {
+        this.gjP.setVisibility(0);
+        if (this.gjQ == null) {
+            this.gjQ = new h(this.mContext, null);
         }
-        this.gkj.hideRefreshButton();
-        this.gkj.rD(R.drawable.new_pic_emotion_03);
-        this.gkj.Ed(this.mContext.getResources().getString(R.string.no_data_common_txt));
-        this.gkj.onChangeSkinType();
+        this.gjQ.hideRefreshButton();
+        this.gjQ.sb(R.drawable.new_pic_emotion_03);
+        this.gjQ.DC(this.mContext.getResources().getString(R.string.no_data_common_txt));
+        this.gjQ.onChangeSkinType();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        if (this.gkj.getAttachedView() != null && this.gkj.getAttachedView().getParent() == null) {
-            this.gki.addView(this.gkj.getAttachedView(), layoutParams);
+        if (this.gjQ.getAttachedView() != null && this.gjQ.getAttachedView().getParent() == null) {
+            this.gjP.addView(this.gjQ.getAttachedView(), layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hideEmptyView() {
-        this.gki.setVisibility(8);
+        this.gjP.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bPf() {
+    public void bOy() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, false));
-        this.gkk = true;
+        this.gjR = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.gkj != null) {
-            this.gkj.onChangeSkinType();
+        if (this.gjQ != null) {
+            this.gjQ.onChangeSkinType();
         }
     }
 
     public void ei(String str, String str2) {
-        this.fyR = str;
-        this.gkl = str2;
+        this.fyg = str;
+        this.gjS = str2;
     }
 
-    public boolean bki() {
-        return (at.isEmpty(this.fyR) || at.isEmpty(this.gkl)) ? false : true;
+    public boolean bjk() {
+        return (au.isEmpty(this.fyg) || au.isEmpty(this.gjS)) ? false : true;
     }
 }

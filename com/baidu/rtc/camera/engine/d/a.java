@@ -1,27 +1,27 @@
 package com.baidu.rtc.camera.engine.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public final class a {
-    private int cnF = 0;
-    private float cnG = 0.0f;
+    private int clT = 0;
+    private float clU = 0.0f;
     private long mUpdateTime = 0;
 
-    public void aeg() {
+    public void ady() {
         long currentTimeMillis = System.currentTimeMillis();
         if (this.mUpdateTime == 0) {
             this.mUpdateTime = currentTimeMillis;
         }
         if (currentTimeMillis - this.mUpdateTime > 1000) {
-            this.cnG = (this.cnF / ((float) (currentTimeMillis - this.mUpdateTime))) * 1000.0f;
+            this.clU = (this.clT / ((float) (currentTimeMillis - this.mUpdateTime))) * 1000.0f;
             this.mUpdateTime = currentTimeMillis;
-            this.cnF = 0;
+            this.clT = 0;
         }
-        this.cnF++;
+        this.clT++;
     }
 
-    public float aeh() {
+    public float adz() {
         if (System.currentTimeMillis() - this.mUpdateTime > 2000) {
             return 0.0f;
         }
-        return this.cnG;
+        return this.clU;
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.android.pushservice.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1018a;
+    private String f1021a;
     private String b;
     private int c;
 
@@ -16,7 +16,7 @@ public class e {
     }
 
     public void a(String str) {
-        this.f1018a = str;
+        this.f1021a = str;
     }
 
     public int b() {

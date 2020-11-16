@@ -5,39 +5,39 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> bky;
-    private v imM;
-    private c jJl;
-    private a jJm;
-    private com.baidu.tieba.homepage.topic.topictab.a.b jJn;
+    private List<com.baidu.adp.widget.ListView.a> biN;
+    private v inB;
+    private c jJW;
+    private a jJX;
+    private com.baidu.tieba.homepage.topic.topictab.a.b jJY;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, v vVar) {
         this.mPageContext = tbPageContext;
-        this.imM = vVar;
-        LY();
-        this.imM.addAdapters(this.bky);
+        this.inB = vVar;
+        Lp();
+        this.inB.addAdapters(this.biN);
     }
 
-    private void LY() {
-        this.bky = new ArrayList();
-        this.jJl = new c(this.mPageContext);
-        this.jJm = new a(this.mPageContext);
-        this.jJn = new com.baidu.tieba.homepage.topic.topictab.a.b(this.mPageContext);
-        this.bky.add(this.jJl);
-        this.bky.add(this.jJm);
-        this.bky.add(this.jJn);
+    private void Lp() {
+        this.biN = new ArrayList();
+        this.jJW = new c(this.mPageContext);
+        this.jJX = new a(this.mPageContext);
+        this.jJY = new com.baidu.tieba.homepage.topic.topictab.a.b(this.mPageContext);
+        this.biN.add(this.jJW);
+        this.biN.add(this.jJX);
+        this.biN.add(this.jJY);
     }
 
     public void notifyDataSetChanged() {
-        if (this.imM != null) {
-            this.imM.getListAdapter().notifyDataSetChanged();
+        if (this.inB != null) {
+            this.inB.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<q> list) {
-        this.imM.setData(list);
+        this.inB.setData(list);
     }
 }

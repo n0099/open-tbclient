@@ -6,7 +6,7 @@ import com.baidu.tbadk.util.u;
 import tbclient.CommonReq;
 import tbclient.NewTopicList.DataReq;
 import tbclient.NewTopicList.NewTopicListReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class RequestGetTopicListMessage extends NetMessage {
     private String callFrom;
 

@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.entelechy.b;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public interface c {
     void Y(boolean z, boolean z2);
 
-    boolean cCj();
+    boolean cBM();
 
     void onChangeSkinType(int i);
 
-    void qc(boolean z);
+    void qf(boolean z);
 }

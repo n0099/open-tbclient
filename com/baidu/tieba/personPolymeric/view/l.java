@@ -5,10 +5,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class l extends com.baidu.tbadk.k.c {
-    private static final int mgQ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
-    private static final int mgR = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
+    private static final int mhj = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
+    private static final int mhk = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
 
     public l(Context context, View.OnClickListener onClickListener) {
         super(context, onClickListener);
@@ -16,12 +16,12 @@ public class l extends com.baidu.tbadk.k.c {
     }
 
     private void initView() {
-        if (this.fsE != null && (this.fsE.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fsE.getLayoutParams();
-            layoutParams.width = mgQ;
-            layoutParams.height = mgQ;
-            layoutParams.topMargin = mgR;
-            this.fsE.setLayoutParams(layoutParams);
+        if (this.frM != null && (this.frM.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.frM.getLayoutParams();
+            layoutParams.width = mhj;
+            layoutParams.height = mhj;
+            layoutParams.topMargin = mhk;
+            this.frM.setLayoutParams(layoutParams);
         }
     }
 }

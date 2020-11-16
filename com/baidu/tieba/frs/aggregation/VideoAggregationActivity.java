@@ -9,9 +9,9 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {
-    private VideoAggregationFragment iOK;
+    private VideoAggregationFragment iPx;
     private String mFrom;
     private String mId;
 
@@ -27,16 +27,16 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         if (TextUtils.isEmpty(this.mId)) {
             finish();
         }
-        this.iOK = VideoAggregationFragment.D(this.mId, this.mFrom, stringExtra, stringExtra2);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, this.iOK).commit();
+        this.iPx = VideoAggregationFragment.D(this.mId, this.mFrom, stringExtra, stringExtra2);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, this.iPx).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.iOK != null) {
+        if (this.iPx != null) {
             getLayoutMode().setNightMode(i == 1);
-            getLayoutMode().onModeChanged(this.iOK.getView());
-            this.iOK.onChangeSkinType(i);
+            getLayoutMode().onModeChanged(this.iPx.getView());
+            this.iPx.onChangeSkinType(i);
         }
     }
 
@@ -52,10 +52,10 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.iOK == null) {
+        if (keyEvent == null || this.iPx == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.iOK.zm(i)) {
+        if (this.iPx.zK(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);

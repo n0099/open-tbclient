@@ -9,9 +9,9 @@ import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public abstract class e<K, V> {
-    e<K, V>.b ekX;
-    e<K, V>.c ekY;
-    e<K, V>.C0560e ekZ;
+    e<K, V>.b ejq;
+    e<K, V>.c ejr;
+    e<K, V>.C0558e ejs;
 
     protected abstract void colClear();
 
@@ -361,8 +361,8 @@ public abstract class e<K, V> {
 
     /* renamed from: com.baidu.swan.support.v4.b.e$e  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    final class C0560e implements Collection<V> {
-        C0560e() {
+    final class C0558e implements Collection<V> {
+        C0558e() {
         }
 
         @Override // java.util.Collection
@@ -547,23 +547,23 @@ public abstract class e<K, V> {
     }
 
     public Set<Map.Entry<K, V>> getEntrySet() {
-        if (this.ekX == null) {
-            this.ekX = new b();
+        if (this.ejq == null) {
+            this.ejq = new b();
         }
-        return this.ekX;
+        return this.ejq;
     }
 
     public Set<K> getKeySet() {
-        if (this.ekY == null) {
-            this.ekY = new c();
+        if (this.ejr == null) {
+            this.ejr = new c();
         }
-        return this.ekY;
+        return this.ejr;
     }
 
     public Collection<V> getValues() {
-        if (this.ekZ == null) {
-            this.ekZ = new C0560e();
+        if (this.ejs == null) {
+            this.ejs = new C0558e();
         }
-        return this.ekZ;
+        return this.ejs;
     }
 }

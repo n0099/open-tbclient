@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class b implements a {
     private final File mFile;
 
@@ -18,7 +18,7 @@ public class b implements a {
     }
 
     @Override // com.facebook.a.a
-    public InputStream ejn() throws IOException {
+    public InputStream ejl() throws IOException {
         return new FileInputStream(this.mFile);
     }
 

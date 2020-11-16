@@ -1,5 +1,5 @@
 package com.baidu.ar.constants;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class ARConfigKey {
     public static final String AR_FROM = "ar_from";
     public static final String AR_ID = "ar_id";

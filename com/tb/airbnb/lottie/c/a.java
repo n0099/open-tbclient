@@ -6,7 +6,7 @@ import android.util.JsonToken;
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class a {
     public static com.tb.airbnb.lottie.model.a.e a(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {
         ArrayList arrayList = new ArrayList();

@@ -25,7 +25,7 @@ import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class IMAckRequest extends BaseHttpRequest {
     private static final String TAG = "IMAckRequest";
     private JSONArray mAckList = new JSONArray();

@@ -4,7 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.sofire.i.w;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class THService extends Service {
     @Override // android.app.Service
     public int onStartCommand(final Intent intent, int i, int i2) {

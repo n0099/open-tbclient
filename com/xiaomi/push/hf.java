@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import com.xiaomi.push.ek;
 import com.xiaomi.push.service.be;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class hf extends be.a {
 
     /* renamed from: a  reason: collision with root package name */
@@ -16,8 +16,8 @@ public class hf extends be.a {
 
     @Override // com.xiaomi.push.service.be.a
     public void a(ek.b bVar) {
-        if (bVar.m251e()) {
-            he.m334a().m338a(bVar.e());
+        if (bVar.m254e()) {
+            he.m337a().m341a(bVar.e());
         }
     }
 }

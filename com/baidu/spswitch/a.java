@@ -1,7 +1,7 @@
 package com.baidu.spswitch;
-/* loaded from: classes19.dex */
+/* loaded from: classes6.dex */
 public interface a {
-    void afq();
+    void aeI();
 
-    void afr();
+    void aeJ();
 }

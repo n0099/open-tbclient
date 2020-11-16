@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import java.lang.ref.WeakReference;
 import java.net.URL;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */

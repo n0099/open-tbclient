@@ -1,7 +1,7 @@
 package io.reactivex.disposables;
 
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 abstract class ReferenceDisposable<T> extends AtomicReference<T> implements b {
     private static final long serialVersionUID = 6537757548749041217L;
 

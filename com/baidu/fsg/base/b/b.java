@@ -2,7 +2,7 @@ package com.baidu.fsg.base.b;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 class b implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */

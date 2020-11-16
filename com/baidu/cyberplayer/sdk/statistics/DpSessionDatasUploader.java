@@ -14,7 +14,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public final class DpSessionDatasUploader {
     @Keep
     public static final String SAILOR_MONITOR = "sailor_monitor";
@@ -108,8 +108,8 @@ public final class DpSessionDatasUploader {
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x009d  */
     /* JADX WARN: Removed duplicated region for block: B:56:0x0113  */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x0105 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x010a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x010a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x0105 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -152,7 +152,7 @@ public final class DpSessionDatasUploader {
                     if (outputStream2 != null) {
                         try {
                             outputStream2.close();
-                        } catch (Exception e2) {
+                        } catch (IOException e2) {
                             e2.printStackTrace();
                         }
                     }
@@ -171,7 +171,7 @@ public final class DpSessionDatasUploader {
                         if (outputStream != null) {
                             try {
                                 outputStream.close();
-                            } catch (Exception e5) {
+                            } catch (IOException e5) {
                                 e5.printStackTrace();
                             }
                         }
@@ -203,7 +203,7 @@ public final class DpSessionDatasUploader {
                     if (0 != 0) {
                         try {
                             outputStream3.close();
-                        } catch (Exception e8) {
+                        } catch (IOException e8) {
                             e8.printStackTrace();
                         }
                     }
@@ -220,7 +220,7 @@ public final class DpSessionDatasUploader {
                     if (outputStream3 != null) {
                         try {
                             outputStream3.close();
-                        } catch (Exception e10) {
+                        } catch (IOException e10) {
                             e10.printStackTrace();
                         }
                     }

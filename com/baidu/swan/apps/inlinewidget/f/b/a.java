@@ -11,87 +11,87 @@ import com.baidu.swan.apps.runtime.d;
 import com.baidu.swan.apps.u.c.b;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final HashMap<String, Long> cWP = new HashMap<>();
-    private final HashMap<String, String> cWQ = new HashMap<>();
-    private boolean cWR = false;
-    private boolean cWS = false;
+    private final HashMap<String, Long> cVf = new HashMap<>();
+    private final HashMap<String, String> cVg = new HashMap<>();
+    private boolean cVh = false;
+    private boolean cVi = false;
 
-    public synchronized void oO(@NonNull String str) {
-        if (!this.cWS && !this.cWP.containsKey(str)) {
-            this.cWP.put(str, Long.valueOf(System.currentTimeMillis()));
+    public synchronized void oI(@NonNull String str) {
+        if (!this.cVi && !this.cVf.containsKey(str)) {
+            this.cVf.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
-    public synchronized boolean oP(@NonNull String str) {
-        return this.cWP.containsKey(str);
+    public synchronized boolean oJ(@NonNull String str) {
+        return this.cVf.containsKey(str);
     }
 
-    public synchronized boolean oQ(@NonNull String str) {
-        return this.cWQ.containsKey(str);
+    public synchronized boolean oK(@NonNull String str) {
+        return this.cVg.containsKey(str);
     }
 
-    public synchronized void bJ(String str, String str2) {
-        if (!this.cWS) {
-            this.cWQ.put(str, str2);
+    public synchronized void bI(String str, String str2) {
+        if (!this.cVi) {
+            this.cVg.put(str, str2);
         }
     }
 
-    public synchronized void avY() {
-        this.cWS = true;
+    public synchronized void avq() {
+        this.cVi = true;
     }
 
     public synchronized boolean isFinished() {
-        return this.cWS;
+        return this.cVi;
     }
 
-    public void avZ() {
-        final b.a aHy = d.aHq().aHm().aHy();
+    public void avr() {
+        final b.a aGQ = d.aGI().aGE().aGQ();
         p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.inlinewidget.f.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.a(aHy);
+                a.this.a(aGQ);
             }
         }, "VideoStaticRecorder");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(b.a aVar) {
-        if (!this.cWR) {
-            this.cWR = true;
-            boolean equals = TextUtils.equals("1", this.cWQ.get("autoPlay"));
-            boolean equals2 = TextUtils.equals("1", this.cWQ.get("playMethod"));
+        if (!this.cVh) {
+            this.cVh = true;
+            boolean equals = TextUtils.equals("1", this.cVg.get("autoPlay"));
+            boolean equals2 = TextUtils.equals("1", this.cVg.get("playMethod"));
             if (DEBUG) {
                 Log.d("VideoStaticRecorder", "submit: autoPlay:" + equals + ",apiPlay:" + equals2);
             }
             if (!equals && !equals2) {
-                awa();
+                avs();
             } else {
-                i.qR("video");
-                HybridUbcFlow qJ = i.qJ("video");
-                for (Map.Entry<String, Long> entry : this.cWP.entrySet()) {
-                    qJ.f(new UbcFlowEvent(entry.getKey()).bY(entry.getValue().longValue()));
+                i.qL("video");
+                HybridUbcFlow qD = i.qD("video");
+                for (Map.Entry<String, Long> entry : this.cVf.entrySet()) {
+                    qD.f(new UbcFlowEvent(entry.getKey()).bY(entry.getValue().longValue()));
                 }
-                for (Map.Entry<String, String> entry2 : this.cWQ.entrySet()) {
-                    qJ.ci(entry2.getKey(), entry2.getValue());
+                for (Map.Entry<String, String> entry2 : this.cVg.entrySet()) {
+                    qD.ch(entry2.getKey(), entry2.getValue());
                 }
-                String qO = qJ.qO("fmpArrived");
-                if (TextUtils.isEmpty(qO)) {
-                    qO = "0";
+                String qI = qD.qI("fmpArrived");
+                if (TextUtils.isEmpty(qI)) {
+                    qI = "0";
                 }
-                qJ.ci("fmpArrived", qO);
-                qJ.f(new UbcFlowEvent("na_start").bY(aVar.getLong("launch_time", 0L)));
-                qJ.ci("launchID", aVar.ayW());
-                qJ.aDl();
-                awa();
+                qD.ch("fmpArrived", qI);
+                qD.f(new UbcFlowEvent("na_start").bY(aVar.getLong("launch_time", 0L)));
+                qD.ch("launchID", aVar.ayo());
+                qD.aCD();
+                avs();
             }
         }
     }
 
-    private void awa() {
-        this.cWP.clear();
-        this.cWQ.clear();
+    private void avs() {
+        this.cVf.clear();
+        this.cVg.clear();
     }
 }

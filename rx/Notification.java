@@ -1,19 +1,19 @@
 package rx;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class Notification<T> {
-    private static final Notification<Void> qdx = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind qdv;
-    private final Throwable qdw;
+    private static final Notification<Void> qfa = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind qeY;
+    private final Throwable qeZ;
     private final T value;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public enum Kind {
         OnNext,
         OnError,
         OnCompleted
     }
 
-    public static <T> Notification<T> cc(T t) {
+    public static <T> Notification<T> cd(T t) {
         return new Notification<>(Kind.OnNext, t, null);
     }
 
@@ -21,18 +21,18 @@ public final class Notification<T> {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> eFi() {
-        return (Notification<T>) qdx;
+    public static <T> Notification<T> eFj() {
+        return (Notification<T>) qfa;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.qdw = th;
-        this.qdv = kind;
+        this.qeZ = th;
+        this.qeY = kind;
     }
 
-    public Throwable eFj() {
-        return this.qdw;
+    public Throwable eFk() {
+        return this.qeZ;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return eFn() && this.value != null;
+        return eFo() && this.value != null;
     }
 
-    public boolean eFk() {
-        return eAx() && this.qdw != null;
+    public boolean eFl() {
+        return eAy() && this.qeZ != null;
     }
 
-    public Kind eFl() {
-        return this.qdv;
+    public Kind eFm() {
+        return this.qeY;
     }
 
-    public boolean eAx() {
-        return eFl() == Kind.OnError;
-    }
-
-    public boolean eFm() {
-        return eFl() == Kind.OnCompleted;
+    public boolean eAy() {
+        return eFm() == Kind.OnError;
     }
 
     public boolean eFn() {
-        return eFl() == Kind.OnNext;
+        return eFm() == Kind.OnCompleted;
+    }
+
+    public boolean eFo() {
+        return eFm() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(eFl());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(eFm());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (eFk()) {
-            append.append(' ').append(eFj().getMessage());
+        if (eFl()) {
+            append.append(' ').append(eFk().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = eFl().hashCode();
+        int hashCode = eFm().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (eFk()) {
-            return (hashCode * 31) + eFj().hashCode();
+        if (eFl()) {
+            return (hashCode * 31) + eFk().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.eFl() != eFl() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.qdw != notification.qdw && (this.qdw == null || !this.qdw.equals(notification.qdw))))) {
+            if (notification.eFm() != eFm() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.qeZ != notification.qeZ && (this.qeZ == null || !this.qeZ.equals(notification.qeZ))))) {
                 z = false;
             }
             return z;

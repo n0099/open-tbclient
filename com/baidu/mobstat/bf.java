@@ -13,7 +13,7 @@ import android.webkit.WebView;
 import com.baidu.mobstat.bk;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class bf {
 
     /* renamed from: a  reason: collision with root package name */
@@ -84,7 +84,7 @@ public class bf {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public static class a implements ViewTreeObserver.OnGlobalLayoutListener, Runnable {
         private final WeakReference<View> c;
         private final bk d;

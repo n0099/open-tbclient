@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public interface ResponseCode {
     public static final int ACCOUNT_NOT_LOGIN = 1000;
     public static final int APPID_NOT_ONLINE = 50013;

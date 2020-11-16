@@ -1,5 +1,5 @@
 package com.baidu.searchbox.aps.megapp_interface;
-/* loaded from: classes18.dex */
+/* loaded from: classes16.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.aps.megapp_interface";
     public static final String BUILD_TYPE = "release";

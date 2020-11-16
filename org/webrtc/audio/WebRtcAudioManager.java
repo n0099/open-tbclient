@@ -9,7 +9,7 @@ import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 class WebRtcAudioManager {
     private static final int BITS_PER_SAMPLE = 16;
     private static final int DEFAULT_FRAME_PER_BUFFER = 256;

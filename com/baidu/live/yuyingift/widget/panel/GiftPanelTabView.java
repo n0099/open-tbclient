@@ -13,18 +13,18 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class GiftPanelTabView extends LinearLayout {
-    private static final String[] bfE = {"礼物", "背包"};
-    private a bSy;
-    private int bfG;
-    private int bfH;
-    private int bfI;
-    private int bfJ;
-    private int bfK;
+    private static final String[] bdP = {"礼物", "背包"};
+    private a bQO;
+    private int bdR;
+    private int bdS;
+    private int bdT;
+    private int bdU;
+    private int bdV;
     private MotionEvent mMotionEvent;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void ei(int i);
+        void ee(int i);
     }
 
     public GiftPanelTabView(Context context, @Nullable AttributeSet attributeSet) {
@@ -33,24 +33,24 @@ public class GiftPanelTabView extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.bSy = aVar;
+        this.bQO = aVar;
     }
 
     public void setColors(int i, int i2, int i3, int i4) {
-        this.bfG = i;
-        this.bfH = i2;
-        this.bfI = i3;
-        this.bfJ = i4;
+        this.bdR = i;
+        this.bdS = i2;
+        this.bdT = i3;
+        this.bdU = i4;
         refreshUI();
     }
 
     public int getSelect() {
-        return this.bfK;
+        return this.bdV;
     }
 
     public void setSelect(int i) {
         if (i >= 0 && i < getChildCount()) {
-            this.bfK = i;
+            this.bdV = i;
             refreshUI();
         }
     }
@@ -71,35 +71,35 @@ public class GiftPanelTabView extends LinearLayout {
         }
         View findChild = findChild((int) this.mMotionEvent.getX(), (int) this.mMotionEvent.getY());
         this.mMotionEvent = null;
-        if (findChild != null && (findPosByView = findPosByView(findChild)) != -1 && findPosByView != this.bfK && this.bSy != null) {
-            this.bSy.ei(findPosByView);
+        if (findChild != null && (findPosByView = findPosByView(findChild)) != -1 && findPosByView != this.bdV && this.bQO != null) {
+            this.bQO.ee(findPosByView);
         }
         return true;
     }
 
     private void init() {
         setClickable(true);
-        Kv();
+        JM();
         setOrientation(0);
-        Kw();
-        Kx();
+        JN();
+        JO();
     }
 
-    private void Kv() {
+    private void JM() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(0);
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds26));
         setBackgroundDrawable(gradientDrawable);
     }
 
-    private void Kw() {
-        this.bfG = -13815746;
-        this.bfH = -15987436;
-        this.bfI = -1;
-        this.bfJ = -13289398;
+    private void JN() {
+        this.bdR = -13815746;
+        this.bdS = -15987436;
+        this.bdT = -1;
+        this.bdU = -13289398;
     }
 
-    private void Kx() {
+    private void JO() {
         int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds20);
         for (int i = 0; i <= 1; i++) {
             addView(S(i, dimensionPixelOffset), new LinearLayout.LayoutParams(-2, -1));
@@ -112,7 +112,7 @@ public class GiftPanelTabView extends LinearLayout {
         textView.setIncludeFontPadding(false);
         textView.setPadding(i2, 0, i2, 0);
         textView.setSelected(false);
-        textView.setText(bfE[i]);
+        textView.setText(bdP[i]);
         textView.setTextSize(0, getResources().getDimensionPixelOffset(a.d.sdk_fontsize28));
         float dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds26);
         GradientDrawable gradientDrawable = new GradientDrawable();
@@ -138,11 +138,11 @@ public class GiftPanelTabView extends LinearLayout {
                 if (childAt != null) {
                     Drawable background = childAt.getBackground();
                     if (background instanceof GradientDrawable) {
-                        ((GradientDrawable) background).setColor(i2 == this.bfK ? this.bfG : this.bfH);
+                        ((GradientDrawable) background).setColor(i2 == this.bdV ? this.bdR : this.bdS);
                         childAt.setBackgroundDrawable(background);
                     }
                     if (childAt instanceof TextView) {
-                        ((TextView) childAt).setTextColor(i2 == this.bfK ? this.bfI : this.bfJ);
+                        ((TextView) childAt).setTextColor(i2 == this.bdV ? this.bdT : this.bdU);
                     }
                 }
                 i = i2 + 1;

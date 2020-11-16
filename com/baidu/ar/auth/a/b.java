@@ -5,7 +5,7 @@ import com.baidu.ar.auth.IAuthenticateCallback;
 import com.baidu.ar.auth.IAuthenticator;
 import com.baidu.ar.auth.IDuMixAuthCallback;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class b implements IAuthenticator {
     private static volatile b jX;
 

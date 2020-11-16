@@ -14,32 +14,32 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static volatile b ejo;
-    private volatile boolean dJU = false;
-    private a ejp = new a();
+    private static volatile b ehH;
+    private volatile boolean dIm = false;
+    private a ehI = new a();
 
-    public static b bcv() {
-        if (ejo == null) {
+    public static b bbO() {
+        if (ehH == null) {
             synchronized (b.class) {
-                if (ejo == null) {
-                    ejo = new b();
+                if (ehH == null) {
+                    ehH = new b();
                 }
             }
         }
-        return ejo;
+        return ehH;
     }
 
     private b() {
     }
 
-    public String bcw() {
-        if (this.ejp.contains("version")) {
-            return this.ejp.getString("version", "0");
+    public String bbP() {
+        if (this.ehI.contains("version")) {
+            return this.ehI.getString("version", "0");
         }
-        if (aOR()) {
-            return this.ejp.getString("version", "0");
+        if (aOj()) {
+            return this.ehI.getString("version", "0");
         }
         return "0";
     }
@@ -49,9 +49,9 @@ public class b {
             if (com.baidu.swan.pms.d.DEBUG) {
                 Log.d(Node.TAG, "update host data version " + aVar.mVersion);
             }
-            SharedPreferences.Editor putString = this.ejp.edit().putString("hostName", aVar.dDd).putString("schemeHead", aVar.ejn).putString("shareCallbackUrl", aVar.ejl).putString(CameraActivityConfig.KEY_CONTENT_TYPE, aVar.mContentType).putInt("containerNo", aVar.ejk).putInt("officialNo", aVar.ejj).putString("version", aVar.mVersion);
-            if (aVar.ejm != null && !aVar.ejm.isEmpty()) {
-                putString.putStringSet(SocialOperation.GAME_SIGNATURE, aVar.ejm);
+            SharedPreferences.Editor putString = this.ehI.edit().putString("hostName", aVar.dBw).putString("schemeHead", aVar.ehG).putString("shareCallbackUrl", aVar.ehE).putString(CameraActivityConfig.KEY_CONTENT_TYPE, aVar.mContentType).putInt("containerNo", aVar.ehD).putInt("officialNo", aVar.ehC).putString("version", aVar.mVersion);
+            if (aVar.ehF != null && !aVar.ehF.isEmpty()) {
+                putString.putStringSet(SocialOperation.GAME_SIGNATURE, aVar.ehF);
             }
             putString.apply();
         }
@@ -59,7 +59,7 @@ public class b {
 
     private void a(String str, String str2, String str3, String str4, Set<String> set) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str4)) {
-            SharedPreferences.Editor putString = this.ejp.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallbackUrl", str3).putString("version", str4);
+            SharedPreferences.Editor putString = this.ehI.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallbackUrl", str3).putString("version", str4);
             if (set != null && !set.isEmpty()) {
                 putString.putStringSet(SocialOperation.GAME_SIGNATURE, set);
             }
@@ -67,11 +67,11 @@ public class b {
         }
     }
 
-    private synchronized boolean aOR() {
+    private synchronized boolean aOj() {
         boolean z;
         HashSet hashSet;
         synchronized (this) {
-            if (this.dJU) {
+            if (this.dIm) {
                 z = true;
             } else {
                 String readAssetData = com.baidu.swan.c.d.readAssetData(AppRuntime.getAppContext(), "config/union-cfg.json");
@@ -99,7 +99,7 @@ public class b {
                             hashSet = hashSet2;
                         }
                         a(optString, optString2, optString3, String.valueOf(optInt), hashSet);
-                        this.dJU = true;
+                        this.dIm = true;
                         z = true;
                     } catch (JSONException e) {
                         if (com.baidu.swan.pms.d.DEBUG) {
@@ -114,7 +114,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class a extends i {
         a() {
             super("updatecore_node_host");

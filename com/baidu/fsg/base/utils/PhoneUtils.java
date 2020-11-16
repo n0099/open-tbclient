@@ -49,7 +49,7 @@ import java.util.Random;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class PhoneUtils {
 
     /* renamed from: a  reason: collision with root package name */
@@ -636,7 +636,7 @@ public final class PhoneUtils {
         return str2;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public static class CPUInfo {
         public static final String FEATURE_COMMON = "common";
         public static final String FEATURE_NEON = "neon";

@@ -2,7 +2,7 @@ package com.baidu.fsg.base.statistics;
 
 import com.baidu.fsg.base.statistics.r;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 class n implements r.a {
 
     /* renamed from: a  reason: collision with root package name */

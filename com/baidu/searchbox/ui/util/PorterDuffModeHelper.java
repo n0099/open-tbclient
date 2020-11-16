@@ -11,7 +11,7 @@ import com.airbnb.lottie.g;
 import com.airbnb.lottie.k;
 import com.airbnb.lottie.model.e;
 import com.baidu.android.common.ui.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public final class PorterDuffModeHelper {
     public static final int COLOR_FF = 255;
     private static final boolean DEBUG = false;

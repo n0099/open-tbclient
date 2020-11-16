@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class YuvHelper {
     public static void I420Copy(ByteBuffer byteBuffer, int i, ByteBuffer byteBuffer2, int i2, ByteBuffer byteBuffer3, int i3, ByteBuffer byteBuffer4, int i4, int i5) {
         int i6 = (i4 + 1) / 2;

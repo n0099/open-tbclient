@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import java.util.Collection;
 import kotlin.TypeCastException;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class a<E> implements Collection<E> {
     @Override // java.util.Collection
     public boolean add(E e) {

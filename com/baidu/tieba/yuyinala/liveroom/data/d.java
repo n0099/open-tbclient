@@ -6,11 +6,11 @@ public class d {
     public String forumName;
     public String gameId;
     public String gameName;
-    public boolean hgO;
-    public boolean hgP;
-    public String hgQ;
-    public boolean hgR;
-    public boolean hgS;
-    public boolean hgT;
+    public boolean hgA;
+    public boolean hgv;
+    public boolean hgw;
+    public String hgx;
+    public boolean hgy;
+    public boolean hgz;
     public String title;
 }

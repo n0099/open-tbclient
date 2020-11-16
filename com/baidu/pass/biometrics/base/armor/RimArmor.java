@@ -1,5 +1,5 @@
 package com.baidu.pass.biometrics.base.armor;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class RimArmor {
 
     /* renamed from: a  reason: collision with root package name */

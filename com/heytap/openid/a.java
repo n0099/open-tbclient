@@ -4,22 +4,22 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.heytap.openid.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static abstract class AbstractBinderC0985a extends Binder implements a {
+    /* loaded from: classes5.dex */
+    public static abstract class AbstractBinderC0988a extends Binder implements a {
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.heytap.openid.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        public static class C0986a implements a {
+        /* loaded from: classes5.dex */
+        public static class C0989a implements a {
 
             /* renamed from: a  reason: collision with root package name */
             public IBinder f4059a;
 
-            public C0986a(IBinder iBinder) {
+            public C0989a(IBinder iBinder) {
                 this.f4059a = iBinder;
             }
 
@@ -51,7 +51,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0986a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0989a(iBinder) : (a) queryLocalInterface;
         }
     }
 }

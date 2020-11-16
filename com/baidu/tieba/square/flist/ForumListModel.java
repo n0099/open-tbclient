@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.aa;
 import com.baidu.tieba.square.data.ForumInfoData;
 import java.io.Serializable;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class ForumListModel extends BdBaseModel<ForumListActivity> implements Serializable {
     private static final String KEY = "_list";
     private static boolean isOk = false;
@@ -27,14 +27,14 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
     public List recommend_list_right;
     public long time;
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes22.dex */
     public static class List extends OrmObject implements Serializable {
         private static final long serialVersionUID = -3206282936395220632L;
         public ForumInfoData[] forum_list;
         public int has_more = 0;
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes22.dex */
     public static class RequestParams extends OrmObject implements Serializable {
         private static final long serialVersionUID = -8487620337266534315L;
         public int rn = 6;
@@ -77,7 +77,7 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
 
     public static ForumListModel new_fetch(RequestParams requestParams) {
         int i;
-        l<String> Bm;
+        l<String> AH;
         if (requestParams.menu_id == 0) {
             i = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
         } else {
@@ -93,8 +93,8 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
         String postNetData = aaVar.postNetData();
         isOk = aaVar.isNetSuccess();
         ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(postNetData, ForumListModel.class);
-        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (Bm = com.baidu.tbadk.core.c.a.boX().Bm("tb.my_posts")) != null)) {
-            Bm.set(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + menu_name + KEY, postNetData, 86400000L);
+        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (AH = com.baidu.tbadk.core.c.a.bob().AH("tb.my_posts")) != null)) {
+            AH.set(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + menu_name + KEY, postNetData, 86400000L);
         }
         return forumListModel;
     }

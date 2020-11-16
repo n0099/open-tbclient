@@ -1,9 +1,9 @@
 package com.baidu.searchbox.publisher.controller;
 
 import com.baidu.tieba.write.b.a.e;
-/* loaded from: classes20.dex */
+/* loaded from: classes19.dex */
 public class PublisherManagerFactory {
     public static IPublisherManagerInterface get() {
-        return e.dTQ();
+        return e.dTP();
     }
 }

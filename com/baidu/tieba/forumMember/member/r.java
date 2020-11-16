@@ -11,13 +11,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class r extends com.baidu.tieba.frs.k<s, t> {
-    private static final int iEm = R.id.private_apply_tip;
-    private com.baidu.tbadk.coreExtra.view.b fbX;
+    private static final int iFa = R.id.private_apply_tip;
+    private com.baidu.tbadk.coreExtra.view.b fbf;
     private View.OnClickListener mClickListener;
 
     public r(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -26,9 +26,9 @@ public class r extends com.baidu.tieba.frs.k<s, t> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    Object tag = view.getTag(r.iEm);
+                    Object tag = view.getTag(r.iFa);
                     if (tag != null && !tag.toString().equals("")) {
-                        be.brr().b((TbPageContext) com.baidu.adp.base.i.I(r.this.mContext), new String[]{tag.toString()});
+                        bf.bqF().b((TbPageContext) com.baidu.adp.base.i.I(r.this.mContext), new String[]{tag.toString()});
                         return;
                     }
                     return;
@@ -41,7 +41,7 @@ public class r extends com.baidu.tieba.frs.k<s, t> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bj */
+    /* renamed from: bf */
     public t c(ViewGroup viewGroup) {
         return new t(LayoutInflater.from(this.mContext).inflate(R.layout.private_member_apply, (ViewGroup) null));
     }
@@ -58,53 +58,53 @@ public class r extends com.baidu.tieba.frs.k<s, t> {
                 tVar.mRootLayout.setVisibility(8);
             } else {
                 if (tVar.mSkinType != this.mSkinType) {
-                    ap.setBackgroundColor(tVar.mLineView, R.color.cp_bg_line_c);
-                    ap.setViewTextColor(tVar.iEk, R.color.cp_cont_d, 1);
-                    ap.setViewTextColor(tVar.iEj, R.color.cp_cont_b, 1);
-                    ap.setBackgroundResource(tVar.iEl, R.drawable.frs_member_manito_bg);
+                    ap.setBackgroundColor(tVar.mLineView, R.color.CAM_X0204);
+                    ap.setViewTextColor(tVar.iEY, R.color.CAM_X0109, 1);
+                    ap.setViewTextColor(tVar.iEX, R.color.CAM_X0105, 1);
+                    ap.setBackgroundResource(tVar.iEZ, R.drawable.frs_member_manito_bg);
                 }
-                int cwK = sVar.cwK();
+                int cwn = sVar.cwn();
                 String string2 = this.mContext.getResources().getString(R.string.tbtitle_quota_is_full);
-                if (cwK == -1) {
-                    int cwI = sVar.cwI();
-                    String numberUniformFormat = at.numberUniformFormat(cwI);
-                    if (cwI > 0) {
+                if (cwn == -1) {
+                    int cwl = sVar.cwl();
+                    String numberUniformFormat = au.numberUniformFormat(cwl);
+                    if (cwl > 0) {
                         string = String.format(this.mContext.getResources().getString(R.string.tbtitle_apply_assist_left_num_tip), numberUniformFormat);
-                        tVar.iEl.setOnClickListener(this.mClickListener);
-                        tVar.iEk.setText(string);
-                        tVar.iEl.setTag(iEm, sVar.cwJ());
-                        tVar.iEl.setEnabled(z);
-                        tVar.iEl.setClickable(z);
-                        tVar.iEk.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                        tVar.iEZ.setOnClickListener(this.mClickListener);
+                        tVar.iEY.setText(string);
+                        tVar.iEZ.setTag(iFa, sVar.cwm());
+                        tVar.iEZ.setEnabled(z);
+                        tVar.iEZ.setClickable(z);
+                        tVar.iEY.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                         tVar.mSkinType = this.mSkinType;
                     }
                     z = false;
                     string = string2;
-                    tVar.iEl.setOnClickListener(this.mClickListener);
-                    tVar.iEk.setText(string);
-                    tVar.iEl.setTag(iEm, sVar.cwJ());
-                    tVar.iEl.setEnabled(z);
-                    tVar.iEl.setClickable(z);
-                    tVar.iEk.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                    tVar.iEZ.setOnClickListener(this.mClickListener);
+                    tVar.iEY.setText(string);
+                    tVar.iEZ.setTag(iFa, sVar.cwm());
+                    tVar.iEZ.setEnabled(z);
+                    tVar.iEZ.setClickable(z);
+                    tVar.iEY.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     tVar.mSkinType = this.mSkinType;
                 } else {
-                    if (cwK == 0) {
+                    if (cwn == 0) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_is_assist);
-                    } else if (cwK == 1) {
+                    } else if (cwn == 1) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_assist_applying);
                     } else {
-                        if (cwK == 2) {
+                        if (cwn == 2) {
                             string = this.mContext.getResources().getString(R.string.tbtitle_assist_apply_failed);
                         }
                         z = false;
                         string = string2;
                     }
-                    tVar.iEl.setOnClickListener(this.mClickListener);
-                    tVar.iEk.setText(string);
-                    tVar.iEl.setTag(iEm, sVar.cwJ());
-                    tVar.iEl.setEnabled(z);
-                    tVar.iEl.setClickable(z);
-                    tVar.iEk.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                    tVar.iEZ.setOnClickListener(this.mClickListener);
+                    tVar.iEY.setText(string);
+                    tVar.iEZ.setTag(iFa, sVar.cwm());
+                    tVar.iEZ.setEnabled(z);
+                    tVar.iEZ.setClickable(z);
+                    tVar.iEY.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     tVar.mSkinType = this.mSkinType;
                 }
             }
@@ -121,17 +121,17 @@ public class r extends com.baidu.tieba.frs.k<s, t> {
         } else {
             activity = ((TbPageContext) I).getPageActivity();
         }
-        if (this.fbX == null) {
-            this.fbX = new com.baidu.tbadk.coreExtra.view.b(activity);
+        if (this.fbf == null) {
+            this.fbf = new com.baidu.tbadk.coreExtra.view.b(activity);
         }
-        this.fbX.bxR();
-        this.fbX.setAccountData(accountData);
-        this.fbX.qT(1);
+        this.fbf.bxh();
+        this.fbf.setAccountData(accountData);
+        this.fbf.rr(1);
     }
 
     public void onDestroy() {
-        if (this.fbX != null) {
-            this.fbX.onDestroy();
+        if (this.fbf != null) {
+            this.fbf.onDestroy();
         }
     }
 }

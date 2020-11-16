@@ -4,16 +4,16 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class bt {
     public String downloadUrl = "";
-    public String aQq = "";
+    public String aOF = "";
     public String videoPath = "";
     public String videoMd5 = "";
-    public boolean aQr = false;
+    public boolean aOG = false;
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.downloadUrl = jSONObject.optString("pk_start_video_url", "");
-            this.aQq = jSONObject.optString("pk_start_video_md5", "");
-            this.aQr = jSONObject.optInt("switch", 0) == 1;
+            this.aOF = jSONObject.optString("pk_start_video_md5", "");
+            this.aOG = jSONObject.optInt("switch", 0) == 1;
         }
     }
 }

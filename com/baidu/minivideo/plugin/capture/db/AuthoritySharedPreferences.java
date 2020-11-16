@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.minivideo.plugin.capture.Application;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes19.dex */
 public class AuthoritySharedPreferences {
     private static final String FIRSTSHOT_CONFIG = "firstshot_config";
     private static final String KEY_AUTHORITY_AUDIO_RATIONALE = "key_authority_audio_rationale";

@@ -8,10 +8,10 @@ import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class AlaLiveGuessInitialize {
     static {
-        bUU();
+        bUn();
     }
 
-    private static void bUU() {
+    private static void bUn() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913247, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.live.guess.AlaLiveGuessInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.guess.a> run(CustomMessage<TbPageContext> customMessage) {

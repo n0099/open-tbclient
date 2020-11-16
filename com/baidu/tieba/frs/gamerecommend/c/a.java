@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.view.f;
 import com.baidu.tbadk.core.view.g;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private BdTypeListView gih;
-    private PbListView gjo;
-    private com.baidu.tieba.frs.gamerecommend.a.a iYg;
-    private FrameLayout iYh;
+    private BdTypeListView ghN;
+    private PbListView giV;
+    private com.baidu.tieba.frs.gamerecommend.a.a iYS;
+    private FrameLayout iYT;
     private String mForumId;
     private String mForumName;
     private NavigationBar mNavigationBar;
@@ -45,12 +45,12 @@ public class a {
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.frs_game_recommend_layout, (ViewGroup) null);
         this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
-        this.iYh = (FrameLayout) this.mRootView.findViewById(R.id.game_recom_container);
-        this.gih = (BdTypeListView) this.mRootView.findViewById(R.id.game_recom_listview);
-        this.gih.setDivider(null);
+        this.iYT = (FrameLayout) this.mRootView.findViewById(R.id.game_recom_container);
+        this.ghN = (BdTypeListView) this.mRootView.findViewById(R.id.game_recom_listview);
+        this.ghN.setDivider(null);
         this.mPullView = new g(this.mPageContext);
         this.mPullView.setTag(this.mPageContext.getUniqueId());
-        this.gih.setPullRefresh(this.mPullView);
+        this.ghN.setPullRefresh(this.mPullView);
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamerecommend.c.a.1
             @Override // android.view.View.OnClickListener
@@ -59,60 +59,60 @@ public class a {
             }
         });
         this.mNavigationBar.showBottomLine();
-        this.gjo = new PbListView(this.mPageContext.getPageActivity());
-        this.gjo.createView();
-        this.iYg = new com.baidu.tieba.frs.gamerecommend.a.a(this.mPageContext, this.gih, this.mForumId, this.mForumName);
+        this.giV = new PbListView(this.mPageContext.getPageActivity());
+        this.giV.createView();
+        this.iYS = new com.baidu.tieba.frs.gamerecommend.a.a(this.mPageContext, this.ghN, this.mForumId, this.mForumName);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setData(List<q> list, boolean z) {
         if (z) {
-            bOX();
+            bOq();
         } else {
-            bOW();
+            bOp();
         }
-        this.iYg.setData(list);
+        this.iYS.setData(list);
     }
 
-    private void bOW() {
-        if (this.gjo != null) {
-            if (this.gjo.getView().getParent() == null) {
-                this.gih.setNextPage(this.gjo);
+    private void bOp() {
+        if (this.giV != null) {
+            if (this.giV.getView().getParent() == null) {
+                this.ghN.setNextPage(this.giV);
             }
-            this.gjo.setText(this.mPageContext.getPageActivity().getResources().getString(R.string.list_no_more));
-            this.gjo.endLoadData();
+            this.giV.setText(this.mPageContext.getPageActivity().getResources().getString(R.string.list_no_more));
+            this.giV.endLoadData();
         }
     }
 
-    private void bOX() {
-        if (this.gjo != null) {
-            if (this.gjo.getView().getParent() == null) {
-                this.gih.setNextPage(this.gjo);
+    private void bOq() {
+        if (this.giV != null) {
+            if (this.giV.getView().getParent() == null) {
+                this.ghN.setNextPage(this.giV);
             }
-            this.gjo.showLoadingViewWithoutEmptyView();
-            this.gjo.startLoadData();
+            this.giV.showLoadingViewWithoutEmptyView();
+            this.giV.startLoadData();
         }
     }
 
-    public void bPG() {
-        this.gih.setNextPage(null);
+    public void bOZ() {
+        this.ghN.setNextPage(null);
     }
 
     public void completePullRefresh() {
-        this.gih.completePullRefresh();
+        this.ghN.completePullRefresh();
     }
 
     public void b(BdListView.e eVar) {
-        this.gih.setOnSrollToBottomListener(eVar);
+        this.ghN.setOnSrollToBottomListener(eVar);
     }
 
     public void setListPullRefreshListener(f.c cVar) {
         this.mPullView.setListPullRefreshListener(cVar);
     }
 
-    public void bPV() {
-        if (this.gih != null && j.isNetWorkAvailable()) {
-            this.gih.startPullRefresh();
+    public void bPo() {
+        if (this.ghN != null && j.isNetWorkAvailable()) {
+            this.ghN.startPullRefresh();
         }
     }
 
@@ -120,11 +120,11 @@ public class a {
         return this.mRootView;
     }
 
-    public FrameLayout cCV() {
-        return this.iYh;
+    public FrameLayout cCz() {
+        return this.iYT;
     }
 
-    public NavigationBar bSH() {
+    public NavigationBar bSa() {
         return this.mNavigationBar;
     }
 

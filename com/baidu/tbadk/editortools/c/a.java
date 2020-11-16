@@ -8,9 +8,10 @@ import com.baidu.tieba.R;
 public class a extends m {
     public a(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_link), 31, i);
-        this.foc = R.drawable.ic_icon_pure_post_link24_svg;
-        this.fof = true;
-        this.foh = false;
-        this.fol = new int[]{21};
+        this.fnk = R.drawable.icon_pure_post_link24;
+        this.fnn = false;
+        this.fno = true;
+        this.fnp = false;
+        this.fnt = new int[]{21};
     }
 }

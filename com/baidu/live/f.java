@@ -12,11 +12,11 @@ public class f {
         TbConfig.setLiveEnterFrom("live_sdk");
         com.baidu.h.b.a.aJ(TbadkCoreApplication.getInst()).a(new com.baidu.h.b.b.b());
         com.baidu.h.b.a.aJ(TbadkCoreApplication.getInst()).a(new com.baidu.live.widget.a());
-        Bb();
-        Bc();
+        As();
+        At();
     }
 
-    public static void Bb() {
+    public static void As() {
         AccountHelper.setOnSyncAccountCallback(new OnSyncAccountCallback() { // from class: com.baidu.live.f.1
             @Override // com.baidu.live.tbadk.account.OnSyncAccountCallback
             public void onSyncAccount(boolean z) {
@@ -25,7 +25,7 @@ public class f {
         });
     }
 
-    public static void Bc() {
+    public static void At() {
         com.baidu.live.activity.a.d(TbadkCoreApplication.getInst().getApp());
     }
 }

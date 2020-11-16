@@ -19,7 +19,7 @@ public class c {
         return this.nickName;
     }
 
-    public boolean Wq() {
+    public boolean VH() {
         return this.isHost;
     }
 }

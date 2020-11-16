@@ -2,7 +2,7 @@ package com.baidu.sapi2.dto;
 
 import android.content.Context;
 import com.baidu.sapi2.utils.enums.SocialType;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class WebSocialLoginDTO extends SapiWebDTO {
     public Context context;
     public boolean finishActivityAfterSuc = true;

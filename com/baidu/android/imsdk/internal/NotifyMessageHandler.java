@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public abstract class NotifyMessageHandler {
     private static final String TAG = "NotifyMessageHandler";
 

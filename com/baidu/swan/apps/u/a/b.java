@@ -3,29 +3,29 @@ package com.baidu.swan.apps.u.a;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.LruCache;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final LruCache<String, Object> cYi;
+    private final LruCache<String, Object> cWy;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     private static class a {
-        static final b cYj = new b();
+        static final b cWz = new b();
     }
 
     private b() {
-        this.cYi = new LruCache<>(10);
+        this.cWy = new LruCache<>(10);
     }
 
-    public static b ayk() {
-        return a.cYj;
+    public static b axC() {
+        return a.cWz;
     }
 
-    public synchronized <RESULT> RESULT pa(String str) {
+    public synchronized <RESULT> RESULT oU(String str) {
         RESULT result = null;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                Object obj = this.cYi.get(str);
+                Object obj = this.cWy.get(str);
                 if (obj == null) {
                     if (DEBUG) {
                         Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
@@ -52,22 +52,22 @@ public final class b {
             if (DEBUG) {
                 Log.d("SwanAppLaunchCache", "putConfig key: " + str);
             }
-            this.cYi.put(str, result);
+            this.cWy.put(str, result);
         }
     }
 
-    public synchronized void pb(String str) {
+    public synchronized void oV(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
             }
-            this.cYi.remove(str);
+            this.cWy.remove(str);
         }
     }
 
     public synchronized void clear() {
-        if (this.cYi != null) {
-            this.cYi.evictAll();
+        if (this.cWy != null) {
+            this.cWy.evictAll();
         }
     }
 }

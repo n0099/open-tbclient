@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.m.a.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BdPermissionActivity extends Activity {
-    private int afd;
-    private String[] afe;
+    private int afi;
+    private String[] afj;
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
@@ -17,8 +17,8 @@ public class BdPermissionActivity extends Activity {
 
     private void tt() {
         Intent intent = getIntent();
-        this.afd = intent.getIntExtra("request_code", 0);
-        this.afe = intent.getStringArrayExtra("permissions");
+        this.afi = intent.getIntExtra("request_code", 0);
+        this.afj = intent.getStringArrayExtra("permissions");
     }
 
     @Override // android.app.Activity
@@ -28,24 +28,24 @@ public class BdPermissionActivity extends Activity {
     }
 
     private void tu() {
-        if (this.afe != null && this.afe.length != 0) {
+        if (this.afj != null && this.afj.length != 0) {
             boolean z = false;
-            for (String str : this.afe) {
+            for (String str : this.afj) {
                 z = z || com.baidu.m.a.a.shouldShowRequestPermissionRationale(this, str);
             }
             if (z) {
-                com.baidu.m.a.a.requestPermissions(this, this.afe, this.afd);
-            } else if (b.f(this, this.afd)) {
-                com.baidu.m.a.a.requestPermissions(this, this.afe, this.afd);
+                com.baidu.m.a.a.requestPermissions(this, this.afj, this.afi);
+            } else if (b.f(this, this.afi)) {
+                com.baidu.m.a.a.requestPermissions(this, this.afj, this.afi);
             } else {
-                onRequestPermissionsResult(this.afd, this.afe, new int[0]);
+                onRequestPermissionsResult(this.afi, this.afj, new int[0]);
             }
         }
     }
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        a.InterfaceC0250a bn = a.tv().bn(this.afd);
+        a.InterfaceC0248a bn = a.tv().bn(this.afi);
         if (bn != null) {
             bn.onRequestPermissionsResult(i, strArr, iArr);
         }

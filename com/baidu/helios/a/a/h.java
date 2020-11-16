@@ -2,7 +2,7 @@ package com.baidu.helios.a.a;
 
 import android.content.Context;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes19.dex */
 interface h {
     String a(Context context);
 

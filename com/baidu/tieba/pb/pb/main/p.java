@@ -1,5 +1,5 @@
 package com.baidu.tieba.pb.pb.main;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class p extends com.baidu.adp.lib.featureSwitch.a {
     @Override // com.baidu.adp.lib.featureSwitch.a
     protected void changeSettingByType(int i) {

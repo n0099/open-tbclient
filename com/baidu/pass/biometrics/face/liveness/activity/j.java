@@ -1,7 +1,7 @@
 package com.baidu.pass.biometrics.face.liveness.activity;
 
 import com.baidu.pass.biometrics.base.debug.Log;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

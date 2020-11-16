@@ -10,13 +10,13 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.card.view.CardForumHeadLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.h;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class d extends com.baidu.adp.widget.ListView.a<h, a> {
     public d(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
@@ -25,29 +25,32 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ct */
+    /* renamed from: cp */
     public a c(ViewGroup viewGroup) {
         FrameLayout frameLayout = new FrameLayout(this.mContext);
+        int dimens = l.getDimens(this.mContext, R.dimen.M_W_X007);
         CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.mContext);
-        cardForumHeadLayout.setPadding(l.getDimens(this.mContext, R.dimen.tbds44), l.getDimens(this.mContext, R.dimen.tbds19), l.getDimens(this.mContext, R.dimen.tbds44), l.getDimens(this.mContext, R.dimen.tbds44));
-        frameLayout.addView(cardForumHeadLayout, new FrameLayout.LayoutParams(-1, -2));
+        cardForumHeadLayout.setPadding(0, l.getDimens(this.mContext, R.dimen.tbds32), 0, l.getDimens(this.mContext, R.dimen.tbds13));
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+        layoutParams.leftMargin = dimens;
+        layoutParams.rightMargin = dimens;
+        frameLayout.addView(cardForumHeadLayout, layoutParams);
         View view = new View(this.mContext);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(this.mContext, R.dimen.tbds1));
-        layoutParams.leftMargin = l.getDimens(this.mContext, R.dimen.tbds44);
-        layoutParams.rightMargin = l.getDimens(this.mContext, R.dimen.tbds44);
-        frameLayout.addView(view, layoutParams);
+        FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, l.getDimens(this.mContext, R.dimen.tbds1));
+        layoutParams2.leftMargin = dimens;
+        layoutParams2.rightMargin = dimens;
+        frameLayout.addView(view, layoutParams2);
         ImageView imageView = new ImageView(this.mContext);
-        FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.getDimens(this.mContext, R.dimen.tbds42), l.getDimens(this.mContext, R.dimen.tbds42));
-        layoutParams2.gravity = 5;
-        layoutParams2.topMargin = l.getDimens(this.mContext, R.dimen.tbds76);
-        layoutParams2.rightMargin = l.getDimens(this.mContext, R.dimen.tbds44);
-        frameLayout.addView(imageView, layoutParams2);
+        FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(l.getDimens(this.mContext, R.dimen.tbds42), l.getDimens(this.mContext, R.dimen.tbds42));
+        layoutParams3.gravity = 21;
+        layoutParams3.rightMargin = dimens;
+        frameLayout.addView(imageView, layoutParams3);
         View view2 = new View(this.mContext);
-        FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, l.getDimens(this.mContext, R.dimen.tbds1));
-        layoutParams3.leftMargin = l.getDimens(this.mContext, R.dimen.tbds44);
-        layoutParams3.rightMargin = l.getDimens(this.mContext, R.dimen.tbds44);
-        layoutParams3.gravity = 80;
-        frameLayout.addView(view2, layoutParams3);
+        FrameLayout.LayoutParams layoutParams4 = new FrameLayout.LayoutParams(-1, l.getDimens(this.mContext, R.dimen.tbds1));
+        layoutParams4.leftMargin = dimens;
+        layoutParams4.rightMargin = dimens;
+        layoutParams4.gravity = 80;
+        frameLayout.addView(view2, layoutParams4);
         return new a(frameLayout);
     }
 
@@ -58,51 +61,51 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
         if (hVar != null) {
             aVar.a(hVar);
         }
-        aVar.bsD();
+        aVar.brT();
         return view;
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public class a extends af.a implements View.OnClickListener {
-        View bJI;
-        View eIO;
-        ImageView jmm;
-        CardForumHeadLayout lDM;
-        private h lDN;
+        View bHX;
+        View eHl;
+        ImageView jmX;
+        CardForumHeadLayout lEe;
+        private h lEf;
 
         public a(View view) {
             super(view);
-            this.lDM = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-            if (this.lDM != null) {
-                this.lDM.setOnClickListener(this.lDM);
-                this.lDM.setAfterClickListener(this);
+            this.lEe = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+            if (this.lEe != null) {
+                this.lEe.setOnClickListener(this.lEe);
+                this.lEe.setAfterClickListener(this);
             }
-            this.eIO = ((ViewGroup) view).getChildAt(1);
-            this.jmm = (ImageView) ((ViewGroup) view).getChildAt(2);
-            this.bJI = ((ViewGroup) view).getChildAt(3);
+            this.eHl = ((ViewGroup) view).getChildAt(1);
+            this.jmX = (ImageView) ((ViewGroup) view).getChildAt(2);
+            this.bHX = ((ViewGroup) view).getChildAt(3);
         }
 
         public void a(h hVar) {
             if (hVar != null) {
-                this.lDN = hVar;
-                this.bJI.setVisibility(hVar.lnQ ? 0 : 8);
+                this.lEf = hVar;
+                this.bHX.setVisibility(hVar.loi ? 0 : 8);
                 if (getView() != null) {
-                    getView().setPadding(0, 0, 0, hVar.lnQ ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
+                    getView().setPadding(0, 0, 0, hVar.loi ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
                 }
-                this.lDM.setData(hVar.forumName, hVar.lnP, hVar.postNum, hVar.memberNum);
+                this.lEe.setData(hVar.forumName, hVar.loh, hVar.postNum, hVar.memberNum);
             }
         }
 
-        public void bsD() {
-            SvgManager.brn().a(this.jmm, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
-            ap.setBackgroundColor(this.eIO, R.color.cp_bg_line_b);
-            ap.setBackgroundColor(this.bJI, R.color.cp_bg_line_b);
-            this.lDM.onChangeSkinType();
+        public void brT() {
+            WebPManager.a(this.jmX, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
+            ap.setBackgroundColor(this.eHl, R.color.CAM_X0203);
+            ap.setBackgroundColor(this.bHX, R.color.CAM_X0203);
+            this.lEe.onChangeSkinType();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new aq("c13698").dR("tid", this.lDN.tid).dR("fid", this.lDN.fid).w("uid", TbadkCoreApplication.getCurrentAccountId()));
+            TiebaStatic.log(new ar("c13698").dR("tid", this.lEf.tid).dR("fid", this.lEf.fid).w("uid", TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 }

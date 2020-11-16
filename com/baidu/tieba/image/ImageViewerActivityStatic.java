@@ -8,7 +8,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class ImageViewerActivityStatic {
     public static String Tag = "tag";
 

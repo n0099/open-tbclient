@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import java.util.HashMap;
-/* loaded from: classes18.dex */
+/* loaded from: classes8.dex */
 public class b {
     private HashMap<String, com.baidu.searchbox.dns.d.a> I;
     private final Object J;
@@ -14,7 +14,7 @@ public class b {
         this.I = new HashMap<>(10);
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes8.dex */
     private static class a {
         private static b K = new b();
     }

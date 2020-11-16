@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 public final class UnknownFieldMap {
     private static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType;
     Map<Integer, List<FieldValue>> fieldMap;
@@ -44,7 +44,7 @@ public final class UnknownFieldMap {
         return iArr;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     enum UnknownFieldType {
         VARINT,
         FIXED32,
@@ -79,7 +79,7 @@ public final class UnknownFieldMap {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public static abstract class FieldValue {
         private final int tag;
         private final WireType wireType;
@@ -131,7 +131,7 @@ public final class UnknownFieldMap {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public static final class VarintFieldValue extends FieldValue {
         private final Long value;
 
@@ -158,7 +158,7 @@ public final class UnknownFieldMap {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public static final class Fixed32FieldValue extends FieldValue {
         private final Integer value;
 
@@ -185,7 +185,7 @@ public final class UnknownFieldMap {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public static final class Fixed64FieldValue extends FieldValue {
         private final Long value;
 
@@ -212,7 +212,7 @@ public final class UnknownFieldMap {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public static final class LengthDelimitedFieldValue extends FieldValue {
         private final ByteString value;
 

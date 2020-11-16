@@ -6,7 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    public static bt IN(String str) {
+    public static bt Io(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -14,7 +14,7 @@ public class b {
             JSONObject jSONObject = new JSONObject(str);
             bt btVar = new bt();
             btVar.downloadUrl = jSONObject.optString("download_url");
-            btVar.aQq = jSONObject.optString("download_md5");
+            btVar.aOF = jSONObject.optString("download_md5");
             btVar.videoPath = jSONObject.optString("video_path");
             btVar.videoMd5 = jSONObject.optString("video_md5");
             return btVar;
@@ -31,7 +31,7 @@ public class b {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("download_url", btVar.downloadUrl);
-            jSONObject.put("download_md5", btVar.aQq);
+            jSONObject.put("download_md5", btVar.aOF);
             jSONObject.put("video_path", btVar.videoPath);
             jSONObject.put("video_md5", btVar.videoMd5);
             return jSONObject.toString();

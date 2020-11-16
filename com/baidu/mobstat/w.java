@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 class w implements a {
 
     /* renamed from: a  reason: collision with root package name */

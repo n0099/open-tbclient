@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.gf;
 import com.xiaomi.push.gj;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class bo implements gf {
 
     /* renamed from: a  reason: collision with root package name */

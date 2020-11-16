@@ -6,7 +6,7 @@ import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.ar.face.algo.FaceJniClient;
 import com.baidu.ar.statistic.StatisticApi;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 class n extends a {
     private static final String TAG = n.class.getSimpleName();
     private long pu;

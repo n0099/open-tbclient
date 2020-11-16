@@ -6,7 +6,7 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.t.b.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class b implements k {
     @Override // com.baidu.swan.apps.t.b.k
     public String cg(Context context) {

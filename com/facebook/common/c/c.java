@@ -1,5 +1,5 @@
 package com.facebook.common.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes12.dex */
 public interface c {
     void d(String str, String str2);
 

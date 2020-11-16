@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class GroupStarAlertMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<GroupStarAlertMsg> CREATOR = new Parcelable.Creator<GroupStarAlertMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupStarAlertMsg.1
         /* JADX DEBUG: Method merged with bridge method */

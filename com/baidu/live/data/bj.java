@@ -8,9 +8,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class bj extends BaseData {
-    public int aKy;
-    public ArrayList<o> aPj = new ArrayList<>();
-    public ac aPk = new ac();
+    public int aIN;
+    public ArrayList<o> aNy = new ArrayList<>();
+    public ac aNz = new ac();
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
@@ -19,10 +19,10 @@ public class bj extends BaseData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.aKy = optJSONObject.optInt("interval");
+                    this.aIN = optJSONObject.optInt("interval");
                 }
-                if (this.aKy <= 0) {
-                    this.aKy = 5;
+                if (this.aIN <= 0) {
+                    this.aIN = 5;
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("im_rate");
                 if (optJSONObject2 == null) {
@@ -42,11 +42,11 @@ public class bj extends BaseData {
                                 oVar.a(aVar);
                                 oVar.parseJson(optJSONObject4);
                                 oVar.serverTime = optLong;
-                                this.aPj.add(oVar);
+                                this.aNy.add(oVar);
                             }
                         }
                     }
-                    this.aPk.parseJson(optJSONObject3.optJSONObject("gongyanfang_pkpanel"));
+                    this.aNz.parseJson(optJSONObject3.optJSONObject("gongyanfang_pkpanel"));
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

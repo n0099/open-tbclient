@@ -18,7 +18,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.UUID;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class PassBiometricUtil {
     public static final String CPU_TYPE_ARM64_V8A = "arm64-v8a";
     public static final String CPU_TYPE_ARMEABI = "armeabi";

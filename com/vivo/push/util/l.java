@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class l extends AsyncTask<String, Void, List<Bitmap>> {
 
     /* renamed from: a  reason: collision with root package name */

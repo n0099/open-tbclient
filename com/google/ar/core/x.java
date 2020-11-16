@@ -5,7 +5,7 @@ import android.os.RemoteException;
 import android.util.Log;
 import com.google.ar.core.exceptions.FatalException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 final class x extends com.google.a.b.a.a.a.e {
 
     /* renamed from: a  reason: collision with root package name */
@@ -24,38 +24,38 @@ final class x extends com.google.a.b.a.a.a.e {
             int i = bundle.getInt("error.code", -100);
             int i2 = bundle.getInt("install.status", 0);
             if (i2 == 4) {
-                this.b.pcC.a(p.COMPLETED);
+                this.b.pef.a(p.COMPLETED);
             } else if (i != 0) {
                 Log.w("ARCore-InstallService", new StringBuilder(51).append("requestInstall = ").append(i).append(", launching fullscreen.").toString());
-                w wVar = this.b.pcQ;
-                w.b(this.b.f4039a, this.b.pcC);
+                w wVar = this.b.pet;
+                w.b(this.b.f4039a, this.b.pef);
             } else if (bundle.containsKey("resolution.intent")) {
-                w wVar2 = this.b.pcQ;
-                w.a(this.b.f4039a, bundle, this.b.pcC);
+                w wVar2 = this.b.pet;
+                w.a(this.b.f4039a, bundle, this.b.pef);
             } else {
                 switch (i2) {
                     case 1:
                     case 2:
                     case 3:
-                        this.b.pcC.a(p.ACCEPTED);
+                        this.b.pef.a(p.ACCEPTED);
                         return;
                     case 4:
-                        this.b.pcC.a(p.COMPLETED);
+                        this.b.pef.a(p.COMPLETED);
                         return;
                     case 5:
-                        this.b.pcC.a(new FatalException("Unexpected FAILED install status without error."));
+                        this.b.pef.a(new FatalException("Unexpected FAILED install status without error."));
                         return;
                     case 6:
-                        this.b.pcC.a(p.CANCELLED);
+                        this.b.pef.a(p.CANCELLED);
                         return;
                     case 7:
                     case 8:
                     case 9:
                     default:
-                        this.b.pcC.a(new FatalException(new StringBuilder(38).append("Unexpected install status: ").append(i2).toString()));
+                        this.b.pef.a(new FatalException(new StringBuilder(38).append("Unexpected install status: ").append(i2).toString()));
                         return;
                     case 10:
-                        this.b.pcC.a(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
+                        this.b.pef.a(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
                         return;
                 }
             }

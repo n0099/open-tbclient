@@ -14,17 +14,17 @@ import com.baidu.tieba.ala.view.j;
 public class AlaRankListActivityInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(r.class, AlaRankListActivity.class);
-        bMa();
-        bMb();
+        bLt();
+        bLu();
     }
 
-    private static void bMa() {
+    private static void bLt() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913036, new CustomMessageTask.CustomRunnable<com.baidu.live.u.a>() { // from class: com.baidu.tieba.ala.AlaRankListActivityInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.u.c> run(CustomMessage<com.baidu.live.u.a> customMessage) {
                 if (customMessage.getData() != null) {
                     com.baidu.live.u.a data = customMessage.getData();
-                    return new CustomResponsedMessage<>(2913036, new j(data.context, data.liveType, data.userId, data.userName, data.isHost, data.portrait, data.otherParams, data.aVy, data.bri));
+                    return new CustomResponsedMessage<>(2913036, new j(data.context, data.liveType, data.userId, data.userName, data.isHost, data.portrait, data.otherParams, data.aTN, data.bpx));
                 }
                 return null;
             }
@@ -33,15 +33,15 @@ public class AlaRankListActivityInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bMb() {
+    private static void bLu() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913040) { // from class: com.baidu.tieba.ala.AlaRankListActivityInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.live.liveroom.d.a)) {
                     com.baidu.live.liveroom.d.a aVar = (com.baidu.live.liveroom.d.a) customResponsedMessage.getData();
-                    if (aVar.bnv != null && aVar.bnv.context != null) {
-                        aVar.a((com.baidu.live.liveroom.d.e) new b((TbPageContext) IScrollableHelper.getBbPageContext(aVar.bnv.context)));
+                    if (aVar.blK != null && aVar.blK.context != null) {
+                        aVar.a((com.baidu.live.liveroom.d.e) new b((TbPageContext) IScrollableHelper.getBbPageContext(aVar.blK.context)));
                     }
                 }
             }

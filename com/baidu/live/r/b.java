@@ -4,7 +4,7 @@ import android.view.ViewGroup;
 import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public interface b {
-    void KJ();
+    void Ka();
 
     void a(w wVar);
 

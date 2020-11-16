@@ -1,5 +1,5 @@
 package com.baidu.idl.authority;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.idl.authority";
     public static final String BUILD_TYPE = "release";

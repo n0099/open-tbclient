@@ -10,33 +10,33 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class LoadingLayout extends LinearLayout {
-    private ProgressBar dFL;
-    private LinearLayout oxd;
-    private TextView oxe;
-    private a oxf;
-    private boolean oxg;
+    private ProgressBar dEe;
+    private LinearLayout oyH;
+    private TextView oyI;
+    private a oyJ;
+    private boolean oyK;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void efs();
+        void efq();
     }
 
     public LoadingLayout(Context context) {
         super(context);
-        this.dFL = null;
-        this.oxd = null;
-        this.oxe = null;
-        this.oxf = null;
-        this.oxg = true;
+        this.dEe = null;
+        this.oyH = null;
+        this.oyI = null;
+        this.oyJ = null;
+        this.oyK = true;
     }
 
     public LoadingLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dFL = null;
-        this.oxd = null;
-        this.oxe = null;
-        this.oxf = null;
-        this.oxg = true;
+        this.dEe = null;
+        this.oyH = null;
+        this.oyI = null;
+        this.oyJ = null;
+        this.oyK = true;
     }
 
     @Override // android.view.View
@@ -46,24 +46,24 @@ public class LoadingLayout extends LinearLayout {
     }
 
     private void initView() {
-        this.dFL = (ProgressBar) findViewById(a.f.loading_pb);
-        this.oxd = (LinearLayout) findViewById(a.f.loading_fail_layout);
-        this.oxd.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.imagechooser.LoadingLayout.1
+        this.dEe = (ProgressBar) findViewById(a.f.loading_pb);
+        this.oyH = (LinearLayout) findViewById(a.f.loading_fail_layout);
+        this.oyH.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.imagechooser.LoadingLayout.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (!LoadingLayout.this.oxg) {
+                if (!LoadingLayout.this.oyK) {
                     return false;
                 }
-                if (motionEvent.getAction() == 0 && LoadingLayout.this.oxf != null) {
-                    LoadingLayout.this.oxf.efs();
+                if (motionEvent.getAction() == 0 && LoadingLayout.this.oyJ != null) {
+                    LoadingLayout.this.oyJ.efq();
                 }
                 return true;
             }
         });
-        this.oxe = (TextView) findViewById(a.f.loading_fail_tv);
+        this.oyI = (TextView) findViewById(a.f.loading_fail_tv);
     }
 
     public void setRetryListener(a aVar) {
-        this.oxf = aVar;
+        this.oyJ = aVar;
     }
 }

@@ -23,8 +23,8 @@ public class PatchReplaceMethodHelper {
         if (plugin2 == null || context == null) {
             return false;
         }
-        PluginSetting cy = PluginPackageManager.pT().cy(plugin2.getPackageName());
-        if (cy == null || TextUtils.isEmpty(cy.replaceMethodClasses)) {
+        PluginSetting cA = PluginPackageManager.pT().cA(plugin2.getPackageName());
+        if (cA == null || TextUtils.isEmpty(cA.replaceMethodClasses)) {
             return false;
         }
         try {

@@ -33,7 +33,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Nq */
+    /* renamed from: NT */
     public com.baidu.yuyinala.background.b.a getItem(int i) {
         return (com.baidu.yuyinala.background.b.a) ListUtils.getItem(this.mBgList, i);
     }
@@ -45,29 +45,29 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0934a c0934a;
+        C0937a c0937a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.item_ala_audio_background, viewGroup, false);
-            c0934a = new C0934a();
-            c0934a.otb = (TbImageView) view.findViewById(a.f.thumbnail_iv);
-            c0934a.otc = (ImageView) view.findViewById(a.f.chosen_iv);
-            c0934a.guK = (TextView) view.findViewById(a.f.bg_name_tv);
-            c0934a.otd = (ProgressBar) view.findViewById(a.f.loading_pb);
-            c0934a.otb.setDefaultResource(a.e.loading_ala_audio_bg);
-            c0934a.otb.setDefaultErrorResource(a.e.loading_ala_audio_bg);
-            c0934a.otb.setDefaultBgResource(a.e.loading_ala_audio_bg);
-            view.setTag(c0934a);
+            c0937a = new C0937a();
+            c0937a.ouF = (TbImageView) view.findViewById(a.f.thumbnail_iv);
+            c0937a.ouG = (ImageView) view.findViewById(a.f.chosen_iv);
+            c0937a.gur = (TextView) view.findViewById(a.f.bg_name_tv);
+            c0937a.ouH = (ProgressBar) view.findViewById(a.f.loading_pb);
+            c0937a.ouF.setDefaultResource(a.e.loading_ala_audio_bg);
+            c0937a.ouF.setDefaultErrorResource(a.e.loading_ala_audio_bg);
+            c0937a.ouF.setDefaultBgResource(a.e.loading_ala_audio_bg);
+            view.setTag(c0937a);
         } else {
-            c0934a = (C0934a) view.getTag();
+            c0937a = (C0937a) view.getTag();
         }
         com.baidu.yuyinala.background.b.a aVar = (com.baidu.yuyinala.background.b.a) ListUtils.getItem(this.mBgList, i);
         if (aVar != null) {
             view.setVisibility(0);
-            c0934a.guK.setText(aVar.getName());
-            c0934a.otb.startLoad(aVar.getThumbnailUrl(), 10, false);
-            c0934a.otb.setVisibility(0);
-            c0934a.otc.setVisibility(aVar.eeA() ? 0 : 8);
-            c0934a.otd.setVisibility(aVar.isLoading() ? 0 : 8);
+            c0937a.gur.setText(aVar.getName());
+            c0937a.ouF.startLoad(aVar.getThumbnailUrl(), 10, false);
+            c0937a.ouF.setVisibility(0);
+            c0937a.ouG.setVisibility(aVar.eey() ? 0 : 8);
+            c0937a.ouH.setVisibility(aVar.isLoading() ? 0 : 8);
         } else {
             view.setVisibility(8);
         }
@@ -76,13 +76,13 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.yuyinala.background.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0934a {
-        private TextView guK;
-        private TbImageView otb;
-        private ImageView otc;
-        private ProgressBar otd;
+    private class C0937a {
+        private TextView gur;
+        private TbImageView ouF;
+        private ImageView ouG;
+        private ProgressBar ouH;
 
-        private C0934a() {
+        private C0937a() {
         }
     }
 }

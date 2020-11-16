@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */

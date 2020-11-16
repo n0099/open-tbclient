@@ -99,7 +99,7 @@ import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class LivenessRecogActivity extends LivenessBaseActivity implements Handler.Callback {
     public static final String EXTRA_UPLOAD_ACTION_TYPE = "action_type";
     public static final int REQUEST_CODE_LIVENESS_RECOG_ACTIVITY = 1001;
@@ -2314,7 +2314,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     private class b extends AsyncTask<Void, Void, String> {
         private b() {
         }
@@ -2345,7 +2345,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public class f extends CountDownTimer {
         public f(long j, long j2) {
             super(j, j2);
@@ -3075,7 +3075,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public static class c implements MediaPlayer.OnErrorListener {
         c() {
         }
@@ -3627,7 +3627,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public class d {
         static final int A = 5000;
         static final int B = 20000;
@@ -3669,7 +3669,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
@@ -3696,7 +3696,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */

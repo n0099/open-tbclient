@@ -2,7 +2,7 @@ package com.baidu.afd.videopaster;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public interface a {
     int height();
 

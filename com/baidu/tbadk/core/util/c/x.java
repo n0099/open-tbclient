@@ -5,21 +5,21 @@ import android.graphics.Rect;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.aw;
 /* loaded from: classes.dex */
 public class x extends a {
-    private boolean akk;
+    private boolean akn;
     private int procType;
 
     public x(boolean z, int i) {
-        this.akk = true;
+        this.akn = true;
         this.procType = 0;
-        this.akk = z;
+        this.akn = z;
         this.procType = i;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int brI() {
+    public int bqW() {
         return this.procType;
     }
 
@@ -35,16 +35,16 @@ public class x extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.akk;
+        return this.akn;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean brG() {
+    public boolean bqU() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean brH() {
+    public boolean bqV() {
         return false;
     }
 
@@ -56,22 +56,22 @@ public class x extends a {
         com.baidu.adp.lib.stats.a mT = com.baidu.tbadk.core.util.u.mT();
         mT.startTimer();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c Cg = Cg(av.getNameMd5FromUrl(str2));
-        if (Cg == null) {
+        com.baidu.adp.lib.Disk.ops.c BG = BG(aw.getNameMd5FromUrl(str2));
+        if (BG == null) {
             return null;
         }
-        Cg.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        Cg.setSubFolder(true);
-        Cg.setIsFormatData(false);
-        Cg.setLock(bArr);
-        Cg.setSdCard(false);
+        BG.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        BG.setSubFolder(true);
+        BG.setIsFormatData(false);
+        BG.setLock(bArr);
+        BG.setSdCard(false);
         if (aVar != null) {
             e eVar = new e();
-            eVar.f(Cg);
+            eVar.f(BG);
             aVar.MS = eVar;
         }
         boolean isWifiNet = com.baidu.adp.lib.util.j.isWifiNet();
-        if (!com.baidu.adp.lib.Disk.d.lL().c(Cg)) {
+        if (!com.baidu.adp.lib.Disk.d.lL().c(BG)) {
             com.baidu.tbadk.core.util.u.a(mT, str2, false, mT.getTimeCost(), isWifiNet);
             return null;
         }
@@ -85,10 +85,10 @@ public class x extends a {
             } catch (InterruptedException e) {
             }
         }
-        if (!Cg.isSuccess()) {
+        if (!BG.isSuccess()) {
             aVar2 = null;
         } else {
-            aVar2 = a(Cg, str2, i, i2);
+            aVar2 = a(BG, str2, i, i2);
         }
         if (aVar2 != null) {
             com.baidu.tbadk.core.util.u.a(mT, str2, true, mT.getTimeCost(), isWifiNet);
@@ -104,7 +104,7 @@ public class x extends a {
             aVar2 = new com.baidu.adp.widget.ImageView.a(bitmap, z, str, rect);
             aVar2.setNeedCache(z2);
             if (z2) {
-                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, av.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
+                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, aw.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setSubFolder(true);
                 cVar.setData(bArr);

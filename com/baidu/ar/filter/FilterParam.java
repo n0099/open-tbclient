@@ -1,8 +1,8 @@
 package com.baidu.ar.filter;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public interface FilterParam {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public enum FaceFilter implements FilterParam {
         babyFace("babyFace"),
         webCelebrityFace("cyberstarFace"),
@@ -68,7 +68,7 @@ public interface FilterParam {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public enum LutFilter implements FilterParam {
         lutFile("global_path"),
         lutIntensity("global_intensity");
@@ -90,7 +90,7 @@ public interface FilterParam {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public enum MakeupFilter implements FilterParam {
         lipsMask("lips_mask"),
         cheeks("cheeks"),
@@ -121,7 +121,7 @@ public interface FilterParam {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public enum SkinFilter implements FilterParam {
         whitenFile("res_path"),
         smooth("intensity_smooth"),
@@ -148,7 +148,7 @@ public interface FilterParam {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public enum TuneColorFilter implements FilterParam {
         toneFile("tone_curve_res_path"),
         brightness("intensity_brightness"),

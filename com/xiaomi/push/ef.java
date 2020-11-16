@@ -7,7 +7,7 @@ import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class ef extends ed {
 
     /* renamed from: a  reason: collision with root package name */
@@ -30,7 +30,7 @@ public class ef extends ed {
         if (this.f4874a) {
             try {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) this.f231a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+                ((WindowManager) this.f234a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 return displayMetrics.heightPixels + Constants.ACCEPT_TIME_SEPARATOR_SP + displayMetrics.widthPixels;
             } catch (Throwable th) {
                 return "";
@@ -64,7 +64,7 @@ public class ef extends ed {
     private String e() {
         if (this.d) {
             try {
-                return Settings.Secure.getString(this.f231a.getContentResolver(), "android_id");
+                return Settings.Secure.getString(this.f234a.getContentResolver(), "android_id");
             } catch (Throwable th) {
                 return "";
             }
@@ -75,7 +75,7 @@ public class ef extends ed {
     private String f() {
         if (this.e) {
             try {
-                return ((TelephonyManager) this.f231a.getSystemService("phone")).getSimOperator();
+                return ((TelephonyManager) this.f234a.getSystemService("phone")).getSimOperator();
             } catch (Throwable th) {
                 return "";
             }
@@ -85,19 +85,19 @@ public class ef extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo166a() {
+    public int mo169a() {
         return 3;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo166a() {
+    public ho mo169a() {
         return ho.DeviceInfoV2;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo166a() {
+    public String mo169a() {
         return b() + "|" + c() + "|" + d() + "|" + e() + "|" + f();
     }
 }

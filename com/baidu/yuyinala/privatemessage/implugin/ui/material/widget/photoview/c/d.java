@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Build;
 /* loaded from: classes4.dex */
 public abstract class d {
+    public abstract void Ab(boolean z);
+
     public abstract boolean computeScrollOffset();
 
     public abstract void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10);
@@ -14,9 +16,7 @@ public abstract class d {
 
     public abstract boolean isFinished();
 
-    public abstract void zU(boolean z);
-
-    public static d gJ(Context context) {
+    public static d gH(Context context) {
         if (Build.VERSION.SDK_INT < 9) {
             return new c(context);
         }

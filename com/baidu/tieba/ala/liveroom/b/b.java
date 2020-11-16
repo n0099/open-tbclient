@@ -10,8 +10,8 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class b {
-    private c gVs;
-    private CustomMessageListener gvo = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.b.1
+    private c gUZ;
+    private CustomMessageListener guV = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -31,41 +31,41 @@ public class b {
     public b(TbPageContext tbPageContext, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mIsHost = z;
-        this.gvo.setTag(tbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.gvo);
+        this.guV.setTag(tbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.guV);
     }
 
     public void c(ViewGroup viewGroup, w wVar) {
         if (viewGroup != null && this.mTbPageContext != null && wVar != null) {
-            this.gVs = new c(this.mTbPageContext);
-            bWZ();
+            this.gUZ = new c(this.mTbPageContext);
+            bWs();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
             layoutParams.addRule(3, a.f.ala_sdk_recommend_more_id);
             layoutParams.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds24);
             layoutParams.topMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds4);
-            viewGroup.addView(this.gVs.getView(), layoutParams);
-            if (wVar.aIV != null) {
-                this.gVs.eS(wVar.aIV.alaId);
+            viewGroup.addView(this.gUZ.getView(), layoutParams);
+            if (wVar.aHk != null) {
+                this.gUZ.eS(wVar.aHk.alaId);
             }
         }
     }
 
-    public void vt(int i) {
-        if (this.gVs != null && this.gVs.getView() != null) {
-            this.gVs.getView().setVisibility(i);
+    public void vR(int i) {
+        if (this.gUZ != null && this.gUZ.getView() != null) {
+            this.gUZ.getView().setVisibility(i);
         }
     }
 
-    public void bWZ() {
-        if (this.gVs != null && this.gVs.getView() != null && this.gVs.getView().getParent() != null) {
-            ((ViewGroup) this.gVs.getView().getParent()).removeView(this.gVs.getView());
+    public void bWs() {
+        if (this.gUZ != null && this.gUZ.getView() != null && this.gUZ.getView().getParent() != null) {
+            ((ViewGroup) this.gUZ.getView().getParent()).removeView(this.gUZ.getView());
         }
     }
 
-    public void Ht() {
-        if (this.gvo != null) {
-            MessageManager.getInstance().unRegisterListener(this.gvo);
+    public void GK() {
+        if (this.guV != null) {
+            MessageManager.getInstance().unRegisterListener(this.guV);
         }
     }
 }

@@ -6,7 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes16.dex */
+/* loaded from: classes9.dex */
 public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     private static final float DEFAULT_ALPHA_END_DISTANCE = 0.5f;
     private static final float DEFAULT_ALPHA_START_DISTANCE = 0.0f;
@@ -146,7 +146,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         }
     };
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes9.dex */
     public interface OnDismissListener {
         void onDismiss(View view);
 
@@ -155,7 +155,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes16.dex */
+    /* loaded from: classes9.dex */
     private @interface SwipeDirection {
     }
 
@@ -229,7 +229,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes9.dex */
     private class SettleRunnable implements Runnable {
         private final boolean mDismiss;
         private final View mView;

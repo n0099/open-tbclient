@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.ABTestConstant;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.ABTestUtils;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class LivenessABTestUtil {
 
     /* renamed from: a  reason: collision with root package name */

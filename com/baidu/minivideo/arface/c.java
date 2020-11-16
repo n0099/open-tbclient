@@ -3,31 +3,31 @@ package com.baidu.minivideo.arface;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class c {
-    private static String bZS;
-    private static String bZT;
-    private static String bZU;
-    private static String bZV;
-    private static String bZW;
-    private static String bZX;
-    private static String bZZ;
-    private static String caa;
-    private static String cab;
-    private static String cac;
-    private static String cad;
-    private static String cae;
-    private static String caf;
-    private static String cag;
-    private static String cah;
-    private static String cai;
-    private static String caj;
-    private static String cak;
-    private static String cal;
-    public static String bZP = "arface_main_res_version";
-    public static int bZQ = 0;
-    public static boolean bZR = true;
-    public static String bZY = "global/res/filter";
+    private static String bYA;
+    private static String bYh;
+    private static String bYi;
+    private static String bYj;
+    private static String bYk;
+    private static String bYl;
+    private static String bYm;
+    private static String bYo;
+    private static String bYp;
+    private static String bYq;
+    private static String bYr;
+    private static String bYs;
+    private static String bYt;
+    private static String bYu;
+    private static String bYv;
+    private static String bYw;
+    private static String bYx;
+    private static String bYy;
+    private static String bYz;
+    public static String bYe = "arface_main_res_version";
+    public static int bYf = 0;
+    public static boolean bYg = true;
+    public static String bYn = "global/res/filter";
 
     public c(String str) {
         setPath(str);
@@ -37,78 +37,78 @@ public class c {
         if (b.isDebug()) {
             Log.d("DUAR_DuArResConfig", "setPath: " + str);
         }
-        bZS = str + "/";
-        bZT = bZS;
-        bZU = bZS + "ext/";
-        bZV = bZT + "faceModels/";
+        bYh = str + "/";
+        bYi = bYh;
+        bYj = bYh + "ext/";
+        bYk = bYi + "faceModels/";
         if (TextUtils.isEmpty(str)) {
-            cae = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
-            cac = "file:///android_asset/arsource/filter/beauty_skin_stream.png";
-            cad = "file:///android_asset/arsource/filter/beauty_skin_small_video.png";
-            bZV = "file:///android_asset/arsource/faceModels/";
+            bYt = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
+            bYr = "file:///android_asset/arsource/filter/beauty_skin_stream.png";
+            bYs = "file:///android_asset/arsource/filter/beauty_skin_small_video.png";
+            bYk = "file:///android_asset/arsource/faceModels/";
             String str2 = Environment.getExternalStorageDirectory() + "/baidu/quanminvideo/arsource";
-            caf = str2 + "/makeup";
-            cag = str2 + "/beauty";
-            cah = str2 + "/arFilterInit";
-            cai = str2 + "/arFilterEditInit";
-            caj = cag + "/liveVideoFace/live_face_knead.json";
-            cak = cag + "/liveVideoFace/goddess_face_knead.json";
-            cal = cag + "/liveVideoFace/baby_face_knead.json";
+            bYu = str2 + "/makeup";
+            bYv = str2 + "/beauty";
+            bYw = str2 + "/arFilterInit";
+            bYx = str2 + "/arFilterEditInit";
+            bYy = bYv + "/liveVideoFace/live_face_knead.json";
+            bYz = bYv + "/liveVideoFace/goddess_face_knead.json";
+            bYA = bYv + "/liveVideoFace/baby_face_knead.json";
         } else {
-            cae = bZT + "filters/yuantu/yuantu.png";
-            cac = bZT + "filter/beauty_skin_stream.png";
-            cad = bZT + "filter/beauty_skin_small_video.png";
-            caf = bZS + "makeup/";
-            cag = bZS + "beauty/";
-            cah = bZS + "arFilterInit/";
-            cai = bZS + "arFilterEditInit/";
-            caj = cag + "liveVideoFace/live_face_knead.json";
-            cak = cag + "liveVideoFace/goddess_face_knead.json";
-            cal = cag + "liveVideoFace/baby_face_knead.json";
+            bYt = bYi + "filters/yuantu/yuantu.png";
+            bYr = bYi + "filter/beauty_skin_stream.png";
+            bYs = bYi + "filter/beauty_skin_small_video.png";
+            bYu = bYh + "makeup/";
+            bYv = bYh + "beauty/";
+            bYw = bYh + "arFilterInit/";
+            bYx = bYh + "arFilterEditInit/";
+            bYy = bYv + "liveVideoFace/live_face_knead.json";
+            bYz = bYv + "liveVideoFace/goddess_face_knead.json";
+            bYA = bYv + "liveVideoFace/baby_face_knead.json";
         }
-        bZX = bZT + "global";
-        cab = bZT + "vip_list.json";
-        caa = bZT + "filters";
-        bZW = bZT + "dlModels/";
-        bZZ = caa + "/all";
-        bZY = bZT + "global/res/filter";
+        bYm = bYi + "global";
+        bYq = bYi + "vip_list.json";
+        bYp = bYi + "filters";
+        bYl = bYi + "dlModels/";
+        bYo = bYp + "/all";
+        bYn = bYi + "global/res/filter";
     }
 
-    public static String aag() {
-        return cae;
+    public static String Zx() {
+        return bYt;
     }
 
-    public static String aah() {
-        return bZT;
+    public static String Zy() {
+        return bYi;
     }
 
-    public static String aai() {
-        return bZV;
+    public static String Zz() {
+        return bYk;
     }
 
-    public static String aaj() {
-        return bZX;
+    public static String ZA() {
+        return bYm;
     }
 
-    public static String aak() {
+    public static String ZB() {
         return "/filter_config.json";
     }
 
-    public static String aal() {
-        return gI(0);
+    public static String ZC() {
+        return gE(0);
     }
 
-    public static String gI(int i) {
+    public static String gE(int i) {
         if (i == 1) {
-            return cak;
+            return bYz;
         }
         if (i == 2) {
-            return cal;
+            return bYA;
         }
-        return caj;
+        return bYy;
     }
 
-    public static String dA(boolean z) {
-        return z ? cah : cai;
+    public static String dC(boolean z) {
+        return z ? bYw : bYx;
     }
 }

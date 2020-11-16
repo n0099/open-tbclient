@@ -2,7 +2,7 @@ package com.xiaomi.channel.commonutils.logger;
 
 import android.util.Log;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class a implements LoggerInterface {
 
     /* renamed from: a  reason: collision with root package name */

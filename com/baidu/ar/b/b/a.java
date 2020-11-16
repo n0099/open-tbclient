@@ -1,11 +1,11 @@
 package com.baidu.ar.b.b;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public abstract class a extends com.baidu.ar.c.a<C0080a> {
     private int cD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ar.b.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public static class C0080a {
         int cE;
         int type;

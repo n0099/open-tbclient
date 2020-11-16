@@ -2,11 +2,11 @@ package rx.internal.operators;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.d;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class OperatorElementAt<T> implements d.b<T, T> {
     final T defaultValue;
     final int index;
-    final boolean qfE;
+    final boolean qhh;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -36,7 +36,7 @@ public final class OperatorElementAt<T> implements d.b<T, T> {
             @Override // rx.e
             public void onCompleted() {
                 if (this.currentIndex <= OperatorElementAt.this.index) {
-                    if (OperatorElementAt.this.qfE) {
+                    if (OperatorElementAt.this.qhh) {
                         jVar.onNext(OperatorElementAt.this.defaultValue);
                         jVar.onCompleted();
                         return;
@@ -54,7 +54,7 @@ public final class OperatorElementAt<T> implements d.b<T, T> {
         return jVar2;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     static class InnerProducer extends AtomicBoolean implements rx.f {
         private static final long serialVersionUID = 1;
         final rx.f actual;

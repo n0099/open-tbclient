@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import java.io.OutputStream;
 import java.util.concurrent.Executor;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public abstract class TracingController {
     @NonNull
     public static TracingController getInstance() {

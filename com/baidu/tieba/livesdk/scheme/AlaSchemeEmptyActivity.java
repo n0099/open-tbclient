@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.BdToken.f;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 /* loaded from: classes4.dex */
 public class AlaSchemeEmptyActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
@@ -18,9 +18,9 @@ public class AlaSchemeEmptyActivity extends BaseActivity {
             String host = data.getHost();
             String path = data.getPath();
             if ("video".equals(host) && path != null && path.startsWith("/live") && (uri = data.toString()) != null) {
-                String replace = uri.replace(f.eru + "://", "bdtiebalive://");
+                String replace = uri.replace(f.epM + "://", "bdtiebalive://");
                 if (!StringUtils.isNull(replace)) {
-                    be.brr().b(getPageContext(), new String[]{replace});
+                    bf.bqF().b(getPageContext(), new String[]{replace});
                 }
             }
         }

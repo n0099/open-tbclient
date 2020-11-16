@@ -43,6 +43,6 @@ public class FunAdSdkSwitch extends a {
     }
 
     public static boolean isOpen() {
-        return b.bqh().getInt("pref_key_fun_ad_sdk_enable", 1) == 1;
+        return b.bpu().getInt("pref_key_fun_ad_sdk_enable", 1) == 1;
     }
 }

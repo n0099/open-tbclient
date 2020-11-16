@@ -3,7 +3,7 @@ package com.sdk.base.framework.a.c;
 import android.os.Process;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class d extends h<Params, Result> {
     private /* synthetic */ c b;
 

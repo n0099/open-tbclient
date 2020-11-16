@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.b.g;
 
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public abstract class f implements l {
 
     /* renamed from: a  reason: collision with root package name */

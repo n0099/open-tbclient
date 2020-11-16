@@ -11,10 +11,10 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class af extends af.a {
-    private CustomMessageListener kOe;
-    private String lxa;
+    private CustomMessageListener kOr;
+    private String lxr;
     private LinearLayout mContainer;
     private ProgressBar mProgressBar;
     private View mRoot;
@@ -22,7 +22,7 @@ public class af extends af.a {
 
     public af(View view, BdUniqueId bdUniqueId) {
         super(view);
-        this.kOe = new CustomMessageListener(2921471) { // from class: com.baidu.tieba.pb.pb.main.af.1
+        this.kOr = new CustomMessageListener(2921471) { // from class: com.baidu.tieba.pb.pb.main.af.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,13 +40,13 @@ public class af extends af.a {
         this.mTextView = (TextView) view.findViewById(R.id.pb_more_text);
         this.mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
         this.mContainer.setVisibility(0);
-        this.kOe.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.kOe);
+        this.kOr.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.kOr);
         onChangeSkinType();
     }
 
-    public void ar(String str, int i) {
-        this.lxa = str;
+    public void aq(String str, int i) {
+        this.lxr = str;
         this.mTextView.setText(str);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
         layoutParams.height = i;
@@ -55,7 +55,7 @@ public class af extends af.a {
     }
 
     public void onChangeSkinType() {
-        this.mTextView.setTextColor(com.baidu.tbadk.core.util.ap.getColor(TbadkCoreApplication.getInst().getSkinType(), R.color.cp_cont_d));
+        this.mTextView.setTextColor(com.baidu.tbadk.core.util.ap.getColor(TbadkCoreApplication.getInst().getSkinType(), R.color.CAM_X0109));
         this.mContainer.setBackgroundResource(R.drawable.pb_foot_more_trans_selector);
     }
 
@@ -70,8 +70,8 @@ public class af extends af.a {
 
     public void endLoadData() {
         this.mProgressBar.setVisibility(8);
-        if (this.lxa != null) {
-            this.mTextView.setText(this.lxa);
+        if (this.lxr != null) {
+            this.mTextView.setText(this.lxr);
         } else {
             this.mTextView.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.pb_load_more));
         }

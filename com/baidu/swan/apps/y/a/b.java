@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.y.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b extends c {
     private boolean mIsBackground;
 

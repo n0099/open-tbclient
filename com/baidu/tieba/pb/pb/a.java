@@ -1,15 +1,15 @@
 package com.baidu.tieba.pb.pb;
 
 import com.baidu.tbadk.TbPageContextSupport;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public interface a<T> extends TbPageContextSupport {
-    boolean Pu(String str);
+    boolean OQ(String str);
 
-    com.baidu.tieba.pb.pb.main.b.a djp();
+    com.baidu.tieba.pb.pb.main.b.a diM();
 
-    boolean djq();
+    boolean diN();
 
-    String djr();
+    String diO();
 
-    int djs();
+    int diP();
 }

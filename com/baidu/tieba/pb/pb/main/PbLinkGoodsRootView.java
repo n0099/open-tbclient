@@ -21,36 +21,37 @@ import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.data.PbGoodsData;
 import com.baidu.tbadk.core.data.PbLinkData;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.view.SingleLinkCardView;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.videopb.VideoPbFragment;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class PbLinkGoodsRootView extends RelativeLayout {
-    private bw akq;
-    private boolean eHd;
-    private BdRecyclerView kdo;
-    private ImageView leo;
-    private PbFragment lpI;
-    private b lwG;
-    private TextView lwH;
-    private RelativeLayout lwI;
-    private ThreadForumEnterGoodsButton lwJ;
-    private LinearLayout lwK;
-    private int lwL;
-    private int lwM;
-    private int lwN;
-    private int lwO;
-    private int lwP;
-    private VideoPbFragment lwQ;
+    private bx akt;
+    private boolean eFv;
+    private BdRecyclerView kdY;
+    private ImageView leF;
+    private PbFragment lpX;
+    private b lwW;
+    private TextView lwX;
+    private RelativeLayout lwY;
+    private ThreadForumEnterGoodsButton lwZ;
+    private LinearLayout lxa;
+    private int lxb;
+    private int lxc;
+    private int lxd;
+    private int lxe;
+    private int lxf;
+    private VideoPbFragment lxg;
     private Context mContext;
-    private List<com.baidu.tieba.card.data.d> mData;
+    private List<com.baidu.tieba.card.data.c> mData;
     private int maxCount;
 
     public PbLinkGoodsRootView(Context context) {
@@ -65,126 +66,126 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         super(context, attributeSet, i);
         this.mData = new ArrayList();
         this.maxCount = 3;
-        this.eHd = false;
+        this.eFv = false;
         this.mContext = context;
         LayoutInflater.from(context).inflate(R.layout.pb_link_goods_layout, this);
-        this.kdo = (BdRecyclerView) findViewById(R.id.pb_link_goods_rv);
-        this.kdo.setNestedScrollingEnabled(false);
-        this.lwK = (LinearLayout) findViewById(R.id.pb_more_post_rl);
-        this.lwH = (TextView) findViewById(R.id.tv_post);
-        this.lwI = (RelativeLayout) findViewById(R.id.rl_more_post);
-        this.leo = (ImageView) findViewById(R.id.iv_arrow);
-        this.lwJ = (ThreadForumEnterGoodsButton) findViewById(R.id.pb_tip_enter_button);
-        this.lwL = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds14);
-        this.lwM = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds44);
-        this.lwN = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds36);
-        this.lwO = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds22);
-        this.lwG = new b();
-        this.kdo.setLayoutManager(new LinearLayoutManager(this.mContext));
-        this.kdo.setAdapter(this.lwG);
-        this.lwI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbLinkGoodsRootView.1
+        this.kdY = (BdRecyclerView) findViewById(R.id.pb_link_goods_rv);
+        this.kdY.setNestedScrollingEnabled(false);
+        this.lxa = (LinearLayout) findViewById(R.id.pb_more_post_rl);
+        this.lwX = (TextView) findViewById(R.id.tv_post);
+        this.lwY = (RelativeLayout) findViewById(R.id.rl_more_post);
+        this.leF = (ImageView) findViewById(R.id.iv_arrow);
+        this.lwZ = (ThreadForumEnterGoodsButton) findViewById(R.id.pb_tip_enter_button);
+        this.lxb = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds14);
+        this.lxc = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds44);
+        this.lxd = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds36);
+        this.lxe = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds22);
+        this.lwW = new b();
+        this.kdY.setLayoutManager(new LinearLayoutManager(this.mContext));
+        this.kdY.setAdapter(this.lwW);
+        this.lwY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbLinkGoodsRootView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PbLinkGoodsRootView.this.dlq();
+                PbLinkGoodsRootView.this.dkN();
             }
         });
     }
 
-    public void a(com.baidu.tieba.pb.data.f fVar, List<com.baidu.tieba.card.data.d> list, String str, PbFragment pbFragment, boolean z) {
-        this.lpI = pbFragment;
+    public void a(com.baidu.tieba.pb.data.f fVar, List<com.baidu.tieba.card.data.c> list, String str, PbFragment pbFragment, boolean z) {
+        this.lpX = pbFragment;
         a(fVar, list, str, z);
-        if (this.lpI != null) {
-            uu(this.lpI.dkY());
+        if (this.lpX != null) {
+            ux(this.lpX.dkv());
         }
     }
 
-    public void a(com.baidu.tieba.pb.data.f fVar, List<com.baidu.tieba.card.data.d> list, String str, VideoPbFragment videoPbFragment, boolean z) {
-        this.lwQ = videoPbFragment;
+    public void a(com.baidu.tieba.pb.data.f fVar, List<com.baidu.tieba.card.data.c> list, String str, VideoPbFragment videoPbFragment, boolean z) {
+        this.lxg = videoPbFragment;
         a(fVar, list, str, z);
-        if (this.lwQ != null) {
-            uu(this.lwQ.dkY());
+        if (this.lxg != null) {
+            ux(this.lxg.dkv());
         }
     }
 
-    public void a(com.baidu.tieba.pb.data.f fVar, List<com.baidu.tieba.card.data.d> list, String str, boolean z) {
+    public void a(com.baidu.tieba.pb.data.f fVar, List<com.baidu.tieba.card.data.c> list, String str, boolean z) {
         this.mData = list;
-        this.akq = fVar.dik();
-        this.akq.Bc(fVar.getForumName());
-        this.akq.setFid(Long.valueOf(fVar.getForumId()).longValue());
-        this.eHd = z;
+        this.akt = fVar.dhH();
+        this.akt.Ax(fVar.getForumName());
+        this.akt.setFid(Long.valueOf(fVar.getForumId()).longValue());
+        this.eFv = z;
         this.maxCount = list.size();
         if (list.size() < 4) {
-            this.lwK.setVisibility(8);
+            this.lxa.setVisibility(8);
         } else {
-            this.lwK.setVisibility(0);
+            this.lxa.setVisibility(0);
         }
-        if (this.eHd) {
-            this.eHd = z;
-            this.lwJ.setFrom(1);
-            this.lwJ.r(this.akq);
-            this.lwJ.setVisibility(0);
+        if (this.eFv) {
+            this.eFv = z;
+            this.lwZ.setFrom(1);
+            this.lwZ.r(this.akt);
+            this.lwZ.setVisibility(0);
             return;
         }
-        this.lwJ.setVisibility(8);
+        this.lwZ.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dlq() {
-        if (this.lpI != null) {
-            if (this.lpI.dkY()) {
-                this.lpI.uo(false);
-                uu(false);
+    public void dkN() {
+        if (this.lpX != null) {
+            if (this.lpX.dkv()) {
+                this.lpX.ur(false);
+                ux(false);
                 return;
             }
-            this.lpI.uo(true);
-            uu(true);
-            dlr();
-        } else if (this.lwQ != null) {
-            if (this.lwQ.dkY()) {
-                this.lwQ.uo(false);
-                uu(false);
+            this.lpX.ur(true);
+            ux(true);
+            dkO();
+        } else if (this.lxg != null) {
+            if (this.lxg.dkv()) {
+                this.lxg.ur(false);
+                ux(false);
                 return;
             }
-            this.lwQ.uo(true);
-            uu(true);
-            dlr();
+            this.lxg.ur(true);
+            ux(true);
+            dkO();
         }
     }
 
-    private void dlr() {
-        if (this.akq != null && this.eHd) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c13968").w("fid", this.akq.getFid()).dR("fname", this.akq.bmE()).dR("tid", this.akq.getTid()));
+    private void dkO() {
+        if (this.akt != null && this.eFv) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c13968").w("fid", this.akt.getFid()).dR("fname", this.akt.blG()).dR("tid", this.akt.getTid()));
         }
     }
 
-    private void uu(boolean z) {
+    private void ux(boolean z) {
         if (z) {
             this.maxCount = this.mData.size();
-            this.lwH.setText(this.eHd ? getResources().getString(R.string.pb_first_goods_more_close) : getResources().getString(R.string.pb_first_link_more_close));
-            this.lwP = R.drawable.icon_pure_fold12_svg;
+            this.lwX.setText(this.eFv ? getResources().getString(R.string.pb_first_goods_more_close) : getResources().getString(R.string.pb_first_link_more_close));
+            this.lxf = R.drawable.icon_pure_fold12_svg;
         } else {
             if (this.maxCount > 3) {
                 this.maxCount = 3;
             }
-            this.lwH.setText(this.eHd ? getResources().getString(R.string.pb_first_goods_more_open) : getResources().getString(R.string.pb_first_link_more_open));
-            this.lwP = R.drawable.icon_pure_unfold12_svg;
+            this.lwX.setText(this.eFv ? getResources().getString(R.string.pb_first_goods_more_open) : getResources().getString(R.string.pb_first_link_more_open));
+            this.lxf = R.drawable.icon_pure_unfold12_svg;
         }
-        this.lwG.notifyDataSetChanged();
+        this.lwW.notifyDataSetChanged();
         setMarginTop(z);
-        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lwH, R.color.cp_link_tip_a);
-        SvgManager.brn().a(this.leo, this.lwP, R.color.cp_link_tip_a, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lwX, R.color.CAM_X0107);
+        SvgManager.bqB().a(this.leF, this.lxf, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void setMarginTop(boolean z) {
         if (z) {
-            this.lwK.setPadding(0, this.lwN, 0, this.lwO);
+            this.lxa.setPadding(0, this.lxd, 0, this.lxe);
         } else {
-            this.lwK.setPadding(0, this.lwL, 0, this.lwM);
+            this.lxa.setPadding(0, this.lxb, 0, this.lxc);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public class b extends RecyclerView.Adapter {
         b() {
         }
@@ -200,42 +201,42 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             if (viewHolder instanceof a) {
                 a aVar = (a) viewHolder;
                 if (i < PbLinkGoodsRootView.this.mData.size() && PbLinkGoodsRootView.this.mData.get(i) != null) {
-                    if (PbLinkGoodsRootView.this.lpI == null || PbLinkGoodsRootView.this.lpI.dkY() || i != 2 || PbLinkGoodsRootView.this.mData.size() <= 3) {
-                        if (PbLinkGoodsRootView.this.lwQ == null || PbLinkGoodsRootView.this.lwQ.dkY() || i != 2 || PbLinkGoodsRootView.this.mData.size() <= 3) {
-                            aVar.fic.setVisibility(8);
+                    if (PbLinkGoodsRootView.this.lpX == null || PbLinkGoodsRootView.this.lpX.dkv() || i != 2 || PbLinkGoodsRootView.this.mData.size() <= 3) {
+                        if (PbLinkGoodsRootView.this.lxg == null || PbLinkGoodsRootView.this.lxg.dkv() || i != 2 || PbLinkGoodsRootView.this.mData.size() <= 3) {
+                            aVar.fhk.setVisibility(8);
                         } else {
-                            aVar.fic.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbLinkGoodsRootView.b.2
+                            aVar.fhk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbLinkGoodsRootView.b.2
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view) {
-                                    PbLinkGoodsRootView.this.dlq();
+                                    PbLinkGoodsRootView.this.dkN();
                                 }
                             });
-                            aVar.fic.setVisibility(0);
-                            com.baidu.tbadk.core.util.e.a.brO().pj(0).i(R.color.cp_bg_line_d_alpha70, R.color.cp_bg_line_d).bk(aVar.fic);
+                            aVar.fhk.setVisibility(0);
+                            com.baidu.tbadk.core.util.e.a.brc().pF(0).l(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).bn(aVar.fhk);
                         }
                     } else {
-                        aVar.fic.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbLinkGoodsRootView.b.1
+                        aVar.fhk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbLinkGoodsRootView.b.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
-                                PbLinkGoodsRootView.this.dlq();
+                                PbLinkGoodsRootView.this.dkN();
                             }
                         });
-                        aVar.fic.setVisibility(0);
-                        com.baidu.tbadk.core.util.e.a.brO().pj(0).i(R.color.cp_bg_line_d_alpha70, R.color.cp_bg_line_d).bk(aVar.fic);
+                        aVar.fhk.setVisibility(0);
+                        com.baidu.tbadk.core.util.e.a.brc().pF(0).l(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).bn(aVar.fhk);
                     }
-                    aVar.lwS.a((com.baidu.tieba.card.data.d) PbLinkGoodsRootView.this.mData.get(i));
-                    aVar.lwS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbLinkGoodsRootView.b.3
+                    aVar.lxi.a((com.baidu.tieba.card.data.c) PbLinkGoodsRootView.this.mData.get(i));
+                    aVar.lxi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbLinkGoodsRootView.b.3
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            PbLinkGoodsRootView.this.b((com.baidu.tieba.card.data.d) PbLinkGoodsRootView.this.mData.get(i));
+                            PbLinkGoodsRootView.this.b((com.baidu.tieba.card.data.c) PbLinkGoodsRootView.this.mData.get(i));
                         }
                     });
                     if (!(PbLinkGoodsRootView.this.mData.get(i) instanceof PbLinkData) || PbLinkGoodsRootView.this.mData.get(i) == null) {
                         if (PbLinkGoodsRootView.this.mData.get(i) instanceof PbGoodsData) {
-                            PbLinkGoodsRootView.this.bA("c13961", 2);
+                            PbLinkGoodsRootView.this.bz("c13961", 2);
                         }
                     } else if (((PbLinkData) PbLinkGoodsRootView.this.mData.get(i)).urlType == 2) {
-                        PbLinkGoodsRootView.this.bA("c13961", 1);
+                        PbLinkGoodsRootView.this.bz("c13961", 1);
                     }
                 }
             }
@@ -248,23 +249,23 @@ public class PbLinkGoodsRootView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.tieba.card.data.d dVar) {
-        if (dVar instanceof PbLinkData) {
-            PbLinkData pbLinkData = (PbLinkData) dVar;
+    public void b(com.baidu.tieba.card.data.c cVar) {
+        if (cVar instanceof PbLinkData) {
+            PbLinkData pbLinkData = (PbLinkData) cVar;
             if (pbLinkData != null) {
                 TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) this.mContext;
                 if (pbLinkData.urlType == 1) {
-                    com.baidu.tbadk.core.util.be.brr().b(tbPageContextSupport.getPageContext(), new String[]{pbLinkData.linkUrl});
+                    bf.bqF().b(tbPageContextSupport.getPageContext(), new String[]{pbLinkData.linkUrl});
                 } else {
-                    com.baidu.tbadk.core.util.be.brr().b(tbPageContextSupport.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + com.baidu.adp.lib.util.k.getUrlEncode(pbLinkData.linkUrl)});
+                    bf.bqF().b(tbPageContextSupport.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + com.baidu.adp.lib.util.k.getUrlEncode(pbLinkData.linkUrl)});
                 }
                 if (pbLinkData.urlType == 2) {
-                    bA("c13962", 1);
+                    bz("c13962", 1);
                 }
             }
-        } else if (dVar instanceof PbGoodsData) {
+        } else if (cVar instanceof PbGoodsData) {
             TbPageContextSupport tbPageContextSupport2 = (TbPageContextSupport) this.mContext;
-            PbGoodsData pbGoodsData = (PbGoodsData) dVar;
+            PbGoodsData pbGoodsData = (PbGoodsData) cVar;
             if (pbGoodsData != null) {
                 if (!TextUtils.isEmpty(pbGoodsData.linkUrl)) {
                     if (pbGoodsData.linkUrl.startsWith("tiebaclient://")) {
@@ -274,34 +275,34 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                         intent.addFlags(268468224);
                         if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
                             this.mContext.startActivity(intent);
-                        } else if (!TextUtils.isEmpty(((PbGoodsData) dVar).goodsUrlH5)) {
-                            com.baidu.tbadk.core.util.be.brr().b(tbPageContextSupport2.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + com.baidu.adp.lib.util.k.getUrlEncode(pbGoodsData.goodsUrlH5)});
+                        } else if (!TextUtils.isEmpty(((PbGoodsData) cVar).goodsUrlH5)) {
+                            bf.bqF().b(tbPageContextSupport2.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + com.baidu.adp.lib.util.k.getUrlEncode(pbGoodsData.goodsUrlH5)});
                         }
                     }
                 } else {
-                    com.baidu.tbadk.core.util.be.brr().b(tbPageContextSupport2.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + com.baidu.adp.lib.util.k.getUrlEncode(pbGoodsData.goodsUrlH5)});
+                    bf.bqF().b(tbPageContextSupport2.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + com.baidu.adp.lib.util.k.getUrlEncode(pbGoodsData.goodsUrlH5)});
                 }
-                bA("c13962", 2);
+                bz("c13962", 2);
             }
         }
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     class a extends RecyclerView.ViewHolder {
-        private View fic;
-        private SingleLinkCardView lwS;
+        private View fhk;
+        private SingleLinkCardView lxi;
 
         public a(View view) {
             super(view);
-            this.fic = view.findViewById(R.id.mask_view);
-            this.lwS = (SingleLinkCardView) view.findViewById(R.id.pb_item_single_link_card);
+            this.fhk = view.findViewById(R.id.mask_view);
+            this.lxi = (SingleLinkCardView) view.findViewById(R.id.pb_item_single_link_card);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bA(String str, int i) {
-        if (this.akq != null) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aq(str).al("obj_type", i).w("fid", this.akq.getFid()).dR("fname", this.akq.bmE()).dR("tid", this.akq.getTid()));
+    public void bz(String str, int i) {
+        if (this.akt != null) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ar(str).ak("obj_type", i).w("fid", this.akt.getFid()).dR("fname", this.akt.blG()).dR("tid", this.akt.getTid()));
         }
     }
 }

@@ -1,4 +1,4 @@
 package com.google.ar.core.exceptions;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class UnavailableDeviceNotCompatibleException extends UnavailableException {
 }

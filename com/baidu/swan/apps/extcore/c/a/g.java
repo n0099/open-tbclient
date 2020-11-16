@@ -9,7 +9,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class g extends aa {
     public g(j jVar) {
         super(jVar, "/swanAPI/debug/setExtensionConfig");
@@ -27,7 +27,7 @@ public class g extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
-            eVar.aHG().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.g.1
+            eVar.aGY().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.g.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
@@ -37,13 +37,13 @@ public class g extends aa {
                         return;
                     }
                     int optInt = b.optInt("useExtension");
-                    if (!com.baidu.swan.apps.extcore.c.b.auf().exists()) {
+                    if (!com.baidu.swan.apps.extcore.c.b.atx().exists()) {
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, context.getResources().getString(a.h.aiapps_debug_no_extension_core));
                         return;
                     }
-                    com.baidu.swan.apps.ad.a.a.fV(com.baidu.swan.apps.extcore.c.a.iB(optInt));
+                    com.baidu.swan.apps.ad.a.a.fY(com.baidu.swan.apps.extcore.c.a.ix(optInt));
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    com.baidu.swan.apps.ad.a.a.aol();
+                    com.baidu.swan.apps.ad.a.a.anD();
                 }
             });
             return true;

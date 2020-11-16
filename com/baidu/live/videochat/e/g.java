@@ -7,9 +7,9 @@ public interface g extends c {
 
     void O(int i, String str);
 
-    void Vu();
+    void UL();
 
-    void Vv();
+    void UM();
 
     void a(AlaLiveInfoData alaLiveInfoData, com.baidu.live.videochat.b.a aVar, com.baidu.live.videochat.b.c cVar);
 }

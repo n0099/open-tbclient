@@ -12,11 +12,11 @@ public abstract class c<T> extends b<T> {
 
     @Override // com.baidu.tieba.ala.alaar.makeup.c.b
     protected long x(String str, long j) {
-        return d.AZ().getLong(str, j);
+        return d.Aq().getLong(str, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int aC(String str, int i) {
-        return d.AZ().getInt(str, i);
+    public int aB(String str, int i) {
+        return d.Aq().getInt(str, i);
     }
 }

@@ -17,17 +17,17 @@ import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tbadk.core.view.userLike.c;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.data.i;
-/* loaded from: classes24.dex */
-public class b extends com.baidu.tieba.card.b<i> {
-    private c ajW;
-    public ClickableHeaderImageView jpv;
-    public CommonUserLikeButton jtl;
-    private TextView jtn;
-    private TextView jto;
-    private MetaData jtq;
-    private i jtr;
-    private TextView jts;
+import com.baidu.tieba.card.data.h;
+/* loaded from: classes23.dex */
+public class b extends com.baidu.tieba.card.b<h> {
+    private c ajZ;
+    public ClickableHeaderImageView jqc;
+    public CommonUserLikeButton jtS;
+    private TextView jtU;
+    private TextView jtV;
+    private MetaData jtX;
+    private h jtY;
+    private TextView jtZ;
     private View mBottomLine;
     private TbPageContext<?> mPageContext;
 
@@ -35,15 +35,15 @@ public class b extends com.baidu.tieba.card.b<i> {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         getView().setOnClickListener(this);
-        this.jpv = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
-        this.jpv.setGodIconMargin(R.dimen.ds6);
-        this.jpv.setAfterClickListener(this);
-        this.jtn = (TextView) getView().findViewById(R.id.god_name);
-        this.jto = (TextView) getView().findViewById(R.id.god_describe);
-        this.jts = (TextView) getView().findViewById(R.id.rec_reason);
-        this.jtl = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
-        this.ajW = new c(tbPageContext, this.jtl);
-        this.jtl.setAfterOnClickListener(this);
+        this.jqc = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
+        this.jqc.setGodIconMargin(R.dimen.ds6);
+        this.jqc.setAfterClickListener(this);
+        this.jtU = (TextView) getView().findViewById(R.id.god_name);
+        this.jtV = (TextView) getView().findViewById(R.id.god_describe);
+        this.jtZ = (TextView) getView().findViewById(R.id.rec_reason);
+        this.jtS = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
+        this.ajZ = new c(tbPageContext, this.jtS);
+        this.jtS.setAfterOnClickListener(this);
         this.mBottomLine = getView().findViewById(R.id.bottom_line);
     }
 
@@ -56,10 +56,10 @@ public class b extends com.baidu.tieba.card.b<i> {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundResource(getView(), R.drawable.home_thread_card_item_bg);
-            ap.setViewTextColor(this.jtn, R.color.cp_cont_b);
-            ap.setViewTextColor(this.jto, R.color.cp_cont_d);
-            ap.setViewTextColor(this.jts, R.color.cp_cont_d);
-            ap.setBackgroundColor(this.mBottomLine, R.color.cp_bg_line_c);
+            ap.setViewTextColor(this.jtU, R.color.CAM_X0105);
+            ap.setViewTextColor(this.jtV, R.color.CAM_X0109);
+            ap.setViewTextColor(this.jtZ, R.color.CAM_X0109);
+            ap.setBackgroundColor(this.mBottomLine, R.color.CAM_X0204);
         }
         this.mSkinType = i;
     }
@@ -71,32 +71,32 @@ public class b extends com.baidu.tieba.card.b<i> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
-    public void a(i iVar) {
-        if (iVar != null && iVar.eEK != null && iVar.eEK.getGodUserData() != null) {
-            this.jtr = iVar;
-            this.jtq = iVar.eEK;
-            this.jpv.setData(iVar.eEK);
-            this.jtn.setText(iVar.eEK.getName_show());
-            this.jto.setText(iVar.eEK.getGodUserData().getIntro());
+    public void a(h hVar) {
+        if (hVar != null && hVar.eDc != null && hVar.eDc.getGodUserData() != null) {
+            this.jtY = hVar;
+            this.jtX = hVar.eDc;
+            this.jqc.setData(hVar.eDc);
+            this.jtU.setText(hVar.eDc.getName_show());
+            this.jtV.setText(hVar.eDc.getGodUserData().getIntro());
             String string = this.mPageContext.getResources().getString(R.string.recommend_reason);
-            String recommendReason = iVar.eEK.getGodUserData().getRecommendReason();
+            String recommendReason = hVar.eDc.getGodUserData().getRecommendReason();
             if (StringUtils.isNull(recommendReason)) {
-                this.jts.setText("");
+                this.jtZ.setText("");
             } else {
-                this.jts.setText(String.format(string, recommendReason));
+                this.jtZ.setText(String.format(string, recommendReason));
             }
-            this.ajW.a(iVar.eEK);
+            this.ajZ.a(hVar.eDc);
             onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (cnT() != null) {
-            cnT().a(view, this.jtr);
+        if (cnv() != null) {
+            cnv().a(view, this.jtY);
         }
-        if (view == getView() && this.jtq != null && !StringUtils.isNull(this.jtq.getName_show()) && !StringUtils.isNull(this.jtq.getUserId())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mPageContext.getPageActivity(), this.jtq.getUserId(), this.jtq.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        if (view == getView() && this.jtX != null && !StringUtils.isNull(this.jtX.getName_show()) && !StringUtils.isNull(this.jtX.getUserId())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mPageContext.getPageActivity(), this.jtX.getUserId(), this.jtX.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
         }
     }
 }

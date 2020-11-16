@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class y {
-    private Map<String, x> aWB;
-    private Map<String, Integer> aWC;
+    private Map<String, x> aUQ;
+    private Map<String, Integer> aUR;
     private List<h> mDatas;
 
-    public static y Hc() {
-        return a.aWD;
+    public static y Gt() {
+        return a.aUS;
     }
 
     public void G(List<h> list) {
@@ -25,7 +25,7 @@ public class y {
         if (list != null) {
             this.mDatas.addAll(list);
         }
-        Hf();
+        Gw();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913122));
     }
 
@@ -33,46 +33,46 @@ public class y {
         return this.mDatas;
     }
 
-    public Map<String, x> Hd() {
-        return this.aWB;
+    public Map<String, x> Gu() {
+        return this.aUQ;
     }
 
-    public Map<String, Integer> He() {
-        return this.aWC;
+    public Map<String, Integer> Gv() {
+        return this.aUR;
     }
 
     public void release() {
         if (this.mDatas != null) {
             this.mDatas.clear();
         }
-        if (this.aWB != null) {
-            this.aWB.clear();
+        if (this.aUQ != null) {
+            this.aUQ.clear();
         }
-        if (this.aWC != null) {
-            this.aWC.clear();
+        if (this.aUR != null) {
+            this.aUR.clear();
         }
     }
 
-    private void Hf() {
+    private void Gw() {
         g.b.a aVar;
-        if (this.aWB == null) {
-            this.aWB = new HashMap();
+        if (this.aUQ == null) {
+            this.aUQ = new HashMap();
         }
-        this.aWB.clear();
-        if (this.aWC == null) {
-            this.aWC = new HashMap();
+        this.aUQ.clear();
+        if (this.aUR == null) {
+            this.aUR = new HashMap();
         }
-        this.aWC.clear();
+        this.aUR.clear();
         if (this.mDatas != null && this.mDatas.size() > 0) {
             for (h hVar : this.mDatas) {
-                List<g> Gu = hVar.Gu();
-                if (Gu != null && !Gu.isEmpty()) {
-                    for (g gVar : Gu) {
-                        if (gVar.aUI != null && (aVar = gVar.aUI.aUY) != null && aVar.key == 10 && aVar.aUZ != null) {
-                            String optString = aVar.aUZ.optString("id");
-                            if (this.aWB.get(optString) == null) {
-                                this.aWB.put(optString, new x(gVar.FT(), gVar.aUI.aUU, gVar.aUy));
-                                this.aWC.put(optString, Integer.valueOf(gVar.aUI.aUV));
+                List<g> FL = hVar.FL();
+                if (FL != null && !FL.isEmpty()) {
+                    for (g gVar : FL) {
+                        if (gVar.aSX != null && (aVar = gVar.aSX.aTn) != null && aVar.key == 10 && aVar.aTo != null) {
+                            String optString = aVar.aTo.optString("id");
+                            if (this.aUQ.get(optString) == null) {
+                                this.aUQ.put(optString, new x(gVar.Fk(), gVar.aSX.aTj, gVar.aSN));
+                                this.aUR.put(optString, Integer.valueOf(gVar.aSX.aTk));
                             }
                         }
                     }
@@ -86,6 +86,6 @@ public class y {
 
     /* loaded from: classes4.dex */
     private static class a {
-        private static final y aWD = new y();
+        private static final y aUS = new y();
     }
 }

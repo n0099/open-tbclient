@@ -5,7 +5,7 @@ import com.baidu.mobstat.ActivityLifeObserver;
 import com.baidu.mobstat.AutoTrack;
 import com.baidu.mobstat.af;
 import com.baidu.mobstat.av;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class ActivityLifeTask {
 
     /* renamed from: a  reason: collision with root package name */

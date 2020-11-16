@@ -1,26 +1,31 @@
 package com.baidu.tbadk.core.data;
-/* loaded from: classes21.dex */
-public class ag {
-    public int aIL;
-    public int aWg;
-    public int accountType;
-    public long beginTime;
-    public String desc;
-    public long eBj;
-    public String eBk;
-    public long eBl;
-    public long eBm;
-    public int eBn;
-    public int eBo;
-    public int eBp;
-    public long endTime;
-    public int id;
-    public String name;
-    public long postId;
-    public long price;
-    public int sendCount;
-    public long threadId;
-    public String thumbnailUrl;
-    public long toUserId;
-    public String toUserName;
+
+import com.baidu.adp.BdUniqueId;
+import java.util.List;
+import tbclient.FrsPage.RecommendBook;
+/* loaded from: classes.dex */
+public class ag extends bx {
+    public static final BdUniqueId ezx = BdUniqueId.gen();
+    public String eyj;
+    public int ezy;
+    public List<String> ezz;
+    public String image;
+    public String linkUrl;
+    public String title;
+
+    public void a(RecommendBook recommendBook) {
+        if (recommendBook != null) {
+            this.ezy = recommendBook.type.intValue();
+            this.eyj = recommendBook.book_id;
+            this.title = recommendBook.title;
+            this.image = recommendBook.image;
+            this.ezz = recommendBook.desc;
+            this.linkUrl = recommendBook.link_url;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.data.bx, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return ezx;
+    }
 }

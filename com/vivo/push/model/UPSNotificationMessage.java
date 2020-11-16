@@ -2,7 +2,7 @@ package com.vivo.push.model;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public class UPSNotificationMessage {
     public static final int CUSTOM = 3;
     public static final int OPENACTIVITY = 4;

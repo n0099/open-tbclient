@@ -3,7 +3,7 @@ package com.cmic.sso.sdk.c.d;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */

@@ -26,9 +26,9 @@ public class LivePKMvpView extends RelativeLayout implements Runnable {
     private ImageView e;
     private TextView f;
     private ImageView g;
-    private FrescoThumbnailView pjv;
-    private Set<Animator> pwv;
-    private a pww;
+    private FrescoThumbnailView pkZ;
+    private Set<Animator> pxY;
+    private a pxZ;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -37,19 +37,19 @@ public class LivePKMvpView extends RelativeLayout implements Runnable {
 
     public LivePKMvpView(Context context) {
         super(context);
-        this.pwv = new HashSet();
+        this.pxY = new HashSet();
         a(context);
     }
 
     public LivePKMvpView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.pwv = new HashSet();
+        this.pxY = new HashSet();
         a(context);
     }
 
     public LivePKMvpView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.pwv = new HashSet();
+        this.pxY = new HashSet();
         a(context);
     }
 
@@ -64,7 +64,7 @@ public class LivePKMvpView extends RelativeLayout implements Runnable {
         this.f4204a = (RelativeLayout) findViewById(a.f.rl_pk_icon);
         this.b = (ImageView) findViewById(a.f.iv_pk_left);
         this.c = (ImageView) findViewById(a.f.iv_pk_right);
-        this.pjv = (FrescoThumbnailView) findViewById(a.f.iv_pk_icon);
+        this.pkZ = (FrescoThumbnailView) findViewById(a.f.iv_pk_icon);
         this.e = (ImageView) findViewById(a.f.iv_pk_water);
         this.f = (TextView) findViewById(a.f.tv_pk_nickname);
         this.g = (ImageView) findViewById(a.f.iv_pk_mvp_tag);
@@ -74,7 +74,7 @@ public class LivePKMvpView extends RelativeLayout implements Runnable {
         clearAnimation();
         setVisibility(0);
         this.f.setText(str2);
-        this.pjv.ce(str, tv.chushou.widget.a.c.eHE());
+        this.pkZ.cd(str, tv.chushou.widget.a.c.eHF());
         this.e.setVisibility(0);
         this.e.setAlpha(0.0f);
         this.g.setVisibility(0);
@@ -103,8 +103,8 @@ public class LivePKMvpView extends RelativeLayout implements Runnable {
         ofPropertyValuesHolder4.setInterpolator(new LinearInterpolator());
         ofPropertyValuesHolder4.setStartDelay(1600L);
         ofPropertyValuesHolder4.start();
-        this.pwv.add(animatorSet3);
-        this.pwv.add(ofPropertyValuesHolder4);
+        this.pxY.add(animatorSet3);
+        this.pxY.add(ofPropertyValuesHolder4);
         postDelayed(this, 2600L);
     }
 
@@ -117,22 +117,22 @@ public class LivePKMvpView extends RelativeLayout implements Runnable {
     @Override // android.view.View
     public void clearAnimation() {
         super.clearAnimation();
-        for (Animator animator : this.pwv) {
+        for (Animator animator : this.pxY) {
             animator.cancel();
         }
-        this.pwv.clear();
+        this.pxY.clear();
         removeCallbacks(this);
     }
 
     @Override // java.lang.Runnable
     public void run() {
         a();
-        if (this.pww != null) {
-            this.pww.a();
+        if (this.pxZ != null) {
+            this.pxZ.a();
         }
     }
 
     public void setCallback(a aVar) {
-        this.pww = aVar;
+        this.pxZ = aVar;
     }
 }

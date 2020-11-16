@@ -6,7 +6,7 @@ import com.baidu.tbadk.util.u;
 import tbclient.CommonReq;
 import tbclient.GetHorseRaceLampList.DataReq;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class LiveHorseRaceRequestMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */

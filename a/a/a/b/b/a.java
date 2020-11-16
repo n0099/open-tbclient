@@ -1,5 +1,5 @@
 package a.a.a.b.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
     public com.baidu.cloudbase.download.a.c yv;
     public com.baidu.cloudbase.download.a.b yw = new com.baidu.cloudbase.download.a.b();

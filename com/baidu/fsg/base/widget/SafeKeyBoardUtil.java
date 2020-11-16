@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.baidu.fsg.base.utils.LogUtil;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class SafeKeyBoardUtil {
 
     /* renamed from: a  reason: collision with root package name */

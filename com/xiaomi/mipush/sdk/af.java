@@ -9,7 +9,7 @@ import com.xiaomi.push.hz;
 import com.xiaomi.push.ie;
 import com.xiaomi.push.il;
 import com.xiaomi.push.iw;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class af extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
@@ -21,7 +21,7 @@ public class af extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo166a() {
+    public int mo169a() {
         return 2;
     }
 
@@ -32,7 +32,7 @@ public class af extends ai.a {
         ieVar.a(com.xiaomi.push.service.al.a(a2, hs.MISC_CONFIG));
         ieVar.b(com.xiaomi.push.service.al.a(a2, hs.PLUGIN_CONFIG));
         il ilVar = new il("-1", false);
-        ilVar.c(hw.DailyCheckClientConfig.f476a);
+        ilVar.c(hw.DailyCheckClientConfig.f479a);
         ilVar.a(iw.a(ieVar));
         aq.a(this.f4746a).a((aq) ilVar, hm.Notification, (hz) null);
     }

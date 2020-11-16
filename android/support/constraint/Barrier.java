@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public class Barrier extends ConstraintHelper {
     public static final int BOTTOM = 3;
     public static final int END = 6;

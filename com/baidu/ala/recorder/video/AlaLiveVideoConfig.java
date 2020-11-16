@@ -4,7 +4,7 @@ import com.baidu.ala.recorder.video.DynamicBitRateConfig;
 import com.baidu.platform.comapi.UIMsg;
 import com.baidu.tbadk.TbConfig;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class AlaLiveVideoConfig {
     public static final int HW_ENCODER = 1;
     private static final int PREVIEW_HEIGHT = 1280;

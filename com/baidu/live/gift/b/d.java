@@ -16,34 +16,34 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class d implements ac {
     @Override // com.baidu.live.gift.ac
-    public void gL(String str) {
+    public void gF(String str) {
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.live.f.a.cleanDir(new File(com.baidu.live.ac.b.ia(str)));
-            String gM = gM(str);
-            if (!TextUtils.isEmpty(gM)) {
-                com.baidu.live.f.a.cleanDir(new File(gM));
+            com.baidu.live.f.a.cleanDir(new File(com.baidu.live.ac.b.hU(str)));
+            String gG = gG(str);
+            if (!TextUtils.isEmpty(gG)) {
+                com.baidu.live.f.a.cleanDir(new File(gG));
             }
-            String gN = gN(str);
-            if (!TextUtils.isEmpty(gN)) {
-                com.baidu.live.f.a.cleanDir(new File(gN));
+            String gH = gH(str);
+            if (!TextUtils.isEmpty(gH)) {
+                com.baidu.live.f.a.cleanDir(new File(gH));
             }
-            String gO = gO(str);
-            if (!StringUtils.isNull(gO)) {
-                com.baidu.live.f.a.cleanDir(new File(gO));
+            String gI = gI(str);
+            if (!StringUtils.isNull(gI)) {
+                com.baidu.live.f.a.cleanDir(new File(gI));
             }
         }
     }
 
     @Override // com.baidu.live.gift.ac
-    public void GW() {
-        com.baidu.live.f.a.cleanDir(new File(com.baidu.live.ac.b.Qr()));
-        com.baidu.live.f.a.cleanDir(new File(a.aWH));
-        com.baidu.live.f.a.cleanDir(new File(a.aWI));
+    public void Gn() {
+        com.baidu.live.f.a.cleanDir(new File(com.baidu.live.ac.b.PI()));
+        com.baidu.live.f.a.cleanDir(new File(a.aUW));
+        com.baidu.live.f.a.cleanDir(new File(a.aUX));
     }
 
     @Override // com.baidu.live.gift.ac
     public void a(final String str, final String str2, final String str3, final String str4, final String str5, final boolean z, final boolean z2, final boolean z3, boolean z4) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4) && !e(str, aa.hh(str), z4)) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4) && !e(str, aa.hb(str), z4)) {
             new BdAsyncTask<Void, Void, Long>() { // from class: com.baidu.live.gift.b.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -89,42 +89,42 @@ public class d implements ac {
     }
 
     @Override // com.baidu.live.gift.ac
-    public void GX() {
-        com.baidu.live.f.b.dT(19);
+    public void Go() {
+        com.baidu.live.f.b.dP(19);
     }
 
-    private String gM(String str) {
-        return a.aWH + str;
+    private String gG(String str) {
+        return a.aUW + str;
     }
 
-    private String gN(String str) {
-        return gM(str) + "_zip";
+    private String gH(String str) {
+        return gG(str) + "_zip";
     }
 
-    private String gO(String str) {
-        return a.aWI + str;
+    private String gI(String str) {
+        return a.aUX + str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static long b(String str, String str2, String str3, String str4, boolean z) {
-        String ic = com.baidu.live.ac.b.ic(str2);
+        String hW = com.baidu.live.ac.b.hW(str2);
         String str5 = "dynamic_video_md5_" + str2;
-        if (!com.baidu.live.f.b.b(ic, com.baidu.live.f.b.gu(str5))) {
-            com.baidu.live.f.a.cleanDir(new File(com.baidu.live.ac.b.id(str2)));
-            return new File(ic).lastModified();
+        if (!com.baidu.live.f.b.b(hW, com.baidu.live.f.b.gn(str5))) {
+            com.baidu.live.f.a.cleanDir(new File(com.baidu.live.ac.b.hX(str2)));
+            return new File(hW).lastModified();
         }
-        com.baidu.live.f.b.a(str, str3, com.baidu.live.ac.b.ib(str2), ic, str5, str2, str4, 19, z);
+        com.baidu.live.f.b.a(str, str3, com.baidu.live.ac.b.hV(str2), hW, str5, str2, str4, 19, z);
         return -1L;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static long c(String str, String str2, String str3, String str4, boolean z) {
-        String id = com.baidu.live.ac.b.id(str2);
+        String hX = com.baidu.live.ac.b.hX(str2);
         String str5 = AlaDynamicGiftLocalInfoConfig.PIC_MD5_PREFIX + str2;
-        if (!com.baidu.live.f.b.b(id, com.baidu.live.f.b.gu(str5))) {
-            return new File(id).lastModified();
+        if (!com.baidu.live.f.b.b(hX, com.baidu.live.f.b.gn(str5))) {
+            return new File(hX).lastModified();
         }
-        com.baidu.live.f.b.a(str, str3, com.baidu.live.ac.b.ib(str2), id, str5, str2, str4, 19, z);
+        com.baidu.live.f.b.a(str, str3, com.baidu.live.ac.b.hV(str2), hX, str5, str2, str4, 19, z);
         return -1L;
     }
 }

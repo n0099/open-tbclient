@@ -11,7 +11,7 @@ public class f {
     public static boolean a(Context context, Activity activity) {
         try {
             if (!checkPermissionGranted(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE)) {
-                aB(activity);
+                aA(activity);
                 return false;
             }
         } catch (Exception e) {
@@ -31,7 +31,7 @@ public class f {
         return context.checkPermission(str, Process.myPid(), Process.myUid());
     }
 
-    private static boolean aB(Activity activity) {
+    private static boolean aA(Activity activity) {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.setDialogClickListener(new PermissionJudgePolicy.PermissionDialogClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.e.f.1
             @Override // com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy.PermissionDialogClickListener

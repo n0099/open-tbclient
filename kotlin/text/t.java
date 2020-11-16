@@ -6,9 +6,9 @@ import java.util.Iterator;
 import kotlin.collections.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class t extends s {
-    public static final boolean J(String str, String str2, boolean z) {
+    public static final boolean K(String str, String str2, boolean z) {
         if (str == null) {
             return str2 == null;
         } else if (!z) {
@@ -38,10 +38,10 @@ public class t extends s {
         if ((i & 2) != 0) {
             z = false;
         }
-        return l.K(str, str2, z);
+        return l.L(str, str2, z);
     }
 
-    public static final boolean K(String str, String str2, boolean z) {
+    public static final boolean L(String str, String str2, boolean z) {
         kotlin.jvm.internal.q.n(str, "receiver$0");
         kotlin.jvm.internal.q.n(str2, "prefix");
         return !z ? str.startsWith(str2) : l.a(str, 0, str2, 0, str2.length(), z);
@@ -51,9 +51,9 @@ public class t extends s {
         boolean z;
         kotlin.jvm.internal.q.n(charSequence, "receiver$0");
         if (charSequence.length() != 0) {
-            kotlin.b.h y = l.y(charSequence);
-            if (!(y instanceof Collection) || !((Collection) y).isEmpty()) {
-                Iterator<Integer> it = y.iterator();
+            kotlin.b.h z2 = l.z(charSequence);
+            if (!(z2 instanceof Collection) || !((Collection) z2).isEmpty()) {
+                Iterator<Integer> it = z2.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = true;

@@ -2,7 +2,7 @@ package com.baidu.pass.http;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 class a implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */

@@ -1,12 +1,12 @@
 package com.baidu.tieba.enterForum.data;
 
-import com.baidu.tbadk.core.data.u;
-/* loaded from: classes22.dex */
-public class a extends u {
+import com.baidu.tbadk.core.data.v;
+/* loaded from: classes21.dex */
+public class a extends v {
     private boolean isTop;
 
     public a(boolean z) {
-        nT(10);
+        nP(10);
         this.isTop = z;
     }
 

@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class ax {
     private static final ax c = new ax();
 

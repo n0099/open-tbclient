@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
@@ -74,21 +74,21 @@ public class ImageViewerConfig extends IntentConfig {
                 intent.putExtra("index", aVar.index);
                 intent.putExtra("is_pv", true);
                 intent.putExtra(PV_TYPE, "pb");
-                intent.putExtra(PARAM_IS_CDN, aVar.exu);
+                intent.putExtra(PARAM_IS_CDN, aVar.evK);
                 intent.putExtra("fname", aVar.forumName);
                 intent.putExtra("fid", aVar.forumId);
                 intent.putExtra("tid", aVar.threadId);
                 intent.putExtra(LAST_ID, aVar.lastId);
-                intent.putExtra(REVERSE_MODE, aVar.exv);
-                intent.putExtra(ASSIST_URLS, aVar.exw);
-                intent.putExtra(IS_SHOW_AD, aVar.exx);
-                intent.putExtra(NEED_BROADCAST, aVar.exy);
-                intent.putExtra(SEE_HOST, aVar.exz);
+                intent.putExtra(REVERSE_MODE, aVar.evL);
+                intent.putExtra(ASSIST_URLS, aVar.evM);
+                intent.putExtra(IS_SHOW_AD, aVar.evN);
+                intent.putExtra(NEED_BROADCAST, aVar.evO);
+                intent.putExtra(SEE_HOST, aVar.evP);
                 int size = aVar.data.size();
                 for (int i = 0; i < size; i++) {
                     String str = (String) aVar.data.get(i);
                     if (!StringUtils.isNull(str)) {
-                        ImageUrlData imageUrlData2 = aVar.exw != null ? (ImageUrlData) aVar.exw.get(str) : null;
+                        ImageUrlData imageUrlData2 = aVar.evM != null ? (ImageUrlData) aVar.evM.get(str) : null;
                         if (imageUrlData2 == null) {
                             ImageUrlData imageUrlData3 = new ImageUrlData();
                             imageUrlData3.imageUrl = str;
@@ -111,169 +111,169 @@ public class ImageViewerConfig extends IntentConfig {
             } else {
                 intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
             }
-            if (aVar.exA != null) {
-                intent.putExtra(IS_BJH, aVar.exA.blk());
-                if (aVar.exA.blk()) {
+            if (aVar.evQ != null) {
+                intent.putExtra(IS_BJH, aVar.evQ.bkm());
+                if (aVar.evQ.bkm()) {
                     intent.putExtra(PARAM_IS_CDN, true);
                 }
-                intent.putExtra("nid", aVar.exA.getNid());
-                intent.putExtra(IntentConfig.CARD_TYPE, aVar.exA.boz());
-                intent.putExtra(IntentConfig.RECOM_SOURCE, aVar.exA.mRecomSource);
-                intent.putExtra("ab_tag", aVar.exA.mRecomAbTag);
-                intent.putExtra("weight", aVar.exA.mRecomWeight);
-                intent.putExtra("extra", aVar.exA.mRecomExtra);
+                intent.putExtra("nid", aVar.evQ.getNid());
+                intent.putExtra(IntentConfig.CARD_TYPE, aVar.evQ.bnD());
+                intent.putExtra(IntentConfig.RECOM_SOURCE, aVar.evQ.mRecomSource);
+                intent.putExtra("ab_tag", aVar.evQ.mRecomAbTag);
+                intent.putExtra("weight", aVar.evQ.mRecomWeight);
+                intent.putExtra("extra", aVar.evQ.mRecomExtra);
             }
             if (!TextUtils.isEmpty(aVar.postId)) {
                 intent.putExtra("post_id", aVar.postId);
             }
-            intent.putExtra(IS_CAN_DRAG, aVar.exC);
-            if (aVar.exD != null && aVar.exE != null) {
+            intent.putExtra(IS_CAN_DRAG, aVar.evS);
+            if (aVar.evT != null && aVar.evU != null) {
                 int statusBarHeight = !UtilHelper.canUseStyleImmersiveSticky() ? UtilHelper.getStatusBarHeight() : 0;
                 JSONArray jSONArray = new JSONArray();
-                jSONArray.put((int) aVar.exE.left);
-                jSONArray.put((int) (aVar.exE.top - statusBarHeight));
-                jSONArray.put((int) aVar.exE.right);
-                jSONArray.put((int) (aVar.exE.bottom - statusBarHeight));
-                jSONArray.put(aVar.exD.left);
-                jSONArray.put(aVar.exD.top - statusBarHeight);
-                jSONArray.put(aVar.exD.right);
-                jSONArray.put(aVar.exD.bottom - statusBarHeight);
+                jSONArray.put((int) aVar.evU.left);
+                jSONArray.put((int) (aVar.evU.top - statusBarHeight));
+                jSONArray.put((int) aVar.evU.right);
+                jSONArray.put((int) (aVar.evU.bottom - statusBarHeight));
+                jSONArray.put(aVar.evT.left);
+                jSONArray.put(aVar.evT.top - statusBarHeight);
+                jSONArray.put(aVar.evT.right);
+                jSONArray.put(aVar.evT.bottom - statusBarHeight);
                 intent.putExtra("source_rect_in_screen", jSONArray.toString());
             }
-            intent.putExtra(IS_SHOW_HOST, aVar.exF);
-            if (aVar.exG) {
+            intent.putExtra(IS_SHOW_HOST, aVar.evV);
+            if (aVar.evW) {
                 intent.putExtra(IS_DYNAMIC_CARD, true);
                 intent.putExtra(IS_SHOW_BOTTOM_CONTAINER, false);
                 intent.putExtra(IS_SHOW_HOST, false);
             }
             intent.putExtra(IS_IDENTIFY_IMAGE, IdentifyImageSwitch.isOn());
-            intent.putExtra(IS_FROM_AI_APP, aVar.exH);
-            intent.putExtra("from_forum_id", aVar.exB);
+            intent.putExtra(IS_FROM_AI_APP, aVar.evX);
+            intent.putExtra("from_forum_id", aVar.evR);
         }
     }
 
     /* loaded from: classes.dex */
     public static final class a {
         private ArrayList<String> data;
-        private bw exA;
-        private String exB;
-        private Rect exD;
-        private RectF exE;
-        private boolean exG;
-        private boolean exH;
-        private boolean exu;
-        private boolean exv;
-        private ConcurrentHashMap<String, ImageUrlData> exw;
-        private boolean exx;
-        private boolean exy;
+        private boolean evK;
+        private boolean evL;
+        private ConcurrentHashMap<String, ImageUrlData> evM;
+        private boolean evN;
+        private boolean evO;
+        private bx evQ;
+        private String evR;
+        private Rect evT;
+        private RectF evU;
+        private boolean evW;
+        private boolean evX;
         private String forumName;
         private String lastId;
         private String postId;
         private int index = 0;
         private String forumId = "";
         private String threadId = "";
-        private boolean exz = false;
-        private boolean exC = true;
-        private boolean exF = true;
+        private boolean evP = false;
+        private boolean evS = true;
+        private boolean evV = true;
 
         public a x(ArrayList<String> arrayList) {
             this.data = arrayList;
             return this;
         }
 
-        public a nP(int i) {
+        public a nL(int i) {
             this.index = i;
             return this;
         }
 
-        public a AE(String str) {
+        public a zZ(String str) {
             this.forumName = str;
             return this;
         }
 
-        public a AF(String str) {
+        public a Aa(String str) {
             this.forumId = str;
             return this;
         }
 
-        public a AG(String str) {
+        public a Ab(String str) {
             this.threadId = str;
             return this;
         }
 
-        public a ix(boolean z) {
-            this.exu = z;
+        public a iy(boolean z) {
+            this.evK = z;
             return this;
         }
 
-        public a AH(String str) {
+        public a Ac(String str) {
             this.lastId = str;
             return this;
         }
 
-        public a iy(boolean z) {
-            this.exv = z;
+        public a iz(boolean z) {
+            this.evL = z;
             return this;
         }
 
         public a a(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
-            this.exw = concurrentHashMap;
-            return this;
-        }
-
-        public a iz(boolean z) {
-            this.exx = z;
+            this.evM = concurrentHashMap;
             return this;
         }
 
         public a iA(boolean z) {
-            this.exy = z;
+            this.evN = z;
             return this;
         }
 
         public a iB(boolean z) {
-            this.exz = z;
-            return this;
-        }
-
-        public a s(bw bwVar) {
-            this.exA = bwVar;
-            return this;
-        }
-
-        public a AI(String str) {
-            this.postId = str;
+            this.evO = z;
             return this;
         }
 
         public a iC(boolean z) {
-            this.exC = z;
+            this.evP = z;
             return this;
         }
 
-        public a a(Rect rect, RectF rectF) {
-            this.exD = rect;
-            this.exE = rectF;
+        public a s(bx bxVar) {
+            this.evQ = bxVar;
+            return this;
+        }
+
+        public a Ad(String str) {
+            this.postId = str;
             return this;
         }
 
         public a iD(boolean z) {
-            this.exF = z;
+            this.evS = z;
+            return this;
+        }
+
+        public a a(Rect rect, RectF rectF) {
+            this.evT = rect;
+            this.evU = rectF;
             return this;
         }
 
         public a iE(boolean z) {
-            this.exG = z;
+            this.evV = z;
             return this;
         }
 
         public a iF(boolean z) {
-            this.exH = z;
+            this.evW = z;
             return this;
         }
 
-        public a AJ(String str) {
-            this.exB = str;
+        public a iG(boolean z) {
+            this.evX = z;
+            return this;
+        }
+
+        public a Ae(String str) {
+            this.evR = str;
             return this;
         }
 

@@ -7,42 +7,42 @@ import android.widget.FrameLayout;
 import tv.chushou.zues.widget.kpswitch.a.c;
 /* loaded from: classes6.dex */
 public class KPSwitchRootFrameLayout extends FrameLayout {
-    public boolean qpO;
-    private c qpP;
+    public boolean qrr;
+    private c qrs;
 
     public KPSwitchRootFrameLayout(Context context) {
         super(context);
-        this.qpO = true;
+        this.qrr = true;
         init();
     }
 
     public KPSwitchRootFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.qpO = true;
+        this.qrr = true;
         init();
     }
 
     public KPSwitchRootFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.qpO = true;
+        this.qrr = true;
         init();
     }
 
     private void init() {
-        this.qpP = new c(this);
+        this.qrs = new c(this);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        if (this.qpO) {
-            this.qpP.ac(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        if (this.qrr) {
+            this.qrs.ac(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
         }
         super.onMeasure(i, i2);
     }
 
     public void setIsTranslucentStatus(boolean z) {
-        if (this.qpP != null) {
-            this.qpP.setIsTranslucentStatus(z);
+        if (this.qrs != null) {
+            this.qrs.setIsTranslucentStatus(z);
         }
     }
 }

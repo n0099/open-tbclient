@@ -1,16 +1,13 @@
 package com.baidu.tieba.c;
-
-import com.baidu.tbadk.core.data.TransmitForumData;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-public interface c {
+public abstract class c<T> {
+    final String mPropertyName;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2);
+    public abstract float aI(T t);
+
+    public abstract void setValue(T t, float f);
+
+    public c(String str) {
+        this.mPropertyName = str;
     }
-
-    void a(a aVar);
-
-    void cps();
 }

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public final class SoUtils implements NoProGuard {
     private static final String EXT = ".so";
     private static final boolean LOGFLAG = true;
@@ -19,7 +19,7 @@ public final class SoUtils implements NoProGuard {
     public static final boolean DEBUG = false;
     public static String[] uris = {"lib/armeabi", "lib/x86", "lib/mips"};
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes15.dex */
     public static final class SOLOG {
         public static final String SO_LOAD_LIBRARY = "SO_LOAD_LIBRARY";
         public static final String SO_LOAD_TAG = "SO_LOAD_TAG";
@@ -28,7 +28,7 @@ public final class SoUtils implements NoProGuard {
         public static final String SO_RELEASE_LIB_LOAD = "SO_RELEASE_LIB_LOAD";
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes15.dex */
     public interface SoUbcLoggable {
         void onEvent(String str, String str2);
     }

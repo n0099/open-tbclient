@@ -6,19 +6,19 @@ import com.xiaomi.push.dm;
 import java.io.File;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public final class u implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ Context f4779a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ boolean f81a;
+    final /* synthetic */ boolean f84a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(Context context, boolean z) {
         this.f4779a = context;
-        this.f81a = z;
+        this.f84a = z;
     }
 
     @Override // java.lang.Runnable
@@ -29,22 +29,22 @@ public final class u implements Runnable {
         File file = null;
         try {
             a2 = ac.a(this.f4779a, "");
-            absolutePath = this.f81a ? this.f4779a.getFilesDir().getAbsolutePath() : this.f4779a.getExternalFilesDir(null).getAbsolutePath() + dm.f221a;
+            absolutePath = this.f84a ? this.f4779a.getFilesDir().getAbsolutePath() : this.f4779a.getExternalFilesDir(null).getAbsolutePath() + dm.f224a;
             logFile = Logger.getLogFile(absolutePath);
         } catch (Throwable th) {
             th = th;
         }
         if (logFile == null) {
-            com.xiaomi.channel.commonutils.logger.b.m54a("log file null");
+            com.xiaomi.channel.commonutils.logger.b.m57a("log file null");
             return;
         }
         File file2 = new File(absolutePath, this.f4779a.getPackageName() + ".zip");
         try {
             com.xiaomi.push.y.a(file2, logFile);
             if (file2.exists()) {
-                az.a((this.f81a ? "https://api.xmpush.xiaomi.com/upload/xmsf_log?file=" : "https://api.xmpush.xiaomi.com/upload/app_log?file=") + file2.getName(), a2, file2, "file");
+                az.a((this.f84a ? "https://api.xmpush.xiaomi.com/upload/xmsf_log?file=" : "https://api.xmpush.xiaomi.com/upload/app_log?file=") + file2.getName(), a2, file2, "file");
             } else {
-                com.xiaomi.channel.commonutils.logger.b.m54a("zip log file failed");
+                com.xiaomi.channel.commonutils.logger.b.m57a("zip log file failed");
             }
         } catch (Throwable th2) {
             th = th2;

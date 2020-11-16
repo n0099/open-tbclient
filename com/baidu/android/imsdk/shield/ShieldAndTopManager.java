@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class ShieldAndTopManager {
     private static final String TAG = "ShieldAndTopManager";
     private static volatile ShieldAndTopManager mInstance;

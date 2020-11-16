@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.data;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class r {
     public String forum_top_list;
-    public final List<PostData> loD = new ArrayList();
-    public final List<Long> loE = new ArrayList();
+    public final List<PostData> loU = new ArrayList();
+    public final List<Long> loV = new ArrayList();
     private int count = 0;
 
     public int getCount() {

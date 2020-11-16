@@ -8,7 +8,7 @@ import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
 @TargetApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class Camera2Capturer extends CameraCapturer {
     @Nullable
     private final CameraManager cameraManager;

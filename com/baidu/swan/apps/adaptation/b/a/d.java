@@ -2,22 +2,22 @@ package com.baidu.swan.apps.adaptation.b.a;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public long cvK;
-    public long cvL;
-    public volatile long cvM;
-    public long cvN;
-    public long cvO;
-    private long cvP;
-    public String cvQ = "1";
+    public long ctY;
+    public long ctZ;
+    public volatile long cua;
+    public long cub;
+    public long cuc;
+    private long cud;
+    public String cue = "1";
 
-    public long aiU() {
-        if (this.cvP > 0) {
-            return this.cvP;
+    public long aim() {
+        if (this.cud > 0) {
+            return this.cud;
         }
-        long[] jArr = {this.cvN, this.cvO, this.cvL};
+        long[] jArr = {this.cub, this.cuc, this.ctZ};
         int length = jArr.length;
         int i = 0;
         long j = Long.MAX_VALUE;
@@ -30,42 +30,42 @@ public class d {
             j = j2;
         }
         if (j != Long.MAX_VALUE) {
-            this.cvP = j;
+            this.cud = j;
         }
-        return this.cvP;
+        return this.cud;
     }
 
-    public final void aiV() {
-        if (this.cvM > 0 && this.cvM != this.cvN && this.cvM != this.cvO && this.cvM != this.cvL) {
+    public final void ain() {
+        if (this.cua > 0 && this.cua != this.cub && this.cua != this.cuc && this.cua != this.ctZ) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: miss with real fmp=" + this.cvM);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: miss with real fmp=" + this.cua);
             }
-        } else if (this.cvN > 0) {
+        } else if (this.cub > 0) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with ftp=" + this.cvN);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with ftp=" + this.cub);
             }
-            this.cvM = this.cvN;
-            this.cvQ = "2";
-        } else if (this.cvO > 0) {
+            this.cua = this.cub;
+            this.cue = "2";
+        } else if (this.cuc > 0) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fip=" + this.cvO);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fip=" + this.cuc);
             }
-            this.cvM = this.cvO;
-            this.cvQ = "3";
-        } else if (this.cvL > 0) {
+            this.cua = this.cuc;
+            this.cue = "3";
+        } else if (this.ctZ > 0) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fcp=" + this.cvL);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fcp=" + this.ctZ);
             }
-            this.cvM = this.cvL;
-            this.cvQ = "1";
+            this.cua = this.ctZ;
+            this.cue = "1";
         } else if (DEBUG) {
             throw new RuntimeException("ftp fcp fip 至少收到上述一个回调才能校准 fmp \n" + toString());
         }
     }
 
     @NonNull
-    public String aiW() {
-        String str = this.cvQ;
+    public String aio() {
+        String str = this.cue;
         char c = 65535;
         switch (str.hashCode()) {
             case 48:
@@ -108,19 +108,19 @@ public class d {
     }
 
     public String bt(long j) {
-        if (j == this.cvN) {
+        if (j == this.cub) {
             return "2";
         }
-        if (j == this.cvO) {
+        if (j == this.cuc) {
             return "3";
         }
-        if (j != this.cvL && j == this.cvM) {
+        if (j != this.ctZ && j == this.cua) {
             return "0";
         }
         return "1";
     }
 
     public String toString() {
-        return "WebViewPaintTiming{fp=" + this.cvK + ", fcp=" + this.cvL + ", fmp=" + this.cvM + ", ftp=" + this.cvN + ", fip=" + this.cvO + ", mMinCache=" + this.cvP + ", fmpType='" + this.cvQ + "', fmpTypeName='" + aiW() + "'}";
+        return "WebViewPaintTiming{fp=" + this.ctY + ", fcp=" + this.ctZ + ", fmp=" + this.cua + ", ftp=" + this.cub + ", fip=" + this.cuc + ", mMinCache=" + this.cud + ", fmpType='" + this.cue + "', fmpTypeName='" + aio() + "'}";
     }
 }

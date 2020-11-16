@@ -6,17 +6,17 @@ import com.baidu.android.pushservice.d.g;
 import com.baidu.android.pushservice.d.j;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile c f1020a;
+    private static volatile c f1023a;
     private Context b;
     private Handler c;
     private Runnable d;
     private volatile boolean e;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(int i, String str);
     }
@@ -27,14 +27,14 @@ public class c {
     }
 
     public static c a(Context context) {
-        if (f1020a == null) {
+        if (f1023a == null) {
             synchronized (c.class) {
-                if (f1020a == null) {
-                    f1020a = new c(context);
+                if (f1023a == null) {
+                    f1023a = new c(context);
                 }
             }
         }
-        return f1020a;
+        return f1023a;
     }
 
     private com.baidu.android.pushservice.g.c a(final a aVar, String str) {

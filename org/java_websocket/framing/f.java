@@ -3,78 +3,78 @@ package org.java_websocket.framing;
 import java.nio.ByteBuffer;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode qcO;
-    private ByteBuffer qcP = org.java_websocket.e.b.eFf();
-    private boolean qcN = true;
-    private boolean qcQ = false;
-    private boolean qcR = false;
-    private boolean qcS = false;
-    private boolean qcT = false;
+    private Framedata.Opcode qer;
+    private ByteBuffer qes = org.java_websocket.e.b.eFg();
+    private boolean qeq = true;
+    private boolean qet = false;
+    private boolean qeu = false;
+    private boolean qev = false;
+    private boolean qew = false;
 
-    public abstract void eEU() throws InvalidDataException;
+    public abstract void eEV() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.qcO = opcode;
-    }
-
-    @Override // org.java_websocket.framing.Framedata
-    public boolean eEX() {
-        return this.qcR;
+        this.qer = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean eEY() {
-        return this.qcS;
+        return this.qeu;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean eEZ() {
-        return this.qcT;
+        return this.qev;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean amr() {
-        return this.qcN;
+    public boolean eFa() {
+        return this.qew;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode eFa() {
-        return this.qcO;
+    public boolean alJ() {
+        return this.qeq;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer eEW() {
-        return this.qcP;
+    public Framedata.Opcode eFb() {
+        return this.qer;
+    }
+
+    @Override // org.java_websocket.framing.Framedata
+    public ByteBuffer eEX() {
+        return this.qes;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + eFa() + ", fin:" + amr() + ", rsv1:" + eEX() + ", rsv2:" + eEY() + ", rsv3:" + eEZ() + ", payloadlength:[pos:" + this.qcP.position() + ", len:" + this.qcP.remaining() + "], payload:" + (this.qcP.remaining() > 1000 ? "(too big to display)" : new String(this.qcP.array())) + '}';
+        return "Framedata{ optcode:" + eFb() + ", fin:" + alJ() + ", rsv1:" + eEY() + ", rsv2:" + eEZ() + ", rsv3:" + eFa() + ", payloadlength:[pos:" + this.qes.position() + ", len:" + this.qes.remaining() + "], payload:" + (this.qes.remaining() > 1000 ? "(too big to display)" : new String(this.qes.array())) + '}';
     }
 
     public void B(ByteBuffer byteBuffer) {
-        this.qcP = byteBuffer;
+        this.qes = byteBuffer;
     }
 
-    public void eB(boolean z) {
-        this.qcN = z;
+    public void eE(boolean z) {
+        this.qeq = z;
     }
 
-    public void Bj(boolean z) {
-        this.qcR = z;
+    public void Bq(boolean z) {
+        this.qeu = z;
     }
 
-    public void Bk(boolean z) {
-        this.qcS = z;
+    public void Br(boolean z) {
+        this.qev = z;
     }
 
-    public void Bl(boolean z) {
-        this.qcT = z;
+    public void Bs(boolean z) {
+        this.qew = z;
     }
 
-    public void Bm(boolean z) {
-        this.qcQ = z;
+    public void Bt(boolean z) {
+        this.qet = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.qcN == fVar.qcN && this.qcQ == fVar.qcQ && this.qcR == fVar.qcR && this.qcS == fVar.qcS && this.qcT == fVar.qcT && this.qcO == fVar.qcO) {
-            if (this.qcP != null) {
-                z = this.qcP.equals(fVar.qcP);
-            } else if (fVar.qcP != null) {
+        if (this.qeq == fVar.qeq && this.qet == fVar.qet && this.qeu == fVar.qeu && this.qev == fVar.qev && this.qew == fVar.qew && this.qer == fVar.qer) {
+            if (this.qes != null) {
+                z = this.qes.equals(fVar.qes);
+            } else if (fVar.qes != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.qcS ? 1 : 0) + (((this.qcR ? 1 : 0) + (((this.qcQ ? 1 : 0) + (((this.qcP != null ? this.qcP.hashCode() : 0) + ((((this.qcN ? 1 : 0) * 31) + this.qcO.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.qcT ? 1 : 0);
+        return (((this.qev ? 1 : 0) + (((this.qeu ? 1 : 0) + (((this.qet ? 1 : 0) + (((this.qes != null ? this.qes.hashCode() : 0) + ((((this.qeq ? 1 : 0) * 31) + this.qer.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.qew ? 1 : 0);
     }
 }

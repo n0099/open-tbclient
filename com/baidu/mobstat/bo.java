@@ -17,7 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public final class bo {
 
     /* renamed from: a  reason: collision with root package name */

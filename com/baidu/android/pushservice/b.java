@@ -6,23 +6,23 @@ import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import java.lang.Thread;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f1013a;
+    private final Context f1016a;
     private final Thread.UncaughtExceptionHandler b;
 
     public b(Context context, Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
-        this.f1013a = context;
+        this.f1016a = context;
         this.b = uncaughtExceptionHandler;
     }
 
     private void a(Throwable th) {
         String stackTraceString = Log.getStackTraceString(th);
         if (stackTraceString.contains("com.baidu.android.pushservice")) {
-            m.a("exception " + stackTraceString + " at Time " + System.currentTimeMillis(), this.f1013a.getApplicationContext());
-            new b.c(this.f1013a).a(stackTraceString).a(201002L).a();
+            m.a("exception " + stackTraceString + " at Time " + System.currentTimeMillis(), this.f1016a.getApplicationContext());
+            new b.c(this.f1016a).a(stackTraceString).a(201002L).a();
         }
     }
 

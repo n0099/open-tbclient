@@ -4,7 +4,7 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class JSONToken {
     public static final int COLON = 17;
     public static final int COMMA = 16;

@@ -13,7 +13,7 @@ import com.baidu.ubc.v;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes17.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
     private static final String SP_UBC_FILE_NAME = "com.baidu.searchbox_ubc";
     static final String UBC_CLOUDCONFIG_VERSION = "ubc_cloudconfig_version";
@@ -33,7 +33,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
             }
             boolean z = !"0".equals(str);
             v vVar = new v("", serviceData);
-            vVar.bdV();
+            vVar.bdo();
             ((aa) c.a(aa.SERVICE_REFERENCE)).b(vVar, z, new s() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
                 @Override // com.baidu.ubc.s
                 public void setUBCConfigStatisticData(JSONObject jSONObject) {
@@ -42,9 +42,9 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                     }
                 }
             });
-            String edn = vVar.edn();
-            if (!TextUtils.isEmpty(edn)) {
-                sharedPrefsWrapper().putString(UBC_CLOUDCONFIG_VERSION, edn);
+            String edm = vVar.edm();
+            if (!TextUtils.isEmpty(edm)) {
+                sharedPrefsWrapper().putString(UBC_CLOUDCONFIG_VERSION, edm);
             }
             List<UBCCloudConfigObserver> list = new UBCCloudConfigObservers().mObservers.getList();
             if (list != null && !list.isEmpty()) {

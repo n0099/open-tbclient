@@ -5,7 +5,7 @@ import com.baidu.fsg.base.router.RouterAction;
 import com.baidu.fsg.base.router.RouterCallback;
 import com.baidu.fsg.face.liveness.utils.LivenessABTestUtil;
 import java.util.HashMap;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class b implements RouterAction {
     @Override // com.baidu.fsg.base.router.RouterAction
     public void invoke(Context context, HashMap hashMap, RouterCallback routerCallback) {

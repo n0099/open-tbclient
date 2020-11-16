@@ -2,7 +2,7 @@ package com.baidu.android.util.concurrent.task;
 
 import com.baidu.android.util.concurrent.task.TaskManager;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes16.dex */
 public class TaskOperation {
     private Object[] mNextTaskParams;
     private TaskManager.TaskManagerState mTaskManagerStatus;

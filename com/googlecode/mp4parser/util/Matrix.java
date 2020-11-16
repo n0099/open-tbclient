@@ -3,7 +3,7 @@ package com.googlecode.mp4parser.util;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class Matrix {
 
     /* renamed from: a  reason: collision with root package name */

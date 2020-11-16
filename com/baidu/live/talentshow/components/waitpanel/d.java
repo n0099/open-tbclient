@@ -7,17 +7,17 @@ import com.baidu.live.talentshow.components.waitpanel.a;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class d {
-    private b bxj;
-    private LiveVideoBCPanelData bxk;
-    private a bxl;
-    private CountDownTimer bxm;
+    private a bvA;
+    private CountDownTimer bvB;
+    private b bvy;
+    private LiveVideoBCPanelData bvz;
     private TbPageContext mContext;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void KR();
+        void Ki();
 
-        void Rc();
+        void Qt();
     }
 
     public d(TbPageContext tbPageContext) {
@@ -25,74 +25,74 @@ public class d {
     }
 
     public void u(w wVar) {
-        if (this.bxk == null) {
-            this.bxk = new LiveVideoBCPanelData();
+        if (this.bvz == null) {
+            this.bvz = new LiveVideoBCPanelData();
         }
-        this.bxk.setUserNickName(wVar.aJr.nickName);
-        this.bxk.setUserPortrait(wVar.aJr.portrait);
-        this.bxk.setAnchorNickName(wVar.aIV.userName);
-        this.bxk.setAnchorPortrait(wVar.aIV.portrait);
-        this.bxk.setDownTime(wVar.mLiveInfo.videoBCEnterData.audienceWaitTime);
-        RM();
-        this.bxm.cancel();
-        this.bxm.start();
+        this.bvz.setUserNickName(wVar.aHG.nickName);
+        this.bvz.setUserPortrait(wVar.aHG.portrait);
+        this.bvz.setAnchorNickName(wVar.aHk.userName);
+        this.bvz.setAnchorPortrait(wVar.aHk.portrait);
+        this.bvz.setDownTime(wVar.mLiveInfo.videoBCEnterData.audienceWaitTime);
+        Rd();
+        this.bvB.cancel();
+        this.bvB.start();
     }
 
-    public void QQ() {
-        if (this.bxj == null) {
-            this.bxj = new b(this.mContext, this.bxk);
-            this.bxj.a(new a.InterfaceC0204a() { // from class: com.baidu.live.talentshow.components.waitpanel.d.1
-                @Override // com.baidu.live.talentshow.components.waitpanel.a.InterfaceC0204a
+    public void Qh() {
+        if (this.bvy == null) {
+            this.bvy = new b(this.mContext, this.bvz);
+            this.bvy.a(new a.InterfaceC0202a() { // from class: com.baidu.live.talentshow.components.waitpanel.d.1
+                @Override // com.baidu.live.talentshow.components.waitpanel.a.InterfaceC0202a
                 public void a(LiveVideoBCPanelData liveVideoBCPanelData) {
-                    if (d.this.bxl != null) {
-                        d.this.bxl.Rc();
+                    if (d.this.bvA != null) {
+                        d.this.bvA.Qt();
                     }
                 }
             });
         }
-        this.bxj.b(this.bxk);
-        com.baidu.live.talentshow.e.a.SL();
+        this.bvy.b(this.bvz);
+        com.baidu.live.talentshow.e.a.Sc();
     }
 
     public void stopTiming() {
-        if (this.bxm != null) {
-            this.bxm.cancel();
+        if (this.bvB != null) {
+            this.bvB.cancel();
         }
     }
 
-    public void RL() {
-        if (this.bxj != null && this.bxj.isShowing()) {
-            this.bxj.dismiss();
+    public void Rc() {
+        if (this.bvy != null && this.bvy.isShowing()) {
+            this.bvy.dismiss();
         }
     }
 
     public void a(a aVar) {
-        this.bxl = aVar;
+        this.bvA = aVar;
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.bxj == null || !this.bxj.isShowing()) {
+        if (this.bvy == null || !this.bvy.isShowing()) {
             return false;
         }
-        this.bxj.dismiss();
+        this.bvy.dismiss();
         return true;
     }
 
-    private void RM() {
-        if (this.bxm == null) {
-            this.bxm = new CountDownTimer(this.bxk.getDownTime() * 1000, 1000L) { // from class: com.baidu.live.talentshow.components.waitpanel.d.2
+    private void Rd() {
+        if (this.bvB == null) {
+            this.bvB = new CountDownTimer(this.bvz.getDownTime() * 1000, 1000L) { // from class: com.baidu.live.talentshow.components.waitpanel.d.2
                 @Override // android.os.CountDownTimer
                 public void onTick(long j) {
-                    if (d.this.bxj != null && d.this.bxk != null) {
-                        d.this.bxk.setDownTime(((int) (j / 1000)) + 1);
-                        d.this.bxj.a((b) d.this.bxk);
+                    if (d.this.bvy != null && d.this.bvz != null) {
+                        d.this.bvz.setDownTime(((int) (j / 1000)) + 1);
+                        d.this.bvy.a((b) d.this.bvz);
                     }
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
-                    if (d.this.bxl != null) {
-                        d.this.bxl.KR();
+                    if (d.this.bvA != null) {
+                        d.this.bvA.Ki();
                     }
                 }
             };

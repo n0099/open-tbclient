@@ -1,12 +1,12 @@
 package com.baidu.tieba.personCenter.c;
 
 import tbclient.SmartApp;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class m implements c {
     private String Ob;
-    private Long lWf;
-    private String lWg;
-    private Integer lWh;
+    private Long lWx;
+    private String lWy;
+    private Integer lWz;
     private String mAppKey;
     private String mAvatar;
     private String mLink;
@@ -17,18 +17,18 @@ public class m implements c {
     public m(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.lWf = smartApp.swan_app_id;
+            this.lWx = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
             this.mAvatar = smartApp.avatar;
             this.mName = smartApp.name;
             this.Ob = smartApp._abstract;
             this.mPic = smartApp.pic;
-            this.lWg = smartApp.h5_url;
+            this.lWy = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.lWh = smartApp.is_game;
+            this.lWz = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class m implements c {
         return this.mType;
     }
 
-    public Long dtH() {
-        return this.lWf;
+    public Long dth() {
+        return this.lWx;
     }
 
     public String getAppKey() {
@@ -54,14 +54,14 @@ public class m implements c {
     }
 
     public String getH5Url() {
-        return this.lWg;
+        return this.lWy;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer dtI() {
-        return this.lWh;
+    public Integer dti() {
+        return this.lWz;
     }
 }

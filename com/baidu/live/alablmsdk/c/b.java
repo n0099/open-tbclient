@@ -26,7 +26,7 @@ public interface b {
 
     void e(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject);
 
-    void fH(String str);
+    void fB(String str);
 
-    void fI(String str);
+    void fC(String str);
 }

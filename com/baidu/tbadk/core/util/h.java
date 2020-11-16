@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class h extends DiskFileOperate {
-    protected a eLM;
+    protected a eKL;
     protected Bitmap mBitmap;
     protected BitmapFactory.Options mOptions;
 
@@ -15,16 +15,16 @@ public class h extends DiskFileOperate {
         super(str, str2, action);
         this.mBitmap = null;
         this.mOptions = null;
-        this.eLM = null;
-        this.eLM = new a();
+        this.eKL = null;
+        this.eKL = new a();
     }
 
     public boolean isGif() {
-        return this.eLM.mIsGif;
+        return this.eKL.mIsGif;
     }
 
     public void setGif(boolean z) {
-        this.eLM.mIsGif = z;
+        this.eKL.mIsGif = z;
     }
 
     public Bitmap getBitmap() {
@@ -44,7 +44,7 @@ public class h extends DiskFileOperate {
         if (this.mData == null) {
             return null;
         }
-        return this.eLM.toByteArray();
+        return this.eKL.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -56,8 +56,8 @@ public class h extends DiskFileOperate {
             this.mOptions = new BitmapFactory.Options();
             this.mOptions.inPreferredConfig = Bitmap.Config.RGB_565;
         }
-        boolean paserFromByte = this.eLM.paserFromByte(bArr);
-        if (this.eLM.mValidTime == 0 || this.eLM.mValidTime >= System.currentTimeMillis()) {
+        boolean paserFromByte = this.eKL.paserFromByte(bArr);
+        if (this.eKL.mValidTime == 0 || this.eKL.mValidTime >= System.currentTimeMillis()) {
             int headerSize = a.getHeaderSize();
             if (!paserFromByte) {
                 headerSize = 0;

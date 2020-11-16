@@ -4,11 +4,12 @@ import android.text.TextUtils;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.a.d;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.core.data.bw;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.homepage.hotTopic.tab.b.e;
@@ -18,16 +19,16 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 import tbclient.HotThreadList.HotThreadListResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class c {
     public static List<q> a(HotThreadListResIdl hotThreadListResIdl) {
         if (hotThreadListResIdl == null || hotThreadListResIdl.data == null || y.isEmpty(hotThreadListResIdl.data.thread_info)) {
             return null;
         }
-        boolean bhP = d.bhP();
-        boolean z = !bhP && d.bhQ();
+        boolean bhg = d.bhg();
+        boolean z = !bhg && d.bhh();
         List<ThreadInfo> list = hotThreadListResIdl.data.thread_info;
-        if (bhP) {
+        if (bhg) {
             return dF(list);
         }
         if (z) {
@@ -88,83 +89,86 @@ public class c {
         }
         ArrayList arrayList = new ArrayList(list.size());
         for (ThreadInfo threadInfo : list) {
-            bw bwVar = new bw();
-            bwVar.eGT = true;
-            bwVar.a(threadInfo);
-            az(bwVar);
-            arrayList.add(bwVar);
+            bx bxVar = new bx();
+            bxVar.eFl = true;
+            bxVar.a(threadInfo);
+            aB(bxVar);
+            arrayList.add(bxVar);
         }
         return dI(arrayList);
     }
 
-    private static void az(bw bwVar) {
-        String blX = bwVar.blX();
-        String du = at.du(bwVar.bmt() * 1000);
-        if (!TextUtils.isEmpty(blX) && !TextUtils.isEmpty(du)) {
-            blX = blX + "   " + du;
+    private static void aB(bx bxVar) {
+        String bkZ = bxVar.bkZ();
+        String du = au.du(bxVar.blv() * 1000);
+        if (!TextUtils.isEmpty(bkZ) && !TextUtils.isEmpty(du)) {
+            bkZ = bkZ + "   " + du;
         }
-        bwVar.AZ(blX);
+        bxVar.Au(bkZ);
     }
 
-    public static List<q> dI(List<bw> list) {
-        int i;
+    public static List<q> dI(List<bx> list) {
         if (list == null) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        int i2 = 0;
-        for (bw bwVar : list) {
-            int[] imageWidthAndHeight = bwVar.getImageWidthAndHeight();
-            if (bwVar.getType() == bw.eDA) {
-                bwVar.position = i2;
-                bv bvVar = new bv();
-                bvVar.exA = bwVar;
-                bvVar.position = i2;
-                bvVar.eDw = true;
-                arrayList.add(bvVar);
-                bv bvVar2 = new bv();
-                bvVar2.exA = bwVar;
-                bvVar2.position = i2;
-                if (bwVar.bov()) {
-                    bvVar2.eDl = true;
-                } else if (bwVar.bnG() == 1) {
-                    bvVar2.eDj = true;
-                    bvVar2.eDx = imageWidthAndHeight[0];
-                    bvVar2.eDy = imageWidthAndHeight[1];
-                } else if (bwVar.bnG() >= 2) {
-                    bvVar2.eDk = true;
+        int i = 0;
+        for (bx bxVar : list) {
+            int[] imageWidthAndHeight = bxVar.getImageWidthAndHeight();
+            if (bxVar.getType() == bx.eBR) {
+                bxVar.position = i;
+                bw bwVar = new bw();
+                bwVar.evQ = bxVar;
+                bwVar.position = i;
+                bwVar.eBN = true;
+                bwVar.setSupportType(BaseCardInfo.SupportType.TOP);
+                arrayList.add(bwVar);
+                bw bwVar2 = new bw();
+                bwVar2.evQ = bxVar;
+                bwVar2.position = i;
+                if (bxVar.bnz()) {
+                    bwVar2.eBC = true;
+                } else if (bxVar.bmK() == 1) {
+                    bwVar2.eBA = true;
+                    bwVar2.eBO = imageWidthAndHeight[0];
+                    bwVar2.eBP = imageWidthAndHeight[1];
+                } else if (bxVar.bmK() >= 2) {
+                    bwVar2.eBB = true;
                 } else {
-                    bvVar2.eDh = true;
+                    bwVar2.eBy = true;
                 }
-                arrayList.add(bvVar2);
-                bv bvVar3 = new bv();
-                bvVar3.eDm = true;
-                bvVar3.exA = bwVar;
-                bvVar3.position = i2;
-                arrayList.add(bvVar3);
-                i = i2 + 1;
-            } else if (bwVar.getType() == bw.eDW) {
-                bwVar.position = i2;
-                bv bvVar4 = new bv();
-                bvVar4.exA = bwVar;
-                bvVar4.position = i2;
-                bvVar4.eDw = true;
-                arrayList.add(bvVar4);
-                bv bvVar5 = new bv();
-                bvVar5.exA = bwVar;
-                bvVar5.position = i2;
-                bvVar5.eDo = true;
-                arrayList.add(bvVar5);
-                bv bvVar6 = new bv();
-                bvVar6.eDm = true;
-                bvVar6.exA = bwVar;
-                bvVar6.position = i2;
-                arrayList.add(bvVar6);
-                i = i2 + 1;
-            } else {
-                i = i2;
+                bwVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                arrayList.add(bwVar2);
+                bw bwVar3 = new bw();
+                bwVar3.eBD = true;
+                bwVar3.evQ = bxVar;
+                bwVar3.position = i;
+                bwVar3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                arrayList.add(bwVar3);
+                i++;
+            } else if (bxVar.getType() == bx.eCo) {
+                bxVar.position = i;
+                bw bwVar4 = new bw();
+                bwVar4.evQ = bxVar;
+                bwVar4.position = i;
+                bwVar4.eBN = true;
+                bwVar4.setSupportType(BaseCardInfo.SupportType.TOP);
+                arrayList.add(bwVar4);
+                bw bwVar5 = new bw();
+                bwVar5.evQ = bxVar;
+                bwVar5.position = i;
+                bwVar5.eBF = true;
+                bwVar5.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                arrayList.add(bwVar5);
+                bw bwVar6 = new bw();
+                bwVar6.eBD = true;
+                bwVar6.evQ = bxVar;
+                bwVar6.position = i;
+                bwVar6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                arrayList.add(bwVar6);
+                i++;
             }
-            i2 = i;
+            bxVar.setSupportType(BaseCardInfo.SupportType.TOP);
         }
         return arrayList;
     }
@@ -181,7 +185,7 @@ public class c {
         if (!y.isEmpty(list)) {
             int i = 0;
             for (FrsTabInfo frsTabInfo : list) {
-                if (frsTabInfo != null && !at.isEmpty(frsTabInfo.tab_code) && !at.isEmpty(frsTabInfo.tab_name)) {
+                if (frsTabInfo != null && !au.isEmpty(frsTabInfo.tab_code) && !au.isEmpty(frsTabInfo.tab_name)) {
                     i++;
                     FrsTabItemData frsTabItemData2 = new FrsTabItemData(frsTabInfo);
                     frsTabItemData2.tabId = i;

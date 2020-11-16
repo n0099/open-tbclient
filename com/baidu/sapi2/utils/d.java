@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
@@ -38,7 +38,7 @@ public class d {
     private static final String b = "file:///android_asset/";
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class a extends WebViewClient {
 
         /* renamed from: a  reason: collision with root package name */
@@ -47,9 +47,9 @@ public class d {
         final /* synthetic */ com.baidu.sapi2.callback.a.a c;
 
         /* renamed from: com.baidu.sapi2.utils.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        class C0345a implements ValueCallback<String> {
-            C0345a() {
+        /* loaded from: classes15.dex */
+        class C0343a implements ValueCallback<String> {
+            C0343a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -71,7 +71,7 @@ public class d {
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
             if (Build.VERSION.SDK_INT >= 19) {
-                this.f3541a.evaluateJavascript(this.b, new C0345a());
+                this.f3541a.evaluateJavascript(this.b, new C0343a());
                 return;
             }
             this.c.a(null);

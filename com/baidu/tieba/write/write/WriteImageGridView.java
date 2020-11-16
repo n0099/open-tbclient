@@ -23,7 +23,7 @@ public class WriteImageGridView extends GridView {
         super.onMeasure(i, i2);
         if (getCount() > 0) {
             int ceil = (int) Math.ceil(getCount() / 3.0f);
-            setMeasuredDimension(getMeasuredWidth(), ((ceil - 1) * com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10)) + ((((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds44) * 2)) - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10) * 2)) / 3) * ceil) + getPaddingTop() + getPaddingBottom());
+            setMeasuredDimension(getMeasuredWidth(), ((ceil - 1) * com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.M_H_X003)) + ((((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds44) * 2)) - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.M_H_X003) * 2)) / 3) * ceil) + getPaddingTop() + getPaddingBottom() + com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds24));
         }
     }
 }

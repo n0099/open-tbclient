@@ -8,18 +8,18 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import com.baidu.cyberplayer.sdk.i;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class h extends TextureView implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f1389a;
+    private a f1392a;
     private SurfaceTexture b;
     private Surface c;
     private i.a d;
     private f e;
     private boolean f;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     private class a implements TextureView.SurfaceTextureListener {
         public a() {
         }
@@ -67,8 +67,8 @@ public class h extends TextureView implements i {
 
     public h(Context context) {
         super(context);
-        this.f1389a = new a();
-        setSurfaceTextureListener(this.f1389a);
+        this.f1392a = new a();
+        setSurfaceTextureListener(this.f1392a);
         this.e = new f();
         this.f = false;
     }

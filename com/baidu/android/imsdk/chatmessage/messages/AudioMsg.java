@@ -8,7 +8,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class AudioMsg extends RichMediaMsg {
     public static final Parcelable.Creator<AudioMsg> CREATOR = new Parcelable.Creator<AudioMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.AudioMsg.1
         /* JADX DEBUG: Method merged with bridge method */

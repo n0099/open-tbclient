@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import java.util.ArrayList;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class b extends com.sdk.base.framework.f.a {
     static {
         b.class.getName();

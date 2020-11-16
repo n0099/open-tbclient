@@ -22,42 +22,42 @@ import org.json.JSONObject;
 public class a implements com.baidu.live.a.a {
     private w alaLiveShowData;
     private Context context;
-    private com.baidu.tieba.ala.anchortask.c.a gtb;
-    private com.baidu.tieba.ala.anchortask.b.b gtc;
-    private String gtd;
-    private int gtf;
-    private int gtg;
+    private com.baidu.tieba.ala.anchortask.c.a gsI;
+    private com.baidu.tieba.ala.anchortask.b.b gsJ;
+    private String gsK;
+    private int gsM;
+    private int gsN;
     private Handler handler = new Handler();
-    private boolean gte = false;
+    private boolean gsL = false;
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.bQh();
+            a.this.bPA();
             a.this.handler.postDelayed(a.this.runnable, 60000L);
         }
     };
-    private View.OnClickListener fii = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
+    private View.OnClickListener fhp = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!TextUtils.isEmpty(a.this.gtd)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.gtd));
+            if (!TextUtils.isEmpty(a.this.gsK)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.gsK));
             }
-            a.this.bQh();
+            a.this.bPA();
             a.this.handler.removeCallbacksAndMessages(null);
             a.this.handler.postDelayed(a.this.runnable, 60000L);
         }
     };
-    private HttpMessageListener gth = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.3
+    private HttpMessageListener gsO = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.gtb != null) {
-                a.this.gtc = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).gtc;
-                if (a.this.gtc != null && a.this.gtc.gtB != null) {
-                    a.this.gtd = a.this.gtc.gtd;
-                    a.this.bQi();
-                    a.this.gtb.a(a.this.gtc.gtB);
-                    if (a.this.gtc.gtB.gtp == 2) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.gsI != null) {
+                a.this.gsJ = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).gsJ;
+                if (a.this.gsJ != null && a.this.gsJ.gti != null) {
+                    a.this.gsK = a.this.gsJ.gsK;
+                    a.this.bPB();
+                    a.this.gsI.a(a.this.gsJ.gti);
+                    if (a.this.gsJ.gti.gsW == 2) {
                         a.this.handler.removeCallbacksAndMessages(null);
                     }
                 }
@@ -68,38 +68,38 @@ public class a implements com.baidu.live.a.a {
     public a(Context context) {
         this.context = context;
         initTasks();
-        this.gtb = new com.baidu.tieba.ala.anchortask.c.a(context);
-        this.gtb.getView().setId(a.f.ala_main_anthor_task_entry_id);
-        if (this.gtb.getView() != null) {
-            this.gtb.getView().setOnClickListener(this.fii);
+        this.gsI = new com.baidu.tieba.ala.anchortask.c.a(context);
+        this.gsI.getView().setId(a.f.ala_main_anthor_task_entry_id);
+        if (this.gsI.getView() != null) {
+            this.gsI.getView().setOnClickListener(this.fhp);
         }
     }
 
     @Override // com.baidu.live.a.a
     public void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         boolean z = true;
-        by byVar = com.baidu.live.aa.a.PQ().btT.aPH;
+        by byVar = com.baidu.live.aa.a.Ph().bsh.aNW;
         if (byVar != null) {
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                if (byVar.aQy != 1) {
+                if (byVar.aON != 1) {
                     z = false;
                 }
             } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                if (byVar.aQz != 1) {
+                if (byVar.aOO != 1) {
                     z = false;
                 }
             } else if (TbadkCoreApplication.getInst().isTieba()) {
-                if (byVar.aQA != 1) {
+                if (byVar.aOP != 1) {
                     z = false;
                 }
             } else if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
                 z = false;
-            } else if (byVar.aQB != 1) {
+            } else if (byVar.aOQ != 1) {
                 z = false;
             }
             if (z) {
-                if (this.gtb != null) {
-                    viewGroup.addView(this.gtb.getView(), layoutParams);
+                if (this.gsI != null) {
+                    viewGroup.addView(this.gsI.getView(), layoutParams);
                 }
                 this.handler.postDelayed(this.runnable, 10000L);
             }
@@ -118,10 +118,10 @@ public class a implements com.baidu.live.a.a {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetAnchorTaskInfoHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.gth);
+        MessageManager.getInstance().registerListener(this.gsO);
     }
 
-    public void bQh() {
+    public void bPA() {
         if (this.alaLiveShowData != null) {
             long j = this.alaLiveShowData.mLiveInfo.live_id;
             long j2 = this.alaLiveShowData.mLiveInfo.user_id;
@@ -134,25 +134,25 @@ public class a implements com.baidu.live.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bQi() {
-        if (this.gtc != null && this.gtc.gtB != null) {
-            if (!this.gte) {
-                this.gte = true;
-                this.gtf = this.gtc.gtB.gtn;
-                this.gtg = this.gtc.gtB.gto;
+    public void bPB() {
+        if (this.gsJ != null && this.gsJ.gti != null) {
+            if (!this.gsL) {
+                this.gsL = true;
+                this.gsM = this.gsJ.gti.gsU;
+                this.gsN = this.gsJ.gti.gsV;
             }
-            int i = this.gtc.gtB.gtp;
-            int i2 = this.gtc.gtB.gtq;
-            int i3 = this.gtc.gtB.gtr;
+            int i = this.gsJ.gti.gsW;
+            int i2 = this.gsJ.gti.gsX;
+            int i3 = this.gsJ.gti.gsY;
             String str = null;
-            if (this.gtf == 1 && i == 2) {
+            if (this.gsM == 1 && i == 2) {
                 str = this.context.getString(a.h.txt_im_identity_is_mcn);
-            } else if (this.gtf == 2 && i == 1) {
+            } else if (this.gsM == 2 && i == 1) {
                 str = String.format(this.context.getString(a.h.txt_im_identity_is_ugc), Integer.valueOf(i3)) + "%";
-            } else if (this.gtf == 1 && i == 1) {
-                if (i2 > this.gtg) {
+            } else if (this.gsM == 1 && i == 1) {
+                if (i2 > this.gsN) {
                     str = String.format(this.context.getString(a.h.txt_im_identity_advance), Integer.valueOf(i3)) + "%";
-                } else if (i2 < this.gtg) {
+                } else if (i2 < this.gsN) {
                     str = String.format(this.context.getString(a.h.txt_im_identity_reduce), Integer.valueOf(i3)) + "%";
                 }
             }
@@ -166,31 +166,31 @@ public class a implements com.baidu.live.a.a {
                     e.printStackTrace();
                 }
             }
-            this.gtf = i;
-            this.gtg = i2;
+            this.gsM = i;
+            this.gsN = i2;
         }
     }
 
     @Override // com.baidu.live.a.a
     public void setCanVisible(boolean z) {
-        if (this.gtb != null) {
-            this.gtb.setCanVisible(z);
+        if (this.gsI != null) {
+            this.gsI.setCanVisible(z);
         }
     }
 
     @Override // com.baidu.live.a.a
     public void refreshUI() {
-        if (this.gtb != null) {
-            this.gtb.refreshUI();
+        if (this.gsI != null) {
+            this.gsI.refreshUI();
         }
     }
 
     @Override // com.baidu.live.a.a
     public void onDestory() {
         this.handler.removeCallbacksAndMessages(null);
-        MessageManager.getInstance().unRegisterListener(this.gth);
-        if (this.gtb != null) {
-            this.gtb.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.gsO);
+        if (this.gsI != null) {
+            this.gsI.onDestroy();
         }
     }
 }

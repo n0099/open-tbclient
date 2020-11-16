@@ -4,38 +4,38 @@ import com.baidu.live.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public int gtA;
-    public int gtn;
-    public int gto;
-    public int gtp;
-    public int gtq;
-    public int gtr;
-    public int gts;
-    public long gtt;
-    public long gtu;
-    public long gtv;
-    public long gtw;
-    public int gtx;
-    public int gty;
-    public int gtz;
+    public int gsU;
+    public int gsV;
+    public int gsW;
+    public int gsX;
+    public int gsY;
+    public int gsZ;
+    public long gta;
+    public long gtb;
+    public long gtc;
+    public long gtd;
+    public int gte;
+    public int gtf;
+    public int gtg;
+    public int gth;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gtn = jSONObject.optInt("last_identity");
-                this.gto = jSONObject.optInt("last_class");
-                this.gtp = jSONObject.optInt("now_identity");
-                this.gtq = jSONObject.optInt("now_class");
-                this.gtr = jSONObject.optInt("cur_share_proportion");
-                this.gts = jSONObject.optInt("will_share_proportion");
-                this.gtt = jSONObject.optLong("task_begin_time");
-                this.gtu = jSONObject.optLong("task_end_time");
-                this.gtv = jSONObject.optLong("valid_live_time");
-                this.gtw = jSONObject.optLong("charm_income");
-                this.gtx = jSONObject.optInt("valid_live_day");
-                this.gty = jSONObject.optInt("task_type");
-                this.gtz = jSONObject.optInt("task_finish_ratio");
-                this.gtA = jSONObject.optInt("task_status");
+                this.gsU = jSONObject.optInt("last_identity");
+                this.gsV = jSONObject.optInt("last_class");
+                this.gsW = jSONObject.optInt("now_identity");
+                this.gsX = jSONObject.optInt("now_class");
+                this.gsY = jSONObject.optInt("cur_share_proportion");
+                this.gsZ = jSONObject.optInt("will_share_proportion");
+                this.gta = jSONObject.optLong("task_begin_time");
+                this.gtb = jSONObject.optLong("task_end_time");
+                this.gtc = jSONObject.optLong("valid_live_time");
+                this.gtd = jSONObject.optLong("charm_income");
+                this.gte = jSONObject.optInt("valid_live_day");
+                this.gtf = jSONObject.optInt("task_type");
+                this.gtg = jSONObject.optInt("task_finish_ratio");
+                this.gth = jSONObject.optInt("task_status");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

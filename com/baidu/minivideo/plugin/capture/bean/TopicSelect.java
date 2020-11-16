@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes19.dex */
 public class TopicSelect implements Jsonable, Serializable {
     public static final int TYPE_HIDDEN = -1;
     public static final int TYPE_NORMAL = 0;

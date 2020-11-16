@@ -11,28 +11,28 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class l extends a {
     public static String HEAD = "tb_oficial_msg_";
-    private static a kcu;
+    private static a kde;
 
     private l() {
         super("tb_oficial_msg_", OfficialChatMessage.class);
     }
 
-    public static synchronized l cRl() {
+    public static synchronized l cQR() {
         l lVar;
         synchronized (l.class) {
-            if (kcu == null) {
-                kcu = new l();
+            if (kde == null) {
+                kde = new l();
             }
-            lVar = (l) kcu;
+            lVar = (l) kde;
         }
         return lVar;
     }
 
-    public static List<String> cRm() {
+    public static List<String> cQS() {
         Cursor cursor = null;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = h.cRb().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time" + MediaQueryParam.SORT_ASC, new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+            cursor = h.cQH().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time" + MediaQueryParam.SORT_ASC, new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));
@@ -47,13 +47,13 @@ public class l extends a {
         return arrayList;
     }
 
-    public static List<com.baidu.tieba.im.db.pojo.a> cRn() {
+    public static List<com.baidu.tieba.im.db.pojo.a> cQT() {
         Cursor cursor;
         Exception e;
         ArrayList arrayList;
         try {
             try {
-                cursor = h.cRb().rawQuery("SELECT * FROM tb_message_center WHERE custom_group_type = ? AND (user_type = ? OR user_type = ?) ORDER BY visit_time DESC, last_content_time DESC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+                cursor = h.cQH().rawQuery("SELECT * FROM tb_message_center WHERE custom_group_type = ? AND (user_type = ? OR user_type = ?) ORDER BY visit_time DESC, last_content_time DESC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
                 if (cursor != null) {
                     try {
                         arrayList = new ArrayList(cursor.getCount());
@@ -62,12 +62,12 @@ public class l extends a {
                                 com.baidu.tieba.im.db.pojo.a aVar = new com.baidu.tieba.im.db.pojo.a();
                                 aVar.setGid(cursor.getString(cursor.getColumnIndex("gid")));
                                 aVar.setUnReadCount(cursor.getInt(cursor.getColumnIndex("unread_count")));
-                                aVar.MK(cursor.getString(cursor.getColumnIndex("group_head")));
+                                aVar.Ml(cursor.getString(cursor.getColumnIndex("group_head")));
                                 aVar.setForumName(cursor.getString(cursor.getColumnIndex("group_name")));
                                 aVar.setUserType(cursor.getInt(cursor.getColumnIndex("user_type")));
                                 int columnIndex = cursor.getColumnIndex("visit_time");
                                 if (columnIndex >= 0) {
-                                    aVar.ge(cursor.getLong(columnIndex));
+                                    aVar.gh(cursor.getLong(columnIndex));
                                 }
                                 arrayList.add(aVar);
                             } catch (Exception e2) {
@@ -107,7 +107,7 @@ public class l extends a {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("read_count", Integer.valueOf(i));
-            BdLog.d("updateReadCount result = " + h.cRb().a(HEAD + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)}));
+            BdLog.d("updateReadCount result = " + h.cQH().a(HEAD + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)}));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -118,7 +118,7 @@ public class l extends a {
             ContentValues contentValues = new ContentValues();
             contentValues.put("visit_time", Long.valueOf(j2));
             contentValues.put("unread_count", (Integer) 0);
-            BdLog.d("updateReadCount result = " + h.cRb().a("tb_message_center", contentValues, "gid = ?", new String[]{String.valueOf(j)}));
+            BdLog.d("updateReadCount result = " + h.cQH().a("tb_message_center", contentValues, "gid = ?", new String[]{String.valueOf(j)}));
         } catch (Exception e) {
             e.printStackTrace();
         }

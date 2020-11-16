@@ -2,7 +2,7 @@ package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class ForumMemberReadCacheRequestMessage extends CustomMessage<Object> {
     private String forumName;
 

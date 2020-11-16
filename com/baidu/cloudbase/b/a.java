@@ -10,22 +10,22 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
-    public List<c> ang;
-    public Map<String, Integer> anh = new HashMap();
+    public List<c> anm;
+    public Map<String, Integer> ann = new HashMap();
     public Context mContext;
 
     /* renamed from: com.baidu.cloudbase.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class C0105a extends com.baidu.cloudbase.download.a.a {
+    /* loaded from: classes16.dex */
+    public class C0104a extends com.baidu.cloudbase.download.a.a {
         public final /* synthetic */ String b;
         public final /* synthetic */ File c;
         public final /* synthetic */ File d;
         public final /* synthetic */ String e;
         public final /* synthetic */ c yJ;
 
-        public C0105a(c cVar, String str, File file, File file2, String str2) {
+        public C0104a(c cVar, String str, File file, File file2, String str2) {
             this.yJ = cVar;
             this.b = str;
             this.c = file;
@@ -70,26 +70,26 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class b {
-        public static a ani = new a();
+        public static a ano = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar, String str) {
         if (cVar != null) {
-            cVar.dx(str);
+            cVar.dz(str);
         }
-        if (this.ang == null) {
+        if (this.anm == null) {
             return;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.ang.size()) {
+            if (i2 >= this.anm.size()) {
                 return;
             }
-            this.ang.get(i2).dx(str);
+            this.anm.get(i2).dz(str);
             i = i2 + 1;
         }
     }
@@ -97,88 +97,88 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar, String str, float f) {
         if (cVar != null) {
-            cVar.p(f);
+            cVar.q(f);
         }
-        if (this.ang == null) {
+        if (this.anm == null) {
             return;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.ang.size()) {
+            if (i2 >= this.anm.size()) {
                 return;
             }
-            this.ang.get(i2).p(f);
+            this.anm.get(i2).q(f);
             i = i2 + 1;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar, String str, int i, String str2) {
-        this.anh.put(str, 2);
+        this.ann.put(str, 2);
         if (cVar != null) {
             cVar.b(str, i, str2);
         }
-        if (this.ang == null) {
+        if (this.anm == null) {
             return;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 >= this.ang.size()) {
+            if (i3 >= this.anm.size()) {
                 return;
             }
-            this.ang.get(i3).b(str, i, str2);
+            this.anm.get(i3).b(str, i, str2);
             i2 = i3 + 1;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar, String str, String str2) {
-        this.anh.put(str, 3);
+        this.ann.put(str, 3);
         if (cVar != null) {
-            cVar.V(str, str2);
+            cVar.U(str, str2);
         }
-        if (this.ang == null) {
+        if (this.anm == null) {
             return;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.ang.size()) {
+            if (i2 >= this.anm.size()) {
                 return;
             }
-            this.ang.get(i2).V(str, str2);
+            this.anm.get(i2).U(str, str2);
             i = i2 + 1;
         }
     }
 
     private void a(String str, String str2, Looper looper, c cVar) {
-        if (!cG(str)) {
+        if (!cI(str)) {
             com.baidu.cloudbase.d.a.deleteDir(new File(str2));
         }
         File file = new File(str2);
         if (!file.exists()) {
             file.mkdirs();
         }
-        this.anh.put(str, 1);
+        this.ann.put(str, 1);
         String m = com.baidu.cloudbase.b.b.m(this.mContext, str, str2);
         File file2 = new File(m + ".temp");
         File file3 = new File(m + ".zip");
         Log.d("RtcDownSo", "start down folder=" + str2 + "name=" + file2.getName());
-        com.baidu.cloudbase.download.a.uF().a(str, str2, file2.getName(), looper, new C0105a(cVar, str, file2, file3, m));
+        com.baidu.cloudbase.download.a.uE().a(str, str2, file2.getName(), looper, new C0104a(cVar, str, file2, file3, m));
     }
 
     public static a aa(Context context) {
-        b.ani.mContext = context.getApplicationContext();
-        return b.ani;
+        b.ano.mContext = context.getApplicationContext();
+        return b.ano;
     }
 
-    private boolean cG(String str) {
-        return com.baidu.cloudbase.download.a.uF().isRunning(str);
+    private boolean cI(String str) {
+        return com.baidu.cloudbase.download.a.uE().isRunning(str);
     }
 
-    public boolean U(@NonNull String str, String str2) {
+    public boolean T(@NonNull String str, String str2) {
         return com.baidu.cloudbase.b.b.n(this.mContext, str, str2);
     }
 
@@ -186,9 +186,9 @@ public class a {
         String Y = com.baidu.cloudbase.b.b.Y(this.mContext);
         if (TextUtils.isEmpty(str)) {
             cVar.b(str, 108, "download url is empty.");
-        } else if (U(str, Y)) {
+        } else if (T(str, Y)) {
             if (cVar != null) {
-                cVar.V(str, com.baidu.cloudbase.b.b.m(this.mContext, str, Y));
+                cVar.U(str, com.baidu.cloudbase.b.b.m(this.mContext, str, Y));
             }
         } else if (!z) {
             a(str, Y, Looper.getMainLooper(), cVar);
@@ -203,7 +203,7 @@ public class a {
         }
     }
 
-    public boolean dv(@NonNull String str) {
+    public boolean dx(@NonNull String str) {
         File file = new File(str);
         if (file.exists()) {
             Context context = this.mContext;
@@ -224,7 +224,7 @@ public class a {
         return false;
     }
 
-    public void dw(String str) {
-        com.baidu.cloudbase.b.b.du(str);
+    public void dy(String str) {
+        com.baidu.cloudbase.b.b.dw(str);
     }
 }

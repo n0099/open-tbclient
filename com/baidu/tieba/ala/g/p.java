@@ -20,7 +20,7 @@ public class p extends BdBaseModel {
     long userID = -1;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private boolean loop = false;
-    private Runnable hzl = new Runnable() { // from class: com.baidu.tieba.ala.g.p.2
+    private Runnable hyS = new Runnable() { // from class: com.baidu.tieba.ala.g.p.2
         @Override // java.lang.Runnable
         public void run() {
             if (p.this.userID != -1) {
@@ -33,9 +33,9 @@ public class p extends BdBaseModel {
     public interface a {
         void aj(ArrayList<String> arrayList);
 
-        void bn(int i, String str);
+        void bl(int i, String str);
 
-        void ciX();
+        void ciq();
 
         void fi(long j);
     }
@@ -60,7 +60,7 @@ public class p extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        ciU();
+        cin();
         b(aVar);
     }
 
@@ -72,27 +72,27 @@ public class p extends BdBaseModel {
                 if (httpResponsedMessage.getCmd() == 1021210) {
                     StartPkResponseMessage startPkResponseMessage = (StartPkResponseMessage) httpResponsedMessage;
                     if (!startPkResponseMessage.isSuccess()) {
-                        aVar.bn(startPkResponseMessage.getError(), startPkResponseMessage.getErrorString());
-                        p.this.mHandler.removeCallbacks(p.this.hzl);
-                        p.this.mHandler.postDelayed(p.this.hzl, 2000L);
-                    } else if (startPkResponseMessage.ciI().isEmpty()) {
-                        p.this.mHandler.removeCallbacks(p.this.hzl);
-                        p.this.mHandler.postDelayed(p.this.hzl, 2000L);
-                    } else if (startPkResponseMessage.ciH() == 2) {
-                        p.this.ciW();
-                        aVar.ciX();
+                        aVar.bl(startPkResponseMessage.getError(), startPkResponseMessage.getErrorString());
+                        p.this.mHandler.removeCallbacks(p.this.hyS);
+                        p.this.mHandler.postDelayed(p.this.hyS, 2000L);
+                    } else if (startPkResponseMessage.cib().isEmpty()) {
+                        p.this.mHandler.removeCallbacks(p.this.hyS);
+                        p.this.mHandler.postDelayed(p.this.hyS, 2000L);
+                    } else if (startPkResponseMessage.cia() == 2) {
+                        p.this.cip();
+                        aVar.ciq();
                         AlaStatsItem alaStatsItem = new AlaStatsItem();
                         alaStatsItem.addValue("lodId", Long.valueOf(startPkResponseMessage.getLogId()));
                         AlaStatManager.getInstance().debug("pk_competition_match_failed", alaStatsItem);
-                    } else if (startPkResponseMessage.ciF() <= 0) {
+                    } else if (startPkResponseMessage.chY() <= 0) {
                         if (p.this.loop) {
-                            aVar.aj(startPkResponseMessage.ciI());
-                            p.this.mHandler.removeCallbacks(p.this.hzl);
-                            p.this.mHandler.postDelayed(p.this.hzl, startPkResponseMessage.getInterval() * 1000);
+                            aVar.aj(startPkResponseMessage.cib());
+                            p.this.mHandler.removeCallbacks(p.this.hyS);
+                            p.this.mHandler.postDelayed(p.this.hyS, startPkResponseMessage.getInterval() * 1000);
                         }
                     } else {
-                        p.this.ciW();
-                        aVar.fi(startPkResponseMessage.ciF());
+                        p.this.cip();
+                        aVar.fi(startPkResponseMessage.chY());
                     }
                 }
             }
@@ -100,7 +100,7 @@ public class p extends BdBaseModel {
         registerListener(this.messageListener);
     }
 
-    private void ciU() {
+    private void cin() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021210, TbConfig.SERVER_ADDRESS + "ala/pksolo/startPk");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -110,14 +110,14 @@ public class p extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void ciV() {
+    public void cio() {
         cancelLoadData();
         MessageManager.getInstance().unRegisterListener(this.messageListener);
         MessageManager.getInstance().unRegisterTask(1021210);
     }
 
-    public void ciW() {
-        this.mHandler.removeCallbacks(this.hzl);
+    public void cip() {
+        this.mHandler.removeCallbacks(this.hyS);
         this.loop = false;
     }
 }

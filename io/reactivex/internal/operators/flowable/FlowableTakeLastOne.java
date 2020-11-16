@@ -3,14 +3,14 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class FlowableTakeLastOne<T> extends a<T, T> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pMK.a((j) new TakeLastOneSubscriber(cVar));
+        this.pOn.a((j) new TakeLastOneSubscriber(cVar));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class TakeLastOneSubscriber<T> extends DeferredScalarSubscription<T> implements j<T> {
         private static final long serialVersionUID = -5467847744262967226L;
         org.a.d s;

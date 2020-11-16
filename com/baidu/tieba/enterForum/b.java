@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b {
     public static void d(TbPageContext<?> tbPageContext, String str) {
         ForumSquareActivityConfig forumSquareActivityConfig;

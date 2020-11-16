@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.tencent.mm.sdk.b.a;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import java.io.File;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class WXAppExtendObject implements WXMediaMessage.IMediaObject {
     private static final int CONTENT_LENGTH_LIMIT = 10485760;
     private static final int EXTINFO_LENGTH_LIMIT = 2048;

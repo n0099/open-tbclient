@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class l<E> extends AbstractQueue<E> implements Serializable, BlockingQueue<E> {
 
     /* renamed from: a  reason: collision with root package name */

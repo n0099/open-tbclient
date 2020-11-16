@@ -1,6 +1,8 @@
 package com.baidu.tieba.frs.game.strategy.tab;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public interface a {
+    e Aa(int i);
+
     void cr(int i, int i2);
 
     void cs(int i, int i2);
@@ -8,6 +10,4 @@ public interface a {
     boolean ct(int i, int i2);
 
     String getForumId();
-
-    e zC(int i);
 }

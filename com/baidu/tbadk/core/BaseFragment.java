@@ -26,8 +26,8 @@ import com.baidu.adp.widget.ListView.t;
 import com.baidu.megapp.ma.MAFragment;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ag;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
@@ -70,7 +70,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.mId == null) {
             this.mId = BdUniqueId.gen();
         }
-        this.customToast = com.baidu.tbadk.core.util.e.bqp();
+        this.customToast = com.baidu.tbadk.core.util.e.bpC();
         super.onCreate(bundle);
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
@@ -237,7 +237,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         super.onResume();
         if (isShow()) {
             changeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            bc.setCurrentActivity(getClass().getName());
+            bd.setCurrentActivity(getClass().getName());
             if (this.isPrimary) {
                 onPrimary();
             }
@@ -253,7 +253,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             this.mRefreshView.setTitle(str);
             this.mRefreshView.setSubText(str2);
             this.mRefreshView.setButtonText(str3);
-            this.mRefreshView.rD(R.drawable.new_pic_emotion_08);
+            this.mRefreshView.sb(R.drawable.new_pic_emotion_08);
             this.mRefreshView.attachView(view, z);
             this.mRefreshView.showRefreshButton();
         }
@@ -273,8 +273,8 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         }
         this.mRefreshView.attachView(view, z);
         this.mRefreshView.showRefreshButton();
-        this.mRefreshView.rD(R.drawable.new_pic_emotion_03);
-        this.mRefreshView.Ed(getString(R.string.no_data_common_txt));
+        this.mRefreshView.sb(R.drawable.new_pic_emotion_03);
+        this.mRefreshView.DC(getString(R.string.no_data_common_txt));
     }
 
     public void showNetRefreshViewNoClick(View view, String str, boolean z) {
@@ -282,7 +282,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             this.mRefreshView = new com.baidu.tbadk.k.h(getPageContext().getContext(), getNetRefreshListener());
         }
         this.mRefreshView.setSubText(str);
-        this.mRefreshView.rD(R.drawable.new_pic_emotion_08);
+        this.mRefreshView.sb(R.drawable.new_pic_emotion_08);
         this.mRefreshView.attachView(view, z);
         this.mRefreshView.hideRefreshButton();
     }
@@ -292,9 +292,9 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             this.mRefreshView = new com.baidu.tbadk.k.h(getPageContext().getContext(), getNetRefreshListener());
         }
         this.mRefreshView.attachView(view, z);
-        this.mRefreshView.rD(R.drawable.new_pic_emotion_08);
+        this.mRefreshView.sb(R.drawable.new_pic_emotion_08);
         this.mRefreshView.hideRefreshButton();
-        this.mRefreshView.Ed(str);
+        this.mRefreshView.DC(str);
     }
 
     public void setNetRefreshViewTopMargin(int i) {
@@ -385,7 +385,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.m.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            com.baidu.tbadk.m.e.bCg().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            com.baidu.tbadk.m.e.bBw().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
             this.lastResumeTime = System.currentTimeMillis();
         }
         com.baidu.adp.lib.e.c.mS().e(this.mId);
@@ -500,7 +500,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
                     this.loadingView = new com.baidu.tbadk.k.g(getActivity());
                 } else {
                     this.loadingView = new com.baidu.tbadk.k.g(getActivity(), i);
-                    this.loadingView.bBg();
+                    this.loadingView.bAw();
                 }
                 this.loadingView.setSkinType(i2);
                 this.loadingView.onChangeSkinType();
@@ -627,7 +627,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.m.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            com.baidu.tbadk.m.e.bCg().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            com.baidu.tbadk.m.e.bBw().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
             this.lastResumeTime = System.currentTimeMillis();
         }
         boolean isLogin = TbadkCoreApplication.isLogin();
@@ -784,14 +784,14 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     }
 
     public void registerResponsedEventListener(Class<? extends com.baidu.tbadk.mutiprocess.a> cls, com.baidu.tbadk.mutiprocess.h hVar) {
-        com.baidu.tbadk.mutiprocess.g.bBt().a(cls, hVar, getUniqueId());
+        com.baidu.tbadk.mutiprocess.g.bAJ().a(cls, hVar, getUniqueId());
     }
 
     public void unRegisterResponsedEventListener() {
-        com.baidu.tbadk.mutiprocess.g.bBt().m(getUniqueId());
+        com.baidu.tbadk.mutiprocess.g.bAJ().m(getUniqueId());
     }
 
     public boolean checkUpIsLogin() {
-        return bg.checkUpIsLogin(getFragmentActivity());
+        return bh.checkUpIsLogin(getFragmentActivity());
     }
 }

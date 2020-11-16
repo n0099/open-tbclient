@@ -24,7 +24,7 @@ public class a {
         return ap.getDrawable(i);
     }
 
-    public static int fv(String str) {
+    public static int sa(String str) {
         if (str == null || str.length() == 0) {
             return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }

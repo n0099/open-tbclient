@@ -12,22 +12,22 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaCancelApplyOrCancelInv
 /* loaded from: classes4.dex */
 public class d extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a ohd;
+    private a oiG;
     private HttpMessageListener messageListener = new HttpMessageListener(1031010) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaCancelApplyOrCancelInviteHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == d.this.bou && d.this.ohd != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaCancelApplyOrCancelInviteHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == d.this.bmJ && d.this.oiG != null) {
                 AlaCancelApplyOrCancelInviteHttpResponseMessage alaCancelApplyOrCancelInviteHttpResponseMessage = (AlaCancelApplyOrCancelInviteHttpResponseMessage) httpResponsedMessage;
                 if (alaCancelApplyOrCancelInviteHttpResponseMessage.getError() != 0 || !alaCancelApplyOrCancelInviteHttpResponseMessage.isSuccess()) {
-                    d.this.ohd.onFail(alaCancelApplyOrCancelInviteHttpResponseMessage.getError(), alaCancelApplyOrCancelInviteHttpResponseMessage.getErrorString());
+                    d.this.oiG.onFail(alaCancelApplyOrCancelInviteHttpResponseMessage.getError(), alaCancelApplyOrCancelInviteHttpResponseMessage.getErrorString());
                 } else {
-                    d.this.ohd.a(alaCancelApplyOrCancelInviteHttpResponseMessage);
+                    d.this.oiG.a(alaCancelApplyOrCancelInviteHttpResponseMessage);
                 }
             }
         }
     };
-    private BdUniqueId bou = BdUniqueId.gen();
+    private BdUniqueId bmJ = BdUniqueId.gen();
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -37,14 +37,14 @@ public class d extends BdBaseModel {
     }
 
     public d(TbPageContext tbPageContext, a aVar) {
-        setUniqueId(this.bou);
+        setUniqueId(this.bmJ);
         this.mPageContext = tbPageContext;
-        this.ohd = aVar;
-        bhs();
+        this.oiG = aVar;
+        bgL();
         registerListener(this.messageListener);
     }
 
-    private void bhs() {
+    private void bgL() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031010, TbConfig.SERVER_ADDRESS + "ala/audio/link/cancel");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);

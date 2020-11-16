@@ -1,16 +1,16 @@
 package com.baidu.q;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class d {
-    private boolean osq;
-    private int osr;
+    private boolean otT;
+    private int otU;
 
-    public d zC(boolean z) {
-        this.osq = z;
+    public d zJ(boolean z) {
+        this.otT = z;
         return this;
     }
 
-    public d Nl(int i) {
-        this.osr = i;
+    public d NO(int i) {
+        this.otU = i;
         return this;
     }
 }

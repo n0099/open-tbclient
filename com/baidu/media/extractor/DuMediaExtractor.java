@@ -13,15 +13,15 @@ import com.baidu.media.extractor.b;
 import com.baidu.mobstat.Config;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes18.dex */
 public class DuMediaExtractor implements b {
-    private b.a bYT;
-    private a bYU;
+    private b.a bXi;
+    private a bXj;
     @Keep
     private long mNativeDuMediaExtractor;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes18.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
@@ -51,14 +51,14 @@ public class DuMediaExtractor implements b {
     private void c() {
         Looper myLooper = Looper.myLooper();
         if (myLooper != null) {
-            this.bYU = new a(this, myLooper);
+            this.bXj = new a(this, myLooper);
             return;
         }
         Looper mainLooper = Looper.getMainLooper();
         if (mainLooper != null) {
-            this.bYU = new a(this, mainLooper);
+            this.bXj = new a(this, mainLooper);
         } else {
-            this.bYU = null;
+            this.bXj = null;
         }
     }
 
@@ -79,7 +79,7 @@ public class DuMediaExtractor implements b {
     @Keep
     private static boolean onNativeInvoke(Object obj, int i, Bundle bundle) {
         if (obj == null || !(obj instanceof WeakReference)) {
-            CyberLog.e("DuMediaExtractor", "<null weakThiz>.onNativeInvoke()");
+            throw new IllegalStateException("<null weakThiz>.onNativeInvoke()");
         }
         return false;
     }
@@ -87,8 +87,8 @@ public class DuMediaExtractor implements b {
     public void a() {
         synchronized (this) {
             nativeRelease();
-            this.bYT = null;
-            this.bYU = null;
+            this.bXi = null;
+            this.bXj = null;
             this.mNativeDuMediaExtractor = 0L;
         }
     }

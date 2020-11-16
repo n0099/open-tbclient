@@ -2,7 +2,7 @@ package com.idlefish.flutterboost.interfaces;
 
 import android.content.Intent;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public interface IOperateSyncer {
     void onActivityResult(int i, int i2, Intent intent);
 

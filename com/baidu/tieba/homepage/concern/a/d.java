@@ -1,79 +1,129 @@
 package com.baidu.tieba.homepage.concern.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.ar;
-import com.baidu.tbadk.core.data.bw;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.card.data.l;
-import com.baidu.tieba.homepage.concern.a.e;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.DiscoverHotForum;
-import tbclient.DiscoverTabCard;
-/* loaded from: classes22.dex */
-public class d extends AbsThreadDataSupport {
-    private boolean jwY = false;
-    private List<q> jwZ;
+import com.baidu.tieba.card.data.k;
+/* loaded from: classes21.dex */
+public class d implements q {
+    public String aGz;
+    public String jxR;
+    public boolean jxS;
+    public a[] jxT = new a[3];
 
-    public List<q> cIW() {
-        return this.jwZ;
-    }
-
-    public void dB(List<q> list) {
-        this.jwZ = list;
-    }
-
-    public static boolean a(DiscoverHotForum discoverHotForum, int i) {
-        return TbadkApplication.isLogin() && com.baidu.tbadk.a.d.bia() && discoverHotForum != null && discoverHotForum.floor != null && (i < 0 || i == discoverHotForum.floor.intValue() + (-1)) && !y.isEmpty(discoverHotForum.tab_list);
-    }
-
-    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bjZ() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bkb() {
-        return null;
-    }
-
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return l.iby;
+        return k.icp;
     }
 
-    public boolean cIX() {
-        return this.jwY;
-    }
-
-    public boolean dC(List<DiscoverTabCard> list) {
-        if (y.isEmpty(list)) {
-            return false;
+    public String cID() {
+        StringBuilder sb = new StringBuilder();
+        for (a aVar : this.jxT) {
+            sb.append(aVar.getForumId()).append(',');
         }
-        List<q> arrayList = new ArrayList<>();
-        dB(arrayList);
-        for (int i = 0; i < list.size(); i++) {
-            DiscoverTabCard discoverTabCard = list.get(i);
-            if (discoverTabCard.forum_list != null && discoverTabCard.forum_list.size() >= 3) {
-                e eVar = new e();
-                this.jwY = StringUtils.isNull(discoverTabCard.name) || this.jwY;
-                eVar.jxa = discoverTabCard.name;
-                eVar.jxb = discoverTabCard.is_show_order_number == null ? false : discoverTabCard.is_show_order_number.booleanValue();
-                eVar.aIk = discoverTabCard.jump_name;
-                for (int i2 = 0; i2 < discoverTabCard.forum_list.size() && i2 < 3; i2++) {
-                    eVar.jxc[i2] = new e.a();
-                    eVar.jxc[i2].LF(discoverTabCard.forum_list.get(i2).forum_name).LE(discoverTabCard.forum_list.get(i2).avatar).LH(discoverTabCard.forum_list.get(i2).hot_text).LG(discoverTabCard.forum_list.get(i2).slogan).Bm(discoverTabCard.forum_list.get(i2).member_count.intValue()).Bn(discoverTabCard.forum_list.get(i2).thread_count.intValue()).qP(discoverTabCard.forum_list.get(i2).is_like.intValue() == 1).f(discoverTabCard.forum_list.get(i2).forum_id).fQ(discoverTabCard.forum_list.get(i2).hot_thread_id.longValue());
-                }
-                arrayList.add(eVar);
-                if (arrayList.size() >= 6) {
-                    break;
-                }
+        sb.delete(sb.length() - 1, sb.length());
+        return sb.toString();
+    }
+
+    /* loaded from: classes21.dex */
+    public static class a implements q {
+        private long forumId;
+        private String inQ;
+        private String jaW;
+        private long jdR;
+        private String jxU;
+        private int jxV;
+        private int jxW;
+        private boolean jxX;
+        private String slogan;
+
+        @Override // com.baidu.adp.widget.ListView.q
+        public BdUniqueId getType() {
+            return k.icp;
+        }
+
+        public String cIE() {
+            return this.jaW;
+        }
+
+        public a Lf(String str) {
+            this.jaW = str;
+            return this;
+        }
+
+        public String cIF() {
+            return this.jxU;
+        }
+
+        public a Lg(String str) {
+            this.jxU = str;
+            return this;
+        }
+
+        public String getSlogan() {
+            return this.slogan;
+        }
+
+        public a Lh(String str) {
+            this.slogan = str;
+            return this;
+        }
+
+        public String cIG() {
+            return this.inQ;
+        }
+
+        public a Li(String str) {
+            this.inQ = str;
+            return this;
+        }
+
+        public int cIH() {
+            return this.jxV;
+        }
+
+        public a BK(int i) {
+            this.jxV = i;
+            return this;
+        }
+
+        public int cII() {
+            return this.jxW;
+        }
+
+        public a BL(int i) {
+            this.jxW = i;
+            return this;
+        }
+
+        public boolean cIJ() {
+            return this.jxX;
+        }
+
+        public a qS(boolean z) {
+            this.jxX = z;
+            return this;
+        }
+
+        public long getForumId() {
+            return this.forumId;
+        }
+
+        public a g(Long l) {
+            if (l == null) {
+                this.forumId = 0L;
+            } else {
+                this.forumId = l.longValue();
             }
+            return this;
         }
-        return arrayList.size() > 0;
+
+        public long cqN() {
+            return this.jdR;
+        }
+
+        public a fT(long j) {
+            this.jdR = j;
+            return this;
+        }
     }
 }

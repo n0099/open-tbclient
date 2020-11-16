@@ -6,18 +6,18 @@ import com.facebook.imagepipeline.nativecode.Bitmaps;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class a extends f {
-    private final com.facebook.imagepipeline.memory.c oTs;
+    private final com.facebook.imagepipeline.memory.c oUV;
 
     public a(com.facebook.imagepipeline.memory.c cVar) {
-        this.oTs = cVar;
+        this.oUV = cVar;
     }
 
     @Override // com.facebook.imagepipeline.b.f
     public com.facebook.common.references.a<Bitmap> c(int i, int i2, Bitmap.Config config) {
-        Bitmap bitmap = this.oTs.get(com.facebook.d.a.e(i, i2, config));
+        Bitmap bitmap = this.oUV.get(com.facebook.d.a.e(i, i2, config));
         Bitmaps.a(bitmap, i, i2, config);
-        return com.facebook.common.references.a.a(bitmap, this.oTs);
+        return com.facebook.common.references.a.a(bitmap, this.oUV);
     }
 }

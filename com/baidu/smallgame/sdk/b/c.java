@@ -1,18 +1,18 @@
 package com.baidu.smallgame.sdk.b;
 
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class c {
-    protected long csR = 2000;
-    protected a csS;
+    protected long crh = 2000;
+    protected a cri;
 
     public abstract void a(int i, V8ExceptionInfo v8ExceptionInfo);
 
     public void a(a aVar) {
-        this.csS = aVar;
+        this.cri = aVar;
     }
 
     public void setStuckScreenLimitTime(long j) {
-        this.csR = j;
+        this.crh = j;
     }
 }

@@ -6,7 +6,7 @@ import android.os.Message;
 import java.lang.ref.WeakReference;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class InvalidationHandler extends Handler {
     static final int MSG_TYPE_INVALIDATION = -1;
     private final WeakReference<GifDrawable> mDrawableRef;

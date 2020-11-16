@@ -86,7 +86,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.c.a {
     private com.baidu.platform.comapi.wnplatform.o.a p;
     private com.baidu.platform.comapi.wnplatform.m.a q;
     private com.baidu.platform.comapi.wnplatform.a.a r;
-    private com.baidu.f.a.d s;
+    private com.baidu.g.a.d s;
     private com.baidu.platform.comapi.wnplatform.g.b t;
     private IWNaviStatusListener u;
     private IBNaviStatusListener v;
@@ -875,11 +875,11 @@ public class b implements com.baidu.platform.comapi.walknavi.g.c.a {
         this.E = latLng;
     }
 
-    public void a(com.baidu.f.a.d dVar) {
+    public void a(com.baidu.g.a.d dVar) {
         this.s = dVar;
     }
 
-    public com.baidu.f.a.d Q() {
+    public com.baidu.g.a.d Q() {
         return this.s;
     }
 

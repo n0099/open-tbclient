@@ -39,7 +39,7 @@ import com.baidu.sapi2.ecommerce.dto.InvoiceBuildDTO;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.utils.enums.SocialType;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class PassportSDK {
     private PassportSDK() {
     }

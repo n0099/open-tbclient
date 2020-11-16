@@ -7,13 +7,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 class r {
 
     /* renamed from: a  reason: collision with root package name */
     private static final String f1504a = "logsender";
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     interface a {
         void a();
 

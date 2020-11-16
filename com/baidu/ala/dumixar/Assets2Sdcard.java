@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class Assets2Sdcard {
     private Context mContext;
 

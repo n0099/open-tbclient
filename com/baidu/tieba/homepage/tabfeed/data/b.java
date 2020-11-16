@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.HotTopic;
 import tbclient.RecomTopicList;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b extends d {
     public String title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_hot_topic_title);
 

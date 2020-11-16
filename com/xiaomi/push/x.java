@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class x {
 
     /* renamed from: a  reason: collision with root package name */

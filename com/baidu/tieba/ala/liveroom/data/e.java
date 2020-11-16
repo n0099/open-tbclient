@@ -9,65 +9,65 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
 /* loaded from: classes4.dex */
 public class e {
-    public com.baidu.tieba.ala.liveroom.q.d hgD;
-    public AlaLiveView hgE;
-    public AlaLiveRecorder hgU;
-    public View hgV;
-    public FrameLayout hgW;
-    public ViewGroup hgX;
-    public com.baidu.tieba.ala.liveroom.master.a.d hgY;
-    public j hgZ;
-    public AlaLiveRecorderPerfData hha;
-    public com.baidu.live.tieba.e.b hhb;
-    public com.baidu.live.liveroom.middleware.a hhc;
+    public AlaLiveRecorder hgB;
+    public View hgC;
+    public FrameLayout hgD;
+    public ViewGroup hgE;
+    public com.baidu.tieba.ala.liveroom.master.a.d hgF;
+    public j hgG;
+    public AlaLiveRecorderPerfData hgH;
+    public com.baidu.live.tieba.e.b hgI;
+    public com.baidu.live.liveroom.middleware.a hgJ;
+    public com.baidu.tieba.ala.liveroom.q.d hgk;
+    public AlaLiveView hgl;
     private int liveType;
     public TbPageContext pageContext;
     public ViewGroup rootView;
 
-    public int cbr() {
+    public int caK() {
         return this.liveType;
     }
 
-    public void vB(int i) {
+    public void vZ(int i) {
         this.liveType = i;
-        if (this.hgY != null) {
-            this.hgY.wd(i);
+        if (this.hgF != null) {
+            this.hgF.wB(i);
         }
     }
 
     public void g(short s) {
-        if (this.hgY != null) {
-            this.hgY.g(s);
+        if (this.hgF != null) {
+            this.hgF.g(s);
         }
     }
 
-    public void Ws() {
-        if (this.hgY != null) {
-            this.hgY.Ws();
+    public void VJ() {
+        if (this.hgF != null) {
+            this.hgF.VJ();
         }
     }
 
-    public void bfw() {
-        if (this.hgY != null) {
-            this.hgY.bfw();
+    public void beP() {
+        if (this.hgF != null) {
+            this.hgF.beP();
         }
     }
 
-    public void cbs() {
-        if (this.hgY != null) {
-            this.hgY.cbs();
+    public void caL() {
+        if (this.hgF != null) {
+            this.hgF.caL();
         }
     }
 
-    public void cbt() {
-        if (this.hgY != null) {
-            this.hgY.cbt();
+    public void caM() {
+        if (this.hgF != null) {
+            this.hgF.caM();
         }
     }
 
-    public void cbu() {
-        if (this.hgY != null) {
-            this.hgY.cbu();
+    public void caN() {
+        if (this.hgF != null) {
+            this.hgF.caN();
         }
     }
 }

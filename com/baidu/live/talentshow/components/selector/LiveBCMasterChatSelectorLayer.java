@@ -17,22 +17,22 @@ import com.baidu.live.talentshow.components.selector.a;
 import com.baidu.live.tbadk.widget.CommonEmptyView;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class LiveBCMasterChatSelectorLayer extends LayerChildView implements a.InterfaceC0203a {
-    private CommonEmptyView bpJ;
-    private LinearLayout bwH;
-    private com.baidu.live.talentshow.components.selector.a bwI;
-    private b bwJ;
-    private FrameLayout bwK;
-    private a bwL;
-    private LinearLayout bwM;
-    private boolean bwN;
+public class LiveBCMasterChatSelectorLayer extends LayerChildView implements a.InterfaceC0201a {
+    private CommonEmptyView bnY;
+    private LinearLayout buW;
+    private com.baidu.live.talentshow.components.selector.a buX;
+    private b buY;
+    private FrameLayout buZ;
+    private a bva;
+    private LinearLayout bvb;
+    private boolean bvc;
     private BdListView mListView;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void QJ();
+        void Qa();
 
-        void QK();
+        void Qb();
     }
 
     /* loaded from: classes4.dex */
@@ -42,43 +42,43 @@ public class LiveBCMasterChatSelectorLayer extends LayerChildView implements a.I
 
     public LiveBCMasterChatSelectorLayer(@NonNull Context context) {
         super(context);
-        this.bwN = false;
+        this.bvc = false;
         init(context);
     }
 
     public LiveBCMasterChatSelectorLayer(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bwN = false;
+        this.bvc = false;
         init(context);
     }
 
     public LiveBCMasterChatSelectorLayer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bwN = false;
+        this.bvc = false;
         init(context);
     }
 
     private void init(Context context) {
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(a.g.talent_layout_master_apply_list, this);
         this.mListView = (BdListView) viewGroup.findViewById(a.f.detail_list);
-        this.bpJ = (CommonEmptyView) viewGroup.findViewById(a.f.emptyView);
-        this.bwH = (LinearLayout) viewGroup.findViewById(a.f.root_view);
-        this.bwK = (FrameLayout) viewGroup.findViewById(a.f.layout_progress);
-        this.bpJ.setTitle(a.h.talent_no_apply_user);
-        this.bpJ.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
-        this.mListView.setEmptyView(this.bpJ);
-        this.bwM = (LinearLayout) viewGroup.findViewById(a.f.layout_list);
-        this.bwI = new com.baidu.live.talentshow.components.selector.a();
-        this.mListView.setAdapter((ListAdapter) this.bwI);
+        this.bnY = (CommonEmptyView) viewGroup.findViewById(a.f.emptyView);
+        this.buW = (LinearLayout) viewGroup.findViewById(a.f.root_view);
+        this.buZ = (FrameLayout) viewGroup.findViewById(a.f.layout_progress);
+        this.bnY.setTitle(a.h.talent_no_apply_user);
+        this.bnY.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
+        this.mListView.setEmptyView(this.bnY);
+        this.bvb = (LinearLayout) viewGroup.findViewById(a.f.layout_list);
+        this.buX = new com.baidu.live.talentshow.components.selector.a();
+        this.mListView.setAdapter((ListAdapter) this.buX);
         setCanceledOnTouchOutside(true);
     }
 
     public LinearLayout getParentLayout() {
-        return this.bwH;
+        return this.buW;
     }
 
     public LinearLayout getListLayout() {
-        return this.bwM;
+        return this.bvb;
     }
 
     public BdListView getListView() {
@@ -86,45 +86,45 @@ public class LiveBCMasterChatSelectorLayer extends LayerChildView implements a.I
     }
 
     public void c(View.OnClickListener onClickListener) {
-        this.bwH.setOnClickListener(onClickListener);
-        this.bwI.a(this);
-        this.bwM.setOnClickListener(onClickListener);
+        this.buW.setOnClickListener(onClickListener);
+        this.buX.a(this);
+        this.bvb.setOnClickListener(onClickListener);
     }
 
     public void setOnConfirmListener(b bVar) {
-        this.bwJ = bVar;
+        this.buY = bVar;
     }
 
     public void setOnPanelStateChangeListener(a aVar) {
-        this.bwL = aVar;
+        this.bva = aVar;
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void DR() {
+    public void Di() {
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void DS() {
-        this.bwH.setBackgroundColor(getContext().getResources().getColor(a.c.sdk_transparent));
+    public void Dj() {
+        this.buW.setBackgroundColor(getContext().getResources().getColor(a.c.sdk_transparent));
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void DT() {
-        this.bwN = true;
-        if (this.bwL != null) {
-            this.bwL.QJ();
+    public void Dk() {
+        this.bvc = true;
+        if (this.bva != null) {
+            this.bva.Qa();
         }
-        this.bwH.setBackgroundColor(getContext().getResources().getColor(a.c.sdk_black_alpha50));
+        this.buW.setBackgroundColor(getContext().getResources().getColor(a.c.sdk_black_alpha50));
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void DU() {
-        this.bwN = false;
-        if (this.bwI != null) {
-            this.bwI.clearData();
+    public void Dl() {
+        this.bvc = false;
+        if (this.buX != null) {
+            this.buX.clearData();
         }
-        if (this.bwL != null) {
-            this.bwL.QK();
+        if (this.bva != null) {
+            this.bva.Qb();
         }
     }
 
@@ -133,44 +133,44 @@ public class LiveBCMasterChatSelectorLayer extends LayerChildView implements a.I
             if (list.size() == 0) {
                 showNoDataView();
             } else {
-                Rz();
+                QQ();
             }
-            this.bwI.setDatas(list);
+            this.buX.setDatas(list);
         }
     }
 
-    @Override // com.baidu.live.talentshow.components.selector.a.InterfaceC0203a
+    @Override // com.baidu.live.talentshow.components.selector.a.InterfaceC0201a
     public void c(com.baidu.live.talentshow.b.d dVar) {
-        if (this.bwJ != null) {
-            this.bwJ.b(dVar);
+        if (this.buY != null) {
+            this.buY.b(dVar);
         }
     }
 
-    public void Ry() {
-        this.bpJ.setTitle(a.h.talent_no_apply_net_error);
-        this.bpJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
-        this.bwK.setVisibility(8);
-        this.bpJ.setVisibility(0);
+    public void QP() {
+        this.bnY.setTitle(a.h.talent_no_apply_net_error);
+        this.bnY.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
+        this.buZ.setVisibility(8);
+        this.bnY.setVisibility(0);
     }
 
     public void showLoading() {
-        this.bwK.setVisibility(0);
-        this.bpJ.setVisibility(8);
+        this.buZ.setVisibility(0);
+        this.bnY.setVisibility(8);
     }
 
     public void showNoDataView() {
-        this.bpJ.setTitle(a.h.talent_no_apply_user);
-        this.bpJ.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
-        this.bwK.setVisibility(8);
-        this.bpJ.setVisibility(0);
+        this.bnY.setTitle(a.h.talent_no_apply_user);
+        this.bnY.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
+        this.buZ.setVisibility(8);
+        this.bnY.setVisibility(0);
     }
 
-    public void Rz() {
-        this.bwK.setVisibility(8);
-        this.bpJ.setVisibility(8);
+    public void QQ() {
+        this.buZ.setVisibility(8);
+        this.bnY.setVisibility(8);
     }
 
-    public boolean RA() {
-        return this.bwN;
+    public boolean QR() {
+        return this.bvc;
     }
 }

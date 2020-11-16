@@ -4,7 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class cr {
-    public int aSs;
+    public int aQH;
     public int money;
     public String new_props_id;
     public int props_id;
@@ -16,7 +16,7 @@ public class cr {
         try {
             jSONObject.put("props_id", this.props_id);
             jSONObject.put("money", this.money);
-            jSONObject.put("props_mon", this.aSs);
+            jSONObject.put("props_mon", this.aQH);
             jSONObject.put("wars_name", this.wars_name);
             jSONObject.put("wars_item", this.wars_item);
             jSONObject.put("new_props_id", this.new_props_id);

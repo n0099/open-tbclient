@@ -1,7 +1,7 @@
 package com.baidubce.services.vod.model;
 
 import com.baidubce.model.AbstractBceResponse;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class GenerateMediaIdResponse extends AbstractBceResponse {
     private String endPoint;
     private String mediaId;

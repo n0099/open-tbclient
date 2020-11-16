@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.logging.Logger;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FlatPackageWriterImpl implements PackageWriter {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static Logger LOG;

@@ -38,7 +38,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AccessibilityBridge extends AccessibilityNodeProvider {
     private static final int ACTION_SHOW_ON_SCREEN = 16908342;
     private static int FIRST_RESOURCE_ID = 267386881;
@@ -152,7 +152,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     };
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnAccessibilityChangeListener {
         void onAccessibilityChanged(boolean z, boolean z2);
     }
@@ -945,7 +945,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         sendWindowContentChangeEvent(0);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public enum Action {
         TAP(1),
         LONG_PRESS(2),
@@ -977,7 +977,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public enum Flag {
         HAS_CHECKED_STATE(1),
         IS_CHECKED(2),
@@ -1010,7 +1010,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public enum AccessibilityFeature {
         ACCESSIBLE_NAVIGATION(1),
         INVERT_COLORS(2),
@@ -1024,7 +1024,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public enum TextDirection {
         UNKNOWN,
         LTR,
@@ -1043,7 +1043,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class CustomAccessibilityAction {
         private String hint;
         private String label;
@@ -1056,7 +1056,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SemanticsNode {
         final AccessibilityBridge accessibilityBridge;
         private int actions;

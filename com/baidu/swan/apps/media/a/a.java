@@ -6,12 +6,12 @@ import com.baidu.searchbox.ugc.transcoder.TranscoderPlugin;
 import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String dec;
-    public int dea = 60000;
-    public String deb = TranscoderPlugin.AUDIO_CODEC;
+    public String dct;
+    public int dcr = 60000;
+    public String dcs = TranscoderPlugin.AUDIO_CODEC;
     public int channel = 1;
     public int sampleRate = CoolPraiseGuideLottieView.ANIM_DURATION;
     public int bitRate = 16000;
@@ -20,10 +20,10 @@ public class a {
     public static a a(JSONObject jSONObject, a aVar) {
         if (jSONObject != null && jSONObject.length() > 0) {
             aVar = new a();
-            aVar.dea = jSONObject.optInt("duration", 60000);
-            aVar.deb = jSONObject.optString("format");
-            if (TextUtils.isEmpty(aVar.deb)) {
-                aVar.deb = TranscoderPlugin.AUDIO_CODEC;
+            aVar.dcr = jSONObject.optInt("duration", 60000);
+            aVar.dcs = jSONObject.optString("format");
+            if (TextUtils.isEmpty(aVar.dcs)) {
+                aVar.dcs = TranscoderPlugin.AUDIO_CODEC;
             }
             aVar.channel = jSONObject.optInt("numberOfChannels", 1);
             aVar.sampleRate = jSONObject.optInt("sampleRate", CoolPraiseGuideLottieView.ANIM_DURATION);
@@ -41,26 +41,26 @@ public class a {
                         break;
                 }
             }
-            aVar.audioSource = qi(jSONObject.optString("audioSource", "auto"));
-            aVar.dec = jSONObject.optString("cb");
+            aVar.audioSource = qc(jSONObject.optString("audioSource", "auto"));
+            aVar.dct = jSONObject.optString("cb");
         }
         return aVar;
     }
 
-    public JSONObject aBl() {
-        if (this.dea > 600000 || this.dea < 0) {
+    public JSONObject aAD() {
+        if (this.dcr > 600000 || this.dcr < 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
         }
         if (this.channel != 1 && this.channel != 2) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
         }
-        if (!TextUtils.equals(this.deb, TranscoderPlugin.AUDIO_CODEC) && !TextUtils.equals(this.deb, "pcm")) {
+        if (!TextUtils.equals(this.dcs, TranscoderPlugin.AUDIO_CODEC) && !TextUtils.equals(this.dcs, "pcm")) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
         }
         if (this.sampleRate != 8000 && this.sampleRate != 16000 && this.sampleRate != 44100) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
         }
-        if (!TextUtils.equals(this.deb, "pcm")) {
+        if (!TextUtils.equals(this.dcs, "pcm")) {
             boolean z = false;
             switch (this.sampleRate) {
                 case CoolPraiseGuideLottieView.ANIM_DURATION /* 8000 */:
@@ -93,11 +93,11 @@ public class a {
     }
 
     public String toString() {
-        return "recordTime : " + this.dea + "; channel : " + this.channel + "; audioFormat : " + this.deb + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.dec;
+        return "recordTime : " + this.dcr + "; channel : " + this.channel + "; audioFormat : " + this.dcs + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.dct;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private static int qi(String str) {
+    private static int qc(String str) {
         char c;
         switch (str.hashCode()) {
             case -401509030:

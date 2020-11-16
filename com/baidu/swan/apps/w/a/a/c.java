@@ -2,7 +2,7 @@ package com.baidu.swan.apps.w.a.a;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c implements com.baidu.swan.apps.model.a {
     public double latitude = -200.0d;
     public double longitude = -200.0d;

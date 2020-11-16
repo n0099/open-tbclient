@@ -7,16 +7,16 @@ import android.widget.Toast;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class w {
-    private static Field Px;
     private static Field Py;
+    private static Field Pz;
 
     static {
         try {
             if (Build.VERSION.SDK_INT < 28) {
-                Px = Toast.class.getDeclaredField("mTN");
-                Px.setAccessible(true);
-                Py = Px.getType().getDeclaredField("mHandler");
+                Py = Toast.class.getDeclaredField("mTN");
                 Py.setAccessible(true);
+                Pz = Py.getType().getDeclaredField("mHandler");
+                Pz.setAccessible(true);
             }
         } catch (Exception e) {
         }
@@ -26,8 +26,8 @@ public class w {
         Object obj;
         Handler handler;
         try {
-            if (Build.VERSION.SDK_INT < 28 && Px != null && Py != null && (obj = Px.get(toast)) != null && (handler = (Handler) Py.get(obj)) != null) {
-                Py.set(obj, new a(handler));
+            if (Build.VERSION.SDK_INT < 28 && Py != null && Pz != null && (obj = Py.get(toast)) != null && (handler = (Handler) Pz.get(obj)) != null) {
+                Pz.set(obj, new a(handler));
             }
         } catch (Exception e) {
         }
@@ -35,10 +35,10 @@ public class w {
 
     /* loaded from: classes.dex */
     public static class a extends Handler {
-        private Handler Pz;
+        private Handler PD;
 
         public a(Handler handler) {
-            this.Pz = handler;
+            this.PD = handler;
         }
 
         @Override // android.os.Handler
@@ -52,8 +52,8 @@ public class w {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             try {
-                if (this.Pz != null) {
-                    this.Pz.handleMessage(message);
+                if (this.PD != null) {
+                    this.PD.handleMessage(message);
                 }
             } catch (Exception e) {
             }

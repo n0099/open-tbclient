@@ -6,40 +6,40 @@ import com.baidu.tbadk.mvc.message.MvcSocketMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.r;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class n implements MessageQueue.IdleHandler {
-    private r jdc;
-    private FrsModelController jeh;
-    private MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> jek;
-    private MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> jel;
-    private MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> jem;
+    private r jdP;
+    private FrsModelController jeU;
+    private MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> jeX;
+    private MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> jeY;
+    private MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> jeZ;
 
     public void g(FrsModelController frsModelController) {
-        this.jeh = frsModelController;
+        this.jeU = frsModelController;
     }
 
     public void a(MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> mvcSocketResponsedMessage) {
-        this.jel = mvcSocketResponsedMessage;
+        this.jeY = mvcSocketResponsedMessage;
     }
 
     public void a(MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcSocketMessage) {
-        this.jem = mvcSocketMessage;
+        this.jeZ = mvcSocketMessage;
     }
 
     public void a(MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
-        this.jek = mvcNetMessage;
+        this.jeX = mvcNetMessage;
     }
 
     public void a(r rVar) {
-        this.jdc = rVar;
+        this.jdP = rVar;
     }
 
     @Override // android.os.MessageQueue.IdleHandler
     public boolean queueIdle() {
-        if (this.jeh != null) {
-            this.jeh.b(this.jel, this.jem, this.jek);
-            if (this.jdc != null) {
-                this.jdc.cyz();
+        if (this.jeU != null) {
+            this.jeU.b(this.jeY, this.jeZ, this.jeX);
+            if (this.jdP != null) {
+                this.jdP.cyc();
             }
         }
         return false;

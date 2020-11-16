@@ -1,32 +1,37 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.statics.AlaStaticKeys;
-import org.json.JSONObject;
-import tbclient.FrsPage.MemberShowIcon;
+import java.util.ArrayList;
+import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes.dex */
 public class aa {
-    private String mIcon;
-    private String mName;
-    private String mUrl;
+    private w ezf;
+    private long threadId;
+    private long eza = 0;
+    private String ezb = "";
+    private long ezc = 0;
+    private String ezd = "";
+    private String imgUrl = "";
+    private String eze = "";
 
-    public void a(MemberShowIcon memberShowIcon) {
-        if (memberShowIcon != null) {
-            this.mIcon = memberShowIcon.icon;
-            this.mName = memberShowIcon.name;
-            this.mUrl = memberShowIcon.url;
+    public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+        if (forumHeadlineImgInfo != null) {
+            this.threadId = forumHeadlineImgInfo.thread_id.longValue();
+            this.eza = forumHeadlineImgInfo.thread_user_id.longValue();
+            this.ezb = forumHeadlineImgInfo.thread_user_name;
+            this.ezc = forumHeadlineImgInfo.img_user_id.longValue();
+            this.ezd = forumHeadlineImgInfo.img_user_name;
+            this.imgUrl = forumHeadlineImgInfo.img_url;
+            this.eze = forumHeadlineImgInfo.headline_url;
+            this.ezf = new w();
+            ArrayList<z> arrayList = new ArrayList<>();
+            z zVar = new z(this.imgUrl == null ? "" : this.imgUrl, this.eze == null ? "" : this.eze, null);
+            zVar.iL(true);
+            arrayList.add(zVar);
+            this.ezf.C(arrayList);
         }
     }
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.mIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-                this.mName = jSONObject.optString("name");
-                this.mUrl = jSONObject.optString("url");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    public String bjy() {
+        return this.imgUrl;
     }
 }

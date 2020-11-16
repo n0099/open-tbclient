@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public interface n {
     void a(h<?, ?> hVar);
 
@@ -15,9 +15,9 @@ public interface n {
 
     void enE();
 
-    void enF();
+    void enx();
 
-    void enG();
+    void eny();
 
     void enz();
 

@@ -1,7 +1,7 @@
 package com.example.image_loader_plugin;
 
 import java.util.HashMap;
-/* loaded from: classes17.dex */
+/* loaded from: classes12.dex */
 public class ResNameTransform {
     private static HashMap<String, String> platformImageNameMap = new HashMap<>();
     private static HashMap<String, String> svgColorMap = new HashMap<>();
@@ -12,12 +12,12 @@ public class ResNameTransform {
         platformImageNameMap.put("btn_sign_vip_h", "bg_vip_sign_ok_d");
         platformImageNameMap.put("btn_sign_check_n_v2", "btn_all_sign");
         platformImageNameMap.put("btn_sign_check_h", "bg_all_sign_ok_d");
-        platformImageNameMap.put("assets/images/pic_use_header_80_n.webp", "pic_use_header_60_n");
-        platformImageNameMap.put("assets/images/pic_use_header_80_n_1.webp", "pic_use_header_60_n");
-        platformImageNameMap.put("assets/images/pic_use_header_80_n_2.webp", "pic_use_header_60_n");
-        platformImageNameMap.put("assets/images/pic_use_header_70_n.webp", "pic_use_header_40_n");
-        platformImageNameMap.put("assets/images/pic_use_header_70_n_1.webp", "pic_use_header_40_n");
-        platformImageNameMap.put("assets/images/pic_use_header_70_n_2.webp", "pic_use_header_40_n");
+        platformImageNameMap.put("assets/images/icon_pure_header40_n.webp", "icon_pure_header40_n");
+        platformImageNameMap.put("assets/images/icon_pure_header40_n_1.webp", "icon_pure_header40_n");
+        platformImageNameMap.put("assets/images/icon_pure_header40_n_2.webp", "icon_pure_header40_n");
+        platformImageNameMap.put("assets/images/icon_pure_header24_n.webp", "icon_pure_header24_n");
+        platformImageNameMap.put("assets/images/icon_pure_header24_n_1.webp", "icon_pure_header24_n");
+        platformImageNameMap.put("assets/images/icon_pure_header24_n_2.webp", "icon_pure_header24_n");
         platformImageNameMap.put("icon_dredge_vip", "icon_btn_vip_sign");
         platformImageNameMap.put("icon_sign_gary_d", "icon_pure_topbar_sign44_svg");
         platformImageNameMap.put("icon_level_1", "icon_level_01");
@@ -107,14 +107,15 @@ public class ResNameTransform {
         platformImageNameMap.put("icon_pure_personalba_more24", "icon_pure_personalba_more24_svg");
         platformImageNameMap.put("icon_pure_gerenba_edit_n", "icon_pure_personalba_edit24_svg");
         platformImageNameMap.put("icon_common_arrow16_right_n", "ic_icon_pure_common_arrow16_n_svg");
-        platformImageNameMap.put("icon_pure_card_ba16", "icon_pure_card_ba16_svg");
+        platformImageNameMap.put("icon_pure_card_ba16", "icon_pure_ba16");
         platformImageNameMap.put("icon_home_search_n", "icon_pure_search_import16_svg");
         platformImageNameMap.put("icon_pure_home_bar_game44", "ic_icon_pure_home_bar_game");
         platformImageNameMap.put("icon_pure_send12", "ic_icon_pure_send12");
         platformImageNameMap.put("icon_pure_add12_n", "icon_pure_add12_svg");
+        platformImageNameMap.put("icon_entry_search_n", "icon_home_search16_svg");
         platformImageNameMap.put("icon_mask_Crown24", "svg_icon_mask_crown24");
-        platformImageNameMap.put("icon_pure_topbar_sign44", "icon_pure_topbar_sign44_svg");
         platformImageNameMap.put("icon_pure_arrow12_right", "icon_pure_arrow12_right_svg");
+        platformImageNameMap.put("icon_pure_evaluation_star_collect12@3x", "icon_pure_evaluation_star24_n");
     }
 
     public static String getAndroidNameFromIos(String str) {

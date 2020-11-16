@@ -11,13 +11,13 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class DBBase {
     public static final String TAG = DBBase.class.getSimpleName();
     protected static Object mSyncLock = new Object();
     protected Context mContext = null;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     public class UpdateArgs {
         public String[] args;
         public String query;

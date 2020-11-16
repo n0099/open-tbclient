@@ -1,45 +1,25 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import java.util.List;
-import tbclient.PbPage.RecommendBook;
+import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
-public class az extends PostData {
-    public static final BdUniqueId eCa = BdUniqueId.gen();
-    public String eAt;
-    public String eAu;
-    public String eAv;
-    public String eCb;
-    public String eCc;
-    public String eCd;
-    public List<String> eCe;
-    public String eCf;
-    public String eCg;
-    public int ezV;
+public class az {
+    public String buttonText;
+    public String eAp;
+    public String eAq;
+    public int eeS;
+    public int position = 0;
+    public String subtitle;
+    public String summary;
 
-    public void a(RecommendBook recommendBook) {
-        if (recommendBook != null) {
-            this.eCb = recommendBook.recommend_text;
-            this.eCc = recommendBook.suggest_text;
-            this.eCd = recommendBook.suggest_url;
-            this.eAt = recommendBook.book_id;
-            this.ezV = recommendBook.book_type.intValue();
-            this.eAv = recommendBook.book_cover;
-            this.eAu = recommendBook.book_title;
-            this.eCe = recommendBook.book_tips;
-            this.eCf = recommendBook.botton_text;
-            this.eCg = recommendBook.subscript_icon;
+    public void a(NewsInfo newsInfo) {
+        if (newsInfo != null) {
+            this.eAp = newsInfo.news_link;
+            this.summary = newsInfo.summary;
+            this.position = newsInfo.position.intValue();
+            this.eeS = newsInfo.news_type.intValue();
+            this.eAq = newsInfo.news_icon;
+            this.subtitle = newsInfo.subtitle;
+            this.buttonText = newsInfo.button_text;
         }
-    }
-
-    public boolean hasData() {
-        return (this == null || StringUtils.isNull(this.eAt)) ? false : true;
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return eCa;
     }
 }

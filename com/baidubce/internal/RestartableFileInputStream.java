@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class RestartableFileInputStream extends RestartableInputStream {
     private File file;
     private FileInputStream input;

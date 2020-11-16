@@ -1,7 +1,7 @@
 package com.baidu.helios.common.a.a.b;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */

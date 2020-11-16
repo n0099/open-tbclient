@@ -1,7 +1,7 @@
 package com.yanzhenjie.permission;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public interface h {
     @NonNull
     h a(a aVar);
@@ -10,7 +10,7 @@ public interface h {
     h a(g gVar);
 
     @NonNull
-    h ab(String... strArr);
+    h ac(String... strArr);
 
     @NonNull
     h b(a aVar);

@@ -37,7 +37,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class MediaBrowserCompat {
     public static final String CUSTOM_ACTION_DOWNLOAD = "android.support.v4.media.action.DOWNLOAD";
     public static final String CUSTOM_ACTION_REMOVE_DOWNLOADED_FILE = "android.support.v4.media.action.REMOVE_DOWNLOADED_FILE";
@@ -50,7 +50,7 @@ public final class MediaBrowserCompat {
     static final boolean DEBUG = Log.isLoggable(TAG, 3);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface MediaBrowserImpl {
         void connect();
 
@@ -80,7 +80,7 @@ public final class MediaBrowserCompat {
         void unsubscribe(@NonNull String str, SubscriptionCallback subscriptionCallback);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     interface MediaBrowserServiceCallbackImpl {
         void onConnectionFailed(Messenger messenger);
 
@@ -194,7 +194,7 @@ public final class MediaBrowserCompat {
         this.mImpl.sendCustomAction(str, bundle, customActionCallback);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class MediaItem implements Parcelable {
         public static final Parcelable.Creator<MediaItem> CREATOR = new Parcelable.Creator<MediaItem>() { // from class: android.support.v4.media.MediaBrowserCompat.MediaItem.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -218,7 +218,7 @@ public final class MediaBrowserCompat {
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public @interface Flags {
         }
 
@@ -299,13 +299,13 @@ public final class MediaBrowserCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class ConnectionCallback {
         ConnectionCallbackInternal mConnectionCallbackInternal;
         final Object mConnectionCallbackObj;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public interface ConnectionCallbackInternal {
             void onConnected();
 
@@ -335,7 +335,7 @@ public final class MediaBrowserCompat {
             this.mConnectionCallbackInternal = connectionCallbackInternal;
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         private class StubApi21 implements MediaBrowserCompatApi21.ConnectionCallback {
             StubApi21() {
             }
@@ -366,7 +366,7 @@ public final class MediaBrowserCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static abstract class SubscriptionCallback {
         private final Object mSubscriptionCallbackObj;
         WeakReference<Subscription> mSubscriptionRef;
@@ -399,7 +399,7 @@ public final class MediaBrowserCompat {
             this.mSubscriptionRef = new WeakReference<>(subscription);
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         private class StubApi21 implements MediaBrowserCompatApi21.SubscriptionCallback {
             StubApi21() {
             }
@@ -457,7 +457,7 @@ public final class MediaBrowserCompat {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         private class StubApi26 extends StubApi21 implements MediaBrowserCompatApi26.SubscriptionCallback {
             StubApi26() {
                 super();
@@ -475,7 +475,7 @@ public final class MediaBrowserCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static abstract class ItemCallback {
         final Object mItemCallbackObj;
 
@@ -493,7 +493,7 @@ public final class MediaBrowserCompat {
         public void onError(@NonNull String str) {
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         private class StubApi23 implements MediaBrowserCompatApi23.ItemCallback {
             StubApi23() {
             }
@@ -516,7 +516,7 @@ public final class MediaBrowserCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static abstract class SearchCallback {
         public void onSearchResult(@NonNull String str, Bundle bundle, @NonNull List<MediaItem> list) {
         }
@@ -525,7 +525,7 @@ public final class MediaBrowserCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static abstract class CustomActionCallback {
         public void onProgressUpdate(String str, Bundle bundle, Bundle bundle2) {
         }
@@ -538,7 +538,7 @@ public final class MediaBrowserCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class MediaBrowserImplBase implements MediaBrowserImpl, MediaBrowserServiceCallbackImpl {
         static final int CONNECT_STATE_CONNECTED = 3;
         static final int CONNECT_STATE_CONNECTING = 2;
@@ -941,7 +941,7 @@ public final class MediaBrowserCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public class MediaServiceConnection implements ServiceConnection {
             MediaServiceConnection() {
             }
@@ -1019,7 +1019,7 @@ public final class MediaBrowserCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     static class MediaBrowserImplApi21 implements ConnectionCallback.ConnectionCallbackInternal, MediaBrowserImpl, MediaBrowserServiceCallbackImpl {
         protected final Object mBrowserObj;
         protected Messenger mCallbacksMessenger;
@@ -1324,7 +1324,7 @@ public final class MediaBrowserCompat {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     static class MediaBrowserImplApi23 extends MediaBrowserImplApi21 {
         MediaBrowserImplApi23(Context context, ComponentName componentName, ConnectionCallback connectionCallback, Bundle bundle) {
             super(context, componentName, connectionCallback, bundle);
@@ -1341,7 +1341,7 @@ public final class MediaBrowserCompat {
     }
 
     @RequiresApi(26)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     static class MediaBrowserImplApi26 extends MediaBrowserImplApi23 {
         MediaBrowserImplApi26(Context context, ComponentName componentName, ConnectionCallback connectionCallback, Bundle bundle) {
             super(context, componentName, connectionCallback, bundle);
@@ -1377,7 +1377,7 @@ public final class MediaBrowserCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class Subscription {
         private final List<SubscriptionCallback> mCallbacks = new ArrayList();
         private final List<Bundle> mOptionsList = new ArrayList();
@@ -1437,7 +1437,7 @@ public final class MediaBrowserCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class CallbackHandler extends Handler {
         private final WeakReference<MediaBrowserServiceCallbackImpl> mCallbackImplRef;
         private WeakReference<Messenger> mCallbacksMessengerRef;
@@ -1483,7 +1483,7 @@ public final class MediaBrowserCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class ServiceBinderWrapper {
         private Messenger mMessenger;
         private Bundle mRootHints;
@@ -1563,7 +1563,7 @@ public final class MediaBrowserCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class ItemReceiver extends ResultReceiver {
         private final ItemCallback mCallback;
         private final String mMediaId;
@@ -1592,7 +1592,7 @@ public final class MediaBrowserCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     private static class SearchResultReceiver extends ResultReceiver {
         private final SearchCallback mCallback;
         private final Bundle mExtras;
@@ -1627,7 +1627,7 @@ public final class MediaBrowserCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     private static class CustomActionResultReceiver extends ResultReceiver {
         private final String mAction;
         private final CustomActionCallback mCallback;

@@ -4,16 +4,16 @@ import com.baidu.webkit.sdk.Log;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    C0933a f3940a;
+    C0936a f3940a;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public class C0933a {
+    /* loaded from: classes5.dex */
+    public class C0936a {
 
         /* renamed from: a  reason: collision with root package name */
         boolean f3941a;
@@ -24,7 +24,7 @@ public final class a {
         boolean f;
         Map<String, Long> g;
 
-        private C0933a() {
+        private C0936a() {
             this.b = true;
             this.c = -1L;
             this.d = -1L;
@@ -32,7 +32,7 @@ public final class a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ C0933a(a aVar, byte b) {
+        public /* synthetic */ C0936a(a aVar, byte b) {
             this();
         }
 

@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import javax.annotation.Nullable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class RealBufferedSource implements BufferedSource {
     public final Buffer buffer = new Buffer();
     boolean closed;

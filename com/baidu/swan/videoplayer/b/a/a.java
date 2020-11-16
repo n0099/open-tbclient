@@ -4,7 +4,7 @@ import com.baidu.swan.apps.adaptation.a.aa;
 import com.baidu.swan.videoplayer.b.a.a.b;
 import com.baidu.swan.videoplayer.b.a.a.c;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class a implements aa {
     @Override // com.baidu.swan.apps.adaptation.a.aa
     public com.baidu.swan.apps.inlinewidget.f.c.a a(ZeusPluginFactory.Invoker invoker, String str) {

@@ -37,7 +37,7 @@ public class b {
     private BDLocation k = null;
     private boolean l = false;
     private boolean m = false;
-    private RunnableC0245b n = null;
+    private RunnableC0243b n = null;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
@@ -352,7 +352,7 @@ public class b {
 
     /* renamed from: com.baidu.location.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    private class RunnableC0245b implements Runnable {
+    private class RunnableC0243b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
         final /* synthetic */ b f1875a;

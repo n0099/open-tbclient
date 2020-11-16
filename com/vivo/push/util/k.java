@@ -6,7 +6,7 @@ import com.baidu.android.util.devices.RomUtils;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */

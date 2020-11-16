@@ -6,16 +6,16 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
-    private static final Object[] pRa = new Object[0];
-    static final ReplaySubscription[] pRj = new ReplaySubscription[0];
-    static final ReplaySubscription[] pRk = new ReplaySubscription[0];
+    private static final Object[] pSD = new Object[0];
+    static final ReplaySubscription[] pSM = new ReplaySubscription[0];
+    static final ReplaySubscription[] pSN = new ReplaySubscription[0];
     boolean done;
-    final a<T> pRi;
+    final a<T> pSL;
     final AtomicReference<ReplaySubscription<T>[]> subscribers;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     interface a<T> {
         void c(ReplaySubscription<T> replaySubscription);
 
@@ -33,7 +33,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         if (a(replaySubscription) && replaySubscription.cancelled) {
             b(replaySubscription);
         } else {
-            this.pRi.c(replaySubscription);
+            this.pSL.c(replaySubscription);
         }
     }
 
@@ -50,7 +50,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
     public void onNext(T t) {
         io.reactivex.internal.functions.a.l(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (!this.done) {
-            a<T> aVar = this.pRi;
+            a<T> aVar = this.pSL;
             aVar.next(t);
             for (ReplaySubscription<T> replaySubscription : this.subscribers.get()) {
                 aVar.c(replaySubscription);
@@ -66,9 +66,9 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
             return;
         }
         this.done = true;
-        a<T> aVar = this.pRi;
+        a<T> aVar = this.pSL;
         aVar.error(th);
-        for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(pRk)) {
+        for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(pSN)) {
             aVar.c(replaySubscription);
         }
     }
@@ -77,9 +77,9 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
     public void onComplete() {
         if (!this.done) {
             this.done = true;
-            a<T> aVar = this.pRi;
+            a<T> aVar = this.pSL;
             aVar.complete();
-            for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(pRk)) {
+            for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(pSN)) {
                 aVar.c(replaySubscription);
             }
         }
@@ -90,7 +90,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         ReplaySubscription<T>[] replaySubscriptionArr2;
         do {
             replaySubscriptionArr = this.subscribers.get();
-            if (replaySubscriptionArr == pRk) {
+            if (replaySubscriptionArr == pSN) {
                 return false;
             }
             int length = replaySubscriptionArr.length;
@@ -106,7 +106,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         ReplaySubscription<T>[] replaySubscriptionArr2;
         do {
             replaySubscriptionArr = this.subscribers.get();
-            if (replaySubscriptionArr != pRk && replaySubscriptionArr != pRj) {
+            if (replaySubscriptionArr != pSN && replaySubscriptionArr != pSM) {
                 int length = replaySubscriptionArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -122,7 +122,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        replaySubscriptionArr2 = pRj;
+                        replaySubscriptionArr2 = pSM;
                     } else {
                         replaySubscriptionArr2 = new ReplaySubscription[length - 1];
                         System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr2, 0, i);
@@ -138,7 +138,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class ReplaySubscription<T> extends AtomicInteger implements d {
         private static final long serialVersionUID = 466549804534799122L;
         final c<? super T> actual;
@@ -157,7 +157,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
-                this.state.pRi.c(this);
+                this.state.pSL.c(this);
             }
         }
 
@@ -170,7 +170,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class Node<T> extends AtomicReference<Node<T>> {
         private static final long serialVersionUID = 6404226426336033100L;
         final T value;
@@ -180,7 +180,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class TimedNode<T> extends AtomicReference<TimedNode<T>> {
         private static final long serialVersionUID = 6404226426336033100L;
         final long time;

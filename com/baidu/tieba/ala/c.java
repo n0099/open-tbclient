@@ -1,45 +1,45 @@
 package com.baidu.tieba.ala;
 
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    private static c gal;
-    private List<aq> fQJ;
+    private static c fZS;
+    private List<ar> fQs;
 
-    public static c bMo() {
-        if (gal == null) {
+    public static c bLH() {
+        if (fZS == null) {
             synchronized (c.class) {
-                if (gal == null) {
-                    gal = new c();
+                if (fZS == null) {
+                    fZS = new c();
                 }
             }
         }
-        return gal;
+        return fZS;
     }
 
-    public void e(aq aqVar) {
-        if (aqVar != null) {
-            if (this.fQJ == null) {
-                this.fQJ = new ArrayList();
+    public void e(ar arVar) {
+        if (arVar != null) {
+            if (this.fQs == null) {
+                this.fQs = new ArrayList();
             }
-            if (this.fQJ != null) {
-                this.fQJ.add(aqVar);
+            if (this.fQs != null) {
+                this.fQs.add(arVar);
             }
         }
     }
 
-    public void bMp() {
-        if (y.getCount(this.fQJ) != 0) {
-            for (aq aqVar : this.fQJ) {
-                if (aqVar != null) {
-                    TiebaStatic.log(aqVar);
+    public void bLI() {
+        if (y.getCount(this.fQs) != 0) {
+            for (ar arVar : this.fQs) {
+                if (arVar != null) {
+                    TiebaStatic.log(arVar);
                 }
             }
-            this.fQJ.clear();
+            this.fQs.clear();
         }
     }
 }

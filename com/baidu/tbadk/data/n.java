@@ -4,37 +4,37 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes.dex */
 public class n implements q {
-    public static final BdUniqueId aiz = BdUniqueId.gen();
-    private boolean cwu = false;
-    private String fmq;
-    private String fmr;
+    public static final BdUniqueId aiE = BdUniqueId.gen();
+    private boolean cuK = false;
+    private String flx;
+    private String fly;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return aiz;
+        return aiE;
     }
 
-    public String byX() {
-        return this.fmq;
+    public String byn() {
+        return this.flx;
     }
 
-    public void Dv(String str) {
-        this.fmq = str;
+    public void CU(String str) {
+        this.flx = str;
     }
 
     public String getSmallUrl() {
-        return this.fmr;
+        return this.fly;
     }
 
-    public void Dw(String str) {
-        this.fmr = str;
+    public void CV(String str) {
+        this.fly = str;
     }
 
-    public boolean byY() {
-        return this.cwu;
+    public boolean byo() {
+        return this.cuK;
     }
 
-    public void jT(boolean z) {
-        this.cwu = z;
+    public void jU(boolean z) {
+        this.cuK = z;
     }
 }

@@ -3,7 +3,7 @@ package com.airbnb.lottie.c;
 import android.util.JsonReader;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class b {
     public static com.airbnb.lottie.model.a.k c(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
         jsonReader.beginObject();

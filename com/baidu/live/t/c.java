@@ -14,53 +14,53 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes4.dex */
 public class c implements a {
-    private CustomMessageListener bek;
-    private b bqL;
+    private CustomMessageListener bcy;
+    private b bpa;
     private Activity mActivity;
 
     public c(Activity activity) {
         this.mActivity = activity;
-        JC();
+        IT();
     }
 
     @Override // com.baidu.live.t.a
-    public void hT(String str) {
+    public void hN(String str) {
         if (this.mActivity != null && !this.mActivity.isFinishing()) {
-            this.bqL = new b(this.mActivity);
+            this.bpa = new b(this.mActivity);
             g gVar = new g();
-            gVar.y(this.mActivity).a(this.bqL).a(this.bqL.OQ());
-            com.baidu.live.view.web.a[] WX = gVar.WX();
-            for (com.baidu.live.view.web.a aVar : WX) {
-                this.bqL.a(aVar, aVar.getName());
+            gVar.x(this.mActivity).a(this.bpa).a(this.bpa.Oh());
+            com.baidu.live.view.web.a[] Wo = gVar.Wo();
+            for (com.baidu.live.view.web.a aVar : Wo) {
+                this.bpa.a(aVar, aVar.getName());
             }
-            this.bqL.h(UtilHelper.getRealScreenOrientation(this.mActivity), hW(str), str);
+            this.bpa.g(UtilHelper.getRealScreenOrientation(this.mActivity), hQ(str), str);
         }
     }
 
     @Override // com.baidu.live.t.a
     public void resume() {
-        if (this.bqL != null && this.bqL.isShowing()) {
-            this.bqL.eY(UtilHelper.getRealScreenOrientation(this.mActivity));
+        if (this.bpa != null && this.bpa.isShowing()) {
+            this.bpa.eU(UtilHelper.getRealScreenOrientation(this.mActivity));
         }
     }
 
     @Override // com.baidu.live.t.a
     public void pause() {
-        if (this.bqL != null && this.bqL.isShowing()) {
-            this.bqL.pause();
+        if (this.bpa != null && this.bpa.isShowing()) {
+            this.bpa.pause();
         }
     }
 
     @Override // com.baidu.live.t.a
     public void release() {
-        if (this.bqL != null) {
-            this.bqL.dismiss();
+        if (this.bpa != null) {
+            this.bpa.dismiss();
         }
-        OS();
+        Oj();
     }
 
-    private void JC() {
-        this.bek = new CustomMessageListener(2913097) { // from class: com.baidu.live.t.c.1
+    private void IT() {
+        this.bcy = new CustomMessageListener(2913097) { // from class: com.baidu.live.t.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -69,14 +69,14 @@ public class c implements a {
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bek);
+        MessageManager.getInstance().registerListener(this.bcy);
     }
 
-    private void OS() {
-        MessageManager.getInstance().unRegisterListener(this.bek);
+    private void Oj() {
+        MessageManager.getInstance().unRegisterListener(this.bcy);
     }
 
-    private int hW(String str) {
+    private int hQ(String str) {
         String str2 = null;
         try {
             str2 = Uri.parse(str).getQueryParameter("background");

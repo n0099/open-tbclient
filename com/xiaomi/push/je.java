@@ -2,42 +2,42 @@ package com.xiaomi.push;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class je extends ji {
 
     /* renamed from: a  reason: collision with root package name */
     private static final jn f4998a = new jn();
 
     /* renamed from: a  reason: collision with other field name */
-    protected int f771a;
+    protected int f774a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected boolean f772a;
+    protected boolean f775a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f773a;
+    private byte[] f776a;
     protected boolean b;
 
     /* renamed from: b  reason: collision with other field name */
-    private byte[] f774b;
+    private byte[] f777b;
     protected boolean c;
 
     /* renamed from: c  reason: collision with other field name */
-    private byte[] f775c;
+    private byte[] f778c;
     private byte[] d;
     private byte[] e;
     private byte[] f;
     private byte[] g;
     private byte[] h;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes18.dex */
     public static class a implements jk {
 
         /* renamed from: a  reason: collision with root package name */
         protected int f4999a;
 
         /* renamed from: a  reason: collision with other field name */
-        protected boolean f776a;
+        protected boolean f779a;
         protected boolean b;
 
         public a() {
@@ -49,16 +49,16 @@ public class je extends ji {
         }
 
         public a(boolean z, boolean z2, int i) {
-            this.f776a = false;
+            this.f779a = false;
             this.b = true;
-            this.f776a = z;
+            this.f779a = z;
             this.b = z2;
             this.f4999a = i;
         }
 
         @Override // com.xiaomi.push.jk
         public ji a(js jsVar) {
-            je jeVar = new je(jsVar, this.f776a, this.b);
+            je jeVar = new je(jsVar, this.f779a, this.b);
             if (this.f4999a != 0) {
                 jeVar.b(this.f4999a);
             }
@@ -68,18 +68,18 @@ public class je extends ji {
 
     public je(js jsVar, boolean z, boolean z2) {
         super(jsVar);
-        this.f772a = false;
+        this.f775a = false;
         this.b = true;
         this.c = false;
-        this.f773a = new byte[1];
-        this.f774b = new byte[2];
-        this.f775c = new byte[4];
+        this.f776a = new byte[1];
+        this.f777b = new byte[2];
+        this.f778c = new byte[4];
         this.d = new byte[8];
         this.e = new byte[1];
         this.f = new byte[2];
         this.g = new byte[4];
         this.h = new byte[8];
-        this.f772a = z;
+        this.f775a = z;
         this.b = z2;
     }
 
@@ -94,7 +94,7 @@ public class je extends ji {
             a(this.e, 0, 1);
             return this.e[0];
         }
-        byte b = this.f5003a.m496a()[this.f5003a.a()];
+        byte b = this.f5003a.m499a()[this.f5003a.a()];
         this.f5003a.a(1);
         return b;
     }
@@ -109,7 +109,7 @@ public class je extends ji {
         int i = 0;
         byte[] bArr = this.g;
         if (this.f5003a.b() >= 4) {
-            bArr = this.f5003a.m496a();
+            bArr = this.f5003a.m499a();
             i = this.f5003a.a();
             this.f5003a.a(4);
         } else {
@@ -123,7 +123,7 @@ public class je extends ji {
         int i = 0;
         byte[] bArr = this.h;
         if (this.f5003a.b() >= 8) {
-            bArr = this.f5003a.m496a();
+            bArr = this.f5003a.m499a();
             i = this.f5003a.a();
             this.f5003a.a(8);
         } else {
@@ -163,7 +163,7 @@ public class je extends ji {
         int a2 = a();
         if (this.f5003a.b() >= a2) {
             try {
-                String str = new String(this.f5003a.m496a(), this.f5003a.a(), a2, "UTF-8");
+                String str = new String(this.f5003a.m499a(), this.f5003a.a(), a2, "UTF-8");
                 this.f5003a.a(a2);
                 return str;
             } catch (UnsupportedEncodingException e) {
@@ -190,7 +190,7 @@ public class je extends ji {
         int a2 = a();
         c(a2);
         if (this.f5003a.b() >= a2) {
-            ByteBuffer wrap = ByteBuffer.wrap(this.f5003a.m496a(), this.f5003a.a(), a2);
+            ByteBuffer wrap = ByteBuffer.wrap(this.f5003a.m499a(), this.f5003a.a(), a2);
             this.f5003a.a(a2);
             return wrap;
         }
@@ -204,7 +204,7 @@ public class je extends ji {
         int i = 0;
         byte[] bArr = this.f;
         if (this.f5003a.b() >= 2) {
-            bArr = this.f5003a.m496a();
+            bArr = this.f5003a.m499a();
             i = this.f5003a.a();
             this.f5003a.a(2);
         } else {
@@ -219,17 +219,17 @@ public class je extends ji {
 
     @Override // com.xiaomi.push.ji
     public void a(byte b) {
-        this.f773a[0] = b;
-        this.f5003a.m495a(this.f773a, 0, 1);
+        this.f776a[0] = b;
+        this.f5003a.m498a(this.f776a, 0, 1);
     }
 
     @Override // com.xiaomi.push.ji
     public void a(int i) {
-        this.f775c[0] = (byte) ((i >> 24) & 255);
-        this.f775c[1] = (byte) ((i >> 16) & 255);
-        this.f775c[2] = (byte) ((i >> 8) & 255);
-        this.f775c[3] = (byte) (i & 255);
-        this.f5003a.m495a(this.f775c, 0, 4);
+        this.f778c[0] = (byte) ((i >> 24) & 255);
+        this.f778c[1] = (byte) ((i >> 16) & 255);
+        this.f778c[2] = (byte) ((i >> 8) & 255);
+        this.f778c[3] = (byte) (i & 255);
+        this.f5003a.m498a(this.f778c, 0, 4);
     }
 
     @Override // com.xiaomi.push.ji
@@ -242,26 +242,26 @@ public class je extends ji {
         this.d[5] = (byte) ((j >> 16) & 255);
         this.d[6] = (byte) ((j >> 8) & 255);
         this.d[7] = (byte) (255 & j);
-        this.f5003a.m495a(this.d, 0, 8);
+        this.f5003a.m498a(this.d, 0, 8);
     }
 
     @Override // com.xiaomi.push.ji
     public void a(jf jfVar) {
         a(jfVar.f5000a);
-        a(jfVar.f778a);
+        a(jfVar.f781a);
     }
 
     @Override // com.xiaomi.push.ji
     public void a(jg jgVar) {
         a(jgVar.f5001a);
-        a(jgVar.f779a);
+        a(jgVar.f782a);
     }
 
     @Override // com.xiaomi.push.ji
     public void a(jh jhVar) {
         a(jhVar.f5002a);
         a(jhVar.b);
-        a(jhVar.f780a);
+        a(jhVar.f783a);
     }
 
     @Override // com.xiaomi.push.ji
@@ -273,7 +273,7 @@ public class je extends ji {
         try {
             byte[] bytes = str.getBytes("UTF-8");
             a(bytes.length);
-            this.f5003a.m495a(bytes, 0, bytes.length);
+            this.f5003a.m498a(bytes, 0, bytes.length);
         } catch (UnsupportedEncodingException e) {
             throw new jc("JVM DOES NOT SUPPORT UTF-8");
         }
@@ -283,14 +283,14 @@ public class je extends ji {
     public void a(ByteBuffer byteBuffer) {
         int limit = (byteBuffer.limit() - byteBuffer.position()) - byteBuffer.arrayOffset();
         a(limit);
-        this.f5003a.m495a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
+        this.f5003a.m498a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
     }
 
     @Override // com.xiaomi.push.ji
     public void a(short s) {
-        this.f774b[0] = (byte) ((s >> 8) & 255);
-        this.f774b[1] = (byte) (s & 255);
-        this.f5003a.m495a(this.f774b, 0, 2);
+        this.f777b[0] = (byte) ((s >> 8) & 255);
+        this.f777b[1] = (byte) (s & 255);
+        this.f5003a.m498a(this.f777b, 0, 2);
     }
 
     @Override // com.xiaomi.push.ji
@@ -308,7 +308,7 @@ public class je extends ji {
     }
 
     public void b(int i) {
-        this.f771a = i;
+        this.f774a = i;
         this.c = true;
     }
 
@@ -323,8 +323,8 @@ public class je extends ji {
             throw new jc("Negative length: " + i);
         }
         if (this.c) {
-            this.f771a -= i;
-            if (this.f771a < 0) {
+            this.f774a -= i;
+            if (this.f774a < 0) {
                 throw new jc("Message length exceeded: " + i);
             }
         }

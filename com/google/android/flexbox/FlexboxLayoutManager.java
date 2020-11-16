@@ -13,11 +13,11 @@ import android.util.SparseArray;
 import android.view.View;
 import com.google.android.flexbox.c;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider, com.google.android.flexbox.a {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final Rect pbY;
-    private int hMW;
+    private static final Rect pdB;
+    private int hMD;
     private final Context mContext;
     private boolean mIsRtl;
     private int mLastHeight;
@@ -29,39 +29,39 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
     private boolean mRecycleChildrenOnDetach;
     private RecyclerView.Recycler mRecycler;
     private RecyclerView.State mState;
-    private List<com.google.android.flexbox.b> pbH;
-    private int pbJ;
-    private int pbK;
-    private int pbL;
-    private int pbM;
-    private final c pbW;
-    private c.a pbX;
-    private boolean pbZ;
-    private b pca;
-    private a pcb;
-    private OrientationHelper pcc;
-    private SavedState pcd;
-    private SparseArray<View> pce;
-    private int pcf;
+    private c.a pdA;
+    private boolean pdC;
+    private b pdD;
+    private a pdE;
+    private OrientationHelper pdF;
+    private SavedState pdG;
+    private SparseArray<View> pdH;
+    private int pdI;
+    private List<com.google.android.flexbox.b> pdk;
+    private int pdm;
+    private int pdn;
+    private int pdo;
+    private int pdp;
+    private final c pdz;
 
     static {
         $assertionsDisabled = !FlexboxLayoutManager.class.desiredAssertionStatus();
-        pbY = new Rect();
+        pdB = new Rect();
     }
 
     @Override // com.google.android.flexbox.a
     public int getFlexDirection() {
-        return this.pbJ;
+        return this.pdm;
     }
 
     @Override // com.google.android.flexbox.a
     public int getFlexWrap() {
-        return this.pbK;
+        return this.pdn;
     }
 
     @Override // com.google.android.flexbox.a
     public int getAlignItems() {
-        return this.pbM;
+        return this.pdp;
     }
 
     @Override // com.google.android.flexbox.a
@@ -71,31 +71,31 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
 
     @Override // com.google.android.flexbox.a
     public int getMaxLine() {
-        return this.hMW;
+        return this.hMD;
     }
 
     @Override // com.google.android.flexbox.a
-    public int j(View view, int i, int i2) {
-        return esf() ? getLeftDecorationWidth(view) + getRightDecorationWidth(view) : getTopDecorationHeight(view) + getBottomDecorationHeight(view);
+    public int k(View view, int i, int i2) {
+        return esd() ? getLeftDecorationWidth(view) + getRightDecorationWidth(view) : getTopDecorationHeight(view) + getBottomDecorationHeight(view);
     }
 
     @Override // com.google.android.flexbox.a
-    public int dY(View view) {
-        return esf() ? getTopDecorationHeight(view) + getBottomDecorationHeight(view) : getLeftDecorationWidth(view) + getRightDecorationWidth(view);
+    public int ef(View view) {
+        return esd() ? getTopDecorationHeight(view) + getBottomDecorationHeight(view) : getLeftDecorationWidth(view) + getRightDecorationWidth(view);
     }
 
     @Override // com.google.android.flexbox.a
     public void a(View view, int i, int i2, com.google.android.flexbox.b bVar) {
-        calculateItemDecorationsForChild(view, pbY);
-        if (esf()) {
+        calculateItemDecorationsForChild(view, pdB);
+        if (esd()) {
             int leftDecorationWidth = getLeftDecorationWidth(view) + getRightDecorationWidth(view);
-            bVar.pbr += leftDecorationWidth;
-            bVar.pbs = leftDecorationWidth + bVar.pbs;
+            bVar.pcU += leftDecorationWidth;
+            bVar.pcV = leftDecorationWidth + bVar.pcV;
             return;
         }
         int topDecorationHeight = getTopDecorationHeight(view) + getBottomDecorationHeight(view);
-        bVar.pbr += topDecorationHeight;
-        bVar.pbs = topDecorationHeight + bVar.pbs;
+        bVar.pcU += topDecorationHeight;
+        bVar.pcV = topDecorationHeight + bVar.pcV;
     }
 
     @Override // com.google.android.flexbox.a
@@ -104,14 +104,14 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
     }
 
     @Override // com.google.android.flexbox.a
-    public View PV(int i) {
-        View view = this.pce.get(i);
+    public View Qy(int i) {
+        View view = this.pdH.get(i);
         return view != null ? view : this.mRecycler.getViewForPosition(i);
     }
 
     @Override // com.google.android.flexbox.a
-    public View PW(int i) {
-        return PV(i);
+    public View Qz(int i) {
+        return Qy(i);
     }
 
     @Override // com.google.android.flexbox.a
@@ -119,51 +119,51 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
     }
 
     @Override // com.google.android.flexbox.a
-    public int ah(int i, int i2, int i3) {
+    public int ak(int i, int i2, int i3) {
         return getChildMeasureSpec(getWidth(), getWidthMode(), i2, i3, canScrollHorizontally());
     }
 
     @Override // com.google.android.flexbox.a
-    public int ai(int i, int i2, int i3) {
+    public int al(int i, int i2, int i3) {
         return getChildMeasureSpec(getHeight(), getHeightMode(), i2, i3, canScrollVertically());
     }
 
     @Override // com.google.android.flexbox.a
     public int getLargestMainSize() {
-        if (this.pbH.size() == 0) {
+        if (this.pdk.size() == 0) {
             return 0;
         }
         int i = Integer.MIN_VALUE;
-        int size = this.pbH.size();
+        int size = this.pdk.size();
         for (int i2 = 0; i2 < size; i2++) {
-            i = Math.max(i, this.pbH.get(i2).pbr);
+            i = Math.max(i, this.pdk.get(i2).pcU);
         }
         return i;
     }
 
     @Override // com.google.android.flexbox.a
     public int getSumOfCrossSize() {
-        int size = this.pbH.size();
+        int size = this.pdk.size();
         int i = 0;
         for (int i2 = 0; i2 < size; i2++) {
-            i += this.pbH.get(i2).pbt;
+            i += this.pdk.get(i2).pcW;
         }
         return i;
     }
 
     @Override // com.google.android.flexbox.a
     public void setFlexLines(List<com.google.android.flexbox.b> list) {
-        this.pbH = list;
+        this.pdk = list;
     }
 
     @Override // com.google.android.flexbox.a
     public List<com.google.android.flexbox.b> getFlexLinesInternal() {
-        return this.pbH;
+        return this.pdk;
     }
 
     @Override // com.google.android.flexbox.a
     public void n(int i, View view) {
-        this.pce.put(i, view);
+        this.pdH.put(i, view);
     }
 
     @Override // android.support.v7.widget.RecyclerView.SmoothScroller.ScrollVectorProvider
@@ -172,7 +172,7 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
             return null;
         }
         int i2 = i < getPosition(getChildAt(0)) ? -1 : 1;
-        if (esf()) {
+        if (esd()) {
             return new PointF(0.0f, i2);
         }
         return new PointF(i2, 0.0f);
@@ -200,8 +200,8 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public Parcelable onSaveInstanceState() {
-        if (this.pcd != null) {
-            return new SavedState(this.pcd);
+        if (this.pdG != null) {
+            return new SavedState(this.pdG);
         }
         SavedState savedState = new SavedState();
         if (getChildCount() > 0) {
@@ -217,7 +217,7 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onRestoreInstanceState(Parcelable parcelable) {
         if (parcelable instanceof SavedState) {
-            this.pcd = (SavedState) parcelable;
+            this.pdG = (SavedState) parcelable;
             requestLayout();
         }
     }
@@ -225,51 +225,51 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onItemsAdded(RecyclerView recyclerView, int i, int i2) {
         super.onItemsAdded(recyclerView, i, i2);
-        Qi(i);
+        QL(i);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onItemsUpdated(RecyclerView recyclerView, int i, int i2, Object obj) {
         super.onItemsUpdated(recyclerView, i, i2, obj);
-        Qi(i);
+        QL(i);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onItemsUpdated(RecyclerView recyclerView, int i, int i2) {
         super.onItemsUpdated(recyclerView, i, i2);
-        Qi(i);
+        QL(i);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onItemsRemoved(RecyclerView recyclerView, int i, int i2) {
         super.onItemsRemoved(recyclerView, i, i2);
-        Qi(i);
+        QL(i);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onItemsMoved(RecyclerView recyclerView, int i, int i2, int i3) {
         super.onItemsMoved(recyclerView, i, i2, i3);
-        Qi(Math.min(i, i2));
+        QL(Math.min(i, i2));
     }
 
-    private void Qi(int i) {
+    private void QL(int i) {
         int findFirstVisibleItemPosition = findFirstVisibleItemPosition();
         int findLastVisibleItemPosition = findLastVisibleItemPosition();
         if (i < findLastVisibleItemPosition) {
             int childCount = getChildCount();
-            this.pbW.Qb(childCount);
-            this.pbW.Qa(childCount);
-            this.pbW.Qc(childCount);
-            if (!$assertionsDisabled && this.pbW.pbE == null) {
+            this.pdz.QE(childCount);
+            this.pdz.QD(childCount);
+            this.pdz.QF(childCount);
+            if (!$assertionsDisabled && this.pdz.pdh == null) {
                 throw new AssertionError();
             }
-            if (i < this.pbW.pbE.length) {
-                this.pcf = i;
+            if (i < this.pdz.pdh.length) {
+                this.pdI = i;
                 View childClosestToStart = getChildClosestToStart();
                 if (childClosestToStart != null) {
                     if (findFirstVisibleItemPosition > i || i > findLastVisibleItemPosition) {
                         this.mPendingScrollPosition = getPosition(childClosestToStart);
-                        if (!esf() && this.mIsRtl) {
+                        if (!esd() && this.mIsRtl) {
                             this.mPendingScrollPositionOffset = this.mOrientationHelper.getDecoratedEnd(childClosestToStart) + this.mOrientationHelper.getEndPadding();
                         } else {
                             this.mPendingScrollPositionOffset = this.mOrientationHelper.getDecoratedStart(childClosestToStart) - this.mOrientationHelper.getStartAfterPadding();
@@ -291,42 +291,42 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
             esp();
             esr();
             ensureLayoutState();
-            this.pbW.Qb(itemCount);
-            this.pbW.Qa(itemCount);
-            this.pbW.Qc(itemCount);
-            this.pca.pck = false;
-            if (this.pcd != null && this.pcd.Qo(itemCount)) {
-                this.mPendingScrollPosition = this.pcd.mAnchorPosition;
+            this.pdz.QE(itemCount);
+            this.pdz.QD(itemCount);
+            this.pdz.QF(itemCount);
+            this.pdD.pdN = false;
+            if (this.pdG != null && this.pdG.QR(itemCount)) {
+                this.mPendingScrollPosition = this.pdG.mAnchorPosition;
             }
-            if (!this.pcb.mValid || this.mPendingScrollPosition != -1 || this.pcd != null) {
-                this.pcb.reset();
-                a(state, this.pcb);
-                this.pcb.mValid = true;
+            if (!this.pdE.mValid || this.mPendingScrollPosition != -1 || this.pdG != null) {
+                this.pdE.reset();
+                a(state, this.pdE);
+                this.pdE.mValid = true;
             }
             detachAndScrapAttachedViews(recycler);
-            if (this.pcb.mLayoutFromEnd) {
-                b(this.pcb, false, true);
+            if (this.pdE.mLayoutFromEnd) {
+                b(this.pdE, false, true);
             } else {
-                a(this.pcb, false, true);
+                a(this.pdE, false, true);
             }
-            Qj(itemCount);
-            if (this.pcb.mLayoutFromEnd) {
-                a(recycler, state, this.pca);
-                i2 = this.pca.mOffset;
-                a(this.pcb, true, false);
-                a(recycler, state, this.pca);
-                i = this.pca.mOffset;
+            QM(itemCount);
+            if (this.pdE.mLayoutFromEnd) {
+                a(recycler, state, this.pdD);
+                i2 = this.pdD.mOffset;
+                a(this.pdE, true, false);
+                a(recycler, state, this.pdD);
+                i = this.pdD.mOffset;
             } else {
-                a(recycler, state, this.pca);
-                i = this.pca.mOffset;
-                b(this.pcb, true, false);
-                a(recycler, state, this.pca);
-                i2 = this.pca.mOffset;
+                a(recycler, state, this.pdD);
+                i = this.pdD.mOffset;
+                b(this.pdE, true, false);
+                a(recycler, state, this.pdD);
+                i2 = this.pdD.mOffset;
             }
             if (getChildCount() <= 0) {
                 return;
             }
-            if (this.pcb.mLayoutFromEnd) {
+            if (this.pdE.mLayoutFromEnd) {
                 fixLayoutStartGap(fixLayoutEndGap(i, recycler, state, true) + i2, recycler, state, false);
             } else {
                 fixLayoutEndGap(i + fixLayoutStartGap(i2, recycler, state, true), recycler, state, false);
@@ -337,7 +337,7 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
     private int fixLayoutStartGap(int i, RecyclerView.Recycler recycler, RecyclerView.State state, boolean z) {
         int i2;
         int startAfterPadding;
-        if (!esf() && this.mIsRtl) {
+        if (!esd() && this.mIsRtl) {
             int endAfterPadding = this.mOrientationHelper.getEndAfterPadding() - i;
             if (endAfterPadding <= 0) {
                 return 0;
@@ -361,7 +361,7 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
     private int fixLayoutEndGap(int i, RecyclerView.Recycler recycler, RecyclerView.State state, boolean z) {
         int i2;
         int endAfterPadding;
-        if (!esf() && this.mIsRtl) {
+        if (!esd() && this.mIsRtl) {
             int startAfterPadding = i - this.mOrientationHelper.getStartAfterPadding();
             if (startAfterPadding <= 0) {
                 return 0;
@@ -382,7 +382,7 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         return i2;
     }
 
-    private void Qj(int i) {
+    private void QM(int i) {
         int i2;
         int i3;
         int i4;
@@ -391,124 +391,124 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(getHeight(), getHeightMode());
         int width = getWidth();
         int height = getHeight();
-        if (esf()) {
+        if (esd()) {
             if (this.mLastWidth == Integer.MIN_VALUE || this.mLastWidth == width) {
                 z = false;
             }
-            if (this.pca.mInfinite) {
+            if (this.pdD.mInfinite) {
                 i4 = this.mContext.getResources().getDisplayMetrics().heightPixels;
             } else {
-                i4 = this.pca.mAvailable;
+                i4 = this.pdD.mAvailable;
             }
             i3 = i4;
         } else {
             if (this.mLastHeight == Integer.MIN_VALUE || this.mLastHeight == height) {
                 z = false;
             }
-            if (this.pca.mInfinite) {
+            if (this.pdD.mInfinite) {
                 i2 = this.mContext.getResources().getDisplayMetrics().widthPixels;
             } else {
-                i2 = this.pca.mAvailable;
+                i2 = this.pdD.mAvailable;
             }
             i3 = i2;
         }
         this.mLastWidth = width;
         this.mLastHeight = height;
-        if (this.pcf != -1 || (this.mPendingScrollPosition == -1 && !z)) {
-            int min = this.pcf != -1 ? Math.min(this.pcf, this.pcb.mPosition) : this.pcb.mPosition;
-            this.pbX.reset();
-            if (esf()) {
-                if (this.pbH.size() > 0) {
-                    this.pbW.B(this.pbH, min);
-                    this.pbW.a(this.pbX, makeMeasureSpec, makeMeasureSpec2, i3, min, this.pcb.mPosition, this.pbH);
+        if (this.pdI != -1 || (this.mPendingScrollPosition == -1 && !z)) {
+            int min = this.pdI != -1 ? Math.min(this.pdI, this.pdE.mPosition) : this.pdE.mPosition;
+            this.pdA.reset();
+            if (esd()) {
+                if (this.pdk.size() > 0) {
+                    this.pdz.B(this.pdk, min);
+                    this.pdz.a(this.pdA, makeMeasureSpec, makeMeasureSpec2, i3, min, this.pdE.mPosition, this.pdk);
                 } else {
-                    this.pbW.Qc(i);
-                    this.pbW.a(this.pbX, makeMeasureSpec, makeMeasureSpec2, i3, 0, this.pbH);
+                    this.pdz.QF(i);
+                    this.pdz.a(this.pdA, makeMeasureSpec, makeMeasureSpec2, i3, 0, this.pdk);
                 }
-            } else if (this.pbH.size() > 0) {
-                this.pbW.B(this.pbH, min);
-                this.pbW.a(this.pbX, makeMeasureSpec2, makeMeasureSpec, i3, min, this.pcb.mPosition, this.pbH);
+            } else if (this.pdk.size() > 0) {
+                this.pdz.B(this.pdk, min);
+                this.pdz.a(this.pdA, makeMeasureSpec2, makeMeasureSpec, i3, min, this.pdE.mPosition, this.pdk);
             } else {
-                this.pbW.Qc(i);
-                this.pbW.c(this.pbX, makeMeasureSpec, makeMeasureSpec2, i3, 0, this.pbH);
+                this.pdz.QF(i);
+                this.pdz.c(this.pdA, makeMeasureSpec, makeMeasureSpec2, i3, 0, this.pdk);
             }
-            this.pbH = this.pbX.pbH;
-            this.pbW.aj(makeMeasureSpec, makeMeasureSpec2, min);
-            this.pbW.PZ(min);
-        } else if (!this.pcb.mLayoutFromEnd) {
-            this.pbH.clear();
-            if (!$assertionsDisabled && this.pbW.pbE == null) {
+            this.pdk = this.pdA.pdk;
+            this.pdz.am(makeMeasureSpec, makeMeasureSpec2, min);
+            this.pdz.QC(min);
+        } else if (!this.pdE.mLayoutFromEnd) {
+            this.pdk.clear();
+            if (!$assertionsDisabled && this.pdz.pdh == null) {
                 throw new AssertionError();
             }
-            this.pbX.reset();
-            if (esf()) {
-                this.pbW.b(this.pbX, makeMeasureSpec, makeMeasureSpec2, i3, this.pcb.mPosition, this.pbH);
+            this.pdA.reset();
+            if (esd()) {
+                this.pdz.b(this.pdA, makeMeasureSpec, makeMeasureSpec2, i3, this.pdE.mPosition, this.pdk);
             } else {
-                this.pbW.d(this.pbX, makeMeasureSpec, makeMeasureSpec2, i3, this.pcb.mPosition, this.pbH);
+                this.pdz.d(this.pdA, makeMeasureSpec, makeMeasureSpec2, i3, this.pdE.mPosition, this.pdk);
             }
-            this.pbH = this.pbX.pbH;
-            this.pbW.ec(makeMeasureSpec, makeMeasureSpec2);
-            this.pbW.esn();
-            this.pcb.pcg = this.pbW.pbE[this.pcb.mPosition];
-            this.pca.pcg = this.pcb.pcg;
+            this.pdk = this.pdA.pdk;
+            this.pdz.ed(makeMeasureSpec, makeMeasureSpec2);
+            this.pdz.esn();
+            this.pdE.pdJ = this.pdz.pdh[this.pdE.mPosition];
+            this.pdD.pdJ = this.pdE.pdJ;
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onLayoutCompleted(RecyclerView.State state) {
         super.onLayoutCompleted(state);
-        this.pcd = null;
+        this.pdG = null;
         this.mPendingScrollPosition = -1;
         this.mPendingScrollPositionOffset = Integer.MIN_VALUE;
-        this.pcf = -1;
-        this.pcb.reset();
-        this.pce.clear();
+        this.pdI = -1;
+        this.pdE.reset();
+        this.pdH.clear();
     }
 
     private void esp() {
         int layoutDirection = getLayoutDirection();
-        switch (this.pbJ) {
+        switch (this.pdm) {
             case 0:
                 this.mIsRtl = layoutDirection == 1;
-                this.pbZ = this.pbK == 2;
+                this.pdC = this.pdn == 2;
                 return;
             case 1:
                 this.mIsRtl = layoutDirection != 1;
-                this.pbZ = this.pbK == 2;
+                this.pdC = this.pdn == 2;
                 return;
             case 2:
                 this.mIsRtl = layoutDirection == 1;
-                if (this.pbK == 2) {
+                if (this.pdn == 2) {
                     this.mIsRtl = this.mIsRtl ? false : true;
                 }
-                this.pbZ = false;
+                this.pdC = false;
                 return;
             case 3:
                 this.mIsRtl = layoutDirection == 1;
-                if (this.pbK == 2) {
+                if (this.pdn == 2) {
                     this.mIsRtl = this.mIsRtl ? false : true;
                 }
-                this.pbZ = true;
+                this.pdC = true;
                 return;
             default:
                 this.mIsRtl = false;
-                this.pbZ = false;
+                this.pdC = false;
                 return;
         }
     }
 
     private void a(RecyclerView.State state, a aVar) {
-        if (a(state, aVar, this.pcd) || b(state, aVar)) {
+        if (a(state, aVar, this.pdG) || b(state, aVar)) {
             return;
         }
         aVar.assignCoordinateFromPadding();
         aVar.mPosition = 0;
-        aVar.pcg = 0;
+        aVar.pdJ = 0;
     }
 
     private boolean a(RecyclerView.State state, a aVar, SavedState savedState) {
         int decoratedStart;
-        if ($assertionsDisabled || this.pbW.pbE != null) {
+        if ($assertionsDisabled || this.pdz.pdh != null) {
             if (state.isPreLayout() || this.mPendingScrollPosition == -1) {
                 return false;
             }
@@ -518,8 +518,8 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
                 return false;
             }
             aVar.mPosition = this.mPendingScrollPosition;
-            aVar.pcg = this.pbW.pbE[aVar.mPosition];
-            if (this.pcd == null || !this.pcd.Qo(state.getItemCount())) {
+            aVar.pdJ = this.pdz.pdh[aVar.mPosition];
+            if (this.pdG == null || !this.pdG.QR(state.getItemCount())) {
                 if (this.mPendingScrollPositionOffset == Integer.MIN_VALUE) {
                     View findViewByPosition = findViewByPosition(this.mPendingScrollPosition);
                     if (findViewByPosition != null) {
@@ -550,7 +550,7 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
                     }
                     aVar.assignCoordinateFromPadding();
                     return true;
-                } else if (esf() || !this.mIsRtl) {
+                } else if (esd() || !this.mIsRtl) {
                     aVar.mCoordinate = this.mOrientationHelper.getStartAfterPadding() + this.mPendingScrollPositionOffset;
                     return true;
                 } else {
@@ -559,29 +559,29 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
                 }
             }
             aVar.mCoordinate = this.mOrientationHelper.getStartAfterPadding() + savedState.mAnchorOffset;
-            aVar.pci = true;
-            aVar.pcg = -1;
+            aVar.pdL = true;
+            aVar.pdJ = -1;
             return true;
         }
         throw new AssertionError();
     }
 
     private boolean b(RecyclerView.State state, a aVar) {
-        View Qk;
+        View QN;
         int startAfterPadding;
         boolean z = false;
         if (getChildCount() == 0) {
             return false;
         }
         if (aVar.mLayoutFromEnd) {
-            Qk = Ql(state.getItemCount());
+            QN = QO(state.getItemCount());
         } else {
-            Qk = Qk(state.getItemCount());
+            QN = QN(state.getItemCount());
         }
-        if (Qk != null) {
-            aVar.ed(Qk);
+        if (QN != null) {
+            aVar.ek(QN);
             if (!state.isPreLayout() && supportsPredictiveItemAnimations()) {
-                if (this.mOrientationHelper.getDecoratedStart(Qk) >= this.mOrientationHelper.getEndAfterPadding() || this.mOrientationHelper.getDecoratedEnd(Qk) < this.mOrientationHelper.getStartAfterPadding()) {
+                if (this.mOrientationHelper.getDecoratedStart(QN) >= this.mOrientationHelper.getEndAfterPadding() || this.mOrientationHelper.getDecoratedEnd(QN) < this.mOrientationHelper.getStartAfterPadding()) {
                     z = true;
                 }
                 if (z) {
@@ -598,33 +598,33 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         return false;
     }
 
-    private View Qk(int i) {
-        if ($assertionsDisabled || this.pbW.pbE != null) {
-            View al = al(0, getChildCount(), i);
-            if (al == null) {
+    private View QN(int i) {
+        if ($assertionsDisabled || this.pdz.pdh != null) {
+            View ao = ao(0, getChildCount(), i);
+            if (ao == null) {
                 return null;
             }
-            int i2 = this.pbW.pbE[getPosition(al)];
+            int i2 = this.pdz.pdh[getPosition(ao)];
             if (i2 != -1) {
-                return a(al, this.pbH.get(i2));
+                return a(ao, this.pdk.get(i2));
             }
             return null;
         }
         throw new AssertionError();
     }
 
-    private View Ql(int i) {
-        if ($assertionsDisabled || this.pbW.pbE != null) {
-            View al = al(getChildCount() - 1, -1, i);
-            if (al == null) {
+    private View QO(int i) {
+        if ($assertionsDisabled || this.pdz.pdh != null) {
+            View ao = ao(getChildCount() - 1, -1, i);
+            if (ao == null) {
                 return null;
             }
-            return b(al, this.pbH.get(this.pbW.pbE[getPosition(al)]));
+            return b(ao, this.pdk.get(this.pdz.pdh[getPosition(ao)]));
         }
         throw new AssertionError();
     }
 
-    private View al(int i, int i2, int i3) {
+    private View ao(int i, int i2, int i3) {
         View view;
         View view2 = null;
         esr();
@@ -678,15 +678,15 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         }
         int i = bVar.mAvailable;
         int i2 = bVar.mAvailable;
-        boolean esf = esf();
+        boolean esd = esd();
         int i3 = i2;
         int i4 = 0;
         while (true) {
-            if ((i3 > 0 || this.pca.mInfinite) && bVar.a(state, this.pbH)) {
-                com.google.android.flexbox.b bVar2 = this.pbH.get(bVar.pcg);
-                bVar.mPosition = bVar2.pbA;
+            if ((i3 > 0 || this.pdD.mInfinite) && bVar.a(state, this.pdk)) {
+                com.google.android.flexbox.b bVar2 = this.pdk.get(bVar.pdJ);
+                bVar.mPosition = bVar2.pdd;
                 i4 += a(bVar2, bVar);
-                if (esf || !this.mIsRtl) {
+                if (esd || !this.mIsRtl) {
                     bVar.mOffset += bVar2.esl() * bVar.mLayoutDirection;
                 } else {
                     bVar.mOffset -= bVar2.esl() * bVar.mLayoutDirection;
@@ -706,7 +706,7 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
     }
 
     private void a(RecyclerView.Recycler recycler, b bVar) {
-        if (!bVar.pck) {
+        if (!bVar.pdN) {
             return;
         }
         if (bVar.mLayoutDirection == -1) {
@@ -718,14 +718,14 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
 
     private void b(RecyclerView.Recycler recycler, b bVar) {
         if (bVar.mScrollingOffset >= 0) {
-            if (!$assertionsDisabled && this.pbW.pbE == null) {
+            if (!$assertionsDisabled && this.pdz.pdh == null) {
                 throw new AssertionError();
             }
             int childCount = getChildCount();
             if (childCount != 0) {
-                int i = this.pbW.pbE[getPosition(getChildAt(0))];
+                int i = this.pdz.pdh[getPosition(getChildAt(0))];
                 if (i != -1) {
-                    com.google.android.flexbox.b bVar2 = this.pbH.get(i);
+                    com.google.android.flexbox.b bVar2 = this.pdk.get(i);
                     int i2 = -1;
                     int i3 = 0;
                     while (true) {
@@ -733,17 +733,17 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
                             break;
                         }
                         View childAt = getChildAt(i3);
-                        if (!G(childAt, bVar.mScrollingOffset)) {
+                        if (!I(childAt, bVar.mScrollingOffset)) {
                             break;
                         }
-                        if (bVar2.pbB == getPosition(childAt)) {
-                            if (i >= this.pbH.size() - 1) {
+                        if (bVar2.pde == getPosition(childAt)) {
+                            if (i >= this.pdk.size() - 1) {
                                 i2 = i3;
                                 break;
                             }
                             int i4 = i + bVar.mLayoutDirection;
                             i = i4;
-                            bVar2 = this.pbH.get(i4);
+                            bVar2 = this.pdk.get(i4);
                             i2 = i3;
                         }
                         i3++;
@@ -754,38 +754,38 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         }
     }
 
-    private boolean G(View view, int i) {
-        return (esf() || !this.mIsRtl) ? this.mOrientationHelper.getDecoratedEnd(view) <= i : this.mOrientationHelper.getEnd() - this.mOrientationHelper.getDecoratedStart(view) <= i;
+    private boolean I(View view, int i) {
+        return (esd() || !this.mIsRtl) ? this.mOrientationHelper.getDecoratedEnd(view) <= i : this.mOrientationHelper.getEnd() - this.mOrientationHelper.getDecoratedStart(view) <= i;
     }
 
     private void c(RecyclerView.Recycler recycler, b bVar) {
         if (bVar.mScrollingOffset >= 0) {
-            if (!$assertionsDisabled && this.pbW.pbE == null) {
+            if (!$assertionsDisabled && this.pdz.pdh == null) {
                 throw new AssertionError();
             }
             int end = this.mOrientationHelper.getEnd() - bVar.mScrollingOffset;
             int childCount = getChildCount();
             if (childCount != 0) {
-                int i = this.pbW.pbE[getPosition(getChildAt(childCount - 1))];
+                int i = this.pdz.pdh[getPosition(getChildAt(childCount - 1))];
                 if (i != -1) {
                     int i2 = childCount - 1;
-                    com.google.android.flexbox.b bVar2 = this.pbH.get(i);
+                    com.google.android.flexbox.b bVar2 = this.pdk.get(i);
                     int i3 = childCount - 1;
                     while (true) {
                         if (i3 < 0) {
                             break;
                         }
                         View childAt = getChildAt(i3);
-                        if (!H(childAt, bVar.mScrollingOffset)) {
+                        if (!J(childAt, bVar.mScrollingOffset)) {
                             break;
                         }
-                        if (bVar2.pbA == getPosition(childAt)) {
+                        if (bVar2.pdd == getPosition(childAt)) {
                             if (i <= 0) {
                                 childCount = i3;
                                 break;
                             }
                             int i4 = i + bVar.mLayoutDirection;
-                            bVar2 = this.pbH.get(i4);
+                            bVar2 = this.pdk.get(i4);
                             i = i4;
                             childCount = i3;
                         }
@@ -797,8 +797,8 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         }
     }
 
-    private boolean H(View view, int i) {
-        return (esf() || !this.mIsRtl) ? this.mOrientationHelper.getDecoratedStart(view) >= this.mOrientationHelper.getEnd() - i : this.mOrientationHelper.getDecoratedEnd(view) <= i;
+    private boolean J(View view, int i) {
+        return (esd() || !this.mIsRtl) ? this.mOrientationHelper.getDecoratedStart(view) >= this.mOrientationHelper.getEnd() - i : this.mOrientationHelper.getDecoratedEnd(view) <= i;
     }
 
     private void recycleChildren(RecyclerView.Recycler recycler, int i, int i2) {
@@ -809,7 +809,7 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
     }
 
     private int a(com.google.android.flexbox.b bVar, b bVar2) {
-        return esf() ? b(bVar, bVar2) : c(bVar, bVar2);
+        return esd() ? b(bVar, bVar2) : c(bVar, bVar2);
     }
 
     private int b(com.google.android.flexbox.b bVar, b bVar2) {
@@ -819,93 +819,93 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         LayoutParams layoutParams;
         float measuredWidth;
         float measuredWidth2;
-        if ($assertionsDisabled || this.pbW.pbF != null) {
+        if ($assertionsDisabled || this.pdz.pdi != null) {
             int paddingLeft = getPaddingLeft();
             int paddingRight = getPaddingRight();
             int width = getWidth();
             int i2 = bVar2.mOffset;
-            int i3 = bVar2.mLayoutDirection == -1 ? i2 - bVar.pbt : i2;
+            int i3 = bVar2.mLayoutDirection == -1 ? i2 - bVar.pcW : i2;
             int i4 = bVar2.mPosition;
             float f3 = 0.0f;
-            switch (this.pbL) {
+            switch (this.pdo) {
                 case 0:
                     f = paddingLeft;
                     f2 = width - paddingRight;
                     break;
                 case 1:
-                    f = (width - bVar.pbr) + paddingRight;
-                    f2 = bVar.pbr - paddingLeft;
+                    f = (width - bVar.pcU) + paddingRight;
+                    f2 = bVar.pcU - paddingLeft;
                     break;
                 case 2:
-                    f = ((width - bVar.pbr) / 2.0f) + paddingLeft;
-                    f2 = (width - paddingRight) - ((width - bVar.pbr) / 2.0f);
+                    f = ((width - bVar.pcU) / 2.0f) + paddingLeft;
+                    f2 = (width - paddingRight) - ((width - bVar.pcU) / 2.0f);
                     break;
                 case 3:
                     f = paddingLeft;
-                    f3 = (width - bVar.pbr) / (bVar.mItemCount != 1 ? bVar.mItemCount - 1 : 1.0f);
+                    f3 = (width - bVar.pcU) / (bVar.mItemCount != 1 ? bVar.mItemCount - 1 : 1.0f);
                     f2 = width - paddingRight;
                     break;
                 case 4:
                     if (bVar.mItemCount != 0) {
-                        f3 = (width - bVar.pbr) / bVar.mItemCount;
+                        f3 = (width - bVar.pcU) / bVar.mItemCount;
                     }
                     f = (f3 / 2.0f) + paddingLeft;
                     f2 = (width - paddingRight) - (f3 / 2.0f);
                     break;
                 case 5:
                     if (bVar.mItemCount != 0) {
-                        f3 = (width - bVar.pbr) / (bVar.mItemCount + 1);
+                        f3 = (width - bVar.pcU) / (bVar.mItemCount + 1);
                     }
                     f = paddingLeft + f3;
                     f2 = (width - paddingRight) - f3;
                     break;
                 default:
-                    throw new IllegalStateException("Invalid justifyContent is set: " + this.pbL);
+                    throw new IllegalStateException("Invalid justifyContent is set: " + this.pdo);
             }
-            float f4 = f - this.pcb.pch;
-            float f5 = f2 - this.pcb.pch;
+            float f4 = f - this.pdE.pdK;
+            float f5 = f2 - this.pdE.pdK;
             float max = Math.max(f3, 0.0f);
             int i5 = 0;
             int itemCount = bVar.getItemCount();
             int i6 = i4;
             while (i6 < i4 + itemCount) {
-                View PV = PV(i6);
-                if (PV == null) {
+                View Qy = Qy(i6);
+                if (Qy == null) {
                     measuredWidth2 = f5;
                     measuredWidth = f4;
                 } else {
                     if (bVar2.mLayoutDirection == 1) {
-                        calculateItemDecorationsForChild(PV, pbY);
-                        addView(PV);
+                        calculateItemDecorationsForChild(Qy, pdB);
+                        addView(Qy);
                         i = i5;
                     } else {
-                        calculateItemDecorationsForChild(PV, pbY);
-                        addView(PV, i5);
+                        calculateItemDecorationsForChild(Qy, pdB);
+                        addView(Qy, i5);
                         i = i5 + 1;
                     }
-                    long j = this.pbW.pbF[i6];
-                    int hR = this.pbW.hR(j);
-                    int hS = this.pbW.hS(j);
-                    if (shouldMeasureChild(PV, hR, hS, (LayoutParams) PV.getLayoutParams())) {
-                        PV.measure(hR, hS);
+                    long j = this.pdz.pdi[i6];
+                    int hU = this.pdz.hU(j);
+                    int hV = this.pdz.hV(j);
+                    if (shouldMeasureChild(Qy, hU, hV, (LayoutParams) Qy.getLayoutParams())) {
+                        Qy.measure(hU, hV);
                     }
-                    float leftDecorationWidth = f4 + layoutParams.leftMargin + getLeftDecorationWidth(PV);
-                    float rightDecorationWidth = f5 - (layoutParams.rightMargin + getRightDecorationWidth(PV));
-                    int topDecorationHeight = i3 + getTopDecorationHeight(PV);
+                    float leftDecorationWidth = f4 + layoutParams.leftMargin + getLeftDecorationWidth(Qy);
+                    float rightDecorationWidth = f5 - (layoutParams.rightMargin + getRightDecorationWidth(Qy));
+                    int topDecorationHeight = i3 + getTopDecorationHeight(Qy);
                     if (this.mIsRtl) {
-                        this.pbW.a(PV, bVar, Math.round(rightDecorationWidth) - PV.getMeasuredWidth(), topDecorationHeight, Math.round(rightDecorationWidth), topDecorationHeight + PV.getMeasuredHeight());
+                        this.pdz.a(Qy, bVar, Math.round(rightDecorationWidth) - Qy.getMeasuredWidth(), topDecorationHeight, Math.round(rightDecorationWidth), topDecorationHeight + Qy.getMeasuredHeight());
                     } else {
-                        this.pbW.a(PV, bVar, Math.round(leftDecorationWidth), topDecorationHeight, PV.getMeasuredWidth() + Math.round(leftDecorationWidth), topDecorationHeight + PV.getMeasuredHeight());
+                        this.pdz.a(Qy, bVar, Math.round(leftDecorationWidth), topDecorationHeight, Qy.getMeasuredWidth() + Math.round(leftDecorationWidth), topDecorationHeight + Qy.getMeasuredHeight());
                     }
-                    measuredWidth = leftDecorationWidth + PV.getMeasuredWidth() + layoutParams.rightMargin + getRightDecorationWidth(PV) + max;
-                    measuredWidth2 = rightDecorationWidth - (((PV.getMeasuredWidth() + layoutParams.leftMargin) + getLeftDecorationWidth(PV)) + max);
+                    measuredWidth = leftDecorationWidth + Qy.getMeasuredWidth() + layoutParams.rightMargin + getRightDecorationWidth(Qy) + max;
+                    measuredWidth2 = rightDecorationWidth - (((Qy.getMeasuredWidth() + layoutParams.leftMargin) + getLeftDecorationWidth(Qy)) + max);
                     i5 = i;
                 }
                 i6++;
                 f4 = measuredWidth;
                 f5 = measuredWidth2;
             }
-            bVar2.pcg += this.pca.mLayoutDirection;
+            bVar2.pdJ += this.pdD.mLayoutDirection;
             return bVar.esl();
         }
         throw new AssertionError();
@@ -920,15 +920,15 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         int i3;
         float measuredHeight;
         float measuredHeight2;
-        if ($assertionsDisabled || this.pbW.pbF != null) {
+        if ($assertionsDisabled || this.pdz.pdi != null) {
             int paddingTop = getPaddingTop();
             int paddingBottom = getPaddingBottom();
             int height = getHeight();
             int i4 = bVar2.mOffset;
             int i5 = bVar2.mOffset;
             if (bVar2.mLayoutDirection == -1) {
-                int i6 = i4 - bVar.pbt;
-                i = i5 + bVar.pbt;
+                int i6 = i4 - bVar.pcW;
+                i = i5 + bVar.pcW;
                 i2 = i6;
             } else {
                 i = i5;
@@ -936,123 +936,123 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
             }
             int i7 = bVar2.mPosition;
             float f3 = 0.0f;
-            switch (this.pbL) {
+            switch (this.pdo) {
                 case 0:
                     f = paddingTop;
                     f2 = height - paddingBottom;
                     break;
                 case 1:
-                    f = (height - bVar.pbr) + paddingBottom;
-                    f2 = bVar.pbr - paddingTop;
+                    f = (height - bVar.pcU) + paddingBottom;
+                    f2 = bVar.pcU - paddingTop;
                     break;
                 case 2:
-                    f = ((height - bVar.pbr) / 2.0f) + paddingTop;
-                    f2 = (height - paddingBottom) - ((height - bVar.pbr) / 2.0f);
+                    f = ((height - bVar.pcU) / 2.0f) + paddingTop;
+                    f2 = (height - paddingBottom) - ((height - bVar.pcU) / 2.0f);
                     break;
                 case 3:
                     f = paddingTop;
-                    f3 = (height - bVar.pbr) / (bVar.mItemCount != 1 ? bVar.mItemCount - 1 : 1.0f);
+                    f3 = (height - bVar.pcU) / (bVar.mItemCount != 1 ? bVar.mItemCount - 1 : 1.0f);
                     f2 = height - paddingBottom;
                     break;
                 case 4:
                     if (bVar.mItemCount != 0) {
-                        f3 = (height - bVar.pbr) / bVar.mItemCount;
+                        f3 = (height - bVar.pcU) / bVar.mItemCount;
                     }
                     f = (f3 / 2.0f) + paddingTop;
                     f2 = (height - paddingBottom) - (f3 / 2.0f);
                     break;
                 case 5:
                     if (bVar.mItemCount != 0) {
-                        f3 = (height - bVar.pbr) / (bVar.mItemCount + 1);
+                        f3 = (height - bVar.pcU) / (bVar.mItemCount + 1);
                     }
                     f = paddingTop + f3;
                     f2 = (height - paddingBottom) - f3;
                     break;
                 default:
-                    throw new IllegalStateException("Invalid justifyContent is set: " + this.pbL);
+                    throw new IllegalStateException("Invalid justifyContent is set: " + this.pdo);
             }
-            float f4 = f - this.pcb.pch;
-            float f5 = f2 - this.pcb.pch;
+            float f4 = f - this.pdE.pdK;
+            float f5 = f2 - this.pdE.pdK;
             float max = Math.max(f3, 0.0f);
             int i8 = 0;
             int itemCount = bVar.getItemCount();
             int i9 = i7;
             while (i9 < i7 + itemCount) {
-                View PV = PV(i9);
-                if (PV == null) {
+                View Qy = Qy(i9);
+                if (Qy == null) {
                     measuredHeight = f5;
                     measuredHeight2 = f4;
                 } else {
-                    long j = this.pbW.pbF[i9];
-                    int hR = this.pbW.hR(j);
-                    int hS = this.pbW.hS(j);
-                    if (shouldMeasureChild(PV, hR, hS, (LayoutParams) PV.getLayoutParams())) {
-                        PV.measure(hR, hS);
+                    long j = this.pdz.pdi[i9];
+                    int hU = this.pdz.hU(j);
+                    int hV = this.pdz.hV(j);
+                    if (shouldMeasureChild(Qy, hU, hV, (LayoutParams) Qy.getLayoutParams())) {
+                        Qy.measure(hU, hV);
                     }
-                    float topDecorationHeight = f4 + layoutParams.topMargin + getTopDecorationHeight(PV);
-                    float bottomDecorationHeight = f5 - (layoutParams.rightMargin + getBottomDecorationHeight(PV));
+                    float topDecorationHeight = f4 + layoutParams.topMargin + getTopDecorationHeight(Qy);
+                    float bottomDecorationHeight = f5 - (layoutParams.rightMargin + getBottomDecorationHeight(Qy));
                     if (bVar2.mLayoutDirection == 1) {
-                        calculateItemDecorationsForChild(PV, pbY);
-                        addView(PV);
+                        calculateItemDecorationsForChild(Qy, pdB);
+                        addView(Qy);
                         i3 = i8;
                     } else {
-                        calculateItemDecorationsForChild(PV, pbY);
-                        addView(PV, i8);
+                        calculateItemDecorationsForChild(Qy, pdB);
+                        addView(Qy, i8);
                         i3 = i8 + 1;
                     }
-                    int leftDecorationWidth = i2 + getLeftDecorationWidth(PV);
-                    int rightDecorationWidth = i - getRightDecorationWidth(PV);
+                    int leftDecorationWidth = i2 + getLeftDecorationWidth(Qy);
+                    int rightDecorationWidth = i - getRightDecorationWidth(Qy);
                     if (this.mIsRtl) {
-                        if (this.pbZ) {
-                            this.pbW.a(PV, bVar, this.mIsRtl, rightDecorationWidth - PV.getMeasuredWidth(), Math.round(bottomDecorationHeight) - PV.getMeasuredHeight(), rightDecorationWidth, Math.round(bottomDecorationHeight));
+                        if (this.pdC) {
+                            this.pdz.a(Qy, bVar, this.mIsRtl, rightDecorationWidth - Qy.getMeasuredWidth(), Math.round(bottomDecorationHeight) - Qy.getMeasuredHeight(), rightDecorationWidth, Math.round(bottomDecorationHeight));
                         } else {
-                            this.pbW.a(PV, bVar, this.mIsRtl, rightDecorationWidth - PV.getMeasuredWidth(), Math.round(topDecorationHeight), rightDecorationWidth, PV.getMeasuredHeight() + Math.round(topDecorationHeight));
+                            this.pdz.a(Qy, bVar, this.mIsRtl, rightDecorationWidth - Qy.getMeasuredWidth(), Math.round(topDecorationHeight), rightDecorationWidth, Qy.getMeasuredHeight() + Math.round(topDecorationHeight));
                         }
-                    } else if (this.pbZ) {
-                        this.pbW.a(PV, bVar, this.mIsRtl, leftDecorationWidth, Math.round(bottomDecorationHeight) - PV.getMeasuredHeight(), leftDecorationWidth + PV.getMeasuredWidth(), Math.round(bottomDecorationHeight));
+                    } else if (this.pdC) {
+                        this.pdz.a(Qy, bVar, this.mIsRtl, leftDecorationWidth, Math.round(bottomDecorationHeight) - Qy.getMeasuredHeight(), leftDecorationWidth + Qy.getMeasuredWidth(), Math.round(bottomDecorationHeight));
                     } else {
-                        this.pbW.a(PV, bVar, this.mIsRtl, leftDecorationWidth, Math.round(topDecorationHeight), leftDecorationWidth + PV.getMeasuredWidth(), PV.getMeasuredHeight() + Math.round(topDecorationHeight));
+                        this.pdz.a(Qy, bVar, this.mIsRtl, leftDecorationWidth, Math.round(topDecorationHeight), leftDecorationWidth + Qy.getMeasuredWidth(), Qy.getMeasuredHeight() + Math.round(topDecorationHeight));
                     }
-                    measuredHeight = bottomDecorationHeight - (((PV.getMeasuredHeight() + layoutParams.bottomMargin) + getTopDecorationHeight(PV)) + max);
-                    measuredHeight2 = topDecorationHeight + PV.getMeasuredHeight() + layoutParams.topMargin + getBottomDecorationHeight(PV) + max;
+                    measuredHeight = bottomDecorationHeight - (((Qy.getMeasuredHeight() + layoutParams.bottomMargin) + getTopDecorationHeight(Qy)) + max);
+                    measuredHeight2 = topDecorationHeight + Qy.getMeasuredHeight() + layoutParams.topMargin + getBottomDecorationHeight(Qy) + max;
                     i8 = i3;
                 }
                 i9++;
                 f4 = measuredHeight2;
                 f5 = measuredHeight;
             }
-            bVar2.pcg += this.pca.mLayoutDirection;
+            bVar2.pdJ += this.pdD.mLayoutDirection;
             return bVar.esl();
         }
         throw new AssertionError();
     }
 
     @Override // com.google.android.flexbox.a
-    public boolean esf() {
-        return this.pbJ == 0 || this.pbJ == 1;
+    public boolean esd() {
+        return this.pdm == 0 || this.pdm == 1;
     }
 
     private void a(a aVar, boolean z, boolean z2) {
         if (z2) {
             esq();
         } else {
-            this.pca.mInfinite = false;
+            this.pdD.mInfinite = false;
         }
-        if (!esf() && this.mIsRtl) {
-            this.pca.mAvailable = aVar.mCoordinate - getPaddingRight();
+        if (!esd() && this.mIsRtl) {
+            this.pdD.mAvailable = aVar.mCoordinate - getPaddingRight();
         } else {
-            this.pca.mAvailable = this.mOrientationHelper.getEndAfterPadding() - aVar.mCoordinate;
+            this.pdD.mAvailable = this.mOrientationHelper.getEndAfterPadding() - aVar.mCoordinate;
         }
-        this.pca.mPosition = aVar.mPosition;
-        this.pca.mItemDirection = 1;
-        this.pca.mLayoutDirection = 1;
-        this.pca.mOffset = aVar.mCoordinate;
-        this.pca.mScrollingOffset = Integer.MIN_VALUE;
-        this.pca.pcg = aVar.pcg;
-        if (z && this.pbH.size() > 1 && aVar.pcg >= 0 && aVar.pcg < this.pbH.size() - 1) {
-            b.i(this.pca);
-            b bVar = this.pca;
-            bVar.mPosition = this.pbH.get(aVar.pcg).getItemCount() + bVar.mPosition;
+        this.pdD.mPosition = aVar.mPosition;
+        this.pdD.mItemDirection = 1;
+        this.pdD.mLayoutDirection = 1;
+        this.pdD.mOffset = aVar.mCoordinate;
+        this.pdD.mScrollingOffset = Integer.MIN_VALUE;
+        this.pdD.pdJ = aVar.pdJ;
+        if (z && this.pdk.size() > 1 && aVar.pdJ >= 0 && aVar.pdJ < this.pdk.size() - 1) {
+            b.i(this.pdD);
+            b bVar = this.pdD;
+            bVar.mPosition = this.pdk.get(aVar.pdJ).getItemCount() + bVar.mPosition;
         }
     }
 
@@ -1060,58 +1060,58 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         if (z2) {
             esq();
         } else {
-            this.pca.mInfinite = false;
+            this.pdD.mInfinite = false;
         }
-        if (!esf() && this.mIsRtl) {
-            this.pca.mAvailable = (this.mParent.getWidth() - aVar.mCoordinate) - this.mOrientationHelper.getStartAfterPadding();
+        if (!esd() && this.mIsRtl) {
+            this.pdD.mAvailable = (this.mParent.getWidth() - aVar.mCoordinate) - this.mOrientationHelper.getStartAfterPadding();
         } else {
-            this.pca.mAvailable = aVar.mCoordinate - this.mOrientationHelper.getStartAfterPadding();
+            this.pdD.mAvailable = aVar.mCoordinate - this.mOrientationHelper.getStartAfterPadding();
         }
-        this.pca.mPosition = aVar.mPosition;
-        this.pca.mItemDirection = 1;
-        this.pca.mLayoutDirection = -1;
-        this.pca.mOffset = aVar.mCoordinate;
-        this.pca.mScrollingOffset = Integer.MIN_VALUE;
-        this.pca.pcg = aVar.pcg;
-        if (z && aVar.pcg > 0 && this.pbH.size() > aVar.pcg) {
-            b.j(this.pca);
-            this.pca.mPosition -= this.pbH.get(aVar.pcg).getItemCount();
+        this.pdD.mPosition = aVar.mPosition;
+        this.pdD.mItemDirection = 1;
+        this.pdD.mLayoutDirection = -1;
+        this.pdD.mOffset = aVar.mCoordinate;
+        this.pdD.mScrollingOffset = Integer.MIN_VALUE;
+        this.pdD.pdJ = aVar.pdJ;
+        if (z && aVar.pdJ > 0 && this.pdk.size() > aVar.pdJ) {
+            b.j(this.pdD);
+            this.pdD.mPosition -= this.pdk.get(aVar.pdJ).getItemCount();
         }
     }
 
     private void esq() {
         int widthMode;
-        if (esf()) {
+        if (esd()) {
             widthMode = getHeightMode();
         } else {
             widthMode = getWidthMode();
         }
-        this.pca.mInfinite = widthMode == 0 || widthMode == Integer.MIN_VALUE;
+        this.pdD.mInfinite = widthMode == 0 || widthMode == Integer.MIN_VALUE;
     }
 
     private void esr() {
         if (this.mOrientationHelper == null) {
-            if (esf()) {
-                if (this.pbK == 0) {
+            if (esd()) {
+                if (this.pdn == 0) {
                     this.mOrientationHelper = OrientationHelper.createHorizontalHelper(this);
-                    this.pcc = OrientationHelper.createVerticalHelper(this);
+                    this.pdF = OrientationHelper.createVerticalHelper(this);
                     return;
                 }
                 this.mOrientationHelper = OrientationHelper.createVerticalHelper(this);
-                this.pcc = OrientationHelper.createHorizontalHelper(this);
-            } else if (this.pbK == 0) {
+                this.pdF = OrientationHelper.createHorizontalHelper(this);
+            } else if (this.pdn == 0) {
                 this.mOrientationHelper = OrientationHelper.createVerticalHelper(this);
-                this.pcc = OrientationHelper.createHorizontalHelper(this);
+                this.pdF = OrientationHelper.createHorizontalHelper(this);
             } else {
                 this.mOrientationHelper = OrientationHelper.createHorizontalHelper(this);
-                this.pcc = OrientationHelper.createVerticalHelper(this);
+                this.pdF = OrientationHelper.createVerticalHelper(this);
             }
         }
     }
 
     private void ensureLayoutState() {
-        if (this.pca == null) {
-            this.pca = new b();
+        if (this.pdD == null) {
+            this.pdD = new b();
         }
     }
 
@@ -1119,8 +1119,8 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
     public void scrollToPosition(int i) {
         this.mPendingScrollPosition = i;
         this.mPendingScrollPositionOffset = Integer.MIN_VALUE;
-        if (this.pcd != null) {
-            this.pcd.invalidateAnchor();
+        if (this.pdG != null) {
+            this.pdG.invalidateAnchor();
         }
         requestLayout();
     }
@@ -1149,38 +1149,38 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public boolean canScrollHorizontally() {
-        return !esf() || getWidth() > this.mParent.getWidth();
+        return !esd() || getWidth() > this.mParent.getWidth();
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public boolean canScrollVertically() {
-        return esf() || getHeight() > this.mParent.getHeight();
+        return esd() || getHeight() > this.mParent.getHeight();
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public int scrollHorizontallyBy(int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
-        if (!esf()) {
+        if (!esd()) {
             int a2 = a(i, recycler, state);
-            this.pce.clear();
+            this.pdH.clear();
             return a2;
         }
-        int Qm = Qm(i);
-        this.pcb.pch += Qm;
-        this.pcc.offsetChildren(-Qm);
-        return Qm;
+        int QP = QP(i);
+        this.pdE.pdK += QP;
+        this.pdF.offsetChildren(-QP);
+        return QP;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public int scrollVerticallyBy(int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
-        if (esf()) {
+        if (esd()) {
             int a2 = a(i, recycler, state);
-            this.pce.clear();
+            this.pdH.clear();
             return a2;
         }
-        int Qm = Qm(i);
-        this.pcb.pch += Qm;
-        this.pcc.offsetChildren(-Qm);
-        return Qm;
+        int QP = QP(i);
+        this.pdE.pdK += QP;
+        this.pdF.offsetChildren(-QP);
+        return QP;
     }
 
     private int a(int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
@@ -1189,8 +1189,8 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
             return 0;
         }
         esr();
-        this.pca.pck = true;
-        boolean z = !esf() && this.mIsRtl;
+        this.pdD.pdN = true;
+        boolean z = !esd() && this.mIsRtl;
         if (z) {
             if (i >= 0) {
                 i2 = -1;
@@ -1199,8 +1199,8 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
             i2 = -1;
         }
         int abs = Math.abs(i);
-        eg(i2, abs);
-        int a2 = this.pca.mScrollingOffset + a(recycler, state, this.pca);
+        eh(i2, abs);
+        int a2 = this.pdD.mScrollingOffset + a(recycler, state, this.pdD);
         if (a2 < 0) {
             return 0;
         }
@@ -1212,113 +1212,113 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
             i = i2 * a2;
         }
         this.mOrientationHelper.offsetChildren(-i);
-        this.pca.mLastScrollDelta = i;
+        this.pdD.mLastScrollDelta = i;
         return i;
     }
 
-    private int Qm(int i) {
+    private int QP(int i) {
         if (getChildCount() == 0 || i == 0) {
             return 0;
         }
         esr();
-        boolean esf = esf();
-        int width = esf ? this.mParent.getWidth() : this.mParent.getHeight();
-        int width2 = esf ? getWidth() : getHeight();
+        boolean esd = esd();
+        int width = esd ? this.mParent.getWidth() : this.mParent.getHeight();
+        int width2 = esd ? getWidth() : getHeight();
         if (getLayoutDirection() == 1) {
             int abs = Math.abs(i);
             if (i < 0) {
-                return -Math.min((width2 + this.pcb.pch) - width, abs);
+                return -Math.min((width2 + this.pdE.pdK) - width, abs);
             }
-            if (this.pcb.pch + i <= 0) {
+            if (this.pdE.pdK + i <= 0) {
                 return i;
             }
-            return -this.pcb.pch;
+            return -this.pdE.pdK;
         } else if (i > 0) {
-            return Math.min((width2 - this.pcb.pch) - width, i);
+            return Math.min((width2 - this.pdE.pdK) - width, i);
         } else {
-            if (this.pcb.pch + i >= 0) {
+            if (this.pdE.pdK + i >= 0) {
                 return i;
             }
-            return -this.pcb.pch;
+            return -this.pdE.pdK;
         }
     }
 
-    private void eg(int i, int i2) {
-        if (!$assertionsDisabled && this.pbW.pbE == null) {
+    private void eh(int i, int i2) {
+        if (!$assertionsDisabled && this.pdz.pdh == null) {
             throw new AssertionError();
         }
-        this.pca.mLayoutDirection = i;
-        boolean esf = esf();
+        this.pdD.mLayoutDirection = i;
+        boolean esd = esd();
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(getWidth(), getWidthMode());
         int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(getHeight(), getHeightMode());
-        boolean z = !esf && this.mIsRtl;
+        boolean z = !esd && this.mIsRtl;
         if (i == 1) {
             View childAt = getChildAt(getChildCount() - 1);
-            this.pca.mOffset = this.mOrientationHelper.getDecoratedEnd(childAt);
+            this.pdD.mOffset = this.mOrientationHelper.getDecoratedEnd(childAt);
             int position = getPosition(childAt);
-            View b2 = b(childAt, this.pbH.get(this.pbW.pbE[position]));
-            this.pca.mItemDirection = 1;
-            this.pca.mPosition = this.pca.mItemDirection + position;
-            if (this.pbW.pbE.length <= this.pca.mPosition) {
-                this.pca.pcg = -1;
+            View b2 = b(childAt, this.pdk.get(this.pdz.pdh[position]));
+            this.pdD.mItemDirection = 1;
+            this.pdD.mPosition = this.pdD.mItemDirection + position;
+            if (this.pdz.pdh.length <= this.pdD.mPosition) {
+                this.pdD.pdJ = -1;
             } else {
-                this.pca.pcg = this.pbW.pbE[this.pca.mPosition];
+                this.pdD.pdJ = this.pdz.pdh[this.pdD.mPosition];
             }
             if (z) {
-                this.pca.mOffset = this.mOrientationHelper.getDecoratedStart(b2);
-                this.pca.mScrollingOffset = (-this.mOrientationHelper.getDecoratedStart(b2)) + this.mOrientationHelper.getStartAfterPadding();
-                this.pca.mScrollingOffset = this.pca.mScrollingOffset >= 0 ? this.pca.mScrollingOffset : 0;
+                this.pdD.mOffset = this.mOrientationHelper.getDecoratedStart(b2);
+                this.pdD.mScrollingOffset = (-this.mOrientationHelper.getDecoratedStart(b2)) + this.mOrientationHelper.getStartAfterPadding();
+                this.pdD.mScrollingOffset = this.pdD.mScrollingOffset >= 0 ? this.pdD.mScrollingOffset : 0;
             } else {
-                this.pca.mOffset = this.mOrientationHelper.getDecoratedEnd(b2);
-                this.pca.mScrollingOffset = this.mOrientationHelper.getDecoratedEnd(b2) - this.mOrientationHelper.getEndAfterPadding();
+                this.pdD.mOffset = this.mOrientationHelper.getDecoratedEnd(b2);
+                this.pdD.mScrollingOffset = this.mOrientationHelper.getDecoratedEnd(b2) - this.mOrientationHelper.getEndAfterPadding();
             }
-            if ((this.pca.pcg == -1 || this.pca.pcg > this.pbH.size() - 1) && this.pca.mPosition <= getFlexItemCount()) {
-                int i3 = i2 - this.pca.mScrollingOffset;
-                this.pbX.reset();
+            if ((this.pdD.pdJ == -1 || this.pdD.pdJ > this.pdk.size() - 1) && this.pdD.mPosition <= getFlexItemCount()) {
+                int i3 = i2 - this.pdD.mScrollingOffset;
+                this.pdA.reset();
                 if (i3 > 0) {
-                    if (esf) {
-                        this.pbW.a(this.pbX, makeMeasureSpec, makeMeasureSpec2, i3, this.pca.mPosition, this.pbH);
+                    if (esd) {
+                        this.pdz.a(this.pdA, makeMeasureSpec, makeMeasureSpec2, i3, this.pdD.mPosition, this.pdk);
                     } else {
-                        this.pbW.c(this.pbX, makeMeasureSpec, makeMeasureSpec2, i3, this.pca.mPosition, this.pbH);
+                        this.pdz.c(this.pdA, makeMeasureSpec, makeMeasureSpec2, i3, this.pdD.mPosition, this.pdk);
                     }
-                    this.pbW.aj(makeMeasureSpec, makeMeasureSpec2, this.pca.mPosition);
-                    this.pbW.PZ(this.pca.mPosition);
+                    this.pdz.am(makeMeasureSpec, makeMeasureSpec2, this.pdD.mPosition);
+                    this.pdz.QC(this.pdD.mPosition);
                 }
             }
         } else {
             View childAt2 = getChildAt(0);
-            this.pca.mOffset = this.mOrientationHelper.getDecoratedStart(childAt2);
+            this.pdD.mOffset = this.mOrientationHelper.getDecoratedStart(childAt2);
             int position2 = getPosition(childAt2);
-            View a2 = a(childAt2, this.pbH.get(this.pbW.pbE[position2]));
-            this.pca.mItemDirection = 1;
-            int i4 = this.pbW.pbE[position2];
+            View a2 = a(childAt2, this.pdk.get(this.pdz.pdh[position2]));
+            this.pdD.mItemDirection = 1;
+            int i4 = this.pdz.pdh[position2];
             int i5 = i4 == -1 ? 0 : i4;
             if (i5 > 0) {
-                this.pca.mPosition = position2 - this.pbH.get(i5 - 1).getItemCount();
+                this.pdD.mPosition = position2 - this.pdk.get(i5 - 1).getItemCount();
             } else {
-                this.pca.mPosition = -1;
+                this.pdD.mPosition = -1;
             }
-            this.pca.pcg = i5 > 0 ? i5 - 1 : 0;
+            this.pdD.pdJ = i5 > 0 ? i5 - 1 : 0;
             if (z) {
-                this.pca.mOffset = this.mOrientationHelper.getDecoratedEnd(a2);
-                this.pca.mScrollingOffset = this.mOrientationHelper.getDecoratedEnd(a2) - this.mOrientationHelper.getEndAfterPadding();
-                this.pca.mScrollingOffset = this.pca.mScrollingOffset >= 0 ? this.pca.mScrollingOffset : 0;
+                this.pdD.mOffset = this.mOrientationHelper.getDecoratedEnd(a2);
+                this.pdD.mScrollingOffset = this.mOrientationHelper.getDecoratedEnd(a2) - this.mOrientationHelper.getEndAfterPadding();
+                this.pdD.mScrollingOffset = this.pdD.mScrollingOffset >= 0 ? this.pdD.mScrollingOffset : 0;
             } else {
-                this.pca.mOffset = this.mOrientationHelper.getDecoratedStart(a2);
-                this.pca.mScrollingOffset = (-this.mOrientationHelper.getDecoratedStart(a2)) + this.mOrientationHelper.getStartAfterPadding();
+                this.pdD.mOffset = this.mOrientationHelper.getDecoratedStart(a2);
+                this.pdD.mScrollingOffset = (-this.mOrientationHelper.getDecoratedStart(a2)) + this.mOrientationHelper.getStartAfterPadding();
             }
         }
-        this.pca.mAvailable = i2 - this.pca.mScrollingOffset;
+        this.pdD.mAvailable = i2 - this.pdD.mScrollingOffset;
     }
 
     private View a(View view, com.google.android.flexbox.b bVar) {
-        boolean esf = esf();
+        boolean esd = esd();
         int i = bVar.mItemCount;
         View view2 = view;
         for (int i2 = 1; i2 < i; i2++) {
             View childAt = getChildAt(i2);
             if (childAt != null && childAt.getVisibility() != 8) {
-                if (this.mIsRtl && !esf) {
+                if (this.mIsRtl && !esd) {
                     if (this.mOrientationHelper.getDecoratedEnd(view2) < this.mOrientationHelper.getDecoratedEnd(childAt)) {
                         view2 = childAt;
                     }
@@ -1331,13 +1331,13 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
     }
 
     private View b(View view, com.google.android.flexbox.b bVar) {
-        boolean esf = esf();
+        boolean esd = esd();
         int childCount = (getChildCount() - bVar.mItemCount) - 1;
         View view2 = view;
         for (int childCount2 = getChildCount() - 2; childCount2 > childCount; childCount2--) {
             View childAt = getChildAt(childCount2);
             if (childAt != null && childAt.getVisibility() != 8) {
-                if (this.mIsRtl && !esf) {
+                if (this.mIsRtl && !esd) {
                     if (this.mOrientationHelper.getDecoratedStart(view2) > this.mOrientationHelper.getDecoratedStart(childAt)) {
                         view2 = childAt;
                     }
@@ -1365,12 +1365,12 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         }
         int itemCount = state.getItemCount();
         esr();
-        View Qk = Qk(itemCount);
-        View Ql = Ql(itemCount);
-        if (state.getItemCount() == 0 || Qk == null || Ql == null) {
+        View QN = QN(itemCount);
+        View QO = QO(itemCount);
+        if (state.getItemCount() == 0 || QN == null || QO == null) {
             return 0;
         }
-        return Math.min(this.mOrientationHelper.getTotalSpace(), this.mOrientationHelper.getDecoratedEnd(Ql) - this.mOrientationHelper.getDecoratedStart(Qk));
+        return Math.min(this.mOrientationHelper.getTotalSpace(), this.mOrientationHelper.getDecoratedEnd(QO) - this.mOrientationHelper.getDecoratedStart(QN));
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
@@ -1389,20 +1389,20 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
             return 0;
         }
         int itemCount = state.getItemCount();
-        View Qk = Qk(itemCount);
-        View Ql = Ql(itemCount);
-        if (state.getItemCount() == 0 || Qk == null || Ql == null) {
+        View QN = QN(itemCount);
+        View QO = QO(itemCount);
+        if (state.getItemCount() == 0 || QN == null || QO == null) {
             return 0;
         }
-        if ($assertionsDisabled || this.pbW.pbE != null) {
-            int position = getPosition(Qk);
-            int position2 = getPosition(Ql);
-            int abs = Math.abs(this.mOrientationHelper.getDecoratedEnd(Ql) - this.mOrientationHelper.getDecoratedStart(Qk));
-            int i = this.pbW.pbE[position];
+        if ($assertionsDisabled || this.pdz.pdh != null) {
+            int position = getPosition(QN);
+            int position2 = getPosition(QO);
+            int abs = Math.abs(this.mOrientationHelper.getDecoratedEnd(QO) - this.mOrientationHelper.getDecoratedStart(QN));
+            int i = this.pdz.pdh[position];
             if (i == 0 || i == -1) {
                 return 0;
             }
-            return Math.round(((abs / ((this.pbW.pbE[position2] - i) + 1)) * i) + (this.mOrientationHelper.getStartAfterPadding() - this.mOrientationHelper.getDecoratedStart(Qk)));
+            return Math.round(((abs / ((this.pdz.pdh[position2] - i) + 1)) * i) + (this.mOrientationHelper.getStartAfterPadding() - this.mOrientationHelper.getDecoratedStart(QN)));
         }
         throw new AssertionError();
     }
@@ -1422,14 +1422,14 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
             return 0;
         }
         int itemCount = state.getItemCount();
-        View Qk = Qk(itemCount);
-        View Ql = Ql(itemCount);
-        if (state.getItemCount() == 0 || Qk == null || Ql == null) {
+        View QN = QN(itemCount);
+        View QO = QO(itemCount);
+        if (state.getItemCount() == 0 || QN == null || QO == null) {
             return 0;
         }
-        if ($assertionsDisabled || this.pbW.pbE != null) {
+        if ($assertionsDisabled || this.pdz.pdh != null) {
             int findFirstVisibleItemPosition = findFirstVisibleItemPosition();
-            return (int) ((Math.abs(this.mOrientationHelper.getDecoratedEnd(Ql) - this.mOrientationHelper.getDecoratedStart(Qk)) / ((findLastVisibleItemPosition() - findFirstVisibleItemPosition) + 1)) * state.getItemCount());
+            return (int) ((Math.abs(this.mOrientationHelper.getDecoratedEnd(QO) - this.mOrientationHelper.getDecoratedStart(QN)) / ((findLastVisibleItemPosition() - findFirstVisibleItemPosition) + 1)) * state.getItemCount());
         }
         throw new AssertionError();
     }
@@ -1456,32 +1456,32 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         return false;
     }
 
-    private int dZ(View view) {
+    private int eg(View view) {
         return getDecoratedLeft(view) - ((RecyclerView.LayoutParams) view.getLayoutParams()).leftMargin;
     }
 
-    private int ea(View view) {
+    private int eh(View view) {
         return ((RecyclerView.LayoutParams) view.getLayoutParams()).rightMargin + getDecoratedRight(view);
     }
 
-    private int eb(View view) {
+    private int ei(View view) {
         return getDecoratedTop(view) - ((RecyclerView.LayoutParams) view.getLayoutParams()).topMargin;
     }
 
-    private int ec(View view) {
+    private int ej(View view) {
         return ((RecyclerView.LayoutParams) view.getLayoutParams()).bottomMargin + getDecoratedBottom(view);
     }
 
-    private boolean q(View view, boolean z) {
+    private boolean r(View view, boolean z) {
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
         int width = getWidth() - getPaddingRight();
         int height = getHeight() - getPaddingBottom();
-        int dZ = dZ(view);
-        int eb = eb(view);
-        int ea = ea(view);
-        int ec = ec(view);
-        return z ? (paddingLeft <= dZ && width >= ea) && (paddingTop <= eb && height >= ec) : (dZ >= width || ea >= paddingLeft) && (eb >= height || ec >= paddingTop);
+        int eg = eg(view);
+        int ei = ei(view);
+        int eh = eh(view);
+        int ej = ej(view);
+        return z ? (paddingLeft <= eg && width >= eh) && (paddingTop <= ei && height >= ej) : (eg >= width || eh >= paddingLeft) && (ei >= height || ej >= paddingTop);
     }
 
     public int findFirstVisibleItemPosition() {
@@ -1504,7 +1504,7 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         int i3 = i2 > i ? 1 : -1;
         while (i != i2) {
             View childAt = getChildAt(i);
-            if (q(childAt, z)) {
+            if (r(childAt, z)) {
                 return childAt;
             }
             i += i3;
@@ -1512,7 +1512,7 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         return null;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class LayoutParams extends RecyclerView.LayoutParams implements FlexItem {
         public static final Parcelable.Creator<LayoutParams> CREATOR = new Parcelable.Creator<LayoutParams>() { // from class: com.google.android.flexbox.FlexboxLayoutManager.LayoutParams.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1524,7 +1524,7 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: Qn */
+            /* renamed from: QQ */
             public LayoutParams[] newArray(int i) {
                 return new LayoutParams[i];
             }
@@ -1550,12 +1550,12 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         }
 
         @Override // com.google.android.flexbox.FlexItem
-        public float getFlexGrow() {
+        public float ese() {
             return this.mFlexGrow;
         }
 
         @Override // com.google.android.flexbox.FlexItem
-        public float getFlexShrink() {
+        public float esf() {
             return this.mFlexShrink;
         }
 
@@ -1690,17 +1690,17 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a {
         static final /* synthetic */ boolean $assertionsDisabled;
         private int mCoordinate;
         private boolean mLayoutFromEnd;
         private int mPosition;
         private boolean mValid;
-        private int pcg;
-        private int pch;
-        private boolean pci;
-        final /* synthetic */ FlexboxLayoutManager pcj;
+        private int pdJ;
+        private int pdK;
+        private boolean pdL;
+        final /* synthetic */ FlexboxLayoutManager pdM;
 
         static {
             $assertionsDisabled = !FlexboxLayoutManager.class.desiredAssertionStatus();
@@ -1709,64 +1709,64 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         /* JADX INFO: Access modifiers changed from: private */
         public void reset() {
             this.mPosition = -1;
-            this.pcg = -1;
+            this.pdJ = -1;
             this.mCoordinate = Integer.MIN_VALUE;
             this.mValid = false;
-            this.pci = false;
-            if (this.pcj.esf()) {
-                if (this.pcj.pbK == 0) {
-                    this.mLayoutFromEnd = this.pcj.pbJ == 1;
+            this.pdL = false;
+            if (this.pdM.esd()) {
+                if (this.pdM.pdn == 0) {
+                    this.mLayoutFromEnd = this.pdM.pdm == 1;
                 } else {
-                    this.mLayoutFromEnd = this.pcj.pbK == 2;
+                    this.mLayoutFromEnd = this.pdM.pdn == 2;
                 }
-            } else if (this.pcj.pbK == 0) {
-                this.mLayoutFromEnd = this.pcj.pbJ == 3;
+            } else if (this.pdM.pdn == 0) {
+                this.mLayoutFromEnd = this.pdM.pdm == 3;
             } else {
-                this.mLayoutFromEnd = this.pcj.pbK == 2;
+                this.mLayoutFromEnd = this.pdM.pdn == 2;
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void assignCoordinateFromPadding() {
-            if (!this.pcj.esf() && this.pcj.mIsRtl) {
-                this.mCoordinate = this.mLayoutFromEnd ? this.pcj.mOrientationHelper.getEndAfterPadding() : this.pcj.getWidth() - this.pcj.mOrientationHelper.getStartAfterPadding();
+            if (!this.pdM.esd() && this.pdM.mIsRtl) {
+                this.mCoordinate = this.mLayoutFromEnd ? this.pdM.mOrientationHelper.getEndAfterPadding() : this.pdM.getWidth() - this.pdM.mOrientationHelper.getStartAfterPadding();
             } else {
-                this.mCoordinate = this.mLayoutFromEnd ? this.pcj.mOrientationHelper.getEndAfterPadding() : this.pcj.mOrientationHelper.getStartAfterPadding();
+                this.mCoordinate = this.mLayoutFromEnd ? this.pdM.mOrientationHelper.getEndAfterPadding() : this.pdM.mOrientationHelper.getStartAfterPadding();
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void ed(View view) {
-            if (!this.pcj.esf() && this.pcj.mIsRtl) {
+        public void ek(View view) {
+            if (!this.pdM.esd() && this.pdM.mIsRtl) {
                 if (this.mLayoutFromEnd) {
-                    this.mCoordinate = this.pcj.mOrientationHelper.getDecoratedStart(view) + this.pcj.mOrientationHelper.getTotalSpaceChange();
+                    this.mCoordinate = this.pdM.mOrientationHelper.getDecoratedStart(view) + this.pdM.mOrientationHelper.getTotalSpaceChange();
                 } else {
-                    this.mCoordinate = this.pcj.mOrientationHelper.getDecoratedEnd(view);
+                    this.mCoordinate = this.pdM.mOrientationHelper.getDecoratedEnd(view);
                 }
             } else if (this.mLayoutFromEnd) {
-                this.mCoordinate = this.pcj.mOrientationHelper.getDecoratedEnd(view) + this.pcj.mOrientationHelper.getTotalSpaceChange();
+                this.mCoordinate = this.pdM.mOrientationHelper.getDecoratedEnd(view) + this.pdM.mOrientationHelper.getTotalSpaceChange();
             } else {
-                this.mCoordinate = this.pcj.mOrientationHelper.getDecoratedStart(view);
+                this.mCoordinate = this.pdM.mOrientationHelper.getDecoratedStart(view);
             }
-            this.mPosition = this.pcj.getPosition(view);
-            this.pci = false;
-            if (!$assertionsDisabled && this.pcj.pbW.pbE == null) {
+            this.mPosition = this.pdM.getPosition(view);
+            this.pdL = false;
+            if (!$assertionsDisabled && this.pdM.pdz.pdh == null) {
                 throw new AssertionError();
             }
-            int i = this.pcj.pbW.pbE[this.mPosition != -1 ? this.mPosition : 0];
-            this.pcg = i != -1 ? i : 0;
-            if (this.pcj.pbH.size() > this.pcg) {
-                this.mPosition = ((com.google.android.flexbox.b) this.pcj.pbH.get(this.pcg)).pbA;
+            int i = this.pdM.pdz.pdh[this.mPosition != -1 ? this.mPosition : 0];
+            this.pdJ = i != -1 ? i : 0;
+            if (this.pdM.pdk.size() > this.pdJ) {
+                this.mPosition = ((com.google.android.flexbox.b) this.pdM.pdk.get(this.pdJ)).pdd;
             }
         }
 
         public String toString() {
-            return "AnchorInfo{mPosition=" + this.mPosition + ", mFlexLinePosition=" + this.pcg + ", mCoordinate=" + this.mCoordinate + ", mPerpendicularCoordinate=" + this.pch + ", mLayoutFromEnd=" + this.mLayoutFromEnd + ", mValid=" + this.mValid + ", mAssignedFromSavedState=" + this.pci + '}';
+            return "AnchorInfo{mPosition=" + this.mPosition + ", mFlexLinePosition=" + this.pdJ + ", mCoordinate=" + this.mCoordinate + ", mPerpendicularCoordinate=" + this.pdK + ", mLayoutFromEnd=" + this.mLayoutFromEnd + ", mValid=" + this.mValid + ", mAssignedFromSavedState=" + this.pdL + '}';
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         private int mAvailable;
         private boolean mInfinite;
@@ -1776,8 +1776,8 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         private int mOffset;
         private int mPosition;
         private int mScrollingOffset;
-        private int pcg;
-        private boolean pck;
+        private int pdJ;
+        private boolean pdN;
 
         private b() {
             this.mItemDirection = 1;
@@ -1785,29 +1785,29 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         }
 
         static /* synthetic */ int i(b bVar) {
-            int i = bVar.pcg;
-            bVar.pcg = i + 1;
+            int i = bVar.pdJ;
+            bVar.pdJ = i + 1;
             return i;
         }
 
         static /* synthetic */ int j(b bVar) {
-            int i = bVar.pcg;
-            bVar.pcg = i - 1;
+            int i = bVar.pdJ;
+            bVar.pdJ = i - 1;
             return i;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public boolean a(RecyclerView.State state, List<com.google.android.flexbox.b> list) {
-            return this.mPosition >= 0 && this.mPosition < state.getItemCount() && this.pcg >= 0 && this.pcg < list.size();
+            return this.mPosition >= 0 && this.mPosition < state.getItemCount() && this.pdJ >= 0 && this.pdJ < list.size();
         }
 
         public String toString() {
-            return "LayoutState{mAvailable=" + this.mAvailable + ", mFlexLinePosition=" + this.pcg + ", mPosition=" + this.mPosition + ", mOffset=" + this.mOffset + ", mScrollingOffset=" + this.mScrollingOffset + ", mLastScrollDelta=" + this.mLastScrollDelta + ", mItemDirection=" + this.mItemDirection + ", mLayoutDirection=" + this.mLayoutDirection + '}';
+            return "LayoutState{mAvailable=" + this.mAvailable + ", mFlexLinePosition=" + this.pdJ + ", mPosition=" + this.mPosition + ", mOffset=" + this.mOffset + ", mScrollingOffset=" + this.mScrollingOffset + ", mLastScrollDelta=" + this.mLastScrollDelta + ", mItemDirection=" + this.mItemDirection + ", mLayoutDirection=" + this.mLayoutDirection + '}';
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.google.android.flexbox.FlexboxLayoutManager.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1819,7 +1819,7 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: Qp */
+            /* renamed from: QS */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
@@ -1857,7 +1857,7 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public boolean Qo(int i) {
+        public boolean QR(int i) {
             return this.mAnchorPosition >= 0 && this.mAnchorPosition < i;
         }
 

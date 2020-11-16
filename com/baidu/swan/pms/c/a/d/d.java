@@ -1,19 +1,19 @@
 package com.baidu.swan.pms.c.a.d;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class d {
-    private static d eid;
-    private com.baidu.swan.pms.c.a.c.b eie = new com.baidu.swan.pms.c.a.c.b();
+    private static d egw;
+    private com.baidu.swan.pms.c.a.c.b egx = new com.baidu.swan.pms.c.a.c.b();
 
-    public static d bbI() {
-        if (eid != null) {
-            return eid;
+    public static d bbb() {
+        if (egw != null) {
+            return egw;
         }
         synchronized (d.class) {
-            if (eid == null) {
-                eid = new d();
+            if (egw == null) {
+                egw = new d();
             }
         }
-        return eid;
+        return egw;
     }
 
     private d() {
@@ -27,23 +27,23 @@ public class d {
     }
 
     public synchronized <T> void j(f<T> fVar) {
-        fVar.hU(false);
-        this.eie.b(fVar);
+        fVar.hX(false);
+        this.egx.b(fVar);
     }
 
-    public synchronized boolean yj(String str) {
-        return this.eie.yj(str);
+    public synchronized boolean ye(String str) {
+        return this.egx.ye(str);
     }
 
-    public synchronized boolean yk(String str) {
-        return this.eie.yk(str);
+    public synchronized boolean yf(String str) {
+        return this.egx.yf(str);
     }
 
     public synchronized void c(b bVar) {
-        this.eie.a(bVar);
+        this.egx.a(bVar);
     }
 
     public synchronized void d(b bVar) {
-        this.eie.b(bVar);
+        this.egx.b(bVar);
     }
 }

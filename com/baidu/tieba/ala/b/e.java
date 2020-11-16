@@ -7,63 +7,63 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class e {
-    private b gtS = null;
-    private b gtT = null;
-    private Set<j> gtU = new HashSet();
-    private Set<j> gtV = null;
-    private boolean gtW = false;
     private Context mContext;
+    private b gtz = null;
+    private b gtA = null;
+    private Set<j> gtB = new HashSet();
+    private Set<j> gtC = null;
+    private boolean gtD = false;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bQB();
+        void bPU();
 
         void onCancel();
     }
 
     public e(Context context) {
         this.mContext = context;
-        bQz();
+        bPS();
     }
 
-    private void bQz() {
-        this.gtT = new b("so");
-        this.gtU.add(this.gtT);
-        this.gtS = new b("source");
-        this.gtU.add(this.gtS);
+    private void bPS() {
+        this.gtA = new b("so");
+        this.gtB.add(this.gtA);
+        this.gtz = new b("source");
+        this.gtB.add(this.gtz);
     }
 
-    public boolean bQA() {
-        if (this.gtV == null) {
-            this.gtV = new HashSet();
-            for (j jVar : this.gtU) {
+    public boolean bPT() {
+        if (this.gtC == null) {
+            this.gtC = new HashSet();
+            for (j jVar : this.gtB) {
                 if (!jVar.isReady()) {
-                    this.gtV.add(jVar);
+                    this.gtC.add(jVar);
                 }
             }
-            if (this.gtV.size() > 0) {
-                this.gtW = true;
+            if (this.gtC.size() > 0) {
+                this.gtD = true;
             } else {
-                this.gtW = false;
+                this.gtD = false;
             }
         }
-        return this.gtW;
+        return this.gtD;
     }
 
     public void a(final a aVar) {
-        if (!bQA()) {
-            aVar.bQB();
+        if (!bPT()) {
+            aVar.bPU();
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (j jVar : this.gtV) {
+        for (j jVar : this.gtC) {
             jVar.load();
-            arrayList.add(jVar.bQq());
+            arrayList.add(jVar.bPJ());
         }
         f.a(this.mContext, new com.baidu.tieba.ala.b.a((g[]) arrayList.toArray(new g[0]))).p(new Runnable() { // from class: com.baidu.tieba.ala.b.e.3
             @Override // java.lang.Runnable
             public void run() {
-                aVar.bQB();
+                aVar.bPU();
             }
         }).q(new Runnable() { // from class: com.baidu.tieba.ala.b.e.2
             @Override // java.lang.Runnable

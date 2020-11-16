@@ -28,12 +28,12 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
         initLoadingView(stringExtra);
         PluginPackageManager.pT().a(stringExtra, new b() { // from class: com.baidu.adp.plugin.proxy.activity.LoadingActivity.1
             @Override // com.baidu.adp.plugin.install.b
-            public void B(String str, String str2) {
+            public void A(String str, String str2) {
                 LoadingActivity.this.showToast(PluginCenter.getInstance().getCommonErrorShowText());
             }
 
             @Override // com.baidu.adp.plugin.install.b
-            public void cp(String str) {
+            public void cr(String str) {
                 final Plugin plugin2 = PluginCenter.getInstance().getPlugin(str);
                 if (plugin2 != null) {
                     plugin2.asyncInit(str, new c() { // from class: com.baidu.adp.plugin.proxy.activity.LoadingActivity.1.1

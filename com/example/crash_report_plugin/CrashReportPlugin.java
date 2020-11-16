@@ -2,13 +2,13 @@ package com.example.crash_report_plugin;
 
 import android.support.annotation.NonNull;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.t.a;
+import com.baidu.tieba.u.a;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class CrashReportPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {

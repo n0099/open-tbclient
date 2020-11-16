@@ -3,7 +3,7 @@ package com.baidu.ufosdk.ui;
 import android.os.Build;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class br implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

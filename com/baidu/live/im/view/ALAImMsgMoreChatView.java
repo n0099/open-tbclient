@@ -8,24 +8,24 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class ALAImMsgMoreChatView extends LinearLayout {
-    int bmq;
-    TextView bmr;
+    int bkF;
+    TextView bkG;
 
     public ALAImMsgMoreChatView(Context context) {
         super(context);
-        this.bmq = 0;
+        this.bkF = 0;
         init(context);
     }
 
     public ALAImMsgMoreChatView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bmq = 0;
+        this.bkF = 0;
         init(context);
     }
 
     public ALAImMsgMoreChatView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bmq = 0;
+        this.bkF = 0;
         init(context);
     }
 
@@ -34,11 +34,11 @@ public class ALAImMsgMoreChatView extends LinearLayout {
         setVisibility(4);
         setGravity(17);
         setBackgroundResource(a.e.ala_live_im_msg_more_msg_view_bg_shape);
-        this.bmr = (TextView) findViewById(a.f.tvAlaImBottomNewMsg);
+        this.bkG = (TextView) findViewById(a.f.tvAlaImBottomNewMsg);
     }
 
     public void setNewMessageSize(int i) {
-        this.bmq = i;
-        this.bmr.setText(i + "条新消息");
+        this.bkF = i;
+        this.bkG.setText(i + "条新消息");
     }
 }
