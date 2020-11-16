@@ -38,12 +38,12 @@ public class c implements a {
             downloadData = (DownloadData) obj;
         }
         long j2 = (downloadData == null || !downloadData.isForceDownload()) ? j : j - 10485760;
-        long QA = QA();
-        if (QA <= j2) {
+        long PR = PR();
+        if (PR <= j2) {
             return true;
         }
         Log.i("StorageOptOperationImpl", "check_maxLength:" + j2);
-        Log.i("StorageOptOperationImpl", "check_cleanableLength:" + QA);
+        Log.i("StorageOptOperationImpl", "check_cleanableLength:" + PR);
         List<DownloadData> taskList = FileSerialDownLoader.getInstance().getTaskList();
         if (taskList != null && !taskList.isEmpty()) {
             ArrayList arrayList = new ArrayList();
@@ -52,19 +52,19 @@ public class c implements a {
                     arrayList.add(downloadData2);
                 }
             }
-            a(j, QA, (DownloadData[]) arrayList.toArray(new DownloadData[arrayList.size()]));
+            a(j, PR, (DownloadData[]) arrayList.toArray(new DownloadData[arrayList.size()]));
             arrayList.clear();
         }
         FileSerialDownLoader.getInstance().cancelDownloadByType(19, false);
         FileSerialDownLoader.getInstance().cancelDownloadByType(20, false);
         if (downloadData != null && !downloadData.isForceDownload()) {
-            a(j, QA, downloadData);
+            a(j, PR, downloadData);
             return false;
         }
-        a(downloadData == null, j2, QA, QB(), QC());
-        long QA2 = QA();
-        Log.i("StorageOptOperationImpl", "complete_cleanableLength:" + QA2);
-        return downloadData == null || (downloadData.isForceDownload() && QA2 < j2);
+        a(downloadData == null, j2, PR, PS(), PT());
+        long PR2 = PR();
+        Log.i("StorageOptOperationImpl", "complete_cleanableLength:" + PR2);
+        return downloadData == null || (downloadData.isForceDownload() && PR2 < j2);
     }
 
     @Override // com.baidu.live.ac.a.a
@@ -74,17 +74,17 @@ public class c implements a {
         }
     }
 
-    private long QA() {
-        return FileHelper.getFileLength(new File(com.baidu.live.ac.b.Qq()));
+    private long PR() {
+        return FileHelper.getFileLength(new File(com.baidu.live.ac.b.PH()));
     }
 
     private void a(boolean z, long j, long j2, List<t> list, List<com.baidu.live.entereffect.a.a> list2) {
         if (list != null && !list.isEmpty()) {
             String str = list.remove(0).name;
             if (!TextUtils.isEmpty(str)) {
-                FileHelper.deleteFileOrDir(new File(com.baidu.live.ac.b.ia(str)));
-                aa.hj(str);
-                u.gP(str);
+                FileHelper.deleteFileOrDir(new File(com.baidu.live.ac.b.hU(str)));
+                aa.hd(str);
+                u.gJ(str);
                 Log.i("StorageOptOperationImpl", "clean_gift:" + str);
                 a(z, j, j2, "", str);
             }
@@ -92,23 +92,23 @@ public class c implements a {
         if (list2 != null && !list2.isEmpty()) {
             String str2 = list2.remove(0).id;
             if (!TextUtils.isEmpty(str2)) {
-                FileHelper.deleteFileOrDir(new File(com.baidu.live.ac.b.ie(str2)));
-                com.baidu.live.entereffect.a.Fg().gx(str2);
+                FileHelper.deleteFileOrDir(new File(com.baidu.live.ac.b.hY(str2)));
+                com.baidu.live.entereffect.a.Ex().gq(str2);
                 Log.i("StorageOptOperationImpl", "clean_enter:" + str2);
                 a(z, j, j2, str2, "");
             }
         }
         if ((list != null && !list.isEmpty()) || (list2 != null && !list2.isEmpty())) {
-            long QA = QA();
-            if (QA > j) {
-                a(z, j, QA, list, list2);
+            long PR = PR();
+            if (PR > j) {
+                a(z, j, PR, list, list2);
             }
         }
     }
 
-    private List<t> QB() {
+    private List<t> PS() {
         JSONArray jSONArray;
-        String string = d.AZ().getString("gift_dynamic_res_last_accessed", "");
+        String string = d.Aq().getString("gift_dynamic_res_last_accessed", "");
         if (TextUtils.isEmpty(string)) {
             return null;
         }
@@ -123,7 +123,7 @@ public class c implements a {
             ArrayList<t> arrayList = null;
             while (i < jSONArray.length()) {
                 ArrayList arrayList2 = arrayList == null ? new ArrayList() : arrayList;
-                arrayList2.add(new t().J(jSONArray.optJSONObject(i)));
+                arrayList2.add(new t().D(jSONArray.optJSONObject(i)));
                 i++;
                 arrayList = arrayList2;
             }
@@ -133,10 +133,10 @@ public class c implements a {
                     @Override // java.util.Comparator
                     /* renamed from: a */
                     public int compare(t tVar, t tVar2) {
-                        if (tVar.aTn < tVar2.aTn) {
+                        if (tVar.aRC < tVar2.aRC) {
                             return -1;
                         }
-                        return tVar.aTn == tVar2.aTn ? 0 : 1;
+                        return tVar.aRC == tVar2.aRC ? 0 : 1;
                     }
                 });
                 JSONArray jSONArray2 = new JSONArray();
@@ -150,21 +150,21 @@ public class c implements a {
         return null;
     }
 
-    private List<com.baidu.live.entereffect.a.a> QC() {
-        List<com.baidu.live.entereffect.a.a> Fh = com.baidu.live.entereffect.a.Fg().Fh();
-        if (Fh == null) {
+    private List<com.baidu.live.entereffect.a.a> PT() {
+        List<com.baidu.live.entereffect.a.a> Ey = com.baidu.live.entereffect.a.Ex().Ey();
+        if (Ey == null) {
             return null;
         }
-        ArrayList<com.baidu.live.entereffect.a.a> arrayList = new ArrayList(Fh);
+        ArrayList<com.baidu.live.entereffect.a.a> arrayList = new ArrayList(Ey);
         Collections.sort(arrayList, new Comparator<com.baidu.live.entereffect.a.a>() { // from class: com.baidu.live.ac.a.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(com.baidu.live.entereffect.a.a aVar, com.baidu.live.entereffect.a.a aVar2) {
-                if (aVar.aTn < aVar2.aTn) {
+                if (aVar.aRC < aVar2.aRC) {
                     return -1;
                 }
-                return aVar.aTn == aVar2.aTn ? 0 : 1;
+                return aVar.aRC == aVar2.aRC ? 0 : 1;
             }
         });
         try {
@@ -172,7 +172,7 @@ public class c implements a {
             for (com.baidu.live.entereffect.a.a aVar : arrayList) {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("id", aVar.id);
-                jSONObject.put("last_accessed", aVar.aTn);
+                jSONObject.put("last_accessed", aVar.aRC);
                 jSONArray.put(jSONObject);
             }
         } catch (JSONException e) {
@@ -190,7 +190,7 @@ public class c implements a {
                 @Override // java.lang.Runnable
                 public void run() {
                     DownloadData[] downloadDataArr2;
-                    com.baidu.live.gift.c hi;
+                    com.baidu.live.gift.c hc;
                     for (DownloadData downloadData : downloadDataArr) {
                         JSONObject jSONObject = new JSONObject();
                         try {
@@ -201,7 +201,7 @@ public class c implements a {
                             e.printStackTrace();
                         }
                         String str = "portrait";
-                        if (downloadData.getType() == 19 && (hi = aa.hi(downloadData.getName())) != null && hi.aUe != null && hi.aUe.aUc != null && hi.aUe.aUc.isLandScape()) {
+                        if (downloadData.getType() == 19 && (hc = aa.hc(downloadData.getName())) != null && hc.aSt != null && hc.aSt.aSr != null && hc.aSt.aSr.isLandScape()) {
                             str = "landscape";
                         }
                         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "cartoon_limit").setContentExt(null, null, str, jSONObject));
@@ -222,10 +222,10 @@ public class c implements a {
                 String str3 = str;
                 String str4 = "portrait";
                 if (TextUtils.isEmpty(str3)) {
-                    com.baidu.live.gift.c hi = aa.hi(str2);
-                    if (hi != null && (bVar = hi.aUe) != null) {
+                    com.baidu.live.gift.c hc = aa.hc(str2);
+                    if (hc != null && (bVar = hc.aSt) != null) {
                         str3 = bVar.giftId;
-                        if (bVar.aUc != null && bVar.aUc.isLandScape()) {
+                        if (bVar.aSr != null && bVar.aSr.isLandScape()) {
                             str4 = "landscape";
                         }
                     } else {

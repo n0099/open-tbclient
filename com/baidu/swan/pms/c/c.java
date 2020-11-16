@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private String ehP;
-    private long ehQ;
+    private String egh;
+    private long egi;
     private JSONObject mData;
     private int mErrorCode = -1;
     private String mErrorMessage;
@@ -37,24 +37,24 @@ public class c {
         this.mErrorMessage = str;
     }
 
-    public String bbv() {
-        return this.ehP;
+    public String baO() {
+        return this.egh;
     }
 
     public void setTipMessage(String str) {
-        this.ehP = str;
+        this.egh = str;
     }
 
     public void cO(long j) {
-        this.ehQ = j;
+        this.egi = j;
     }
 
-    public static c yr(String str) {
+    public static c ym(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            return cJ(new JSONObject(str));
+            return cD(new JSONObject(str));
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -64,7 +64,7 @@ public class c {
         }
     }
 
-    public static c cJ(JSONObject jSONObject) {
+    public static c cD(JSONObject jSONObject) {
         c cVar = new c();
         cVar.setErrorCode(jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1));
         cVar.setErrorMessage(jSONObject.optString(BaseJsonData.TAG_ERRMSG));

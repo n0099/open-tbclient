@@ -14,7 +14,7 @@ import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public abstract class a implements d, j, a.InterfaceC0011a {
     private final com.airbnb.lottie.model.layer.a CK;
     private final float[] CN;
@@ -265,7 +265,7 @@ public abstract class a implements d, j, a.InterfaceC0011a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.airbnb.lottie.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes16.dex */
     public static final class C0010a {
         private final List<l> CX;
         @Nullable

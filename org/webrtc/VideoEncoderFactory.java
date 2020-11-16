@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import android.support.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface VideoEncoderFactory {
     @CalledByNative
     @Nullable

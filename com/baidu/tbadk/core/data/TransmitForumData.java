@@ -27,7 +27,7 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ou */
+        /* renamed from: oq */
         public TransmitForumData[] newArray(int i) {
             return new TransmitForumData[i];
         }

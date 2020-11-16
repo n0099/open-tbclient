@@ -7,17 +7,17 @@ import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a {
-    public com.baidu.live.s.f bnJ;
+    public com.baidu.live.s.f blY;
     public long enterTime;
     public String fromType;
-    public com.baidu.live.s.e hgC;
-    public com.baidu.tieba.ala.liveroom.q.d hgD;
-    public AlaLiveView hgE;
-    public AlaLoopViewPager hgF;
-    public boolean hgG;
-    public boolean hgH = false;
-    public boolean hgI = false;
-    public ArrayList<AlaBroadcastGiftToastData> hgJ;
-    public boolean hgK;
+    public com.baidu.live.s.e hgj;
+    public com.baidu.tieba.ala.liveroom.q.d hgk;
+    public AlaLiveView hgl;
+    public AlaLoopViewPager hgm;
+    public boolean hgn;
+    public boolean hgo = false;
+    public boolean hgp = false;
+    public ArrayList<AlaBroadcastGiftToastData> hgq;
+    public boolean hgr;
     public TbPageContext pageContext;
 }

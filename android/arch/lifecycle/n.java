@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public abstract class n<T> {
     private static final Object NOT_SET = new Object();
     static final int START_VERSION = -1;
@@ -166,7 +166,7 @@ public abstract class n<T> {
         return this.mActiveCount > 0;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     class b extends n<T>.c implements h {
         @NonNull
         final j zE;
@@ -202,7 +202,7 @@ public abstract class n<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     public abstract class c {
         final q<T> zF;
         boolean zG;
@@ -240,7 +240,7 @@ public abstract class n<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     private class a extends n<T>.c {
         a(q<T> qVar) {
             super(qVar);

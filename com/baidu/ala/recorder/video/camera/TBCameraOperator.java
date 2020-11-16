@@ -20,7 +20,7 @@ import com.baidu.ala.recorder.video.listener.ImageFilter;
 import com.baidu.ala.recorder.video.listener.TextureViewListener;
 import java.lang.ref.WeakReference;
 @TargetApi(16)
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class TBCameraOperator implements ICameraOperator {
     private static final int DEFAULT_ROTATE = 0;
     private static final boolean IS_OPEN_TAG = false;

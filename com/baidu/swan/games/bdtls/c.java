@@ -1,34 +1,34 @@
 package com.baidu.swan.games.bdtls;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
     private static final boolean DEBUG = a.DEBUG;
-    private static volatile c dRG;
+    private static volatile c dPY;
     private boolean mEnable = true;
-    private a dRF = new a();
+    private a dPX = new a();
 
-    public static c aSZ() {
-        if (dRG == null) {
+    public static c aSr() {
+        if (dPY == null) {
             synchronized (c.class) {
-                if (dRG == null) {
-                    dRG = new c();
+                if (dPY == null) {
+                    dPY = new c();
                 }
             }
         }
-        return dRG;
+        return dPY;
     }
 
     private c() {
     }
 
-    public boolean wr(String str) {
-        return this.dRF != null && this.dRF.wr(str);
+    public boolean wm(String str) {
+        return this.dPX != null && this.dPX.wm(str);
     }
 
     public boolean isEnable() {
-        if (this.dRF == null) {
+        if (this.dPX == null) {
             return false;
         }
-        return this.dRF.aSY();
+        return this.dPX.aSq();
     }
 
     public void setEnable(boolean z) {
@@ -36,6 +36,6 @@ public class c {
     }
 
     public void a(String str, com.baidu.swan.games.bdtls.b.b bVar) {
-        e.aTb().b(str, bVar);
+        e.aSt().b(str, bVar);
     }
 }

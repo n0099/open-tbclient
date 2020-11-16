@@ -2,14 +2,14 @@ package com.baidu.swan.apps.ap;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class aq {
-    private final Queue<Runnable> dsE = new ArrayDeque();
-    private Runnable dEh = null;
-    private boolean dEi = false;
+    private final Queue<Runnable> dqV = new ArrayDeque();
+    private Runnable dCA = null;
+    private boolean dCB = false;
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0013, code lost:
-        if (aNp() != false) goto L9;
+        if (aMH() != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -19,7 +19,7 @@ public class aq {
         synchronized (this) {
             boolean z2 = runnable == null;
             if (!z2) {
-                this.dsE.offer(runnable);
+                this.dqV.offer(runnable);
             }
             if (!z2) {
             }
@@ -28,34 +28,34 @@ public class aq {
         return z;
     }
 
-    public synchronized boolean aNm() {
-        boolean aNo;
-        aNo = aNo();
-        this.dEi = true;
-        return aNo;
+    public synchronized boolean aME() {
+        boolean aMG;
+        aMG = aMG();
+        this.dCB = true;
+        return aMG;
     }
 
-    public synchronized void aNn() {
-        this.dEi = false;
-        aNp();
+    public synchronized void aMF() {
+        this.dCB = false;
+        aMH();
     }
 
-    private boolean aNo() {
-        return !this.dEi && this.dEh == null;
+    private boolean aMG() {
+        return !this.dCB && this.dCA == null;
     }
 
-    private synchronized boolean aNp() {
-        boolean aNo;
-        aNo = aNo();
-        if (aNo) {
-            while (!this.dsE.isEmpty()) {
-                this.dEh = this.dsE.poll();
-                if (this.dEh != null) {
-                    this.dEh.run();
+    private synchronized boolean aMH() {
+        boolean aMG;
+        aMG = aMG();
+        if (aMG) {
+            while (!this.dqV.isEmpty()) {
+                this.dCA = this.dqV.poll();
+                if (this.dCA != null) {
+                    this.dCA.run();
                 }
             }
-            this.dEh = null;
+            this.dCA = null;
         }
-        return aNo;
+        return aMG;
     }
 }

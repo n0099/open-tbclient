@@ -1,11 +1,11 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bw;
-/* loaded from: classes22.dex */
+import com.baidu.tbadk.core.data.bx;
+/* loaded from: classes21.dex */
 public class s implements com.baidu.adp.widget.ListView.q {
     public static BdUniqueId TYPE = BdUniqueId.gen();
-    public bw exA;
+    public bx evQ;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {

@@ -1,16 +1,22 @@
 package com.baidu.tieba.q;
-/* loaded from: classes20.dex */
-public class b {
-    private static volatile a mMQ;
 
-    public static synchronized a dGJ() {
-        a aVar;
-        synchronized (b.class) {
-            if (mMQ == null) {
-                mMQ = new a();
-            }
-            aVar = mMQ;
+import android.util.SparseArray;
+/* loaded from: classes.dex */
+public class b {
+    public SparseArray<a> mDu;
+
+    public b(SparseArray<a> sparseArray) {
+        this.mDu = sparseArray;
+    }
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public boolean dix;
+        public int mNum;
+
+        public a(boolean z, int i) {
+            this.dix = z;
+            this.mNum = i;
         }
-        return aVar;
     }
 }

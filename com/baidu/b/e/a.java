@@ -11,13 +11,13 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1265a;
-    private C0092a acU;
+    private Context f1268a;
+    private C0092a acZ;
 
     /* renamed from: com.baidu.b.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
     public final class C0092a {
-        private C0092a adb;
+        private C0092a adh;
         private File b;
         private String c;
         private boolean e;
@@ -32,7 +32,7 @@ public class a {
         C0092a(String str, C0092a c0092a) {
             this.e = false;
             this.c = str;
-            this.adb = c0092a;
+            this.adh = c0092a;
             this.e = false;
         }
 
@@ -47,7 +47,7 @@ public class a {
         public File b() {
             File file = this.b;
             if (file == null) {
-                file = this.adb == null ? new File(a.this.a(), this.c) : new File(this.adb.b(), this.c);
+                file = this.adh == null ? new File(a.this.a(), this.c) : new File(this.adh.b(), this.c);
                 this.b = file;
             }
             return file;
@@ -61,7 +61,7 @@ public class a {
             return a.a(b(), str, str2, "UTF-8", z);
         }
 
-        public C0092a cX(String str) {
+        public C0092a cZ(String str) {
             return new C0092a(str, this);
         }
 
@@ -85,12 +85,12 @@ public class a {
         }
 
         public C0092a sP() {
-            return this.adb;
+            return this.adh;
         }
     }
 
     public a(Context context) {
-        this.f1265a = context;
+        this.f1268a = context;
         c().mkdirs();
     }
 
@@ -188,13 +188,13 @@ public class a {
     }
 
     public File a() {
-        return new File(this.f1265a.getApplicationInfo().dataDir);
+        return new File(this.f1268a.getApplicationInfo().dataDir);
     }
 
     public synchronized C0092a sO() {
-        if (this.acU == null) {
-            this.acU = new C0092a(".cesium", null);
+        if (this.acZ == null) {
+            this.acZ = new C0092a(".cesium", null);
         }
-        return this.acU;
+        return this.acZ;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.ufosdk.ui;
 
 import android.content.SharedPreferences;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class bk implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

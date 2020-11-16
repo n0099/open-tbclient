@@ -1,5 +1,5 @@
 package com.baidu.turbonet.net;
-/* loaded from: classes17.dex */
+/* loaded from: classes12.dex */
 public class QuicException extends TurbonetException {
     private final int mQuicDetailedErrorCode;
 

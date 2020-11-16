@@ -5,10 +5,10 @@ import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes15.dex */
+/* loaded from: classes19.dex */
 public final class ImageScanner {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes19.dex */
     public interface OnScanCompletedListener {
         void onScanCompleted(String str, Uri uri);
     }
@@ -44,7 +44,7 @@ public final class ImageScanner {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes19.dex */
     public static class ClientProxy implements MediaScannerConnection.MediaScannerConnectionClient {
         final OnScanCompletedListener mClient;
         MediaScannerConnection mConnection;

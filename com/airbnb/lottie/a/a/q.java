@@ -5,7 +5,7 @@ import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.model.content.ShapeStroke;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class q extends a {
     private final com.airbnb.lottie.model.layer.a CK;
     @Nullable

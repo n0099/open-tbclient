@@ -2,24 +2,24 @@ package rx.internal.util;
 
 import java.security.AccessController;
 import java.security.PrivilegedAction;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class f {
     private static final boolean IS_ANDROID;
-    private static final int qiJ = eGb();
+    private static final int qkm = eGc();
 
     static {
-        IS_ANDROID = qiJ != 0;
+        IS_ANDROID = qkm != 0;
     }
 
     public static boolean isAndroid() {
         return IS_ANDROID;
     }
 
-    public static int eGa() {
-        return qiJ;
+    public static int eGb() {
+        return qkm;
     }
 
-    private static int eGb() {
+    private static int eGc() {
         try {
             return ((Integer) Class.forName("android.os.Build$VERSION", true, getSystemClassLoader()).getField("SDK_INT").get(null)).intValue();
         } catch (Exception e) {

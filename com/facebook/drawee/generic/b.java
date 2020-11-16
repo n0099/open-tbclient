@@ -11,31 +11,31 @@ import com.facebook.drawee.drawable.p;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class b {
-    public static final p.b oPU = p.b.oPK;
-    public static final p.b oPV = p.b.oPL;
+    public static final p.b oRx = p.b.oRn;
+    public static final p.b oRy = p.b.oRo;
     private Drawable mBackground;
     private Resources mResources;
-    private RoundingParams oPQ;
-    private int oPW;
-    private boolean oPX;
-    private float oPY;
-    private Drawable oPZ;
+    private boolean oRA;
+    private float oRB;
+    private Drawable oRC;
     @Nullable
-    private p.b oQa;
-    private Drawable oQb;
-    private p.b oQc;
-    private Drawable oQd;
-    private p.b oQe;
-    private Drawable oQf;
-    private p.b oQg;
-    private p.b oQh;
-    private Matrix oQi;
-    private PointF oQj;
-    private ColorFilter oQk;
-    private List<Drawable> oQl;
-    private Drawable oQm;
+    private p.b oRD;
+    private Drawable oRE;
+    private p.b oRF;
+    private Drawable oRG;
+    private p.b oRH;
+    private Drawable oRI;
+    private p.b oRJ;
+    private p.b oRK;
+    private Matrix oRL;
+    private PointF oRM;
+    private ColorFilter oRN;
+    private List<Drawable> oRO;
+    private Drawable oRP;
+    private RoundingParams oRt;
+    private int oRz;
 
     public b(Resources resources) {
         this.mResources = resources;
@@ -43,160 +43,160 @@ public class b {
     }
 
     private void init() {
-        this.oPW = 150;
-        this.oPX = true;
-        this.oPY = 0.0f;
-        this.oPZ = null;
-        this.oQa = oPU;
-        this.oQb = null;
-        this.oQc = oPU;
-        this.oQd = null;
-        this.oQe = oPU;
-        this.oQf = null;
-        this.oQg = oPU;
-        this.oQh = oPV;
-        this.oQi = null;
-        this.oQj = null;
-        this.oQk = null;
+        this.oRz = 150;
+        this.oRA = true;
+        this.oRB = 0.0f;
+        this.oRC = null;
+        this.oRD = oRx;
+        this.oRE = null;
+        this.oRF = oRx;
+        this.oRG = null;
+        this.oRH = oRx;
+        this.oRI = null;
+        this.oRJ = oRx;
+        this.oRK = oRy;
+        this.oRL = null;
+        this.oRM = null;
+        this.oRN = null;
         this.mBackground = null;
-        this.oQl = null;
-        this.oQm = null;
-        this.oPQ = null;
+        this.oRO = null;
+        this.oRP = null;
+        this.oRt = null;
     }
 
     public Resources getResources() {
         return this.mResources;
     }
 
-    public b OL(int i) {
-        this.oPW = i;
+    public b Po(int i) {
+        this.oRz = i;
         return this;
     }
 
-    public int emd() {
-        return this.oPW;
+    public int emb() {
+        return this.oRz;
     }
 
-    public boolean eme() {
-        return this.oPX;
+    public boolean emc() {
+        return this.oRA;
     }
 
-    public b bm(float f) {
-        this.oPY = f;
+    public b bt(float f) {
+        this.oRB = f;
         return this;
     }
 
-    public float emf() {
-        return this.oPY;
+    public float emd() {
+        return this.oRB;
     }
 
-    public b s(@Nullable Drawable drawable) {
-        this.oPZ = drawable;
+    public b t(@Nullable Drawable drawable) {
+        this.oRC = drawable;
         return this;
     }
 
-    public b OM(int i) {
-        this.oPZ = this.mResources.getDrawable(i);
+    public b Pp(int i) {
+        this.oRC = this.mResources.getDrawable(i);
+        return this;
+    }
+
+    @Nullable
+    public Drawable eme() {
+        return this.oRC;
+    }
+
+    public b c(@Nullable p.b bVar) {
+        this.oRD = bVar;
+        return this;
+    }
+
+    @Nullable
+    public p.b emf() {
+        return this.oRD;
+    }
+
+    public b u(@Nullable Drawable drawable) {
+        this.oRE = drawable;
         return this;
     }
 
     @Nullable
     public Drawable emg() {
-        return this.oPZ;
+        return this.oRE;
     }
 
-    public b c(@Nullable p.b bVar) {
-        this.oQa = bVar;
+    public b d(@Nullable p.b bVar) {
+        this.oRF = bVar;
         return this;
     }
 
     @Nullable
     public p.b emh() {
-        return this.oQa;
+        return this.oRF;
     }
 
-    public b t(@Nullable Drawable drawable) {
-        this.oQb = drawable;
+    public b v(@Nullable Drawable drawable) {
+        this.oRG = drawable;
         return this;
     }
 
     @Nullable
     public Drawable emi() {
-        return this.oQb;
+        return this.oRG;
     }
 
-    public b d(@Nullable p.b bVar) {
-        this.oQc = bVar;
+    public b e(@Nullable p.b bVar) {
+        this.oRH = bVar;
         return this;
     }
 
     @Nullable
     public p.b emj() {
-        return this.oQc;
+        return this.oRH;
     }
 
-    public b u(@Nullable Drawable drawable) {
-        this.oQd = drawable;
+    public b w(@Nullable Drawable drawable) {
+        this.oRI = drawable;
         return this;
     }
 
     @Nullable
     public Drawable emk() {
-        return this.oQd;
+        return this.oRI;
     }
 
-    public b e(@Nullable p.b bVar) {
-        this.oQe = bVar;
+    public b f(@Nullable p.b bVar) {
+        this.oRJ = bVar;
         return this;
     }
 
     @Nullable
     public p.b eml() {
-        return this.oQe;
-    }
-
-    public b v(@Nullable Drawable drawable) {
-        this.oQf = drawable;
-        return this;
-    }
-
-    @Nullable
-    public Drawable emm() {
-        return this.oQf;
-    }
-
-    public b f(@Nullable p.b bVar) {
-        this.oQg = bVar;
-        return this;
-    }
-
-    @Nullable
-    public p.b emn() {
-        return this.oQg;
+        return this.oRJ;
     }
 
     public b g(@Nullable p.b bVar) {
-        this.oQh = bVar;
-        this.oQi = null;
+        this.oRK = bVar;
+        this.oRL = null;
         return this;
     }
 
     @Nullable
-    public p.b emo() {
-        return this.oQh;
+    public p.b emm() {
+        return this.oRK;
     }
 
     @Nullable
-    public PointF emp() {
-        return this.oQj;
+    public PointF emn() {
+        return this.oRM;
     }
 
     @Nullable
-    public ColorFilter emq() {
-        return this.oQk;
+    public ColorFilter emo() {
+        return this.oRN;
     }
 
-    public b w(@Nullable Drawable drawable) {
+    public b x(@Nullable Drawable drawable) {
         this.mBackground = drawable;
         return this;
     }
@@ -206,55 +206,55 @@ public class b {
         return this.mBackground;
     }
 
-    public b x(@Nullable Drawable drawable) {
+    public b y(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.oQl = null;
+            this.oRO = null;
         } else {
-            this.oQl = Arrays.asList(drawable);
+            this.oRO = Arrays.asList(drawable);
         }
         return this;
     }
 
     @Nullable
     public List<Drawable> getOverlays() {
-        return this.oQl;
+        return this.oRO;
     }
 
-    public b y(@Nullable Drawable drawable) {
+    public b z(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.oQm = null;
+            this.oRP = null;
         } else {
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842919}, drawable);
-            this.oQm = stateListDrawable;
+            this.oRP = stateListDrawable;
         }
         return this;
     }
 
     @Nullable
-    public Drawable emr() {
-        return this.oQm;
+    public Drawable emp() {
+        return this.oRP;
     }
 
     public b b(@Nullable RoundingParams roundingParams) {
-        this.oPQ = roundingParams;
+        this.oRt = roundingParams;
         return this;
     }
 
     @Nullable
-    public RoundingParams emc() {
-        return this.oPQ;
+    public RoundingParams ema() {
+        return this.oRt;
     }
 
     private void validate() {
-        if (this.oQl != null) {
-            for (Drawable drawable : this.oQl) {
+        if (this.oRO != null) {
+            for (Drawable drawable : this.oRO) {
                 g.checkNotNull(drawable);
             }
         }
     }
 
-    public a ems() {
+    public a emq() {
         validate();
         return new a(this);
     }

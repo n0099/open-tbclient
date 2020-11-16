@@ -8,30 +8,30 @@ import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 class a {
-    final String dDd;
-    final int ejj;
-    final int ejk;
-    final String ejl;
-    final Set<String> ejm;
-    final String ejn;
+    final String dBw;
+    final int ehC;
+    final int ehD;
+    final String ehE;
+    final Set<String> ehF;
+    final String ehG;
     final String mContentType;
     final String mVersion;
 
     public a(String str, int i, int i2, String str2, String str3, String str4, Set<String> set, String str5) {
         this.mContentType = str;
-        this.ejk = i2;
-        this.ejj = i;
-        this.dDd = str2;
-        this.ejl = str3;
+        this.ehD = i2;
+        this.ehC = i;
+        this.dBw = str2;
+        this.ehE = str3;
         this.mVersion = str4;
-        this.ejm = set;
-        this.ejn = str5;
+        this.ehF = set;
+        this.ehG = str5;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a cU(JSONObject jSONObject) {
+    public static a cO(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (com.baidu.swan.pms.d.DEBUG) {
             Log.d(Node.TAG, "host info " + jSONObject.toString());

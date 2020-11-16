@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class c extends a<MessageV3> {
     public c(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

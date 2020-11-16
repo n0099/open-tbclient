@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Build;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class c implements a {
 
     /* renamed from: a  reason: collision with root package name */

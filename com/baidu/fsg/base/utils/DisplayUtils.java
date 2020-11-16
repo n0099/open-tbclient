@@ -2,7 +2,7 @@ package com.baidu.fsg.base.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class DisplayUtils {
 
     /* renamed from: a  reason: collision with root package name */

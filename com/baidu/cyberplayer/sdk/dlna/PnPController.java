@@ -3,91 +3,58 @@ package com.baidu.cyberplayer.sdk.dlna;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class PnPController {
 
     /* renamed from: a  reason: collision with root package name */
-    private CtrlPointProvider f1379a;
+    private CtrlPointProvider f1382a;
 
     public PnPController(String str, DlnaProvider dlnaProvider) {
-        this.f1379a = null;
-        if (dlnaProvider != null) {
-            this.f1379a = dlnaProvider.ctrlPoint(str);
-        }
+        this.f1382a = null;
+        this.f1382a = dlnaProvider.ctrlPoint(str);
     }
 
     public long getCurrentTime() {
-        if (this.f1379a != null) {
-            return this.f1379a.getCurrentTime();
-        }
-        return 0L;
+        return this.f1382a.getCurrentTime();
     }
 
     public long getDuration() {
-        if (this.f1379a != null) {
-            return this.f1379a.getDuration();
-        }
-        return 0L;
+        return this.f1382a.getDuration();
     }
 
     public int getPlaybackVolume() {
-        if (this.f1379a != null) {
-            return this.f1379a.getPlaybackVolume();
-        }
-        return 0;
+        return this.f1382a.getPlaybackVolume();
     }
 
     public void pause() {
-        if (this.f1379a != null) {
-            this.f1379a.pause();
-        }
+        this.f1382a.pause();
     }
 
     public void play() {
-        if (this.f1379a != null) {
-            this.f1379a.play();
-        }
+        this.f1382a.play();
     }
 
     public void seek(long j) {
-        if (this.f1379a != null) {
-            this.f1379a.seek(j);
-        }
+        this.f1382a.seek(j);
     }
 
     public void setAVTransportUrl(String str) {
-        if (this.f1379a != null) {
-            this.f1379a.setAVTransportUrl(str);
-        }
+        this.f1382a.setAVTransportUrl(str);
     }
 
     public void setListener(CtrlPointProvider.CtrlPointListener ctrlPointListener) {
-        if (this.f1379a != null) {
-            this.f1379a.setListener(ctrlPointListener);
-        }
-    }
-
-    public void setMute(boolean z) {
-        if (this.f1379a != null) {
-            this.f1379a.setMute(z ? 1 : 0);
-        }
+        this.f1382a.setListener(ctrlPointListener);
     }
 
     public void setPlaybackVolume(int i) {
-        if (this.f1379a != null) {
-            this.f1379a.setPlaybackVolume(i);
-        }
+        this.f1382a.setPlaybackVolume(i);
     }
 
     public void shutdown() {
-        if (this.f1379a != null) {
-            this.f1379a.shutdown();
-        }
+        this.f1382a.shutdown();
     }
 
     public void stop() {
-        if (this.f1379a != null) {
-            this.f1379a.stop();
-        }
+        this.f1382a.stop();
     }
 }

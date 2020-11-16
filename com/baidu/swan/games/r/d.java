@@ -3,21 +3,21 @@ package com.baidu.swan.games.r;
 import android.support.annotation.NonNull;
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.JsObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class d {
-    private c dTb;
+    private c dRt;
 
     public d(@NonNull com.baidu.swan.games.f.a aVar) {
-        this.dTb = new c(aVar);
+        this.dRt = new c(aVar);
     }
 
     @JavascriptInterface
     public void removeUserCloudStorage(JsObject jsObject) {
-        this.dTb.removeUserCloudStorage(jsObject);
+        this.dRt.removeUserCloudStorage(jsObject);
     }
 
     @JavascriptInterface
     public void setUserCloudStorage(JsObject jsObject) {
-        this.dTb.setUserCloudStorage(jsObject);
+        this.dRt.setUserCloudStorage(jsObject);
     }
 }

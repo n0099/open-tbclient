@@ -22,29 +22,29 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class SelectMusicModel extends BdBaseModel {
     private TbPageContext mPageContext;
-    private com.baidu.tieba.video.editvideo.b nox;
-    private final HttpMessageListener noy;
+    private com.baidu.tieba.video.editvideo.b npE;
+    private final HttpMessageListener npF;
 
     public SelectMusicModel(TbPageContext tbPageContext, com.baidu.tieba.video.editvideo.b bVar) {
         super(tbPageContext);
-        this.noy = new HttpMessageListener(1003366) { // from class: com.baidu.tieba.video.editvideo.model.SelectMusicModel.2
+        this.npF = new HttpMessageListener(1003366) { // from class: com.baidu.tieba.video.editvideo.model.SelectMusicModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003366 && (httpResponsedMessage instanceof VideoSugMusicResponseMessage) && ((VideoSugMusicResponseMessage) httpResponsedMessage).musicDatas != null) {
-                    SelectMusicModel.this.nox.setMusicData(((VideoSugMusicResponseMessage) httpResponsedMessage).musicDatas);
+                    SelectMusicModel.this.npE.setMusicData(((VideoSugMusicResponseMessage) httpResponsedMessage).musicDatas);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.nox = bVar;
-        dPq();
-        this.noy.setTag(getUniqueId());
-        this.noy.setSelfListener(true);
-        registerListener(this.noy);
+        this.npE = bVar;
+        dPp();
+        this.npF.setTag(getUniqueId());
+        this.npF.setSelfListener(true);
+        registerListener(this.npF);
     }
 
     public void i(final String str, final String str2, final String str3, final boolean z) {
@@ -56,9 +56,9 @@ public class SelectMusicModel extends BdBaseModel {
                 /* renamed from: q */
                 public i doInBackground(Void... voidArr) {
                     if (TextUtils.isEmpty(str2) && !z) {
-                        return h.dQi().gB(str, str3);
+                        return h.dQh().gB(str, str3);
                     }
-                    return h.dQi().j(str, str2, str3, z);
+                    return h.dQh().j(str, str2, str3, z);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -68,16 +68,16 @@ public class SelectMusicModel extends BdBaseModel {
                 public void onPostExecute(i iVar) {
                     super.onPostExecute(iVar);
                     if (iVar == null || iVar.result != 0) {
-                        SelectMusicModel.this.nox.v(null, iVar.result, iVar.msg);
+                        SelectMusicModel.this.npE.v(null, iVar.result, iVar.msg);
                     } else {
-                        SelectMusicModel.this.nox.v(str3, -4399, "");
+                        SelectMusicModel.this.npE.v(str3, -4399, "");
                     }
                 }
             }.execute(new Void[0]);
         }
     }
 
-    public void dPp() {
+    public void dPo() {
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.no_network);
         } else {
@@ -85,13 +85,13 @@ public class SelectMusicModel extends BdBaseModel {
         }
     }
 
-    private void dPq() {
+    private void dPp() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003366, TbConfig.SERVER_ADDRESS + Config.VIDEO_SUG_MUSIC_LIST);
         tbHttpMessageTask.setResponsedClass(VideoSugMusicResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes22.dex */
     public static class VideoSugMusicResponseMessage extends JsonHttpResponsedMessage {
         public List<MusicData> musicDatas;
 

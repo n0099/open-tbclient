@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class FloatCodec implements ObjectDeserializer, ObjectSerializer {
     public static FloatCodec instance = new FloatCodec();
     private NumberFormat decimalFormat;

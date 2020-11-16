@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface an {
-    void ahL();
+    void ahd();
 }

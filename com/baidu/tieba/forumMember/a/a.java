@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.k;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class a extends k<b, c> {
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -17,7 +17,7 @@ public class a extends k<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bc */
+    /* renamed from: aY */
     public c c(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(R.layout.manito_item_header, (ViewGroup) null));
     }
@@ -28,10 +28,10 @@ public class a extends k<b, c> {
     public View a(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.a(i, view, viewGroup, (ViewGroup) bVar, (b) cVar);
         if (cVar.mSkinType != this.mSkinType) {
-            ap.setBackgroundColor(cVar.getView(), R.color.cp_bg_line_d);
-            ap.setViewTextColor(cVar.title, R.color.cp_cont_b, 1);
+            ap.setBackgroundColor(cVar.getView(), R.color.CAM_X0201);
+            ap.setViewTextColor(cVar.title, R.color.CAM_X0105, 1);
         }
-        cVar.title.setText(String.format(this.mContext.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.cwD())));
+        cVar.title.setText(String.format(this.mContext.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.cwg())));
         cVar.mSkinType = this.mSkinType;
         return view;
     }

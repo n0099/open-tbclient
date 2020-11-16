@@ -11,42 +11,42 @@ import com.baidu.live.tbadk.TbPageContext;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private AudienceStickerContainerView hsX;
-    private List<AlaLiveStickerInfo> hsY;
+    private AudienceStickerContainerView hsE;
+    private List<AlaLiveStickerInfo> hsF;
     private TbPageContext mTbPageContext;
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
     }
 
-    public void aH(ViewGroup viewGroup) {
+    public void aD(ViewGroup viewGroup) {
         if (viewGroup != null && this.mTbPageContext != null) {
-            if (this.hsX == null) {
-                this.hsX = new AudienceStickerContainerView(this.mTbPageContext.getPageActivity());
+            if (this.hsE == null) {
+                this.hsE = new AudienceStickerContainerView(this.mTbPageContext.getPageActivity());
             }
-            if (this.hsX.getParent() != null) {
-                ((ViewGroup) this.hsX.getParent()).removeView(this.hsX);
+            if (this.hsE.getParent() != null) {
+                ((ViewGroup) this.hsE.getParent()).removeView(this.hsE);
             }
-            viewGroup.addView(this.hsX, 0, new RelativeLayout.LayoutParams(-1, -1));
+            viewGroup.addView(this.hsE, 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
     public void cC(List<AlaLiveStickerInfo> list) {
         boolean z;
         boolean z2 = true;
-        if (this.hsX.getWidth() > 0 && this.hsX.getHeight() > 0) {
-            if (this.hsY != null && list != null) {
-                if (this.hsY.size() != list.size()) {
-                    this.hsY = list;
+        if (this.hsE.getWidth() > 0 && this.hsE.getHeight() > 0) {
+            if (this.hsF != null && list != null) {
+                if (this.hsF.size() != list.size()) {
+                    this.hsF = list;
                 } else {
                     int size = list.size();
                     int i = 0;
                     while (true) {
                         if (i < size) {
-                            if (this.hsY.get(i).equals(list.get(i))) {
+                            if (this.hsF.get(i).equals(list.get(i))) {
                                 i++;
                             } else {
-                                this.hsY = list;
+                                this.hsF = list;
                                 z = true;
                                 break;
                             }
@@ -57,17 +57,17 @@ public class a {
                     }
                     z2 = z;
                 }
-            } else if (this.hsY != null && list == null) {
-                this.hsY = list;
-            } else if (this.hsY != null || list == null) {
+            } else if (this.hsF != null && list == null) {
+                this.hsF = list;
+            } else if (this.hsF != null || list == null) {
                 z2 = false;
             } else {
-                this.hsY = list;
+                this.hsF = list;
             }
             if (z2) {
-                this.hsX.removeAllViews();
-                if (this.hsY != null && this.hsY.size() > 0) {
-                    for (AlaLiveStickerInfo alaLiveStickerInfo : this.hsY) {
+                this.hsE.removeAllViews();
+                if (this.hsF != null && this.hsF.size() > 0) {
+                    for (AlaLiveStickerInfo alaLiveStickerInfo : this.hsF) {
                         b(alaLiveStickerInfo);
                     }
                 }
@@ -86,18 +86,18 @@ public class a {
                     super.onLoaded((AnonymousClass1) bdImage, str2, i);
                     if (bdImage != null && bdImage.getRawBitmap() != null && str2 != null && str2.equals(str)) {
                         alaLiveStickerInfo.bitmap = bdImage.getRawBitmap();
-                        a.this.hsX.b(alaLiveStickerInfo);
+                        a.this.hsE.b(alaLiveStickerInfo);
                     }
                 }
             }, null);
         }
     }
 
-    public void chl() {
-        this.hsX.setVisibility(8);
+    public void cgE() {
+        this.hsE.setVisibility(8);
     }
 
-    public void chm() {
-        this.hsX.setVisibility(0);
+    public void cgF() {
+        this.hsE.setVisibility(0);
     }
 }

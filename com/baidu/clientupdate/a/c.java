@@ -7,16 +7,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 public class c extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1317a;
+    final /* synthetic */ b f1320a;
     private final CharSequence b;
     private byte[] c;
 
     public c(b bVar, CharSequence charSequence, byte[] bArr) {
-        this.f1317a = bVar;
+        this.f1320a = bVar;
         this.c = null;
         this.b = charSequence;
         this.c = bArr;
@@ -62,15 +62,15 @@ public class c extends Thread {
                 inputStream.close();
                 LogUtil.logE("LogRequest", "**********strResult:" + sb.toString());
                 if (new JSONObject(sb.toString()).getString("retcode").equals("1")) {
-                    aVar3 = this.f1317a.c;
+                    aVar3 = this.f1320a.c;
                     aVar3.c();
                 } else {
-                    aVar2 = this.f1317a.c;
+                    aVar2 = this.f1320a.c;
                     aVar2.e();
                 }
             } else {
                 LogUtil.logE("LogRequest", "request failed  " + httpURLConnection.getResponseCode());
-                aVar = this.f1317a.c;
+                aVar = this.f1320a.c;
                 aVar.e();
             }
             if (httpURLConnection != null) {

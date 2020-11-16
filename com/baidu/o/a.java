@@ -8,20 +8,20 @@ import com.baidu.rtc.RtcConfig;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String epv;
-    private com.baidu.o.c.a epw;
-    private AudioSession epx;
+    private String enN;
+    private com.baidu.o.c.a enO;
+    private AudioSession enP;
 
     public a(Context context, RtcConfig rtcConfig, String str) {
-        this.epv = "";
-        this.epv = str;
-        this.epx = new AudioSession(context, rtcConfig, new RtcConfig.RtcHandler() { // from class: com.baidu.o.a.1
+        this.enN = "";
+        this.enN = str;
+        this.enP = new AudioSession(context, rtcConfig, new RtcConfig.RtcHandler() { // from class: com.baidu.o.a.1
             @Override // com.baidu.rtc.RtcConfig.RtcHandler
             public void onStart(int i, int i2, String str2, String str3) {
-                if (a.this.epw != null) {
+                if (a.this.enO != null) {
                     if (str2 == null) {
                         str2 = "";
                     }
@@ -34,7 +34,7 @@ public class a {
                         jSONObject.putOpt("stateMsg", "connected");
                         jSONObject.putOpt("url", str2);
                         jSONObject.putOpt("remoteIP", str3);
-                        a.this.epw.g(MissionEvent.MESSAGE_START, jSONObject);
+                        a.this.enO.g(MissionEvent.MESSAGE_START, jSONObject);
                     } catch (JSONException e) {
                         if (a.DEBUG) {
                             Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
@@ -45,7 +45,7 @@ public class a {
 
             @Override // com.baidu.rtc.RtcConfig.RtcHandler
             public void onConnectSuccess(int i, int i2, String str2, String str3) {
-                if (a.this.epw != null) {
+                if (a.this.enO != null) {
                     if (str2 == null) {
                         str2 = "";
                     }
@@ -58,7 +58,7 @@ public class a {
                         jSONObject.putOpt("stateMsg", "remote IP resolved");
                         jSONObject.putOpt("url", str2);
                         jSONObject.putOpt("remoteIP", str3);
-                        a.this.epw.g("onStateChange", jSONObject);
+                        a.this.enO.g("onStateChange", jSONObject);
                     } catch (JSONException e) {
                         if (a.DEBUG) {
                             Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
@@ -69,13 +69,13 @@ public class a {
 
             @Override // com.baidu.rtc.RtcConfig.RtcHandler
             public void onConnectFailed(int i, int i2, String str2, int i3) {
-                if (a.this.epw != null) {
+                if (a.this.enO != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.putOpt("state", "2001");
                         jSONObject.putOpt("stateMsg", "connect failed");
                         jSONObject.putOpt("rtcErr", Integer.valueOf(i3));
-                        a.this.epw.g("onStateChange", jSONObject);
+                        a.this.enO.g("onStateChange", jSONObject);
                     } catch (JSONException e) {
                         if (a.DEBUG) {
                             Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
@@ -90,7 +90,7 @@ public class a {
 
             @Override // com.baidu.rtc.RtcConfig.RtcHandler
             public void onMuteStatusChanged(boolean z) {
-                if (a.this.epw != null) {
+                if (a.this.enO != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         if (z) {
@@ -100,7 +100,7 @@ public class a {
                             jSONObject.putOpt("state", "4002");
                             jSONObject.putOpt("stateMsg", "change to unmute");
                         }
-                        a.this.epw.g("onStateChange", jSONObject);
+                        a.this.enO.g("onStateChange", jSONObject);
                     } catch (JSONException e) {
                         if (a.DEBUG) {
                             Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
@@ -111,8 +111,8 @@ public class a {
 
             @Override // com.baidu.rtc.RtcConfig.RtcHandler
             public void onStop(int i, int i2) {
-                if (a.this.epw != null) {
-                    a.this.epw.pW(MissionEvent.MESSAGE_STOP);
+                if (a.this.enO != null) {
+                    a.this.enO.pQ(MissionEvent.MESSAGE_STOP);
                 }
             }
 
@@ -137,12 +137,12 @@ public class a {
         if (DEBUG) {
             Log.d("SwanAudiodRTCContext", "===open audioRTC");
         }
-        this.epw = aVar;
+        this.enO = aVar;
     }
 
     public void start() {
-        if (this.epx != null) {
-            this.epx.start();
+        if (this.enP != null) {
+            this.enP.start();
             if (DEBUG) {
                 Log.d("SwanAudiodRTCContext", "===start audioRTC");
             }
@@ -150,8 +150,8 @@ public class a {
     }
 
     public void stop() {
-        if (this.epx != null) {
-            this.epx.stop();
+        if (this.enP != null) {
+            this.enP.stop();
             if (DEBUG) {
                 Log.d("SwanAudiodRTCContext", "===stop audioRTC");
             }
@@ -159,8 +159,8 @@ public class a {
     }
 
     public void mute() {
-        if (this.epx != null) {
-            this.epx.mute();
+        if (this.enP != null) {
+            this.enP.mute();
             if (DEBUG) {
                 Log.d("SwanAudiodRTCContext", "===mute audioRTC");
             }
@@ -168,8 +168,8 @@ public class a {
     }
 
     public void unMute() {
-        if (this.epx != null) {
-            this.epx.unMute();
+        if (this.enP != null) {
+            this.enP.unMute();
             if (DEBUG) {
                 Log.d("SwanAudiodRTCContext", "===unMute audioRTC");
             }
@@ -177,8 +177,8 @@ public class a {
     }
 
     public void g(String str, JSONObject jSONObject) {
-        if (this.epw != null) {
-            this.epw.g(str, jSONObject);
+        if (this.enO != null) {
+            this.enO.g(str, jSONObject);
         }
     }
 }

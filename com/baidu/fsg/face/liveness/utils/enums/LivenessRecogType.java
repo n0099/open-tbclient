@@ -1,5 +1,5 @@
 package com.baidu.fsg.face.liveness.utils.enums;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public enum LivenessRecogType {
     RECOG_TYPE_BDUSS("recog_type_bduss", 1),
     RECOG_TYPE_AUTHTOKEN("recog_type_authtoken", 2),

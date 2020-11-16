@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import java.nio.ByteBuffer;
 import org.webrtc.RendererCommon;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class VideoFrameDrawer {
     static final float[] srcPoints = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f};
     @Nullable
@@ -20,7 +20,7 @@ public class VideoFrameDrawer {
     private final Matrix renderMatrix = new Matrix();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class YuvUploader {
         @Nullable
         private ByteBuffer copyBuffer;

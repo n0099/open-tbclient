@@ -2,14 +2,14 @@ package com.baidu.swan.apps.network.c.b;
 
 import android.support.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public abstract class b {
-    public abstract void aCS();
+    public abstract void aCk();
 
     @NonNull
     public abstract String getNodeName();
 
     public abstract void onFail();
 
-    public abstract void u(JSONObject jSONObject, String str);
+    public abstract void r(JSONObject jSONObject, String str);
 }

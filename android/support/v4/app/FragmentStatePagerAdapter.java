@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     private static final boolean DEBUG = false;
     private static final String TAG = "FragmentStatePagerAdapt";

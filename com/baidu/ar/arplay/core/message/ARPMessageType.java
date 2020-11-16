@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.core.message;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class ARPMessageType {
     public static final int MSG_ALL = 0;
     public static final int MSG_CASE_DESTROY_COMPLETED = 9;
@@ -72,13 +72,13 @@ public class ARPMessageType {
     public static final int MSG_TYPE_WAIT_SLAM_DATA = 4101;
     public static final int MSG_USR_INTERACTION_CONFIG = 11;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public static class ARPLuaSdkBridgeMessageType {
         public static final int MSG_TYPE_SDK_LUA_GAME_CONFIG = 1001;
         public static final int MSG_TYPE_WEBVIEW_OPERATION = 10800;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public static class ARPMessageParamKeys {
         public static final String MAP_NPC_KEY_NAME = "script";
         public static final String MODEL_COLOR_KEY = "model_color";

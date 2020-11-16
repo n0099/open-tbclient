@@ -20,7 +20,7 @@ import android.view.animation.Transformation;
 import android.widget.Scroller;
 import com.baidu.android.common.ui.R;
 import com.baidu.searchbox.ui.wheelview2d.BdAdapterView;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class NBSearchGallery extends BdAbsSpinner implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener {
     public static final int HORIZONTAL = 1;
     private static final int SCROLL_TO_FLING_UNCERTAINTY_TIMEOUT = 250;
@@ -59,7 +59,7 @@ public class NBSearchGallery extends BdAbsSpinner implements GestureDetector.OnD
     private float mUnselectedAlpha;
     private float mVelocityRatio;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public interface OnEndFlingListener {
         void onEndFling(NBSearchGallery nBSearchGallery);
     }
@@ -1261,7 +1261,7 @@ public class NBSearchGallery extends BdAbsSpinner implements GestureDetector.OnD
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public class FlingRunnable implements Runnable {
         private int mLastFlingX;
         private int mLastFlingY;
@@ -1387,7 +1387,7 @@ public class NBSearchGallery extends BdAbsSpinner implements GestureDetector.OnD
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);

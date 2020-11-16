@@ -42,8 +42,8 @@ public class f {
 
     private static NetworkInfo getActiveNetworkInfo() {
         ConnectivityManager connectivityManager;
-        Context abr = g.abr();
-        if (abr != null && (connectivityManager = (ConnectivityManager) abr.getSystemService("connectivity")) != null) {
+        Context aaI = g.aaI();
+        if (aaI != null && (connectivityManager = (ConnectivityManager) aaI.getSystemService("connectivity")) != null) {
             return connectivityManager.getActiveNetworkInfo();
         }
         return null;

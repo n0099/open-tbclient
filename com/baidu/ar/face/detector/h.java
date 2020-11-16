@@ -2,7 +2,7 @@ package com.baidu.ar.face.detector;
 
 import com.baidu.ar.face.detector.FaceDetector;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class h extends com.baidu.ar.c.a<f> {
     private int height;
     private ByteBuffer nO;

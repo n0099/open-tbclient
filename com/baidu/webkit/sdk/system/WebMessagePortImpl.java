@@ -7,12 +7,12 @@ import android.webkit.WebMessagePort;
 import com.baidu.webkit.sdk.WebMessagePort;
 /* JADX INFO: Access modifiers changed from: package-private */
 @TargetApi(23)
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class WebMessagePortImpl extends WebMessagePort {
     private final android.webkit.WebMessagePort mMsgPort;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class WebMessageCallbackWrapper extends WebMessagePort.WebMessageCallback {
         static final /* synthetic */ boolean $assertionsDisabled;
         private final WebMessagePort.WebMessageCallback mCallback;

@@ -3,7 +3,7 @@ package com.baidu.b.a;
 abstract class g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected long f1243a;
+    protected long f1246a;
     protected int b;
     protected int c;
     protected int d;

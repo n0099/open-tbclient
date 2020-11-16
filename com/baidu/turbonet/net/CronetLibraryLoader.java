@@ -10,14 +10,14 @@ import com.baidu.turbonet.net.TurbonetEngine;
 import java.util.ArrayList;
 import java.util.List;
 @JNINamespace
-/* loaded from: classes17.dex */
+/* loaded from: classes12.dex */
 class CronetLibraryLoader {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final Object olM;
-    private static final HandlerThread olN;
-    private static volatile boolean olO;
-    private static boolean olP;
-    private static List<Runnable> olQ;
+    private static final Object onq;
+    private static final HandlerThread onr;
+    private static volatile boolean ons;
+    private static boolean ont;
+    private static List<Runnable> onu;
 
     private static native void nativeCronetInitOnInitThread();
 
@@ -29,19 +29,19 @@ class CronetLibraryLoader {
 
     static {
         $assertionsDisabled = !CronetLibraryLoader.class.desiredAssertionStatus();
-        olM = new Object();
-        olN = new HandlerThread("TurboNetInit");
-        olO = false;
-        olP = false;
-        olQ = new ArrayList();
+        onq = new Object();
+        onr = new HandlerThread("TurboNetInit");
+        ons = false;
+        ont = false;
+        onu = new ArrayList();
     }
 
     CronetLibraryLoader() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long ebv() {
-        if (olP) {
+    public static long ebu() {
+        if (ont) {
             return nativeGetTurboNetHandler();
         }
         return 0L;
@@ -49,57 +49,57 @@ class CronetLibraryLoader {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(final Context context, TurbonetEngine.Builder builder) {
-        synchronized (olM) {
-            if (!olO) {
-                olO = true;
-                ContextUtils.gi(context.getApplicationContext());
-                builder.ecm();
-                ContextUtils.ebg();
+        synchronized (onq) {
+            if (!ons) {
+                ons = true;
+                ContextUtils.gh(context.getApplicationContext());
+                builder.ecl();
+                ContextUtils.ebf();
                 com.baidu.turbonet.base.a.f("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
-                ContextUtils.gi(context.getApplicationContext());
-                if (!olN.isAlive()) {
-                    olN.start();
+                ContextUtils.gh(context.getApplicationContext());
+                if (!onr.isAlive()) {
+                    onr.start();
                 }
                 A(new Runnable() { // from class: com.baidu.turbonet.net.CronetLibraryLoader.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        CronetLibraryLoader.gl(context);
+                        CronetLibraryLoader.gk(context);
                     }
                 });
             }
         }
     }
 
-    private static boolean ebw() {
-        return olN.getLooper() == Looper.myLooper();
+    private static boolean ebv() {
+        return onr.getLooper() == Looper.myLooper();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void gl(Context context) {
-        if (!$assertionsDisabled && !olO) {
+    public static void gk(Context context) {
+        if (!$assertionsDisabled && !ons) {
             throw new AssertionError();
         }
-        if (!$assertionsDisabled && !ebw()) {
+        if (!$assertionsDisabled && !ebv()) {
             throw new AssertionError();
         }
-        if (!olP) {
+        if (!ont) {
             NetworkChangeNotifier.init(context);
-            NetworkChangeNotifier.ebS();
+            NetworkChangeNotifier.ebR();
             nativeCronetInitOnInitThread();
-            for (Runnable runnable : olQ) {
+            for (Runnable runnable : onu) {
                 runnable.run();
             }
-            olQ.clear();
-            olP = true;
+            onu.clear();
+            ont = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void A(Runnable runnable) {
-        if (ebw()) {
+        if (ebv()) {
             runnable.run();
         } else {
-            new Handler(olN.getLooper()).post(runnable);
+            new Handler(onr.getLooper()).post(runnable);
         }
     }
 }

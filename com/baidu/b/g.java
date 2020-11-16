@@ -16,19 +16,19 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1269a;
-    private c adN;
+    private Context f1272a;
+    private c adS;
 
     public g(Context context, c cVar) {
-        this.f1269a = context;
-        this.adN = cVar;
+        this.f1272a = context;
+        this.adS = cVar;
     }
 
     private f O(Context context) {
         String str;
         f fVar;
         f fVar2 = null;
-        List<b> N = this.adN.N(context);
+        List<b> N = this.adS.N(context);
         if (N != null) {
             File filesDir = context.getFilesDir();
             if (com.baidu.fsg.face.base.b.c.g.equals(filesDir.getName())) {
@@ -39,9 +39,9 @@ public class g {
             }
             for (b bVar : N) {
                 if (!bVar.d) {
-                    File file = new File(new File(bVar.acS.dataDir, str), "libcuid.so");
+                    File file = new File(new File(bVar.acX.dataDir, str), "libcuid.so");
                     if (file.exists()) {
-                        fVar = f.cY(com.baidu.b.f.c.a(file));
+                        fVar = f.da(com.baidu.b.f.c.a(file));
                         if (fVar != null) {
                             return fVar;
                         }
@@ -57,12 +57,12 @@ public class g {
     }
 
     private boolean b(String str) {
-        return this.f1269a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+        return this.f1272a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
     }
 
     private String c(String str) {
         try {
-            return Settings.System.getString(this.f1269a.getContentResolver(), str);
+            return Settings.System.getString(this.f1272a.getContentResolver(), str);
         } catch (Exception e) {
             com.baidu.b.f.c.a(e);
             return null;
@@ -73,7 +73,7 @@ public class g {
         return "0";
     }
 
-    private f db(String str) {
+    private f dd(String str) {
         String str2 = "";
         String str3 = "";
         File file = new File(Environment.getExternalStorageDirectory(), "baidu/.cuid");
@@ -102,25 +102,25 @@ public class g {
         } catch (IOException e2) {
         } catch (Exception e3) {
         }
-        return f.N(str2, str3);
+        return f.M(str2, str3);
     }
 
     private f sQ() {
         File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
         if (file.exists()) {
-            return f.cY(com.baidu.b.f.c.a(file));
+            return f.da(com.baidu.b.f.c.a(file));
         }
         return null;
     }
 
     private f sR() {
-        return f.N(c("com.baidu.deviceid"), c("bd_setting_i"));
+        return f.M(c("com.baidu.deviceid"), c("bd_setting_i"));
     }
 
-    public f da(String str) {
-        f O = 0 == 0 ? O(this.f1269a) : null;
+    public f dc(String str) {
+        f O = 0 == 0 ? O(this.f1272a) : null;
         if (O == null) {
-            O = f.cY(c("com.baidu.deviceid.v2"));
+            O = f.da(c("com.baidu.deviceid.v2"));
         }
         boolean b = b("android.permission.READ_EXTERNAL_STORAGE");
         f sQ = (O == null && b) ? sQ() : O;
@@ -130,7 +130,7 @@ public class g {
         boolean z = false;
         if (sQ == null && b) {
             z = true;
-            sQ = db(d(""));
+            sQ = dd(d(""));
         }
         if (!z) {
             d("");

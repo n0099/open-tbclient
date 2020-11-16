@@ -11,10 +11,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.am;
 /* loaded from: classes4.dex */
 public class a extends b {
-    private AlaPersonCenterFragment hDp = new AlaPersonCenterFragment();
+    private AlaPersonCenterFragment hCW = new AlaPersonCenterFragment();
 
     public a() {
-        getFragmentTabStructure().frag = this.hDp;
+        getFragmentTabStructure().frag = this.hCW;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -32,7 +32,7 @@ public class a extends b {
     }
 
     public void a(am amVar) {
-        if (amVar != null && amVar.zi(5)) {
+        if (amVar != null && amVar.zG(5)) {
             amVar.b(this);
         }
     }
@@ -45,26 +45,26 @@ public class a extends b {
     }
 
     public void setForumId(String str) {
-        if (this.hDp != null) {
-            this.hDp.setForumId(str);
+        if (this.hCW != null) {
+            this.hCW.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.hDp != null) {
-            this.hDp.setForumName(str);
+        if (this.hCW != null) {
+            this.hCW.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.hDp != null) {
-            this.hDp.setForumGameLabel(str);
+        if (this.hCW != null) {
+            this.hCW.setForumGameLabel(str);
         }
     }
 
-    public void IG(String str) {
-        if (this.hDp != null) {
-            this.hDp.IG(str);
+    public void Ih(String str) {
+        if (this.hCW != null) {
+            this.hCW.Ih(str);
         }
     }
 }

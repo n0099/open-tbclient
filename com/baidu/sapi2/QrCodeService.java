@@ -21,7 +21,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class QrCodeService extends AbstractService implements NoProguard {
     private static QrCodeService b;
 
@@ -29,7 +29,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
     private HttpClientWrap f3217a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public class a extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -92,7 +92,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public class b extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -172,7 +172,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public class c extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -237,7 +237,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public class d extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */

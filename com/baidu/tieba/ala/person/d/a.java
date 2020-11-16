@@ -15,13 +15,13 @@ public class a {
         personUserData.user_info = new aq();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.aOb = beVar.metaKey;
+        personUserData.user_info.aMq = beVar.metaKey;
         personUserData.user_info.user_id = beVar.id;
         personUserData.user_info.user_name = beVar.name;
         personUserData.user_info.user_nickname = beVar.name_show;
         personUserData.user_info.description = beVar.intro;
         personUserData.user_info.portrait = beVar.portrait;
-        personUserData.relation_info.follow_status = beVar.aOM;
+        personUserData.relation_info.follow_status = beVar.aNb;
         return personUserData;
     }
 
@@ -59,10 +59,10 @@ public class a {
     }
 
     public static String aE(long j) {
-        return j / 10000 > 0 ? p(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
+        return j / 10000 > 0 ? o(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
     }
 
-    public static String p(double d) {
+    public static String o(double d) {
         String valueOf = String.valueOf(d);
         int indexOf = valueOf.indexOf(".");
         String substring = valueOf.substring(indexOf + 1, valueOf.length());

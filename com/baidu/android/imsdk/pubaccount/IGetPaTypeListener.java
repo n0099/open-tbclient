@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.pubaccount;
 
 import com.baidu.android.imsdk.IMListener;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public interface IGetPaTypeListener extends IMListener {
     void onGetPaType(int i, String str, long j, int i2);
 }

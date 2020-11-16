@@ -6,7 +6,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.Functions;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class ConsumerSingleObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T> {
     private static final long serialVersionUID = -7012088219455310787L;
     final g<? super Throwable> onError;
@@ -55,6 +55,6 @@ public final class ConsumerSingleObserver<T> extends AtomicReference<io.reactive
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.pMt;
+        return this.onError != Functions.pNW;
     }
 }

@@ -2,11 +2,11 @@ package com.baidu.swan.apps.component.d;
 
 import android.support.annotation.IntRange;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int cEW = 5;
-    private int[] cEX;
+    private static int cDm = 5;
+    private int[] cDn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i) {
@@ -27,11 +27,11 @@ public class a {
             }
             i = 500;
         }
-        this.cEX = new int[hJ(i - 1) + 1];
-        int length = this.cEX.length;
+        this.cDn = new int[hF(i - 1) + 1];
+        int length = this.cDn.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
-                this.cEX[i2] = -1;
+                this.cDn[i2] = -1;
             }
         }
     }
@@ -44,7 +44,7 @@ public class a {
             }
             return;
         }
-        int length = (this.cEX.length << cEW) - 1;
+        int length = (this.cDn.length << cDm) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -53,9 +53,9 @@ public class a {
             }
             return;
         }
-        int[] iArr = this.cEX;
-        int hJ = hJ(i);
-        iArr[hJ] = iArr[hJ] | (1 << i);
+        int[] iArr = this.cDn;
+        int hF = hF(i);
+        iArr[hF] = iArr[hF] | (1 << i);
     }
 
     public boolean get(@IntRange(from = 0) int i) {
@@ -66,7 +66,7 @@ public class a {
             }
             return false;
         }
-        int length = (this.cEX.length << cEW) - 1;
+        int length = (this.cDn.length << cDm) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.cEX[hJ(i)] & (1 << i)) != 0;
+        return (this.cDn[hF(i)] & (1 << i)) != 0;
     }
 
-    private int hJ(int i) {
-        return i >> cEW;
+    private int hF(int i) {
+        return i >> cDm;
     }
 }

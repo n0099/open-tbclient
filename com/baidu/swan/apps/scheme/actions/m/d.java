@@ -7,18 +7,18 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class d extends com.baidu.swan.apps.component.b.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String anz;
-    public boolean dwI;
-    public List<String> dwJ;
+    public String anF;
+    public boolean dvb;
+    public List<String> dvc;
     public String mSrc;
     public String mType;
 
     public d() {
         super("webView", "viewId");
-        this.dwI = true;
+        this.dvb = true;
     }
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
@@ -26,14 +26,14 @@ public final class d extends com.baidu.swan.apps.component.b.b {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             this.mSrc = jSONObject.optString("src");
-            this.anz = jSONObject.optString("userAgent");
+            this.anF = jSONObject.optString("userAgent");
             this.mType = jSONObject.optString("type");
             JSONArray optJSONArray = jSONObject.optJSONArray("targetUrls");
             if (optJSONArray != null && optJSONArray.length() != 0) {
-                this.dwJ = new ArrayList();
+                this.dvc = new ArrayList();
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
-                    this.dwJ.add(optJSONArray.optString(i));
+                    this.dvc.add(optJSONArray.optString(i));
                 }
             }
         }
@@ -57,6 +57,6 @@ public final class d extends com.baidu.swan.apps.component.b.b {
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.cDL);
+        return !TextUtils.isEmpty(this.cCb);
     }
 }

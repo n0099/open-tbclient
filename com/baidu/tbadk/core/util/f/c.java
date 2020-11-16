@@ -16,21 +16,21 @@ public class c {
                 e.log("this page don't preload ");
                 return;
             }
-            e.log("video preload switch  " + d.brZ().isOpen() + " num " + d.brZ().bsa() + " size " + d.brZ().getSize());
-            if (d.brZ().isOpen() && (adapter = tVar.getAdapter()) != null) {
+            e.log("video preload switch  " + d.brn().isOpen() + " num " + d.brn().bro() + " size " + d.brn().getSize());
+            if (d.brn().isOpen() && (adapter = tVar.getAdapter()) != null) {
                 boolean z = tVar.getFirstVisiblePosition() == 0;
                 int lastVisiblePosition = tVar.getLastVisiblePosition();
                 ArrayList arrayList = new ArrayList();
                 e.log("video preload  end=  " + lastVisiblePosition + "  " + adapter.getCount());
                 if (lastVisiblePosition >= 0 && adapter.getCount() > 0) {
-                    for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= d.brZ().bsa(); i++) {
+                    for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= d.brn().bro(); i++) {
                         e.log("video preload  i=  " + i);
                         Object item = adapter.getItem(i);
                         if (item instanceof a) {
                             a aVar = (a) item;
                             if (!TextUtils.isEmpty(aVar.getVideoUrl())) {
                                 e.log("url: " + aVar.getVideoUrl());
-                                CyberPlayerManager.prefetch(aVar.getVideoUrl(), null, null, d.brZ().getSize(), null);
+                                CyberPlayerManager.prefetch(aVar.getVideoUrl(), null, null, d.brn().getSize(), null);
                             }
                         }
                     }

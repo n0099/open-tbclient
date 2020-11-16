@@ -7,7 +7,7 @@ import tv.chushou.zues.widget.kpswitch.a;
 import tv.chushou.zues.widget.kpswitch.b;
 /* loaded from: classes6.dex */
 public class KPSwitchPanelFrameLayout extends FrameLayout implements a, b {
-    private tv.chushou.zues.widget.kpswitch.a.b qpM;
+    private tv.chushou.zues.widget.kpswitch.a.b qrp;
 
     public KPSwitchPanelFrameLayout(Context context) {
         super(context);
@@ -25,62 +25,62 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements a, b {
     }
 
     private void init(AttributeSet attributeSet) {
-        this.qpM = new tv.chushou.zues.widget.kpswitch.a.b(this, attributeSet);
+        this.qrp = new tv.chushou.zues.widget.kpswitch.a.b(this, attributeSet);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.qpM.ho(i)) {
+        if (!this.qrp.hk(i)) {
             super.setVisibility(i);
         }
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        int[] ab = this.qpM.ab(i, i2);
+        int[] ab = this.qrp.ab(i, i2);
         super.onMeasure(ab[0], ab[1]);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean bzW() {
-        return this.qpM.bzW();
+    public boolean bzm() {
+        return this.qrp.bzm();
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
     public boolean isVisible() {
-        return this.qpM.isVisible();
+        return this.qrp.isVisible();
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public void afq() {
+    public void aeI() {
         super.setVisibility(0);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public void afr() {
-        this.qpM.afr();
+    public void aeJ() {
+        this.qrp.aeJ();
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.qpM.setIgnoreRecommendHeight(z);
+        this.qrp.setIgnoreRecommendHeight(z);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
-    public void rq(int i) {
-        this.qpM.rr(i);
+    public void rO(int i) {
+        this.qrp.rP(i);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
-    public void kg(boolean z) {
-        this.qpM.kh(z);
+    public void kh(boolean z) {
+        this.qrp.ki(z);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean eIk() {
-        return this.qpM.eIk();
+    public boolean eIl() {
+        return this.qrp.eIl();
     }
 
     public void setPanelEnabled(boolean z) {
-        this.qpM.setPanelEnabled(z);
+        this.qrp.setPanelEnabled(z);
     }
 }

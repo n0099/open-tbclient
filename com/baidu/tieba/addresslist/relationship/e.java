@@ -5,9 +5,9 @@ import java.util.List;
 import tbclient.GetAddressList.friendList;
 import tbclient.GetAddressList.listData;
 import tbclient.GetAddressList.robotsList;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class e {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> fTG;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> fTn;
     private String mKey;
 
     public String getKey() {
@@ -15,22 +15,22 @@ public class e {
     }
 
     public List<com.baidu.tbadk.coreExtra.relationship.a> getContacts() {
-        if (this.fTG == null) {
-            this.fTG = new ArrayList();
+        if (this.fTn == null) {
+            this.fTn = new ArrayList();
         }
-        return this.fTG;
+        return this.fTn;
     }
 
     public void a(listData listdata) {
         if (listdata != null) {
             this.mKey = listdata.key;
             if (listdata.friend_list != null) {
-                this.fTG = new ArrayList();
+                this.fTn = new ArrayList();
                 for (friendList friendlist : listdata.friend_list) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.a(friendlist);
-                    aVar.CY(this.mKey);
-                    this.fTG.add(aVar);
+                    aVar.Cx(this.mKey);
+                    this.fTn.add(aVar);
                 }
             }
         }
@@ -40,12 +40,12 @@ public class e {
         if (robotslist != null) {
             this.mKey = robotslist.key;
             if (robotslist.friend_list != null) {
-                this.fTG = new ArrayList();
+                this.fTn = new ArrayList();
                 for (friendList friendlist : robotslist.friend_list) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.a(friendlist);
-                    aVar.CY(this.mKey);
-                    this.fTG.add(aVar);
+                    aVar.Cx(this.mKey);
+                    this.fTn.add(aVar);
                 }
             }
         }

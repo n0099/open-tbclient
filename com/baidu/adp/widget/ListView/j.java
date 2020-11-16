@@ -8,7 +8,7 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.adp.widget.ListView.af.a;
 /* loaded from: classes.dex */
 public class j<V extends af.a> extends a<i, V> {
-    private a<q, V> WA;
+    private a<q, V> WE;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.af$a] */
     /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: com.baidu.adp.widget.ListView.af$a */
@@ -23,46 +23,56 @@ public class j<V extends af.a> extends a<i, V> {
     }
 
     public void a(a aVar) {
-        this.WA = aVar;
+        this.WE = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.a
     public V c(ViewGroup viewGroup) {
-        if (this.WA == null) {
+        return a(viewGroup, new i());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.widget.ListView.a
+    public V a(ViewGroup viewGroup, i iVar) {
+        V c;
+        if (this.WE == null) {
             return null;
         }
-        if (this.Vw == this.WA.qJ()) {
-            return this.WA.d(viewGroup);
+        if (this.Vx == this.WE.qJ()) {
+            c = this.WE.b(viewGroup, iVar.qT());
+        } else if (this.Vx == this.WE.qK()) {
+            c = this.WE.c(viewGroup, iVar.qT());
+        } else if (this.Vx == this.WE.qL()) {
+            c = this.WE.d(viewGroup, iVar.qT());
+        } else if (this.Vx == this.WE.qM()) {
+            c = this.WE.e(viewGroup, iVar.qT());
+        } else {
+            c = this.WE.c(viewGroup);
         }
-        if (this.Vw == this.WA.qK()) {
-            return this.WA.e(viewGroup);
+        if (c == null) {
+            throw new NullPointerException("Order error or holder created is NullPointerException");
         }
-        if (this.Vw == this.WA.qL()) {
-            return this.WA.f(viewGroup);
-        }
-        if (this.Vw == this.WA.qM()) {
-            return this.WA.g(viewGroup);
-        }
-        return this.WA.c(viewGroup);
+        a(this.WE.qN());
+        return c;
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public View a2(int i, View view, ViewGroup viewGroup, i iVar, V v) {
-        if (this.WA == null) {
+        if (this.WE == null) {
             return null;
         }
-        if (this.Vw == this.WA.qJ()) {
-            return this.WA.b(i, view, viewGroup, iVar.qT(), v);
+        if (this.Vx == this.WE.qJ()) {
+            return this.WE.b(i, view, viewGroup, iVar.qT(), v);
         }
-        if (this.Vw == this.WA.qK()) {
-            return this.WA.c(i, view, viewGroup, iVar.qT(), v);
+        if (this.Vx == this.WE.qK()) {
+            return this.WE.c(i, view, viewGroup, iVar.qT(), v);
         }
-        if (this.Vw == this.WA.qL()) {
-            return this.WA.d(i, view, viewGroup, iVar.qT(), v);
+        if (this.Vx == this.WE.qL()) {
+            return this.WE.d(i, view, viewGroup, iVar.qT(), v);
         }
-        if (this.Vw == this.WA.qM()) {
-            return this.WA.e(i, view, viewGroup, iVar.qT(), v);
+        if (this.Vx == this.WE.qM()) {
+            return this.WE.e(i, view, viewGroup, iVar.qT(), v);
         }
-        return this.WA.a(i, view, viewGroup, iVar.qT(), v);
+        return this.WE.a(i, view, viewGroup, iVar.qT(), v);
     }
 }

@@ -9,11 +9,11 @@ import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class LiveFlowerTaskInitialize {
     static {
-        bMs();
-        bMr();
+        bLL();
+        bLK();
     }
 
-    private static void bMr() {
+    private static void bLK() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913219, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.LiveFlowerTaskInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.ad.d> run(CustomMessage<TbPageContext> customMessage) {
@@ -24,7 +24,7 @@ public class LiveFlowerTaskInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bMs() {
+    private static void bLL() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913034, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.LiveFlowerTaskInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.ad.b> run(CustomMessage<Context> customMessage) {
@@ -44,7 +44,7 @@ public class LiveFlowerTaskInitialize {
         CustomMessageTask customMessageTask3 = new CustomMessageTask(2913136, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.ala.LiveFlowerTaskInitialize.4
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.ad.c> run(CustomMessage<Object> customMessage) {
-                return new CustomResponsedMessage<>(2913136, com.baidu.tieba.ala.liveroom.task.b.chp());
+                return new CustomResponsedMessage<>(2913136, com.baidu.tieba.ala.liveroom.task.b.cgI());
             }
         });
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

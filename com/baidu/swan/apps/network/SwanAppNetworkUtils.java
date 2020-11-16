@@ -16,11 +16,11 @@ import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class SwanAppNetworkUtils {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void onResult(int i);
     }
@@ -148,7 +148,7 @@ public class SwanAppNetworkUtils {
         return "unknown";
     }
 
-    public static NetType aCH() {
+    public static NetType aBZ() {
         String networkClass = getNetworkClass();
         char c = 65535;
         switch (networkClass.hashCode()) {
@@ -205,7 +205,7 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public enum NetType {
         NONE("no"),
         WIFI("wifi"),
@@ -222,12 +222,12 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    public static String aCI() {
-        String uy = ak.uy(com.baidu.swan.apps.core.turbo.d.arI().asg());
-        if (TextUtils.isEmpty(uy)) {
+    public static String aCa() {
+        String ut = ak.ut(com.baidu.swan.apps.core.turbo.d.ara().ary());
+        if (TextUtils.isEmpty(ut)) {
             return "";
         }
-        return uy;
+        return ut;
     }
 
     public static <T> void a(String str, String str2, ResponseCallback<T> responseCallback) {
@@ -235,12 +235,12 @@ public class SwanAppNetworkUtils {
             Log.d("postJsonRequest", "url:" + str + "\nbody:" + str2);
         }
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.a.c.a.baK().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.awZ().aij()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
+            com.baidu.swan.a.c.a.bad().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.awr().ahB()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
         }
     }
 
     public static void a(@NonNull final a aVar) {
-        com.baidu.swan.apps.process.messaging.client.a.aFo().b(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.network.SwanAppNetworkUtils.1
+        com.baidu.swan.apps.process.messaging.client.a.aEG().b(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.network.SwanAppNetworkUtils.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.process.a.b.c.a
             public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {

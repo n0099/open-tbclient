@@ -9,7 +9,7 @@ import io.reactivex.internal.util.ErrorMode;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class FlowableConcatMapEager<T, R> extends a<T, R> {
     final ErrorMode errorMode;
     final h<? super T, ? extends org.a.b<? extends R>> mapper;
@@ -18,10 +18,10 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.pMK.a((j) new ConcatMapEagerDelayErrorSubscriber(cVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
+        this.pOn.a((j) new ConcatMapEagerDelayErrorSubscriber(cVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class ConcatMapEagerDelayErrorSubscriber<T, R> extends AtomicInteger implements io.reactivex.internal.subscribers.c<R>, j<T>, org.a.d {
         private static final long serialVersionUID = -4255299542215038287L;
         final org.a.c<? super R> actual;

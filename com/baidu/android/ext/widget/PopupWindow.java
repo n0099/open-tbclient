@@ -18,7 +18,7 @@ import com.baidu.android.ext.manage.PopItem;
 import com.baidu.android.popupwindow.R;
 import com.baidu.searchbox.widget.ImmersionHelper;
 import java.lang.ref.WeakReference;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public class PopupWindow implements PopItem {
     private static final int[] ABOVE_ANCHOR_STATE_SET = {16842922};
     private static final boolean DEBUG = false;
@@ -69,7 +69,7 @@ public class PopupWindow implements PopItem {
     private int mWindowLayoutType;
     private WindowManager mWindowManager;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes12.dex */
     public interface OnDismissListener {
         void onDismiss();
     }
@@ -829,7 +829,7 @@ public class PopupWindow implements PopItem {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes12.dex */
     public class PopupViewContainer extends FrameLayout {
         private static final String TAG = "PopupWindow.PopupViewContainer";
 

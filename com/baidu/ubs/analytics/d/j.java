@@ -2,57 +2,57 @@ package com.baidu.ubs.analytics.d;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public final class j {
-    private static int osc = 1000;
-    private static boolean osd = true;
+    private static int otF = 1000;
+    private static boolean otG = true;
 
     public static void c(boolean z) {
-        osd = z;
+        otG = z;
     }
 
     public static void I(String str) {
-        if (osd) {
+        if (otG) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (osd) {
+        if (otG) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (osd) {
+        if (otG) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (osd) {
+        if (otG) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= osc) {
+            if (str2.length() >= otF) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, osc));
+                        Log.v(str, str2.substring(0, otF));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, osc));
+                        Log.d(str, str2.substring(0, otF));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, osc));
+                        Log.i(str, str2.substring(0, otF));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, osc));
+                        Log.w(str, str2.substring(0, otF));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, osc));
+                        Log.e(str, str2.substring(0, otF));
                         break;
                 }
             } else {

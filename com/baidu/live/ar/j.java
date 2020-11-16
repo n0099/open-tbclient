@@ -3,7 +3,7 @@ package com.baidu.live.ar;
 import com.baidu.live.adp.BdUniqueId;
 /* loaded from: classes4.dex */
 public interface j {
-    AlaFilterAndBeautyData Cy();
+    AlaFilterAndBeautyData BP();
 
     void a(BdUniqueId bdUniqueId);
 

@@ -5,26 +5,26 @@ import com.baidu.live.data.w;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
-    private com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a odq;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a oeT;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.odq = new com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a(tbPageContext);
+        this.oeT = new com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a(tbPageContext);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
     public void a(w wVar, AlaWheatInfoData alaWheatInfoData, int i, int i2) {
         super.a(wVar, alaWheatInfoData, i, i2);
-        this.odq.a(wVar, alaWheatInfoData, i, i2);
+        this.oeT.a(wVar, alaWheatInfoData, i, i2);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    protected void VD(String str) {
-        this.odq.VD(str);
+    protected void Vo(String str) {
+        this.oeT.Vo(str);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    protected void VE(String str) {
-        this.odq.VE(str);
+    protected void Vp(String str) {
+        this.oeT.Vp(str);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.pass.biometrics.face.liveness.a;
 
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
 import java.util.HashMap;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

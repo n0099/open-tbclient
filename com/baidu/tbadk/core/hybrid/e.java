@@ -4,13 +4,13 @@ import android.util.Log;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b eJP = new a();
-    private static final b eJQ = new c();
-    private static final boolean eJR;
+    private static final b eIO = new a();
+    private static final b eIP = new c();
+    private static final boolean eIQ;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -39,26 +39,26 @@ public class e {
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
         public void ah(String str, String str2, String str3) {
-            aq aqVar = new aq("c10729");
-            aqVar.dR("obj_param1", str);
-            aqVar.dR(TiebaInitialize.Params.OBJ_PARAM2, str2);
-            aqVar.dR(TiebaInitialize.Params.OBJ_PARAM3, str3);
+            ar arVar = new ar("c10729");
+            arVar.dR("obj_param1", str);
+            arVar.dR(TiebaInitialize.Params.OBJ_PARAM2, str2);
+            arVar.dR(TiebaInitialize.Params.OBJ_PARAM3, str3);
             if (BdBaseApplication.getInst() != null) {
-                TiebaStatic.log(aqVar);
+                TiebaStatic.log(arVar);
             }
         }
     }
 
     public static void ah(String str, String str2, String str3) {
-        if (eJR) {
-            eJP.ah(str, str2, str3);
+        if (eIQ) {
+            eIO.ah(str, str2, str3);
         }
-        eJQ.ah(str, str2, str3);
+        eIP.ah(str, str2, str3);
     }
 
     public static void debug(String str) {
-        if (eJR) {
-            eJP.ah(null, null, str);
+        if (eIQ) {
+            eIO.ah(null, null, str);
         }
     }
 
@@ -67,6 +67,6 @@ public class e {
     }
 
     static {
-        eJR = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        eIQ = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

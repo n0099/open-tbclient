@@ -45,24 +45,24 @@ import org.apache.http.client.methods.HttpTrace;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b extends d {
-    private static final Set<String> czC = i.N(HttpOptions.METHOD_NAME, "GET", HttpHead.METHOD_NAME, "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
-    private static final Set<String> czD = i.N("json", "string");
-    private static final Set<String> czE = i.N("text", "arraybuffer");
-    private static final Set<String> czF = i.N("REFERER", "USER-AGENT");
+    private static final Set<String> cxS = i.N(HttpOptions.METHOD_NAME, "GET", HttpHead.METHOD_NAME, "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
+    private static final Set<String> cxT = i.N("json", "string");
+    private static final Set<String> cxU = i.N("text", "arraybuffer");
+    private static final Set<String> cxV = i.N("REFERER", "USER-AGENT");
 
     /* renamed from: com.baidu.swan.apps.api.module.network.b$b  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0403b {
-        void aQ(JSONObject jSONObject);
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0401b {
+        void aK(JSONObject jSONObject);
     }
 
     public b(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b ll(String str) {
+    public com.baidu.swan.apps.api.c.b lf(String str) {
         if (DEBUG) {
             Log.d("Api-Request", "start cancelRequest");
         }
@@ -73,18 +73,18 @@ public class b extends d {
                 if (TextUtils.isEmpty(optString)) {
                     return new com.baidu.swan.apps.api.c.b(202, "illegal cancelTag");
                 }
-                SwanAppNetworkUtils.a(com.baidu.swan.a.c.a.baK().getOkHttpClient(), optString);
+                SwanAppNetworkUtils.a(com.baidu.swan.a.c.a.bad().getOkHttpClient(), optString);
                 return new com.baidu.swan.apps.api.c.b(0);
             }
         });
     }
 
-    public com.baidu.swan.apps.api.c.b aN(@NonNull JSONObject jSONObject) {
+    public com.baidu.swan.apps.api.c.b aH(@NonNull JSONObject jSONObject) {
         if (DEBUG) {
             Log.d("Api-Request", "request with JSONObject: " + jSONObject);
         }
-        e aHu = e.aHu();
-        if (aHu == null) {
+        e aGM = e.aGM();
+        if (aGM == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "swan app is null");
         }
         String optString = jSONObject.optString("cb");
@@ -92,7 +92,7 @@ public class b extends d {
             com.baidu.swan.apps.console.c.e("Api-Request", "callback is null");
             return new com.baidu.swan.apps.api.c.b(202, "callback is null");
         }
-        return b(aHu, jSONObject, optString);
+        return b(aGM, jSONObject, optString);
     }
 
     public com.baidu.swan.apps.api.c.b b(JsObject jsObject) {
@@ -102,13 +102,13 @@ public class b extends d {
         }
         JSONObject jSONObject = (JSONObject) a2.second;
         if (jSONObject == null) {
-            return (com.baidu.swan.apps.api.c.b) com.baidu.swan.apps.api.c.a.cBa;
+            return (com.baidu.swan.apps.api.c.b) com.baidu.swan.apps.api.c.a.czq;
         }
         if (DEBUG) {
             Log.d("Api-Request", "request with JsObject => JSONObject : " + jSONObject.toString());
         }
-        e aHu = e.aHu();
-        if (aHu == null) {
+        e aGM = e.aGM();
+        if (aGM == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "swan app is null");
         }
         String optString = jSONObject.optString("cb");
@@ -116,7 +116,7 @@ public class b extends d {
             com.baidu.swan.apps.console.c.e("Api-Request", "callback is null");
             return new com.baidu.swan.apps.api.c.b(1001, "callback is null");
         }
-        return b(aHu, jSONObject, optString);
+        return b(aGM, jSONObject, optString);
     }
 
     private com.baidu.swan.apps.api.c.b b(@NonNull e eVar, @NonNull JSONObject jSONObject, String str) {
@@ -124,42 +124,42 @@ public class b extends d {
             com.baidu.swan.apps.console.c.e("Api-Request", "illegal url");
             return new com.baidu.swan.apps.api.c.b(1001, "illegal url");
         }
-        String lo = c.lo(eVar.id);
-        JSONObject lq = c.lq(lo);
-        a(eVar, jSONObject, lo, str);
-        return new com.baidu.swan.apps.api.c.b(0, lq);
+        String li = c.li(eVar.id);
+        JSONObject lk = c.lk(li);
+        a(eVar, jSONObject, li, str);
+        return new com.baidu.swan.apps.api.c.b(0, lk);
     }
 
     private void a(final e eVar, final JSONObject jSONObject, final String str, final String str2) {
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.api.module.network.b.2
             @Override // java.lang.Runnable
             public void run() {
-                Pair<HttpRequest, Integer> q = b.q(jSONObject, str);
-                HttpRequest httpRequest = (HttpRequest) q.first;
+                Pair<HttpRequest, Integer> n = b.n(jSONObject, str);
+                HttpRequest httpRequest = (HttpRequest) n.first;
                 if (httpRequest == null) {
-                    b.this.a(str2, b.this.hy(((Integer) q.second).intValue()));
+                    b.this.a(str2, b.this.hu(((Integer) n.second).intValue()));
                     return;
                 }
-                b.this.a(eVar, jSONObject, httpRequest, str, (InterfaceC0403b) null, str2);
+                b.this.a(eVar, jSONObject, httpRequest, str, (InterfaceC0401b) null, str2);
             }
         }, "doRequest", 2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(@NonNull e eVar, @NonNull JSONObject jSONObject, @NonNull HttpRequest httpRequest, @NonNull final String str, InterfaceC0403b interfaceC0403b, @NonNull String str2) {
+    public void a(@NonNull e eVar, @NonNull JSONObject jSONObject, @NonNull HttpRequest httpRequest, @NonNull final String str, InterfaceC0401b interfaceC0401b, @NonNull String str2) {
         final HttpUrl url = httpRequest.getOkRequest().url();
         final String httpUrl = url.toString();
-        if (!a(eVar, jSONObject, httpUrl, str, interfaceC0403b, str2)) {
-            final int appFrameType = eVar.afO().getAppFrameType();
-            if (!com.baidu.swan.apps.t.a.awD().agZ()) {
+        if (!a(eVar, jSONObject, httpUrl, str, interfaceC0401b, str2)) {
+            final int appFrameType = eVar.afg().getAppFrameType();
+            if (!com.baidu.swan.apps.t.a.avV().agr()) {
                 h.a(httpUrl, appFrameType, (NetworkStatRecord) null);
             }
-            final a aVar = new a(eVar, jSONObject, httpUrl, str, interfaceC0403b, str2);
+            final a aVar = new a(eVar, jSONObject, httpUrl, str, interfaceC0401b, str2);
             httpRequest.executeStat(new StatResponseCallback() { // from class: com.baidu.swan.apps.api.module.network.b.3
                 @Override // com.baidu.searchbox.http.callback.StatResponseCallback
                 public Object parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
-                    com.baidu.swan.apps.core.i.a.aqY().a(str, url, networkStatRecord);
-                    if (com.baidu.swan.apps.t.a.awD().agZ()) {
+                    com.baidu.swan.apps.core.i.a.aqq().a(str, url, networkStatRecord);
+                    if (com.baidu.swan.apps.t.a.avV().agr()) {
                         h.a(httpUrl, appFrameType, networkStatRecord);
                     }
                     aVar.onResponse(null, response);
@@ -172,7 +172,7 @@ public class b extends d {
 
                 @Override // com.baidu.searchbox.http.callback.StatResponseCallback
                 public void onFail(Exception exc) {
-                    if (com.baidu.swan.apps.t.a.awD().agZ()) {
+                    if (com.baidu.swan.apps.t.a.avV().agr()) {
                         h.a(httpUrl, appFrameType, (NetworkStatRecord) null);
                     }
                     if (exc instanceof IOException) {
@@ -185,7 +185,7 @@ public class b extends d {
         }
     }
 
-    private boolean a(@NonNull e eVar, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, InterfaceC0403b interfaceC0403b, @NonNull String str3) {
+    private boolean a(@NonNull e eVar, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, InterfaceC0401b interfaceC0401b, @NonNull String str3) {
         JSONObject optJSONObject = jSONObject.optJSONObject("ext");
         if (optJSONObject != null && optJSONObject.optBoolean("enableBdtls", false)) {
             String optString = optJSONObject.optString("serviceId");
@@ -195,25 +195,25 @@ public class b extends d {
                 }
                 a(str3, new com.baidu.swan.apps.api.c.b(1001, "serviceId is invalid"));
             } else {
-                h.a(str, eVar.afO().getAppFrameType(), (NetworkStatRecord) null);
-                new com.baidu.swan.games.bdtls.b.c(eVar, jSONObject, str2, new a(eVar, jSONObject, str, str2, interfaceC0403b, str3)).request(optString);
+                h.a(str, eVar.afg().getAppFrameType(), (NetworkStatRecord) null);
+                new com.baidu.swan.games.bdtls.b.c(eVar, jSONObject, str2, new a(eVar, jSONObject, str, str2, interfaceC0401b, str3)).request(optString);
             }
             return true;
         }
         return false;
     }
 
-    public static Pair<HttpRequest, Integer> q(@Nullable JSONObject jSONObject, @Nullable String str) {
+    public static Pair<HttpRequest, Integer> n(@Nullable JSONObject jSONObject, @Nullable String str) {
         RequestBody a2;
         int i = 0;
         if (jSONObject == null || TextUtils.isEmpty(str)) {
             return new Pair<>(null, 0);
         }
-        HttpUrl lp = c.lp(jSONObject.optString("url"));
-        if (lp == null) {
+        HttpUrl lj = c.lj(jSONObject.optString("url"));
+        if (lj == null) {
             return new Pair<>(null, 0);
         }
-        String url = lp.url().toString();
+        String url = lj.url().toString();
         String optString = jSONObject.optString("__plugin__");
         boolean optBoolean = jSONObject.optBoolean("ping", false);
         if (!optBoolean && (i = com.baidu.swan.apps.ag.a.b.S("request", url, optString)) != 0) {
@@ -225,7 +225,7 @@ public class b extends d {
             optString2 = "GET";
         }
         String upperCase = optString2.toUpperCase();
-        if (!czC.contains(upperCase)) {
+        if (!cxS.contains(upperCase)) {
             return new Pair<>(null, 4);
         }
         HashMap hashMap = new HashMap();
@@ -233,14 +233,14 @@ public class b extends d {
         aVar.method = upperCase;
         HttpRequestBuilder d = com.baidu.swan.a.c.b.d(aVar);
         a(d, jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER), hashMap);
-        d.setHeader("Referer", c.ajQ());
+        d.setHeader("Referer", c.aji());
         if (!TextUtils.isEmpty(optString)) {
-            d.setHeader("X-SWAN-HOSTSIGN", com.baidu.swan.apps.ac.g.a.e(com.baidu.swan.apps.ac.g.b.rp(optString)));
+            d.setHeader("X-SWAN-HOSTSIGN", com.baidu.swan.apps.ac.g.a.e(com.baidu.swan.apps.ac.g.b.rj(optString)));
         }
         String optString3 = jSONObject.optString("__requestDataType__");
-        Object r = r(jSONObject, optString3);
-        if (r instanceof byte[]) {
-            int length = ((byte[]) r).length;
+        Object o = o(jSONObject, optString3);
+        if (o instanceof byte[]) {
+            int length = ((byte[]) o).length;
             if (length > 10485760) {
                 if (DEBUG) {
                     Log.d("Api-Request", "buildRequest: ArrayBuffer大小超过上限 " + length);
@@ -248,12 +248,12 @@ public class b extends d {
                 return new Pair<>(null, 3);
             }
         }
-        boolean z = r != null;
+        boolean z = o != null;
         if (z && !HttpMethod.permitsRequestBody(upperCase)) {
-            lp = a(lp, r, optString3);
+            lj = a(lj, o, optString3);
             a2 = null;
         } else {
-            a2 = (z || HttpMethod.requiresRequestBody(upperCase)) ? a(r, hashMap, optString3) : null;
+            a2 = (z || HttpMethod.requiresRequestBody(upperCase)) ? a(o, hashMap, optString3) : null;
         }
         if (HttpMethod.requiresRequestBody(upperCase) && a2 == null) {
             return new Pair<>(null, Integer.valueOf(i2));
@@ -261,21 +261,21 @@ public class b extends d {
         if (d instanceof HttpCommonRequestBuilder) {
             ((HttpCommonRequestBuilder) d).requestBody(a2);
         }
-        aVar.url = lp.toString();
-        aVar.ehl = true;
-        aVar.ehm = false;
-        aVar.ehn = true;
+        aVar.url = lj.toString();
+        aVar.efD = true;
+        aVar.efE = false;
+        aVar.efF = true;
         aVar.tag = str;
-        com.baidu.swan.a.c.a.baK().a(d, aVar);
+        com.baidu.swan.a.c.a.bad().a(d, aVar);
         HttpRequest build = d.enableStat(true).build();
         if (!optBoolean) {
             build = com.baidu.swan.apps.network.a.c.a(build, "request", optString);
         }
-        com.baidu.swan.apps.core.i.a.aqY().a(str, lp);
+        com.baidu.swan.apps.core.i.a.aqq().a(str, lj);
         return new Pair<>(build, Integer.valueOf(i2));
     }
 
-    private static Object r(@NonNull JSONObject jSONObject, @Nullable String str) {
+    private static Object o(@NonNull JSONObject jSONObject, @Nullable String str) {
         Object opt = jSONObject.opt("data");
         if (TextUtils.equals(str, "base64")) {
             if (DEBUG) {
@@ -306,15 +306,15 @@ public class b extends d {
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
-                if (!TextUtils.isEmpty(next) && !czF.contains(next.toUpperCase())) {
-                    String uy = ak.uy(jSONObject.optString(next));
-                    if (TextUtils.isEmpty(uy)) {
-                        uy = "";
+                if (!TextUtils.isEmpty(next) && !cxV.contains(next.toUpperCase())) {
+                    String ut = ak.ut(jSONObject.optString(next));
+                    if (TextUtils.isEmpty(ut)) {
+                        ut = "";
                     }
                     if (map != null) {
-                        map.put(next.toLowerCase(), uy);
+                        map.put(next.toLowerCase(), ut);
                     }
-                    httpRequestBuilder.addHeader(next, uy);
+                    httpRequestBuilder.addHeader(next, ut);
                 }
             }
         }
@@ -371,7 +371,7 @@ public class b extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.swan.apps.api.c.b hy(int i) {
+    public com.baidu.swan.apps.api.c.b hu(int i) {
         String str = "";
         int i2 = 202;
         switch (i) {
@@ -434,8 +434,8 @@ public class b extends d {
             if (!TextUtils.isEmpty(str3)) {
                 if (TextUtils.equals(str, "json")) {
                     try {
-                        if (lm(str3)) {
-                            str3 = ln(str3) ? new JSONArray(str3) : new JSONObject(str3);
+                        if (lg(str3)) {
+                            str3 = lh(str3) ? new JSONArray(str3) : new JSONObject(str3);
                         }
                     } catch (JSONException e) {
                     }
@@ -445,14 +445,14 @@ public class b extends d {
         }
     }
 
-    private static boolean lm(String str) {
+    private static boolean lg(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return (str.trim().startsWith("{") && str.trim().endsWith("}")) || (str.trim().startsWith("[") && str.trim().endsWith("]"));
     }
 
-    private static boolean ln(String str) {
+    private static boolean lh(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -461,7 +461,7 @@ public class b extends d {
 
     public static void a(e eVar, String str, long j, long j2) {
         if (eVar != null && !TextUtils.isEmpty(str) && j >= 0) {
-            com.baidu.swan.apps.statistic.a.d tj = new com.baidu.swan.apps.statistic.a.d().i(new com.baidu.swan.apps.am.a().cv(5L).cw(39L)).a(eVar.aHy()).ti(h.ky(com.baidu.swan.apps.runtime.d.aHq().afE())).tj(com.baidu.swan.apps.runtime.d.aHq().getAppId());
+            com.baidu.swan.apps.statistic.a.d te = new com.baidu.swan.apps.statistic.a.d().i(new com.baidu.swan.apps.am.a().cv(5L).cw(39L)).a(eVar.aGQ()).td(h.ku(com.baidu.swan.apps.runtime.d.aGI().aeW())).te(com.baidu.swan.apps.runtime.d.aGI().getAppId());
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("exceptionUrl", str);
@@ -469,13 +469,13 @@ public class b extends d {
                 jSONObject.put("exceptionLength", j);
                 jSONObject.put("exceptionRequestTime", j2);
                 jSONObject.put("exceptionResponseTime", System.currentTimeMillis());
-                tj.cg(jSONObject);
+                te.ca(jSONObject);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
-            h.b(tj);
+            h.b(te);
         }
     }
 
@@ -484,22 +484,22 @@ public class b extends d {
         String str2 = map.get(Headers.CONTENT_TYPE);
         if (TextUtils.isEmpty(str2)) {
             if (DEBUG) {
-                Log.d("Api-Request", "createBody: content-type: " + f.a.dhb + " data: " + (obj == null ? "null" : obj.getClass().getSimpleName()));
+                Log.d("Api-Request", "createBody: content-type: " + f.a.dfu + " data: " + (obj == null ? "null" : obj.getClass().getSimpleName()));
             }
             if (obj instanceof byte[]) {
-                return a(f.a.dhb, (byte[]) obj);
+                return a(f.a.dfu, (byte[]) obj);
             }
-            return RequestBody.create(f.a.dhb, obj == null ? "" : obj.toString());
+            return RequestBody.create(f.a.dfu, obj == null ? "" : obj.toString());
         }
         MediaType parse = MediaType.parse(str2);
-        if (f.a.dhb.equals(parse)) {
+        if (f.a.dfu.equals(parse)) {
             if (DEBUG) {
-                Log.d("Api-Request", "createBody: content-type: " + f.a.dhb + " data: " + (obj == null ? "null" : obj.getClass().getSimpleName()));
+                Log.d("Api-Request", "createBody: content-type: " + f.a.dfu + " data: " + (obj == null ? "null" : obj.getClass().getSimpleName()));
             }
             if (obj instanceof byte[]) {
-                return a(f.a.dhb, (byte[]) obj);
+                return a(f.a.dfu, (byte[]) obj);
             }
-            return RequestBody.create(f.a.dhb, obj == null ? "" : obj.toString());
+            return RequestBody.create(f.a.dfu, obj == null ? "" : obj.toString());
         }
         return a(obj, parse, str);
     }
@@ -568,21 +568,21 @@ public class b extends d {
     }
 
     @NonNull
-    public static String aO(@NonNull JSONObject jSONObject) {
+    public static String aI(@NonNull JSONObject jSONObject) {
         String optString = jSONObject.optString("dataType");
         if (TextUtils.isEmpty(optString)) {
             return "json";
         }
-        if (!czD.contains(optString)) {
+        if (!cxT.contains(optString)) {
             return "string";
         }
         return optString;
     }
 
     @NonNull
-    public static String aP(@NonNull JSONObject jSONObject) {
+    public static String aJ(@NonNull JSONObject jSONObject) {
         String optString = jSONObject.optString("responseType");
-        if (!czE.contains(optString)) {
+        if (!cxU.contains(optString)) {
             return "text";
         }
         return optString;
@@ -596,22 +596,22 @@ public class b extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public class a implements Callback {
-        e czM;
-        String czN;
-        InterfaceC0403b czO;
-        long czP = System.currentTimeMillis();
+        e cyc;
+        String cyd;
+        InterfaceC0401b cye;
+        long cyf = System.currentTimeMillis();
         String mCallback;
         JSONObject mParams;
         String mUrl;
 
-        a(@NonNull e eVar, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, InterfaceC0403b interfaceC0403b, @NonNull String str3) {
-            this.czM = eVar;
+        a(@NonNull e eVar, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, InterfaceC0401b interfaceC0401b, @NonNull String str3) {
+            this.cyc = eVar;
             this.mParams = jSONObject;
             this.mUrl = str;
-            this.czN = str2;
-            this.czO = interfaceC0403b;
+            this.cyd = str2;
+            this.cye = interfaceC0401b;
             this.mCallback = str3;
         }
 
@@ -620,35 +620,35 @@ public class b extends d {
             if (d.DEBUG) {
                 Log.d("Api-Request", "onFailure: " + iOException.getMessage());
             }
-            int appFrameType = this.czM.afO().getAppFrameType();
-            String aKp = h.aKp();
-            String page = ak.aNc().getPage();
-            SwanAppNetworkUtils.a(com.baidu.swan.a.c.a.baK().getOkHttpClient(), this.czN);
+            int appFrameType = this.cyc.afg().getAppFrameType();
+            String aJH = h.aJH();
+            String page = ak.aMu().getPage();
+            SwanAppNetworkUtils.a(com.baidu.swan.a.c.a.bad().getOkHttpClient(), this.cyd);
             b.this.a(this.mCallback, new com.baidu.swan.apps.api.c.b(1001, iOException.getMessage()));
-            h.a(0, this.mUrl, appFrameType, iOException.getMessage(), aKp, page, this.czP, System.currentTimeMillis());
+            h.a(0, this.mUrl, appFrameType, iOException.getMessage(), aJH, page, this.cyf, System.currentTimeMillis());
         }
 
         @Override // okhttp3.Callback
         public void onResponse(Call call, Response response) {
-            String aO = b.aO(this.mParams);
-            String aP = b.aP(this.mParams);
-            int appFrameType = this.czM.afO().getAppFrameType();
+            String aI = b.aI(this.mParams);
+            String aJ = b.aJ(this.mParams);
+            int appFrameType = this.cyc.afg().getAppFrameType();
             long currentTimeMillis = System.currentTimeMillis();
-            String aKp = h.aKp();
-            String page = ak.aNc().getPage();
+            String aJH = h.aJH();
+            String page = ak.aMu().getPage();
             try {
                 long a2 = b.a(response);
                 if (a2 <= 10485760) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("statusCode", response.code());
                     jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, c.a(response.headers()));
-                    b.a(jSONObject, response.body(), aO, aP);
-                    if (this.czO != null) {
-                        this.czO.aQ(jSONObject);
+                    b.a(jSONObject, response.body(), aI, aJ);
+                    if (this.cye != null) {
+                        this.cye.aK(jSONObject);
                     }
                     b.this.a(this.mCallback, new com.baidu.swan.apps.api.c.b(0, jSONObject, true));
                 } else {
-                    b.a(this.czM, this.mUrl, a2, currentTimeMillis);
+                    b.a(this.cyc, this.mUrl, a2, currentTimeMillis);
                     b.this.a(this.mCallback, new com.baidu.swan.apps.api.c.b(201, "response json length over limits"));
                 }
             } catch (IOException | JSONException e) {
@@ -665,7 +665,7 @@ public class b extends d {
             if (d.DEBUG) {
                 Log.d("TAG", response.headers().toString());
             }
-            h.a(code, this.mUrl, appFrameType, message, aKp, page, this.czP, System.currentTimeMillis());
+            h.a(code, this.mUrl, appFrameType, message, aJH, page, this.cyf, System.currentTimeMillis());
         }
     }
 }

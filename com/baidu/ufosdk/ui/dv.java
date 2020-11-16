@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.baidu.ufosdk.ReportCallback;
 import org.json.JSONArray;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class dv extends Handler {
 
     /* renamed from: a  reason: collision with root package name */

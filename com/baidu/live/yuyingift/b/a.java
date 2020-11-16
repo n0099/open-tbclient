@@ -24,25 +24,25 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                w Xn = com.baidu.live.al.b.Xh().Xn();
-                if (Xn != null && Xn.aJK != null) {
-                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Xn.aJK.croom_id);
+                w WE = com.baidu.live.al.b.Wy().WE();
+                if (WE != null && WE.aHZ != null) {
+                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WE.aHZ.croom_id);
                 }
-                AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = com.baidu.live.al.b.Xh().Xn().aJP;
+                AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = com.baidu.live.al.b.Wy().WE().aIe;
                 if (alaWheatInfoDataWrapper != null) {
                     jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, alaWheatInfoDataWrapper.getRoomMode() == 0 ? "normal" : "dating");
                 }
-                jSONObject.put(LogConfig.LOG_GIFT_VALUE, alVar.aVx);
+                jSONObject.put(LogConfig.LOG_GIFT_VALUE, alVar.aTM);
                 jSONObject.put(LogConfig.LOG_GIFT_ID, alVar.giftId);
                 jSONObject.put("gift_name", alVar.giftName);
                 JSONObject jSONObject2 = new JSONObject();
-                List<r.a> iH = r.iH(alVar.aWL);
+                List<r.a> iB = r.iB(alVar.aVa);
                 int i5 = 0;
                 int i6 = 0;
-                for (r.a aVar : iH) {
-                    AlaWheatInfoData iY = com.baidu.live.al.b.Xh().iY(aVar.uk);
-                    if (iY != null) {
-                        switch (iY.userIdentity) {
+                for (r.a aVar : iB) {
+                    AlaWheatInfoData iS = com.baidu.live.al.b.Wy().iS(aVar.uk);
+                    if (iS != null) {
+                        switch (iS.userIdentity) {
                             case 1:
                                 i = i4;
                                 i2 = i5;
@@ -86,7 +86,7 @@ public class a {
                     i5 = i2;
                     i4 = i;
                 }
-                jSONObject2.put("owner", iH.size());
+                jSONObject2.put("owner", iB.size());
                 jSONObject2.put("accomany", i4);
                 jSONObject2.put("host", i6);
                 jSONObject2.put("guest", i5);

@@ -1,54 +1,66 @@
 package com.baidu.tieba.u;
 
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import java.util.List;
-import org.json.JSONObject;
-/* loaded from: classes23.dex */
+import android.content.Context;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.ae;
+/* loaded from: classes.dex */
 public class c {
-    public static boolean e(byte[] bArr, String str) {
-        if (bArr == null) {
-            return false;
+    private static c ngb;
+    private a ngc = dMN();
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void autoTrace(Context context);
+
+        void setAppChannel(Context context, String str, boolean z);
+
+        void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient);
+    }
+
+    private boolean dMM() {
+        return com.baidu.tbadk.core.sharedPref.b.bpu().getInt("pref_key_stat_sdk_enable", 1) != 0;
+    }
+
+    private c() {
+    }
+
+    private a dMN() {
+        CustomResponsedMessage runTask;
+        if (!dMM() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
+            return null;
         }
-        com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
-        eVar.mx().setUrl(str);
-        eVar.mx().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        eVar.mx().addPostData("", bArr);
-        new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
-        int i = eVar.my().responseCode;
-        byte[] bArr2 = eVar.my().retBytes;
-        if (bArr2 == null || i != 200) {
-            return false;
-        }
-        try {
-            if (new JSONObject(new String(bArr2, "utf-8")).optJSONObject(BdStatsConstant.StatsType.ERROR).optInt(BaseJsonData.TAG_ERRNO) != 0) {
-                return false;
+        return (a) runTask.getData();
+    }
+
+    public static c dMO() {
+        if (ngb == null) {
+            synchronized (c.class) {
+                if (ngb == null) {
+                    ngb = new c();
+                }
             }
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+        }
+        return ngb;
+    }
+
+    public void autoTrace(Context context) {
+        if (ae.bqi() && this.ngc != null) {
+            this.ngc.autoTrace(context);
         }
     }
 
-    public static byte[] fP(List<String> list) {
-        if (list == null) {
-            return null;
+    public void setAppChannel(Context context, String str, boolean z) {
+        if (ae.bqi() && this.ngc != null) {
+            this.ngc.setAppChannel(context, str, z);
         }
-        StringBuilder sb = new StringBuilder();
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            sb.append(list.get(i));
-            sb.append("\n");
-        }
-        return sb.toString().getBytes();
     }
 
-    public static byte[] eB(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
+    public void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient) {
+        if (ae.bqi() && this.ngc != null) {
+            this.ngc.trackWebView(context, webView, webChromeClient);
         }
-        return jSONObject.toString().getBytes();
     }
 }

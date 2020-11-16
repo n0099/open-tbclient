@@ -5,7 +5,7 @@ import org.apache.commons.base.BinaryDecoder;
 import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public abstract class BaseNCodec implements BinaryDecoder, BinaryEncoder {
     private static final int DEFAULT_BUFFER_RESIZE_FACTOR = 2;
     private static final int DEFAULT_BUFFER_SIZE = 8192;
@@ -31,7 +31,7 @@ public abstract class BaseNCodec implements BinaryDecoder, BinaryEncoder {
     protected abstract boolean isInAlphabet(byte b);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes12.dex */
     public static class Context {
         byte[] buffer;
         int currentLinePos;

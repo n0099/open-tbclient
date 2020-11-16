@@ -5,17 +5,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.tieba.pb.pb.main.PbModel;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public interface b {
-    PbModel djz();
+    PbModel diV();
 
-    PbModel.a dkC();
+    PbModel.a djZ();
 
-    PbFragment dlc();
+    VideoPbFragment dkA();
 
-    VideoPbFragment dld();
+    PbActivity dkB();
 
-    PbActivity dle();
+    PbFragment dkz();
 
     void finish();
 

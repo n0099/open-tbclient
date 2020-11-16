@@ -9,22 +9,22 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class e implements com.baidu.swan.apps.am.b, d {
     private static Handler sHandler = new Handler(Looper.getMainLooper());
-    private final Map<c<?>, Set<a>> dCU = new HashMap();
+    private final Map<c<?>, Set<a>> dBn = new HashMap();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface a extends com.baidu.swan.apps.ap.e.b<Set<c<?>>> {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     private static class b {
-        private static final e dCY = new e();
+        private static final e dBr = new e();
     }
 
-    public static e aLT() {
-        return b.dCY;
+    public static e aLl() {
+        return b.dBr;
     }
 
     public e j(com.baidu.swan.apps.am.a aVar) {
@@ -38,10 +38,10 @@ public final class e implements com.baidu.swan.apps.am.b, d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e a(c<?>... cVarArr) {
-        synchronized (this.dCU) {
+        synchronized (this.dBn) {
             for (c<?> cVar : cVarArr) {
-                if (!this.dCU.containsKey(cVar)) {
-                    this.dCU.put(cVar, new HashSet());
+                if (!this.dBn.containsKey(cVar)) {
+                    this.dBn.put(cVar, new HashSet());
                 }
             }
         }
@@ -50,8 +50,8 @@ public final class e implements com.baidu.swan.apps.am.b, d {
 
     public e a(a aVar, c<?>... cVarArr) {
         if (aVar != null) {
-            synchronized (this.dCU) {
-                HashSet keySet = m(cVarArr) ? this.dCU.keySet() : i.N(cVarArr);
+            synchronized (this.dBn) {
+                HashSet keySet = m(cVarArr) ? this.dBn.keySet() : i.N(cVarArr);
                 for (c<?> cVar : keySet) {
                     if (cVar != null) {
                         a(cVar).add(aVar);
@@ -64,10 +64,10 @@ public final class e implements com.baidu.swan.apps.am.b, d {
     }
 
     private Set<a> a(@NonNull c<?> cVar) {
-        Set<a> set = this.dCU.get(cVar);
+        Set<a> set = this.dBn.get(cVar);
         if (set == null) {
             HashSet hashSet = new HashSet();
-            this.dCU.put(cVar, hashSet);
+            this.dBn.put(cVar, hashSet);
             return hashSet;
         }
         return set;
@@ -75,8 +75,8 @@ public final class e implements com.baidu.swan.apps.am.b, d {
 
     public e b(a aVar, c<?>... cVarArr) {
         if (aVar != null) {
-            synchronized (this.dCU) {
-                for (c<?> cVar : m(cVarArr) ? this.dCU.keySet() : i.N(cVarArr)) {
+            synchronized (this.dBn) {
+                for (c<?> cVar : m(cVarArr) ? this.dBn.keySet() : i.N(cVarArr)) {
                     if (cVar != null) {
                         a(cVar).remove(aVar);
                     }
@@ -98,7 +98,7 @@ public final class e implements com.baidu.swan.apps.am.b, d {
     protected e f(Set<c<?>> set) {
         if (!set.isEmpty()) {
             HashSet hashSet = new HashSet();
-            synchronized (this.dCU) {
+            synchronized (this.dBn) {
                 for (c<?> cVar : set) {
                     hashSet.addAll(a(cVar));
                 }

@@ -22,14 +22,14 @@ public class b {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.share_sdk_check_no_resp));
                 }
-                if (b.this.nHU != null) {
-                    b.this.nHU.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                if (b.this.nJv != null) {
+                    b.this.nJv.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
     private BdUniqueId mPageId;
-    private a nHU;
+    private a nJv;
 
     public b(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
@@ -38,12 +38,12 @@ public class b {
 
     private void init() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerTask(dTW());
+        messageManager.registerTask(dTV());
         this.mHttpMessageListener.setTag(this.mPageId);
         messageManager.registerListener(this.mHttpMessageListener);
     }
 
-    private HttpMessageTask dTW() {
+    private HttpMessageTask dTV() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_SHARE_SDK, TbConfig.CHECK_SHARE_SDK_URL);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setRetry(3);
@@ -52,13 +52,13 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.nHU = aVar;
+        this.nJv = aVar;
     }
 
     public void gF(String str, String str2) {
         if (StringUtils.isNull(str)) {
-            if (this.nHU != null) {
-                this.nHU.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.check_share_sdk_appkey_null));
+            if (this.nJv != null) {
+                this.nJv.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.check_share_sdk_appkey_null));
                 return;
             }
             return;

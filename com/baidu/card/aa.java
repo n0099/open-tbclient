@@ -3,45 +3,47 @@ package com.baidu.card;
 import android.content.Context;
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.MultiLinkCardView;
-/* loaded from: classes21.dex */
+import com.baidu.tieba.R;
+/* loaded from: classes20.dex */
 public class aa extends i {
-    private MultiLinkCardView agM;
+    private MultiLinkCardView agO;
 
     public aa(Context context) {
         super(context);
-        this.agM = new MultiLinkCardView(context);
+        this.agO = new MultiLinkCardView(context);
+        setTopMargin(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.agM;
+        return this.agO;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (c(absThreadDataSupport) || d(absThreadDataSupport) || absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bjZ().boG()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bjZ().boH()) <= 1) || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bjZ().boH()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bjZ().boG()) <= 1) || com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bjZ().boG()) + com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bjZ().boH()) <= 1))) {
-            this.agM.setVisibility(8);
+    public void H(com.baidu.tbadk.core.data.a aVar) {
+        if (c(aVar) || d(aVar) || aVar == null || aVar.bjd() == null || ((com.baidu.tbadk.core.util.y.isEmpty(aVar.bjd().bnK()) && com.baidu.tbadk.core.util.y.getCount(aVar.bjd().bnL()) <= 1) || ((com.baidu.tbadk.core.util.y.isEmpty(aVar.bjd().bnL()) && com.baidu.tbadk.core.util.y.getCount(aVar.bjd().bnK()) <= 1) || com.baidu.tbadk.core.util.y.getCount(aVar.bjd().bnK()) + com.baidu.tbadk.core.util.y.getCount(aVar.bjd().bnL()) <= 1))) {
+            this.agO.setVisibility(8);
             return;
         }
-        this.agM.l(absThreadDataSupport.bjZ().boG(), absThreadDataSupport.bjZ().boH());
-        this.agM.setVisibility(0);
+        this.agO.l(aVar.bjd().bnK(), aVar.bjd().bnL());
+        this.agO.setVisibility(0);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.agM.onChangeSkinType();
+        this.agO.onChangeSkinType();
     }
 
-    private boolean c(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || absThreadDataSupport.bjZ().boF() == null || absThreadDataSupport.bjZ().boF().getOptions() == null || absThreadDataSupport.bjZ().boF().getOptions().size() <= 0) ? false : true;
+    private boolean c(com.baidu.tbadk.core.data.a aVar) {
+        return (aVar == null || aVar.bjd() == null || aVar.bjd().bnJ() == null || aVar.bjd().bnJ().getOptions() == null || aVar.bjd().bnJ().getOptions().size() <= 0) ? false : true;
     }
 
-    private boolean d(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null || !absThreadDataSupport.bjZ().blg() || absThreadDataSupport.bjZ().bmS() == null) ? false : true;
+    private boolean d(com.baidu.tbadk.core.data.a aVar) {
+        return (aVar == null || aVar.bjd() == null || !aVar.bjd().bki() || aVar.bjd().blU() == null) ? false : true;
     }
 }

@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class GetSubscriptionResult extends HttpHelper.ResponseResult implements Parcelable {
     public static final Parcelable.Creator<GetSubscriptionResult> CREATOR = new Parcelable.Creator<GetSubscriptionResult>() { // from class: com.baidu.android.imsdk.shield.model.GetSubscriptionResult.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,7 +90,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         parcel.writeString(this.mPaNickName);
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     public static class SubscriptionInfo implements Parcelable {
         public static final Parcelable.Creator<SubscriptionInfo> CREATOR = new Parcelable.Creator<SubscriptionInfo>() { // from class: com.baidu.android.imsdk.shield.model.GetSubscriptionResult.SubscriptionInfo.1
             /* JADX DEBUG: Method merged with bridge method */

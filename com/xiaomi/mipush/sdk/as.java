@@ -5,7 +5,7 @@ import android.database.ContentObserver;
 import android.os.Handler;
 import com.xiaomi.push.az;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class as extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
@@ -25,15 +25,15 @@ public class as extends ContentObserver {
         Context context2;
         Context context3;
         aq aqVar = this.f4757a;
-        context = this.f4757a.f50a;
-        aqVar.f54a = Integer.valueOf(com.xiaomi.push.service.aw.a(context).a());
-        num = this.f4757a.f54a;
+        context = this.f4757a.f53a;
+        aqVar.f57a = Integer.valueOf(com.xiaomi.push.service.aw.a(context).a());
+        num = this.f4757a.f57a;
         if (num.intValue() != 0) {
-            context2 = this.f4757a.f50a;
+            context2 = this.f4757a.f53a;
             context2.getContentResolver().unregisterContentObserver(this);
-            context3 = this.f4757a.f50a;
+            context3 = this.f4757a.f53a;
             if (az.b(context3)) {
-                this.f4757a.m91c();
+                this.f4757a.m94c();
             }
         }
     }

@@ -3,22 +3,22 @@ package com.baidu.tieba.forumMember.bawu;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class d {
-    private l<byte[]> iCL;
+    private l<byte[]> iDA;
 
     public d() {
-        bdd();
+        bcw();
     }
 
-    public void bdd() {
-        if (this.iCL == null) {
-            this.iCL = com.baidu.tbadk.core.c.a.boX().Bl("tb.bawu_team_info");
+    public void bcw() {
+        if (this.iDA == null) {
+            this.iDA = com.baidu.tbadk.core.c.a.bob().AG("tb.bawu_team_info");
         }
     }
 
-    public byte[] Kg(String str) {
-        l.b<byte[]> bB = (this.iCL == null || str == null) ? null : this.iCL.bB(str);
+    public byte[] JH(String str) {
+        l.b<byte[]> bB = (this.iDA == null || str == null) ? null : this.iDA.bB(str);
         if (bB == null || bB.value == null) {
             return null;
         }
@@ -27,8 +27,8 @@ public class d {
 
     public void l(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            bdd();
-            this.iCL.set(str, bArr, TbConfig.MILLS_7DAYS);
+            bcw();
+            this.iDA.set(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

@@ -7,7 +7,7 @@ import android.net.NetworkRequest;
 import java.net.HttpURLConnection;
 import java.net.URL;
 @SuppressLint({"NewApi"})
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

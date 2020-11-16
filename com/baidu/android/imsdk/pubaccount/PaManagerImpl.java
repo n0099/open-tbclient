@@ -44,7 +44,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class PaManagerImpl {
     private static Context mContext;
     private static volatile PaManagerImpl mInstance;

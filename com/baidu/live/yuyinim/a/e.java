@@ -13,15 +13,15 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e extends b {
     public e(Context context) {
-        super(context, com.baidu.live.im.a.bho);
+        super(context, com.baidu.live.im.a.bfC);
     }
 
     @Override // com.baidu.live.yuyinim.a.b
-    protected void Mb() {
-        if (Mc()) {
-            Md();
+    protected void Ls() {
+        if (Lt()) {
+            Lu();
         } else {
-            Me();
+            Lv();
         }
     }
 
@@ -38,7 +38,7 @@ public class e extends b {
         if (B != null) {
             String str = B.shareText;
             SpannableString valueOf = SpannableString.valueOf(str);
-            if (Mc()) {
+            if (Lt()) {
                 if (B.shareType != 3) {
                     valueOf.setSpan(new ForegroundColorSpan(-6574339), 0, valueOf.length(), 33);
                 } else {
@@ -57,12 +57,12 @@ public class e extends b {
                 spannableStringBuilder.append((CharSequence) spannableString);
             }
             if (B.shareType != 3) {
-                a(spannableStringBuilder, aVar.Mo(), aVar2, false, false);
-                if (Mc()) {
-                    Md();
+                a(spannableStringBuilder, aVar.LF(), aVar2, false, false);
+                if (Lt()) {
+                    Lu();
                 }
             }
-            aVar2.bhB.setText(spannableStringBuilder);
+            aVar2.bfP.setText(spannableStringBuilder);
         }
         return spannableStringBuilder;
     }

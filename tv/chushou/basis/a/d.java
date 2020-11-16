@@ -9,19 +9,19 @@ public class d {
     public AssetManager assetManager;
     public PackageInfo packageInfo;
     public String packageName;
-    public String qkZ = eHd();
-    public DexClassLoader qla;
+    public String qmC = eHe();
+    public DexClassLoader qmD;
     public Resources resources;
 
     public d(DexClassLoader dexClassLoader, Resources resources, PackageInfo packageInfo) {
         this.packageName = packageInfo.packageName;
-        this.qla = dexClassLoader;
+        this.qmD = dexClassLoader;
         this.assetManager = resources.getAssets();
         this.resources = resources;
         this.packageInfo = packageInfo;
     }
 
-    private final String eHd() {
+    private final String eHe() {
         return (this.packageInfo.activities == null || this.packageInfo.activities.length <= 0) ? "" : this.packageInfo.activities[0].name;
     }
 }

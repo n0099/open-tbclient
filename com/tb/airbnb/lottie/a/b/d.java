@@ -1,15 +1,15 @@
 package com.tb.airbnb.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class d extends f<com.tb.airbnb.lottie.model.content.c> {
-    private final com.tb.airbnb.lottie.model.content.c pIP;
+    private final com.tb.airbnb.lottie.model.content.c pKs;
 
     public d(List<com.tb.airbnb.lottie.e.a<com.tb.airbnb.lottie.model.content.c>> list) {
         super(list);
         com.tb.airbnb.lottie.model.content.c cVar = list.get(0).Hn;
         int size = cVar == null ? 0 : cVar.getSize();
-        this.pIP = new com.tb.airbnb.lottie.model.content.c(new float[size], new int[size]);
+        this.pKs = new com.tb.airbnb.lottie.model.content.c(new float[size], new int[size]);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,7 +17,7 @@ public class d extends f<com.tb.airbnb.lottie.model.content.c> {
     @Override // com.tb.airbnb.lottie.a.b.a
     /* renamed from: d */
     public com.tb.airbnb.lottie.model.content.c a(com.tb.airbnb.lottie.e.a<com.tb.airbnb.lottie.model.content.c> aVar, float f) {
-        this.pIP.a(aVar.Hn, aVar.Ho, f);
-        return this.pIP;
+        this.pKs.a(aVar.Hn, aVar.Ho, f);
+        return this.pKs;
     }
 }

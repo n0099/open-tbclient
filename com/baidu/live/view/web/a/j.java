@@ -12,7 +12,7 @@ public class j extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void iO(String str) {
+    public void iI(String str) {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);

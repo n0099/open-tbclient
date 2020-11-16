@@ -1,20 +1,55 @@
 package com.baidu.tieba.k;
+
+import android.content.Context;
+import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.aa;
+import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class a {
-    public static String r(Throwable th) {
-        if (th == null) {
-            return "";
+    public static boolean BI(int i) {
+        switch (i) {
+            case CmdConfigSocket.CMD_GROUP_CHAT_MSG /* 202001 */:
+            case CmdConfigSocket.CMD_COMMIT_PERSONAL_MSG /* 205001 */:
+            case CmdConfigSocket.CMD_CHECK_REAL_NAME /* 309456 */:
+            case 1003325:
+                return true;
+            default:
+                return false;
         }
-        StringBuilder sb = new StringBuilder(th.toString());
-        StackTraceElement[] stackTrace = th.getStackTrace();
-        if (stackTrace != null) {
-            for (int i = 0; i < stackTrace.length; i++) {
-                StackTraceElement stackTraceElement = stackTrace[i];
-                if (stackTraceElement != null && i < 7) {
-                    sb.append(" ----> ").append(stackTraceElement.getClassName()).append(".").append(stackTraceElement.getMethodName()).append("()");
+    }
+
+    public static boolean b(aa aaVar) {
+        if (aaVar == null) {
+            return false;
+        }
+        if ((aaVar.isNetSuccess() ? aaVar.getServerErrorCode() : aaVar.getNetErrorCode()) == 1990055) {
+            cHK();
+            return true;
+        }
+        return false;
+    }
+
+    public static void cHK() {
+        if (!l.isMainThread()) {
+            TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tieba.k.a.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    a.cHL();
                 }
-            }
+            });
+        } else {
+            cHL();
         }
-        return sb.toString();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final void cHL() {
+        Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
+        StringBuilder sb = new StringBuilder(UrlSchemaHelper.REAL_NAME_AUTH_URL);
+        sb.append("&u=").append(URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW));
+        com.baidu.tbadk.browser.a.startWebActivity(applicationContext, "", sb.toString(), true, true, true, true, true, false);
     }
 }

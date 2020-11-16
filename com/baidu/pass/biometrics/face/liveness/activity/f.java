@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class f extends AsyncTask<FaceVerifyData, Void, ArrayList<HashMap<String, byte[]>>> {
 
     /* renamed from: a  reason: collision with root package name */

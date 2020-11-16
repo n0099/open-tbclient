@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class TriangleShapeView extends View {
     private int mColorId;
     private Paint mPaint;
@@ -16,17 +16,17 @@ public class TriangleShapeView extends View {
 
     public TriangleShapeView(Context context) {
         super(context);
-        this.mColorId = R.color.cp_bg_line_e;
+        this.mColorId = R.color.CAM_X0205;
     }
 
     public TriangleShapeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mColorId = R.color.cp_bg_line_e;
+        this.mColorId = R.color.CAM_X0205;
     }
 
     public TriangleShapeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mColorId = R.color.cp_bg_line_e;
+        this.mColorId = R.color.CAM_X0205;
     }
 
     public void setColorId(int i) {
@@ -39,7 +39,7 @@ public class TriangleShapeView extends View {
         int width = getWidth();
         int height = getHeight();
         if (width != 0 && height != 0) {
-            dpo();
+            doO();
             if (this.mPath == null) {
                 this.mPath = new Path();
             }
@@ -51,7 +51,7 @@ public class TriangleShapeView extends View {
         }
     }
 
-    private void dpo() {
+    private void doO() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }

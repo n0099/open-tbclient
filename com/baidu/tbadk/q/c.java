@@ -14,7 +14,6 @@ import com.baidu.tbadk.core.util.ad;
 import com.baidu.tbadk.switchs.EncSigNewSwitch;
 import com.baidu.tbadk.switchs.NetDeleteSwitch;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.util.y;
 import com.baidu.tieba.StringU;
 import com.baidu.util.Base64Encoder;
 import com.baidu.webkit.internal.ETAG;
@@ -117,9 +116,9 @@ public class c extends com.baidu.adp.framework.b.d {
             httpMessage.addParam("from", from);
         }
         httpMessage.addParam("net_type", String.valueOf(j.netType()));
-        String bDP = y.bDP();
-        if (!TextUtils.isEmpty(bDP)) {
-            httpMessage.addParam("oaid", bDP);
+        String zr = com.baidu.helios.b.aj(TbadkCoreApplication.getInst()).zr();
+        if (!TextUtils.isEmpty(zr)) {
+            httpMessage.addParam("oaid", zr);
         }
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getInst().getTbs() : com.baidu.tbadk.mutiprocess.f.getTbs());
@@ -131,11 +130,14 @@ public class c extends com.baidu.adp.framework.b.d {
         httpMessage.addParam("timestamp", Long.toString(System.currentTimeMillis()));
         httpMessage.addParam("model", Build.MODEL);
         httpMessage.addParam("sample_id", TbSingleton.getInstance().getSampleId());
+        httpMessage.addParam("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
+        httpMessage.addParam("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
+        httpMessage.addParam("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
     }
 
     private void c(HttpMessage httpMessage) {
-        if (com.baidu.tbadk.coreExtra.b.a.buh().bui()) {
-            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.buh().buj()));
+        if (com.baidu.tbadk.coreExtra.b.a.btx().bty()) {
+            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.btx().btz()));
         }
         if (TbSingleton.getInstance().isVisitPreviewServer()) {
             httpMessage.addCookie("pub_env", TbSingleton.getInstance().getPubEnvValue());
@@ -184,23 +186,23 @@ public class c extends com.baidu.adp.framework.b.d {
         stringBuffer.append("tiebaclient!!!");
         httpMessage.addParam("sign", s.toMd5(stringBuffer.toString()));
         if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && EncSigNewSwitch.isOn()) {
-            httpMessage.addParam("sig", StringU.EV(stringBuffer.toString()));
+            httpMessage.addParam("sig", StringU.Ew(stringBuffer.toString()));
         }
         httpMessage.getHeaders().remove("needSig");
     }
 
     private void f(HttpMessage httpMessage) {
-        ad.a bqS = ad.bqS();
-        if (bqS != null) {
-            httpMessage.addParam("stTime", String.valueOf(bqS.mTime));
-            httpMessage.addParam("stSize", String.valueOf(bqS.mSize));
-            httpMessage.addParam("stTimesNum", String.valueOf(bqS.mTimesNum));
-            httpMessage.addParam("stMode", String.valueOf(bqS.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(bqS.mMethod));
+        ad.a bqf = ad.bqf();
+        if (bqf != null) {
+            httpMessage.addParam("stTime", String.valueOf(bqf.mTime));
+            httpMessage.addParam("stSize", String.valueOf(bqf.mSize));
+            httpMessage.addParam("stTimesNum", String.valueOf(bqf.mTimesNum));
+            httpMessage.addParam("stMode", String.valueOf(bqf.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(bqf.mMethod));
         }
         int errorNumsAndSet = ad.getErrorNumsAndSet(0);
-        if (errorNumsAndSet == 0 && bqS != null) {
-            errorNumsAndSet = bqS.mTimesNum;
+        if (errorNumsAndSet == 0 && bqf != null) {
+            errorNumsAndSet = bqf.mTimesNum;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(errorNumsAndSet));
     }

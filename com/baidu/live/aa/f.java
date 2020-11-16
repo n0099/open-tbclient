@@ -6,27 +6,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class f {
-    private long bui;
-    private o.a buj;
-    private List<String> buk;
+    private long bsv;
+    private o.a bsw;
+    private List<String> bsx;
 
-    public static f Qg() {
-        return a.bul;
+    public static f Px() {
+        return a.bsy;
     }
 
     public void b(o.a aVar) {
-        if (this.buk != null) {
-            this.buk.clear();
+        if (this.bsx != null) {
+            this.bsx.clear();
         }
         aG(0L);
-        this.buj = aVar;
-        if (this.buj != null) {
-            List<String> list = aVar.aIT;
+        this.bsw = aVar;
+        if (this.bsw != null) {
+            List<String> list = aVar.aHi;
             if (list != null && !list.isEmpty()) {
-                if (this.buk == null) {
-                    this.buk = new ArrayList();
+                if (this.bsx == null) {
+                    this.bsx = new ArrayList();
                 }
-                this.buk.addAll(list);
+                this.bsx.addAll(list);
             }
             aG(aVar.endTime - aVar.currentTime);
         }
@@ -34,17 +34,17 @@ public class f {
 
     public double i(boolean z, String str) {
         double a2;
-        if (this.buj == null || this.buj.aIQ != 1) {
+        if (this.bsw == null || this.bsw.aHf != 1) {
             return 0.0d;
         }
         if (z) {
-            if (Qh()) {
-                a2 = Math.max(a(str, this.buj.aIS), a(str, this.buj.aIR));
+            if (Py()) {
+                a2 = Math.max(a(str, this.bsw.aHh), a(str, this.bsw.aHg));
             } else {
-                a2 = a(str, this.buj.aIR);
+                a2 = a(str, this.bsw.aHg);
             }
         } else {
-            a2 = Qh() ? a(str, this.buj.aIS) : 0.0d;
+            a2 = Py() ? a(str, this.bsw.aHh) : 0.0d;
         }
         if (a2 == 1.0d || a2 < 0.0d) {
             return 0.0d;
@@ -53,9 +53,9 @@ public class f {
     }
 
     private double a(String str, double d) {
-        if (!TextUtils.isEmpty(str) && this.buj != null) {
-            if (this.buj.aIU != null && !this.buj.aIU.isEmpty()) {
-                for (String str2 : this.buj.aIU) {
+        if (!TextUtils.isEmpty(str) && this.bsw != null) {
+            if (this.bsw.aHj != null && !this.bsw.aHj.isEmpty()) {
+                for (String str2 : this.bsw.aHj) {
                     if (str.equals(str2)) {
                         return d;
                     }
@@ -67,27 +67,27 @@ public class f {
         return 0.0d;
     }
 
-    public boolean Qh() {
-        return this.bui > 0;
+    public boolean Py() {
+        return this.bsv > 0;
     }
 
     public void aG(long j) {
-        this.bui = j;
+        this.bsv = j;
     }
 
-    public boolean hZ(String str) {
-        if (this.buk == null || this.buk.isEmpty()) {
+    public boolean hT(String str) {
+        if (this.bsx == null || this.bsx.isEmpty()) {
             return false;
         }
-        return this.buk.contains(str);
+        return this.bsx.contains(str);
     }
 
     public void release() {
-        this.bui = 0L;
-        if (this.buk != null) {
-            this.buk.clear();
+        this.bsv = 0L;
+        if (this.bsx != null) {
+            this.bsx.clear();
         }
-        this.buj = null;
+        this.bsw = null;
     }
 
     private f() {
@@ -95,6 +95,6 @@ public class f {
 
     /* loaded from: classes4.dex */
     private static class a {
-        private static final f bul = new f();
+        private static final f bsy = new f();
     }
 }

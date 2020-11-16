@@ -7,7 +7,7 @@ import java.util.List;
 import tbclient.CommonReq;
 import tbclient.GetForumBroadcastList.DataReq;
 import tbclient.GetForumBroadcastList.GetForumBroadcastListReqIdl;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     public static final int LOAD_RN = 15;
     public static final int LOAD_TYPE_LOADMORE = 2;

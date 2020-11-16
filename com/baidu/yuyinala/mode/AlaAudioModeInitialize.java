@@ -13,15 +13,15 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class AlaAudioModeInitialize {
-    private static int otO = -1;
+    private static int ovs = -1;
 
     static {
-        eeL();
-        eeM();
-        eez();
+        eeJ();
+        eeK();
+        eex();
     }
 
-    private static void eeL() {
+    private static void eeJ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031079, TbConfig.SERVER_ADDRESS + "ala/audio/room/changeMode");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -33,7 +33,7 @@ public class AlaAudioModeInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void eeM() {
+    private static void eeK() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501008) { // from class: com.baidu.yuyinala.mode.AlaAudioModeInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -43,20 +43,20 @@ public class AlaAudioModeInitialize {
                     Object obj = hashMap.get("context");
                     Object obj2 = hashMap.get("ala_live_show_data");
                     if ((obj instanceof TbPageContext) && (obj2 instanceof w)) {
-                        a.eeI().b((TbPageContext) obj, (w) obj2);
+                        a.eeG().b((TbPageContext) obj, (w) obj2);
                     }
                 }
             }
         });
     }
 
-    private static void eez() {
+    private static void eex() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.mode.AlaAudioModeInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.eeI().Hv();
+                    a.eeG().GM();
                 }
             }
         });

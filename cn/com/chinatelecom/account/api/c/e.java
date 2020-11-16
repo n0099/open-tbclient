@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import cn.com.chinatelecom.account.api.CtAuth;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class e {
     private static int a(int i) {
         switch (i) {

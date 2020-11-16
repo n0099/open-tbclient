@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.os.Message;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class ar extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
@@ -40,72 +40,72 @@ public class ar extends Handler {
                 String str = (String) message.obj;
                 int i = message.arg1;
                 synchronized (ag.class) {
-                    context = this.f4756a.f50a;
-                    if (ag.a(context).m74a(str)) {
-                        context2 = this.f4756a.f50a;
+                    context = this.f4756a.f53a;
+                    if (ag.a(context).m77a(str)) {
+                        context2 = this.f4756a.f53a;
                         if (ag.a(context2).a(str) < 10) {
                             if (av.DISABLE_PUSH.ordinal() == i) {
-                                context14 = this.f4756a.f50a;
+                                context14 = this.f4756a.f53a;
                                 if ("syncing".equals(ag.a(context14).a(av.DISABLE_PUSH))) {
                                     this.f4756a.a(str, av.DISABLE_PUSH, true, (HashMap<String, String>) null);
-                                    context13 = this.f4756a.f50a;
+                                    context13 = this.f4756a.f53a;
                                     ag.a(context13).b(str);
                                 }
                             }
                             if (av.ENABLE_PUSH.ordinal() == i) {
-                                context12 = this.f4756a.f50a;
+                                context12 = this.f4756a.f53a;
                                 if ("syncing".equals(ag.a(context12).a(av.ENABLE_PUSH))) {
                                     this.f4756a.a(str, av.ENABLE_PUSH, true, (HashMap<String, String>) null);
-                                    context13 = this.f4756a.f50a;
+                                    context13 = this.f4756a.f53a;
                                     ag.a(context13).b(str);
                                 }
                             }
                             if (av.UPLOAD_HUAWEI_TOKEN.ordinal() == i) {
-                                context10 = this.f4756a.f50a;
+                                context10 = this.f4756a.f53a;
                                 if ("syncing".equals(ag.a(context10).a(av.UPLOAD_HUAWEI_TOKEN))) {
                                     aq aqVar = this.f4756a;
                                     av avVar = av.UPLOAD_HUAWEI_TOKEN;
-                                    context11 = this.f4756a.f50a;
+                                    context11 = this.f4756a.f53a;
                                     aqVar.a(str, avVar, false, h.a(context11, d.ASSEMBLE_PUSH_HUAWEI));
-                                    context13 = this.f4756a.f50a;
+                                    context13 = this.f4756a.f53a;
                                     ag.a(context13).b(str);
                                 }
                             }
                             if (av.UPLOAD_FCM_TOKEN.ordinal() == i) {
-                                context8 = this.f4756a.f50a;
+                                context8 = this.f4756a.f53a;
                                 if ("syncing".equals(ag.a(context8).a(av.UPLOAD_FCM_TOKEN))) {
                                     aq aqVar2 = this.f4756a;
                                     av avVar2 = av.UPLOAD_FCM_TOKEN;
-                                    context9 = this.f4756a.f50a;
+                                    context9 = this.f4756a.f53a;
                                     aqVar2.a(str, avVar2, false, h.a(context9, d.ASSEMBLE_PUSH_FCM));
-                                    context13 = this.f4756a.f50a;
+                                    context13 = this.f4756a.f53a;
                                     ag.a(context13).b(str);
                                 }
                             }
                             if (av.UPLOAD_COS_TOKEN.ordinal() == i) {
-                                context6 = this.f4756a.f50a;
+                                context6 = this.f4756a.f53a;
                                 if ("syncing".equals(ag.a(context6).a(av.UPLOAD_COS_TOKEN))) {
                                     aq aqVar3 = this.f4756a;
                                     av avVar3 = av.UPLOAD_COS_TOKEN;
-                                    context7 = this.f4756a.f50a;
+                                    context7 = this.f4756a.f53a;
                                     aqVar3.a(str, avVar3, false, h.a(context7, d.ASSEMBLE_PUSH_COS));
-                                    context13 = this.f4756a.f50a;
+                                    context13 = this.f4756a.f53a;
                                     ag.a(context13).b(str);
                                 }
                             }
                             if (av.UPLOAD_FTOS_TOKEN.ordinal() == i) {
-                                context4 = this.f4756a.f50a;
+                                context4 = this.f4756a.f53a;
                                 if ("syncing".equals(ag.a(context4).a(av.UPLOAD_FTOS_TOKEN))) {
                                     aq aqVar4 = this.f4756a;
                                     av avVar4 = av.UPLOAD_FTOS_TOKEN;
-                                    context5 = this.f4756a.f50a;
+                                    context5 = this.f4756a.f53a;
                                     aqVar4.a(str, avVar4, false, h.a(context5, d.ASSEMBLE_PUSH_FTOS));
                                 }
                             }
-                            context13 = this.f4756a.f50a;
+                            context13 = this.f4756a.f53a;
                             ag.a(context13).b(str);
                         } else {
-                            context3 = this.f4756a.f50a;
+                            context3 = this.f4756a.f53a;
                             ag.a(context3).c(str);
                         }
                     }

@@ -35,7 +35,7 @@ public class b extends HttpMessage {
         crVar.props_id = JavaTypesHelper.toInt(str, 0);
         crVar.new_props_id = str;
         crVar.money = i3;
-        crVar.aSs = i4;
+        crVar.aQH = i4;
         crVar.wars_name = "";
         crVar.wars_item = "";
         addParam("wares", crVar.toJson());

@@ -19,25 +19,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    private static b ody;
-    private TbPageContext ocV;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.model.h odA;
-    private String odB = "";
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f odC;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.model.a odz;
+    private static b ofb;
+    private TbPageContext oey;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.model.a ofc;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.model.h ofd;
+    private String ofe = "";
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f ofg;
 
-    public static b dZf() {
-        if (ody == null) {
-            ody = new b();
+    public static b dZe() {
+        if (ofb == null) {
+            ofb = new b();
         }
-        return ody;
+        return ofb;
     }
 
     private b() {
     }
 
     public b g(TbPageContext tbPageContext) {
-        this.ocV = tbPageContext;
+        this.oey = tbPageContext;
         return this;
     }
 
@@ -49,37 +49,37 @@ public class b {
         try {
             JSONObject jSONObject = new JSONObject(bIMInviteSyncRtcInfo.getRtcExt());
             str = jSONObject.optString("invite_name");
-            this.odB = jSONObject.optString("invite_uk");
+            this.ofe = jSONObject.optString("invite_uk");
             String optString = jSONObject.optString("type");
             str2 = jSONObject.optString("pushUrl");
             str3 = jSONObject.optString("pushSingleUrl");
-            z = com.baidu.tieba.yuyinala.liveroom.wheat.a.b.VB(optString);
+            z = com.baidu.tieba.yuyinala.liveroom.wheat.a.b.Vm(optString);
         } catch (JSONException e) {
             e.printStackTrace();
             z = false;
         }
         if (z) {
-            o.dZA().zf(true);
+            o.dZz().zm(true);
             new com.baidu.tieba.yuyinala.liveroom.wheat.model.h(null, new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.1
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.h.a
                 public void a(AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
                     if (alaLinkCallBackHttpResponseMessage.isError()) {
-                        com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYN = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN();
-                        if (dYN != null) {
-                            dYN.Vx("上麦CallBack回调失败onSucc");
+                        com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYM = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM();
+                        if (dYM != null) {
+                            dYM.Vi("上麦CallBack回调失败onSucc");
                             return;
                         }
                         return;
                     }
-                    l.dZw().i(b.this.ocV).Mv(4);
+                    l.dZv().i(b.this.oey).MY(4);
                     b.this.a(bIMInviteSyncRtcInfo, 1, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), str2, str3, true, false);
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.h.a
                 public void b(AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
-                    com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYN = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN();
-                    if (dYN != null) {
-                        dYN.Vx("上麦CallBack回调失败onFail");
+                    com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYM = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM();
+                    if (dYM != null) {
+                        dYM.Vi("上麦CallBack回调失败onFail");
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, false));
                 }
@@ -91,26 +91,26 @@ public class b {
 
     private void a(final Activity activity, String str, final BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo) {
         int i = 6;
-        if (this.odC != null && this.odC.isShowing()) {
-            this.odC.dismiss();
+        if (this.ofg != null && this.ofg.isShowing()) {
+            this.ofg.dismiss();
         }
-        this.odC = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f(activity);
-        this.odC.show();
-        w Xn = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Xn();
-        if (Xn != null && Xn.aJV >= 0) {
-            i = Xn.aJV;
+        this.ofg = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f(activity);
+        this.ofg.show();
+        w WE = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().WE();
+        if (WE != null && WE.aIk >= 0) {
+            i = WE.aIk;
         }
-        this.odC.Mx(i * 1000);
-        this.odC.VS(str);
-        this.odC.a(new f.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2
+        this.ofg.Na(i * 1000);
+        this.ofg.VD(str);
+        this.ofg.a(new f.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.a
-            public void dZg() {
-                d.dZj().a(activity, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2.1
+            public void dZf() {
+                d.dZi().a(activity, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2.1
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.d.a
-                    public void yZ(boolean z) {
+                    public void zg(boolean z) {
                         AccountData currentAccountInfo;
                         if (z && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
-                            o.dZA().zf(true);
+                            o.dZz().zm(true);
                             com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("click_accept_invite_anchor_9", false);
                             b.this.a(bIMInviteSyncRtcInfo, ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID()));
                         }
@@ -119,51 +119,51 @@ public class b {
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.a
-            public void dZh() {
-                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.odB);
+            public void dZg() {
+                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.ofe);
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.a
-            public void aks() {
-                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.odB);
+            public void ajK() {
+                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.ofe);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo, String str) {
-        if (this.odz == null) {
-            this.odz = new com.baidu.tieba.yuyinala.liveroom.wheat.model.a(null, new a.InterfaceC0924a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.3
-                @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0924a
+        if (this.ofc == null) {
+            this.ofc = new com.baidu.tieba.yuyinala.liveroom.wheat.model.a(null, new a.InterfaceC0927a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.3
+                @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0927a
                 public void a(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage) {
                     if (!alaAcceptConnectionWheatHttpResponseMessage.isError()) {
-                        l.dZw().i(b.this.ocV).Mv(3);
-                        b.this.a(bIMInviteSyncRtcInfo, 1, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), alaAcceptConnectionWheatHttpResponseMessage.getPushUrl(), alaAcceptConnectionWheatHttpResponseMessage.eag(), false, true);
+                        l.dZv().i(b.this.oey).MY(3);
+                        b.this.a(bIMInviteSyncRtcInfo, 1, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), alaAcceptConnectionWheatHttpResponseMessage.getPushUrl(), alaAcceptConnectionWheatHttpResponseMessage.eaf(), false, true);
                     }
                 }
 
-                @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0924a
+                @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0927a
                 public void b(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, false));
                 }
             });
         }
-        this.odz.aN(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Ca(), str, "2");
+        this.ofc.aN(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().Br(), str, "2");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo, int i, String str, String str2, String str3, boolean z, boolean z2) {
         if (z2) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.odB);
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.ofe);
         } else {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().dYN().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.odB);
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.ofe);
         }
     }
 
     public void onDestroy() {
-        if (this.odA != null) {
-            this.odA.onDestroy();
-            this.odA = null;
+        if (this.ofd != null) {
+            this.ofd.onDestroy();
+            this.ofd = null;
         }
     }
 }

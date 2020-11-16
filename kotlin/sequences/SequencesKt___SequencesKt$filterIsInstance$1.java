@@ -3,7 +3,7 @@ package kotlin.sequences;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class SequencesKt___SequencesKt$filterIsInstance$1 extends Lambda implements kotlin.jvm.a.b<Object, Boolean> {
     public static final SequencesKt___SequencesKt$filterIsInstance$1 INSTANCE = new SequencesKt___SequencesKt$filterIsInstance$1();
 
@@ -18,11 +18,11 @@ public final class SequencesKt___SequencesKt$filterIsInstance$1 extends Lambda i
     }
 
     /* JADX DEBUG: Return type fixed from 'boolean' to match base method */
-    /* JADX WARN: Type inference failed for: r0v1, types: [boolean, java.lang.Boolean] */
+    /* JADX WARN: Type inference failed for: r0v1, types: [java.lang.Boolean, boolean] */
     @Override // kotlin.jvm.a.b
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final Boolean invoke2(Object obj) {
-        q.cd(3, "R");
+        q.cb(3, "R");
         return obj instanceof Object;
     }
 }

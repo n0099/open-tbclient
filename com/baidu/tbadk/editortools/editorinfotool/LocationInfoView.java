@@ -8,20 +8,21 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tbadk.core.view.commonBtn.b;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class LocationInfoView extends LinearLayout implements View.OnClickListener {
-    private TBSpecificationBtn foo;
-    private a fop;
+    private TBSpecificationBtn fnw;
+    private a fnx;
     private int mSkinType;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bzO();
+        void bze();
     }
 
     public LocationInfoView(Context context) {
@@ -35,29 +36,32 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
     }
 
     public TBSpecificationBtn getLocationBtn() {
-        return this.foo;
+        return this.fnw;
     }
 
     private void initUI() {
         setOrientation(0);
         setGravity(16);
         b bVar = new b();
-        bVar.qk(R.color.cp_cont_b);
-        bVar.a(R.drawable.ic_icon_pure_post_location16_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-        bVar.qe(R.color.cp_cont_e);
-        bVar.ba(l.getDimens(getContext(), R.dimen.tbds22), l.getDimens(getContext(), R.dimen.tbds28));
-        this.foo = new TBSpecificationBtn(getContext());
-        this.foo.setConfig(bVar);
-        this.foo.setTextSize(R.dimen.tbds32);
-        this.foo.setOnClickListener(this);
-        this.foo.setText(getContext().getString(R.string.location_where_are_you));
-        addView(this.foo, new LinearLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.tbds63)));
+        bVar.bb(R.color.CAM_X0209, R.color.CAM_X0105);
+        bVar.a(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
+        bVar.qC(R.color.CAM_X0110);
+        bVar.qF(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+        bVar.ba(l.getDimens(getContext(), R.dimen.M_W_X004), l.getDimens(getContext(), R.dimen.M_W_X004));
+        bVar.qE(l.getDimens(getContext(), R.dimen.M_H_X002));
+        bVar.qB(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+        this.fnw = new TBSpecificationBtn(getContext());
+        this.fnw.setConfig(bVar);
+        this.fnw.setTextSize(R.dimen.T_X09);
+        this.fnw.setOnClickListener(this);
+        this.fnw.setText(getContext().getString(R.string.location_where_are_you));
+        addView(this.fnw, new LinearLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.tbds62)));
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.foo.bsD();
+            this.fnw.brT();
             this.mSkinType = i;
         }
     }
@@ -68,23 +72,23 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
                 int indexOf = str.indexOf("·");
                 str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
             }
-            this.foo.setText(at.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
+            this.fnw.setText(au.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
         } else if (i == 1) {
-            this.foo.setText(getContext().getString(R.string.location_loading));
+            this.fnw.setText(getContext().getString(R.string.location_loading));
         } else {
-            this.foo.setText(getContext().getString(R.string.location_where_are_you));
+            this.fnw.setText(getContext().getString(R.string.location_where_are_you));
         }
-        this.foo.eYU = Integer.valueOf(i);
+        this.fnw.eYb = Integer.valueOf(i);
     }
 
     public void setLocationClickListener(a aVar) {
-        this.fop = aVar;
+        this.fnx = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fop != null) {
-            this.fop.bzO();
+        if (this.fnx != null) {
+            this.fnx.bze();
         }
     }
 }

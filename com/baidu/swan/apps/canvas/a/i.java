@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class i extends a {
     @Override // com.baidu.swan.apps.canvas.a.a
     public /* bridge */ /* synthetic */ void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
@@ -19,8 +19,8 @@ public class i extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject hC(int i) {
-        return super.hC(i);
+    public /* bridge */ /* synthetic */ JSONObject hy(int i) {
+        return super.hy(i);
     }
 
     public i(j jVar) {
@@ -31,21 +31,21 @@ public class i extends a {
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.canvas.b.a d = d(unitedSchemeEntity);
         if (d == null) {
-            unitedSchemeEntity.result = hC(201);
+            unitedSchemeEntity.result = hy(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "update action parse model is null");
             return false;
         }
-        String str = d.cDK;
-        com.baidu.swan.apps.model.a.a.a aVar = d.cDO;
+        String str = d.cCa;
+        com.baidu.swan.apps.model.a.a.a aVar = d.cCe;
         if (TextUtils.isEmpty(str) || aVar == null || !aVar.isValid()) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "some params invalid");
-            unitedSchemeEntity.result = hC(202);
+            unitedSchemeEntity.result = hy(202);
             return false;
         }
         com.baidu.swan.apps.component.components.d.a aVar2 = (com.baidu.swan.apps.component.components.d.a) com.baidu.swan.apps.component.container.a.d(d);
         if (aVar2 == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "update canvas fail: fina a null component");
-            unitedSchemeEntity.result = hC(1001);
+            unitedSchemeEntity.result = hy(1001);
             return false;
         }
         com.baidu.swan.apps.component.b.c a2 = aVar2.a((com.baidu.swan.apps.component.components.d.a) d);

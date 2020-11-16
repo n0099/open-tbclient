@@ -37,7 +37,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 @SuppressLint({"NewApi"})
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public final class n {
     private static SSLSocketFactory h;
 
@@ -417,7 +417,7 @@ public final class n {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public class a implements X509TrustManager {
         private X509TrustManager b;
 

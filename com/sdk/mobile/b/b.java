@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class b implements com.sdk.base.framework.b.a<T> {
 
     /* renamed from: a  reason: collision with root package name */

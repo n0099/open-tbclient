@@ -1,5 +1,5 @@
 package com.baidu.ubc;
-/* loaded from: classes8.dex */
+/* loaded from: classes17.dex */
 public interface r {
-    boolean dGO();
+    boolean dGF();
 }

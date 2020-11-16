@@ -25,7 +25,7 @@ public class r {
         }
     }
 
-    public static List<a> iH(String str) {
+    public static List<a> iB(String str) {
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -64,7 +64,7 @@ public class r {
         return str + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
     }
 
-    public static final String iI(String str) {
+    public static final String iC(String str) {
         return !TextUtils.isEmpty(str) ? Base64.encodeBytes(str.getBytes()).replace("+", Constants.ACCEPT_TIME_SEPARATOR_SERVER).replace("/", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace(ETAG.EQUAL, "") : "";
     }
 }

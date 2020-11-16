@@ -6,9 +6,11 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b implements com.baidu.tbadk.core.e.a {
-    private a ndu;
+
+    /* renamed from: new  reason: not valid java name */
+    private a f8new;
 
     @Override // com.baidu.tbadk.core.e.a
     public void c(Context context, int i, boolean z) {
@@ -36,24 +38,24 @@ public class b implements com.baidu.tbadk.core.e.a {
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public Class<?> bpX() {
+    public Class<?> bpk() {
         return MainTabActivity.class;
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public String bpY() {
+    public String bpl() {
         return MainTabActivity.class.getName();
     }
 
     @Override // com.baidu.tbadk.core.e.a
     public int getCurrentTabType() {
-        if (this.ndu != null) {
-            return this.ndu.getCurrentTabType();
+        if (this.f8new != null) {
+            return this.f8new.getCurrentTabType();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.ndu = aVar;
+        this.f8new = aVar;
     }
 }

@@ -6,7 +6,7 @@ import rx.d;
 import rx.exceptions.MissingBackpressureException;
 import rx.g;
 import rx.internal.util.a.ae;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class l<T> implements d.b<T, T> {
     private final int bufferSize;
     private final boolean delayError;
@@ -33,7 +33,7 @@ public final class l<T> implements d.b<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public static final class a<T> extends rx.j<T> implements rx.functions.a {
         final rx.j<? super T> child;
         final boolean delayError;
@@ -41,18 +41,18 @@ public final class l<T> implements d.b<T, T> {
         Throwable error;
         volatile boolean finished;
         final int limit;
-        final g.a qgb;
+        final g.a qhE;
         final Queue<Object> queue;
         final AtomicLong requested = new AtomicLong();
-        final AtomicLong qgc = new AtomicLong();
+        final AtomicLong qhF = new AtomicLong();
 
         public a(rx.g gVar, rx.j<? super T> jVar, boolean z, int i) {
             this.child = jVar;
-            this.qgb = gVar.createWorker();
+            this.qhE = gVar.createWorker();
             this.delayError = z;
             i = i <= 0 ? rx.internal.util.g.SIZE : i;
             this.limit = i - (i >> 2);
-            if (ae.eGl()) {
+            if (ae.eGm()) {
                 this.queue = new rx.internal.util.a.q(i);
             } else {
                 this.queue = new rx.internal.util.atomic.c(i);
@@ -71,7 +71,7 @@ public final class l<T> implements d.b<T, T> {
                     }
                 }
             });
-            jVar.add(this.qgb);
+            jVar.add(this.qhE);
             jVar.add(this);
         }
 
@@ -106,8 +106,8 @@ public final class l<T> implements d.b<T, T> {
         }
 
         protected void schedule() {
-            if (this.qgc.getAndIncrement() == 0) {
-                this.qgb.c(this);
+            if (this.qhF.getAndIncrement() == 0) {
+                this.qhE.c(this);
             }
         }
 
@@ -145,7 +145,7 @@ public final class l<T> implements d.b<T, T> {
                 }
                 if (j4 != j2 || !a(this.finished, queue.isEmpty(), jVar, queue)) {
                     this.emitted = j2;
-                    j3 = this.qgc.addAndGet(-j3);
+                    j3 = this.qhF.addAndGet(-j3);
                 } else {
                     return;
                 }

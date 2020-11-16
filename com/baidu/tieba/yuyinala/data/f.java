@@ -5,18 +5,18 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class f {
     private long amount;
-    private int gzL;
+    private int gzs;
 
     public void parserJson(JSONObject jSONObject) {
-        this.gzL = jSONObject.optInt("loot_result");
+        this.gzs = jSONObject.optInt("loot_result");
         this.amount = jSONObject.optLong(LogConfig.LOG_AMOUNT);
     }
 
-    public boolean bRI() {
-        return this.gzL == 1;
+    public boolean bRb() {
+        return this.gzs == 1;
     }
 
-    public long bRJ() {
+    public long bRc() {
         return this.amount;
     }
 }

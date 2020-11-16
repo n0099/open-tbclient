@@ -14,7 +14,7 @@ import com.baidu.ar.databasic.ReserveHandleData;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class SegDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = SegDetector.class.getSimpleName();
     protected boolean mIsFrontCamera;

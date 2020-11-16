@@ -21,7 +21,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes17.dex */
+/* loaded from: classes10.dex */
 public class a extends View {
     private static final String v = "LoadCircleView";
     private static final int w = 4097;
@@ -51,9 +51,9 @@ public class a extends View {
     private boolean u;
 
     /* renamed from: com.baidu.pass.ecommerce.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes17.dex */
-    class C0275a implements ValueAnimator.AnimatorUpdateListener {
-        C0275a() {
+    /* loaded from: classes10.dex */
+    class C0273a implements ValueAnimator.AnimatorUpdateListener {
+        C0273a() {
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -64,7 +64,7 @@ public class a extends View {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes10.dex */
     class b implements ValueAnimator.AnimatorUpdateListener {
         b() {
         }
@@ -78,13 +78,13 @@ public class a extends View {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes10.dex */
     class c extends AnimatorListenerAdapter {
 
         /* renamed from: com.baidu.pass.ecommerce.d.a$c$a  reason: collision with other inner class name */
-        /* loaded from: classes17.dex */
-        class C0276a extends TimerTask {
-            C0276a() {
+        /* loaded from: classes10.dex */
+        class C0274a extends TimerTask {
+            C0274a() {
             }
 
             @Override // java.util.TimerTask, java.lang.Runnable
@@ -99,13 +99,13 @@ public class a extends View {
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             if (a.this.s != null) {
-                a.this.s.schedule(new C0276a(), 0L, 16L);
+                a.this.s.schedule(new C0274a(), 0L, 16L);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes10.dex */
     public static class d extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
@@ -193,18 +193,18 @@ public class a extends View {
     public void a() {
         if (!this.u) {
             this.u = true;
-            C0275a c0275a = new C0275a();
+            C0273a c0273a = new C0273a();
             float f = this.d;
             float f2 = f / 3.0f;
             float f3 = (f * 23.0f) / 21.0f;
             ValueAnimator ofFloat = ValueAnimator.ofFloat(f2, f3);
             ofFloat.setInterpolator(new LinearInterpolator());
             ofFloat.setDuration(this.o);
-            ofFloat.addUpdateListener(c0275a);
+            ofFloat.addUpdateListener(c0273a);
             ValueAnimator ofFloat2 = ValueAnimator.ofFloat(f3, this.d);
             ofFloat2.setInterpolator(new LinearInterpolator());
             ofFloat2.setDuration(this.p);
-            ofFloat2.addUpdateListener(c0275a);
+            ofFloat2.addUpdateListener(c0273a);
             ValueAnimator ofFloat3 = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat3.setInterpolator(new DecelerateInterpolator());
             ofFloat3.setDuration(this.q);

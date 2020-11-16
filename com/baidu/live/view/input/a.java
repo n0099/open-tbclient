@@ -9,29 +9,29 @@ public interface a {
 
     /* renamed from: com.baidu.live.view.input.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0232a {
-        boolean LM();
+    public interface InterfaceC0230a {
+        boolean Ld();
 
-        void LO();
+        void Lf();
 
-        void LP();
+        void Lg();
 
-        boolean LQ();
+        boolean Lh();
 
-        int LR();
+        int Li();
 
         void s(String str, boolean z);
     }
 
-    boolean Nc();
+    void MC();
 
-    boolean Nd();
+    boolean Mt();
 
-    boolean Ne();
+    boolean Mu();
 
-    void Nf();
+    boolean Mv();
 
-    void Nl();
+    void Mw();
 
     void a(List<String> list, Map<String, Integer> map, AlaLiveInfoData alaLiveInfoData);
 

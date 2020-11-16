@@ -2,16 +2,16 @@ package com.baidu.crabsdk.a;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class p extends n {
-    private static final LinkedHashMap<Long, String> aok = new LinkedHashMap<>();
+    private static final LinkedHashMap<Long, String> aoq = new LinkedHashMap<>();
     private int X;
-    private Thread aol;
+    private Thread aor;
 
     private p(Thread thread, int i, long j) {
         super(j);
         this.X = a.X;
-        this.aol = thread;
+        this.aor = thread;
         this.X = i;
     }
 
@@ -21,14 +21,14 @@ public final class p extends n {
 
     public static ArrayList<String> c(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (aok) {
-            for (Long l : aok.keySet()) {
+        synchronized (aoq) {
+            for (Long l : aoq.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(aok.get(l));
+                    arrayList.add(aoq.get(l));
                 }
             }
         }
-        com.baidu.crabsdk.c.a.dA("result : " + arrayList.toString());
+        com.baidu.crabsdk.c.a.dC("result : " + arrayList.toString());
         return arrayList;
     }
 
@@ -36,14 +36,14 @@ public final class p extends n {
     @Override // com.baidu.crabsdk.a.n
     public final void o() {
         StringBuilder sb = new StringBuilder();
-        for (StackTraceElement stackTraceElement : this.aol.getStackTrace()) {
+        for (StackTraceElement stackTraceElement : this.aor.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (aok) {
-            if (aok.size() == this.X && this.X > 0) {
-                aok.remove(aok.keySet().iterator().next());
+        synchronized (aoq) {
+            if (aoq.size() == this.X && this.X > 0) {
+                aoq.remove(aoq.keySet().iterator().next());
             }
-            aok.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            aoq.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

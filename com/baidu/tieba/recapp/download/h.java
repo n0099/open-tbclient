@@ -11,22 +11,22 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tieba.R;
+import com.baidu.tieba.recapp.r;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
-import com.baidu.tieba.recapp.s;
 import java.io.File;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class h {
     public static final boolean a(Context context, AdvertAppInfo advertAppInfo, int i, DownloadStaticsData downloadStaticsData) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.buw()) {
-            return s.a(context, advertAppInfo, i, downloadStaticsData);
+        if (adAdSense != null && !adAdSense.btM()) {
+            return r.a(context, advertAppInfo, i, downloadStaticsData);
         }
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.eyP;
-        if (StringUtils.isNull(str) && advertAppInfo.eyX != null) {
-            str = advertAppInfo.eyX.userName;
+        String str = advertAppInfo.exd;
+        if (StringUtils.isNull(str) && advertAppInfo.exl != null) {
+            str = advertAppInfo.exl.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -38,25 +38,25 @@ public class h {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.bzk().b(advertAppInfo);
-        String str2 = advertAppInfo.eyP;
+        com.baidu.tbadk.distribute.a.byA().b(advertAppInfo);
+        String str2 = advertAppInfo.exd;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        i.dAA().a(advertAppInfo.eyR, advertAppInfo.apkUrl, str2, i, i.Ru(advertAppInfo.eyR).intValue(), null, true, false, true, advertAppInfo.eyX.userPortrait, downloadStaticsData, advertAppInfo.eyX.userName);
+        i.dAa().a(advertAppInfo.exf, advertAppInfo.apkUrl, str2, i, i.QP(advertAppInfo.exf).intValue(), null, true, false, true, advertAppInfo.exl.userPortrait, downloadStaticsData, advertAppInfo.exl.userName);
         return true;
     }
 
-    public static final void e(AdvertAppInfo advertAppInfo) {
+    public static final void d(AdvertAppInfo advertAppInfo) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.buw()) {
-            s.e(advertAppInfo);
+        if (adAdSense != null && !adAdSense.btM()) {
+            r.d(advertAppInfo);
         } else {
-            i.dAA().C(advertAppInfo.apkUrl, advertAppInfo.eyR, true);
+            i.dAa().C(advertAppInfo.apkUrl, advertAppInfo.exf, true);
         }
     }
 
-    public static final void aX(Context context, String str) {
+    public static final void aU(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             l.showToast(context, R.string.download_error);
             return;

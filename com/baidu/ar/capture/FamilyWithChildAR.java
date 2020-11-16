@@ -17,7 +17,7 @@ import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     private AlgoHandleController bY;
     private LuaMsgListener bZ;

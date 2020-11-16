@@ -8,56 +8,57 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.adp.widget.ListView.af;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeRecyclerView extends BdRecyclerView implements v<BdTypeRecyclerView> {
-    private HashMap<BdUniqueId, a> Wu;
-    private HashMap<BdUniqueId, j> Wv;
-    ad Wx;
+    ad WB;
+    private HashMap<BdUniqueId, a> Wy;
+    private HashMap<BdUniqueId, j> Wz;
 
     public BdTypeRecyclerView(Context context) {
         super(context);
-        this.Wx = null;
+        this.WB = null;
         init();
     }
 
     public BdTypeRecyclerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Wx = null;
+        this.WB = null;
         init();
     }
 
     public BdTypeRecyclerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Wx = null;
+        this.WB = null;
         init();
     }
 
     private void init() {
-        if (this.Wx == null) {
-            this.Wx = new ad();
+        if (this.WB == null) {
+            this.WB = new ad();
         }
-        if (this.Wu == null) {
-            this.Wu = new HashMap<>();
+        if (this.Wy == null) {
+            this.Wy = new HashMap<>();
         }
-        if (this.Wv == null) {
-            this.Wv = new HashMap<>();
+        if (this.Wz == null) {
+            this.Wz = new HashMap<>();
         }
         super.setOnItemClickListener(new BdRecyclerView.a() { // from class: com.baidu.adp.widget.ListView.BdTypeRecyclerView.1
             @Override // com.baidu.adp.widget.ListView.BdRecyclerView.a
             public void a(ViewGroup viewGroup, View view, Object obj, int i, long j) {
-                if (BdTypeRecyclerView.this.Wx != null) {
-                    BdTypeRecyclerView.this.Wx.onItemClick(viewGroup, view, i, j);
+                if (BdTypeRecyclerView.this.WB != null) {
+                    BdTypeRecyclerView.this.WB.onItemClick(viewGroup, view, i, j);
                 }
             }
         });
         super.setOnItemLongClickListener(new BdRecyclerView.b() { // from class: com.baidu.adp.widget.ListView.BdTypeRecyclerView.2
             @Override // com.baidu.adp.widget.ListView.BdRecyclerView.b
             public boolean b(ViewGroup viewGroup, View view, Object obj, int i, long j) {
-                if (BdTypeRecyclerView.this.Wx != null) {
-                    return BdTypeRecyclerView.this.Wx.onItemLongClick(viewGroup, view, i, j);
+                if (BdTypeRecyclerView.this.WB != null) {
+                    return BdTypeRecyclerView.this.WB.onItemLongClick(viewGroup, view, i, j);
                 }
                 return false;
             }
@@ -89,48 +90,48 @@ public class BdTypeRecyclerView extends BdRecyclerView implements v<BdTypeRecycl
                 BdUniqueId bdUniqueId = null;
                 if (aVar.qJ() != null) {
                     bdUniqueId = aVar.qJ();
-                    if (!this.Wv.containsKey(bdUniqueId)) {
+                    if (!this.Wz.containsKey(bdUniqueId)) {
                         j jVar = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar.a(aVar);
-                        this.Wx.addAdapter(jVar);
-                        this.Wv.put(bdUniqueId, jVar);
+                        this.WB.addAdapter(jVar);
+                        this.Wz.put(bdUniqueId, jVar);
                     }
                 }
                 if (aVar.qK() != null) {
                     bdUniqueId = aVar.qK();
-                    if (!this.Wv.containsKey(bdUniqueId)) {
+                    if (!this.Wz.containsKey(bdUniqueId)) {
                         j jVar2 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar2.a(aVar);
-                        this.Wx.addAdapter(jVar2);
-                        this.Wv.put(bdUniqueId, jVar2);
+                        this.WB.addAdapter(jVar2);
+                        this.Wz.put(bdUniqueId, jVar2);
                     }
                 }
                 if (aVar.qL() != null) {
                     bdUniqueId = aVar.qL();
-                    if (!this.Wv.containsKey(bdUniqueId)) {
+                    if (!this.Wz.containsKey(bdUniqueId)) {
                         j jVar3 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar3.a(aVar);
-                        this.Wx.addAdapter(jVar3);
-                        this.Wv.put(bdUniqueId, jVar3);
+                        this.WB.addAdapter(jVar3);
+                        this.Wz.put(bdUniqueId, jVar3);
                     }
                 }
                 if (aVar.qM() != null) {
                     bdUniqueId = aVar.qM();
-                    if (!this.Wv.containsKey(bdUniqueId)) {
+                    if (!this.Wz.containsKey(bdUniqueId)) {
                         j jVar4 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar4.a(aVar);
-                        this.Wx.addAdapter(jVar4);
-                        this.Wv.put(bdUniqueId, jVar4);
+                        this.WB.addAdapter(jVar4);
+                        this.Wz.put(bdUniqueId, jVar4);
                     }
                 }
                 if (bdUniqueId == null) {
-                    this.Wx.addAdapter(aVar);
+                    this.WB.addAdapter(aVar);
                 } else {
-                    this.Wu.put(aVar.Vw, aVar);
+                    this.Wy.put(aVar.Vx, aVar);
                 }
             }
         }
-        setAdapter(this.Wx);
+        setAdapter(this.WB);
     }
 
     @Override // com.baidu.adp.widget.ListView.v
@@ -138,29 +139,45 @@ public class BdTypeRecyclerView extends BdRecyclerView implements v<BdTypeRecycl
         ArrayList arrayList = new ArrayList();
         for (q qVar : list) {
             if (qVar != null) {
-                if (this.Wu.containsKey(qVar.getType())) {
-                    a aVar = this.Wu.get(qVar.getType());
+                if (this.Wy.containsKey(qVar.getType())) {
+                    a aVar = this.Wy.get(qVar.getType());
                     if (aVar.qJ() != null) {
                         i iVar = new i();
                         iVar.g(aVar.qJ());
+                        if (qVar instanceof BaseCardInfo) {
+                            iVar.position = ((BaseCardInfo) qVar).position;
+                            iVar.setSupportType(BaseCardInfo.SupportType.TOP);
+                        }
                         iVar.a(qVar);
                         arrayList.add(iVar);
                     }
                     if (aVar.qK() != null) {
                         i iVar2 = new i();
                         iVar2.g(aVar.qK());
+                        if (qVar instanceof BaseCardInfo) {
+                            iVar2.position = ((BaseCardInfo) qVar).position;
+                            iVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        }
                         iVar2.a(qVar);
                         arrayList.add(iVar2);
                     }
                     if (aVar.qL() != null) {
                         i iVar3 = new i();
                         iVar3.g(aVar.qL());
+                        if (qVar instanceof BaseCardInfo) {
+                            iVar3.position = ((BaseCardInfo) qVar).position;
+                            iVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        }
                         iVar3.a(qVar);
                         arrayList.add(iVar3);
                     }
                     if (aVar.qM() != null) {
                         i iVar4 = new i();
                         iVar4.g(aVar.qM());
+                        if (qVar instanceof BaseCardInfo) {
+                            iVar4.position = ((BaseCardInfo) qVar).position;
+                            iVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                        }
                         iVar4.a(qVar);
                         arrayList.add(iVar4);
                     }
@@ -169,32 +186,32 @@ public class BdTypeRecyclerView extends BdRecyclerView implements v<BdTypeRecycl
                 }
             }
         }
-        this.Wx.setData(arrayList);
+        this.WB.setData(arrayList);
     }
 
     public void setDataWithPartChange(List<q> list, int i, int i2) {
-        this.Wx.a(list, i, i2);
+        this.WB.a(list, i, i2);
     }
 
     public void removeItem(int i) {
-        this.Wx.q(i, getHeaderViewsCount());
+        this.WB.q(i, getHeaderViewsCount());
     }
 
     public void o(int i, int i2) {
-        this.Wx.k(i, i2, getHeaderViewsCount());
+        this.WB.k(i, i2, getHeaderViewsCount());
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public List<q> getData() {
-        return this.Wx.getData();
+        return this.WB.getData();
     }
 
     public q getItem(int i) {
-        return this.Wx.getItem(i);
+        return this.WB.getItem(i);
     }
 
     public int getCount() {
-        return this.Wx.getCount();
+        return this.WB.getCount();
     }
 
     @Override // android.support.v7.widget.RecyclerView, android.view.View

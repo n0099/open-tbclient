@@ -23,11 +23,11 @@ import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
 import rx.j;
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 public class b extends UnitedSchemeBaseDispatcher {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = b.class.getSimpleName();
-    private j cBj;
+    private j czz;
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
     public String getDispatcherName() {
@@ -150,12 +150,12 @@ public class b extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean b(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
-        final e aHu = e.aHu();
-        if (aHu == null) {
+        final e aGM = e.aGM();
+        if (aGM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(aHu.id)) {
+        } else if (TextUtils.isEmpty(aGM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -189,19 +189,19 @@ public class b extends UnitedSchemeBaseDispatcher {
                 c.e(TAG, "parse insert params, but invalid");
                 return false;
             } else {
-                this.cBj = new com.baidu.o.b.a(context, s).akO();
-                if (this.cBj == null) {
+                this.czz = new com.baidu.o.b.a(context, s).akg();
+                if (this.czz == null) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     c.e(TAG, "RTC component insert delayed fail");
                     return false;
                 }
-                aHu.aHG().b((Activity) context, PermissionProxy.SCOPE_ID_RECORD, new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.o.e.b.1
+                aGM.aGY().b((Activity) context, PermissionProxy.SCOPE_ID_RECORD, new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.o.e.b.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.ap.e.b
                     /* renamed from: a */
                     public void M(h<b.d> hVar) {
                         if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                            b.this.a(context, unitedSchemeEntity, callbackHandler, aHu, m, optString, optString2);
+                            b.this.a(context, unitedSchemeEntity, callbackHandler, aGM, m, optString, optString2);
                             return;
                         }
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 200201);
@@ -214,12 +214,12 @@ public class b extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e aHu = e.aHu();
-        if (aHu == null) {
+        e aGM = e.aGM();
+        if (aGM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(aHu.id)) {
+        } else if (TextUtils.isEmpty(aGM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -235,7 +235,7 @@ public class b extends UnitedSchemeBaseDispatcher {
                 c.e(TAG, "rtcId is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(2001, "无rtcId");
                 return false;
-            } else if (!com.baidu.o.d.b.bfz().zs(optString)) {
+            } else if (!com.baidu.o.d.b.beS().zn(optString)) {
                 c.e(TAG, "rtcId is invalid");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
@@ -246,7 +246,7 @@ public class b extends UnitedSchemeBaseDispatcher {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                boolean updateRTCConfig = com.baidu.o.d.b.bfz().updateRTCConfig(m);
+                boolean updateRTCConfig = com.baidu.o.d.b.beS().updateRTCConfig(m);
                 com.baidu.o.b.b s = s(unitedSchemeEntity);
                 if (s == null) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -278,12 +278,12 @@ public class b extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e aHu = e.aHu();
-        if (aHu == null) {
+        e aGM = e.aGM();
+        if (aGM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(aHu.id)) {
+        } else if (TextUtils.isEmpty(aGM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -299,13 +299,13 @@ public class b extends UnitedSchemeBaseDispatcher {
                 c.e(TAG, "rtcId is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(2001, "无rtcId");
                 return false;
-            } else if (!com.baidu.o.d.b.bfz().zs(optString)) {
+            } else if (!com.baidu.o.d.b.beS().zn(optString)) {
                 c.e(TAG, "rtcId is invalid");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             } else {
-                com.baidu.o.d.b.bfz().stop();
-                com.baidu.o.d.b.bfz().zr(optString);
+                com.baidu.o.d.b.beS().stop();
+                com.baidu.o.d.b.beS().zm(optString);
                 com.baidu.o.b.b s = s(unitedSchemeEntity);
                 if (s == null) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -322,19 +322,19 @@ public class b extends UnitedSchemeBaseDispatcher {
                         c.e(TAG, "get component is null");
                         return false;
                     }
-                    return aVar.akP().isSuccess();
+                    return aVar.akh().isSuccess();
                 }
             }
         }
     }
 
     private boolean z(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e aHu = e.aHu();
-        if (aHu == null) {
+        e aGM = e.aGM();
+        if (aGM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(aHu.id)) {
+        } else if (TextUtils.isEmpty(aGM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -350,12 +350,12 @@ public class b extends UnitedSchemeBaseDispatcher {
                 c.e(TAG, "rtcId is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(2001, "无rtcId");
                 return false;
-            } else if (!com.baidu.o.d.b.bfz().zs(optString)) {
+            } else if (!com.baidu.o.d.b.beS().zn(optString)) {
                 c.e(TAG, "rtcId is invalid");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             } else {
-                com.baidu.o.d.b.bfz().bs(optParamsAsJo.optString("pushUrl"));
+                com.baidu.o.d.b.beS().bs(optParamsAsJo.optString("pushUrl"));
                 com.baidu.o.b.b s = s(unitedSchemeEntity);
                 if (s == null) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -368,7 +368,7 @@ public class b extends UnitedSchemeBaseDispatcher {
                     c.e(TAG, "get component is null");
                     return false;
                 }
-                aVar.bfw();
+                aVar.beP();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
             }
@@ -376,12 +376,12 @@ public class b extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean A(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e aHu = e.aHu();
-        if (aHu == null) {
+        e aGM = e.aGM();
+        if (aGM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(aHu.id)) {
+        } else if (TextUtils.isEmpty(aGM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -397,12 +397,12 @@ public class b extends UnitedSchemeBaseDispatcher {
                 c.e(TAG, "rtcId is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(2001, "无rtcId");
                 return false;
-            } else if (!com.baidu.o.d.b.bfz().zs(optString)) {
+            } else if (!com.baidu.o.d.b.beS().zn(optString)) {
                 c.e(TAG, "rtcId is invalid");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             } else {
-                com.baidu.o.d.b.bfz().stop();
+                com.baidu.o.d.b.beS().stop();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
             }
@@ -410,12 +410,12 @@ public class b extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean D(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e aHu = e.aHu();
-        if (aHu == null) {
+        e aGM = e.aGM();
+        if (aGM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(aHu.id)) {
+        } else if (TextUtils.isEmpty(aGM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -431,12 +431,12 @@ public class b extends UnitedSchemeBaseDispatcher {
                 c.e(TAG, "rtcId is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(2001, "无rtcId");
                 return false;
-            } else if (!com.baidu.o.d.b.bfz().zs(optString)) {
+            } else if (!com.baidu.o.d.b.beS().zn(optString)) {
                 c.e(TAG, "rtcId is invalid");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             } else {
-                com.baidu.o.d.b.bfz().switchCamera();
+                com.baidu.o.d.b.beS().switchCamera();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
             }
@@ -444,12 +444,12 @@ public class b extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean B(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e aHu = e.aHu();
-        if (aHu == null) {
+        e aGM = e.aGM();
+        if (aGM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(aHu.id)) {
+        } else if (TextUtils.isEmpty(aGM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -465,12 +465,12 @@ public class b extends UnitedSchemeBaseDispatcher {
                 c.e(TAG, "rtcId is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(2001, "无rtcId");
                 return false;
-            } else if (!com.baidu.o.d.b.bfz().zs(optString)) {
+            } else if (!com.baidu.o.d.b.beS().zn(optString)) {
                 c.e(TAG, "rtcId is invalid");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             } else {
-                com.baidu.o.d.b.bfz().mute();
+                com.baidu.o.d.b.beS().mute();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
             }
@@ -478,12 +478,12 @@ public class b extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean C(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e aHu = e.aHu();
-        if (aHu == null) {
+        e aGM = e.aGM();
+        if (aGM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(aHu.id)) {
+        } else if (TextUtils.isEmpty(aGM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -499,12 +499,12 @@ public class b extends UnitedSchemeBaseDispatcher {
                 c.e(TAG, "rtcId is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(2001, "无rtcId");
                 return false;
-            } else if (!com.baidu.o.d.b.bfz().zs(optString)) {
+            } else if (!com.baidu.o.d.b.beS().zn(optString)) {
                 c.e(TAG, "rtcId is invalid");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             } else {
-                com.baidu.o.d.b.bfz().unMute();
+                com.baidu.o.d.b.beS().unMute();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
             }
@@ -540,7 +540,7 @@ public class b extends UnitedSchemeBaseDispatcher {
             a(context, unitedSchemeEntity, callbackHandler, rtcConfig, str, str2);
             return;
         }
-        eVar.aHo().a(1, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE}, new c.a() { // from class: com.baidu.o.e.b.2
+        eVar.aGG().a(1, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE}, new c.a() { // from class: com.baidu.o.e.b.2
             @Override // com.baidu.swan.apps.ab.c.a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 boolean z = false;
@@ -573,12 +573,12 @@ public class b extends UnitedSchemeBaseDispatcher {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, RtcConfig rtcConfig, String str, String str2) {
-        com.baidu.o.d.b.bfz().a(context, rtcConfig, str, str2);
-        if (this.cBj == null) {
-            com.baidu.swan.apps.component.e.a.bm(TAG, "doInsert with a null subscriber");
+        com.baidu.o.d.b.beS().a(context, rtcConfig, str, str2);
+        if (this.czz == null) {
+            com.baidu.swan.apps.component.e.a.bl(TAG, "doInsert with a null subscriber");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
         }
-        this.cBj.onCompleted();
+        this.czz.onCompleted();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 }

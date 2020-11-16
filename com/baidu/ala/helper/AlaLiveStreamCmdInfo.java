@@ -8,7 +8,7 @@ import com.baidu.ala.recorder.video.VideoRecorderType;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class AlaLiveStreamCmdInfo {
     private static final int ALA_LIVE_TYPE_CAMERA_LANDSCAPE = 2;
     private static final int ALA_LIVE_TYPE_CAMERA_PORTRAIT = 1;
@@ -17,7 +17,7 @@ public class AlaLiveStreamCmdInfo {
     public static final int SEND_CMD_HOST_STATUS = 2;
     public static final int SEND_CMD_TIMESTAMP = 1;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static class CmdData {
         public String ip;
         public int mCurStreamLevel;
@@ -30,7 +30,7 @@ public class AlaLiveStreamCmdInfo {
         public VideoRecorderType type;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public interface CmdParseCallback {
         Message getMessage();
 
@@ -39,7 +39,7 @@ public class AlaLiveStreamCmdInfo {
         void sendMessage(Message message);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static class CmdParseResult {
         public int appStatus;
         public boolean isCalling;

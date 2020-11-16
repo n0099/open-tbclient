@@ -1,6 +1,6 @@
 package org.apache.http.params;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public interface CoreProtocolPNames {
     public static final String HTTP_CONTENT_CHARSET = "http.protocol.content-charset";
     public static final String HTTP_ELEMENT_CHARSET = "http.protocol.element-charset";

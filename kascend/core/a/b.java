@@ -3,15 +3,15 @@ package kascend.core.a;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-/* loaded from: classes18.dex */
+/* loaded from: classes9.dex */
 public class b extends a {
-    private final String pRL;
-    private final String pRM;
+    private final String pTo;
+    private final String pTp;
 
     public b(Context context) {
         super(context);
-        this.pRL = "com_kascend_prefs";
-        this.pRM = "key_device";
+        this.pTo = "com_kascend_prefs";
+        this.pTp = "key_device";
     }
 
     @Override // kascend.core.a.a
@@ -20,7 +20,7 @@ public class b extends a {
     }
 
     @Override // kascend.core.a.a
-    public void ZL(String str) {
+    public void Zw(String str) {
         if (!TextUtils.isEmpty(str)) {
             SharedPreferences.Editor edit = this.context.getSharedPreferences("com_kascend_prefs", 0).edit();
             edit.putString("key_device", str);

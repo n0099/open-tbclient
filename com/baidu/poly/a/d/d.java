@@ -60,7 +60,7 @@ public class d {
         }
     }
 
-    public static Bitmap jv(String str) {
+    public static Bitmap jp(String str) {
         BufferedInputStream bufferedInputStream;
         BufferedInputStream bufferedInputStream2 = null;
         try {

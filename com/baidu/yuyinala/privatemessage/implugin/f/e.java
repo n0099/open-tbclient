@@ -17,13 +17,13 @@ public class e extends i {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
-        return Xx(null) + "api/subscribe/v1/resource/pauid_thirdid";
+        return Xi(null) + "api/subscribe/v1/resource/pauid_thirdid";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
         if (i == 200) {
-            k.gF(this.mContext).a(i, new String(bArr), this.mPaid, this.mKey);
+            k.gD(this.mContext).a(i, new String(bArr), this.mPaid, this.mKey);
         } else {
             ListenerManager.getInstance().removeListener(this.mKey);
         }

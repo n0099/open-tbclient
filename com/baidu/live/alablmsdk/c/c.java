@@ -1,5 +1,5 @@
 package com.baidu.live.alablmsdk.c;
 /* loaded from: classes4.dex */
 public interface c {
-    void f(int i, int i2, String str);
+    void e(int i, int i2, String str);
 }

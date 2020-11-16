@@ -3,7 +3,7 @@ package com.airbnb.lottie.model.content;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.model.content.ShapeStroke;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class e implements b {
     private final com.airbnb.lottie.model.a.d EY;
     private final GradientType Fe;

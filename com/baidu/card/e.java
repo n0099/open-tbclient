@@ -5,32 +5,31 @@ import android.view.View;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-/* loaded from: classes21.dex */
-public class e extends b<AbsThreadDataSupport> {
-    private AbsThreadDataSupport afI;
-    private CardUserInfoLayout afO;
-    private int afP;
-    private a afQ;
+/* loaded from: classes20.dex */
+public class e extends b<com.baidu.tbadk.core.data.a> {
+    private com.baidu.tbadk.core.data.a afN;
+    private CardUserInfoLayout afT;
+    private int afU;
+    private a afV;
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes20.dex */
     public interface a {
-        void a(AbsThreadDataSupport absThreadDataSupport, View view);
+        void a(com.baidu.tbadk.core.data.a aVar, View view);
     }
 
     public e(Context context) {
         super(context);
-        this.afP = 34053;
-        this.afO = new CardUserInfoLayout(context);
-        this.afO.setShowFlag(this.afP);
-        this.afO.setUserAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.e.1
+        this.afU = 34053;
+        this.afT = new CardUserInfoLayout(context);
+        this.afT.setShowFlag(this.afU);
+        this.afT.setUserAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.afQ != null) {
-                    e.this.afQ.a(e.this.afI, view);
+                if (e.this.afV != null) {
+                    e.this.afV.a(e.this.afN, view);
                 }
                 if (e.this.tB() != null) {
-                    e.this.tB().a(view, e.this.afI);
+                    e.this.tB().a(view, e.this.afN);
                 }
             }
         });
@@ -38,62 +37,62 @@ public class e extends b<AbsThreadDataSupport> {
 
     @Override // com.baidu.card.b
     public void bq(int i) {
-        this.afO.setShowFlag(this.afP);
+        this.afT.setShowFlag(this.afU);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.afO;
+        return this.afT;
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.afO.onChangeSkinType(tbPageContext, i);
+        this.afT.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.card.b
     public void bo(int i) {
-        this.afP |= i;
-        bq(this.afP);
+        this.afU |= i;
+        bq(this.afU);
     }
 
     @Override // com.baidu.card.b
     public void bp(int i) {
-        this.afP &= i ^ (-1);
-        bq(this.afP);
+        this.afU &= i ^ (-1);
+        bq(this.afU);
     }
 
     @Override // com.baidu.card.b
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.afO.setPageUniqueId(bdUniqueId);
+        this.afT.setPageUniqueId(bdUniqueId);
     }
 
     public void a(a aVar) {
-        this.afQ = aVar;
+        this.afV = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void H(AbsThreadDataSupport absThreadDataSupport) {
-        this.afI = absThreadDataSupport;
-        this.afO.setData(absThreadDataSupport.bjZ());
+    public void H(com.baidu.tbadk.core.data.a aVar) {
+        this.afN = aVar;
+        this.afT.setData(aVar.bjd());
     }
 
     public void aE(boolean z) {
-        if (this.afO != null && this.afO.getAvatar() != null) {
-            this.afO.getAvatar().setClickable(z);
+        if (this.afT != null && this.afT.getAvatar() != null) {
+            this.afT.getAvatar().setClickable(z);
         }
     }
 
     public void aF(boolean z) {
-        if (this.afO != null && this.afO.getUserName() != null) {
-            this.afO.getUserName().setClickable(z);
+        if (this.afT != null && this.afT.getUserName() != null) {
+            this.afT.getUserName().setClickable(z);
         }
     }
 
     public void b(TbPageContext tbPageContext) {
-        this.afO.setPageContext(tbPageContext);
+        this.afT.setPageContext(tbPageContext);
     }
 }

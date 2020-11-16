@@ -5,35 +5,35 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 /* loaded from: classes6.dex */
 public class a implements c {
-    private static a cbR;
-    private static e cbS;
-    private static com.baidu.poly.a.e.b cbT;
-    private static com.baidu.poly.a.e.a cbU;
+    private static a cag;
+    private static e cah;
+    private static com.baidu.poly.a.e.b cai;
+    private static com.baidu.poly.a.e.a caj;
     private Context context;
 
     private a(Context context) {
         this.context = context.getApplicationContext();
-        cbT = new com.baidu.poly.a.e.b();
-        cbU = new com.baidu.poly.a.e.a(context);
-        cbS = new e();
+        cai = new com.baidu.poly.a.e.b();
+        caj = new com.baidu.poly.a.e.a(context);
+        cah = new e();
     }
 
     public static a aQ(Context context) {
-        if (cbR == null) {
+        if (cag == null) {
             synchronized (a.class) {
-                if (cbR == null) {
-                    cbR = new a(context);
+                if (cag == null) {
+                    cag = new a(context);
                 }
             }
         }
-        return cbR;
+        return cag;
     }
 
-    public static com.baidu.poly.a.e.b aaX() {
-        if (cbT == null) {
-            cbT = new com.baidu.poly.a.e.b();
+    public static com.baidu.poly.a.e.b aao() {
+        if (cai == null) {
+            cai = new com.baidu.poly.a.e.b();
         }
-        return cbT;
+        return cai;
     }
 
     @Override // com.baidu.poly.a.d.c
@@ -43,18 +43,18 @@ public class a implements c {
 
     public void a(ImageView imageView, String str, int i, int i2) {
         imageView.setTag(str);
-        Bitmap jx = cbT.jx(str);
-        if (jx != null) {
-            imageView.setImageBitmap(jx);
+        Bitmap jr = cai.jr(str);
+        if (jr != null) {
+            imageView.setImageBitmap(jr);
         } else {
-            com.baidu.poly.c.a.execute(new g(this.context, cbS, str, imageView, i, i2));
+            com.baidu.poly.c.a.execute(new g(this.context, cah, str, imageView, i, i2));
         }
     }
 
     public static com.baidu.poly.a.e.a aR(Context context) {
-        if (cbU == null) {
-            cbU = new com.baidu.poly.a.e.a(context);
+        if (caj == null) {
+            caj = new com.baidu.poly.a.e.a(context);
         }
-        return cbU;
+        return caj;
     }
 }

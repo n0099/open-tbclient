@@ -8,7 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

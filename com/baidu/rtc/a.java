@@ -4,13 +4,13 @@ import com.baidu.rtc.PeerConnectionClient;
 import java.math.BigInteger;
 import org.webrtc.PeerConnection;
 import org.webrtc.VideoTrack;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
-    public PeerConnectionClient.c ckd;
-    public BigInteger cke;
-    public PeerConnection ckf;
-    public PeerConnectionClient.d ckg;
-    public boolean ckh;
-    public VideoTrack cki;
-    public int ckj;
+    public PeerConnectionClient.c cis;
+    public BigInteger cit;
+    public PeerConnection ciu;
+    public PeerConnectionClient.d civ;
+    public boolean ciw;
+    public VideoTrack cix;
+    public int ciy;
 }

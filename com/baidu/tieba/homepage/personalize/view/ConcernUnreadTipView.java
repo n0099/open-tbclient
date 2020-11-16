@@ -19,16 +19,16 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class ConcernUnreadTipView extends RelativeLayout {
-    private BdUniqueId aiz;
+    private BdUniqueId aiE;
     private int ds94;
-    private TextView iwk;
-    public ImageView jGL;
-    private LinearLayout jGM;
-    private TextView jGN;
-    private ImageView jGO;
-    private int jGP;
+    private TextView iwZ;
+    public ImageView jHK;
+    private LinearLayout jHL;
+    private TextView jHM;
+    private ImageView jHN;
+    private int jHO;
     private TextView mTitle;
 
     public ConcernUnreadTipView(Context context) {
@@ -48,57 +48,57 @@ public class ConcernUnreadTipView extends RelativeLayout {
 
     private void init(Context context) {
         this.ds94 = l.getDimens(getContext(), R.dimen.tbds94);
-        this.jGP = 0 - l.getDimens(getContext(), R.dimen.tbds18);
+        this.jHO = 0 - l.getDimens(getContext(), R.dimen.tbds18);
         LayoutInflater.from(context).inflate(R.layout.concern_unread_tip_view_layout, (ViewGroup) this, true);
         this.mTitle = (TextView) findViewById(R.id.concern_unread_tip_title);
-        this.jGL = (ImageView) findViewById(R.id.concern_unread_tip_close);
-        this.jGM = (LinearLayout) findViewById(R.id.concern_unread_tip_header_box);
-        this.iwk = (TextView) findViewById(R.id.concern_unread_tip_info);
-        this.jGN = (TextView) findViewById(R.id.concern_unread_tip_show);
-        this.jGO = (ImageView) findViewById(R.id.concern_unread_tip_show_arrow);
+        this.jHK = (ImageView) findViewById(R.id.concern_unread_tip_close);
+        this.jHL = (LinearLayout) findViewById(R.id.concern_unread_tip_header_box);
+        this.iwZ = (TextView) findViewById(R.id.concern_unread_tip_info);
+        this.jHM = (TextView) findViewById(R.id.concern_unread_tip_show);
+        this.jHN = (ImageView) findViewById(R.id.concern_unread_tip_show_arrow);
         setPadding(0, 0, 0, l.getDimens(context, R.dimen.tbds44));
         onChangeSkinType();
     }
 
     public void setBdUniqueId(BdUniqueId bdUniqueId) {
-        this.aiz = bdUniqueId;
+        this.aiE = bdUniqueId;
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
-        this.jGL.setOnClickListener(onClickListener);
+        this.jHK.setOnClickListener(onClickListener);
     }
 
     public void setData(com.baidu.tieba.homepage.personalize.data.e eVar) {
         if (eVar != null) {
-            if (!eVar.cLs()) {
+            if (!eVar.cKY()) {
                 setVisibility(8);
                 return;
             }
-            if (eVar.jFZ > 0) {
-                com.baidu.tbadk.core.sharedPref.b.bqh().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), System.currentTimeMillis() + eVar.jFZ);
+            if (eVar.jGY > 0) {
+                com.baidu.tbadk.core.sharedPref.b.bpu().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), System.currentTimeMillis() + eVar.jGY);
             }
-            if (this.iwk != null && !StringUtils.isNull(eVar.jGa)) {
-                this.iwk.setText(eVar.jGa);
+            if (this.iwZ != null && !StringUtils.isNull(eVar.jGZ)) {
+                this.iwZ.setText(eVar.jGZ);
             }
-            if (this.jGM != null && eVar.jFY != null) {
-                this.jGM.removeAllViews();
-                List<String> list = eVar.jFY;
+            if (this.jHL != null && eVar.jGX != null) {
+                this.jHL.removeAllViews();
+                List<String> list = eVar.jGX;
                 for (int i = 0; i < list.size(); i++) {
                     String str = list.get(i);
                     if (!StringUtils.isNull(str)) {
                         FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.concern_unread_tip_head_group, null);
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.ds94, this.ds94);
                         if (i > 0) {
-                            layoutParams.leftMargin = this.jGP;
+                            layoutParams.leftMargin = this.jHO;
                         }
                         frameLayout.setLayoutParams(layoutParams);
                         HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(R.id.inner_img);
                         headImageView.setIsRound(true);
                         headImageView.setDrawBorder(false);
                         ap.setImageResource((ImageView) frameLayout.findViewById(R.id.out_img), R.drawable.bg_unread_tip_head_border);
-                        this.jGM.addView(frameLayout);
-                        headImageView.setPageId(this.aiz);
+                        this.jHL.addView(frameLayout);
+                        headImageView.setPageId(this.aiE);
                         headImageView.startLoad(str, 12, false);
                     }
                 }
@@ -107,11 +107,11 @@ public class ConcernUnreadTipView extends RelativeLayout {
     }
 
     public void onChangeSkinType() {
-        ap.setBackgroundColor(this, R.color.cp_bg_line_d);
-        ap.setViewTextColor(this.mTitle, R.color.cp_cont_b);
-        ap.setImageResource(this.jGL, R.drawable.icon_home_card_delete);
-        ap.setViewTextColor(this.iwk, R.color.cp_cont_b);
-        ap.setViewTextColor(this.jGN, R.color.cp_cont_d);
-        SvgManager.brn().a(this.jGO, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        ap.setBackgroundColor(this, R.color.CAM_X0201);
+        ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
+        ap.setImageResource(this.jHK, R.drawable.icon_home_card_delete);
+        ap.setViewTextColor(this.iwZ, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jHM, R.color.CAM_X0109);
+        SvgManager.bqB().a(this.jHN, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
     }
 }

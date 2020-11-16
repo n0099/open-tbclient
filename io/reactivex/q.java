@@ -3,26 +3,26 @@ package io.reactivex;
 import io.reactivex.internal.functions.Functions;
 import io.reactivex.internal.observers.LambdaObserver;
 import io.reactivex.internal.operators.observable.ObservableObserveOn;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public abstract class q<T> implements t<T> {
     protected abstract void a(u<? super T> uVar);
 
-    public static int eAv() {
-        return g.eAv();
+    public static int eAw() {
+        return g.eAw();
     }
 
     public final q<T> d(v vVar) {
-        return b(vVar, false, eAv());
+        return b(vVar, false, eAw());
     }
 
     public final q<T> b(v vVar, boolean z, int i) {
         io.reactivex.internal.functions.a.l(vVar, "scheduler is null");
-        io.reactivex.internal.functions.a.cc(i, "bufferSize");
+        io.reactivex.internal.functions.a.ca(i, "bufferSize");
         return io.reactivex.e.a.a(new ObservableObserveOn(this, vVar, z, i));
     }
 
     public final io.reactivex.disposables.b b(io.reactivex.c.g<? super T> gVar) {
-        return a(gVar, Functions.pMt, Functions.pMq, Functions.eAF());
+        return a(gVar, Functions.pNW, Functions.pNT, Functions.eAG());
     }
 
     public final io.reactivex.disposables.b a(io.reactivex.c.g<? super T> gVar, io.reactivex.c.g<? super Throwable> gVar2, io.reactivex.c.a aVar, io.reactivex.c.g<? super io.reactivex.disposables.b> gVar3) {

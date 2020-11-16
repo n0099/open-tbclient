@@ -4,7 +4,7 @@ import com.alibaba.fastjson.asm.Opcodes;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class fu {
     public static int a(Throwable th) {
         Throwable a2 = (!(th instanceof gd) || ((gd) th).a() == null) ? th : ((gd) th).a();

@@ -23,7 +23,7 @@ import java.util.Date;
 import java.util.Locale;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
     private static final int DOWNLOAD_BYTES_SIZE = 8192;
     public static final String TAG = AsyncUploadTask.class.getSimpleName();

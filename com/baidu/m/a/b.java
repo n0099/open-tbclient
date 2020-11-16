@@ -4,17 +4,17 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 /* JADX WARN: Classes with same name are omitted:
-  classes17.dex
+  classes10.dex
  */
 @SuppressLint({"NewApi"})
 @TargetApi(23)
-/* loaded from: classes19.dex */
+/* loaded from: classes16.dex */
 public class b {
 
     /* JADX WARN: Classes with same name are omitted:
-      classes17.dex
+      classes10.dex
      */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes16.dex */
     public interface a {
         void validateRequestPermissionsRequestCode(int i);
     }

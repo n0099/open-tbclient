@@ -1,5 +1,5 @@
 package com.baidu.pass.biometrics.base.restnet.beans.business;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public abstract class BeanConstants {
     public static final boolean DEBUG = false;
     public static String appSignKey = "";

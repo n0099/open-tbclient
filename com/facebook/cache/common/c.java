@@ -3,15 +3,15 @@ package com.facebook.cache.common;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public final class c {
     public static List<String> a(b bVar) {
         try {
             if (bVar instanceof d) {
-                List<b> ejp = ((d) bVar).ejp();
-                ArrayList arrayList = new ArrayList(ejp.size());
-                for (int i = 0; i < ejp.size(); i++) {
-                    arrayList.add(c(ejp.get(i)));
+                List<b> ejn = ((d) bVar).ejn();
+                ArrayList arrayList = new ArrayList(ejn.size());
+                for (int i = 0; i < ejn.size(); i++) {
+                    arrayList.add(c(ejn.get(i)));
                 }
                 return arrayList;
             }
@@ -25,13 +25,13 @@ public final class c {
 
     public static String b(b bVar) {
         try {
-            return bVar instanceof d ? c(((d) bVar).ejp().get(0)) : c(bVar);
+            return bVar instanceof d ? c(((d) bVar).ejn().get(0)) : c(bVar);
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
     }
 
     private static String c(b bVar) throws UnsupportedEncodingException {
-        return com.facebook.common.util.b.am(bVar.ejo().getBytes("UTF-8"));
+        return com.facebook.common.util.b.am(bVar.ejm().getBytes("UTF-8"));
     }
 }

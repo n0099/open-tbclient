@@ -8,7 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class ActivityLifeObserver {
     private static final ActivityLifeObserver b = new ActivityLifeObserver();
 
@@ -16,7 +16,7 @@ public class ActivityLifeObserver {
     private boolean f2458a;
     private Set<IActivityLifeCallback> c = new LinkedHashSet();
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public interface IActivityLifeCallback {
         void onActivityCreated(Activity activity, Bundle bundle);
 

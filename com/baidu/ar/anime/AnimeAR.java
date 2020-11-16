@@ -18,7 +18,7 @@ import com.baidu.ar.lua.LuaMsgListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class AnimeAR extends c {
     private static final String TAG = AnimeAR.class.getSimpleName();
     private LuaMsgListener bZ;

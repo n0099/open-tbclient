@@ -4,20 +4,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class ab extends o<ac, ad> {
     private com.baidu.tieba.pb.data.f pbData;
 
     public ab(com.baidu.tieba.pb.videopb.b bVar) {
-        super(bVar, ac.lwU);
+        super(bVar, ac.lxk);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cl */
+    /* renamed from: ch */
     public ad c(ViewGroup viewGroup) {
-        return new ad(LayoutInflater.from(this.mContext).inflate(R.layout.pb_list_ala_recomment_layout, (ViewGroup) null), this.lsm.dle());
+        return new ad(LayoutInflater.from(this.mContext).inflate(R.layout.pb_list_ala_recomment_layout, (ViewGroup) null), this.lsC.dkB());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

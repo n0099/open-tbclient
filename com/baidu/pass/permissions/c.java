@@ -1,7 +1,7 @@
 package com.baidu.pass.permissions;
 
 import android.view.View;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 class c implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

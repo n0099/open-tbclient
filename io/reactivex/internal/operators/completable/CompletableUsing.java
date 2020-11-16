@@ -11,19 +11,19 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class CompletableUsing<R> extends a {
     final g<? super R> disposer;
     final boolean eager;
-    final Callable<R> pMI;
-    final h<? super R, ? extends e> pMJ;
+    final Callable<R> pOl;
+    final h<? super R, ? extends e> pOm;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
         try {
-            R call = this.pMI.call();
+            R call = this.pOl.call();
             try {
-                ((e) io.reactivex.internal.functions.a.l(this.pMJ.apply(call), "The completableFunction returned a null CompletableSource")).a(new UsingObserver(cVar, call, this.disposer, this.eager));
+                ((e) io.reactivex.internal.functions.a.l(this.pOm.apply(call), "The completableFunction returned a null CompletableSource")).a(new UsingObserver(cVar, call, this.disposer, this.eager));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.J(th);
                 if (this.eager) {
@@ -51,7 +51,7 @@ public final class CompletableUsing<R> extends a {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class UsingObserver<R> extends AtomicReference<Object> implements c, b {
         private static final long serialVersionUID = -674404550052917487L;
         final c actual;

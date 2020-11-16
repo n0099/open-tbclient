@@ -19,7 +19,7 @@ public class SpecialLiveTabInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: uc */
+        /* renamed from: uA */
         public SpecialLiveTabInfo[] newArray(int i) {
             return new SpecialLiveTabInfo[i];
         }

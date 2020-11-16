@@ -20,23 +20,23 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @AnyThread
-    public synchronized void b(@Nullable final Set<String> set, final b.C0439b c0439b) {
+    public synchronized void b(@Nullable final Set<String> set, final b.C0437b c0437b) {
         if (!ProcessUtils.isMainProcess()) {
             if (DEBUG) {
                 Log.w("SwanAppDiskCleaner", "非主进程调用，不执行操作");
             }
-        } else if (atk()) {
-            p.aMz().execute(new Runnable() { // from class: com.baidu.swan.apps.env.a.f.1
+        } else if (asC()) {
+            p.aLR().execute(new Runnable() { // from class: com.baidu.swan.apps.env.a.f.1
                 @Override // java.lang.Runnable
                 public void run() {
                     List<String> list;
                     List<String> aE;
-                    h.aKS().putLong("clean_disk_check_time", System.currentTimeMillis());
+                    h.aKk().putLong("clean_disk_check_time", System.currentTimeMillis());
                     Map bC = f.this.bC(0L);
                     if (bC.isEmpty()) {
                         if (f.DEBUG) {
@@ -64,11 +64,11 @@ public class f {
                     if (f.DEBUG) {
                         Log.i("SwanAppDiskCleaner", "after strategy swanApp size=" + list.size());
                     }
-                    com.baidu.swan.pms.node.b.a bcr = com.baidu.swan.pms.node.b.b.bcq().bcr();
-                    long j = bcr.eiW;
-                    long j2 = bcr.eiY;
-                    long j3 = bcr.eiX;
-                    long j4 = bcr.eiV;
+                    com.baidu.swan.pms.node.b.a bbK = com.baidu.swan.pms.node.b.b.bbJ().bbK();
+                    long j = bbK.ehp;
+                    long j2 = bbK.ehr;
+                    long j3 = bbK.ehq;
+                    long j4 = bbK.eho;
                     if (f.DEBUG) {
                         Log.i("SwanAppDiskCleaner", "forceCleanHour=" + j + ", ignoreCleanHour=" + j2 + ", holdMaxCount=" + j3 + ", maxCount=" + j4);
                     }
@@ -101,14 +101,14 @@ public class f {
                     if (f.DEBUG) {
                         Log.i("SwanAppDiskCleaner", "deleteSwanAppList=" + aE2);
                     }
-                    com.baidu.swan.apps.env.e.ati().atj().a(aE2, false, false, c0439b);
+                    com.baidu.swan.apps.env.e.asA().asB().a(aE2, false, false, c0437b);
                 }
             }, "cleanDiskSpace");
         }
     }
 
-    private boolean atk() {
-        long j = h.aKS().getLong("clean_disk_check_time", 0L);
+    private boolean asC() {
+        long j = h.aKk().getLong("clean_disk_check_time", 0L);
         boolean z = System.currentTimeMillis() - j >= 86400000;
         if (DEBUG && !z) {
             Log.w("SwanAppDiskCleaner", "未达到指定频率不清理, lastTime=" + j + ", now=" + System.currentTimeMillis());
@@ -120,11 +120,11 @@ public class f {
     @WorkerThread
     @NonNull
     public Map<String, Long> bC(long j) {
-        Map<String, PMSAppInfo> bbj = com.baidu.swan.pms.database.a.bbh().bbj();
-        if (bbj == null || bbj.isEmpty()) {
+        Map<String, PMSAppInfo> baC = com.baidu.swan.pms.database.a.baA().baC();
+        if (baC == null || baC.isEmpty()) {
             return Collections.emptyMap();
         }
-        ArrayList<PMSAppInfo> arrayList = new ArrayList(bbj.values());
+        ArrayList<PMSAppInfo> arrayList = new ArrayList(baC.values());
         Collections.sort(arrayList, new a());
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (PMSAppInfo pMSAppInfo : arrayList) {
@@ -136,7 +136,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public class a implements Comparator<PMSAppInfo> {
         private a() {
         }

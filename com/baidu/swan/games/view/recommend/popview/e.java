@@ -2,7 +2,7 @@ package com.baidu.swan.games.view.recommend.popview;
 
 import android.view.View;
 import com.baidu.swan.games.view.recommend.popview.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static void aT(View view) {
         if (view != null) {

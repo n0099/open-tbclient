@@ -1,7 +1,7 @@
 package com.baidu.sapi2.utils;
 
 import android.util.Base64;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */

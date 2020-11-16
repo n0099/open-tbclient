@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.chatmessage.sync;
 import android.content.Context;
 import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class SyncGroupMessage extends SyncStrategy {
     public static final String TAG = SyncGroupMessage.class.getSimpleName();
     private SyncStrategy.CompleteListener completeListener;

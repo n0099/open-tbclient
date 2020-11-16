@@ -5,10 +5,10 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaSendEmoticonResponseMessage extends JsonHttpResponsedMessage {
-    private String bqx;
-    public String otE;
-    public String otF;
-    public String otG;
+    private String boM;
+    public String ovi;
+    public String ovj;
+    public String ovk;
 
     public AlaSendEmoticonResponseMessage() {
         super(1031025);
@@ -18,15 +18,15 @@ public class AlaSendEmoticonResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
-        this.otE = jSONObject.optString("prototype_img");
-        this.otF = jSONObject.optString("compression_img");
-        this.otG = jSONObject.optString("result_img");
+        this.ovi = jSONObject.optString("prototype_img");
+        this.ovj = jSONObject.optString("compression_img");
+        this.ovk = jSONObject.optString("result_img");
         if (optJSONObject != null) {
-            this.bqx = optJSONObject.optString("usermsg");
+            this.boM = optJSONObject.optString("usermsg");
         }
     }
 
     public String getUserMsg() {
-        return this.bqx;
+        return this.boM;
     }
 }

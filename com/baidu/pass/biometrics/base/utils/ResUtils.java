@@ -1,7 +1,7 @@
 package com.baidu.pass.biometrics.base.utils;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public final class ResUtils {
 
     /* renamed from: a  reason: collision with root package name */

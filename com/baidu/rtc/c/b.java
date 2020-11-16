@@ -5,53 +5,53 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.util.HashMap;
 import java.util.Map;
 import org.webrtc.StatsReport;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class b {
-    private String cqM;
-    private String cqN;
-    private String cqO;
-    private String cqP;
-    private String cqR;
-    private String cqS;
-    private String cqU;
-    private String cqV;
-    private String cqW;
-    private String cqX;
-    private String cqZ;
-    private String crB;
-    private String crC;
-    private String crD;
-    private String crE;
-    private String crF;
-    private String cra;
-    private String cre;
-    private int crf;
-    private int crg;
-    private String crh;
-    private String cri;
-    private String crj;
-    private String crk;
-    private String crl;
-    private String crm;
-    private String crn;
-    private String cro;
-    private String crp;
-    private String crq;
-    private String crr;
-    private String crt;
-    private String crv;
-    private String crw;
-    private String cry;
-    private String crz;
-    private String crx = "0";
-    private int crs = 0;
-    private int crd = 0;
-    c cqQ = new c();
-    c cqT = new c();
-    c crb = new c();
-    c cqY = new c();
-    c cru = new c();
-    c crA = new c();
+    private String cpA;
+    private String cpB;
+    private String cpC;
+    private String cpD;
+    private String cpE;
+    private String cpF;
+    private String cpG;
+    private String cpI;
+    private String cpK;
+    private String cpL;
+    private String cpN;
+    private String cpO;
+    private String cpQ;
+    private String cpR;
+    private String cpS;
+    private String cpT;
+    private String cpU;
+    private String cpb;
+    private String cpc;
+    private String cpd;
+    private String cpe;
+    private String cpg;
+    private String cph;
+    private String cpj;
+    private String cpk;
+    private String cpl;
+    private String cpm;
+    private String cpo;
+    private String cpp;
+    private String cps;
+    private int cpt;
+    private int cpv;
+    private String cpw;
+    private String cpx;
+    private String cpy;
+    private String cpz;
+    private String cpM = "0";
+    private int cpH = 0;
+    private int cpr = 0;
+    c cpf = new c();
+    c cpi = new c();
+    c cpq = new c();
+    c cpn = new c();
+    c cpJ = new c();
+    c cpP = new c();
 
     private Map<String, String> a(StatsReport statsReport) {
         StatsReport.Value[] valueArr;
@@ -64,31 +64,31 @@ public class b {
 
     private void n(Map<String, String> map) {
         try {
-            this.cqQ.bq(Integer.parseInt(map.get("bytesReceived")));
-            this.cqP = this.cqQ.aeX();
+            this.cpf.bq(Integer.parseInt(map.get("bytesReceived")));
+            this.cpe = this.cpf.aep();
         } catch (NumberFormatException e) {
             Log.e("HUDStatistic", "parseAudioRecvStatsReport" + e);
         }
-        this.cqN = map.get("googCurrentDelayMs");
-        this.cqR = map.get("googCodecName");
-        this.cqO = map.get("googSpeechExpandRate");
+        this.cpc = map.get("googCurrentDelayMs");
+        this.cpg = map.get("googCodecName");
+        this.cpd = map.get("googSpeechExpandRate");
     }
 
     private void o(Map<String, String> map) {
         try {
-            this.cqT.bq(Long.parseLong(map.get("bytesSent")));
-            this.cqS = this.cqT.aeX();
+            this.cpi.bq(Long.parseLong(map.get("bytesSent")));
+            this.cph = this.cpi.aep();
         } catch (NumberFormatException e) {
         }
-        this.cqU = map.get("googCodecName");
+        this.cpj = map.get("googCodecName");
     }
 
     private void p(Map<String, String> map) {
         try {
-            this.cri = c.t(Double.parseDouble(map.get("googTargetEncBitrate")));
-            this.cqM = c.t(Double.parseDouble(map.get("googActualEncBitrate")));
-            this.cqW = c.t(Double.parseDouble(map.get("googAvailableSendBandwidth")));
-            this.cqV = c.t(Double.parseDouble(map.get("googAvailableReceiveBandwidth")));
+            this.cpx = c.s(Double.parseDouble(map.get("googTargetEncBitrate")));
+            this.cpb = c.s(Double.parseDouble(map.get("googActualEncBitrate")));
+            this.cpl = c.s(Double.parseDouble(map.get("googAvailableSendBandwidth")));
+            this.cpk = c.s(Double.parseDouble(map.get("googAvailableReceiveBandwidth")));
         } catch (NumberFormatException e) {
             Log.e("HUDStatistics", "parseBweStatsReport: " + e);
         }
@@ -100,68 +100,68 @@ public class b {
             return;
         }
         try {
-            this.cqY.bq(Long.parseLong(map.get("bytesReceived")));
-            this.cqX = this.cqY.aeX();
-            this.crb.bq(Long.parseLong(map.get("bytesSent")));
-            this.cra = this.crb.aeX();
+            this.cpn.bq(Long.parseLong(map.get("bytesReceived")));
+            this.cpm = this.cpn.aep();
+            this.cpq.bq(Long.parseLong(map.get("bytesSent")));
+            this.cpp = this.cpq.aep();
         } catch (NumberFormatException e) {
             Log.e("HUDStatistics", "parseConnectionStatsReport" + e);
         }
-        this.cqZ = map.get("googRtt");
-        this.cre = map.get("googLocalCandidateType");
-        this.crh = map.get("googRemoteCandidateType");
-        this.crj = map.get("googTransportType");
+        this.cpo = map.get("googRtt");
+        this.cps = map.get("googLocalCandidateType");
+        this.cpw = map.get("googRemoteCandidateType");
+        this.cpy = map.get("googTransportType");
     }
 
     private void r(Map<String, String> map) {
-        this.crl = map.get("googDecodeMs");
-        this.crk = map.get("googFrameRateDecoded");
-        this.crq = map.get("googFrameRateOutput");
-        this.crv = map.get("googFrameRateReceived");
-        this.cru.bq(Long.parseLong(map.get("bytesReceived")));
-        this.crt = this.cru.aeX();
-        this.crw = map.get("googFrameHeightReceived");
-        this.cry = map.get("googFrameWidthReceived");
+        this.cpA = map.get("googDecodeMs");
+        this.cpz = map.get("googFrameRateDecoded");
+        this.cpF = map.get("googFrameRateOutput");
+        this.cpK = map.get("googFrameRateReceived");
+        this.cpJ.bq(Long.parseLong(map.get("bytesReceived")));
+        this.cpI = this.cpJ.aep();
+        this.cpL = map.get("googFrameHeightReceived");
+        this.cpN = map.get("googFrameWidthReceived");
     }
 
     private void s(Map<String, String> map) {
-        this.crm = map.get("googAvgEncodeMs");
-        this.crn = map.get("googFrameRateInput");
-        this.cro = map.get("googFrameHeightInput");
-        this.crp = map.get("googFrameWidthInput");
-        this.crC = map.get("googFrameRateSent");
-        this.crB = map.get("googCodecName");
-        this.crF = map.get("googFrameWidthSent");
-        this.crD = map.get("googFrameHeightSent");
-        this.crE = map.get("packetsLost");
-        this.crr = map.get("packetsSent");
+        this.cpB = map.get("googAvgEncodeMs");
+        this.cpC = map.get("googFrameRateInput");
+        this.cpD = map.get("googFrameHeightInput");
+        this.cpE = map.get("googFrameWidthInput");
+        this.cpR = map.get("googFrameRateSent");
+        this.cpQ = map.get("googCodecName");
+        this.cpU = map.get("googFrameWidthSent");
+        this.cpS = map.get("googFrameHeightSent");
+        this.cpT = map.get("packetsLost");
+        this.cpG = map.get("packetsSent");
         try {
             String str = map.get("bytesSent");
             if (str != null) {
-                this.crA.bq(Integer.parseInt(str));
+                this.cpP.bq(Integer.parseInt(str));
             }
-            this.crz = this.crA.aeX();
-            this.crg = this.crs;
+            this.cpO = this.cpP.aep();
+            this.cpv = this.cpH;
             String str2 = map.get("qpSum");
             if (str2 != null) {
-                this.crs = Integer.parseInt(str2);
+                this.cpH = Integer.parseInt(str2);
             }
-            this.crf = this.crd;
+            this.cpt = this.cpr;
             String str3 = map.get("framesEncoded");
             if (str3 != null) {
-                this.crd = Integer.parseInt(str3);
+                this.cpr = Integer.parseInt(str3);
             }
         } catch (NumberFormatException e) {
             Log.e("HUDStatistic", "parseVideoSendStatsReport: " + e);
         }
     }
 
-    public String aeV() {
-        return this.cry + "*" + this.crw;
+    public String aen() {
+        return this.cpN + "*" + this.cpL;
     }
 
-    public String aeW() {
-        return this.crF + "*" + this.crD;
+    public String aeo() {
+        return this.cpU + "*" + this.cpS;
     }
 
     public void b(StatsReport[] statsReportArr) {
@@ -195,28 +195,28 @@ public class b {
     }
 
     public void t(Map<String, Integer> map) {
-        if (this.crt == null || this.crx == null || this.crv == null || map == null) {
+        if (this.cpI == null || this.cpM == null || this.cpK == null || map == null) {
             Log.e("HUDStatistics", "getStatsRecvInfo null");
             return;
         }
-        map.put("bitrate_r", Integer.valueOf(c.ke(this.crt) / 1000));
-        map.put("packetloss_r", Integer.valueOf(this.crx));
-        map.put("fps_r", Integer.valueOf(this.crv));
+        map.put("bitrate_r", Integer.valueOf(c.jY(this.cpI) / 1000));
+        map.put("packetloss_r", Integer.valueOf(this.cpM));
+        map.put("fps_r", Integer.valueOf(this.cpK));
     }
 
     public void u(Map<String, Integer> map) {
-        if (this.crz == null || this.crC == null || this.crD == null || map == null) {
+        if (this.cpO == null || this.cpR == null || this.cpS == null || map == null) {
             Log.e("HUDStatistics", "getStatsSendInfo null");
             return;
         }
-        map.put("bitrate_s", Integer.valueOf(c.ke(this.crz) / 1000));
+        map.put("bitrate_s", Integer.valueOf(c.jY(this.cpO) / 1000));
         try {
             Long l = new Long(0L);
-            if (Long.parseLong(this.crr) != 0) {
-                l = Long.valueOf((Long.parseLong(this.crE) * 1000) / Long.parseLong(this.crr));
+            if (Long.parseLong(this.cpG) != 0) {
+                l = Long.valueOf((Long.parseLong(this.cpT) * 1000) / Long.parseLong(this.cpG));
             }
             map.put("packetloss_s", Integer.valueOf(l.intValue()));
-            map.put("fps_s", Integer.valueOf(this.crC));
+            map.put("fps_s", Integer.valueOf(this.cpR));
         } catch (NumberFormatException e) {
             Log.e("HUDStatistics", "getStatsSendInfo: " + e);
         }

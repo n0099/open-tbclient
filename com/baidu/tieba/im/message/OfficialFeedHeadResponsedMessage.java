@@ -8,7 +8,7 @@ public class OfficialFeedHeadResponsedMessage extends CustomResponsedMessage<a> 
 
     /* loaded from: classes.dex */
     public static class a {
-        public List<ChatMessage> kmd;
+        public List<ChatMessage> kmN;
         public List<com.baidu.tieba.im.db.pojo.a> msgList;
     }
 

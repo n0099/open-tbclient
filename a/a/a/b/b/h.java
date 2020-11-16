@@ -3,20 +3,20 @@ package a.a.a.b.b;
 import android.os.Handler;
 import com.baidu.cloudbase.download.exception.DownloadException;
 import java.util.concurrent.Executor;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class h implements com.baidu.cloudbase.download.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Executor f957a;
+    public Executor f960a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     private static class a implements Runnable {
         public final com.baidu.cloudbase.download.a.b yE;
         public final com.baidu.cloudbase.download.a.a yF;
 
         public a(com.baidu.cloudbase.download.a.b bVar) {
             this.yE = bVar;
-            this.yF = this.yE.uH();
+            this.yF = this.yE.uG();
         }
 
         @Override // java.lang.Runnable
@@ -60,28 +60,28 @@ public class h implements com.baidu.cloudbase.download.a.c {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public class b implements Executor {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Handler f958a;
+        public final /* synthetic */ Handler f961a;
 
         public b(h hVar, Handler handler) {
-            this.f958a = handler;
+            this.f961a = handler;
         }
 
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
-            this.f958a.post(runnable);
+            this.f961a.post(runnable);
         }
     }
 
     public h(Handler handler) {
-        this.f957a = new b(this, handler);
+        this.f960a = new b(this, handler);
     }
 
     @Override // com.baidu.cloudbase.download.a.c
     public void a(com.baidu.cloudbase.download.a.b bVar) {
-        this.f957a.execute(new a(bVar));
+        this.f960a.execute(new a(bVar));
     }
 }

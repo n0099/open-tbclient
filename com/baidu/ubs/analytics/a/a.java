@@ -1,7 +1,7 @@
 package com.baidu.ubs.analytics.a;
 
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public final class a implements Serializable {
     private String F;
     private String G;

@@ -8,29 +8,29 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.mvc.d.b;
 import com.baidu.tieba.R;
 import java.util.Date;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, b> {
-    private TextView eWM;
-    private TextView hDk;
-    private TextView laY;
-    private TextView laZ;
+    private TextView eVT;
+    private TextView hCR;
+    private TextView lbq;
+    private TextView lbr;
     private View mLine;
     private View mRootView;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.laY = (TextView) view.findViewById(R.id.title);
-        this.eWM = (TextView) view.findViewById(R.id.content);
-        this.eWM.setSingleLine();
-        this.eWM.setEllipsize(TextUtils.TruncateAt.END);
-        this.hDk = (TextView) view.findViewById(R.id.time);
-        this.laZ = (TextView) view.findViewById(R.id.live_status);
+        this.lbq = (TextView) view.findViewById(R.id.title);
+        this.eVT = (TextView) view.findViewById(R.id.content);
+        this.eVT.setSingleLine();
+        this.eVT.setEllipsize(TextUtils.TruncateAt.END);
+        this.hCR = (TextView) view.findViewById(R.id.time);
+        this.lbr = (TextView) view.findViewById(R.id.live_status);
         this.mLine = view.findViewById(R.id.line);
     }
 
@@ -40,45 +40,45 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public void au(com.baidu.tieba.myCollection.baseHistory.a aVar) {
         super.au(aVar);
         if (aVar != null) {
-            if (this.laY != null) {
+            if (this.lbq != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
                         if (StringUtils.isNull(aVar.getUserName())) {
-                            this.laY.setText(getString(R.string.pb_history_default_user_name));
+                            this.lbq.setText(getString(R.string.pb_history_default_user_name));
                         } else {
-                            this.laY.setText(aVar.getUserName());
+                            this.lbq.setText(aVar.getUserName());
                         }
                     } else {
-                        this.laY.setText(aVar.getDescription());
+                        this.lbq.setText(aVar.getDescription());
                     }
-                } else if (aVar.dfe() != null) {
+                } else if (aVar.deB() != null) {
                     if (aVar.isShareThread()) {
-                        this.laY.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.dfe()));
+                        this.lbq.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.deB()));
                     } else {
-                        this.laY.setText(aVar.dfe());
+                        this.lbq.setText(aVar.deB());
                     }
                 }
             }
-            if (this.eWM != null) {
+            if (this.eVT != null) {
                 if (aVar.getThreadType() == 49 && !TextUtils.isEmpty(aVar.getUserName())) {
-                    this.eWM.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
+                    this.eVT.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
                 } else if (aVar.getThreadType() == 49) {
-                    this.eWM.setText(String.format(getString(R.string.pb_history_user_name), getString(R.string.pb_history_default_user_name)));
+                    this.eVT.setText(String.format(getString(R.string.pb_history_user_name), getString(R.string.pb_history_default_user_name)));
                 } else if (aVar.getForumName() != null) {
-                    this.eWM.setText(aVar.getForumName());
+                    this.eVT.setText(aVar.getForumName());
                 }
             }
             if (aVar.getThreadType() == 49) {
-                this.laZ.setVisibility(aVar.dfh() ? 0 : 8);
+                this.lbr.setVisibility(aVar.deE() ? 0 : 8);
             } else {
-                this.laZ.setVisibility(8);
+                this.lbr.setVisibility(8);
             }
-            if (this.hDk != null) {
-                String l = at.l(new Date(aVar.getTime()));
+            if (this.hCR != null) {
+                String l = au.l(new Date(aVar.getTime()));
                 if (l == null) {
                     l = "";
                 }
-                this.hDk.setText(l);
+                this.hCR.setText(l);
             }
         }
     }
@@ -87,12 +87,12 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     @SuppressLint({"ResourceAsColor"})
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         ap.setBackgroundResource(this.mRootView, R.drawable.list_item_selector);
-        ap.setBackgroundResource(this.mLine, R.color.cp_bg_line_c);
-        ap.setViewTextColor(this.laY, R.color.cp_cont_b, 1);
-        ap.setViewTextColor(this.eWM, R.color.cp_cont_d, 1);
-        ap.setViewTextColor(this.hDk, R.color.cp_cont_d, 1);
-        ap.setViewTextColor(this.laZ, R.color.cp_cont_a);
-        com.baidu.tbadk.core.util.e.a.brO().pp(UtilHelper.getDimenPixelSize(R.dimen.tbds6)).b("LEFT_RIGHT", R.color.cp_other_b, R.color.cp_cont_h).bk(this.laZ);
+        ap.setBackgroundResource(this.mLine, R.color.CAM_X0204);
+        ap.setViewTextColor(this.lbq, R.color.CAM_X0105, 1);
+        ap.setViewTextColor(this.eVT, R.color.CAM_X0109, 1);
+        ap.setViewTextColor(this.hCR, R.color.CAM_X0109, 1);
+        ap.setViewTextColor(this.lbr, R.color.CAM_X0101);
+        com.baidu.tbadk.core.util.e.a.brc().pM(UtilHelper.getDimenPixelSize(R.dimen.tbds6)).b("LEFT_RIGHT", R.color.CAM_X0308, R.color.CAM_X0301).bn(this.lbr);
         return true;
     }
 }

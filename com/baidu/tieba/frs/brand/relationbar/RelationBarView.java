@@ -15,9 +15,9 @@ import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.R;
 import java.util.List;
 import tbclient.OriForumInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
-    private a iPS;
+    private a iQF;
     private RecyclerView mRecyclerView;
     private int mSkinType;
 
@@ -43,8 +43,8 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_layout, (ViewGroup) this, true);
         setOrientation(1);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
-        this.iPS = new a(context);
-        this.mRecyclerView.setAdapter(this.iPS);
+        this.iQF = new a(context);
+        this.mRecyclerView.setAdapter(this.iQF);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         int dimens = l.getDimens(context, R.dimen.tbds44);
@@ -58,16 +58,16 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
             return;
         }
         setVisibility(0);
-        this.iPS.setData(list);
-        this.iPS.notifyDataSetChanged();
+        this.iQF.setData(list);
+        this.iQF.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            ap.setBackgroundColor(this, R.color.cp_bg_line_e);
-            this.iPS.notifyDataSetChanged();
+            ap.setBackgroundColor(this, R.color.CAM_X0205);
+            this.iQF.notifyDataSetChanged();
         }
     }
 }

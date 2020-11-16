@@ -3,7 +3,7 @@ package com.sdk.mobile.b;
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class d implements com.sdk.base.framework.b.a<T> {
 
     /* renamed from: a  reason: collision with root package name */

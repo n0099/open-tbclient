@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import com.baidu.mobstat.cq;
 import java.nio.ByteBuffer;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class co extends cr implements cn {
 
     /* renamed from: a  reason: collision with root package name */

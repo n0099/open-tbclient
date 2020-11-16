@@ -32,15 +32,15 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
-    private FrameLayout bRT;
-    private FrameLayout bRU;
-    private c bRV;
-    private f bRW;
-    private g bRX;
-    private b bRY;
-    private List<AlaWheatInfoData> bRZ;
-    private List<d> bSa;
-    private String[] bSb;
+    private FrameLayout bQj;
+    private FrameLayout bQk;
+    private c bQl;
+    private f bQm;
+    private g bQn;
+    private b bQo;
+    private List<AlaWheatInfoData> bQp;
+    private List<d> bQq;
+    private String[] bQr;
 
     /* loaded from: classes4.dex */
     public interface c {
@@ -60,15 +60,15 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
     }
 
     public void setOnSetDataListener(g gVar) {
-        this.bRX = gVar;
+        this.bQn = gVar;
     }
 
     public void setCallback(c cVar) {
-        this.bRV = cVar;
+        this.bQl = cVar;
     }
 
     public void setOnSelectWheatChangeListener(f fVar) {
-        this.bRW = fVar;
+        this.bQm = fVar;
     }
 
     public GiftPanelSelectMicrophoneSendView(Context context, @Nullable AttributeSet attributeSet) {
@@ -88,16 +88,16 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
     }
 
     private void initView() {
-        this.bRT = (FrameLayout) findViewById(a.f.yuyin_ala_gift_microphone_person_content);
-        this.bRU = (FrameLayout) findViewById(a.f.yuyin_ala_gift_microphone_op_content);
+        this.bQj = (FrameLayout) findViewById(a.f.yuyin_ala_gift_microphone_person_content);
+        this.bQk = (FrameLayout) findViewById(a.f.yuyin_ala_gift_microphone_op_content);
     }
 
     private boolean am(List<d> list) {
-        if (list == null || this.bSa == null || list.size() != this.bSa.size() || list.size() == 0) {
+        if (list == null || this.bQq == null || list.size() != this.bQq.size() || list.size() == 0) {
             return false;
         }
         for (int i2 = 0; i2 < list.size(); i2++) {
-            if (!TextUtils.equals(list.get(i2).bSk.uk, this.bSa.get(i2).bSk.uk) || list.get(i2).bSk.realWheatPosition != this.bSa.get(i2).bSk.realWheatPosition) {
+            if (!TextUtils.equals(list.get(i2).bQA.uk, this.bQq.get(i2).bQA.uk) || list.get(i2).bQA.realWheatPosition != this.bQq.get(i2).bQA.realWheatPosition) {
                 return false;
             }
         }
@@ -107,36 +107,36 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
     public void b(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2, String[] strArr) {
         ArrayList arrayList;
         d dVar;
-        AlaWheatInfoData iY;
-        this.bSb = strArr;
+        AlaWheatInfoData iS;
+        this.bQr = strArr;
         if (strArr == null || strArr.length == 0) {
             arrayList = null;
         } else {
             arrayList = new ArrayList();
             for (String str : strArr) {
-                if (!StringUtils.isNull(str) && (iY = com.baidu.live.al.b.Xh().iY(str)) != null) {
-                    arrayList.add(iY);
+                if (!StringUtils.isNull(str) && (iS = com.baidu.live.al.b.Wy().iS(str)) != null) {
+                    arrayList.add(iS);
                 }
             }
             if (ListUtils.isEmpty(arrayList)) {
-                this.bRZ = null;
+                this.bQp = null;
                 h(null, false);
                 return;
             }
         }
         if (!ListUtils.isEmpty(arrayList)) {
-            if (!f(this.bRZ, arrayList)) {
-                this.bRZ = arrayList;
+            if (!f(this.bQp, arrayList)) {
+                this.bQp = arrayList;
                 ArrayList arrayList2 = new ArrayList();
-                for (AlaWheatInfoData alaWheatInfoData : this.bRZ) {
+                for (AlaWheatInfoData alaWheatInfoData : this.bQp) {
                     AlaWheatInfoData alaWheatInfoData2 = (AlaWheatInfoData) alaWheatInfoData.clone();
                     alaWheatInfoData2.isSelected = true;
-                    com.baidu.live.al.b.Xh().F(alaWheatInfoData2.uk, true);
+                    com.baidu.live.al.b.Wy().F(alaWheatInfoData2.uk, true);
                     if (alaWheatInfoData2.isHost) {
                         dVar = new d(alaWheatInfoData2, "主持");
                     } else {
-                        w Xn = com.baidu.live.al.b.Xh().Xn();
-                        if (Xn != null && Xn.aJP != null && Xn.aJP.isSweetStage()) {
+                        w WE = com.baidu.live.al.b.Wy().WE();
+                        if (WE != null && WE.aIe != null && WE.aIe.isSweetStage()) {
                             dVar = new d(alaWheatInfoData2, alaWheatInfoData2.phoneOrder + "麦");
                         } else {
                             dVar = new d(alaWheatInfoData2, alaWheatInfoData2.realWheatPosition + "麦");
@@ -156,45 +156,45 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
         }
         List<d> g2 = g(list, list2);
         if (!am(g2)) {
-            if (this.bSa == null) {
-                this.bSa = new ArrayList();
+            if (this.bQq == null) {
+                this.bQq = new ArrayList();
             }
-            this.bSa.clear();
+            this.bQq.clear();
             for (d dVar2 : g2) {
-                this.bSa.add(dVar2.clone());
+                this.bQq.add(dVar2.clone());
             }
             h(g2, true);
         }
     }
 
     private void a(final d dVar) {
-        this.bRT.removeAllViews();
-        this.bRU.removeAllViews();
-        this.bRY = new h(getContext());
+        this.bQj.removeAllViews();
+        this.bQk.removeAllViews();
+        this.bQo = new h(getContext());
         if (dVar != null) {
-            h hVar = (h) this.bRY;
+            h hVar = (h) this.bQo;
             hVar.b(dVar);
-            hVar.bSu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.1
+            hVar.bQK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (GiftPanelSelectMicrophoneSendView.this.bRV != null) {
-                        GiftPanelSelectMicrophoneSendView.this.bRV.a(dVar.bSk);
+                    if (GiftPanelSelectMicrophoneSendView.this.bQl != null) {
+                        GiftPanelSelectMicrophoneSendView.this.bQl.a(dVar.bQA);
                     }
                 }
             });
-            hVar.bSv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.2
+            hVar.bQL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (GiftPanelSelectMicrophoneSendView.this.bRV != null) {
-                        GiftPanelSelectMicrophoneSendView.this.bRV.b(dVar.bSk);
+                    if (GiftPanelSelectMicrophoneSendView.this.bQl != null) {
+                        GiftPanelSelectMicrophoneSendView.this.bQl.b(dVar.bQA);
                     }
                 }
             });
-            if (this.bRX != null) {
-                this.bRX.c(dVar.bSk);
+            if (this.bQn != null) {
+                this.bQn.c(dVar.bQA);
             }
-            this.bRT.addView(this.bRY.contentView);
-            this.bRU.addView(this.bRY.bSj);
+            this.bQj.addView(this.bQo.contentView);
+            this.bQk.addView(this.bQo.bQz);
         }
     }
 
@@ -214,59 +214,59 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
     }
 
     private void h(List<d> list, boolean z) {
-        this.bRT.removeAllViews();
-        this.bRU.removeAllViews();
-        this.bRY = new a(getContext());
-        final a aVar = (a) this.bRY;
+        this.bQj.removeAllViews();
+        this.bQk.removeAllViews();
+        this.bQo = new a(getContext());
+        final a aVar = (a) this.bQo;
         aVar.setData(list);
-        aVar.bSg.setSelected(aVar.bSi.XT());
-        aVar.bSg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.3
+        aVar.bQw.setSelected(aVar.bQy.Xk());
+        aVar.bQw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                aVar.bSi.dm(!aVar.bSi.XT());
-                ((a) GiftPanelSelectMicrophoneSendView.this.bRY).bSg.setSelected(aVar.bSi.XT());
-                if (GiftPanelSelectMicrophoneSendView.this.bRW != null) {
-                    GiftPanelSelectMicrophoneSendView.this.bRW.onChange();
+                aVar.bQy.m24do(!aVar.bQy.Xk());
+                ((a) GiftPanelSelectMicrophoneSendView.this.bQo).bQw.setSelected(aVar.bQy.Xk());
+                if (GiftPanelSelectMicrophoneSendView.this.bQm != null) {
+                    GiftPanelSelectMicrophoneSendView.this.bQm.onChange();
                 }
             }
         });
-        e eVar = aVar.bSi;
-        e eVar2 = aVar.bSi;
+        e eVar = aVar.bQy;
+        e eVar2 = aVar.bQy;
         eVar2.getClass();
         eVar.a(new e.a(eVar2, aVar) { // from class: com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.4
-            final /* synthetic */ a bSe;
+            final /* synthetic */ a bQu;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super();
-                this.bSe = aVar;
+                this.bQu = aVar;
                 eVar2.getClass();
             }
 
             @Override // com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.e.a
             void onItemClick(int i2) {
-                ((a) GiftPanelSelectMicrophoneSendView.this.bRY).bSg.setSelected(this.bSe.bSi.XT());
-                if (GiftPanelSelectMicrophoneSendView.this.bRW != null) {
-                    GiftPanelSelectMicrophoneSendView.this.bRW.onChange();
+                ((a) GiftPanelSelectMicrophoneSendView.this.bQo).bQw.setSelected(this.bQu.bQy.Xk());
+                if (GiftPanelSelectMicrophoneSendView.this.bQm != null) {
+                    GiftPanelSelectMicrophoneSendView.this.bQm.onChange();
                 }
             }
         });
-        this.bRT.addView(this.bRY.contentView);
+        this.bQj.addView(this.bQo.contentView);
         if (z) {
-            this.bRU.addView(this.bRY.bSj);
+            this.bQk.addView(this.bQo.bQz);
         }
     }
 
     public void setAttentionAndInfo(PersonUserData personUserData) {
-        if (personUserData != null && personUserData.user_info != null && personUserData.relation_info != null && this.bRY != null && (this.bRY instanceof h)) {
-            ((h) this.bRY).dp(!TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), personUserData.user_info.user_id) && personUserData.relation_info.follow_status == 0);
-            ((h) this.bRY).m24do(true);
+        if (personUserData != null && personUserData.user_info != null && personUserData.relation_info != null && this.bQo != null && (this.bQo instanceof h)) {
+            ((h) this.bQo).dr(!TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), personUserData.user_info.user_id) && personUserData.relation_info.follow_status == 0);
+            ((h) this.bQo).dq(true);
         }
     }
 
-    public void XA() {
-        if (this.bRY != null && (this.bRY instanceof h)) {
-            ((h) this.bRY).dp(false);
+    public void WR() {
+        if (this.bQo != null && (this.bQo instanceof h)) {
+            ((h) this.bQo).dr(false);
         }
     }
 
@@ -282,7 +282,7 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
             for (AlaWheatInfoData alaWheatInfoData : list) {
                 d dVar5 = new d(alaWheatInfoData, "主持");
                 arrayList.add(dVar5);
-                if (com.baidu.live.al.b.Xh().iW(alaWheatInfoData.uk)) {
+                if (com.baidu.live.al.b.Wy().iQ(alaWheatInfoData.uk)) {
                     dVar3 = dVar5.clone();
                     dVar3.posName = "房主";
                 } else {
@@ -302,7 +302,7 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
                 AlaWheatInfoData next = it.next();
                 d dVar6 = new d(next, String.valueOf(next.realWheatPosition));
                 arrayList.add(dVar6);
-                if (com.baidu.live.al.b.Xh().iW(next.uk)) {
+                if (com.baidu.live.al.b.Wy().iQ(next.uk)) {
                     dVar = dVar6.clone();
                     dVar.posName = "房主";
                 } else {
@@ -313,27 +313,27 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
             dVar2 = dVar;
         }
         if (dVar2 == null) {
-            AlaWheatInfoData Xi = com.baidu.live.al.b.Xh().Xi();
-            if (Xi != null) {
-                AlaWheatInfoData alaWheatInfoData2 = (AlaWheatInfoData) Xi.clone();
+            AlaWheatInfoData Wz = com.baidu.live.al.b.Wy().Wz();
+            if (Wz != null) {
+                AlaWheatInfoData alaWheatInfoData2 = (AlaWheatInfoData) Wz.clone();
                 alaWheatInfoData2.userName = "房主";
                 arrayList.add(new d(alaWheatInfoData2, "房主"));
             }
         } else {
-            dVar2.bSk.userName = "房主";
+            dVar2.bQA.userName = "房主";
             arrayList.add(dVar2);
         }
         if (TbadkCoreApplication.isLogin() && arrayList.size() > 0) {
             Iterator it2 = arrayList.iterator();
             while (it2.hasNext()) {
-                if (TextUtils.equals(String.valueOf(ExtraParamsManager.getEncryptionUserId(TbadkCoreApplication.getCurrentAccount())), ((d) it2.next()).bSk.uk)) {
+                if (TextUtils.equals(String.valueOf(ExtraParamsManager.getEncryptionUserId(TbadkCoreApplication.getCurrentAccount())), ((d) it2.next()).bQA.uk)) {
                     it2.remove();
                 }
             }
         }
         if (arrayList != null) {
             for (d dVar7 : arrayList) {
-                dVar7.bSk.isSelected = com.baidu.live.al.b.Xh().iZ(dVar7.bSk.uk);
+                dVar7.bQA.isSelected = com.baidu.live.al.b.Wy().iT(dVar7.bQA.uk);
             }
         }
         return arrayList;
@@ -342,28 +342,28 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
     public i getSelectMicrophoneList() {
         i iVar = new i();
         ArrayList arrayList = new ArrayList();
-        iVar.bSw = this.bSb;
-        if (this.bRY != null) {
-            if (this.bRY instanceof h) {
-                if (((h) this.bRY).bSs != null) {
-                    arrayList.add(((h) this.bRY).bSs);
+        iVar.bQM = this.bQr;
+        if (this.bQo != null) {
+            if (this.bQo instanceof h) {
+                if (((h) this.bQo).bQI != null) {
+                    arrayList.add(((h) this.bQo).bQI);
                 }
-            } else if (this.bRY instanceof a) {
-                for (AlaWheatInfoData alaWheatInfoData : ((a) this.bRY).getData()) {
+            } else if (this.bQo instanceof a) {
+                for (AlaWheatInfoData alaWheatInfoData : ((a) this.bQo).getData()) {
                     if (alaWheatInfoData.isSelected) {
                         arrayList.add(alaWheatInfoData);
                     }
                 }
             }
         }
-        iVar.bSx = arrayList;
+        iVar.bQN = arrayList;
         return iVar;
     }
 
     /* loaded from: classes4.dex */
     public class i {
-        public String[] bSw;
-        public List<AlaWheatInfoData> bSx;
+        public String[] bQM;
+        public List<AlaWheatInfoData> bQN;
 
         public i() {
         }
@@ -372,33 +372,33 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public abstract class b {
-        protected View bSj;
+        protected View bQz;
         protected View contentView = getContentView();
 
-        protected abstract int XP();
+        protected abstract int Xg();
 
-        abstract void XQ();
+        abstract void Xh();
 
-        abstract void XR();
+        abstract void Xi();
 
         protected abstract View getContentView();
 
         b(Context context) {
-            this.bSj = LayoutInflater.from(context).inflate(XP(), (ViewGroup) null, false);
-            XQ();
-            XR();
+            this.bQz = LayoutInflater.from(context).inflate(Xg(), (ViewGroup) null, false);
+            Xh();
+            Xi();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public class h extends b {
-        public TextView bSp;
-        public AlaWheatInfoData bSs;
-        public TextView bSt;
-        public AlaGiftMicrophoneOpBtn bSu;
-        public AlaGiftMicrophoneOpBtn bSv;
-        public HeadImageView bhE;
+        public TextView bQF;
+        public AlaWheatInfoData bQI;
+        public TextView bQJ;
+        public AlaGiftMicrophoneOpBtn bQK;
+        public AlaGiftMicrophoneOpBtn bQL;
+        public HeadImageView bfS;
 
         h(Context context) {
             super(context);
@@ -410,64 +410,63 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
         }
 
         @Override // com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.b
-        protected int XP() {
+        protected int Xg() {
             return a.g.yuyin_ala_gift_microphone_onlyone_footerview;
         }
 
         @Override // com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.b
-        void XQ() {
-            this.bhE = (HeadImageView) this.contentView.findViewById(a.f.yuyin_ala_gift_onlyone_microphone_header);
-            this.bSp = (TextView) this.contentView.findViewById(a.f.yuyin_ala_gift_onlyone_microphone_number);
-            this.bSt = (TextView) this.contentView.findViewById(a.f.yuyin_ala_gift_onlyone_microphone_name);
-            this.bhE.setIsRound(true);
+        void Xh() {
+            this.bfS = (HeadImageView) this.contentView.findViewById(a.f.yuyin_ala_gift_onlyone_microphone_header);
+            this.bQF = (TextView) this.contentView.findViewById(a.f.yuyin_ala_gift_onlyone_microphone_number);
+            this.bQJ = (TextView) this.contentView.findViewById(a.f.yuyin_ala_gift_onlyone_microphone_name);
+            this.bfS.setIsRound(true);
         }
 
         @Override // com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.b
-        void XR() {
-            this.bSu = (AlaGiftMicrophoneOpBtn) this.bSj.findViewById(a.f.yuyin_ala_gift_microphone_person_attention);
-            this.bSv = (AlaGiftMicrophoneOpBtn) this.bSj.findViewById(a.f.yuyin_ala_gift_microphone_person_info);
-            this.bSu.setSelected(true);
-            this.bSv.setSelected(false);
+        void Xi() {
+            this.bQK = (AlaGiftMicrophoneOpBtn) this.bQz.findViewById(a.f.yuyin_ala_gift_microphone_person_attention);
+            this.bQL = (AlaGiftMicrophoneOpBtn) this.bQz.findViewById(a.f.yuyin_ala_gift_microphone_person_info);
+            this.bQK.setSelected(true);
+            this.bQL.setSelected(false);
         }
 
         public void b(d dVar) {
-            if (dVar != null && dVar.bSk != null) {
-                this.bSs = dVar.bSk;
-                this.bhE.startLoad(dVar.bSk.portrait, 12, true);
-                this.bSp.setText(dVar.posName);
-                this.bSt.setText(dVar.bSk.userName);
+            if (dVar != null && dVar.bQA != null) {
+                this.bQI = dVar.bQA;
+                this.bfS.startLoad(dVar.bQA.portrait, 12, true);
+                this.bQF.setText(dVar.posName);
+                this.bQJ.setText(dVar.bQA.userName);
             }
         }
 
-        /* renamed from: do  reason: not valid java name */
-        public void m24do(boolean z) {
-            this.bSv.setVisibility(z ? 0 : 8);
+        public void dq(boolean z) {
+            this.bQL.setVisibility(z ? 0 : 8);
         }
 
-        public void dp(boolean z) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bSv.getLayoutParams();
+        public void dr(boolean z) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bQL.getLayoutParams();
             if (!z) {
                 layoutParams.leftMargin = 0;
-                this.bSu.setVisibility(8);
+                this.bQK.setVisibility(8);
             } else {
                 layoutParams.leftMargin = BdUtilHelper.getDimens(GiftPanelSelectMicrophoneSendView.this.getContext(), a.d.sdk_ds20);
-                this.bSu.setVisibility(0);
+                this.bQK.setVisibility(0);
             }
-            this.bSv.setLayoutParams(layoutParams);
+            this.bQL.setLayoutParams(layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public class a extends b {
-        public AlphaGradientHListView bSf;
-        public AlaGiftMicrophoneOpBtn bSg;
-        private List<AlaWheatInfoData> bSh;
-        public e bSi;
+        public AlphaGradientHListView bQv;
+        public AlaGiftMicrophoneOpBtn bQw;
+        private List<AlaWheatInfoData> bQx;
+        public e bQy;
 
         a(Context context) {
             super(context);
-            this.bSh = new ArrayList();
+            this.bQx = new ArrayList();
         }
 
         @Override // com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.b
@@ -476,55 +475,55 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
         }
 
         @Override // com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.b
-        protected int XP() {
+        protected int Xg() {
             return a.g.yuyin_ala_gift_microphone_aboveone_footerview;
         }
 
         @Override // com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.b
-        void XQ() {
-            this.bSf = (AlphaGradientHListView) this.contentView;
-            this.bSf.setShadowWidth(GiftPanelSelectMicrophoneSendView.this.getResources().getDimensionPixelOffset(a.d.sdk_ds56));
-            this.bSf.setNeedAlphaShade(true);
-            this.bSf.setColor(GiftPanelSelectMicrophoneSendView.this.getResources().getColor(a.c.sdk_white_alpha100), GiftPanelSelectMicrophoneSendView.this.getResources().getColor(a.c.sdk_white_alpha0));
-            this.bSf.setSelector(new ColorDrawable(0));
-            this.bSi = new e();
-            this.bSf.setAdapter((ListAdapter) this.bSi);
+        void Xh() {
+            this.bQv = (AlphaGradientHListView) this.contentView;
+            this.bQv.setShadowWidth(GiftPanelSelectMicrophoneSendView.this.getResources().getDimensionPixelOffset(a.d.sdk_ds56));
+            this.bQv.setNeedAlphaShade(true);
+            this.bQv.setColor(GiftPanelSelectMicrophoneSendView.this.getResources().getColor(a.c.sdk_white_alpha100), GiftPanelSelectMicrophoneSendView.this.getResources().getColor(a.c.sdk_white_alpha0));
+            this.bQv.setSelector(new ColorDrawable(0));
+            this.bQy = new e();
+            this.bQv.setAdapter((ListAdapter) this.bQy);
         }
 
         @Override // com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.b
-        void XR() {
-            this.bSg = (AlaGiftMicrophoneOpBtn) this.bSj.findViewById(a.f.yuyin_ala_gift_microphone_person_selectall);
-            this.bSg.setSelected(true);
+        void Xi() {
+            this.bQw = (AlaGiftMicrophoneOpBtn) this.bQz.findViewById(a.f.yuyin_ala_gift_microphone_person_selectall);
+            this.bQw.setSelected(true);
         }
 
         public List<AlaWheatInfoData> getData() {
-            this.bSh.clear();
-            if (this.bSi != null && this.bSi.getData() != null) {
-                for (d dVar : this.bSi.getData()) {
-                    this.bSh.add(dVar.bSk);
+            this.bQx.clear();
+            if (this.bQy != null && this.bQy.getData() != null) {
+                for (d dVar : this.bQy.getData()) {
+                    this.bQx.add(dVar.bQA);
                 }
             }
-            return this.bSh;
+            return this.bQx;
         }
 
         public void setData(List<d> list) {
-            this.bSi.setData(list);
+            this.bQy.setData(list);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public class d implements Cloneable {
-        public AlaWheatInfoData bSk;
+        public AlaWheatInfoData bQA;
         public String posName;
 
         public d(AlaWheatInfoData alaWheatInfoData, String str) {
-            this.bSk = alaWheatInfoData;
+            this.bQA = alaWheatInfoData;
             this.posName = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* renamed from: XS */
+        /* renamed from: Xj */
         public d clone() {
             d dVar = null;
             try {
@@ -532,8 +531,8 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
             } catch (CloneNotSupportedException e) {
                 e.printStackTrace();
             }
-            if (dVar != null && this.bSk != null) {
-                dVar.bSk = (AlaWheatInfoData) this.bSk.clone();
+            if (dVar != null && this.bQA != null) {
+                dVar.bQA = (AlaWheatInfoData) this.bQA.clone();
             }
             return dVar;
         }
@@ -542,14 +541,14 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public class e extends BaseAdapter {
-        private List<d> bSl;
-        private a bSm;
+        private List<d> bQB;
+        private a bQC;
 
         e() {
         }
 
         public void a(a aVar) {
-            this.bSm = aVar;
+            this.bQC = aVar;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -561,48 +560,49 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
             }
         }
 
-        public boolean XT() {
-            if (this.bSl == null || this.bSl.size() == 0) {
+        public boolean Xk() {
+            if (this.bQB == null || this.bQB.size() == 0) {
                 return false;
             }
-            for (d dVar : this.bSl) {
-                if (!dVar.bSk.isSelected) {
+            for (d dVar : this.bQB) {
+                if (!dVar.bQA.isSelected) {
                     return false;
                 }
             }
             return true;
         }
 
-        public void dm(boolean z) {
-            if (this.bSl != null) {
-                for (d dVar : this.bSl) {
-                    dVar.bSk.isSelected = z;
-                    com.baidu.live.al.b.Xh().F(dVar.bSk.uk, dVar.bSk.isSelected);
+        /* renamed from: do  reason: not valid java name */
+        public void m24do(boolean z) {
+            if (this.bQB != null) {
+                for (d dVar : this.bQB) {
+                    dVar.bQA.isSelected = z;
+                    com.baidu.live.al.b.Wy().F(dVar.bQA.uk, dVar.bQA.isSelected);
                 }
                 notifyDataSetChanged();
             }
         }
 
         public List<d> getData() {
-            return this.bSl;
+            return this.bQB;
         }
 
         public void setData(List<d> list) {
-            this.bSl = list;
+            this.bQB = list;
             notifyDataSetChanged();
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.bSl == null) {
+            if (this.bQB == null) {
                 return 0;
             }
-            return this.bSl.size();
+            return this.bQB.size();
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i) {
-            return this.bSl.get(i);
+            return this.bQB.get(i);
         }
 
         @Override // android.widget.Adapter
@@ -625,11 +625,11 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    dVar.bSk.isSelected = !dVar.bSk.isSelected;
-                    com.baidu.live.al.b.Xh().F(dVar.bSk.uk, dVar.bSk.isSelected);
+                    dVar.bQA.isSelected = !dVar.bQA.isSelected;
+                    com.baidu.live.al.b.Wy().F(dVar.bQA.uk, dVar.bQA.isSelected);
                     e.this.notifyDataSetChanged();
-                    if (e.this.bSm != null) {
-                        e.this.bSm.onItemClick(i);
+                    if (e.this.bQC != null) {
+                        e.this.bQC.onItemClick(i);
                     }
                 }
             });
@@ -639,10 +639,10 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
 
         /* loaded from: classes4.dex */
         class b {
-            public TextView bSp;
-            public View bSq;
-            public SafeFrameLayout bSr;
-            public HeadImageView bhE;
+            public TextView bQF;
+            public View bQG;
+            public SafeFrameLayout bQH;
+            public HeadImageView bfS;
 
             b() {
             }
@@ -652,44 +652,44 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
             }
 
             public void al(View view) {
-                this.bSq = view.findViewById(a.f.yuyin_ala_gift_microphone_content);
-                this.bSr = (SafeFrameLayout) view.findViewById(a.f.yuyin_ala_gift_microphone_headwrap);
-                this.bhE = (HeadImageView) view.findViewById(a.f.yuyin_ala_gift_microphone_header);
-                this.bSp = (TextView) view.findViewById(a.f.yuyin_ala_gift_microphone_number);
-                this.bhE.setIsRound(true);
+                this.bQG = view.findViewById(a.f.yuyin_ala_gift_microphone_content);
+                this.bQH = (SafeFrameLayout) view.findViewById(a.f.yuyin_ala_gift_microphone_headwrap);
+                this.bfS = (HeadImageView) view.findViewById(a.f.yuyin_ala_gift_microphone_header);
+                this.bQF = (TextView) view.findViewById(a.f.yuyin_ala_gift_microphone_number);
+                this.bfS.setIsRound(true);
             }
 
             public void a(int i, d dVar) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bSq.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bQG.getLayoutParams();
                 if (i > 0) {
                     layoutParams.leftMargin = BdUtilHelper.getDimens(GiftPanelSelectMicrophoneSendView.this.getContext(), a.d.sdk_ds8);
                 } else {
                     layoutParams.leftMargin = 0;
                 }
-                this.bSq.setLayoutParams(layoutParams);
-                if (dVar.bSk != null) {
-                    this.bhE.setDefaultResource(a.e.yuyin_ala_gift_panel_wheat_header_loadfail);
-                    this.bhE.setDefaultErrorResource(a.e.yuyin_ala_gift_panel_wheat_header_loadfail);
-                    this.bhE.startLoad(TextUtils.isEmpty(dVar.bSk.portrait) ? "fail" : dVar.bSk.portrait, 12, false);
-                    jb(dVar.posName);
-                    dn(dVar.bSk.isSelected);
+                this.bQG.setLayoutParams(layoutParams);
+                if (dVar.bQA != null) {
+                    this.bfS.setDefaultResource(a.e.yuyin_ala_gift_panel_wheat_header_loadfail);
+                    this.bfS.setDefaultErrorResource(a.e.yuyin_ala_gift_panel_wheat_header_loadfail);
+                    this.bfS.startLoad(TextUtils.isEmpty(dVar.bQA.portrait) ? "fail" : dVar.bQA.portrait, 12, false);
+                    iV(dVar.posName);
+                    dp(dVar.bQA.isSelected);
                 }
             }
 
-            public void dn(boolean z) {
+            public void dp(boolean z) {
                 if (z) {
-                    this.bSr.setBackgroundResource(a.e.ala_gift_circle_red_bg_header);
+                    this.bQH.setBackgroundResource(a.e.ala_gift_circle_red_bg_header);
                 } else {
-                    this.bSr.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
+                    this.bQH.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
                 }
-                this.bSp.setSelected(z);
+                this.bQF.setSelected(z);
             }
 
-            public void jb(String str) {
+            public void iV(String str) {
                 if (!TextUtils.isEmpty(str)) {
                     int dip2px = str.length() > 1 ? BdUtilHelper.dip2px(GiftPanelSelectMicrophoneSendView.this.getContext(), BdUtilHelper.getDimens(GiftPanelSelectMicrophoneSendView.this.getContext(), a.d.sdk_ds3)) : 0;
-                    this.bSp.setPadding(dip2px, 0, dip2px, 0);
-                    this.bSp.setText(str);
+                    this.bQF.setPadding(dip2px, 0, dip2px, 0);
+                    this.bQF.setText(str);
                 }
             }
         }

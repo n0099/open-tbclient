@@ -7,7 +7,7 @@ import com.baidu.swan.apps.scheme.h;
 import com.baidu.swan.apps.scheme.i;
 import com.baidu.tieba.write.b.a.j;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes19.dex */
 public class UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider implements a {
     @Override // com.baidu.pyramid.a.a
     public Object get() {

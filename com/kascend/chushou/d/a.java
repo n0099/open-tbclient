@@ -23,9 +23,9 @@ public class a {
         boolean z2 = false;
         a(context);
         VideoPlayer videoPlayer = null;
-        Activity hj = f.hj(context);
-        if (hj instanceof FragmentActivity) {
-            videoPlayer = (FragmentActivity) hj;
+        Activity hh = f.hh(context);
+        if (hh instanceof FragmentActivity) {
+            videoPlayer = (FragmentActivity) hh;
         }
         if (videoPlayer != null) {
             if (videoPlayer instanceof VideoPlayer) {
@@ -40,7 +40,7 @@ public class a {
                 z = false;
                 str5 = str;
             }
-            com.kascend.chushou.view.b.b.a.pxQ.a(str2, str5, str3, z, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
+            com.kascend.chushou.view.b.b.a.pzt.a(str2, str5, str3, z, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
         }
     }
 
@@ -61,8 +61,8 @@ public class a {
                 e.a(context, listItem, jSONObject);
                 return;
             }
-            Activity hj = f.hj(context);
-            VideoPlayer videoPlayer = hj instanceof FragmentActivity ? (FragmentActivity) hj : null;
+            Activity hh = f.hh(context);
+            VideoPlayer videoPlayer = hh instanceof FragmentActivity ? (FragmentActivity) hh : null;
             if (videoPlayer != null) {
                 if (videoPlayer instanceof VideoPlayer) {
                     z3 = true;
@@ -77,7 +77,7 @@ public class a {
                     z3 = false;
                     str4 = str;
                 }
-                com.kascend.chushou.view.b.b.a.pxQ.a(str2, str4, null, z3, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
+                com.kascend.chushou.view.b.b.a.pzt.a(str2, str4, null, z3, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
             }
         }
     }
@@ -119,7 +119,7 @@ public class a {
         bundle.putBoolean("mCanBack", true);
         bundle.putBoolean("mEnableRefresh", z);
         intent.putExtra("extra", bundle);
-        if (f.hj(context) == null) {
+        if (f.hh(context) == null) {
             intent.addFlags(268435456);
         }
         context.startActivity(intent);
@@ -134,10 +134,10 @@ public class a {
     }
 
     public static void b(Context context, String str) {
-        com.kascend.cstvsdk.utils.a.pCO.a(context);
+        com.kascend.cstvsdk.utils.a.pEr.a(context);
     }
 
     public static void c(Context context, String str) {
-        com.kascend.cstvsdk.utils.a.pCO.c(context);
+        com.kascend.cstvsdk.utils.a.pEr.c(context);
     }
 }

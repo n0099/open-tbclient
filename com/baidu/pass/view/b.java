@@ -3,7 +3,7 @@ package com.baidu.pass.view;
 import android.view.View;
 import com.baidu.pass.view.ConfirmDialog;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

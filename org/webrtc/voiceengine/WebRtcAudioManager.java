@@ -12,7 +12,7 @@ import java.util.TimerTask;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class WebRtcAudioManager {
     private static final int BITS_PER_SAMPLE = 16;
     private static final boolean DEBUG = false;
@@ -42,7 +42,7 @@ public class WebRtcAudioManager {
     private int sampleRate;
     private final VolumeLogger volumeLogger;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     private static class VolumeLogger {
         private static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";
         private static final int TIMER_PERIOD_IN_SECONDS = 30;
@@ -51,7 +51,7 @@ public class WebRtcAudioManager {
         private Timer timer;
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes9.dex */
+        /* loaded from: classes16.dex */
         public class LogVolumeTask extends TimerTask {
             private final int maxRingVolume;
             private final int maxVoiceCallVolume;

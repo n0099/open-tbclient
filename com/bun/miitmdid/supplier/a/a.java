@@ -5,7 +5,7 @@ import android.os.IBinder;
 import com.asus.msa.sdid.SupplementaryDIDManager;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */

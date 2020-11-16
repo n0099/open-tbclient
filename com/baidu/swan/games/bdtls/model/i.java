@@ -3,10 +3,10 @@ package com.baidu.swan.games.bdtls.model;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class i {
-    private String dSc;
-    private Integer dSd;
+    private String dQu;
+    private Integer dQv;
 
     public i() {
         this(null, null, 3, null);
@@ -16,7 +16,7 @@ public final class i {
         if (this != obj) {
             if (obj instanceof i) {
                 i iVar = (i) obj;
-                if (!q.l(this.dSc, iVar.dSc) || !q.l(this.dSd, iVar.dSd)) {
+                if (!q.l(this.dQu, iVar.dQu) || !q.l(this.dQv, iVar.dQv)) {
                 }
             }
             return false;
@@ -25,19 +25,19 @@ public final class i {
     }
 
     public int hashCode() {
-        String str = this.dSc;
+        String str = this.dQu;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        Integer num = this.dSd;
+        Integer num = this.dQv;
         return hashCode + (num != null ? num.hashCode() : 0);
     }
 
     public String toString() {
-        return "ResponseParams(responseMessage=" + this.dSc + ", responseStatusCode=" + this.dSd + ")";
+        return "ResponseParams(responseMessage=" + this.dQu + ", responseStatusCode=" + this.dQv + ")";
     }
 
     public i(String str, Integer num) {
-        this.dSc = str;
-        this.dSd = num;
+        this.dQu = str;
+        this.dQv = num;
     }
 
     public /* synthetic */ i(String str, Integer num, int i, o oVar) {
@@ -45,18 +45,18 @@ public final class i {
     }
 
     public final String getResponseMessage() {
-        return this.dSc;
+        return this.dQu;
     }
 
-    public final void wu(String str) {
-        this.dSc = str;
+    public final void wp(String str) {
+        this.dQu = str;
     }
 
-    public final Integer aTZ() {
-        return this.dSd;
+    public final Integer aTr() {
+        return this.dQv;
     }
 
     public final void f(Integer num) {
-        this.dSd = num;
+        this.dQv = num;
     }
 }

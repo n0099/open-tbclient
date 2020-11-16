@@ -14,16 +14,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newdetail.a.c;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lcn);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lcF);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cd */
+    /* renamed from: bZ */
     public a c(ViewGroup viewGroup) {
         LinearLayout linearLayout = new LinearLayout(viewGroup.getContext());
         linearLayout.setOrientation(1);
@@ -32,7 +32,7 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
         View view = new View(viewGroup.getContext());
         linearLayout.addView(view, new LinearLayout.LayoutParams(-1, l.getDimens(viewGroup.getContext(), R.dimen.tbds1)));
         TextView textView = new TextView(viewGroup.getContext());
-        textView.setTextColor(viewGroup.getContext().getResources().getColor(R.color.cp_cont_b));
+        textView.setTextColor(viewGroup.getContext().getResources().getColor(R.color.CAM_X0105));
         textView.setTextSize(0, l.getDimens(viewGroup.getContext(), R.dimen.tbds47));
         textView.setTypeface(Typeface.DEFAULT_BOLD);
         textView.setIncludeFontPadding(false);
@@ -58,31 +58,31 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes21.dex */
+    /* loaded from: classes20.dex */
     public static class a extends af.a {
-        private View eIO;
-        private TextView evg;
-        private int jBV;
+        private View eHl;
+        private TextView etx;
+        private int jCS;
 
         a(View view, TextView textView, View view2) {
             super(view);
-            this.jBV = 3;
-            this.evg = textView;
-            this.eIO = view2;
+            this.jCS = 3;
+            this.etx = textView;
+            this.eHl = view2;
         }
 
         void a(c cVar) {
             if (cVar != null) {
-                this.evg.setText(cVar.title);
-                this.eIO.setVisibility(cVar.kPB ? 0 : 8);
+                this.etx.setText(cVar.title);
+                this.eHl.setVisibility(cVar.kPO ? 0 : 8);
             }
         }
 
         void onChangeSkinType(int i) {
-            if (this.jBV != i) {
-                ap.setViewTextColor(this.evg, R.color.cp_cont_b);
-                ap.setBackgroundColor(this.eIO, R.color.cp_bg_line_c);
-                this.jBV = i;
+            if (this.jCS != i) {
+                ap.setViewTextColor(this.etx, R.color.CAM_X0105);
+                ap.setBackgroundColor(this.eHl, R.color.CAM_X0204);
+                this.jCS = i;
             }
         }
     }

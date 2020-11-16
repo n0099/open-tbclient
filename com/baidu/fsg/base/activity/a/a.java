@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import com.baidu.fsg.base.utils.ResUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class a extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */

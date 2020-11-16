@@ -5,18 +5,18 @@ import java.util.Arrays;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class j {
-    private long aUW;
-    private int dSe;
-    private volatile int dSf;
-    private Integer dSg;
-    private Integer dSh;
-    private Integer dSi;
-    private Integer dSj;
-    private byte[] dSk;
-    private byte[] dSl;
-    private byte[] dSm;
+    private long aTl;
+    private Integer dQA;
+    private Integer dQB;
+    private byte[] dQC;
+    private byte[] dQD;
+    private byte[] dQE;
+    private int dQw;
+    private volatile int dQx;
+    private Integer dQy;
+    private Integer dQz;
 
     public j() {
         this(null, null, null, null, null, null, 0L, null, 255, null);
@@ -28,10 +28,10 @@ public final class j {
                 return false;
             }
             j jVar = (j) obj;
-            if (!q.l(this.dSg, jVar.dSg) || !q.l(this.dSh, jVar.dSh) || !q.l(this.dSi, jVar.dSi) || !q.l(this.dSj, jVar.dSj) || !q.l(this.dSk, jVar.dSk) || !q.l(this.dSl, jVar.dSl)) {
+            if (!q.l(this.dQy, jVar.dQy) || !q.l(this.dQz, jVar.dQz) || !q.l(this.dQA, jVar.dQA) || !q.l(this.dQB, jVar.dQB) || !q.l(this.dQC, jVar.dQC) || !q.l(this.dQD, jVar.dQD)) {
                 return false;
             }
-            if (!(this.aUW == jVar.aUW) || !q.l(this.dSm, jVar.dSm)) {
+            if (!(this.aTl == jVar.aTl) || !q.l(this.dQE, jVar.dQE)) {
                 return false;
             }
         }
@@ -39,136 +39,136 @@ public final class j {
     }
 
     public int hashCode() {
-        Integer num = this.dSg;
+        Integer num = this.dQy;
         int hashCode = (num != null ? num.hashCode() : 0) * 31;
-        Integer num2 = this.dSh;
+        Integer num2 = this.dQz;
         int hashCode2 = ((num2 != null ? num2.hashCode() : 0) + hashCode) * 31;
-        Integer num3 = this.dSi;
+        Integer num3 = this.dQA;
         int hashCode3 = ((num3 != null ? num3.hashCode() : 0) + hashCode2) * 31;
-        Integer num4 = this.dSj;
+        Integer num4 = this.dQB;
         int hashCode4 = ((num4 != null ? num4.hashCode() : 0) + hashCode3) * 31;
-        byte[] bArr = this.dSk;
+        byte[] bArr = this.dQC;
         int hashCode5 = ((bArr != null ? Arrays.hashCode(bArr) : 0) + hashCode4) * 31;
-        byte[] bArr2 = this.dSl;
+        byte[] bArr2 = this.dQD;
         int hashCode6 = bArr2 != null ? Arrays.hashCode(bArr2) : 0;
-        long j = this.aUW;
+        long j = this.aTl;
         int i = (((hashCode6 + hashCode5) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
-        byte[] bArr3 = this.dSm;
+        byte[] bArr3 = this.dQE;
         return i + (bArr3 != null ? Arrays.hashCode(bArr3) : 0);
     }
 
     public String toString() {
-        return "SessionParams(dhGroupId=" + this.dSg + ", dhSecretKey=" + this.dSh + ", dhPublicKey=" + this.dSi + ", dhServerPublicKey=" + this.dSj + ", aesSecretKey=" + Arrays.toString(this.dSk) + ", sessionTicket=" + Arrays.toString(this.dSl) + ", expireTime=" + this.aUW + ", entryType=" + Arrays.toString(this.dSm) + ")";
+        return "SessionParams(dhGroupId=" + this.dQy + ", dhSecretKey=" + this.dQz + ", dhPublicKey=" + this.dQA + ", dhServerPublicKey=" + this.dQB + ", aesSecretKey=" + Arrays.toString(this.dQC) + ", sessionTicket=" + Arrays.toString(this.dQD) + ", expireTime=" + this.aTl + ", entryType=" + Arrays.toString(this.dQE) + ")";
     }
 
     public j(Integer num, Integer num2, Integer num3, Integer num4, byte[] bArr, byte[] bArr2, long j, byte[] bArr3) {
-        this.dSg = num;
-        this.dSh = num2;
-        this.dSi = num3;
-        this.dSj = num4;
-        this.dSk = bArr;
-        this.dSl = bArr2;
-        this.aUW = j;
-        this.dSm = bArr3;
+        this.dQy = num;
+        this.dQz = num2;
+        this.dQA = num3;
+        this.dQB = num4;
+        this.dQC = bArr;
+        this.dQD = bArr2;
+        this.aTl = j;
+        this.dQE = bArr3;
     }
 
     public /* synthetic */ j(Integer num, Integer num2, Integer num3, Integer num4, byte[] bArr, byte[] bArr2, long j, byte[] bArr3, int i, o oVar) {
         this((i & 1) != 0 ? null : num, (i & 2) != 0 ? null : num2, (i & 4) != 0 ? null : num3, (i & 8) != 0 ? null : num4, (i & 16) != 0 ? null : bArr, (i & 32) != 0 ? null : bArr2, (i & 64) != 0 ? 0L : j, (i & 128) != 0 ? null : bArr3);
     }
 
-    public final Integer aUf() {
-        return this.dSg;
+    public final Integer aTx() {
+        return this.dQy;
     }
 
     public final void g(Integer num) {
-        this.dSg = num;
+        this.dQy = num;
     }
 
-    public final Integer aUg() {
-        return this.dSh;
+    public final Integer aTy() {
+        return this.dQz;
     }
 
     public final void h(Integer num) {
-        this.dSh = num;
+        this.dQz = num;
     }
 
-    public final Integer aUh() {
-        return this.dSi;
+    public final Integer aTz() {
+        return this.dQA;
     }
 
     public final void i(Integer num) {
-        this.dSi = num;
+        this.dQA = num;
     }
 
-    public final Integer aUi() {
-        return this.dSj;
+    public final Integer aTA() {
+        return this.dQB;
     }
 
     public final void j(Integer num) {
-        this.dSj = num;
+        this.dQB = num;
     }
 
     public final void U(byte[] bArr) {
-        this.dSk = bArr;
+        this.dQC = bArr;
     }
 
-    public final byte[] aUj() {
-        return this.dSk;
+    public final byte[] aTB() {
+        return this.dQC;
     }
 
     public final void V(byte[] bArr) {
-        this.dSl = bArr;
+        this.dQD = bArr;
     }
 
-    public final byte[] aUk() {
-        return this.dSl;
+    public final byte[] aTC() {
+        return this.dQD;
     }
 
     public final void E(long j) {
-        this.aUW = j;
+        this.aTl = j;
     }
 
     public final void W(byte[] bArr) {
-        this.dSm = bArr;
+        this.dQE = bArr;
     }
 
-    public final int aUa() {
-        return this.dSe;
+    public final int aTs() {
+        return this.dQw;
     }
 
-    public final void mb(int i) {
-        this.dSe = i;
+    public final void lX(int i) {
+        this.dQw = i;
     }
 
-    public final void aUb() {
+    public final void aTt() {
         if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("BDTLS", "Recovery: add recoveryCount: " + this.dSf);
+            Log.d("BDTLS", "Recovery: add recoveryCount: " + this.dQx);
         }
-        this.dSf++;
+        this.dQx++;
     }
 
-    public final synchronized boolean aUc() {
+    public final synchronized boolean aTu() {
         boolean z = true;
         synchronized (this) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.dSk == null || this.dSl == null || this.aUW <= currentTimeMillis || this.dSe != 1) {
+            if (this.dQC == null || this.dQD == null || this.aTl <= currentTimeMillis || this.dQw != 1) {
                 z = false;
             }
             if (com.baidu.swan.games.bdtls.a.DEBUG) {
-                Log.d("BDTLS", "isSessionEnable " + this.dSk + ' ' + this.dSl + ' ' + this.aUW + ' ' + this.dSe);
+                Log.d("BDTLS", "isSessionEnable " + this.dQC + ' ' + this.dQD + ' ' + this.aTl + ' ' + this.dQw);
             }
         }
         return z;
     }
 
-    public final boolean aUd() {
-        return this.dSf < 3;
+    public final boolean aTv() {
+        return this.dQx < 3;
     }
 
-    public final void aUe() {
+    public final void aTw() {
         if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("BDTLS", "Downgrade: reset downgrade count " + this.dSf);
+            Log.d("BDTLS", "Downgrade: reset downgrade count " + this.dQx);
         }
-        this.dSf = 0;
+        this.dQx = 0;
     }
 }

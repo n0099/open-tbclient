@@ -1,37 +1,29 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
-import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BannerImage;
 /* loaded from: classes.dex */
-public class aj {
-    private String class_name = null;
-    private int eBs = 0;
+public class aj extends BaseCardInfo implements com.baidu.adp.widget.ListView.q {
+    public static final BdUniqueId TYPE = BdUniqueId.gen();
+    public List<k> dataList = new ArrayList();
 
-    public String bkO() {
-        return this.class_name;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return TYPE;
     }
 
-    public int bkP() {
-        return this.eBs;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.eBs = jSONObject.optInt("class_id", 0);
-                this.class_name = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    public void parserProtobuf(List<BannerImage> list) {
+        if (list != null) {
+            this.dataList.clear();
+            int min = Math.min(list.size(), 10);
+            for (int i = 0; i < min; i++) {
+                k kVar = new k();
+                kVar.a(list.get(i));
+                this.dataList.add(kVar);
             }
-        }
-    }
-
-    public void a(Classify classify) {
-        if (classify != null) {
-            this.eBs = classify.class_id.intValue();
-            this.class_name = classify.class_name;
         }
     }
 }

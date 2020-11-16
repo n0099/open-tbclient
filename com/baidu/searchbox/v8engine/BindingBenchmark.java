@@ -3,11 +3,11 @@ package com.baidu.searchbox.v8engine;
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BindingBenchmark {
     private final V8Engine mEngine;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class JavaObject {
         @V8JavascriptField
         public int mInt;

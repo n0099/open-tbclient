@@ -12,7 +12,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.NotYetConnectedException;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public abstract class cc extends bz implements by, Runnable {
     static final /* synthetic */ boolean c;
 
@@ -232,7 +232,7 @@ public abstract class cc extends bz implements by, Runnable {
     public void b(cq cqVar) {
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     class a implements Runnable {
         private a() {
         }

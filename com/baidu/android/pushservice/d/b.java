@@ -7,7 +7,7 @@ import com.baidu.android.pushservice.h.a.b;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class b {
     @SuppressLint({"InlinedApi"})
     public static void a(Context context, HashMap<String, String> hashMap) {

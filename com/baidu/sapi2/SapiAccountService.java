@@ -60,7 +60,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class SapiAccountService implements com.baidu.sapi2.service.interfaces.a {
     public static final String BUSINESS_FROM_ONE_KEY_LOGIN = "business_from_one_key_login";
     private static final String c = "SapiAccountService";
@@ -71,7 +71,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     private c b = new c();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class a extends GetTplStokenCallback {
 
         /* renamed from: a  reason: collision with root package name */
@@ -101,7 +101,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     class b implements SapiCallback<OAuthResult> {
 
         /* renamed from: a  reason: collision with root package name */

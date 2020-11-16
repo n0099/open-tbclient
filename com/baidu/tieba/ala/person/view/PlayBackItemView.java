@@ -13,10 +13,10 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.view.RatioTbImageView;
 /* loaded from: classes4.dex */
 public class PlayBackItemView extends RelativeLayout {
-    private RatioTbImageView hDh;
-    private LinearLayout hDi;
-    private TextView hDj;
-    private TextView hDk;
+    private RatioTbImageView hCO;
+    private LinearLayout hCP;
+    private TextView hCQ;
+    private TextView hCR;
     private TextView mTitleView;
 
     public PlayBackItemView(Context context) {
@@ -36,23 +36,23 @@ public class PlayBackItemView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_person_palyback_item, this);
-        this.hDi = (LinearLayout) findViewById(a.f.playback_info_layout);
-        this.hDh = (RatioTbImageView) findViewById(a.f.playback_cover);
-        this.hDj = (TextView) findViewById(a.f.playback_audience_count);
-        this.hDk = (TextView) findViewById(a.f.playback_time);
+        this.hCP = (LinearLayout) findViewById(a.f.playback_info_layout);
+        this.hCO = (RatioTbImageView) findViewById(a.f.playback_cover);
+        this.hCQ = (TextView) findViewById(a.f.playback_audience_count);
+        this.hCR = (TextView) findViewById(a.f.playback_time);
         this.mTitleView = (TextView) findViewById(a.f.playback_title);
     }
 
     public void setData(String str, long j, long j2, String str2) {
-        this.hDh.startLoad(str, 10, false);
+        this.hCO.startLoad(str, 10, false);
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            this.hDi.setVisibility(8);
+            this.hCP.setVisibility(8);
         } else {
-            this.hDi.setVisibility(0);
+            this.hCP.setVisibility(0);
             String format = String.format(getContext().getString(a.h.ala_person_audience), com.baidu.tieba.ala.person.d.a.aE(j));
             String timeInterval = StringHelper.getTimeInterval(j2);
-            this.hDj.setText(format);
-            this.hDk.setText(timeInterval);
+            this.hCQ.setText(format);
+            this.hCR.setText(timeInterval);
         }
         if (StringUtils.isNull(str2)) {
             this.mTitleView.setText(StringHelper.STRING_MORE);

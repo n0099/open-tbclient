@@ -10,7 +10,7 @@ import com.baidu.live.adp.lib.cache.BdKVCache;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f988a = true;
+    public static boolean f991a = true;
     private static volatile a e;
     private final Context b;
     private h c;
@@ -76,9 +76,9 @@ public final class a {
     }
 
     private h.a b(String str) {
-        f da = this.d.da(str);
-        if (da != null) {
-            return this.c.a(da);
+        f dc = this.d.dc(str);
+        if (dc != null) {
+            return this.c.a(dc);
         }
         return null;
     }

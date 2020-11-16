@@ -5,15 +5,15 @@ import android.view.View;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class AchievementActivity extends BaseActivity {
-    private c iMJ;
-    private a iMK;
-    private View.OnClickListener iML = new View.OnClickListener() { // from class: com.baidu.tieba.frs.achievement.AchievementActivity.1
+    private c iNw;
+    private a iNx;
+    private View.OnClickListener iNy = new View.OnClickListener() { // from class: com.baidu.tieba.frs.achievement.AchievementActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            AchievementActivity.this.iMJ.setDisplay(false);
-            AchievementActivity.this.iMK.setDisplay(true);
+            AchievementActivity.this.iNw.setDisplay(false);
+            AchievementActivity.this.iNx.setDisplay(true);
         }
     };
 
@@ -23,11 +23,11 @@ public class AchievementActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.activity_achievement);
-        this.iMJ = new c(getPageContext(), findViewById(R.id.layout_thanks_letter));
-        this.iMJ.setDisplay(true);
-        this.iMJ.A(this.iML);
-        this.iMK = new a(getPageContext(), findViewById(R.id.layout_invite_letter));
-        this.iMK.setDisplay(false);
+        this.iNw = new c(getPageContext(), findViewById(R.id.layout_thanks_letter));
+        this.iNw.setDisplay(true);
+        this.iNw.A(this.iNy);
+        this.iNx = new a(getPageContext(), findViewById(R.id.layout_invite_letter));
+        this.iNx.setDisplay(false);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -44,7 +44,7 @@ public class AchievementActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iMJ.onChangeSkinType(i);
-        this.iMK.onChangeSkinType(i);
+        this.iNw.onChangeSkinType(i);
+        this.iNx.onChangeSkinType(i);
     }
 }

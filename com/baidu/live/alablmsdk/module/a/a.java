@@ -8,12 +8,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public String aBJ;
-    public boolean aBK;
-    public String aBL;
-    private List<b> aBM = new ArrayList();
+    public String aAa;
+    private List<b> aAb = new ArrayList();
+    public String azY;
+    public boolean azZ;
 
-    public static JSONObject BW() {
+    public static JSONObject Bn() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
@@ -21,26 +21,26 @@ public class a {
             jSONObject.put("user_ext_info", jSONObject2);
         } catch (JSONException e) {
         }
-        com.baidu.live.alablmsdk.a.b.ah(" structureStatusCheckInfo " + jSONObject.toString(), "");
+        com.baidu.live.alablmsdk.a.b.ag(" structureStatusCheckInfo " + jSONObject.toString(), "");
         return jSONObject;
     }
 
-    public String u(JSONObject jSONObject) {
-        JSONObject t = t(jSONObject);
-        return t != null ? t.toString() : "";
+    public String o(JSONObject jSONObject) {
+        JSONObject n = n(jSONObject);
+        return n != null ? n.toString() : "";
     }
 
-    public JSONObject t(JSONObject jSONObject) {
+    public JSONObject n(JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
         try {
             JSONObject jSONObject2 = new JSONObject();
-            if (!TextUtils.isEmpty(this.aBL)) {
-                jSONObject2.put("blm_status_check_info", this.aBL);
+            if (!TextUtils.isEmpty(this.aAa)) {
+                jSONObject2.put("blm_status_check_info", this.aAa);
             }
-            if (!TextUtils.isEmpty(this.aBJ)) {
-                jSONObject2.put("user_ext_info", new JSONArray(this.aBJ));
+            if (!TextUtils.isEmpty(this.azY)) {
+                jSONObject2.put("user_ext_info", new JSONArray(this.azY));
             }
             if (jSONObject2.length() > 0) {
                 jSONObject.put("blm_internal_info", jSONObject2);
@@ -51,19 +51,19 @@ public class a {
         return jSONObject;
     }
 
-    public JSONObject fO(String str) {
+    public JSONObject fI(String str) {
         com.baidu.live.alablmsdk.a.b.d(" parseAndRemoveInternalInfo 原始数据 " + str);
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            return v(new JSONObject(str));
+            return p(new JSONObject(str));
         } catch (JSONException e) {
             return null;
         }
     }
 
-    private JSONObject v(JSONObject jSONObject) {
+    private JSONObject p(JSONObject jSONObject) {
         JSONObject jSONObject2;
         if (jSONObject == null) {
             return null;
@@ -71,23 +71,23 @@ public class a {
         JSONObject optJSONObject = jSONObject.optJSONObject("blm_internal_info");
         if (optJSONObject != null) {
             if (optJSONObject.has("blm_status_check_info")) {
-                this.aBK = true;
+                this.azZ = true;
             }
-            this.aBL = optJSONObject.optString("blm_status_check_info");
-            this.aBJ = optJSONObject.optString("user_ext_info");
-            if (this.aBJ != null) {
+            this.aAa = optJSONObject.optString("blm_status_check_info");
+            this.azY = optJSONObject.optString("user_ext_info");
+            if (this.azY != null) {
                 try {
-                    JSONArray jSONArray = new JSONArray(this.aBJ);
+                    JSONArray jSONArray = new JSONArray(this.azY);
                     int length = jSONArray.length();
-                    if (this.aBM == null) {
-                        this.aBM = new ArrayList();
+                    if (this.aAb == null) {
+                        this.aAb = new ArrayList();
                     }
                     for (int i = 0; i < length; i++) {
                         String string = jSONArray.getString(i);
                         if (!TextUtils.isEmpty(string) && (jSONObject2 = new JSONObject(string)) != null) {
                             b bVar = new b();
                             bVar.parse(jSONObject2);
-                            this.aBM.add(bVar);
+                            this.aAb.add(bVar);
                         }
                     }
                 } catch (JSONException e) {
@@ -100,17 +100,17 @@ public class a {
     }
 
     public b ae(long j) {
-        if (j == 0 || com.baidu.live.alablmsdk.a.a.isEmpty(this.aBM)) {
+        if (j == 0 || com.baidu.live.alablmsdk.a.a.isEmpty(this.aAb)) {
             return null;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.aBM.size()) {
+            if (i2 >= this.aAb.size()) {
                 return null;
             }
-            b bVar = this.aBM.get(i2);
-            if (bVar == null || bVar.aBv != j) {
+            b bVar = this.aAb.get(i2);
+            if (bVar == null || bVar.azK != j) {
                 i = i2 + 1;
             } else {
                 return bVar;

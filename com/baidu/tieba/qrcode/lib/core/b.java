@@ -11,13 +11,13 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 final class b {
-    private static final Pattern mpW = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    private static final Pattern mqq = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
     private final Context mContext;
-    private Point mpX;
-    private Point mpY;
-    private Point mpZ;
+    private Point mqr;
+    private Point mqs;
+    private Point mqt;
 
     public b(Context context) {
         this.mContext = context;
@@ -28,20 +28,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.mpX = a.fL(this.mContext);
+        this.mqr = a.fK(this.mContext);
         Point point = new Point();
-        point.x = this.mpX.x;
-        point.y = this.mpX.y;
-        int fK = a.fK(this.mContext);
-        if (fK == 0) {
-            point.x = this.mpX.y;
-            point.y = this.mpX.x;
+        point.x = this.mqr.x;
+        point.y = this.mqr.y;
+        int fJ = a.fJ(this.mContext);
+        if (fJ == 0) {
+            point.x = this.mqr.y;
+            point.y = this.mqr.x;
         }
-        this.mpZ = a(parameters, point);
-        if (fK == 0) {
-            this.mpY = new Point(this.mpZ.y, this.mpZ.x);
+        this.mqt = a(parameters, point);
+        if (fJ == 0) {
+            this.mqs = new Point(this.mqt.y, this.mqt.x);
         } else {
-            this.mpY = this.mpZ;
+            this.mqs = this.mqt;
         }
     }
 
@@ -49,15 +49,15 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point dzr() {
-        return this.mpY;
+    public Point dyR() {
+        return this.mqs;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.mpZ.x, this.mpZ.y);
+        parameters.setPreviewSize(this.mqt.x, this.mqt.y);
         d(parameters);
-        camera.setDisplayOrientation(dzs());
+        camera.setDisplayOrientation(dyS());
         camera.setParameters(parameters);
     }
 
@@ -72,7 +72,7 @@ final class b {
         return null;
     }
 
-    public int dzs() {
+    public int dyS() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -148,7 +148,7 @@ final class b {
     }
 
     private static int c(CharSequence charSequence, int i) {
-        String[] split = mpW.split(charSequence);
+        String[] split = mqq.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

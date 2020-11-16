@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LandscapeImBarrageTrackView extends FrameLayout {
-    private int aFL;
-    private int aFM;
-    private boolean aFN;
-    private List<View> aFY;
-    private a bPt;
+    private int aEa;
+    private int aEb;
+    private boolean aEc;
+    private List<View> aEn;
+    private a bNJ;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -25,17 +25,17 @@ public class LandscapeImBarrageTrackView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.bPt = aVar;
+        this.bNJ = aVar;
     }
 
     public void setCanAddNext() {
-        this.aFN = true;
+        this.aEc = true;
     }
 
     private void init() {
         setBackgroundColor(0);
-        this.aFY = new ArrayList();
-        this.aFL = getResources().getDimensionPixelOffset(a.d.sdk_ds110);
-        this.aFM = getResources().getDimensionPixelOffset(a.d.sdk_ds120);
+        this.aEn = new ArrayList();
+        this.aEa = getResources().getDimensionPixelOffset(a.d.sdk_ds110);
+        this.aEb = getResources().getDimensionPixelOffset(a.d.sdk_ds120);
     }
 }

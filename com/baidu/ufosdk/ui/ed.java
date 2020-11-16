@@ -1,7 +1,7 @@
 package com.baidu.ufosdk.ui;
 
 import android.widget.Button;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class ed implements ey {
 
     /* renamed from: a  reason: collision with root package name */

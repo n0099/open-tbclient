@@ -5,29 +5,29 @@ import com.facebook.common.internal.g;
 import com.facebook.imagepipeline.g.h;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class f implements d {
-    private final b oWO;
+    private final b oYr;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes15.dex */
     public interface b {
-        List<Integer> epN();
+        List<Integer> epL();
 
-        int epO();
+        int epM();
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes15.dex */
     private static class a implements b {
         private a() {
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public List<Integer> epN() {
+        public List<Integer> epL() {
             return Collections.EMPTY_LIST;
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public int epO() {
+        public int epM() {
             return 0;
         }
     }
@@ -37,23 +37,23 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.oWO = (b) g.checkNotNull(bVar);
+        this.oYr = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public int Pg(int i) {
-        List<Integer> epN = this.oWO.epN();
-        if (epN == null || epN.isEmpty()) {
+    public int PJ(int i) {
+        List<Integer> epL = this.oYr.epL();
+        if (epL == null || epL.isEmpty()) {
             return i + 1;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < epN.size()) {
-                if (epN.get(i3).intValue() <= i) {
+            if (i3 < epL.size()) {
+                if (epL.get(i3).intValue() <= i) {
                     i2 = i3 + 1;
                 } else {
-                    return epN.get(i3).intValue();
+                    return epL.get(i3).intValue();
                 }
             } else {
                 return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
@@ -62,7 +62,7 @@ public class f implements d {
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public h Ph(int i) {
-        return com.facebook.imagepipeline.g.g.k(i, i >= this.oWO.epO(), false);
+    public h PK(int i) {
+        return com.facebook.imagepipeline.g.g.k(i, i >= this.oYr.epM(), false);
     }
 }

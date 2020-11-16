@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.k;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class GrantWebActivity extends BaseActivity {
     private static final String u = GrantWebActivity.class.getSimpleName();
     private static final String v = "openapp";

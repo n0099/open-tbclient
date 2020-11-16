@@ -9,25 +9,25 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LocationInformationBox extends AbstractFullBox {
     public static final String TYPE = "loci";
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_9 = null;
     private String additionalNotes;
     private double altitude;
     private String astronomicalBody;
@@ -94,7 +94,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setRole(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.RD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Sg(i)));
         this.role = i;
     }
 

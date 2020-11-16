@@ -3,7 +3,7 @@ package com.baidu.media.recorder;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.HttpStatus;
-/* loaded from: classes16.dex */
+/* loaded from: classes18.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

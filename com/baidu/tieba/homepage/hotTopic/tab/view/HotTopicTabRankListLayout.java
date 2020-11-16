@@ -25,68 +25,68 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.hotTopic.tab.b.c;
 import com.baidu.tieba.homepage.hotTopic.tab.b.d;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class HotTopicTabRankListLayout extends RecyclerView {
-    private int jBV;
-    private a jBW;
+    private int jCS;
+    private a jCT;
 
     public void setOnItemCoverListener(f<c> fVar) {
-        this.jBW.setOnItemCoverListener(fVar);
+        this.jCT.setOnItemCoverListener(fVar);
     }
 
     public HotTopicTabRankListLayout(Context context) {
         super(context);
-        this.jBV = 3;
+        this.jCS = 3;
         initView();
     }
 
     public HotTopicTabRankListLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jBV = 3;
+        this.jCS = 3;
         initView();
     }
 
     public HotTopicTabRankListLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jBV = 3;
+        this.jCS = 3;
         initView();
     }
 
     private void initView() {
         setLayoutManager(new GridLayoutManager(getContext(), 2));
         setOverScrollMode(2);
-        this.jBW = new a();
-        setAdapter(this.jBW);
+        this.jCT = new a();
+        setAdapter(this.jCT);
     }
 
     public void a(d dVar) {
-        if (dVar != null && dVar.cKC() != null) {
-            this.jBW.dK(dVar.cKC());
+        if (dVar != null && dVar.cKh() != null) {
+            this.jCT.dK(dVar.cKh());
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jBV != i) {
-            this.jBW.notifyDataSetChanged();
-            this.jBV = i;
+        if (this.jCS != i) {
+            this.jCT.notifyDataSetChanged();
+            this.jCS = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public static class a extends RecyclerView.Adapter<b> {
-        private f<c> aiM;
-        private List<c> jBT;
+        private f<c> aiR;
+        private List<c> jCQ;
 
         a() {
         }
 
         public void setOnItemCoverListener(f<c> fVar) {
-            this.aiM = fVar;
+            this.aiR = fVar;
         }
 
         void dK(@NonNull List<c> list) {
-            this.jBT = list;
+            this.jCQ = list;
             notifyDataSetChanged();
         }
 
@@ -96,7 +96,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         /* renamed from: C */
         public b onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             b bVar = new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.hot_topic_tab_rank_list_item, viewGroup, false));
-            bVar.setOnItemCoverListener(this.aiM);
+            bVar.setOnItemCoverListener(this.aiR);
             bVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             return bVar;
         }
@@ -105,125 +105,123 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         @Override // android.support.v7.widget.RecyclerView.Adapter
         /* renamed from: a */
         public void onBindViewHolder(@NonNull b bVar, int i) {
-            List<c> list = this.jBT;
+            List<c> list = this.jCQ;
             if (list != null && list.size() > i) {
                 c cVar = list.get(i);
                 bVar.a(cVar);
                 bVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-                if (this.aiM != null) {
-                    this.aiM.b(bVar.itemView, cVar, i, i);
+                if (this.aiR != null) {
+                    this.aiR.b(bVar.itemView, cVar, i, i);
                 }
             }
         }
 
         @Override // android.support.v7.widget.RecyclerView.Adapter
         public int getItemCount() {
-            if (this.jBT == null) {
+            if (this.jCQ == null) {
                 return 0;
             }
-            return this.jBT.size();
+            return this.jCQ.size();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public static class b extends RecyclerView.ViewHolder {
-        private f<c> aiM;
-        private TextView ajl;
-        private TextView ajm;
-        private TextView evg;
-        private int jBV;
-        private View jBX;
-        private View jBY;
-        private TextView jBZ;
-        private ImageView jCa;
+        private f<c> aiR;
+        private TextView ajq;
+        private TextView ajr;
+        private TextView etx;
+        private int jCS;
+        private View jCU;
+        private View jCV;
+        private TextView jCW;
+        private ImageView jCX;
 
         b(View view) {
             super(view);
-            this.jBV = 3;
-            this.jBX = view.findViewById(R.id.itemLayout);
-            this.ajl = (TextView) view.findViewById(R.id.indexView);
-            this.evg = (TextView) view.findViewById(R.id.titleView);
-            this.ajm = (TextView) view.findViewById(R.id.tagView);
-            this.jBY = view.findViewById(R.id.moreLayout);
-            this.jBZ = (TextView) view.findViewById(R.id.moreText);
-            this.jCa = (ImageView) view.findViewById(R.id.moreIcon);
+            this.jCS = 3;
+            this.jCU = view.findViewById(R.id.itemLayout);
+            this.ajq = (TextView) view.findViewById(R.id.indexView);
+            this.etx = (TextView) view.findViewById(R.id.titleView);
+            this.ajr = (TextView) view.findViewById(R.id.tagView);
+            this.jCV = view.findViewById(R.id.moreLayout);
+            this.jCW = (TextView) view.findViewById(R.id.moreText);
+            this.jCX = (ImageView) view.findViewById(R.id.moreIcon);
         }
 
         void a(final c cVar) {
             if (cVar != null) {
-                if (cVar.jBS) {
-                    this.jBX.setVisibility(8);
-                    this.jBY.setVisibility(0);
-                    this.jBY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.1
+                if (cVar.jCP) {
+                    this.jCU.setVisibility(8);
+                    this.jCV.setVisibility(0);
+                    this.jCV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             new HotRanklistActivityConfig(view.getContext()).createNormalConfig("hotforum", "all").start();
-                            if (b.this.aiM != null) {
+                            if (b.this.aiR != null) {
                                 int adapterPosition = b.this.getAdapterPosition();
-                                b.this.aiM.a(view, cVar, adapterPosition, adapterPosition);
+                                b.this.aiR.a(view, cVar, adapterPosition, adapterPosition);
                             }
                         }
                     });
                     return;
                 }
-                this.jBX.setVisibility(0);
-                this.jBX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.2
+                this.jCU.setVisibility(0);
+                this.jCU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         new HotTopicActivityConfig(view.getContext()).createNormalConfig("" + cVar.topicId, null, "3").start();
-                        if (b.this.aiM != null) {
+                        if (b.this.aiR != null) {
                             int adapterPosition = b.this.getAdapterPosition();
-                            b.this.aiM.a(view, cVar, adapterPosition, adapterPosition);
+                            b.this.aiR.a(view, cVar, adapterPosition, adapterPosition);
                         }
                     }
                 });
-                this.jBY.setVisibility(8);
+                this.jCV.setVisibility(8);
                 if (cVar.index > 0) {
-                    this.ajl.setText(String.valueOf(cVar.index));
-                    this.ajl.setVisibility(0);
+                    this.ajq.setText(String.valueOf(cVar.index));
+                    this.ajq.setVisibility(0);
                 } else {
-                    this.ajl.setVisibility(8);
+                    this.ajq.setVisibility(8);
                 }
-                this.evg.setText(cVar.eCJ);
-                String t = TagTextHelper.t(this.ajm.getContext(), cVar.tag);
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.evg.getLayoutParams();
+                this.etx.setText(cVar.eBa);
+                String t = TagTextHelper.t(this.ajr.getContext(), cVar.tag);
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.etx.getLayoutParams();
                 if (TextUtils.isEmpty(t)) {
-                    this.ajm.setVisibility(8);
-                    marginLayoutParams.rightMargin = l.getDimens(this.ajm.getContext(), R.dimen.tbds22);
-                    this.evg.setLayoutParams(marginLayoutParams);
+                    this.ajr.setVisibility(8);
+                    marginLayoutParams.rightMargin = l.getDimens(this.ajr.getContext(), R.dimen.tbds22);
+                    this.etx.setLayoutParams(marginLayoutParams);
                 } else {
-                    marginLayoutParams.rightMargin = l.getDimens(this.ajm.getContext(), R.dimen.tbds74);
-                    this.evg.setLayoutParams(marginLayoutParams);
-                    this.ajm.setVisibility(0);
-                    this.ajm.setText(t);
+                    marginLayoutParams.rightMargin = l.getDimens(this.ajr.getContext(), R.dimen.tbds74);
+                    this.etx.setLayoutParams(marginLayoutParams);
+                    this.ajr.setVisibility(0);
+                    this.ajr.setText(t);
                 }
-                ap.setViewTextColor(this.ajl, TagTextHelper.pe(cVar.index));
-                int color = ap.getColor(TagTextHelper.pd(cVar.tag));
-                Drawable background = this.ajm.getBackground();
-                DrawableCompat.setTint(background, color);
-                this.ajm.setBackgroundDrawable(background);
+                ap.setViewTextColor(this.ajq, TagTextHelper.pA(cVar.index));
+                com.baidu.tbadk.core.elementsMaven.c.bj(this.ajr).pb(R.string.J_X04).setBackGroundColor(TagTextHelper.pz(cVar.tag));
             }
         }
 
         void setOnItemCoverListener(f<c> fVar) {
-            this.aiM = fVar;
+            this.aiR = fVar;
         }
 
         void onChangeSkinType(int i) {
-            if (this.jBV != i) {
-                com.baidu.tbadk.core.util.e.a.g(this.jBX, R.color.cp_bg_line_e, R.color.cp_bg_line_c);
-                com.baidu.tbadk.core.util.e.a.g(this.jBY, R.color.cp_bg_line_e, R.color.cp_bg_line_c);
-                ap.setViewTextColor(this.evg, R.color.cp_cont_b);
-                ap.setViewTextColor(this.ajm, R.color.cp_cont_a);
-                if (this.jBY.getVisibility() == 0) {
-                    ap.setViewTextColor(this.jBZ, R.color.cp_link_tip_a);
-                    int color = ap.getColor(R.color.cp_link_tip_a);
-                    Drawable drawable = this.jCa.getDrawable();
+            if (this.jCS != i) {
+                int i2 = com.baidu.tbadk.a.d.bhw() ? R.color.CAM_X0206 : R.color.CAM_X0204;
+                com.baidu.tbadk.core.util.e.a.h(this.jCU, R.color.CAM_X0205, i2);
+                com.baidu.tbadk.core.util.e.a.h(this.jCV, R.color.CAM_X0205, i2);
+                ap.setViewTextColor(this.etx, R.color.CAM_X0105);
+                ap.setViewTextColor(this.ajr, R.color.CAM_X0101);
+                if (this.jCV.getVisibility() == 0) {
+                    ap.setViewTextColor(this.jCW, R.color.CAM_X0304);
+                    int color = ap.getColor(R.color.CAM_X0304);
+                    Drawable drawable = this.jCX.getDrawable();
                     DrawableCompat.setTint(drawable, color);
-                    this.jCa.setImageDrawable(drawable);
+                    this.jCX.setImageDrawable(drawable);
                 }
-                this.jBV = i;
+                this.jCS = i;
             }
         }
     }

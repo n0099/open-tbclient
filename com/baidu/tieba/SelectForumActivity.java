@@ -7,9 +7,9 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class SelectForumActivity extends SuspendedActivity {
-    private CustomMessageListener fPC = new CustomMessageListener(2921503) { // from class: com.baidu.tieba.SelectForumActivity.1
+    private CustomMessageListener fPl = new CustomMessageListener(2921503) { // from class: com.baidu.tieba.SelectForumActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -18,7 +18,7 @@ public class SelectForumActivity extends SuspendedActivity {
             }
         }
     };
-    private CustomMessageListener fPD = new CustomMessageListener(2921507) { // from class: com.baidu.tieba.SelectForumActivity.2
+    private CustomMessageListener fPm = new CustomMessageListener(2921507) { // from class: com.baidu.tieba.SelectForumActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -32,8 +32,8 @@ public class SelectForumActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.fPC);
-        registerListener(this.fPD);
+        registerListener(this.fPl);
+        registerListener(this.fPm);
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -42,6 +42,6 @@ public class SelectForumActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bCX() {
+    protected void bCq() {
     }
 }

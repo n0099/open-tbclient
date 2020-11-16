@@ -10,7 +10,7 @@ public class e extends a {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    public static int gM(Context context) {
+    public static int gK(Context context) {
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         if (activeNetworkInfo == null) {
             return 0;

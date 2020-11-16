@@ -12,26 +12,26 @@ import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     @SuppressLint({"StaticFieldLeak"})
-    private static c oIM = null;
+    private static c oKq = null;
     private Context b;
-    private com.cmic.sso.sdk.c.c.a oIL = com.cmic.sso.sdk.c.c.a.eiO();
+    private com.cmic.sso.sdk.c.c.a oKp = com.cmic.sso.sdk.c.c.a.eiM();
 
     private c(Context context) {
         this.b = context.getApplicationContext();
     }
 
-    public static c gV(Context context) {
-        if (oIM == null) {
+    public static c gT(Context context) {
+        if (oKq == null) {
             synchronized (c.class) {
-                if (oIM == null) {
-                    oIM = new c(context);
+                if (oKq == null) {
+                    oKq = new c(context);
                 }
             }
         }
-        return oIM;
+        return oKq;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -71,7 +71,7 @@ public class c {
         }
         aVar.a(b.a.f4005a, bArr);
         aVar.a("authtype", "3");
-        this.oIL.a(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.1
+        this.oKp.a(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.1
             /* JADX WARN: Removed duplicated region for block: B:21:0x00ca  */
             /* JADX WARN: Removed duplicated region for block: B:32:0x0121  */
             @Override // com.cmic.sso.sdk.c.c.d
@@ -105,10 +105,10 @@ public class c {
                                     str7 = aVar.b("imsi", "");
                                 }
                                 try {
-                                    k.a eiU = k.eiU();
+                                    k.a eiS = k.eiS();
                                     str5 = jSONObject2.optString("securityphone");
                                     try {
-                                        eiU.a("securityphone", str5);
+                                        eiS.a("securityphone", str5);
                                         str4 = jSONObject2.optString("openId");
                                         try {
                                             if (TextUtils.isEmpty(str4)) {
@@ -120,9 +120,9 @@ public class c {
                                             e2 = e3;
                                         }
                                         try {
-                                            eiU.a(UgcConstant.SOURCE_ID, str3);
-                                            eiU.a("allcapaids", jSONObject2.optString("capaids", "acd"));
-                                            eiU.b();
+                                            eiS.a(UgcConstant.SOURCE_ID, str3);
+                                            eiS.a("allcapaids", jSONObject2.optString("capaids", "acd"));
+                                            eiS.b();
                                         } catch (JSONException e4) {
                                             e2 = e4;
                                             e2.printStackTrace();
@@ -198,7 +198,7 @@ public class c {
         } else if (aVar.c("logintype") == 0) {
             aVar.a("userCapaid", "50");
         }
-        this.oIL.b(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.2
+        this.oKp.b(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.2
             @Override // com.cmic.sso.sdk.c.c.d
             public void j(String str, String str2, JSONObject jSONObject) {
                 com.cmic.sso.sdk.e.c.c("AuthnBusiness", "获取平台token 》》》》" + jSONObject.toString());

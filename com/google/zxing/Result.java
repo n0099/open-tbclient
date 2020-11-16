@@ -2,7 +2,7 @@ package com.google.zxing;
 
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public final class Result {
     private final BarcodeFormat format;
     private final int numBits;

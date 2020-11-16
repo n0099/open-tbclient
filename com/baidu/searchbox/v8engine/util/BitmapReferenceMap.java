@@ -2,7 +2,7 @@ package com.baidu.searchbox.v8engine.util;
 
 import com.baidu.searchbox.v8engine.bean.ImageBitmapBean;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BitmapReferenceMap {
     private static final boolean DEBUG = false;
     private static final String TAG = "BitmapReferenceMap";

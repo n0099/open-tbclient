@@ -21,13 +21,13 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     protected Activity activity;
-    protected com.baidu.live.liveroom.a.c bnG;
-    protected com.baidu.live.liveroom.g.a bnH;
-    protected e bnI;
-    protected f bnJ;
+    protected com.baidu.live.liveroom.a.c blV;
+    protected com.baidu.live.liveroom.g.a blW;
+    protected e blX;
+    protected f blY;
     protected ViewGroup rootView;
     protected Handler mHandler = new Handler();
-    private CustomMessageListener bnK = new CustomMessageListener(2913146) { // from class: com.baidu.live.liveroom.f.a.1
+    private CustomMessageListener blZ = new CustomMessageListener(2913146) { // from class: com.baidu.live.liveroom.f.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,7 +39,7 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
             }
         }
     };
-    private CustomMessageListener bnL = new CustomMessageListener(2913167) { // from class: com.baidu.live.liveroom.f.a.2
+    private CustomMessageListener bma = new CustomMessageListener(2913167) { // from class: com.baidu.live.liveroom.f.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -52,7 +52,7 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
         }
     };
 
-    public abstract boolean NW();
+    public abstract boolean Nn();
 
     public abstract View a(Context context, w wVar, boolean z);
 
@@ -88,12 +88,12 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     public abstract void onStop();
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.bnK);
-        MessageManager.getInstance().registerListener(this.bnL);
+        MessageManager.getInstance().registerListener(this.blZ);
+        MessageManager.getInstance().registerListener(this.bma);
     }
 
     public void a(com.baidu.live.liveroom.a.c cVar) {
-        this.bnG = cVar;
+        this.blV = cVar;
     }
 
     public Activity getActivity() {
@@ -104,29 +104,29 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
         this.activity = activity;
     }
 
-    public void p(ViewGroup viewGroup) {
+    public void l(ViewGroup viewGroup) {
         this.rootView = viewGroup;
     }
 
     public void b(com.baidu.live.liveroom.g.a aVar) {
-        this.bnH = aVar;
+        this.blW = aVar;
     }
 
-    public void cj(boolean z) {
+    public void cl(boolean z) {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     @Override // com.baidu.live.liveroom.middleware.i
-    public final void s(Activity activity) {
+    public final void r(Activity activity) {
     }
 
     @Override // com.baidu.live.liveroom.middleware.i
-    public void ch(boolean z) {
+    public void cj(boolean z) {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        MessageManager.getInstance().unRegisterListener(this.bnK);
-        MessageManager.getInstance().unRegisterListener(this.bnL);
+        MessageManager.getInstance().unRegisterListener(this.blZ);
+        MessageManager.getInstance().unRegisterListener(this.bma);
     }
 
     @Override // com.baidu.live.liveroom.middleware.i
@@ -138,15 +138,15 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
     }
 
-    public void dM(int i) {
+    public void dI(int i) {
     }
 
     public void a(e eVar, f fVar) {
-        this.bnI = eVar;
-        this.bnJ = fVar;
+        this.blX = eVar;
+        this.blY = fVar;
     }
 
-    public f NX() {
-        return this.bnJ;
+    public f No() {
+        return this.blY;
     }
 }

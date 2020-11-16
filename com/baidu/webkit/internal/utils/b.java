@@ -4,7 +4,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */

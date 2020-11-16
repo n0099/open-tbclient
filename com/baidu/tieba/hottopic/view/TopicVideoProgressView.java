@@ -10,25 +10,25 @@ import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class TopicVideoProgressView extends RelativeLayout {
-    private int fSK;
-    private MediaController.MediaPlayerControl fSL;
-    private View irQ;
+    private int fSr;
+    private MediaController.MediaPlayerControl fSs;
+    private View isE;
     private Handler mHandler;
     private boolean mShowing;
 
     public TopicVideoProgressView(Context context) {
         super(context);
-        this.fSK = 50;
+        this.fSr = 50;
         this.mShowing = true;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.hottopic.view.TopicVideoProgressView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (TopicVideoProgressView.this.mShowing && TopicVideoProgressView.this.fSL != null && TopicVideoProgressView.this.fSL.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.fSK - (TopicVideoProgressView.this.bJG() % TopicVideoProgressView.this.fSK));
+                        if (TopicVideoProgressView.this.mShowing && TopicVideoProgressView.this.fSs != null && TopicVideoProgressView.this.fSs.isPlaying()) {
+                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.fSr - (TopicVideoProgressView.this.bIZ() % TopicVideoProgressView.this.fSr));
                             return;
                         }
                         return;
@@ -42,15 +42,15 @@ public class TopicVideoProgressView extends RelativeLayout {
 
     public TopicVideoProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fSK = 50;
+        this.fSr = 50;
         this.mShowing = true;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.hottopic.view.TopicVideoProgressView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (TopicVideoProgressView.this.mShowing && TopicVideoProgressView.this.fSL != null && TopicVideoProgressView.this.fSL.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.fSK - (TopicVideoProgressView.this.bJG() % TopicVideoProgressView.this.fSK));
+                        if (TopicVideoProgressView.this.mShowing && TopicVideoProgressView.this.fSs != null && TopicVideoProgressView.this.fSs.isPlaying()) {
+                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.fSr - (TopicVideoProgressView.this.bIZ() % TopicVideoProgressView.this.fSr));
                             return;
                         }
                         return;
@@ -64,15 +64,15 @@ public class TopicVideoProgressView extends RelativeLayout {
 
     public TopicVideoProgressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fSK = 50;
+        this.fSr = 50;
         this.mShowing = true;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.hottopic.view.TopicVideoProgressView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (TopicVideoProgressView.this.mShowing && TopicVideoProgressView.this.fSL != null && TopicVideoProgressView.this.fSL.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.fSK - (TopicVideoProgressView.this.bJG() % TopicVideoProgressView.this.fSK));
+                        if (TopicVideoProgressView.this.mShowing && TopicVideoProgressView.this.fSs != null && TopicVideoProgressView.this.fSs.isPlaying()) {
+                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.fSr - (TopicVideoProgressView.this.bIZ() % TopicVideoProgressView.this.fSr));
                             return;
                         }
                         return;
@@ -85,60 +85,60 @@ public class TopicVideoProgressView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        this.irQ = new View(context);
-        this.irQ.setBackgroundColor(getResources().getColor(R.color.cp_link_tip_b));
-        addView(this.irQ, 0, (int) context.getResources().getDimension(R.dimen.ds6));
-        setBackgroundColor(getResources().getColor(R.color.cp_bg_line_c));
+        this.isE = new View(context);
+        this.isE.setBackgroundColor(getResources().getColor(R.color.CAM_X0303));
+        addView(this.isE, 0, (int) context.getResources().getDimension(R.dimen.ds6));
+        setBackgroundColor(getResources().getColor(R.color.CAM_X0204));
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.fSL = mediaPlayerControl;
+        this.fSs = mediaPlayerControl;
     }
 
     public void initProgress() {
         RelativeLayout.LayoutParams layoutParams;
         this.mShowing = false;
         this.mHandler.removeMessages(1);
-        if (this.irQ != null && (layoutParams = (RelativeLayout.LayoutParams) this.irQ.getLayoutParams()) != null) {
+        if (this.isE != null && (layoutParams = (RelativeLayout.LayoutParams) this.isE.getLayoutParams()) != null) {
             layoutParams.width = 0;
-            this.irQ.setLayoutParams(layoutParams);
+            this.isE.setLayoutParams(layoutParams);
         }
     }
 
     public void showProgress() {
-        if (this.fSL != null) {
-            this.fSK = ((this.fSL.getDuration() / 200) / 50) * 50;
-            if (this.fSK < 50) {
-                this.fSK = 50;
+        if (this.fSs != null) {
+            this.fSr = ((this.fSs.getDuration() / 200) / 50) * 50;
+            if (this.fSr < 50) {
+                this.fSr = 50;
             }
             this.mShowing = true;
             this.mHandler.removeMessages(1);
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.fSK - (this.fSL.getCurrentPosition() % this.fSK));
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.fSr - (this.fSs.getCurrentPosition() % this.fSr));
         }
     }
 
-    public void aQa() {
+    public void aPs() {
         initProgress();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int bJG() {
-        if (this.fSL == null || this.irQ == null) {
+    public int bIZ() {
+        if (this.fSs == null || this.isE == null) {
             return 0;
         }
-        int currentPosition = this.fSL.getCurrentPosition();
-        int duration = this.fSL.getDuration();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.irQ.getLayoutParams();
+        int currentPosition = this.fSs.getCurrentPosition();
+        int duration = this.fSs.getDuration();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.isE.getLayoutParams();
         if ((layoutParams instanceof RelativeLayout.LayoutParams) && duration > 0) {
             layoutParams.width = (int) (((1.0f * getWidth()) * currentPosition) / duration);
-            this.irQ.setLayoutParams(layoutParams);
+            this.isE.setLayoutParams(layoutParams);
         }
         return currentPosition;
     }
 
     public void onChangeSkinType(int i) {
-        ap.setBackgroundColor(this, R.color.cp_bg_line_c);
-        ap.setBackgroundColor(this.irQ, R.color.cp_link_tip_b);
+        ap.setBackgroundColor(this, R.color.CAM_X0204);
+        ap.setBackgroundColor(this.isE, R.color.CAM_X0303);
     }
 
     public void destroy() {

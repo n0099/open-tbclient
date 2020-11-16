@@ -4,7 +4,7 @@ package com.baidu.ar.npc;
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ float f1215a;
+    final /* synthetic */ float f1218a;
     final /* synthetic */ float b;
     final /* synthetic */ float c;
     final /* synthetic */ String d;
@@ -13,7 +13,7 @@ public class b implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ArBridge arBridge, float f, float f2, float f3, String str) {
         this.e = arBridge;
-        this.f1215a = f;
+        this.f1218a = f;
         this.b = f2;
         this.c = f3;
         this.d = str;
@@ -21,6 +21,6 @@ public class b implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.e.nativeSetEuler(this.f1215a, this.b, this.c, this.d);
+        this.e.nativeSetEuler(this.f1218a, this.b, this.c, this.d);
     }
 }

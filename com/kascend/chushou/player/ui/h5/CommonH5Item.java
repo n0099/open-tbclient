@@ -9,8 +9,8 @@ import com.kascend.chushou.constants.JSInterface;
 import com.kascend.chushou.view.h5.H5Options;
 /* loaded from: classes6.dex */
 public class CommonH5Item extends FrameLayout {
-    private d pul;
-    private com.kascend.chushou.widget.cswebview.d pum;
+    private d pvO;
+    private com.kascend.chushou.widget.cswebview.d pvP;
 
     public CommonH5Item(@NonNull Context context) {
         super(context);
@@ -25,9 +25,9 @@ public class CommonH5Item extends FrameLayout {
     }
 
     public void a(com.kascend.chushou.player.ui.h5.c.a aVar) {
-        if (this.pul != null && this.pul.getParent() == this) {
-            removeView(this.pul);
-            this.pul = null;
+        if (this.pvO != null && this.pvO.getParent() == this) {
+            removeView(this.pvO);
+            this.pvO = null;
         }
         H5Options h5Options = new H5Options();
         h5Options.e = false;
@@ -37,14 +37,14 @@ public class CommonH5Item extends FrameLayout {
         h5Options.f4233a = aVar.o;
         h5Options.d = true;
         h5Options.f = false;
-        this.pul = new d(getContext(), h5Options, new com.kascend.chushou.widget.cswebview.a().a(new JSInterface(getContext())).a(this.pum));
-        addView(this.pul);
+        this.pvO = new d(getContext(), h5Options, new com.kascend.chushou.widget.cswebview.a().a(new JSInterface(getContext())).a(this.pvP));
+        addView(this.pvO);
     }
 
     public void a(com.kascend.chushou.player.ui.h5.c.c cVar) {
-        if (this.pul != null && this.pul.getParent() == this) {
-            removeView(this.pul);
-            this.pul = null;
+        if (this.pvO != null && this.pvO.getParent() == this) {
+            removeView(this.pvO);
+            this.pvO = null;
         }
         H5Options h5Options = new H5Options();
         h5Options.e = false;
@@ -54,14 +54,14 @@ public class CommonH5Item extends FrameLayout {
         h5Options.f4233a = cVar.o;
         h5Options.d = true;
         h5Options.f = false;
-        this.pul = new d(getContext(), h5Options, new com.kascend.chushou.widget.cswebview.a().a(new JSInterface(getContext())).a(this.pum));
-        addView(this.pul);
+        this.pvO = new d(getContext(), h5Options, new com.kascend.chushou.widget.cswebview.a().a(new JSInterface(getContext())).a(this.pvP));
+        addView(this.pvO);
     }
 
     public void a(com.kascend.chushou.player.ui.h5.c.b bVar) {
-        if (this.pul != null && this.pul.getParent() == this) {
-            removeView(this.pul);
-            this.pul = null;
+        if (this.pvO != null && this.pvO.getParent() == this) {
+            removeView(this.pvO);
+            this.pvO = null;
         }
         H5Options h5Options = new H5Options();
         h5Options.e = false;
@@ -71,11 +71,11 @@ public class CommonH5Item extends FrameLayout {
         h5Options.f4233a = bVar.o;
         h5Options.d = true;
         h5Options.f = false;
-        this.pul = new d(getContext(), h5Options, new com.kascend.chushou.widget.cswebview.a().a(new JSInterface(getContext())).a(this.pum));
-        addView(this.pul);
+        this.pvO = new d(getContext(), h5Options, new com.kascend.chushou.widget.cswebview.a().a(new JSInterface(getContext())).a(this.pvP));
+        addView(this.pvO);
     }
 
     public void setListener(com.kascend.chushou.widget.cswebview.d dVar) {
-        this.pum = dVar;
+        this.pvP = dVar;
     }
 }

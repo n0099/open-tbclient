@@ -4,39 +4,39 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class PersonPostAdapter extends FragmentPagerAdapter {
-    private int[] gEq;
-    private PersonThreadFragment mnl;
-    private PersonReplyFragment mnm;
+    private int[] gDX;
+    private PersonThreadFragment mnF;
+    private PersonReplyFragment mnG;
 
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
-        bundle.putString("key_empty_view_text", personPostActivity.dxW());
-        this.mnm = new PersonReplyFragment();
-        this.mnm.setArguments(bundle);
-        this.mnm.a(personPostActivity);
-        this.mnl = new PersonThreadFragment();
-        this.mnl.setArguments(bundle);
-        this.mnl.a((d) personPostActivity);
-        this.mnl.a((b) personPostActivity);
-        this.gEq = new int[]{0, 1};
+        bundle.putString("key_empty_view_text", personPostActivity.dxw());
+        this.mnG = new PersonReplyFragment();
+        this.mnG.setArguments(bundle);
+        this.mnG.a(personPostActivity);
+        this.mnF = new PersonThreadFragment();
+        this.mnF.setArguments(bundle);
+        this.mnF.a((d) personPostActivity);
+        this.mnF.a((b) personPostActivity);
+        this.gDX = new int[]{0, 1};
     }
 
-    public PersonThreadFragment dxX() {
-        return this.mnl;
+    public PersonThreadFragment dxx() {
+        return this.mnF;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.mnl;
+                return this.mnF;
             case 1:
-                return this.mnm;
+                return this.mnG;
             default:
                 return null;
         }
@@ -47,7 +47,7 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         return 2;
     }
 
-    public int Ds(int i) {
-        return this.gEq[i];
+    public int DQ(int i) {
+        return this.gDX[i];
     }
 }

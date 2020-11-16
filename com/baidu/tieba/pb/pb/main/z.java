@@ -7,25 +7,25 @@ import java.util.HashMap;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.DislikeInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class z implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId lwh = BdUniqueId.gen();
+    public static final BdUniqueId lwx = BdUniqueId.gen();
     public String cover;
     public String description;
-    public MetaData eEK;
+    public MetaData eDc;
     public boolean isChushou;
     public long liveId;
     public int liveStatus;
-    public int lwi;
-    public com.baidu.tbadk.core.data.ar lwl;
+    public com.baidu.tbadk.core.data.as lwB;
+    public int lwy;
     public String routeType;
     public String thirdLiveType;
     public String thirdRoomId;
     private HashMap<String, MetaData> userMap;
     public String userName;
-    private boolean eBt = false;
-    public boolean lwj = false;
-    public boolean lwk = false;
+    private boolean ezK = false;
+    public boolean lwz = false;
+    public boolean lwA = false;
 
     public void a(AlaLiveInfo alaLiveInfo) {
         MetaData metaData;
@@ -33,7 +33,7 @@ public class z implements com.baidu.adp.widget.ListView.q {
             this.userName = alaLiveInfo.user_info.user_name;
             this.description = alaLiveInfo.description;
             this.cover = alaLiveInfo.cover;
-            this.lwi = alaLiveInfo.audience_count.intValue();
+            this.lwy = alaLiveInfo.audience_count.intValue();
             this.liveStatus = alaLiveInfo.live_status.intValue();
             this.liveId = alaLiveInfo.live_id.longValue();
             this.isChushou = alaLiveInfo.live_from.intValue() == 1;
@@ -41,8 +41,8 @@ public class z implements com.baidu.adp.widget.ListView.q {
             this.thirdRoomId = alaLiveInfo.third_room_id;
             this.routeType = alaLiveInfo.router_type;
             if (alaLiveInfo.user_info.user_id != null && alaLiveInfo.user_info.user_id.longValue() > 0 && this.userMap != null && (metaData = this.userMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
-                this.eEK = metaData;
-                this.eEK.setIsLike(this.eEK.hadConcerned());
+                this.eDc = metaData;
+                this.eDc.setIsLike(this.eDc.hadConcerned());
             }
             List<DislikeInfo> list = alaLiveInfo.dislike_info;
             if (com.baidu.tbadk.core.util.y.getCount(list) > 0) {
@@ -54,35 +54,35 @@ public class z implements com.baidu.adp.widget.ListView.q {
                         sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
                     }
                 }
-                this.lwl = new com.baidu.tbadk.core.data.ar();
-                this.lwl.setFeedBackReasonMap(sparseArray);
-                this.lwl.eBG = sparseArray2;
+                this.lwB = new com.baidu.tbadk.core.data.as();
+                this.lwB.setFeedBackReasonMap(sparseArray);
+                this.lwB.ezX = sparseArray2;
             } else {
-                this.lwl = null;
+                this.lwB = null;
             }
-            this.eBt = true;
+            this.ezK = true;
         }
     }
 
     public boolean isValid() {
-        return this.eBt;
+        return this.ezK;
     }
 
     public void reset() {
         this.userName = null;
-        this.lwi = 0;
+        this.lwy = 0;
         this.description = null;
         this.cover = null;
         this.liveStatus = 0;
         this.liveId = 0L;
-        this.eEK = null;
+        this.eDc = null;
         this.userMap = null;
         this.isChushou = false;
         this.thirdLiveType = null;
         this.thirdRoomId = null;
         this.routeType = null;
-        this.lwk = false;
-        this.eBt = false;
+        this.lwA = false;
+        this.ezK = false;
     }
 
     public void setUserMap(HashMap<String, MetaData> hashMap) {
@@ -91,6 +91,6 @@ public class z implements com.baidu.adp.widget.ListView.q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lwh;
+        return lwx;
     }
 }

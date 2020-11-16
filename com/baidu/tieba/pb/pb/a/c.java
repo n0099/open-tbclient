@@ -11,27 +11,27 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.o;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class c extends o<PostData, a> {
-    private View.OnClickListener bzF;
+    private View.OnClickListener bxU;
 
     public c(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bzF = onClickListener;
+        this.bxU = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cf */
+    /* renamed from: cb */
     public a c(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_load_more_item, viewGroup, false);
-        inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.bzF);
+        inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.bxU);
         a aVar = new a(inflate);
-        aVar.bxE();
+        aVar.bwU();
         return aVar;
     }
 
@@ -43,31 +43,31 @@ public class c extends o<PostData, a> {
         return aVar.getView();
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public static class a extends af.a {
-        private TextView lpa;
+        private TextView lpp;
 
         public a(View view) {
             super(view);
-            this.lpa = (TextView) view.findViewById(R.id.tv_pb_reply_more);
+            this.lpp = (TextView) view.findViewById(R.id.tv_pb_reply_more);
         }
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.mXr) {
+                if (postData.mYj) {
                     Drawable drawable = ap.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.lpa.setCompoundDrawables(null, null, drawable, null);
+                    this.lpp.setCompoundDrawables(null, null, drawable, null);
                     return;
                 }
                 Drawable drawable2 = ap.getDrawable(R.drawable.icon_emotion_smallarrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.lpa.setCompoundDrawables(null, null, drawable2, null);
+                this.lpp.setCompoundDrawables(null, null, drawable2, null);
             }
         }
 
-        public void bxE() {
-            ap.setViewTextColor(this.lpa, R.color.cp_cont_d);
+        public void bwU() {
+            ap.setViewTextColor(this.lpp, R.color.CAM_X0109);
         }
     }
 }

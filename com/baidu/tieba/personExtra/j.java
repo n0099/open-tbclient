@@ -9,47 +9,47 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.k;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.SmartApp;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class j {
-    private k iap;
-    private com.baidu.tbadk.core.dialog.g kuK;
+    private k iaR;
+    private com.baidu.tbadk.core.dialog.g kvu;
     private Context mContext;
     private TbPageContext mPageContext;
-    private SmartApp maG;
-    private com.baidu.tbadk.core.dialog.i maJ;
-    private a maK;
-    private k.b maL = new k.b() { // from class: com.baidu.tieba.personExtra.j.1
+    private SmartApp maY;
+    private com.baidu.tbadk.core.dialog.i mbb;
+    private a mbc;
+    private k.b mbd = new k.b() { // from class: com.baidu.tieba.personExtra.j.1
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            if (j.this.maG != null) {
+            if (j.this.maY != null) {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
-                httpMessage.addParam("swan_app_key", j.this.maG.id);
+                httpMessage.addParam("swan_app_key", j.this.maY.id);
                 MessageManager.getInstance().sendMessage(httpMessage);
-                if (j.this.maK != null) {
-                    j.this.maK.QB(j.this.maG.id);
+                if (j.this.mbc != null) {
+                    j.this.mbc.PW(j.this.maY.id);
                 }
-                aq aqVar = new aq("c13436");
-                aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
-                aqVar.w("obj_id", j.this.maG.swan_app_id.longValue());
-                aqVar.dR("obj_name", j.this.maG.name);
-                TiebaStatic.log(aqVar);
-                if (j.this.maJ != null) {
-                    j.this.maJ.dismiss();
+                ar arVar = new ar("c13436");
+                arVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
+                arVar.w("obj_id", j.this.maY.swan_app_id.longValue());
+                arVar.dR("obj_name", j.this.maY.name);
+                TiebaStatic.log(arVar);
+                if (j.this.mbb != null) {
+                    j.this.mbb.dismiss();
                 }
             }
         }
     };
-    private List<com.baidu.tbadk.core.dialog.g> emA = new ArrayList();
+    private List<com.baidu.tbadk.core.dialog.g> ekT = new ArrayList();
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes23.dex */
     public interface a {
-        void QB(String str);
+        void PW(String str);
     }
 
     static {
@@ -59,30 +59,30 @@ public class j {
     public j(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.iap = new k(this.mContext);
+        this.iaR = new k(this.mContext);
     }
 
     public void create() {
-        if (this.maJ == null) {
-            this.kuK = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.delete), this.iap);
-            this.kuK.a(this.maL);
-            this.emA.add(this.kuK);
-            this.iap.br(this.emA);
-            this.maJ = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.iap);
+        if (this.mbb == null) {
+            this.kvu = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.delete), this.iaR);
+            this.kvu.a(this.mbd);
+            this.ekT.add(this.kvu);
+            this.iaR.br(this.ekT);
+            this.mbb = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.iaR);
         }
     }
 
     public void a(a aVar) {
-        this.maK = aVar;
+        this.mbc = aVar;
     }
 
     public void b(SmartApp smartApp) {
-        this.maG = smartApp;
+        this.maY = smartApp;
     }
 
     public void show() {
-        if (this.maJ != null) {
-            this.maJ.Qj();
+        if (this.mbb != null) {
+            this.mbb.PA();
         }
     }
 }

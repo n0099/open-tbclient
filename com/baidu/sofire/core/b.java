@@ -1,7 +1,7 @@
 package com.baidu.sofire.core;
 
 import java.io.Serializable;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public final class b implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */

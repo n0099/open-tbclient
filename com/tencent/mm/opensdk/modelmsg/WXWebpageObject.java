@@ -3,7 +3,7 @@ package com.tencent.mm.opensdk.modelmsg;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes17.dex */
 public class WXWebpageObject implements WXMediaMessage.IMediaObject {
     private static final int LENGTH_LIMIT = 10240;
     private static final String TAG = "MicroMsg.SDK.WXWebpageObject";

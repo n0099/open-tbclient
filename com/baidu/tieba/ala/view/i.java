@@ -12,35 +12,35 @@ import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class i {
     Context context;
-    ViewGroup.LayoutParams hNa;
-    RelativeLayout hNb;
-    ArrayList<HeadImageView> hMZ = new ArrayList<>();
+    ViewGroup.LayoutParams hMH;
+    RelativeLayout hMI;
+    ArrayList<HeadImageView> hMG = new ArrayList<>();
     boolean loop = false;
     Handler handler = new Handler(Looper.getMainLooper());
     int position = 0;
 
     public i(ArrayList<String> arrayList, HeadImageView headImageView, RelativeLayout relativeLayout) {
-        this.hNa = headImageView.getLayoutParams();
+        this.hMH = headImageView.getLayoutParams();
         this.context = headImageView.getContext();
-        this.hNb = relativeLayout;
+        this.hMI = relativeLayout;
         headImageView.setVisibility(8);
         if (arrayList == null) {
-            this.hMZ.add(wK(0));
-            this.hMZ.add(wK(1));
-            this.hMZ.add(wK(0));
-            this.hMZ.add(wK(1));
+            this.hMG.add(xi(0));
+            this.hMG.add(xi(1));
+            this.hMG.add(xi(0));
+            this.hMG.add(xi(1));
             return;
         }
         Iterator<String> it = arrayList.iterator();
         while (it.hasNext()) {
-            this.hMZ.add(IP(it.next()));
+            this.hMG.add(Iq(it.next()));
         }
     }
 
     public void tk() {
-        if (!this.hMZ.isEmpty()) {
-            if (this.hMZ.size() == 1) {
-                this.hMZ.get(this.position).setVisibility(0);
+        if (!this.hMG.isEmpty()) {
+            if (this.hMG.size() == 1) {
+                this.hMG.get(this.position).setVisibility(0);
                 return;
             }
             this.loop = true;
@@ -48,15 +48,15 @@ public class i {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (i.this.position == 0) {
-                        i.this.hMZ.get(i.this.position).setVisibility(0);
-                        i.this.hMZ.get(i.this.hMZ.size() - 1).setVisibility(8);
-                    } else if (i.this.position == i.this.hMZ.size() - 1) {
-                        i.this.hMZ.get(i.this.position - 1).setVisibility(8);
-                        i.this.hMZ.get(i.this.position).setVisibility(0);
+                        i.this.hMG.get(i.this.position).setVisibility(0);
+                        i.this.hMG.get(i.this.hMG.size() - 1).setVisibility(8);
+                    } else if (i.this.position == i.this.hMG.size() - 1) {
+                        i.this.hMG.get(i.this.position - 1).setVisibility(8);
+                        i.this.hMG.get(i.this.position).setVisibility(0);
                         i.this.position = -1;
                     } else {
-                        i.this.hMZ.get(i.this.position - 1).setVisibility(8);
-                        i.this.hMZ.get(i.this.position).setVisibility(0);
+                        i.this.hMG.get(i.this.position - 1).setVisibility(8);
+                        i.this.hMG.get(i.this.position).setVisibility(0);
                     }
                     i.this.position++;
                     if (i.this.loop) {
@@ -64,45 +64,45 @@ public class i {
                         return;
                     }
                     i.this.handler.removeCallbacksAndMessages(null);
-                    Iterator<HeadImageView> it = i.this.hMZ.iterator();
+                    Iterator<HeadImageView> it = i.this.hMG.iterator();
                     while (it.hasNext()) {
                         HeadImageView next = it.next();
                         next.setVisibility(8);
-                        i.this.hNb.removeView(next);
+                        i.this.hMI.removeView(next);
                     }
-                    i.this.hMZ.clear();
+                    i.this.hMG.clear();
                 }
             }, 500L);
         }
     }
 
-    public void ciW() {
+    public void cip() {
         this.handler.removeCallbacksAndMessages(null);
         this.loop = false;
-        Iterator<HeadImageView> it = this.hMZ.iterator();
+        Iterator<HeadImageView> it = this.hMG.iterator();
         while (it.hasNext()) {
             HeadImageView next = it.next();
             next.setVisibility(8);
-            this.hNb.removeView(next);
+            this.hMI.removeView(next);
         }
-        this.hMZ.clear();
+        this.hMG.clear();
     }
 
-    public boolean clS() {
-        return this.hMZ.size() != 0;
+    public boolean cll() {
+        return this.hMG.size() != 0;
     }
 
-    private HeadImageView IP(String str) {
+    private HeadImageView Iq(String str) {
         HeadImageView headImageView = new HeadImageView(this.context);
         headImageView.startLoad(str, 25, false, false);
         headImageView.setIsRound(true);
         headImageView.setAutoChangeStyle(false);
         headImageView.setVisibility(8);
-        this.hNb.addView(headImageView, this.hNa);
+        this.hMI.addView(headImageView, this.hMH);
         return headImageView;
     }
 
-    private HeadImageView wK(int i) {
+    private HeadImageView xi(int i) {
         HeadImageView headImageView = new HeadImageView(this.context);
         if (i == 0) {
             headImageView.setImageResource(a.e.ala_icon_five_pointed_star);
@@ -112,7 +112,7 @@ public class i {
         headImageView.setIsRound(true);
         headImageView.setAutoChangeStyle(false);
         headImageView.setVisibility(8);
-        this.hNb.addView(headImageView, this.hNa);
+        this.hMI.addView(headImageView, this.hMH);
         return headImageView;
     }
 }

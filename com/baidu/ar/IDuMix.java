@@ -2,7 +2,7 @@ package com.baidu.ar;
 
 import android.graphics.SurfaceTexture;
 import android.view.View;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public interface IDuMix extends View.OnTouchListener {
     void changeInputSize(int i, int i2);
 

@@ -5,14 +5,14 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.c.a;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
-    private bc data;
+    private bd data;
     private int mErrCode;
     private String mErrMsg;
 
@@ -30,7 +30,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         return this.mErrMsg;
     }
 
-    public bc getData() {
+    public bd getData() {
         return this.data;
     }
 
@@ -41,7 +41,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
             this.mErrMsg = jSONObject.optString("error_msg");
-            this.data = new bc();
+            this.data = new bd();
             this.data.parserJson(jSONObject);
         }
     }
@@ -63,9 +63,9 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                         z = false;
                     }
                     String str = new String(bArr);
-                    l<String> Bm = a.boX().Bm("tb.my_pages");
-                    if (Bm != null) {
-                        Bm.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + map.get("id"), str, 604800000L);
+                    l<String> AH = a.bob().AH("tb.my_pages");
+                    if (AH != null) {
+                        AH.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + map.get("id"), str, 604800000L);
                     }
                 }
             }

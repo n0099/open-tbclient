@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.widget.textfilter;
 
 import android.text.TextUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class BlankCharEditTextPasteFilter implements IEditTextPasteFilter {
 
     /* renamed from: a  reason: collision with root package name */

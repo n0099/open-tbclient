@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.gamelist.b.a> {
-    private d gDQ;
-    private d gDR;
+    private d gDx;
+    private d gDy;
 
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -18,8 +18,8 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.gamelist.b.a> 
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.gDQ.onChangeSkinType(tbPageContext, i);
-        this.gDR.onChangeSkinType(tbPageContext, i);
+        this.gDx.onChangeSkinType(tbPageContext, i);
+        this.gDy.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -31,19 +31,19 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.gamelist.b.a> 
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.gamelist.b.a aVar) {
         if (aVar != null) {
-            this.gDQ.a(aVar.gEK);
-            this.gDR.a(aVar.gEL);
+            this.gDx.a(aVar.gEr);
+            this.gDy.a(aVar.gEs);
         }
     }
 
     public void c(com.baidu.tieba.ala.f fVar) {
-        this.gDQ.d(fVar);
-        this.gDR.d(fVar);
+        this.gDx.d(fVar);
+        this.gDy.d(fVar);
     }
 
     public void setLabelName(String str) {
-        this.gDQ.setLabelName(str);
-        this.gDR.setLabelName(str);
+        this.gDx.setLabelName(str);
+        this.gDy.setLabelName(str);
     }
 
     @Override // android.view.View.OnClickListener
@@ -51,22 +51,22 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.gamelist.b.a> 
     }
 
     private void initView() {
-        this.gDQ = new d(getTbPageContext());
-        this.gDR = new d(getTbPageContext());
+        this.gDx = new d(getTbPageContext());
+        this.gDy = new d(getTbPageContext());
         ViewGroup viewGroup = (ViewGroup) getView();
         View view = new View(getContext());
-        viewGroup.addView(this.gDQ.getView());
+        viewGroup.addView(this.gDx.getView());
         viewGroup.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.ds16), -1));
-        viewGroup.addView(this.gDR.getView());
+        viewGroup.addView(this.gDy.getView());
     }
 
     /* loaded from: classes4.dex */
     public static class a extends af.a {
-        public c gDS;
+        public c gDz;
 
         public a(c cVar) {
             super(cVar.getView());
-            this.gDS = cVar;
+            this.gDz = cVar;
         }
     }
 }

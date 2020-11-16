@@ -2,7 +2,7 @@ package com.tencent.connect.auth;
 
 import com.tencent.tauth.IUiListener;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
@@ -12,7 +12,7 @@ public class b {
     public HashMap<String, a> b = new HashMap<>();
     public final String c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */

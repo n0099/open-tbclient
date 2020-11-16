@@ -6,56 +6,56 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0806a loH;
+    private InterfaceC0808a loY;
     private int count = 0;
-    private long loF = 0;
-    private long loG = 0;
-    private long loI = 500;
+    private long loW = 0;
+    private long loX = 0;
+    private long loZ = 500;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.pb.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 a.this.count = 0;
-                a.this.loF = 0L;
-                a.this.loG = 0L;
+                a.this.loW = 0L;
+                a.this.loX = 0L;
             } else if (message.what == 1 && a.this.count == 1) {
-                if (a.this.loH != null) {
-                    a.this.loH.djl();
+                if (a.this.loY != null) {
+                    a.this.loY.diI();
                 }
                 a.this.count = 0;
-                a.this.loF = 0L;
-                a.this.loG = 0L;
+                a.this.loW = 0L;
+                a.this.loX = 0L;
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.pb.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0806a {
-        void djk();
+    public interface InterfaceC0808a {
+        void diH();
 
-        void djl();
+        void diI();
     }
 
-    public a(InterfaceC0806a interfaceC0806a) {
-        this.loH = interfaceC0806a;
+    public a(InterfaceC0808a interfaceC0808a) {
+        this.loY = interfaceC0808a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.loH == null) {
+            if (this.loY == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.loF = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.loI);
+                this.loW = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.loZ);
                 return true;
             } else if (this.count == 2) {
-                this.loG = System.currentTimeMillis();
-                if (this.loG - this.loF < this.loI) {
-                    this.loH.djk();
+                this.loX = System.currentTimeMillis();
+                if (this.loX - this.loW < this.loZ) {
+                    this.loY.diH();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class a {
     private static a cG;
     private static ConcurrentHashMap<String, C0074a> cJ;
@@ -75,7 +75,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ar.arplay.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public static class C0074a {
         MediaPlayer da;
         com.baidu.ar.arplay.a.a.b db = new com.baidu.ar.arplay.a.a.b();
@@ -84,7 +84,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void a(Exception exc);
 
@@ -92,7 +92,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public class c implements b {
         c(b bVar) {
             b unused = a.cM = bVar;

@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class ShareGridLayout extends ViewGroup {
-    public static final int nkC = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
-    private int fEY;
+    public static final int nlD = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+    private int fEA;
     private Context mContext;
     private int mItemHeight;
     private int mItemWidth;
-    private int nkD;
+    private int nlE;
 
     public ShareGridLayout(Context context) {
         super(context);
@@ -39,7 +39,7 @@ public class ShareGridLayout extends ViewGroup {
 
     private void init(Context context) {
         this.mContext = context;
-        dx(0, l.getEquipmentWidth(this.mContext) - (nkC * 2));
+        dy(0, l.getEquipmentWidth(this.mContext) - (nlD * 2));
     }
 
     @Override // android.view.View
@@ -50,21 +50,21 @@ public class ShareGridLayout extends ViewGroup {
         for (int i3 = 0; i3 < childCount; i3++) {
             getChildAt(i3).measure(makeMeasureSpec, makeMeasureSpec2);
         }
-        if (childCount <= this.nkD) {
-            setMeasuredDimension(resolveSize((this.mItemWidth * this.nkD) + (this.fEY * 2 * this.nkD), i), resolveSize(this.mItemHeight, i2));
+        if (childCount <= this.nlE) {
+            setMeasuredDimension(resolveSize((this.mItemWidth * this.nlE) + (this.fEA * 2 * this.nlE), i), resolveSize(this.mItemHeight, i2));
             return;
         }
-        int i4 = childCount / this.nkD;
-        if (childCount % this.nkD > 0) {
+        int i4 = childCount / this.nlE;
+        if (childCount % this.nlE > 0) {
             i4++;
         }
-        setMeasuredDimension(resolveSize((this.mItemWidth * this.nkD) + (this.fEY * 2 * this.nkD), i), resolveSize(i4 * this.mItemHeight, i2));
+        setMeasuredDimension(resolveSize((this.mItemWidth * this.nlE) + (this.fEA * 2 * this.nlE), i), resolveSize(i4 * this.mItemHeight, i2));
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        dx(i, i3);
-        int i5 = this.fEY;
+        dy(i, i3);
+        int i5 = this.fEA;
         int childCount = getChildCount();
         int i6 = 0;
         int i7 = 0;
@@ -73,35 +73,35 @@ public class ShareGridLayout extends ViewGroup {
         while (i6 < childCount) {
             getChildAt(i6).layout(i8, i9, this.mItemWidth + i8, this.mItemHeight + i9);
             i7++;
-            int i10 = this.mItemWidth + i8 + (this.fEY * 2);
-            if (i7 >= this.nkD) {
-                i10 = this.fEY;
+            int i10 = this.mItemWidth + i8 + (this.fEA * 2);
+            if (i7 >= this.nlE) {
+                i10 = this.fEA;
                 i7 = 0;
             }
-            int i11 = ((i6 + 1) / this.nkD) * this.mItemHeight;
+            int i11 = ((i6 + 1) / this.nlE) * this.mItemHeight;
             i6++;
             i8 = i10;
             i9 = i11;
         }
     }
 
-    private void dx(int i, int i2) {
+    private void dy(int i, int i2) {
         int i3 = i2 - i;
         if (l.getEquipmentWidth(TbadkCoreApplication.getInst()) > 800 && this.mItemWidth * 5 <= i3) {
-            this.nkD = 5;
+            this.nlE = 5;
         } else {
-            this.nkD = 4;
+            this.nlE = 4;
         }
-        double d = i3 - (this.mItemWidth * this.nkD);
+        double d = i3 - (this.mItemWidth * this.nlE);
         if (d > 0.0d) {
-            if (this.nkD == 5) {
-                this.fEY = (int) Math.floor(d / 10.0d);
+            if (this.nlE == 5) {
+                this.fEA = (int) Math.floor(d / 10.0d);
                 return;
             } else {
-                this.fEY = (int) Math.floor(d / 8.0d);
+                this.fEA = (int) Math.floor(d / 8.0d);
                 return;
             }
         }
-        this.fEY = 0;
+        this.fEA = 0;
     }
 }

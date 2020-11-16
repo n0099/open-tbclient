@@ -9,8 +9,8 @@ public class c {
     private static final String TAG = c.class.getSimpleName();
 
     public static File getCacheDir() {
-        if (eih()) {
-            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + d.oEz);
+        if (eif()) {
+            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + d.oGd);
             if (file.exists() || file.mkdirs()) {
                 return file;
             }
@@ -20,7 +20,7 @@ public class c {
         return null;
     }
 
-    public static boolean eih() {
+    public static boolean eif() {
         return "mounted".equals(Environment.getExternalStorageState());
     }
 }

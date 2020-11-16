@@ -7,7 +7,7 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class a extends b<PMSAppInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
@@ -74,13 +74,13 @@ public class a extends b<PMSAppInfo> {
             if (0 < lastLaunchTime) {
                 contentValues.put("last_launch_time", Long.valueOf(lastLaunchTime));
             }
-            int aMQ = pMSAppInfo.aMQ();
-            if (aMQ > 0) {
-                contentValues.put("launch_count", Integer.valueOf(aMQ));
+            int aMi = pMSAppInfo.aMi();
+            if (aMi > 0) {
+                contentValues.put("launch_count", Integer.valueOf(aMi));
             }
-            int aqD = pMSAppInfo.aqD();
-            if (aqD > 0) {
-                contentValues.put("install_src", Integer.valueOf(aqD));
+            int apV = pMSAppInfo.apV();
+            if (apV > 0) {
+                contentValues.put("install_src", Integer.valueOf(apV));
             }
             contentValues.put("web_url", pMSAppInfo.webUrl);
             contentValues.put("cs_protocol_version", Integer.valueOf(pMSAppInfo.csProtocolVersion));
@@ -163,8 +163,8 @@ public class a extends b<PMSAppInfo> {
             pMSAppInfo.brandsInfo = cursor.getString(columnIndex32);
             pMSAppInfo.quickAppKey = cursor.getString(columnIndex36);
             pMSAppInfo.cN(cursor.getLong(columnIndex33));
-            pMSAppInfo.mQ(cursor.getInt(columnIndex34));
-            pMSAppInfo.mR(cursor.getInt(columnIndex35));
+            pMSAppInfo.mM(cursor.getInt(columnIndex34));
+            pMSAppInfo.mN(cursor.getInt(columnIndex35));
             pMSAppInfo.webUrl = cursor.getString(columnIndex37);
             pMSAppInfo.csProtocolVersion = cursor.getInt(columnIndex38);
             return pMSAppInfo;

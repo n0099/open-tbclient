@@ -12,7 +12,7 @@ import java.net.UnknownHostException;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class a extends SSLSocketFactory {
 
     /* renamed from: a  reason: collision with root package name */

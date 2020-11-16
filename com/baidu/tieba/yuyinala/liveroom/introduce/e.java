@@ -10,10 +10,10 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class e extends BdBaseModel {
-    private Context bGn;
-    private BdUniqueId bou = BdUniqueId.gen();
-    private final HttpMessageListener bug;
-    private a nWT;
+    private Context bEC;
+    private BdUniqueId bmJ = BdUniqueId.gen();
+    private final HttpMessageListener bst;
+    private a nYw;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -23,37 +23,37 @@ public class e extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.nWT = aVar;
+        this.nYw = aVar;
     }
 
     public e(Context context) {
-        this.bGn = context;
-        setUniqueId(this.bou);
+        this.bEC = context;
+        setUniqueId(this.bmJ);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031034, TbConfig.SERVER_ADDRESS + "ala/audio/room/modifyGame");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaModifyRoomIntroduceHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.bug = new HttpMessageListener(1031034) { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.e.1
+        this.bst = new HttpMessageListener(1031034) { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaModifyRoomIntroduceHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.nWT != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaModifyRoomIntroduceHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.nYw != null) {
                     AlaModifyRoomIntroduceHttpResponseMessage alaModifyRoomIntroduceHttpResponseMessage = (AlaModifyRoomIntroduceHttpResponseMessage) httpResponsedMessage;
                     if (alaModifyRoomIntroduceHttpResponseMessage.getError() == 0 && alaModifyRoomIntroduceHttpResponseMessage.isSuccess()) {
-                        e.this.nWT.a(alaModifyRoomIntroduceHttpResponseMessage);
+                        e.this.nYw.a(alaModifyRoomIntroduceHttpResponseMessage);
                     } else {
-                        e.this.nWT.n(alaModifyRoomIntroduceHttpResponseMessage.getError(), alaModifyRoomIntroduceHttpResponseMessage.getErrorString(), alaModifyRoomIntroduceHttpResponseMessage.dYf().nWV.usermsg);
+                        e.this.nYw.n(alaModifyRoomIntroduceHttpResponseMessage.getError(), alaModifyRoomIntroduceHttpResponseMessage.getErrorString(), alaModifyRoomIntroduceHttpResponseMessage.dYe().nYy.usermsg);
                     }
                 }
             }
         };
-        registerListener(this.bug);
+        registerListener(this.bst);
     }
 
     public void L(String str, String str2, String str3, String str4) {
         b bVar = new b(str, str2, str3, str4);
-        bVar.setTag(this.bou);
+        bVar.setTag(this.bmJ);
         sendMessage(bVar);
     }
 

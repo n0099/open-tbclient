@@ -13,7 +13,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class AiAppsShareActivity extends Activity {
     private CustomMessageListener listener = new CustomMessageListener(2921376) { // from class: com.baidu.tieba.aiapps.apps.share.AiAppsShareActivity.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public class AiAppsShareActivity extends Activity {
         }
         a aVar = new a();
         try {
-            aVar.dx(new JSONObject(stringExtra));
+            aVar.dr(new JSONObject(stringExtra));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this, aVar, false)));
             MessageManager.getInstance().registerListener(this.listener);
         } catch (JSONException e) {

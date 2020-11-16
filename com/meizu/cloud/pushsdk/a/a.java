@@ -4,7 +4,7 @@ import android.content.Context;
 import com.meizu.cloud.pushsdk.a.c;
 import com.meizu.cloud.pushsdk.base.f;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

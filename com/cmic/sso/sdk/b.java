@@ -1,8 +1,8 @@
 package com.cmic.sso.sdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */

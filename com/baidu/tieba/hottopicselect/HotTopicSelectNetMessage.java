@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.u;
 import tbclient.CommonReq;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class HotTopicSelectNetMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
@@ -66,7 +66,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f948common = getCommon();
+        builder.f951common = getCommon();
         builder.fid = Long.valueOf(this.fid);
         if (this.prefix != null) {
             builder.prefix = this.prefix;

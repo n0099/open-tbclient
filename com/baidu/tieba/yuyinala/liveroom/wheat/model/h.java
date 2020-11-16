@@ -12,22 +12,22 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaLinkCallBackHttpRespon
 /* loaded from: classes4.dex */
 public class h extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a ohl;
+    private a oiO;
     private HttpMessageListener messageListener = new HttpMessageListener(1031027) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaLinkCallBackHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == h.this.bou && h.this.ohl != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaLinkCallBackHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == h.this.bmJ && h.this.oiO != null) {
                 AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage = (AlaLinkCallBackHttpResponseMessage) httpResponsedMessage;
                 if (alaLinkCallBackHttpResponseMessage.getError() != 0 || !alaLinkCallBackHttpResponseMessage.isSuccess()) {
-                    h.this.ohl.b(alaLinkCallBackHttpResponseMessage);
+                    h.this.oiO.b(alaLinkCallBackHttpResponseMessage);
                 } else {
-                    h.this.ohl.a(alaLinkCallBackHttpResponseMessage);
+                    h.this.oiO.a(alaLinkCallBackHttpResponseMessage);
                 }
             }
         }
     };
-    private BdUniqueId bou = BdUniqueId.gen();
+    private BdUniqueId bmJ = BdUniqueId.gen();
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -37,14 +37,14 @@ public class h extends BdBaseModel {
     }
 
     public h(TbPageContext tbPageContext, a aVar) {
-        setUniqueId(this.bou);
+        setUniqueId(this.bmJ);
         this.mPageContext = tbPageContext;
-        this.ohl = aVar;
-        bhs();
+        this.oiO = aVar;
+        bgL();
         registerListener(this.messageListener);
     }
 
-    private void bhs() {
+    private void bgL() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031027, TbConfig.SERVER_ADDRESS + "ala/audio/link/callback");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);

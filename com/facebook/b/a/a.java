@@ -1,5 +1,5 @@
 package com.facebook.b.a;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public interface a {
-    void ekO();
+    void ekM();
 }

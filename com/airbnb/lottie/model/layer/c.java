@@ -11,7 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.p;
 import com.airbnb.lottie.k;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class c extends a {
     @Nullable
     private com.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> CW;

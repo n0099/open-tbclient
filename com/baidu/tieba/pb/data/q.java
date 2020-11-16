@@ -6,16 +6,16 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class q {
-    private TbPageContext eIc;
+    private TbPageContext eGu;
 
     public q(TbPageContext tbPageContext) {
-        this.eIc = tbPageContext;
+        this.eGu = tbPageContext;
         SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
         socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
         MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, com.baidu.tieba.tbadkCore.a.a.bL(TbConfig.URL_THREAD_PUBLISH, 309644));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, com.baidu.tieba.tbadkCore.a.a.bK(TbConfig.URL_THREAD_PUBLISH, 309644));
         tbHttpMessageTask.setResponsedClass(ThreadPublishHttpResMeesage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
@@ -24,7 +24,7 @@ public class q {
         ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
         threadPublishReqMessage.tid = j;
         threadPublishReqMessage.fid = j2;
-        threadPublishReqMessage.setTag(this.eIc.getUniqueId());
+        threadPublishReqMessage.setTag(this.eGu.getUniqueId());
         MessageManager.getInstance().sendMessage(threadPublishReqMessage);
     }
 }

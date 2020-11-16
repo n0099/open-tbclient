@@ -3,32 +3,32 @@ package cn.com.chinatelecom.account.api.b;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ExecutorService f979a = Executors.newFixedThreadPool(3);
+    private static ExecutorService f982a = Executors.newFixedThreadPool(3);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes16.dex */
     public static abstract class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private boolean f980a = false;
+        private boolean f983a = false;
 
         public void a(boolean z) {
-            this.f980a = z;
+            this.f983a = z;
         }
 
         public boolean a() {
-            return this.f980a;
+            return this.f983a;
         }
     }
 
     public static void a(Runnable runnable) {
-        f979a.execute(runnable);
+        f982a.execute(runnable);
     }
 
     public static Future b(Runnable runnable) {
-        return f979a.submit(runnable);
+        return f982a.submit(runnable);
     }
 }

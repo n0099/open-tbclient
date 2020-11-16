@@ -2,7 +2,7 @@ package protobuf.SetLocation;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_LAT = "";
     public static final String DEFAULT_LNG = "";
@@ -40,7 +40,7 @@ public final class DataReq extends Message {
         this.lat = builder.lat;
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String lat;
         public String lng;

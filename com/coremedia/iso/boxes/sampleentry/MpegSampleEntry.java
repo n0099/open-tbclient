@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class MpegSampleEntry extends AbstractSampleEntry {
     public MpegSampleEntry() {
         super("mp4s");

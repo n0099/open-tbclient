@@ -8,23 +8,23 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 final class f {
-    private static volatile f aef;
+    private static volatile f aek;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     interface a {
         void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     private class b implements Runnable {
-        private a aeg;
+        private a ael;
         private String b;
 
         public b(String str, a aVar) {
             this.b = str;
-            this.aeg = aVar;
+            this.ael = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -38,7 +38,7 @@ final class f {
             } else {
                 arrayList = null;
             }
-            this.aeg.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.b);
+            this.ael.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.b);
         }
     }
 
@@ -86,14 +86,14 @@ final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static f ta() {
-        if (aef == null) {
+        if (aek == null) {
             synchronized (f.class) {
-                if (aef == null) {
-                    aef = new f();
+                if (aek == null) {
+                    aek = new f();
                 }
             }
         }
-        return aef;
+        return aek;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -105,7 +105,7 @@ final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public BDHttpDnsResult dg(String str) {
+    public BDHttpDnsResult di(String str) {
         ArrayList arrayList;
         ArrayList arrayList2 = null;
         Map<String, ArrayList> b2 = b(str);

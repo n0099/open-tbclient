@@ -10,18 +10,18 @@ import android.view.ViewGroup;
 import android.view.Window;
 /* loaded from: classes6.dex */
 public class e {
-    public static int qpK = 0;
+    public static int qrn = 0;
 
-    public static boolean l(View view, int i) {
+    public static boolean o(View view, int i) {
         if (view.isInEditMode()) {
             return false;
         }
         tv.chushou.zues.utils.e.d("ViewUtil", String.format("refresh Height %d %d", Integer.valueOf(view.getHeight()), Integer.valueOf(i)));
         if (view.getHeight() != i) {
-            qpK = i;
+            qrn = i;
             Context context = view.getContext();
-            int i2 = qpK;
-            if (hP(context)) {
+            int i2 = qrn;
+            if (hN(context)) {
                 i2 += tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(context);
             }
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
@@ -36,25 +36,25 @@ public class e {
         return false;
     }
 
-    public static boolean af(Activity activity) {
+    public static boolean ae(Activity activity) {
         return (activity.getWindow().getAttributes().flags & 1024) != 0;
     }
 
     @TargetApi(19)
-    public static boolean C(Activity activity) {
+    public static boolean B(Activity activity) {
         return Build.VERSION.SDK_INT >= 19 && (activity.getWindow().getAttributes().flags & 67108864) != 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @TargetApi(16)
-    public static boolean ag(Activity activity) {
+    public static boolean af(Activity activity) {
         if (Build.VERSION.SDK_INT >= 16) {
             return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
         }
         return false;
     }
 
-    private static boolean hP(Context context) {
+    private static boolean hN(Context context) {
         Window window;
         View decorView;
         Activity activity = getActivity(context);

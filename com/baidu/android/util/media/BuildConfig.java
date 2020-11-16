@@ -1,5 +1,5 @@
 package com.baidu.android.util.media;
-/* loaded from: classes15.dex */
+/* loaded from: classes19.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.util.media";
     public static final String BUILD_TYPE = "release";

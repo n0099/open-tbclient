@@ -19,7 +19,7 @@ public class b extends com.kascend.chushou.view.base.a implements View.OnClickLi
     private TextView d;
     private String e;
 
-    public static b YN(String str) {
+    public static b Yy(String str) {
         b bVar = new b();
         Bundle bundle = new Bundle();
         bundle.putString("dataInfo", str);
@@ -64,7 +64,7 @@ public class b extends com.kascend.chushou.view.base.a implements View.OnClickLi
             dismissAllowingStateLoss();
             HashMap hashMap = new HashMap();
             if (!h.isEmpty(this.e)) {
-                hashMap.putAll(tv.chushou.zues.utils.d.aaC(this.e));
+                hashMap.putAll(tv.chushou.zues.utils.d.aan(this.e));
             }
             hashMap.put("_fromView", "58");
             com.kascend.chushou.d.a.c(this.b, tv.chushou.zues.utils.d.toJson(hashMap));

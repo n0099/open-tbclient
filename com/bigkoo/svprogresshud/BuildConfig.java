@@ -1,5 +1,5 @@
 package com.bigkoo.svprogresshud;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.bigkoo.svprogresshud";
     public static final String BUILD_TYPE = "release";

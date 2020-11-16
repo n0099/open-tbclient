@@ -13,7 +13,7 @@ import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class ShareActionProvider extends ActionProvider {
     private static final int DEFAULT_INITIAL_ACTIVITY_COUNT = 4;
     public static final String DEFAULT_SHARE_HISTORY_FILE_NAME = "share_history.xml";
@@ -24,7 +24,7 @@ public class ShareActionProvider extends ActionProvider {
     OnShareTargetSelectedListener mOnShareTargetSelectedListener;
     String mShareHistoryFileName;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public interface OnShareTargetSelectedListener {
         boolean onShareTargetSelected(ShareActionProvider shareActionProvider, Intent intent);
     }
@@ -97,7 +97,7 @@ public class ShareActionProvider extends ActionProvider {
         ActivityChooserModel.get(this.mContext, this.mShareHistoryFileName).setIntent(intent);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     private class ShareMenuItemOnMenuItemClickListener implements MenuItem.OnMenuItemClickListener {
         ShareMenuItemOnMenuItemClickListener() {
         }
@@ -127,7 +127,7 @@ public class ShareActionProvider extends ActionProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public class ShareActivityChooserModelPolicy implements ActivityChooserModel.OnChooseActivityListener {
         ShareActivityChooserModelPolicy() {
         }

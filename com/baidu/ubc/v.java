@@ -9,70 +9,70 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes17.dex */
 public class v {
     private static final boolean DEBUG = AppConfig.isDebug();
-    private List<k> emA = new ArrayList();
-    private int emy;
-    private JSONObject emz;
+    private int ekR;
+    private JSONObject ekS;
+    private List<k> ekT = new ArrayList();
     private String mSign;
     private int mThreshold;
-    private JSONObject oqK;
-    private JSONObject oqL;
-    private JSONObject oqM;
-    private String oqN;
-    private String oqO;
+    private JSONObject oso;
+    private JSONObject osp;
+    private JSONObject osq;
+    private String osr;
+    private String oss;
 
     public v(String str, JSONObject jSONObject) {
         this.mSign = str;
-        this.emz = jSONObject;
+        this.ekS = jSONObject;
     }
 
-    public int bdS() {
+    public int bdl() {
         return this.mThreshold;
     }
 
-    public int bdT() {
-        return this.emy;
+    public int bdm() {
+        return this.ekR;
     }
 
-    public List<k> bdU() {
-        return this.emA;
+    public List<k> bdn() {
+        return this.ekT;
     }
 
     public void fl(List<k> list) {
-        this.emA = list;
+        this.ekT = list;
+    }
+
+    public String edl() {
+        return this.osr;
     }
 
     public String edm() {
-        return this.oqN;
+        return this.oss;
     }
 
-    public String edn() {
-        return this.oqO;
+    public JSONObject edn() {
+        return this.osq;
     }
 
-    public JSONObject edo() {
-        return this.oqM;
-    }
-
-    private void eF(JSONObject jSONObject) {
+    private void eA(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("threshold") > 0) {
-                    this.oqK.put("threshold", jSONObject.optString("threshold"));
+                    this.oso.put("threshold", jSONObject.optString("threshold"));
                 }
                 if (jSONObject.optInt("timeup") > 0) {
-                    this.oqK.put("timeup", jSONObject.optString("timeup"));
+                    this.oso.put("timeup", jSONObject.optString("timeup"));
                 }
                 if (jSONObject.optString("step") != null) {
-                    this.oqK.put("step", jSONObject.optString("step"));
+                    this.oso.put("step", jSONObject.optString("step"));
                 }
                 if (jSONObject.optString("replace") != null) {
-                    this.oqK.put("replace", jSONObject.optString("replace"));
+                    this.oso.put("replace", jSONObject.optString("replace"));
                 }
                 if (jSONObject.optJSONObject("del") != null) {
-                    this.oqK.put("del", jSONObject.optJSONObject("del"));
+                    this.oso.put("del", jSONObject.optJSONObject("del"));
                 }
             } catch (JSONException e) {
                 if (DEBUG) {
@@ -82,25 +82,25 @@ public class v {
         }
     }
 
-    public boolean bdV() {
+    public boolean bdo() {
         try {
-            if (this.emz == null) {
+            if (this.ekS == null) {
                 return false;
             }
-            JSONObject jSONObject = this.emz;
-            this.oqL = jSONObject.optJSONObject("set");
+            JSONObject jSONObject = this.ekS;
+            this.osp = jSONObject.optJSONObject("set");
             this.mThreshold = jSONObject.optInt("threshold", 10000);
-            this.emy = jSONObject.optInt("timeup", PersonListModel.CACHETIME);
-            this.oqO = jSONObject.optString("step");
-            this.oqN = jSONObject.optString("replace");
-            this.oqM = jSONObject.optJSONObject("del");
-            if (this.oqL != null) {
-                this.oqK = new JSONObject();
+            this.ekR = jSONObject.optInt("timeup", PersonListModel.CACHETIME);
+            this.oss = jSONObject.optString("step");
+            this.osr = jSONObject.optString("replace");
+            this.osq = jSONObject.optJSONObject("del");
+            if (this.osp != null) {
+                this.oso = new JSONObject();
                 JSONObject jSONObject2 = new JSONObject();
-                Iterator<String> keys = this.oqL.keys();
+                Iterator<String> keys = this.osp.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    JSONObject jSONObject3 = this.oqL.getJSONObject(next);
+                    JSONObject jSONObject3 = this.osp.getJSONObject(next);
                     if (jSONObject3 != null) {
                         JSONObject jSONObject4 = jSONObject3.getJSONObject("data");
                         String string = jSONObject3.getString("version");
@@ -117,49 +117,49 @@ public class v {
                             if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
                                 k kVar = new k(next, string2, string3, i, string5, string4);
                                 if (jSONObject4.has("rate")) {
-                                    kVar.nj(jSONObject4.getInt("rate"));
+                                    kVar.nf(jSONObject4.getInt("rate"));
                                 }
                                 if (jSONObject4.has("c")) {
                                     kVar.setCategory(jSONObject4.getString("c"));
                                 }
                                 if (jSONObject4.has("limitUnit")) {
-                                    kVar.nk(jSONObject4.getInt("limitUnit"));
+                                    kVar.ng(jSONObject4.getInt("limitUnit"));
                                 }
                                 if (jSONObject4.has("limitCnt")) {
-                                    kVar.nl(jSONObject4.getInt("limitCnt"));
+                                    kVar.nh(jSONObject4.getInt("limitCnt"));
                                 }
                                 if (jSONObject4.has("idtype")) {
-                                    kVar.yW(jSONObject4.getString("idtype"));
+                                    kVar.yR(jSONObject4.getString("idtype"));
                                 }
                                 if (jSONObject4.has("ch")) {
-                                    kVar.WJ(jSONObject4.getString("ch"));
+                                    kVar.Wu(jSONObject4.getString("ch"));
                                 }
                                 if (jSONObject4.has("dfc")) {
-                                    kVar.WK(jSONObject4.getString("dfc"));
+                                    kVar.Wv(jSONObject4.getString("dfc"));
                                 }
                                 if (jSONObject4.has("reallog")) {
-                                    kVar.WL(jSONObject4.getString("reallog"));
+                                    kVar.Ww(jSONObject4.getString("reallog"));
                                 }
                                 if (jSONObject4.has("gflow")) {
                                     String string6 = jSONObject4.getString("gflow");
                                     if (!TextUtils.isEmpty(string6) && !TextUtils.equals(string6, "0")) {
-                                        kVar.WM(string6);
+                                        kVar.Wx(string6);
                                     }
                                 }
                                 if (jSONObject4.has("uploadType")) {
                                     String string7 = jSONObject4.getString("uploadType");
                                     if (!TextUtils.isEmpty(string7)) {
-                                        kVar.WN(string7);
+                                        kVar.Wy(string7);
                                     }
                                 }
                                 kVar.setVersion(string);
-                                this.emA.add(kVar);
+                                this.ekT.add(kVar);
                             }
                         }
                     }
                 }
-                this.oqK.put("set", jSONObject2);
-                eF(jSONObject);
+                this.oso.put("set", jSONObject2);
+                eA(jSONObject);
             }
             return true;
         } catch (JSONException e) {

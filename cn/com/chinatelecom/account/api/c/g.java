@@ -1,7 +1,7 @@
 package cn.com.chinatelecom.account.api.c;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public interface g {
     String a();
 

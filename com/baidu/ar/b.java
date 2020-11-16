@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class b {
     private com.baidu.ar.filter.a A;
     private c.a B;
@@ -55,7 +55,7 @@ public class b {
     private boolean w = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -87,7 +87,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ar.b$b  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public class C0079b {
         HashMap<String, Object> F;
         String mClassName;
@@ -99,7 +99,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public class c {
         HashMap<String, Object> F;
         List<String> G;
@@ -132,7 +132,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public class d {
         String I;
         com.baidu.ar.d.e J;

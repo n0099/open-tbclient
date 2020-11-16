@@ -1,13 +1,13 @@
 package com.baidu.tieba.video.record;
 
 import android.media.AudioRecord;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class c {
-    public static boolean dQk() {
-        return dQl() != -2;
+    public static boolean dQj() {
+        return dQk() != -2;
     }
 
-    private static int dQl() {
+    private static int dQk() {
         AudioRecord audioRecord;
         int minBufferSize = AudioRecord.getMinBufferSize(44100, 16, 2);
         short[] sArr = new short[minBufferSize];

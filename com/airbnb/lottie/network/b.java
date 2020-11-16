@@ -20,7 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class b {
     private final a GN;
     private final Context appContext;

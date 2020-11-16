@@ -2,7 +2,7 @@ package com.android.internal.http.multipart;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public interface PartSource {
     InputStream createInputStream() throws IOException;
 

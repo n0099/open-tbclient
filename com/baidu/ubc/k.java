@@ -1,36 +1,36 @@
 package com.baidu.ubc;
 
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes17.dex */
 public class k {
-    private String elV;
-    private String elW;
-    private int elX;
-    private String elY;
-    private int elZ;
-    private int ema;
-    private String emb;
+    private String eko;
+    private String ekp;
+    private int ekq;
+    private String ekr;
+    private int eks;
+    private int ekt;
+    private String eku;
     private String mCategory;
     private String mId;
     private int mRate;
     private String mType;
     private String mVersion;
-    private String oqF;
-    private String oqG;
-    private String oqH;
-    private String oqI;
-    private String oqJ;
+    private String osj;
+    private String osk;
+    private String osl;
+    private String osm;
+    private String osn;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.elV = str2;
-        this.elW = str3;
-        this.elX = i;
+        this.eko = str2;
+        this.ekp = str3;
+        this.ekq = i;
         this.mType = str4;
-        this.elY = str5;
+        this.ekr = str5;
     }
 
-    public void nj(int i) {
+    public void nf(int i) {
         this.mRate = i;
     }
 
@@ -38,47 +38,47 @@ public class k {
         this.mCategory = str;
     }
 
-    public void nk(int i) {
-        this.elZ = i;
+    public void ng(int i) {
+        this.eks = i;
     }
 
-    public void nl(int i) {
-        this.ema = i;
+    public void nh(int i) {
+        this.ekt = i;
     }
 
-    public void WJ(String str) {
-        this.oqF = str;
+    public void Wu(String str) {
+        this.osj = str;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String bdu() {
-        return this.elV;
+    public String bcN() {
+        return this.eko;
     }
 
-    public String bdv() {
-        return this.elW;
+    public String bcO() {
+        return this.ekp;
     }
 
     public int getTimeout() {
-        return this.elX;
+        return this.ekq;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String bdw() {
-        return this.elY;
+    public String bcP() {
+        return this.ekr;
     }
 
-    public String edh() {
-        return this.oqF;
+    public String edg() {
+        return this.osj;
     }
 
-    public int bdx() {
+    public int bcQ() {
         return this.mRate;
     }
 
@@ -86,28 +86,28 @@ public class k {
         return this.mCategory;
     }
 
-    public int bdy() {
-        return this.elZ;
+    public int bcR() {
+        return this.eks;
     }
 
-    public int bdz() {
-        return this.ema;
+    public int bcS() {
+        return this.ekt;
     }
 
-    public void yW(String str) {
-        this.emb = str;
+    public void yR(String str) {
+        this.eku = str;
     }
 
-    public String bdA() {
-        return this.emb;
+    public String bcT() {
+        return this.eku;
     }
 
-    public String edi() {
-        return this.oqG;
+    public String edh() {
+        return this.osk;
     }
 
-    public void WK(String str) {
-        this.oqG = str;
+    public void Wv(String str) {
+        this.osk = str;
     }
 
     public void setVersion(String str) {
@@ -118,27 +118,27 @@ public class k {
         return TextUtils.isEmpty(this.mVersion) ? "0" : this.mVersion;
     }
 
-    public void WL(String str) {
-        this.oqH = str;
+    public void Ww(String str) {
+        this.osl = str;
+    }
+
+    public String edi() {
+        return this.osl;
+    }
+
+    public void Wx(String str) {
+        this.osm = str;
     }
 
     public String edj() {
-        return this.oqH;
-    }
-
-    public void WM(String str) {
-        this.oqI = str;
+        return this.osm;
     }
 
     public String edk() {
-        return this.oqI;
+        return this.osn;
     }
 
-    public String edl() {
-        return this.oqJ;
-    }
-
-    public void WN(String str) {
-        this.oqJ = str;
+    public void Wy(String str) {
+        this.osn = str;
     }
 }

@@ -12,30 +12,30 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private int[] hnN;
-    private short[] hnO;
-    private int[] hnP;
-    private InterfaceC0680a hnQ;
+    private int[] hnu;
+    private short[] hnv;
+    private int[] hnw;
+    private InterfaceC0680a hnx;
     private Context mContext;
-    private final int hnK = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds160);
-    public final int hnL = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds152);
-    public final int hnM = (BdUtilHelper.getScreenDimensions(TbadkCoreApplication.getInst())[1] - (TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds60) * 2)) / 4;
-    private View.OnClickListener eYr = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.panel.a.1
+    private final int hnr = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds160);
+    public final int hns = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds152);
+    public final int hnt = (BdUtilHelper.getScreenDimensions(TbadkCoreApplication.getInst())[1] - (TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds60) * 2)) / 4;
+    private View.OnClickListener eXy = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.panel.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int i = 0;
             boolean z = true;
             if (view instanceof AlaMasterOperationSwitchItemView) {
                 int itemId = ((AlaMasterOperationSwitchItemView) view).getItemId();
-                int wc = a.this.wc(itemId);
-                if (wc >= 0) {
-                    if (a.this.hnO[wc] == 1) {
-                        a.this.hnO[wc] = 2;
-                    } else if (a.this.hnO[wc] == 2) {
-                        a.this.hnO[wc] = 1;
+                int wA = a.this.wA(itemId);
+                if (wA >= 0) {
+                    if (a.this.hnv[wA] == 1) {
+                        a.this.hnv[wA] = 2;
+                    } else if (a.this.hnv[wA] == 2) {
+                        a.this.hnv[wA] = 1;
                     }
                     a.this.notifyDataSetChanged();
-                    if (a.this.hnO[wc] != 1) {
+                    if (a.this.hnv[wA] != 1) {
                         z = false;
                     }
                 }
@@ -43,8 +43,8 @@ public class a extends BaseAdapter {
             } else if (view instanceof AlaMasterOperationEntryItemView) {
                 i = ((AlaMasterOperationEntryItemView) view).getItemId();
             }
-            if (a.this.hnQ != null) {
-                a.this.hnQ.L(i, z);
+            if (a.this.hnx != null) {
+                a.this.hnx.L(i, z);
             }
         }
     };
@@ -59,52 +59,52 @@ public class a extends BaseAdapter {
         this.mContext = context;
         if (z) {
             if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-                this.hnN = new int[]{a.h.ala_operation_panel_text_mute, 0, a.h.ala_operation_panel_text_admin, a.h.ala_operation_panel_text_black};
-                this.hnP = new int[]{4, 0, 5, 6};
+                this.hnu = new int[]{a.h.ala_operation_panel_text_mute, 0, a.h.ala_operation_panel_text_admin, a.h.ala_operation_panel_text_black};
+                this.hnw = new int[]{4, 0, 5, 6};
             } else {
-                this.hnN = new int[]{a.h.ala_operation_panel_text_mute, a.h.ala_operation_panel_text_admin, a.h.ala_operation_panel_text_black};
-                this.hnP = new int[]{4, 5, 6};
+                this.hnu = new int[]{a.h.ala_operation_panel_text_mute, a.h.ala_operation_panel_text_admin, a.h.ala_operation_panel_text_black};
+                this.hnw = new int[]{4, 5, 6};
             }
-            this.hnO = new short[]{1, 1, 1};
+            this.hnv = new short[]{1, 1, 1};
             return;
         }
-        this.hnN = new int[]{a.h.ala_operation_panel_text_camera, a.h.ala_operation_panel_text_falshing, a.h.ala_operation_panel_text_mirror_off, a.h.ala_operation_panel_text_mute, a.h.ala_operation_panel_text_admin, a.h.ala_operation_panel_text_black};
-        this.hnO = new short[]{1, 1, 1, 1, 1, 1};
-        this.hnP = new int[]{1, 2, 3, 4, 5, 6};
-        bn bnVar = com.baidu.live.aa.a.PQ().btT;
-        if (bnVar != null && bnVar.aPA != null && bnVar.aPA.aRT) {
-            int[] iArr = new int[this.hnN.length + 1];
-            System.arraycopy(this.hnN, 0, iArr, 0, this.hnN.length);
-            iArr[this.hnN.length] = a.h.ala_operation_panel_text_redpacket;
-            this.hnN = iArr;
-            short[] sArr = new short[this.hnO.length + 1];
-            System.arraycopy(this.hnO, 0, sArr, 0, this.hnO.length);
-            sArr[this.hnO.length] = 1;
-            this.hnO = sArr;
-            int[] iArr2 = new int[this.hnP.length + 1];
-            System.arraycopy(this.hnP, 0, iArr2, 0, this.hnP.length);
-            iArr2[this.hnP.length] = 7;
-            this.hnP = iArr2;
+        this.hnu = new int[]{a.h.ala_operation_panel_text_camera, a.h.ala_operation_panel_text_falshing, a.h.ala_operation_panel_text_mirror_off, a.h.ala_operation_panel_text_mute, a.h.ala_operation_panel_text_admin, a.h.ala_operation_panel_text_black};
+        this.hnv = new short[]{1, 1, 1, 1, 1, 1};
+        this.hnw = new int[]{1, 2, 3, 4, 5, 6};
+        bn bnVar = com.baidu.live.aa.a.Ph().bsh;
+        if (bnVar != null && bnVar.aNP != null && bnVar.aNP.aQi) {
+            int[] iArr = new int[this.hnu.length + 1];
+            System.arraycopy(this.hnu, 0, iArr, 0, this.hnu.length);
+            iArr[this.hnu.length] = a.h.ala_operation_panel_text_redpacket;
+            this.hnu = iArr;
+            short[] sArr = new short[this.hnv.length + 1];
+            System.arraycopy(this.hnv, 0, sArr, 0, this.hnv.length);
+            sArr[this.hnv.length] = 1;
+            this.hnv = sArr;
+            int[] iArr2 = new int[this.hnw.length + 1];
+            System.arraycopy(this.hnw, 0, iArr2, 0, this.hnw.length);
+            iArr2[this.hnw.length] = 7;
+            this.hnw = iArr2;
         }
-        if (bnVar != null && bnVar.aPv != null && bnVar.aPv.ER()) {
-            int[] iArr3 = new int[this.hnN.length + 1];
-            System.arraycopy(this.hnN, 0, iArr3, 0, this.hnN.length);
-            iArr3[this.hnN.length] = a.h.ala_operation_panel_text_host_wish;
-            this.hnN = iArr3;
-            short[] sArr2 = new short[this.hnO.length + 1];
-            System.arraycopy(this.hnO, 0, sArr2, 0, this.hnO.length);
-            sArr2[this.hnO.length] = 1;
-            this.hnO = sArr2;
-            int[] iArr4 = new int[this.hnP.length + 1];
-            System.arraycopy(this.hnP, 0, iArr4, 0, this.hnP.length);
-            iArr4[this.hnP.length] = 8;
-            this.hnP = iArr4;
+        if (bnVar != null && bnVar.aNK != null && bnVar.aNK.Ei()) {
+            int[] iArr3 = new int[this.hnu.length + 1];
+            System.arraycopy(this.hnu, 0, iArr3, 0, this.hnu.length);
+            iArr3[this.hnu.length] = a.h.ala_operation_panel_text_host_wish;
+            this.hnu = iArr3;
+            short[] sArr2 = new short[this.hnv.length + 1];
+            System.arraycopy(this.hnv, 0, sArr2, 0, this.hnv.length);
+            sArr2[this.hnv.length] = 1;
+            this.hnv = sArr2;
+            int[] iArr4 = new int[this.hnw.length + 1];
+            System.arraycopy(this.hnw, 0, iArr4, 0, this.hnw.length);
+            iArr4[this.hnw.length] = 8;
+            this.hnw = iArr4;
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.hnP.length;
+        return this.hnw.length;
     }
 
     @Override // android.widget.Adapter
@@ -114,15 +114,15 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (i < 0 || i >= this.hnP.length) {
+        if (i < 0 || i >= this.hnw.length) {
             return -1L;
         }
-        return this.hnP[i];
+        return this.hnw[i];
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return vY(this.hnP[i]) ? 0 : 1;
+        return ww(this.hnw[i]) ? 0 : 1;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -139,53 +139,53 @@ public class a extends BaseAdapter {
         AlaMasterOperationEntryItemView alaMasterOperationEntryItemView;
         AlaMasterOperationSwitchItemView alaMasterOperationSwitchItemView;
         AlaMasterOperationSwitchItemView alaMasterOperationSwitchItemView2;
-        if (i < 0 || i >= this.hnP.length) {
+        if (i < 0 || i >= this.hnw.length) {
             return null;
         }
-        int i2 = this.hnP[i];
-        int i3 = this.hnN[i];
-        if (vY(i2)) {
+        int i2 = this.hnw[i];
+        int i3 = this.hnu[i];
+        if (ww(i2)) {
             if (view instanceof AlaMasterOperationSwitchItemView) {
                 alaMasterOperationSwitchItemView2 = (AlaMasterOperationSwitchItemView) view;
             } else {
                 AlaMasterOperationSwitchItemView alaMasterOperationSwitchItemView3 = new AlaMasterOperationSwitchItemView(this.mContext, i2);
-                alaMasterOperationSwitchItemView3.setLayoutParams(new AbsListView.LayoutParams(cfr(), cfs()));
+                alaMasterOperationSwitchItemView3.setLayoutParams(new AbsListView.LayoutParams(ceK(), ceL()));
                 alaMasterOperationSwitchItemView2 = alaMasterOperationSwitchItemView3;
             }
-            alaMasterOperationSwitchItemView2.setTextResIdAndOnIconIdAndOffIconId(i3, vZ(i2), wa(i2));
-            alaMasterOperationSwitchItemView2.i(this.hnO[i]);
+            alaMasterOperationSwitchItemView2.setTextResIdAndOnIconIdAndOffIconId(i3, wx(i2), wy(i2));
+            alaMasterOperationSwitchItemView2.i(this.hnv[i]);
             alaMasterOperationSwitchItemView = alaMasterOperationSwitchItemView2;
         } else {
             if (view instanceof AlaMasterOperationEntryItemView) {
                 alaMasterOperationEntryItemView = (AlaMasterOperationEntryItemView) view;
             } else {
                 AlaMasterOperationEntryItemView alaMasterOperationEntryItemView2 = new AlaMasterOperationEntryItemView(this.mContext, i2);
-                alaMasterOperationEntryItemView2.setLayoutParams(new AbsListView.LayoutParams(cfr(), cfs()));
+                alaMasterOperationEntryItemView2.setLayoutParams(new AbsListView.LayoutParams(ceK(), ceL()));
                 alaMasterOperationEntryItemView = alaMasterOperationEntryItemView2;
             }
-            alaMasterOperationEntryItemView.setTextResIdAndIconResId(i3, wb(i2));
+            alaMasterOperationEntryItemView.setTextResIdAndIconResId(i3, wz(i2));
             alaMasterOperationSwitchItemView = alaMasterOperationEntryItemView;
         }
-        alaMasterOperationSwitchItemView.setOnClickListener(this.eYr);
+        alaMasterOperationSwitchItemView.setOnClickListener(this.eXy);
         return alaMasterOperationSwitchItemView;
     }
 
-    private boolean vY(int i) {
+    private boolean ww(int i) {
         return i == 1 || i == 2 || i == 3 || i == 4;
     }
 
-    private int cfr() {
+    private int ceK() {
         if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-            return this.hnK;
+            return this.hnr;
         }
         return -1;
     }
 
-    private int cfs() {
-        return UtilHelper.getRealScreenOrientation(this.mContext) == 2 ? this.hnM : this.hnL;
+    private int ceL() {
+        return UtilHelper.getRealScreenOrientation(this.mContext) == 2 ? this.hnt : this.hns;
     }
 
-    private int vZ(int i) {
+    private int wx(int i) {
         if (i == 1) {
             return a.e.btn_camera_exchange_white;
         }
@@ -201,7 +201,7 @@ public class a extends BaseAdapter {
         return 0;
     }
 
-    private int wa(int i) {
+    private int wy(int i) {
         if (i == 1) {
             return a.e.btn_camera_exchange_white;
         }
@@ -217,7 +217,7 @@ public class a extends BaseAdapter {
         return 0;
     }
 
-    private int wb(int i) {
+    private int wz(int i) {
         if (i == 5) {
             return a.e.btn_live_admin;
         }
@@ -234,9 +234,9 @@ public class a extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int wc(int i) {
-        for (int i2 = 0; i2 < this.hnP.length; i2++) {
-            if (this.hnP[i2] == i) {
+    public int wA(int i) {
+        for (int i2 = 0; i2 < this.hnw.length; i2++) {
+            if (this.hnw[i2] == i) {
                 return i2;
             }
         }
@@ -244,13 +244,13 @@ public class a extends BaseAdapter {
     }
 
     public void a(int i, short s) {
-        int wc = wc(i);
-        if (wc >= 0) {
-            this.hnO[wc] = s;
+        int wA = wA(i);
+        if (wA >= 0) {
+            this.hnv[wA] = s;
         }
     }
 
     public void a(InterfaceC0680a interfaceC0680a) {
-        this.hnQ = interfaceC0680a;
+        this.hnx = interfaceC0680a;
     }
 }

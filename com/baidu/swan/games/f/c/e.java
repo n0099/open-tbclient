@@ -8,7 +8,7 @@ import com.baidu.smallgame.sdk.permission.PermissionProxy;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class e implements PermissionProxy {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -24,18 +24,18 @@ public class e implements PermissionProxy {
             }
             return;
         }
-        final String wL = wL(str);
-        com.baidu.swan.apps.runtime.e aHu = com.baidu.swan.apps.runtime.e.aHu();
-        if (TextUtils.isEmpty(wL) || aHu == null || aHu.aHo() == null) {
+        final String wG = wG(str);
+        com.baidu.swan.apps.runtime.e aGM = com.baidu.swan.apps.runtime.e.aGM();
+        if (TextUtils.isEmpty(wG) || aGM == null || aGM.aGG() == null) {
             permissionListener.onPermissionResult(str, 2);
         } else {
-            aHu.aHG().b(aHu.aHo(), str, new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.games.f.c.e.1
+            aGM.aGY().b(aGM.aGG(), str, new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.games.f.c.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
                 public void M(h<b.d> hVar) {
                     if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                        e.this.a(str, wL, permissionListener);
+                        e.this.a(str, wG, permissionListener);
                     } else {
                         permissionListener.onPermissionResult(str, 2);
                     }
@@ -44,7 +44,7 @@ public class e implements PermissionProxy {
         }
     }
 
-    private String wL(String str) {
+    private String wG(String str) {
         if (str == null) {
             return null;
         }
@@ -76,9 +76,9 @@ public class e implements PermissionProxy {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull final String str, @NonNull String str2, @NonNull final PermissionListener permissionListener) {
         String[] strArr = {str2};
-        com.baidu.swan.apps.ab.a.a(str2, strArr, 2, com.baidu.swan.apps.runtime.d.aHq().aHo(), new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.games.f.c.e.2
+        com.baidu.swan.apps.ab.a.a(str2, strArr, 2, com.baidu.swan.apps.runtime.d.aGI().aGG(), new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.games.f.c.e.2
             @Override // com.baidu.swan.apps.ab.b
-            public void kt(String str3) {
+            public void kn(String str3) {
                 permissionListener.onPermissionResult(str, 0);
             }
 

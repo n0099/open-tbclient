@@ -1,7 +1,7 @@
 package com.baidu.sapi2.utils.enums;
 
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public enum FastLoginFeature {
     TX_WEIXIN_SSO("tweixin_sso"),
     SINA_WEIBO_SSO("tsina_sso"),

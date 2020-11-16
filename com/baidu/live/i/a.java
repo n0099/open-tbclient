@@ -4,13 +4,13 @@ import android.view.ViewGroup;
 import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public interface a {
-    void KJ();
+    void Ka();
 
     void a(ViewGroup viewGroup, w wVar, ViewGroup.LayoutParams layoutParams, String str);
 
     void a(w wVar);
 
-    void dX(int i);
+    void dT(int i);
 
     boolean isShowing();
 

@@ -6,27 +6,27 @@ import com.airbnb.lottie.h;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.c.n;
 /* loaded from: classes.dex */
 public class a implements c {
     public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private n fGl;
+    private n fFN;
     private boolean isFirstLoadInternal = false;
     private String mPath;
 
     @Override // com.airbnb.lottie.c
     public Bitmap fetchBitmap(h hVar) {
-        if (at.isEmpty(this.mPath)) {
+        if (au.isEmpty(this.mPath)) {
             return null;
         }
         String str = this.mPath + hVar.iN().replace("/", "") + "/" + hVar.getFileName();
         com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.e.c.mS().loadResourceFromMemery(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.fGl == null) {
-                this.fGl = new n();
+            if (this.fFN == null) {
+                this.fFN = new n();
             }
-            aVar = this.fGl.p(str, 0, 0);
+            aVar = this.fFN.p(str, 0, 0);
         }
         if (aVar != null && aVar.getRawBitmap() != null) {
             Bitmap rawBitmap = aVar.getRawBitmap();

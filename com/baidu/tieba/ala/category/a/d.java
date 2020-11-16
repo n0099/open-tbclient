@@ -15,29 +15,29 @@ import com.baidu.live.adp.widget.listview.TypeAdapter;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class d extends TypeAdapter.ViewHolder implements View.OnClickListener {
-    private com.baidu.tieba.ala.category.b.c guA;
-    private TextView guC;
-    private ImageView guD;
+    private com.baidu.tieba.ala.category.b.c guh;
+    private TextView guj;
+    private ImageView guk;
 
     public d(Context context, BdUniqueId bdUniqueId) {
         super(LayoutInflater.from(context).inflate(a.g.item_live_category_two, (ViewGroup) null));
-        this.guC = (TextView) getView().findViewById(a.f.category_two_name_tv);
-        this.guD = (ImageView) getView().findViewById(a.f.cb_iv);
-        this.guD.setOnClickListener(this);
+        this.guj = (TextView) getView().findViewById(a.f.category_two_name_tv);
+        this.guk = (ImageView) getView().findViewById(a.f.cb_iv);
+        this.guk.setOnClickListener(this);
     }
 
     public void a(com.baidu.tieba.ala.category.b.c cVar, String str) {
         if (cVar != null) {
-            this.guA = cVar;
-            this.guC.setText(this.guA.getName());
-            this.guD.setSelected(!StringUtils.isNull(this.guA.getId()) && TextUtils.equals(this.guA.getId(), str));
+            this.guh = cVar;
+            this.guj.setText(this.guh.getName());
+            this.guk.setSelected(!StringUtils.isNull(this.guh.getId()) && TextUtils.equals(this.guh.getId(), str));
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!this.guC.isSelected()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913201, this.guA));
+        if (!this.guj.isSelected()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913201, this.guh));
         }
     }
 }

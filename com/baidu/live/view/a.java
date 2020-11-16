@@ -34,23 +34,23 @@ import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static volatile a bLg;
+    private static volatile a bJv;
     private String mUserId;
     private HashMap<String, LinkedList<com.baidu.live.data.f>> mUserAttentionRequestMap = new HashMap<>();
-    private HashMap<String, C0231a> mAttentionTaskMap = new HashMap<>();
+    private HashMap<String, C0229a> mAttentionTaskMap = new HashMap<>();
 
     private a() {
     }
 
-    public static a Wx() {
-        if (bLg == null) {
+    public static a VO() {
+        if (bJv == null) {
             synchronized (a.class) {
-                if (bLg == null) {
-                    bLg = new a();
+                if (bJv == null) {
+                    bJv = new a();
                 }
             }
         }
-        return bLg;
+        return bJv;
     }
 
     public void a(String str, com.baidu.live.data.f fVar) {
@@ -108,19 +108,19 @@ public class a {
     public void executeAttentionTask(String str) {
         LinkedList<com.baidu.live.data.f> linkedList;
         if (!StringUtils.isNull(str) && this.mAttentionTaskMap.get(str) == null && (linkedList = this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
-            C0231a c0231a = new C0231a();
-            this.mAttentionTaskMap.put(str, c0231a);
-            c0231a.setPriority(2);
-            c0231a.a(linkedList.getFirst());
-            c0231a.execute(new Integer[0]);
+            C0229a c0229a = new C0229a();
+            this.mAttentionTaskMap.put(str, c0229a);
+            c0229a.setPriority(2);
+            c0229a.a(linkedList.getFirst());
+            c0229a.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0231a extends BdAsyncTask<Integer, Integer, String> {
-        private BdUniqueId bLl;
+    public class C0229a extends BdAsyncTask<Integer, Integer, String> {
+        private BdUniqueId bJA;
         private String forumId;
         private String from;
         private String inLive;
@@ -131,7 +131,7 @@ public class a {
         private boolean showToastAfterAttentionSuc;
         private String toUid;
 
-        private C0231a() {
+        private C0229a() {
             this.mNetwork = null;
             this.metaKey = "";
             this.isGod = false;
@@ -145,9 +145,9 @@ public class a {
             this.isAttention = fVar.isAttention();
             this.toUid = fVar.getUserId();
             this.inLive = fVar.getInLive();
-            this.bLl = fVar.Ee();
+            this.bJA = fVar.Dv();
             this.from = fVar.getFrom();
-            this.metaKey = fVar.Ef();
+            this.metaKey = fVar.Dw();
             if (this.forumId != null) {
                 this.showToastAfterAttentionSuc = true;
             }
@@ -185,7 +185,7 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0231a) str);
+            super.onPostExecute((C0229a) str);
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
                 updateAttentionData.isSucc = this.mNetwork.isRequestSuccess();
@@ -200,7 +200,7 @@ public class a {
                     updateAttentionData.isSucc = updateAttentionData.response.mServerErrorCode == 0;
                 }
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bLl));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bJA));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
                 a.this.a(updateAttentionData, this.from);
             }
@@ -331,12 +331,12 @@ public class a {
 
     public void o(String[] strArr) {
         for (String str : strArr) {
-            if (Wy() != null && Wy().equals(str)) {
+            if (VP() != null && VP().equals(str)) {
                 UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
                 updateAttentionData.isSucc = true;
                 updateAttentionData.errorString = null;
                 updateAttentionData.isAttention = true;
-                updateAttentionData.toUid = Wy();
+                updateAttentionData.toUid = VP();
                 updateAttentionData.isGod = false;
                 updateAttentionData.isShowMessage = false;
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
@@ -347,11 +347,11 @@ public class a {
         }
     }
 
-    public String Wy() {
+    public String VP() {
         return this.mUserId;
     }
 
-    public void iM(String str) {
+    public void iG(String str) {
         this.mUserId = str;
     }
 }

@@ -4,27 +4,27 @@ import android.media.MediaPlayer;
 import android.os.Handler;
 import com.baidu.swan.nalib.audio.SwanAudioPlayer;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class d implements c {
-    private int dQC;
-    private MediaPlayer.OnPreparedListener dRu;
-    private MediaPlayer.OnCompletionListener dRv;
-    private MediaPlayer.OnErrorListener dRw;
-    private MediaPlayer.OnSeekCompleteListener dRx;
-    private com.baidu.swan.nalib.audio.c dRy;
+    private int dOU;
+    private MediaPlayer.OnPreparedListener dPM;
+    private MediaPlayer.OnCompletionListener dPN;
+    private MediaPlayer.OnErrorListener dPO;
+    private MediaPlayer.OnSeekCompleteListener dPP;
+    private com.baidu.swan.nalib.audio.c dPQ;
     private boolean mLoop;
     private String mSrc;
     private float mVolume;
-    private SwanAudioPlayer dRt = SwanAudioPlayer.getInstance();
-    private Handler dRz = b.aST().aSV();
+    private SwanAudioPlayer dPL = SwanAudioPlayer.getInstance();
+    private Handler dPR = b.aSl().aSn();
 
     @Override // com.baidu.swan.games.audio.a
     public void play() {
-        this.dRz.post(new Runnable() { // from class: com.baidu.swan.games.audio.b.d.1
+        this.dPR.post(new Runnable() { // from class: com.baidu.swan.games.audio.b.d.1
             @Override // java.lang.Runnable
             public void run() {
-                if (2 != d.this.dRt.getState(d.this.dQC)) {
-                    d.this.dRt.play(d.this.dQC, d.this.mVolume, d.this.mLoop);
+                if (2 != d.this.dPL.getState(d.this.dOU)) {
+                    d.this.dPL.play(d.this.dOU, d.this.mVolume, d.this.mLoop);
                 }
             }
         });
@@ -32,113 +32,113 @@ public class d implements c {
 
     @Override // com.baidu.swan.games.audio.a
     public void pause() {
-        this.dRz.post(new Runnable() { // from class: com.baidu.swan.games.audio.b.d.2
+        this.dPR.post(new Runnable() { // from class: com.baidu.swan.games.audio.b.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.dRt.pause(d.this.dQC);
+                d.this.dPL.pause(d.this.dOU);
             }
         });
     }
 
     @Override // com.baidu.swan.games.audio.a
     public void seek(final float f) {
-        this.dRz.post(new Runnable() { // from class: com.baidu.swan.games.audio.b.d.3
+        this.dPR.post(new Runnable() { // from class: com.baidu.swan.games.audio.b.d.3
             @Override // java.lang.Runnable
             public void run() {
-                d.this.dRt.seek(d.this.dQC, (int) f);
+                d.this.dPL.seek(d.this.dOU, (int) f);
             }
         });
     }
 
     @Override // com.baidu.swan.games.audio.a
     public void stop() {
-        this.dRz.post(new Runnable() { // from class: com.baidu.swan.games.audio.b.d.4
+        this.dPR.post(new Runnable() { // from class: com.baidu.swan.games.audio.b.d.4
             @Override // java.lang.Runnable
             public void run() {
-                d.this.dRt.stop(d.this.dQC);
+                d.this.dPL.stop(d.this.dOU);
             }
         });
     }
 
     @Override // com.baidu.swan.games.audio.a
     public void destroy() {
-        this.dRt.release(this.dQC);
+        this.dPL.release(this.dOU);
         stop();
     }
 
     @Override // com.baidu.swan.games.audio.a
     public int getDuration() {
-        return this.dRt.getDuration(this.dQC);
+        return this.dPL.getDuration(this.dOU);
     }
 
     @Override // com.baidu.swan.games.audio.a
     public int getCurrentTime() {
-        return this.dRt.getPosition(this.dQC);
+        return this.dPL.getPosition(this.dOU);
     }
 
     @Override // com.baidu.swan.games.audio.b.c
     public void setSrc(final String str) throws Exception {
-        this.dRz.post(new Runnable() { // from class: com.baidu.swan.games.audio.b.d.5
+        this.dPR.post(new Runnable() { // from class: com.baidu.swan.games.audio.b.d.5
             @Override // java.lang.Runnable
             public void run() {
                 d.this.mSrc = str;
                 File file = new File(str);
                 if (file.exists() && !file.isDirectory()) {
-                    d.this.dQC = d.this.dRt.setDataSource(str, (int) file.length());
-                    d.this.dRt.setOnPreparedListener(d.this.dQC, new MediaPlayer.OnPreparedListener() { // from class: com.baidu.swan.games.audio.b.d.5.1
+                    d.this.dOU = d.this.dPL.setDataSource(str, (int) file.length());
+                    d.this.dPL.setOnPreparedListener(d.this.dOU, new MediaPlayer.OnPreparedListener() { // from class: com.baidu.swan.games.audio.b.d.5.1
                         @Override // android.media.MediaPlayer.OnPreparedListener
                         public void onPrepared(MediaPlayer mediaPlayer) {
-                            if (d.this.dRu != null) {
-                                d.this.dRu.onPrepared(mediaPlayer);
+                            if (d.this.dPM != null) {
+                                d.this.dPM.onPrepared(mediaPlayer);
                             }
                         }
                     });
-                    d.this.dRt.setOnCompletionListener(d.this.dQC, new MediaPlayer.OnCompletionListener() { // from class: com.baidu.swan.games.audio.b.d.5.2
+                    d.this.dPL.setOnCompletionListener(d.this.dOU, new MediaPlayer.OnCompletionListener() { // from class: com.baidu.swan.games.audio.b.d.5.2
                         @Override // android.media.MediaPlayer.OnCompletionListener
                         public void onCompletion(MediaPlayer mediaPlayer) {
-                            if (d.this.dRv != null) {
-                                d.this.dRv.onCompletion(mediaPlayer);
+                            if (d.this.dPN != null) {
+                                d.this.dPN.onCompletion(mediaPlayer);
                             }
                         }
                     });
-                    d.this.dRt.setOnSeekCompleteListener(d.this.dQC, new MediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.swan.games.audio.b.d.5.3
+                    d.this.dPL.setOnSeekCompleteListener(d.this.dOU, new MediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.swan.games.audio.b.d.5.3
                         @Override // android.media.MediaPlayer.OnSeekCompleteListener
                         public void onSeekComplete(MediaPlayer mediaPlayer) {
-                            if (d.this.dRx != null) {
-                                d.this.dRx.onSeekComplete(mediaPlayer);
+                            if (d.this.dPP != null) {
+                                d.this.dPP.onSeekComplete(mediaPlayer);
                             }
                         }
                     });
-                    d.this.dRt.setOnErrorListener(d.this.dQC, new MediaPlayer.OnErrorListener() { // from class: com.baidu.swan.games.audio.b.d.5.4
+                    d.this.dPL.setOnErrorListener(d.this.dOU, new MediaPlayer.OnErrorListener() { // from class: com.baidu.swan.games.audio.b.d.5.4
                         @Override // android.media.MediaPlayer.OnErrorListener
                         public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                            if (d.this.dRw != null) {
-                                return d.this.dRw.onError(mediaPlayer, i, i2);
+                            if (d.this.dPO != null) {
+                                return d.this.dPO.onError(mediaPlayer, i, i2);
                             }
                             return false;
                         }
                     });
-                    d.this.dRt.setOnPauseListener(d.this.dQC, new com.baidu.swan.nalib.audio.c() { // from class: com.baidu.swan.games.audio.b.d.5.5
+                    d.this.dPL.setOnPauseListener(d.this.dOU, new com.baidu.swan.nalib.audio.c() { // from class: com.baidu.swan.games.audio.b.d.5.5
                         @Override // com.baidu.swan.nalib.audio.c
                         public void onPause() {
-                            if (d.this.dRy != null) {
-                                d.this.dRy.onPause();
+                            if (d.this.dPQ != null) {
+                                d.this.dPQ.onPause();
                             }
                         }
                     });
-                    d.this.dRt.prepare(d.this.dQC);
+                    d.this.dPL.prepare(d.this.dOU);
                 }
             }
         });
     }
 
     @Override // com.baidu.swan.games.audio.b.c
-    public void hr(final boolean z) {
-        this.dRz.post(new Runnable() { // from class: com.baidu.swan.games.audio.b.d.6
+    public void hu(final boolean z) {
+        this.dPR.post(new Runnable() { // from class: com.baidu.swan.games.audio.b.d.6
             @Override // java.lang.Runnable
             public void run() {
-                if (2 == d.this.dRt.getState(d.this.dQC)) {
-                    d.this.dRt.setLoop(d.this.dQC, z);
+                if (2 == d.this.dPL.getState(d.this.dOU)) {
+                    d.this.dPL.setLoop(d.this.dOU, z);
                 }
                 d.this.mLoop = z;
             }
@@ -147,11 +147,11 @@ public class d implements c {
 
     @Override // com.baidu.swan.games.audio.b.c
     public void setVolume(final float f) {
-        this.dRz.post(new Runnable() { // from class: com.baidu.swan.games.audio.b.d.7
+        this.dPR.post(new Runnable() { // from class: com.baidu.swan.games.audio.b.d.7
             @Override // java.lang.Runnable
             public void run() {
-                if (2 == d.this.dRt.getState(d.this.dQC)) {
-                    d.this.dRt.setVolume(d.this.dQC, f);
+                if (2 == d.this.dPL.getState(d.this.dOU)) {
+                    d.this.dPL.setVolume(d.this.dOU, f);
                 }
                 d.this.mVolume = f;
             }
@@ -160,12 +160,12 @@ public class d implements c {
 
     @Override // com.baidu.swan.games.audio.b.c
     public void setOnPreparedListener(MediaPlayer.OnPreparedListener onPreparedListener) {
-        this.dRu = onPreparedListener;
+        this.dPM = onPreparedListener;
     }
 
     @Override // com.baidu.swan.games.audio.b.c
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
-        this.dRv = onCompletionListener;
+        this.dPN = onCompletionListener;
     }
 
     @Override // com.baidu.swan.games.audio.b.c
@@ -174,12 +174,12 @@ public class d implements c {
 
     @Override // com.baidu.swan.games.audio.b.c
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        this.dRw = onErrorListener;
+        this.dPO = onErrorListener;
     }
 
     @Override // com.baidu.swan.games.audio.b.c
     public void a(MediaPlayer.OnSeekCompleteListener onSeekCompleteListener) {
-        this.dRx = onSeekCompleteListener;
+        this.dPP = onSeekCompleteListener;
     }
 
     @Override // com.baidu.swan.games.audio.b.c
@@ -188,11 +188,11 @@ public class d implements c {
 
     @Override // com.baidu.swan.games.audio.b.c
     public void a(com.baidu.swan.nalib.audio.c cVar) {
-        this.dRy = cVar;
+        this.dPQ = cVar;
     }
 
     @Override // com.baidu.swan.games.audio.b.c
-    public boolean aSX() {
+    public boolean aSp() {
         return false;
     }
 }

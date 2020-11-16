@@ -10,13 +10,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V>, T> {
     final int bufferSize;
     final boolean delayError;
-    final rx.functions.f<? super T, ? extends K> qfG;
-    final rx.functions.f<? super T, ? extends V> qfH;
-    final rx.functions.f<rx.functions.b<K>, Map<K, Object>> qfI;
+    final rx.functions.f<? super T, ? extends K> qhj;
+    final rx.functions.f<? super T, ? extends V> qhk;
+    final rx.functions.f<rx.functions.b<K>, Map<K, Object>> qhl;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -25,24 +25,24 @@ public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V
 
     public rx.j<? super T> call(rx.j<? super rx.observables.b<K, V>> jVar) {
         try {
-            final b bVar = new b(jVar, this.qfG, this.qfH, this.bufferSize, this.delayError, this.qfI);
+            final b bVar = new b(jVar, this.qhj, this.qhk, this.bufferSize, this.delayError, this.qhl);
             jVar.add(rx.subscriptions.e.l(new rx.functions.a() { // from class: rx.internal.operators.OperatorGroupBy.1
                 @Override // rx.functions.a
                 public void call() {
                     bVar.cancel();
                 }
             }));
-            jVar.setProducer(bVar.qfL);
+            jVar.setProducer(bVar.qho);
             return bVar;
         } catch (Throwable th) {
             rx.exceptions.a.a(th, jVar);
-            rx.j<? super T> eGq = rx.b.f.eGq();
-            eGq.unsubscribe();
-            return eGq;
+            rx.j<? super T> eGr = rx.b.f.eGr();
+            eGr.unsubscribe();
+            return eGr;
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public static final class a implements rx.f {
         final b<?, ?, ?> parent;
 
@@ -56,7 +56,7 @@ public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public static final class b<T, K, V> extends rx.j<T> {
         static final Object NULL_KEY = new Object();
         final rx.j<? super rx.observables.b<K, V>> actual;
@@ -67,47 +67,47 @@ public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V
         Throwable error;
         final AtomicInteger groupCount;
         final Map<Object, c<K, V>> groups;
-        final rx.functions.f<? super T, ? extends K> qfG;
-        final rx.functions.f<? super T, ? extends V> qfH;
-        final a qfL;
-        final Queue<K> qfM;
+        final rx.functions.f<? super T, ? extends K> qhj;
+        final rx.functions.f<? super T, ? extends V> qhk;
+        final a qho;
+        final Queue<K> qhp;
         final AtomicLong requested;
         final AtomicInteger wip;
         final Queue<rx.observables.b<K, V>> queue = new ConcurrentLinkedQueue();
-        final rx.internal.producers.a qfN = new rx.internal.producers.a();
+        final rx.internal.producers.a qhq = new rx.internal.producers.a();
 
         public b(rx.j<? super rx.observables.b<K, V>> jVar, rx.functions.f<? super T, ? extends K> fVar, rx.functions.f<? super T, ? extends V> fVar2, int i, boolean z, rx.functions.f<rx.functions.b<K>, Map<K, Object>> fVar3) {
             this.actual = jVar;
-            this.qfG = fVar;
-            this.qfH = fVar2;
+            this.qhj = fVar;
+            this.qhk = fVar2;
             this.bufferSize = i;
             this.delayError = z;
-            this.qfN.request(i);
-            this.qfL = new a(this);
+            this.qhq.request(i);
+            this.qho = new a(this);
             this.cancelled = new AtomicBoolean();
             this.requested = new AtomicLong();
             this.groupCount = new AtomicInteger(1);
             this.wip = new AtomicInteger();
             if (fVar3 == null) {
                 this.groups = new ConcurrentHashMap();
-                this.qfM = null;
+                this.qhp = null;
                 return;
             }
-            this.qfM = new ConcurrentLinkedQueue();
-            this.groups = a(fVar3, new a(this.qfM));
+            this.qhp = new ConcurrentLinkedQueue();
+            this.groups = a(fVar3, new a(this.qhp));
         }
 
-        /* loaded from: classes16.dex */
+        /* loaded from: classes14.dex */
         static class a<K> implements rx.functions.b<K> {
-            final Queue<K> qfM;
+            final Queue<K> qhp;
 
             a(Queue<K> queue) {
-                this.qfM = queue;
+                this.qhp = queue;
             }
 
             @Override // rx.functions.b
             public void call(K k) {
-                this.qfM.offer(k);
+                this.qhp.offer(k);
             }
         }
 
@@ -117,7 +117,7 @@ public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.qfN.setProducer(fVar);
+            this.qhq.setProducer(fVar);
         }
 
         @Override // rx.e
@@ -127,7 +127,7 @@ public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V
                 Queue<?> queue = this.queue;
                 rx.j<? super rx.observables.b<K, V>> jVar = this.actual;
                 try {
-                    Object call = this.qfG.call(t);
+                    Object call = this.qhj.call(t);
                     Object obj = call != null ? call : NULL_KEY;
                     c cVar = this.groups.get(obj);
                     if (cVar != null) {
@@ -143,10 +143,10 @@ public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V
                         return;
                     }
                     try {
-                        cVar.onNext(this.qfH.call(t));
-                        if (this.qfM != null) {
+                        cVar.onNext(this.qhk.call(t));
+                        if (this.qhp != null) {
                             while (true) {
-                                K poll = this.qfM.poll();
+                                K poll = this.qhp.poll();
                                 if (poll == null) {
                                     break;
                                 }
@@ -157,7 +157,7 @@ public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V
                             }
                         }
                         if (z) {
-                            this.qfN.request(1L);
+                            this.qhq.request(1L);
                         }
                     } catch (Throwable th) {
                         unsubscribe();
@@ -189,8 +189,8 @@ public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V
                     cVar.onComplete();
                 }
                 this.groups.clear();
-                if (this.qfM != null) {
-                    this.qfM.clear();
+                if (this.qhp != null) {
+                    this.qhp.clear();
                 }
                 this.done = true;
                 this.groupCount.decrementAndGet();
@@ -247,7 +247,7 @@ public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V
                         if (j != Long.MAX_VALUE) {
                             rx.internal.operators.a.c(this.requested, j2);
                         }
-                        this.qfN.request(j2);
+                        this.qhq.request(j2);
                     }
                     int addAndGet = this.wip.addAndGet(-i);
                     if (addAndGet == 0) {
@@ -262,8 +262,8 @@ public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V
             queue.clear();
             ArrayList<c> arrayList = new ArrayList(this.groups.values());
             this.groups.clear();
-            if (this.qfM != null) {
-                this.qfM.clear();
+            if (this.qhp != null) {
+                this.qhp.clear();
             }
             for (c cVar : arrayList) {
                 cVar.onError(th);
@@ -287,9 +287,9 @@ public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public static final class c<K, T> extends rx.observables.b<K, T> {
-        final State<T, K> qfO;
+        final State<T, K> qhr;
 
         public static <T, K> c<K, T> a(K k, int i, b<?, K, T> bVar, boolean z) {
             return new c<>(k, new State(i, bVar, k, z));
@@ -297,24 +297,24 @@ public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V
 
         protected c(K k, State<T, K> state) {
             super(k, state);
-            this.qfO = state;
+            this.qhr = state;
         }
 
         public void onNext(T t) {
-            this.qfO.onNext(t);
+            this.qhr.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.qfO.onError(th);
+            this.qhr.onError(th);
         }
 
         public void onComplete() {
-            this.qfO.onComplete();
+            this.qhr.onComplete();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public static final class State<T, K> extends AtomicInteger implements d.a<T>, rx.f, rx.k {
         private static final long serialVersionUID = -3852313036005250360L;
         final boolean delayError;
@@ -423,7 +423,7 @@ public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V
                                 if (j != Long.MAX_VALUE) {
                                     rx.internal.operators.a.c(this.requested, j2);
                                 }
-                                this.parent.qfN.request(j2);
+                                this.parent.qhq.request(j2);
                             }
                         } else {
                             return;

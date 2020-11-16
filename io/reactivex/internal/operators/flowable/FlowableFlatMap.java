@@ -11,7 +11,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class FlowableFlatMap<T, U> extends a<T, U> {
     final int bufferSize;
     final boolean delayErrors;
@@ -20,8 +20,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
-        if (!g.a(this.pMK, cVar, this.mapper)) {
-            this.pMK.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
+        if (!g.a(this.pOn, cVar, this.mapper)) {
+            this.pOn.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
         }
     }
 
@@ -30,7 +30,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class MergeSubscriber<T, U> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = -2117620485640801370L;
         final org.a.c<? super U> actual;
@@ -593,7 +593,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class InnerSubscriber<T, U> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<U> {
         private static final long serialVersionUID = -4606175640614850599L;
         final int bufferSize;

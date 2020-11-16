@@ -6,41 +6,41 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.av;
+import com.baidu.tbadk.core.data.aw;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class c {
-    private av iCj;
-    private ArrayList<com.baidu.tieba.forbidden.fans.a> iCk;
-    private a iCl;
-    private HttpMessageListener iCm = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
+    private aw iCY;
+    private ArrayList<com.baidu.tieba.forbidden.fans.a> iCZ;
+    private a iDa;
+    private HttpMessageListener iDb = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof GetForbiddenFansResponse) {
                 GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
-                c.this.iCj = getForbiddenFansResponse.getPageData();
-                if (c.this.iCk == null) {
-                    c.this.iCk = new ArrayList();
+                c.this.iCY = getForbiddenFansResponse.getPageData();
+                if (c.this.iCZ == null) {
+                    c.this.iCZ = new ArrayList();
                 }
-                if (c.this.iCj != null) {
-                    if (c.this.iCj.blo() == 1) {
-                        c.this.iCk.clear();
+                if (c.this.iCY != null) {
+                    if (c.this.iCY.bkq() == 1) {
+                        c.this.iCZ.clear();
                     }
                     if (getForbiddenFansResponse.getFansList() != null) {
-                        c.this.iCk.addAll(getForbiddenFansResponse.getFansList());
+                        c.this.iCZ.addAll(getForbiddenFansResponse.getFansList());
                     }
                 }
-                if (c.this.iCl != null) {
-                    c.this.iCl.b(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.iCk);
+                if (c.this.iDa != null) {
+                    c.this.iDa.b(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.iCZ);
                 }
             }
         }
     };
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes22.dex */
     public interface a {
         void b(int i, String str, ArrayList<com.baidu.tieba.forbidden.fans.a> arrayList);
     }
@@ -52,35 +52,35 @@ public class c {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.iCm);
+        MessageManager.getInstance().registerListener(this.iDb);
     }
 
-    public void cwt() {
+    public void cvW() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
         httpMessage.addParam("rn", 20);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void cwu() {
-        if (this.iCj == null || this.iCj.blq() == 1) {
-            int blo = this.iCj != null ? this.iCj.blo() + 1 : 1;
+    public void cvX() {
+        if (this.iCY == null || this.iCY.bks() == 1) {
+            int bkq = this.iCY != null ? this.iCY.bkq() + 1 : 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
             httpMessage.addParam("rn", 20);
-            httpMessage.addParam(Config.PACKAGE_NAME, blo);
+            httpMessage.addParam(Config.PACKAGE_NAME, bkq);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public boolean hasMore() {
-        return this.iCj != null && this.iCj.blq() == 1;
+        return this.iCY != null && this.iCY.bks() == 1;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.iCm);
+        MessageManager.getInstance().unRegisterListener(this.iDb);
     }
 
     public void a(a aVar) {
-        this.iCl = aVar;
+        this.iDa = aVar;
     }
 }

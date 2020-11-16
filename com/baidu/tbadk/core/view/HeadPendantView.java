@@ -19,198 +19,198 @@ import com.baidu.tieba.R;
 import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 public class HeadPendantView extends RelativeLayout {
-    private boolean eSA;
-    private boolean eSB;
-    private TbImageView eSq;
-    private ImageView eSr;
-    private HeadImageView eSs;
-    private boolean eSt;
-    private boolean eSu;
-    private boolean eSv;
-    private boolean eSw;
-    private int eSx;
-    private int eSy;
-    private int eSz;
+    private int eRA;
+    private int eRB;
+    private boolean eRC;
+    private boolean eRD;
+    private TbImageView eRs;
+    private ImageView eRt;
+    private HeadImageView eRu;
+    private boolean eRv;
+    private boolean eRw;
+    private boolean eRx;
+    private boolean eRy;
+    private int eRz;
     private Context mContext;
     private BdUniqueId mPageId;
 
     public HeadPendantView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eSt = false;
-        this.eSu = false;
-        this.eSv = false;
-        this.eSw = false;
-        this.eSx = R.drawable.ic_icon_mask_shen20_n;
-        this.eSy = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.eSz = 0;
-        this.eSB = true;
+        this.eRv = false;
+        this.eRw = false;
+        this.eRx = false;
+        this.eRy = false;
+        this.eRz = R.drawable.ic_icon_mask_shen20_n;
+        this.eRA = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.eRB = 0;
+        this.eRD = true;
         this.mContext = context;
         init();
     }
 
     public HeadPendantView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eSt = false;
-        this.eSu = false;
-        this.eSv = false;
-        this.eSw = false;
-        this.eSx = R.drawable.ic_icon_mask_shen20_n;
-        this.eSy = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.eSz = 0;
-        this.eSB = true;
+        this.eRv = false;
+        this.eRw = false;
+        this.eRx = false;
+        this.eRy = false;
+        this.eRz = R.drawable.ic_icon_mask_shen20_n;
+        this.eRA = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.eRB = 0;
+        this.eRD = true;
         this.mContext = context;
         init();
     }
 
     public HeadPendantView(Context context) {
         super(context);
-        this.eSt = false;
-        this.eSu = false;
-        this.eSv = false;
-        this.eSw = false;
-        this.eSx = R.drawable.ic_icon_mask_shen20_n;
-        this.eSy = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.eSz = 0;
-        this.eSB = true;
+        this.eRv = false;
+        this.eRw = false;
+        this.eRx = false;
+        this.eRy = false;
+        this.eRz = R.drawable.ic_icon_mask_shen20_n;
+        this.eRA = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.eRB = 0;
+        this.eRD = true;
         this.mContext = context;
         init();
     }
 
     public void setHasPendantStyle() {
-        this.eSt = true;
+        this.eRv = true;
     }
 
     public void setHasPendantStyle(boolean z) {
-        if (this.eSt && !z && this.eSs != null) {
-            ((RelativeLayout.LayoutParams) this.eSs.getLayoutParams()).setMargins(0, 0, 0, 0);
-            if (this.eSr != null) {
-                ((RelativeLayout.LayoutParams) this.eSr.getLayoutParams()).setMargins(0, 0, 0, 0);
+        if (this.eRv && !z && this.eRu != null) {
+            ((RelativeLayout.LayoutParams) this.eRu.getLayoutParams()).setMargins(0, 0, 0, 0);
+            if (this.eRt != null) {
+                ((RelativeLayout.LayoutParams) this.eRt.getLayoutParams()).setMargins(0, 0, 0, 0);
             }
-            if (this.eSq != null) {
-                this.eSq.setVisibility(8);
+            if (this.eRs != null) {
+                this.eRs.setVisibility(8);
             }
-            this.eSu = false;
+            this.eRw = false;
             invalidate();
-        } else if (!this.eSt && z && this.eSs != null) {
-            int width = (int) (this.eSs.getWidth() * 0.13f);
-            int height = (int) (this.eSs.getHeight() * 0.13f);
-            ((RelativeLayout.LayoutParams) this.eSs.getLayoutParams()).setMargins(width, height, width, height);
-            if (this.eSr != null) {
-                ((RelativeLayout.LayoutParams) this.eSr.getLayoutParams()).setMargins(width, height, width, height);
+        } else if (!this.eRv && z && this.eRu != null) {
+            int width = (int) (this.eRu.getWidth() * 0.13f);
+            int height = (int) (this.eRu.getHeight() * 0.13f);
+            ((RelativeLayout.LayoutParams) this.eRu.getLayoutParams()).setMargins(width, height, width, height);
+            if (this.eRt != null) {
+                ((RelativeLayout.LayoutParams) this.eRt.getLayoutParams()).setMargins(width, height, width, height);
             }
             invalidate();
         }
-        this.eSt = z;
+        this.eRv = z;
     }
 
     public void setBjhPbFirstFloor(boolean z) {
-        this.eSv = z;
+        this.eRx = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.eSt) {
+        if (this.eRv) {
             int size = View.MeasureSpec.getSize(i);
             int i3 = (int) (size * 0.13f);
             int size2 = (int) (View.MeasureSpec.getSize(i2) * 0.13f);
-            ((RelativeLayout.LayoutParams) this.eSs.getLayoutParams()).setMargins(i3, size2, i3, size2);
-            if (this.eSr != null) {
-                ((RelativeLayout.LayoutParams) this.eSr.getLayoutParams()).setMargins(i3, size2, i3, size2);
+            ((RelativeLayout.LayoutParams) this.eRu.getLayoutParams()).setMargins(i3, size2, i3, size2);
+            if (this.eRt != null) {
+                ((RelativeLayout.LayoutParams) this.eRt.getLayoutParams()).setMargins(i3, size2, i3, size2);
             }
         }
-        if (this.eSv) {
-            ((RelativeLayout.LayoutParams) this.eSs.getLayoutParams()).setMargins(0, 0, 0, 0);
-            if (this.eSr != null) {
-                ((RelativeLayout.LayoutParams) this.eSr.getLayoutParams()).setMargins(0, 0, 0, 0);
+        if (this.eRx) {
+            ((RelativeLayout.LayoutParams) this.eRu.getLayoutParams()).setMargins(0, 0, 0, 0);
+            if (this.eRt != null) {
+                ((RelativeLayout.LayoutParams) this.eRt.getLayoutParams()).setMargins(0, 0, 0, 0);
             }
         }
         super.onMeasure(i, i2);
     }
 
-    public void Cp(String str) {
-        if (this.eSq != null) {
-            if (this.eSt && !StringUtils.isNull(str)) {
-                this.eSu = true;
-                this.eSq.setVisibility(0);
-                this.eSq.setImageDrawable(null);
-                this.eSq.startLoad(str, 10, false);
+    public void BO(String str) {
+        if (this.eRs != null) {
+            if (this.eRv && !StringUtils.isNull(str)) {
+                this.eRw = true;
+                this.eRs.setVisibility(0);
+                this.eRs.setImageDrawable(null);
+                this.eRs.startLoad(str, 10, false);
                 return;
             }
-            this.eSq.setVisibility(8);
-            this.eSu = false;
+            this.eRs.setVisibility(8);
+            this.eRw = false;
         }
     }
 
     public void setAutoChangeStyle(boolean z) {
-        this.eSq.setAutoChangeStyle(z);
-        this.eSs.setAutoChangeStyle(z);
+        this.eRs.setAutoChangeStyle(z);
+        this.eRu.setAutoChangeStyle(z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void init() {
-        this.eSy = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
-        bsi();
-        bsj();
-        bsk();
+        this.eRA = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
+        brw();
+        brx();
+        bry();
     }
 
-    private void bsi() {
-        this.eSs = new HeadImageView(this.mContext);
-        this.eSs.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eSs.setPlaceHolder(1);
-        this.eSs.setDefaultResource(R.color.cp_bg_line_e);
-        this.eSs.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+    private void brw() {
+        this.eRu = new HeadImageView(this.mContext);
+        this.eRu.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eRu.setPlaceHolder(1);
+        this.eRu.setDefaultResource(R.color.CAM_X0205);
+        this.eRu.setDefaultErrorResource(R.drawable.icon_default_avatar100);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams.addRule(14, -1);
         layoutParams.addRule(15, -1);
-        this.eSs.setLayoutParams(layoutParams);
-        addView(this.eSs);
+        this.eRu.setLayoutParams(layoutParams);
+        addView(this.eRu);
     }
 
-    private void bsj() {
-        this.eSq = new TbImageView(this.mContext);
-        this.eSq.setPageId(this.mPageId);
-        this.eSq.setDefaultBgResource(0);
-        this.eSq.setDefaultResource(0);
-        this.eSq.setDefaultErrorResource(0);
-        this.eSq.setImageDrawable(null);
-        this.eSq.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        this.eSq.setVisibility(8);
-        addView(this.eSq);
+    private void brx() {
+        this.eRs = new TbImageView(this.mContext);
+        this.eRs.setPageId(this.mPageId);
+        this.eRs.setDefaultBgResource(0);
+        this.eRs.setDefaultResource(0);
+        this.eRs.setDefaultErrorResource(0);
+        this.eRs.setImageDrawable(null);
+        this.eRs.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        this.eRs.setVisibility(8);
+        addView(this.eRs);
     }
 
-    private void bsk() {
-        this.eSr = new ImageView(this.mContext);
-        this.eSr.setImageDrawable(null);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.eSy, this.eSy);
+    private void bry() {
+        this.eRt = new ImageView(this.mContext);
+        this.eRt.setImageDrawable(null);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.eRA, this.eRA);
         layoutParams.addRule(12, -1);
         layoutParams.addRule(11, -1);
-        this.eSr.setLayoutParams(layoutParams);
-        this.eSr.setVisibility(8);
-        addView(this.eSr);
+        this.eRt.setLayoutParams(layoutParams);
+        this.eRt.setVisibility(8);
+        addView(this.eRt);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
-        if (this.eSs != null) {
-            this.eSs.setPageId(bdUniqueId);
+        if (this.eRu != null) {
+            this.eRu.setPageId(bdUniqueId);
         }
-        if (this.eSq != null) {
-            this.eSq.setPageId(bdUniqueId);
+        if (this.eRs != null) {
+            this.eRs.setPageId(bdUniqueId);
         }
     }
 
     public TbImageView getPendantView() {
-        return this.eSq;
+        return this.eRs;
     }
 
     public HeadImageView getHeadView() {
-        return this.eSs;
+        return this.eRu;
     }
 
     public ImageView getBigVIconView() {
-        return this.eSr;
+        return this.eRt;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -220,61 +220,61 @@ public class HeadPendantView extends RelativeLayout {
 
     public void setBigVDimenSize(int i) {
         if (i > 0) {
-            this.eSy = com.baidu.adp.lib.util.l.getDimens(getContext(), i);
+            this.eRA = com.baidu.adp.lib.util.l.getDimens(getContext(), i);
         }
-        bsl();
+        brz();
     }
 
-    private void bsl() {
-        if (this.eSy > 0 && this.eSr != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eSr.getLayoutParams();
-            layoutParams.width = this.eSy;
-            layoutParams.height = this.eSy;
-            this.eSr.setLayoutParams(layoutParams);
+    private void brz() {
+        if (this.eRA > 0 && this.eRt != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eRt.getLayoutParams();
+            layoutParams.width = this.eRA;
+            layoutParams.height = this.eRA;
+            this.eRt.setLayoutParams(layoutParams);
         }
     }
 
     public void setBigVIconResId(int i) {
-        this.eSx = i;
+        this.eRz = i;
     }
 
     public void setAuthIconType(int i) {
-        this.eSz = i;
+        this.eRB = i;
     }
 
     public void setUrl(String str) {
-        this.eSs.setUrl(str);
+        this.eRu.setUrl(str);
     }
 
     public void setDefalutResid(int i) {
-        this.eSs.setDefaultResource(i);
+        this.eRu.setDefaultResource(i);
     }
 
-    public void Cq(String str) {
+    public void BP(String str) {
         if (!StringUtils.isNull(str)) {
-            String BL = q.BL(str);
-            this.eSs.setImageBitmap(null);
-            this.eSs.setUrl(BL);
-            if (BL.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                startLoad(BL, 10, false);
+            String Bk = q.Bk(str);
+            this.eRu.setImageBitmap(null);
+            this.eRu.setUrl(Bk);
+            if (Bk.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                startLoad(Bk, 10, false);
             } else {
-                startLoad(BL, 25, false);
+                startLoad(Bk, 25, false);
             }
         }
     }
 
     public void startLoad(String str, int i, boolean z) {
-        this.eSs.a(str, i, 0, 0, z);
+        this.eRu.a(str, i, 0, 0, z);
     }
 
     public void a(MetaData metaData) {
         if (metaData != null && !TextUtils.isEmpty(metaData.getPortrait())) {
-            String BL = q.BL(metaData.getAvater());
-            setUrl(BL);
-            if (BL.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                startLoad(BL, 10, false);
+            String Bk = q.Bk(metaData.getAvater());
+            setUrl(Bk);
+            if (Bk.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                startLoad(Bk, 10, false);
             } else {
-                startLoad(BL, 25, false);
+                startLoad(Bk, 25, false);
             }
             b(metaData);
         }
@@ -283,9 +283,9 @@ public class HeadPendantView extends RelativeLayout {
     public void b(MetaData metaData) {
         if (metaData != null) {
             if (metaData.getPendantData() != null) {
-                Cp(metaData.getPendantData().bkw());
+                BO(metaData.getPendantData().bjy());
             } else {
-                Cp(null);
+                BO(null);
             }
             c(metaData);
         }
@@ -293,45 +293,45 @@ public class HeadPendantView extends RelativeLayout {
 
     public void a(MetaData metaData, int i) {
         if (metaData != null) {
-            this.eSz = i;
+            this.eRB = i;
             b(metaData);
         }
     }
 
     private void c(MetaData metaData) {
         if (metaData != null) {
-            if (this.eSA) {
-                this.eSr.setVisibility(8);
+            if (this.eRC) {
+                this.eRt.setVisibility(8);
                 return;
             }
-            this.eSs.setShowV(false);
+            this.eRu.setShowV(false);
             if (metaData.isNewGod()) {
-                SvgManager.brn().a(this.eSr, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
-                jm(true);
+                SvgManager.bqB().a(this.eRt, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
+                jn(true);
                 return;
             }
-            jm(false);
-            if (this.eSw || !UtilHelper.showHeadBazhuIcon(this.eSr, metaData, this.eSB)) {
-                UtilHelper.showHeadBjhBigVIcon(this.eSr, metaData, this.eSz);
+            jn(false);
+            if (this.eRy || !UtilHelper.showHeadBazhuIcon(this.eRt, metaData, this.eRD)) {
+                UtilHelper.showHeadBjhBigVIcon(this.eRt, metaData, this.eRB);
             }
         }
     }
 
-    public void jm(boolean z) {
-        if (this.eSr != null) {
-            this.eSr.setVisibility(z ? 0 : 8);
+    public void jn(boolean z) {
+        if (this.eRt != null) {
+            this.eRt.setVisibility(z ? 0 : 8);
         }
     }
 
     public void setIsclearmode(boolean z) {
-        this.eSA = z;
+        this.eRC = z;
     }
 
     public void setIsHomePage(boolean z) {
-        this.eSw = z;
+        this.eRy = z;
     }
 
     public void setShowSimpleIcon(boolean z) {
-        this.eSB = z;
+        this.eRD = z;
     }
 }

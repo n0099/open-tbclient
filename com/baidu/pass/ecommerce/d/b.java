@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.baidu.sapi2.ecommerce.R;
 import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes17.dex */
+/* loaded from: classes10.dex */
 public class b extends Dialog {
     public static final int p = 9000;
     public static final int q = 0;
@@ -44,7 +44,7 @@ public class b extends Dialog {
     private h n;
     public int o;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes10.dex */
     class a implements View.OnClickListener {
         a() {
         }
@@ -58,9 +58,9 @@ public class b extends Dialog {
     }
 
     /* renamed from: com.baidu.pass.ecommerce.d.b$b  reason: collision with other inner class name */
-    /* loaded from: classes17.dex */
-    class View$OnClickListenerC0277b implements View.OnClickListener {
-        View$OnClickListenerC0277b() {
+    /* loaded from: classes10.dex */
+    class View$OnClickListenerC0275b implements View.OnClickListener {
+        View$OnClickListenerC0275b() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -70,7 +70,7 @@ public class b extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes10.dex */
     public class c implements View.OnClickListener {
         c() {
         }
@@ -81,7 +81,7 @@ public class b extends Dialog {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes10.dex */
     class d implements View.OnClickListener {
         d() {
         }
@@ -94,7 +94,7 @@ public class b extends Dialog {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes10.dex */
     class e implements View.OnClickListener {
         e() {
         }
@@ -106,7 +106,7 @@ public class b extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes10.dex */
     public class f implements View.OnClickListener {
         f() {
         }
@@ -119,12 +119,12 @@ public class b extends Dialog {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes10.dex */
     public interface g {
         void onReset();
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes10.dex */
     public interface h {
         void onStopSpeech();
     }
@@ -221,7 +221,7 @@ public class b extends Dialog {
         this.l.a(this.e);
         this.l.b();
         this.d.setOnClickListener(new a());
-        this.c.setOnClickListener(new View$OnClickListenerC0277b());
+        this.c.setOnClickListener(new View$OnClickListenerC0275b());
     }
 
     public void a(int i) {

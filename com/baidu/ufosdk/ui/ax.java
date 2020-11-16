@@ -7,7 +7,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class ax extends Handler {
 
     /* renamed from: a  reason: collision with root package name */

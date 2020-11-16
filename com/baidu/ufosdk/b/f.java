@@ -7,7 +7,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.ufosdk.f.j;
 @SuppressLint({"NewApi"})
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */

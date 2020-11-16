@@ -4,15 +4,15 @@ import com.baidu.live.data.az;
 import com.baidu.live.data.bd;
 /* loaded from: classes4.dex */
 public interface g {
-    void Dq();
+    void CH();
 
-    void Dr();
+    void CI();
 
-    void Ds();
+    void CJ();
 
     void a(az azVar, bd bdVar, bd bdVar2);
 
-    void bi(boolean z);
+    void bk(boolean z);
 
-    void bj(boolean z);
+    void bl(boolean z);
 }

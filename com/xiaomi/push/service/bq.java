@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 class bq extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
@@ -32,7 +32,7 @@ class bq extends Handler {
                         Message obtain = Message.obtain((Handler) null, 0);
                         obtain.what = 18;
                         Bundle bundle = new Bundle();
-                        str = this.f5090a.f811a;
+                        str = this.f5090a.f814a;
                         bundle.putString("xmsf_region", str);
                         obtain.setData(bundle);
                         message.replyTo.send(obtain);

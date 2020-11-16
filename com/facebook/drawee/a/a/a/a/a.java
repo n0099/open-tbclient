@@ -5,63 +5,63 @@ import com.facebook.drawee.a.a.a.g;
 import com.facebook.drawee.a.a.a.h;
 import com.facebook.imagepipeline.g.f;
 import javax.annotation.Nullable;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public class a extends com.facebook.drawee.controller.b<f> {
-    private final g oMN;
-    private final h oNq;
-    private final com.facebook.common.time.b oNx;
+    private final h oOU;
+    private final g oOr;
+    private final com.facebook.common.time.b oPb;
 
     public a(com.facebook.common.time.b bVar, h hVar, g gVar) {
-        this.oNx = bVar;
-        this.oNq = hVar;
-        this.oMN = gVar;
+        this.oPb = bVar;
+        this.oOU = hVar;
+        this.oOr = gVar;
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void g(String str, Object obj) {
-        this.oNq.hE(this.oNx.now());
-        this.oNq.Yg(str);
-        this.oNq.bk(obj);
-        this.oMN.a(this.oNq, 0);
+        this.oOU.hH(this.oPb.now());
+        this.oOU.XR(str);
+        this.oOU.bl(obj);
+        this.oOr.a(this.oOU, 0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     /* renamed from: a */
     public void h(String str, @Nullable f fVar) {
-        this.oNq.hF(this.oNx.now());
-        this.oNq.Yg(str);
-        this.oNq.a(fVar);
-        this.oMN.a(this.oNq, 2);
+        this.oOU.hI(this.oPb.now());
+        this.oOU.XR(str);
+        this.oOU.a(fVar);
+        this.oOr.a(this.oOU, 2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void a(String str, @Nullable f fVar, @Nullable Animatable animatable) {
-        this.oNq.hG(this.oNx.now());
-        this.oNq.Yg(str);
-        this.oNq.a(fVar);
-        this.oNq.Aa(true);
-        this.oMN.a(this.oNq, 3);
+        this.oOU.hJ(this.oPb.now());
+        this.oOU.XR(str);
+        this.oOU.a(fVar);
+        this.oOU.Ah(true);
+        this.oOr.a(this.oOU, 3);
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void h(String str, Throwable th) {
-        this.oNq.hH(this.oNx.now());
-        this.oNq.Yg(str);
-        this.oNq.Aa(false);
-        this.oMN.a(this.oNq, 5);
+        this.oOU.hK(this.oPb.now());
+        this.oOU.XR(str);
+        this.oOU.Ah(false);
+        this.oOr.a(this.oOU, 5);
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
-    public void hm(String str) {
-        super.hm(str);
-        int elk = this.oNq.elk();
-        if (elk != 3 && elk != 5) {
-            this.oNq.hI(this.oNx.now());
-            this.oNq.Yg(str);
-            this.oNq.zZ(true);
-            this.oMN.a(this.oNq, 4);
+    public void hg(String str) {
+        super.hg(str);
+        int eli = this.oOU.eli();
+        if (eli != 3 && eli != 5) {
+            this.oOU.hL(this.oPb.now());
+            this.oOU.XR(str);
+            this.oOU.Ag(true);
+            this.oOr.a(this.oOU, 4);
         }
     }
 }

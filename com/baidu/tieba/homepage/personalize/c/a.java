@@ -4,38 +4,38 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.homepage.personalize.g;
-import com.baidu.tieba.s.c;
-/* loaded from: classes22.dex */
+import com.baidu.tieba.t.c;
+/* loaded from: classes21.dex */
 public class a {
-    public static void a(bw bwVar, BdUniqueId bdUniqueId, int i) {
+    public static void a(bx bxVar, BdUniqueId bdUniqueId, int i) {
         boolean z;
         String str;
         int i2;
-        if (bwVar != null) {
-            if (bwVar.eGX) {
+        if (bxVar != null) {
+            if (bxVar.eFp) {
                 z = true;
-                str = bwVar.eGY;
+                str = bxVar.eFq;
                 i2 = 20;
             } else {
                 z = false;
                 str = null;
                 i2 = 0;
             }
-            String a2 = com.baidu.tieba.s.a.a(bwVar.getTid(), str, "", bwVar.getBaijiahaoData());
-            aq a3 = com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_exp", i, z, str, (String) null, i2);
+            String a2 = com.baidu.tieba.t.a.a(bxVar.getTid(), str, "", bxVar.getBaijiahaoData());
+            ar a3 = com.baidu.tieba.t.a.a(bxVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_exp", i, z, str, (String) null, i2);
             if (a3 != null) {
-                if (bwVar.eGX) {
+                if (bxVar.eFp) {
                     a3.delete("thread_type");
-                    a3.al("thread_type", bwVar.getThreadType());
+                    a3.ak("thread_type", bxVar.getThreadType());
                 }
-                c.dIX().a(bdUniqueId, a2, a3);
+                c.dIO().a(bdUniqueId, a2, a3);
                 if (g.isEnabled()) {
-                    g.LR(a2);
-                    if (g.cLh() >= 10) {
+                    g.Ls(a2);
+                    if (g.cKN() >= 10) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921482));
                         g.setEnabled(false);
                     }
@@ -44,41 +44,41 @@ public class a {
         }
     }
 
-    public static void a(bw bwVar, BdUniqueId bdUniqueId, int i, int i2) {
+    public static void a(bx bxVar, BdUniqueId bdUniqueId, int i, int i2) {
         String str;
         int i3;
         boolean z = false;
-        if (bwVar != null) {
-            if (bwVar.eGX) {
+        if (bxVar != null) {
+            if (bxVar.eFp) {
                 z = true;
-                str = bwVar.eGY;
+                str = bxVar.eFq;
                 i3 = 20;
             } else {
                 str = null;
                 i3 = 0;
             }
-            aq a2 = com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_click", i2, i, z, str, (String) null, i3);
+            ar a2 = com.baidu.tieba.t.a.a(bxVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_click", i2, i, z, str, (String) null, i3);
             if (a2 != null) {
-                if (bwVar.eGX) {
+                if (bxVar.eFp) {
                     a2.delete("thread_type");
-                    a2.al("thread_type", bwVar.getThreadType());
+                    a2.ak("thread_type", bxVar.getThreadType());
                 }
-                c.dIX().b(bdUniqueId, a2);
-                d(bwVar, i2);
+                c.dIO().b(bdUniqueId, a2);
+                d(bxVar, i2);
             }
         }
     }
 
-    private static void d(bw bwVar, int i) {
-        aq aqVar = null;
+    private static void d(bx bxVar, int i) {
+        ar arVar = null;
         switch (i) {
             case 2:
-                aqVar = com.baidu.tieba.s.a.a("c13692", bwVar, 1);
+                arVar = com.baidu.tieba.t.a.a("c13692", bxVar, 1);
                 break;
             case 9:
-                aqVar = com.baidu.tieba.s.a.a("c13693", bwVar, 1);
+                arVar = com.baidu.tieba.t.a.a("c13693", bxVar, 1);
                 break;
         }
-        TiebaStatic.log(aqVar);
+        TiebaStatic.log(arVar);
     }
 }

@@ -1,7 +1,7 @@
 package com.xiaomi.mipush.sdk;
 
 import com.xiaomi.push.hm;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 /* synthetic */ class ak {
 
     /* renamed from: a  reason: collision with root package name */

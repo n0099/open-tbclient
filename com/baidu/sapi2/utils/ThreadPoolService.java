@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class ThreadPoolService implements NoProguard {
     private static final ThreadFactory b = new a();
     private static final int c = 0;
@@ -21,7 +21,7 @@ public class ThreadPoolService implements NoProguard {
     private Handler f3532a;
     public ThreadPoolExecutor poolService;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     static class a implements ThreadFactory {
 
         /* renamed from: a  reason: collision with root package name */
@@ -36,7 +36,7 @@ public class ThreadPoolService implements NoProguard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     class b extends Handler {
         b(Looper looper) {
             super(looper);
@@ -53,7 +53,7 @@ public class ThreadPoolService implements NoProguard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static class c {
 
         /* renamed from: a  reason: collision with root package name */

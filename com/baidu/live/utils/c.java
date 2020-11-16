@@ -4,22 +4,22 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.URLSpan;
 /* loaded from: classes4.dex */
 public class c {
-    public boolean bGA = false;
-    private ForegroundColorSpan bGB;
-    private URLSpan bGC;
-    public int bGx;
-    public int bGy;
-    public int bGz;
+    public int bEM;
+    public int bEN;
+    public int bEO;
+    public boolean bEP = false;
+    private ForegroundColorSpan bEQ;
+    private URLSpan bER;
     public String mUrl;
 
     public c(ForegroundColorSpan foregroundColorSpan) {
-        this.bGB = foregroundColorSpan;
-        this.bGz = foregroundColorSpan.getForegroundColor();
+        this.bEQ = foregroundColorSpan;
+        this.bEO = foregroundColorSpan.getForegroundColor();
     }
 
     public void a(URLSpan uRLSpan) {
-        this.bGC = uRLSpan;
+        this.bER = uRLSpan;
         this.mUrl = uRLSpan.getURL();
-        this.bGA = true;
+        this.bEP = true;
     }
 }

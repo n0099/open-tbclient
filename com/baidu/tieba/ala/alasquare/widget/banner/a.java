@@ -9,33 +9,33 @@ import com.baidu.tbadk.core.util.y;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a<T> extends RecyclerView.Adapter<b> {
-    private List<T> bSh;
-    private d gsP;
-    private c gsT;
-    private c gsU;
-    private boolean gsV;
+    private List<T> bQx;
+    private c gsA;
+    private c gsB;
+    private boolean gsC;
+    private d gsw;
     private Context mContext;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.gsP != null) {
-                a.this.gsP.aF(view.getTag());
+            if (a.this.gsw != null) {
+                a.this.gsw.aF(view.getTag());
             }
         }
     };
 
     public a(Context context, c cVar, boolean z) {
         this.mContext = context;
-        this.gsT = cVar;
-        this.gsV = z;
+        this.gsA = cVar;
+        this.gsC = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: q */
     public b onCreateViewHolder(ViewGroup viewGroup, int i) {
-        if (this.gsT != null) {
-            return this.gsT.p(viewGroup, i);
+        if (this.gsA != null) {
+            return this.gsA.p(viewGroup, i);
         }
         return null;
     }
@@ -47,7 +47,7 @@ public class a<T> extends RecyclerView.Adapter<b> {
     /* renamed from: a */
     public void onBindViewHolder(b bVar, int i) {
         if (getItemCount() != 0 && bVar != 0) {
-            Object item = y.getItem(this.bSh, ul(i));
+            Object item = y.getItem(this.bQx, uJ(i));
             if (item != null) {
                 bVar.k(i, item);
                 bVar.itemView.setTag(item);
@@ -57,34 +57,34 @@ public class a<T> extends RecyclerView.Adapter<b> {
         }
     }
 
-    private int ul(int i) {
-        if (y.getCount(this.bSh) != 0) {
-            return i % y.getCount(this.bSh);
+    private int uJ(int i) {
+        if (y.getCount(this.bQx) != 0) {
+            return i % y.getCount(this.bQx);
         }
         return i;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (y.isEmpty(this.bSh) || y.getCount(this.bSh) == 1) {
-            return y.getCount(this.bSh);
+        if (y.isEmpty(this.bQx) || y.getCount(this.bQx) == 1) {
+            return y.getCount(this.bQx);
         }
-        return this.gsV ? y.getCount(this.bSh) * 3 : y.getCount(this.bSh);
+        return this.gsC ? y.getCount(this.bQx) * 3 : y.getCount(this.bQx);
     }
 
-    public int bQf() {
-        return y.getCount(this.bSh);
+    public int bPy() {
+        return y.getCount(this.bQx);
     }
 
     public void setData(List<T> list) {
-        this.bSh = list;
+        this.bQx = list;
     }
 
     public void setOnBannerClickListener(d dVar) {
-        this.gsP = dVar;
+        this.gsw = dVar;
     }
 
     public void setViewHolderAdapter(c cVar) {
-        this.gsU = cVar;
+        this.gsB = cVar;
     }
 }

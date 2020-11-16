@@ -17,21 +17,21 @@ public class s extends e {
     public View mContentView;
     private Context mContext;
     public View mConvertView;
-    public ImageView owx;
-    public TextView owy;
-    AnimationDrawable owz;
+    public ImageView oyb;
+    public TextView oyc;
+    AnimationDrawable oyd;
 
     public s(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_send_audio_item, (ViewGroup) null);
-        this.owy = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_audio_length);
-        this.owx = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_audio);
+        this.oyc = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_audio_length);
+        this.oyb = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_audio);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
-        this.ovt = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.ovq = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.ovw = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
-        this.ovx = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
-        this.ovy = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
+        this.owX = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.owU = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oxa = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
+        this.oxb = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
+        this.oxc = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
         this.mContentView.setTag(this);
         this.mConvertView.setTag(this);
     }
@@ -42,21 +42,21 @@ public class s extends e {
     }
 
     public void startAnim() {
-        this.owx.setImageDrawable(null);
-        this.owx.setBackgroundResource(ThemeManager.L(this.mContext, a.C0197a.bd_im_anim_playing_right));
-        this.owz = (AnimationDrawable) this.owx.getBackground();
-        this.owz.setOneShot(false);
-        if (!this.owz.isRunning()) {
-            this.owz.start();
+        this.oyb.setImageDrawable(null);
+        this.oyb.setBackgroundResource(ThemeManager.L(this.mContext, a.C0195a.bd_im_anim_playing_right));
+        this.oyd = (AnimationDrawable) this.oyb.getBackground();
+        this.oyd.setOneShot(false);
+        if (!this.oyd.isRunning()) {
+            this.oyd.start();
         }
     }
 
     public void stopAnim() {
-        if (this.owz != null && this.owz.isRunning()) {
-            this.owz.stop();
+        if (this.oyd != null && this.oyd.isRunning()) {
+            this.oyd.stop();
         }
-        this.owx.setImageResource(ThemeManager.L(this.mContext, a.e.bd_im_speck_right_3));
-        this.owx.setBackgroundResource(0);
+        this.oyb.setImageResource(ThemeManager.L(this.mContext, a.e.bd_im_speck_right_3));
+        this.oyb.setBackgroundResource(0);
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.e
@@ -73,16 +73,16 @@ public class s extends e {
         AudioMsg audioMsg = (AudioMsg) chatMsg;
         String format = String.format(context.getString(a.h.bd_im_audio_length), Integer.valueOf(audioMsg.getDuration()));
         if (chatMsg.getStatus() == 0) {
-            this.owy.setVisibility(0);
-            this.owy.setText(format);
+            this.oyc.setVisibility(0);
+            this.oyc.setText(format);
         } else {
-            this.owy.setVisibility(8);
+            this.oyc.setVisibility(8);
         }
         this.mContentView.setMinimumWidth(a.c(context.getResources().getDimension(a.d.bd_im_audio_msg_min_width), audioMsg.getDuration()));
-        efn();
+        efl();
         super.b(context, chatMsg);
     }
 
-    private void efn() {
+    private void efl() {
     }
 }

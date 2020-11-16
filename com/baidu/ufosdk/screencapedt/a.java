@@ -1,5 +1,5 @@
 package com.baidu.ufosdk.screencapedt;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */

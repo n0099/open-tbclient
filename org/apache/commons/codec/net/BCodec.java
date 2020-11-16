@@ -5,7 +5,7 @@ import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringDecoder;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class BCodec extends RFC1522Codec implements StringDecoder, StringEncoder {
     public BCodec() {
         throw new RuntimeException("Stub!");

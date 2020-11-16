@@ -20,7 +20,7 @@ public class BannerListData implements Serializable {
     private static final long serialVersionUID = 1630193525564805923L;
     private ArrayList<AdvertAppInfo> advertAppList = new ArrayList<>();
     private ArrayList<FeedForumData> feedForumList = new ArrayList<>();
-    private com.baidu.tieba.card.data.o recomTopicData;
+    private com.baidu.tieba.card.data.n recomTopicData;
 
     public ArrayList<AdvertAppInfo> getAllAdvertList() {
         return this.advertAppList;
@@ -33,8 +33,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).eyO)) {
-                sb.append(this.advertAppList.get(i).eyO);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).exc)) {
+                sb.append(this.advertAppList.get(i).exc);
                 if (i != size - 1) {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
@@ -66,9 +66,9 @@ public class BannerListData implements Serializable {
     }
 
     public void parserProtobuf(BannerList bannerList) {
-        List<AppData> dAm = com.baidu.tieba.recapp.r.dAo().dAm();
-        if (dAm != null) {
-            dAm.clear();
+        List<AppData> dzM = com.baidu.tieba.recapp.q.dzO().dzM();
+        if (dzM != null) {
+            dzM.clear();
         }
         if (bannerList != null) {
             List<App> list = bannerList.app;
@@ -78,13 +78,13 @@ public class BannerListData implements Serializable {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
                         advertAppInfo.a(list.get(i));
                         this.advertAppList.add(advertAppInfo);
-                        if (dAm != null) {
-                            dAm.add(advertAppInfo.eze);
+                        if (dzM != null) {
+                            dzM.add(advertAppInfo.exs);
                         }
                     }
                 }
             }
-            com.baidu.tieba.recapp.r.dAo().dAn();
+            com.baidu.tieba.recapp.q.dzO().dzN();
             Collections.sort(this.advertAppList, new Comparator<AdvertAppInfo>() { // from class: com.baidu.tbadk.core.data.BannerListData.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -104,14 +104,14 @@ public class BannerListData implements Serializable {
                 }
             }
             if (bannerList.hot_topic != null) {
-                bm bmVar = new bm();
-                bmVar.a(bannerList.hot_topic);
-                this.recomTopicData = bmVar.blJ();
+                bn bnVar = new bn();
+                bnVar.a(bannerList.hot_topic);
+                this.recomTopicData = bnVar.bkL();
             }
         }
     }
 
-    public com.baidu.tieba.card.data.o getRecomTopicData() {
+    public com.baidu.tieba.card.data.n getRecomTopicData() {
         return this.recomTopicData;
     }
 

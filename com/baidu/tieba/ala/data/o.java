@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.data;
 /* loaded from: classes4.dex */
 public class o {
-    private String aNj;
-    private String fYH;
-    private String fYm;
-    private int gAw;
-    private String gAx;
-    private String gAy;
+    private String aLy;
+    private String fXT;
+    private String fYo;
+    private int gAd;
+    private String gAe;
+    private String gAf;
     private String mIcon;
     private String mName;
     public int mStatus;
@@ -15,29 +15,29 @@ public class o {
     }
 
     public o(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i) {
-        this.gAx = str;
+        this.gAe = str;
         this.mIcon = str2;
         this.mName = str3;
-        this.gAy = str4;
-        this.fYH = str5;
-        this.fYm = str6;
-        this.aNj = str7;
+        this.gAf = str4;
+        this.fYo = str5;
+        this.fXT = str6;
+        this.aLy = str7;
         this.mStatus = i;
     }
 
-    public int bRT() {
-        return this.gAw;
+    public int bRm() {
+        return this.gAd;
     }
 
-    public void uB(int i) {
-        this.gAw = i;
+    public void uZ(int i) {
+        this.gAd = i;
     }
 
-    public String bRU() {
-        return this.gAx;
+    public String bRn() {
+        return this.gAe;
     }
 
-    public String bRV() {
+    public String bRo() {
         return this.mIcon;
     }
 
@@ -45,15 +45,15 @@ public class o {
         return this.mName;
     }
 
-    public String bRW() {
-        return this.gAy;
+    public String bRp() {
+        return this.gAf;
     }
 
-    public String bRX() {
-        return this.fYH;
+    public String bRq() {
+        return this.fYo;
     }
 
-    public String bRY() {
-        return this.fYm;
+    public String bRr() {
+        return this.fXT;
     }
 }

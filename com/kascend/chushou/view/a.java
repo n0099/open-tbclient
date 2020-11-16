@@ -9,7 +9,7 @@ import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 public class a {
     public static void a(FrescoThumbnailView frescoThumbnailView, String str, int i, int i2) {
         if (frescoThumbnailView != null) {
-            frescoThumbnailView.getHierarchy().b(c.eHF(), p.b.oPF);
+            frescoThumbnailView.getHierarchy().b(c.eHG(), p.b.oRi);
             frescoThumbnailView.i(str, 0, i, i2);
         }
     }

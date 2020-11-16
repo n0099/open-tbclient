@@ -5,13 +5,13 @@ import com.baidu.swan.apps.statistic.h;
 import com.baidu.swan.apps.u.c.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class a {
-    String dAk;
-    String dAm;
-    String dAo;
-    String dAr;
-    String dtm;
+    String drE;
+    String dyD;
+    String dyF;
+    String dyH;
+    String dyK;
     String mAppId;
     String mAppVersion;
     String mFrom;
@@ -21,45 +21,45 @@ public class a {
     public a() {
         this.mFrom = "swan";
         this.mAppVersion = "";
-        this.dAk = "";
-        this.dAm = "";
-        this.dAo = "";
+        this.dyD = "";
+        this.dyF = "";
+        this.dyH = "";
         this.mScheme = "";
-        this.dAr = "";
-        if (e.aHv() != null) {
-            b.a aHy = e.aHv().aHy();
-            this.mFrom = h.ky(aHy.getAppFrameType());
-            this.mAppId = aHy.getAppId();
-            this.mSource = aHy.ayD();
-            this.dAm = aHy.ayJ().getString("aiapp_extra_need_download", "");
-            this.dAo = aHy.ayJ().getString("aiapp_extra_preset_pkg", "");
-            this.mScheme = aHy.ayF();
-            this.dAr = aHy.getPage();
-            this.dtm = aHy.ayW();
-            this.mAppVersion = aHy.getVersion();
-            this.dAk = aHy.getVersionCode();
+        this.dyK = "";
+        if (e.aGN() != null) {
+            b.a aGQ = e.aGN().aGQ();
+            this.mFrom = h.ku(aGQ.getAppFrameType());
+            this.mAppId = aGQ.getAppId();
+            this.mSource = aGQ.axV();
+            this.dyF = aGQ.ayb().getString("aiapp_extra_need_download", "");
+            this.dyH = aGQ.ayb().getString("aiapp_extra_preset_pkg", "");
+            this.mScheme = aGQ.axX();
+            this.dyK = aGQ.getPage();
+            this.drE = aGQ.ayo();
+            this.mAppVersion = aGQ.getVersion();
+            this.dyD = aGQ.getVersionCode();
         }
     }
 
     public a(JSONObject jSONObject) {
         this.mFrom = "swan";
         this.mAppVersion = "";
-        this.dAk = "";
-        this.dAm = "";
-        this.dAo = "";
+        this.dyD = "";
+        this.dyF = "";
+        this.dyH = "";
         this.mScheme = "";
-        this.dAr = "";
+        this.dyK = "";
         if (jSONObject != null && jSONObject.length() != 0) {
             this.mFrom = jSONObject.optString("from", "swan");
             this.mAppId = jSONObject.optString("appId");
             this.mSource = jSONObject.optString("source");
-            this.dAm = jSONObject.optString("needDown");
-            this.dAo = jSONObject.optString("isPreset");
+            this.dyF = jSONObject.optString("needDown");
+            this.dyH = jSONObject.optString("isPreset");
             this.mScheme = jSONObject.optString("scheme");
-            this.dAr = jSONObject.optString("extPage");
-            this.dtm = jSONObject.optString("launchId", null);
+            this.dyK = jSONObject.optString("extPage");
+            this.drE = jSONObject.optString("launchId", null);
             this.mAppVersion = jSONObject.optString("appVersion");
-            this.dAk = jSONObject.optString("thirdVersion");
+            this.dyD = jSONObject.optString("thirdVersion");
         }
     }
 
@@ -69,13 +69,13 @@ public class a {
             jSONObject.put("from", this.mFrom);
             jSONObject.put("appId", this.mAppId);
             jSONObject.put("source", this.mSource);
-            jSONObject.put("needDown", this.dAm);
-            jSONObject.put("isPreset", this.dAo);
+            jSONObject.put("needDown", this.dyF);
+            jSONObject.put("isPreset", this.dyH);
             jSONObject.put("scheme", this.mScheme);
-            jSONObject.put("extPage", this.dAr);
-            jSONObject.put("launchId", this.dtm);
+            jSONObject.put("extPage", this.dyK);
+            jSONObject.put("launchId", this.drE);
             jSONObject.put("appVersion", this.mAppVersion);
-            jSONObject.put("thirdVersion", this.dAk);
+            jSONObject.put("thirdVersion", this.dyD);
         } catch (JSONException e) {
             e.printStackTrace();
         }

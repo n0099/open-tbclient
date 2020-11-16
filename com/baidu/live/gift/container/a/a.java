@@ -2,34 +2,34 @@ package com.baidu.live.gift.container.a;
 
 import android.animation.TypeEvaluator;
 /* loaded from: classes4.dex */
-public class a implements TypeEvaluator<C0185a> {
-    private C0185a baQ = new C0185a();
-    private float baR;
-    private float baS;
+public class a implements TypeEvaluator<C0183a> {
+    private C0183a aZe = new C0183a();
+    private float aZf;
+    private float aZg;
 
     public a() {
-        this.baQ.k(1.0f, 1.0f);
-        this.baR = 0.05882353f;
-        this.baS = 0.90588236f;
+        this.aZe.k(1.0f, 1.0f);
+        this.aZf = 0.05882353f;
+        this.aZg = 0.90588236f;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator
     /* renamed from: a */
-    public C0185a evaluate(float f, C0185a c0185a, C0185a c0185a2) {
-        if (f <= this.baR) {
-            this.baQ.k(f / this.baR, f / this.baR);
-        } else if (f <= this.baS) {
-            this.baQ.k(1.0f, 1.0f);
+    public C0183a evaluate(float f, C0183a c0183a, C0183a c0183a2) {
+        if (f <= this.aZf) {
+            this.aZe.k(f / this.aZf, f / this.aZf);
+        } else if (f <= this.aZg) {
+            this.aZe.k(1.0f, 1.0f);
         } else {
-            this.baQ.k(1.0f - ((f - this.baS) / (1.0f - this.baS)), 1.0f - ((f - this.baS) / (1.0f - this.baS)));
+            this.aZe.k(1.0f - ((f - this.aZg) / (1.0f - this.aZg)), 1.0f - ((f - this.aZg) / (1.0f - this.aZg)));
         }
-        return this.baQ;
+        return this.aZe;
     }
 
     /* renamed from: com.baidu.live.gift.container.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0185a {
+    public static class C0183a {
         public float alpha;
         public float scale;
 

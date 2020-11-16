@@ -11,12 +11,12 @@ import com.baidu.swan.pms.c.f;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class c extends com.baidu.swan.apps.core.pms.b.a implements com.baidu.swan.apps.ap.e.b<i.a>, f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, f.a aVar);
     }
@@ -35,20 +35,20 @@ public final class c extends com.baidu.swan.apps.core.pms.b.a implements com.bai
 
     private void d(i.a aVar) {
         if (DEBUG) {
-            E("handleIpcMsg", "msg=" + aVar);
+            D("handleIpcMsg", "msg=" + aVar);
         }
         if (aVar != null && com.baidu.swan.apps.process.b.c.d(aVar.toBundle(), "pms_http_with_ipc")) {
             String string = aVar.getString("ipc_session_id");
             if (DEBUG) {
-                E("handleIpcMsg", "session=" + string);
+                D("handleIpcMsg", "session=" + string);
             }
             if (!TextUtils.isEmpty(string)) {
                 String string2 = aVar.getString("pms_http_with_ipc_key_action");
                 if (DEBUG) {
-                    E("handleIpcMsg", "action=" + string2);
+                    D("handleIpcMsg", "action=" + string2);
                 }
                 if (TextUtils.isEmpty(string2)) {
-                    bz(string, "empty action");
+                    by(string, "empty action");
                     return;
                 }
                 char c = 65535;
@@ -84,7 +84,7 @@ public final class c extends com.baidu.swan.apps.core.pms.b.a implements com.bai
                         });
                         return;
                     default:
-                        bz(string, "no such action:" + string2);
+                        by(string, "no such action:" + string2);
                         return;
                 }
             }
@@ -94,12 +94,12 @@ public final class c extends com.baidu.swan.apps.core.pms.b.a implements com.bai
     private void a(final String str, @NonNull i.a aVar, @NonNull a aVar2) {
         JSONObject jSONObject;
         if (DEBUG) {
-            E("buildRequestForIpc", "session=" + str + " msg=" + aVar + " adapter=" + aVar2);
+            D("buildRequestForIpc", "session=" + str + " msg=" + aVar + " adapter=" + aVar2);
         }
-        if (com.baidu.swan.apps.process.b.c.co(str, "pms_http_with_ipc")) {
+        if (com.baidu.swan.apps.process.b.c.cn(str, "pms_http_with_ipc")) {
             String string = aVar.getString("pms_http_with_ipc_key_url");
-            Map<String, String> p = p(aVar.pD("pms_http_with_ipc_key_url_param_map"));
-            Map<String, String> p2 = p(aVar.pD("pms_http_with_ipc_key_header_param_map"));
+            Map<String, String> p = p(aVar.px("pms_http_with_ipc_key_url_param_map"));
+            Map<String, String> p2 = p(aVar.px("pms_http_with_ipc_key_header_param_map"));
             String string2 = aVar.getString("pms_http_with_ipc_keyjson_body");
             try {
                 jSONObject = TextUtils.isEmpty(string2) ? null : new JSONObject(string2);
@@ -113,24 +113,24 @@ public final class c extends com.baidu.swan.apps.core.pms.b.a implements com.bai
                 aVar2.b(string, p, p2, jSONObject, new f.a() { // from class: com.baidu.swan.apps.core.pms.b.c.3
                     @Override // com.baidu.swan.pms.c.f.a
                     public void b(String str2, String str3, JSONObject jSONObject2) {
-                        c.this.a(str, "pms_http_with_ipc_action_stat_record", new c.a().bV("pms_http_with_ipc_key_url", str2).bV("pms_http_with_ipc_key_response", str3).bV("pms_http_with_ipc_key_stat_record", jSONObject2.toString()));
+                        c.this.a(str, "pms_http_with_ipc_action_stat_record", new c.a().bU("pms_http_with_ipc_key_url", str2).bU("pms_http_with_ipc_key_response", str3).bU("pms_http_with_ipc_key_stat_record", jSONObject2.toString()));
                     }
 
                     @Override // com.baidu.swan.pms.c.f.a
                     public void onSuccess(String str2, int i) {
-                        c.this.a(str, "pms_http_with_ipc_action_success", new c.a().bV("pms_http_with_ipc_key_response", str2).R("pms_http_with_ipc_key_status_code", i));
+                        c.this.a(str, "pms_http_with_ipc_action_success", new c.a().bU("pms_http_with_ipc_key_response", str2).R("pms_http_with_ipc_key_status_code", i));
                     }
 
                     @Override // com.baidu.swan.pms.c.f.a
                     public void onFail(Exception exc) {
-                        c.this.bz(str, "http: " + exc);
+                        c.this.by(str, "http: " + exc);
                         if (c.DEBUG) {
                             exc.printStackTrace();
                         }
                     }
                 });
             } catch (Exception e2) {
-                bz(str, "catch: " + e2);
+                by(str, "catch: " + e2);
                 if (DEBUG) {
                     e2.printStackTrace();
                 }
@@ -139,34 +139,34 @@ public final class c extends com.baidu.swan.apps.core.pms.b.a implements com.bai
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bz(String str, String str2) {
-        a(str, "pms_http_with_ipc_action_fail", new c.a().bV("pms_http_with_ipc_key_error", str2));
+    public void by(String str, String str2) {
+        a(str, "pms_http_with_ipc_action_fail", new c.a().bU("pms_http_with_ipc_key_error", str2));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, final String str2, final c.a aVar) {
         if (DEBUG) {
-            E("callbackIpcSession", "session=" + str + " action=" + str2 + " msg=" + aVar);
+            D("callbackIpcSession", "session=" + str + " action=" + str2 + " msg=" + aVar);
         }
         if (!TextUtils.isEmpty(str)) {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.core.pms.b.c.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (!com.baidu.swan.apps.process.b.c.co(str, "pms_http_with_ipc")) {
+                    if (!com.baidu.swan.apps.process.b.c.cn(str, "pms_http_with_ipc")) {
                         if (c.DEBUG) {
-                            c.this.E("callbackIpcSession", "return by topic pms_http_with_ipc");
+                            c.this.D("callbackIpcSession", "return by topic pms_http_with_ipc");
                             return;
                         }
                         return;
                     }
-                    com.baidu.swan.apps.process.b.b bV = com.baidu.swan.apps.process.b.c.rv(str).bV("pms_http_with_ipc_key_action", str2);
+                    com.baidu.swan.apps.process.b.b bU = com.baidu.swan.apps.process.b.c.rp(str).bU("pms_http_with_ipc_key_action", str2);
                     if (aVar != null) {
-                        bV.H(aVar.toBundle());
+                        bU.H(aVar.toBundle());
                     }
                     if (c.DEBUG) {
-                        c.this.E("callbackIpcSession", "ipcSession= " + bV);
+                        c.this.D("callbackIpcSession", "ipcSession= " + bU);
                     }
-                    bV.aFa();
+                    bU.aEs();
                 }
             });
         }
@@ -179,7 +179,7 @@ public final class c extends com.baidu.swan.apps.core.pms.b.a implements com.bai
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void E(String str, String str2) {
+    public void D(String str, String str2) {
         log(str + ": " + str2);
     }
 }

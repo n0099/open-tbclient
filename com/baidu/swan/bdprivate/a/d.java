@@ -2,7 +2,7 @@ package com.baidu.swan.bdprivate.a;
 
 import android.os.Bundle;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d extends ProviderDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
     public Bundle execCall(Bundle bundle) {

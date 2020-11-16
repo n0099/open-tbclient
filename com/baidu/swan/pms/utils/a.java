@@ -1,7 +1,7 @@
 package com.baidu.swan.pms.utils;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public interface a {
-    boolean uC(@NonNull String str);
+    boolean ux(@NonNull String str);
 }

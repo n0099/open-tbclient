@@ -12,7 +12,8 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer;
 /* loaded from: classes4.dex */
 public class e implements com.baidu.live.ad.d {
-    private CustomMessageListener gaA = new CustomMessageListener(2913220) { // from class: com.baidu.tieba.ala.e.1
+    private LiveFreeTaskLayer gaf;
+    private CustomMessageListener gag = new CustomMessageListener(2913220) { // from class: com.baidu.tieba.ala.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -21,47 +22,46 @@ public class e implements com.baidu.live.ad.d {
                 eVar = (com.baidu.live.ad.e) customResponsedMessage.getData();
             }
             if (eVar != null) {
-                e.this.r(e.this.mTbPageContext.getPageActivity(), eVar.bzq);
+                e.this.q(e.this.mTbPageContext.getPageActivity(), eVar.bxF);
             } else {
-                e.this.r(e.this.mTbPageContext.getPageActivity(), false);
+                e.this.q(e.this.mTbPageContext.getPageActivity(), false);
             }
         }
     };
-    private LiveFreeTaskLayer gaz;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
     }
 
-    public void r(Context context, boolean z) {
-        if (this.gaz == null) {
-            this.gaz = new LiveFreeTaskLayer(context);
-            this.gaz.setNeedHideAnim(true);
-            this.gaz.setNeedShowAnim(true);
-            this.gaz.setCanceledOnTouchOutside(true);
+    public void q(Context context, boolean z) {
+        if (this.gaf == null) {
+            this.gaf = new LiveFreeTaskLayer(context);
+            this.gaf.setNeedHideAnim(true);
+            this.gaf.setNeedShowAnim(true);
+            this.gaf.setCanceledOnTouchOutside(true);
         }
-        this.gaz.setIsFromFlowerGuide(z);
+        this.gaf.setIsFromFlowerGuide(z);
         if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
             BdUtilHelper.showToast(context, a.h.ala_task_page_not_support_landscape);
         } else {
-            com.baidu.live.core.layer.b.DX().d(this.gaz);
+            com.baidu.live.core.layer.b.Do().d(this.gaf);
         }
     }
 
     @Override // com.baidu.live.ad.d
     public void e(w wVar) {
-        this.gaA.setTag(this.mTbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.gaA);
+        this.gag.setTag(this.mTbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.gag);
     }
 
     @Override // com.baidu.live.ad.d
-    public void KN() {
-        MessageManager.getInstance().unRegisterListener(this.gaA);
+    public void Ke() {
+        MessageManager.getInstance().unRegisterListener(this.gag);
     }
 
     @Override // com.baidu.live.ad.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gaA);
+        MessageManager.getInstance().unRegisterListener(this.gag);
     }
 }

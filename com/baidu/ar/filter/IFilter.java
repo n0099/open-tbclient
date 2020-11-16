@@ -2,7 +2,7 @@ package com.baidu.ar.filter;
 
 import android.graphics.Point;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public interface IFilter {
     void clearAllFilter();
 

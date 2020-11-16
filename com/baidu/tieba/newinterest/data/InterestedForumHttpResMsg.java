@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class InterestedForumHttpResMsg extends HttpResponsedMessage {
     private c pageData;
 

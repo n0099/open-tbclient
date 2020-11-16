@@ -6,76 +6,76 @@ import master.flame.danmaku.danmaku.model.l;
 import master.flame.danmaku.danmaku.model.m;
 /* loaded from: classes6.dex */
 public abstract class a {
-    protected DanmakuContext pUJ;
-    protected f pVs;
-    protected int pYA;
-    protected int pYB;
-    protected float pYC;
-    protected float pYD;
-    private l pYE;
-    protected m pYF;
-    protected InterfaceC1083a pYG;
-    protected b<?> pYz;
+    protected f pWV;
+    protected DanmakuContext pWm;
+    protected b<?> qac;
+    protected int qad;
+    protected int qae;
+    protected float qaf;
+    protected float qag;
+    private l qah;
+    protected m qai;
+    protected InterfaceC1086a qaj;
 
     /* renamed from: master.flame.danmaku.danmaku.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1083a {
+    public interface InterfaceC1086a {
     }
 
-    protected abstract l eEh();
+    protected abstract l eEi();
 
     public a c(m mVar) {
-        this.pYF = mVar;
-        this.pYA = mVar.getWidth();
-        this.pYB = mVar.getHeight();
-        this.pYC = mVar.getDensity();
-        this.pYD = mVar.eDA();
-        this.pUJ.pXT.l(this.pYA, this.pYB, eEe());
-        this.pUJ.pXT.eDU();
+        this.qai = mVar;
+        this.qad = mVar.getWidth();
+        this.qae = mVar.getHeight();
+        this.qaf = mVar.getDensity();
+        this.qag = mVar.eDB();
+        this.pWm.pZw.l(this.qad, this.qae, eEf());
+        this.pWm.pZw.eDV();
         return this;
     }
 
-    public a a(InterfaceC1083a interfaceC1083a) {
-        this.pYG = interfaceC1083a;
+    public a a(InterfaceC1086a interfaceC1086a) {
+        this.qaj = interfaceC1086a;
         return this;
     }
 
-    protected float eEe() {
-        return 1.0f / (this.pYC - 0.6f);
+    protected float eEf() {
+        return 1.0f / (this.qaf - 0.6f);
     }
 
     public a d(f fVar) {
-        this.pVs = fVar;
+        this.pWV = fVar;
         return this;
     }
 
-    public l eEf() {
-        if (this.pYE != null) {
-            return this.pYE;
+    public l eEg() {
+        if (this.qah != null) {
+            return this.qah;
         }
-        this.pUJ.pXT.eDT();
-        this.pYE = eEh();
-        eEg();
-        this.pUJ.pXT.eDU();
-        return this.pYE;
+        this.pWm.pZw.eDU();
+        this.qah = eEi();
+        eEh();
+        this.pWm.pZw.eDV();
+        return this.qah;
     }
 
-    protected void eEg() {
-        if (this.pYz != null) {
-            this.pYz.release();
+    protected void eEh() {
+        if (this.qac != null) {
+            this.qac.release();
         }
-        this.pYz = null;
+        this.qac = null;
     }
 
     public void release() {
-        eEg();
+        eEh();
     }
 
     public a c(DanmakuContext danmakuContext) {
-        if (this.pUJ != null && this.pUJ != danmakuContext) {
-            this.pYE = null;
+        if (this.pWm != null && this.pWm != danmakuContext) {
+            this.qah = null;
         }
-        this.pUJ = danmakuContext;
+        this.pWm = danmakuContext;
         return this;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.sapi2.utils;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.sofire.ac.FH;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
@@ -12,7 +12,7 @@ public class c {
     public static final int c = 122;
     public static final int d = 1;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static class b {
 
         /* renamed from: a  reason: collision with root package name */

@@ -2,7 +2,7 @@ package com.baidu.ufosdk.f;
 
 import java.io.File;
 import java.util.Comparator;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class g implements Comparator {
 
     /* renamed from: a  reason: collision with root package name */

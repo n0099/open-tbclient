@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
 import com.baidu.swan.apps.adaptation.a.ad;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class l implements ad {
     @Override // com.baidu.swan.apps.adaptation.a.ad
     public void i(String str, String str2) {

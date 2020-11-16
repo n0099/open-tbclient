@@ -2,16 +2,16 @@ package com.baidu.tieba.homepage.topic.topicdetail.c;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class a<T extends View> extends RecyclerView.ViewHolder {
-    private T jJH;
+    private T jKs;
 
     public a(T t) {
         super(t);
-        this.jJH = t;
+        this.jKs = t;
     }
 
-    public T cLY() {
-        return this.jJH;
+    public T cLF() {
+        return this.jKs;
     }
 }

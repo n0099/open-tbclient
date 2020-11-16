@@ -7,20 +7,20 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class PinnedHeaderListView extends ListView {
-    private a dpP;
-    private boolean dpQ;
-    private int dpR;
-    private int dpS;
-    private AbsListView.OnScrollListener dpT;
+    private a doh;
+    private boolean doi;
+    private int doj;
+    private int dok;
+    private AbsListView.OnScrollListener dol;
     private View mHeaderView;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void b(View view, int i, int i2);
 
-        int jS(int i);
+        int jO(int i);
     }
 
     public PinnedHeaderListView(Context context) {
@@ -42,16 +42,16 @@ public class PinnedHeaderListView extends ListView {
         super.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.PinnedHeaderListView.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
-                if (PinnedHeaderListView.this.dpT != null) {
-                    PinnedHeaderListView.this.dpT.onScrollStateChanged(absListView, i);
+                if (PinnedHeaderListView.this.dol != null) {
+                    PinnedHeaderListView.this.dol.onScrollStateChanged(absListView, i);
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                PinnedHeaderListView.this.jR(i);
-                if (PinnedHeaderListView.this.dpT != null) {
-                    PinnedHeaderListView.this.dpT.onScroll(absListView, i, i2, i3);
+                PinnedHeaderListView.this.jN(i);
+                if (PinnedHeaderListView.this.dol != null) {
+                    PinnedHeaderListView.this.dol.onScroll(absListView, i, i2, i3);
                 }
             }
         });
@@ -74,7 +74,7 @@ public class PinnedHeaderListView extends ListView {
     public void setAdapter(ListAdapter listAdapter) {
         super.setAdapter(listAdapter);
         if (listAdapter instanceof a) {
-            this.dpP = (a) listAdapter;
+            this.doh = (a) listAdapter;
         }
     }
 
@@ -83,8 +83,8 @@ public class PinnedHeaderListView extends ListView {
         super.onMeasure(i, i2);
         if (this.mHeaderView != null) {
             measureChild(this.mHeaderView, i, i2);
-            this.dpR = this.mHeaderView.getMeasuredWidth();
-            this.dpS = this.mHeaderView.getMeasuredHeight();
+            this.doj = this.mHeaderView.getMeasuredWidth();
+            this.dok = this.mHeaderView.getMeasuredHeight();
         }
     }
 
@@ -92,30 +92,30 @@ public class PinnedHeaderListView extends ListView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mHeaderView != null) {
-            this.mHeaderView.layout(0, 0, this.dpR, this.dpS);
-            jR(getFirstVisiblePosition());
+            this.mHeaderView.layout(0, 0, this.doj, this.dok);
+            jN(getFirstVisiblePosition());
         }
     }
 
     @Override // android.widget.AbsListView
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.dpT = onScrollListener;
+        this.dol = onScrollListener;
     }
 
-    public void jR(int i) {
+    public void jN(int i) {
         int i2;
         int i3 = 255;
-        if (this.mHeaderView != null && this.dpP != null) {
-            switch (this.dpP.jS(i)) {
+        if (this.mHeaderView != null && this.doh != null) {
+            switch (this.doh.jO(i)) {
                 case 0:
-                    this.dpQ = false;
+                    this.doi = false;
                     return;
                 case 1:
-                    this.dpP.b(this.mHeaderView, i, 255);
+                    this.doh.b(this.mHeaderView, i, 255);
                     if (this.mHeaderView.getTop() != 0) {
-                        this.mHeaderView.layout(0, 0, this.dpR, this.dpS);
+                        this.mHeaderView.layout(0, 0, this.doj, this.dok);
                     }
-                    this.dpQ = true;
+                    this.doi = true;
                     return;
                 case 2:
                     int bottom = getChildAt(0).getBottom();
@@ -126,11 +126,11 @@ public class PinnedHeaderListView extends ListView {
                     } else {
                         i2 = 0;
                     }
-                    this.dpP.b(this.mHeaderView, i, i3);
+                    this.doh.b(this.mHeaderView, i, i3);
                     if (this.mHeaderView.getTop() != i2) {
-                        this.mHeaderView.layout(0, i2, this.dpR, this.dpS + i2);
+                        this.mHeaderView.layout(0, i2, this.doj, this.dok + i2);
                     }
-                    this.dpQ = true;
+                    this.doi = true;
                     return;
                 default:
                     return;
@@ -141,7 +141,7 @@ public class PinnedHeaderListView extends ListView {
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.dpQ) {
+        if (this.doi) {
             drawChild(canvas, this.mHeaderView, getDrawingTime());
         }
     }

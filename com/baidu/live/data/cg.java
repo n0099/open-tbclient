@@ -5,106 +5,106 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class cg {
-    private String aRg;
-    private String aRh;
-    private String aRi;
-    private String aRj;
-    private String aRk;
-    private String aRl;
-    private String aRm;
-    private String aRn;
-    public boolean aRo;
-    private String aRp;
-    public int aRq;
-    public int aRr;
-    private int[] aRs;
-    private int[] aRt;
-    private int[] aRu;
-    private int[] aRv;
-    private int[] aRw;
+    private String aPA;
+    private String aPB;
+    private String aPC;
+    public boolean aPD;
+    private String aPE;
+    public int aPF;
+    public int aPG;
+    private int[] aPH;
+    private int[] aPI;
+    private int[] aPJ;
+    private int[] aPK;
+    private int[] aPL;
+    private String aPv;
+    private String aPw;
+    private String aPx;
+    private String aPy;
+    private String aPz;
     public String id;
     public String name;
     public int price;
     public int type;
 
     public cg() {
-        this.aRo = false;
+        this.aPD = false;
     }
 
     public cg(int i, JSONObject jSONObject) {
         int i2;
-        this.aRo = false;
+        this.aPD = false;
         this.type = i;
         this.id = jSONObject.optString("id");
         this.price = jSONObject.optInt("price");
         this.name = jSONObject.optString("name");
-        this.aRg = jSONObject.optString("barrage_start_color");
-        this.aRh = jSONObject.optString("barrage_end_color");
-        this.aRi = jSONObject.optString("portrait_start_color");
-        this.aRj = jSONObject.optString("portrait_end_color");
-        this.aRk = jSONObject.optString("portrait_frame_start_color");
-        this.aRl = jSONObject.optString("portrait_frame_end_color");
-        this.aRm = jSONObject.optString("btn_start_color");
-        this.aRn = jSONObject.optString("btn_end_color");
-        this.aRp = jSONObject.optString("btn_border_color");
-        this.aRq = jSONObject.optInt("btn_border_transprancy");
-        if (!StringUtils.isNull(this.aRp)) {
-            this.aRo = true;
+        this.aPv = jSONObject.optString("barrage_start_color");
+        this.aPw = jSONObject.optString("barrage_end_color");
+        this.aPx = jSONObject.optString("portrait_start_color");
+        this.aPy = jSONObject.optString("portrait_end_color");
+        this.aPz = jSONObject.optString("portrait_frame_start_color");
+        this.aPA = jSONObject.optString("portrait_frame_end_color");
+        this.aPB = jSONObject.optString("btn_start_color");
+        this.aPC = jSONObject.optString("btn_end_color");
+        this.aPE = jSONObject.optString("btn_border_color");
+        this.aPF = jSONObject.optInt("btn_border_transprancy");
+        if (!StringUtils.isNull(this.aPE)) {
+            this.aPD = true;
         }
         try {
-            i2 = (int) (((this.aRq * 1.0f) / 100.0f) * 255.0f);
+            i2 = (int) (((this.aPF * 1.0f) / 100.0f) * 255.0f);
         } catch (Exception e) {
             i2 = 255;
         }
-        this.aRq = i2;
-        this.aRr = jSONObject.optInt("noble_level");
+        this.aPF = i2;
+        this.aPG = jSONObject.optInt("noble_level");
     }
 
-    public cg EW() {
+    public cg En() {
         this.type = 1;
         this.price = 100;
-        this.aRg = "#FF613EFB";
-        this.aRh = "#FF44E3FF";
-        this.aRi = "#FF623DFE";
-        this.aRj = "#FF03E2F5";
-        this.aRk = "#FF61A0FF";
-        this.aRl = "#FF73FFEF";
+        this.aPv = "#FF613EFB";
+        this.aPw = "#FF44E3FF";
+        this.aPx = "#FF623DFE";
+        this.aPy = "#FF03E2F5";
+        this.aPz = "#FF61A0FF";
+        this.aPA = "#FF73FFEF";
         return this;
     }
 
-    public int[] EX() {
-        if (this.aRs == null || this.aRs.length != 2) {
-            this.aRs = j(this.aRm, this.aRn, "#FF623DFE", "#FF03E2F5");
+    public int[] Eo() {
+        if (this.aPH == null || this.aPH.length != 2) {
+            this.aPH = j(this.aPB, this.aPC, "#FF623DFE", "#FF03E2F5");
         }
-        return this.aRs;
+        return this.aPH;
     }
 
-    public int[] EY() {
-        if (this.aRw == null || this.aRw.length != 2) {
-            this.aRw = j(this.aRp, this.aRp, "#FFFFC926", "#FFFFC926");
+    public int[] Ep() {
+        if (this.aPL == null || this.aPL.length != 2) {
+            this.aPL = j(this.aPE, this.aPE, "#FFFFC926", "#FFFFC926");
         }
-        return this.aRw;
+        return this.aPL;
     }
 
-    public int[] EZ() {
-        if (this.aRt == null || this.aRt.length != 2) {
-            this.aRt = j(this.aRi, this.aRj, "#FF623DFE", "#FF03E2F5");
+    public int[] Eq() {
+        if (this.aPI == null || this.aPI.length != 2) {
+            this.aPI = j(this.aPx, this.aPy, "#FF623DFE", "#FF03E2F5");
         }
-        return this.aRt;
+        return this.aPI;
     }
 
-    public int[] Fa() {
-        if (this.aRu == null || this.aRu.length != 2) {
-            this.aRu = j(this.aRg, this.aRh, "#FF613EFB", "#FF44E3FF");
+    public int[] Er() {
+        if (this.aPJ == null || this.aPJ.length != 2) {
+            this.aPJ = j(this.aPv, this.aPw, "#FF613EFB", "#FF44E3FF");
         }
-        return this.aRu;
+        return this.aPJ;
     }
 
-    public int[] Fb() {
-        if (this.aRv == null || this.aRv.length != 2) {
-            this.aRv = j(this.aRk, this.aRl, "#FF61A0FF", "#FF73FFEF");
+    public int[] Es() {
+        if (this.aPK == null || this.aPK.length != 2) {
+            this.aPK = j(this.aPz, this.aPA, "#FF61A0FF", "#FF73FFEF");
         }
-        return this.aRv;
+        return this.aPK;
     }
 
     private int[] j(String str, String str2, String str3, String str4) {

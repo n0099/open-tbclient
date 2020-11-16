@@ -91,15 +91,15 @@ public class AlaLiveUserNotifyDialog extends Dialog {
     public void onChangeSkinType(int i) {
         if (i == 1) {
             this.alaNotifyContentPanel.setBackgroundResource(R.drawable.black_line_f_corner_all);
-            this.alaNotifyDescription.setTextColor(getContext().getResources().getColor(R.color.cp_cont_j_1));
-            this.btnKnow.setTextColor(getContext().getResources().getColor(R.color.cp_link_tip_a_1));
+            this.alaNotifyDescription.setTextColor(getContext().getResources().getColor(R.color.CAM_X0107_1));
+            this.btnKnow.setTextColor(getContext().getResources().getColor(R.color.CAM_X0302_1));
             this.portraitLayout.setBackgroundResource(R.drawable.black_line_f_oval_shape);
             this.overUserPortraitBg.setVisibility(0);
             return;
         }
         this.alaNotifyContentPanel.setBackgroundResource(R.drawable.white_corner_all);
         this.alaNotifyDescription.setTextColor(getContext().getResources().getColor(R.color.common_color_10037));
-        this.btnKnow.setTextColor(getContext().getResources().getColor(R.color.cp_link_tip_a));
+        this.btnKnow.setTextColor(getContext().getResources().getColor(R.color.CAM_X0302));
         this.portraitLayout.setBackgroundResource(R.drawable.white_oval_shape);
         this.overUserPortraitBg.setVisibility(8);
     }

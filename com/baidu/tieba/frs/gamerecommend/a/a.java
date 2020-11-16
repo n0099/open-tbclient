@@ -5,64 +5,65 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.ab;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.frs.entelechy.a.ag;
 import com.baidu.tieba.frs.y;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private BdTypeListView gih;
+    private BdTypeListView ghN;
     private String mForumId;
     private String mForumName;
     private TbPageContext mPageContext;
-    private ab iXp = new ab() { // from class: com.baidu.tieba.frs.gamerecommend.a.a.1
+    private ab iYb = new ab() { // from class: com.baidu.tieba.frs.gamerecommend.a.a.1
         @Override // com.baidu.tieba.card.ab
-        public void a(View view, com.baidu.tieba.card.data.b bVar) {
-            super.a(view, bVar);
+        public void a(View view, BaseCardInfo baseCardInfo) {
+            super.a(view, baseCardInfo);
             a.this.notifyDataSetChanged();
         }
     };
-    private List<com.baidu.adp.widget.ListView.a> bky = new ArrayList();
+    private List<com.baidu.adp.widget.ListView.a> biN = new ArrayList();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, String str, String str2) {
         this.mPageContext = tbPageContext;
-        this.gih = bdTypeListView;
+        this.ghN = bdTypeListView;
         this.mForumId = str;
         this.mForumName = str2;
-        LY();
+        Lp();
     }
 
-    private void LY() {
+    private void Lp() {
         b bVar = new b(this.mPageContext, this.mForumId, this.mForumName);
-        bVar.d(this.iXp);
-        this.bky.add(bVar);
+        bVar.d(this.iYb);
+        this.biN.add(bVar);
         c cVar = new c(this.mPageContext, this.mForumId);
-        cVar.d(this.iXp);
-        this.bky.add(cVar);
-        this.bky.add(new h(this.mPageContext, this.mForumId));
-        this.bky.add(new f(this.mPageContext, this.mForumId));
-        this.bky.add(new i(this.mPageContext, com.baidu.tieba.e.h.ieY, this.mPageContext.getUniqueId(), this.mForumId));
+        cVar.d(this.iYb);
+        this.biN.add(cVar);
+        this.biN.add(new h(this.mPageContext, this.mForumId));
+        this.biN.add(new f(this.mPageContext, this.mForumId));
+        this.biN.add(new i(this.mPageContext, com.baidu.tieba.f.h.ifN, this.mPageContext.getUniqueId(), this.mForumId));
         e eVar = new e(this.mPageContext, this.mForumId);
-        eVar.d(this.iXp);
-        this.bky.add(eVar);
-        this.bky.add(new d(this.mPageContext, com.baidu.tieba.e.c.ieM, this.mPageContext.getUniqueId(), this.mForumId));
-        this.bky.add(new g(this.mPageContext, com.baidu.tieba.e.f.ieU, this.mPageContext.getUniqueId(), this.mForumId));
-        ag agVar = new ag(this.mPageContext, y.iLn, this.mPageContext.getUniqueId());
-        agVar.cCh();
+        eVar.d(this.iYb);
+        this.biN.add(eVar);
+        this.biN.add(new d(this.mPageContext, com.baidu.tieba.f.c.ifB, this.mPageContext.getUniqueId(), this.mForumId));
+        this.biN.add(new g(this.mPageContext, com.baidu.tieba.f.f.ifJ, this.mPageContext.getUniqueId(), this.mForumId));
+        ag agVar = new ag(this.mPageContext, y.iMa, this.mPageContext.getUniqueId());
+        agVar.cBK();
         agVar.setForumId(this.mForumId);
-        this.bky.add(agVar);
-        this.gih.addAdapters(this.bky);
+        this.biN.add(agVar);
+        this.ghN.addAdapters(this.biN);
     }
 
     public void setData(List<q> list) {
-        if (this.gih != null) {
-            this.gih.setData(list);
+        if (this.ghN != null) {
+            this.ghN.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.gih.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
-            this.gih.getAdapter().notifyDataSetChanged();
+        if (this.ghN.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
+            this.ghN.getAdapter().notifyDataSetChanged();
         }
     }
 }

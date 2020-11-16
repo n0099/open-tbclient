@@ -5,16 +5,16 @@ import javax.crypto.ShortBufferException;
 final class h implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1258a;
+    private int f1261a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(int i) {
-        this.f1258a = i;
+        this.f1261a = i;
     }
 
     @Override // com.baidu.b.c.a.i
     public int a(int i) {
-        return this.f1258a - (i % this.f1258a);
+        return this.f1261a - (i % this.f1261a);
     }
 
     @Override // com.baidu.b.c.a.i
@@ -39,7 +39,7 @@ final class h implements i {
         }
         int i4 = bArr[(i + i2) - 1];
         int i5 = i4 & 255;
-        if (i5 < 1 || i5 > this.f1258a || (i3 = (i + i2) - (i4 & 255)) < i) {
+        if (i5 < 1 || i5 > this.f1261a || (i3 = (i + i2) - (i4 & 255)) < i) {
             return -1;
         }
         for (int i6 = 0; i6 < (i4 & 255); i6++) {

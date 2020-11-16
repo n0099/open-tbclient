@@ -12,7 +12,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class UploadingFileView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
@@ -86,7 +86,7 @@ public class UploadingFileView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public class a implements Interpolator {
         private float b = 0.5f;
 

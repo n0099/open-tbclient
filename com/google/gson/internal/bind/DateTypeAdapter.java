@@ -15,9 +15,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class DateTypeAdapter extends TypeAdapter<Date> {
-    public static final TypeAdapterFactory pdR = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.DateTypeAdapter.1
+    public static final TypeAdapterFactory pfu = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.DateTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             if (aVar.etp() == Date.class) {
@@ -34,7 +34,7 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
             this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2));
         }
         if (c.esK()) {
-            this.dateFormats.add(f.eh(2, 2));
+            this.dateFormats.add(f.ei(2, 2));
         }
     }
 
@@ -81,7 +81,7 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
         if (date == null) {
             bVar.etl();
         } else {
-            bVar.YA(this.dateFormats.get(0).format(date));
+            bVar.Yl(this.dateFormats.get(0).format(date));
         }
     }
 }

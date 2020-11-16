@@ -15,7 +15,7 @@ import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    private static j Po;
+    private static j Pp;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
     private static boolean mSupportWap = true;
     private long mNetChangedTime;
@@ -29,7 +29,7 @@ public class j {
     private String mProxyHost = null;
     private int mProxyPort = -1;
     private boolean isOpenNetChangedMessage = true;
-    private Runnable Pp = new Runnable() { // from class: com.baidu.adp.lib.util.j.1
+    private Runnable Pq = new Runnable() { // from class: com.baidu.adp.lib.util.j.1
         @Override // java.lang.Runnable
         public void run() {
             try {
@@ -62,7 +62,7 @@ public class j {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        Po = null;
+        Pp = null;
     }
 
     private void getCurNetState() {
@@ -258,10 +258,10 @@ public class j {
     public static synchronized j ok() {
         j jVar;
         synchronized (j.class) {
-            if (Po == null) {
-                Po = new j();
+            if (Pp == null) {
+                Pp = new j();
             }
-            jVar = Po;
+            jVar = Pp;
         }
         return jVar;
     }
@@ -273,7 +273,7 @@ public class j {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            AsyncService.INSTANCE.sendRunnable(j.ok().Pp);
+            AsyncService.INSTANCE.sendRunnable(j.ok().Pq);
         }
     }
 
@@ -333,6 +333,25 @@ public class j {
             return 3;
         }
         return (is4GNet() || isNetWorkAvailable()) ? 4 : 0;
+    }
+
+    public static String getNetType() {
+        if (!isNetWorkAvailable()) {
+            return "N";
+        }
+        if (isWifiNet()) {
+            return "WIFI";
+        }
+        if (is4GNet()) {
+            return "4G";
+        }
+        if (is3GNet()) {
+            return "3G";
+        }
+        if (!is2GNet()) {
+            return "N";
+        }
+        return "2G";
     }
 
     public static String netTypeNameInLowerCase() {

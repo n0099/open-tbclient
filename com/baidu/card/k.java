@@ -5,12 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.card.view.ForumEnterLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class k extends i {
-    private AbsThreadDataSupport afI;
-    private ForumEnterLayout afW;
+    private com.baidu.tbadk.core.data.a afN;
+    private ForumEnterLayout agb;
     private final View.OnClickListener mOnClickListener;
 
     public k(Context context) {
@@ -19,21 +18,21 @@ public class k extends i {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (k.this.tB() != null) {
-                    k.this.tB().a(view, k.this.afI);
+                    k.this.tB().a(view, k.this.afN);
                 }
             }
         };
-        int dimens = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds30);
+        int dimens = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.M_H_X003);
         int dimens2 = com.baidu.adp.lib.util.l.getDimens(context, com.baidu.tbadk.a.b.a.aL(R.dimen.tbds21, R.dimen.tbds0));
         setTopMargin(dimens);
         br(dimens2);
-        this.afW = new ForumEnterLayout(context);
-        this.afW.setOnAfterClickListener(this.mOnClickListener);
+        this.agb = new ForumEnterLayout(context);
+        this.agb.setOnAfterClickListener(this.mOnClickListener);
     }
 
     public void tJ() {
-        if (com.baidu.tbadk.a.d.bhU()) {
-            int dimens = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds30);
+        if (com.baidu.tbadk.a.d.bhm()) {
+            int dimens = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.M_H_X003);
             int dimens2 = com.baidu.adp.lib.util.l.getDimens(this.mContext, com.baidu.tbadk.a.b.a.aL(R.dimen.tbds21, R.dimen.tbds0));
             setTopMargin(dimens);
             br(dimens2);
@@ -42,7 +41,7 @@ public class k extends i {
         int dimens3 = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds10);
         setTopMargin(dimens3);
         br(0);
-        a(this.afW, dimens3, 0);
+        a(this.agb, dimens3, 0);
     }
 
     public void a(View view, int i, int i2) {
@@ -59,20 +58,20 @@ public class k extends i {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.afW;
+        return this.agb;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void H(AbsThreadDataSupport absThreadDataSupport) {
-        this.afI = absThreadDataSupport;
-        this.afW.setSourceForPb(this.afD.tS());
-        this.afW.setData(absThreadDataSupport);
+    public void H(com.baidu.tbadk.core.data.a aVar) {
+        this.afN = aVar;
+        this.agb.setSourceForPb(this.afI.tS());
+        this.agb.setData(aVar);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.afW.onChangeSkinType(tbPageContext, i);
+        this.agb.onChangeSkinType(tbPageContext, i);
     }
 }

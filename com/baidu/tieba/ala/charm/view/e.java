@@ -33,7 +33,7 @@ public class e extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ut */
+    /* renamed from: uR */
     public ALaCharmData getItem(int i) {
         if (this.mDatas != null) {
             return this.mDatas.get(i);
@@ -53,22 +53,22 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.sdk_charm_list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.gxy = (CharmItemView) view.findViewById(a.f.item);
+            aVar2.gxf = (CharmItemView) view.findViewById(a.f.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         if (aVar != null && getItem(i) != null && (item = getItem(i)) != null) {
-            aVar.gxy.setData(1, i + 4, item.user_name, item.portrait, 0L, item.forwardDiff);
-            aVar.gxy.gxq.setupLevelIcon(item.level_id);
+            aVar.gxf.setData(1, i + 4, item.user_name, item.portrait, 0L, item.forwardDiff);
+            aVar.gxf.gwX.setupLevelIcon(item.level_id);
         }
         return view;
     }
 
     /* loaded from: classes4.dex */
     private class a {
-        private CharmItemView gxy;
+        private CharmItemView gxf;
 
         private a() {
         }

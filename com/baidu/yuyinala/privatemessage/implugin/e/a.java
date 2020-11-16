@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static a oxz;
+    private static a ozd;
     private Context mContext;
 
     private a(Context context) {
@@ -23,46 +23,46 @@ public class a {
         this.mContext = context;
     }
 
-    public static synchronized a gE(Context context) {
+    public static synchronized a gC(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (oxz == null) {
-                oxz = new a(context.getApplicationContext());
+            if (ozd == null) {
+                ozd = new a(context.getApplicationContext());
             }
-            aVar = oxz;
+            aVar = ozd;
         }
         return aVar;
     }
 
     public void add(String str, String str2) {
-        if ((ChatInfo.owN == ChatInfo.ChatCategory.DUZHAN || ChatInfo.owN == ChatInfo.ChatCategory.SMART || ChatInfo.owN == ChatInfo.ChatCategory.C2C) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+        if ((ChatInfo.oyr == ChatInfo.ChatCategory.DUZHAN || ChatInfo.oyr == ChatInfo.ChatCategory.SMART || ChatInfo.oyr == ChatInfo.ChatCategory.C2C) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             String gT = gT(str, str2);
             if (!TextUtils.isEmpty(gT)) {
-                b.efv().onEvent(str, gT);
+                b.eft().onEvent(str, gT);
             }
         }
     }
 
     public void b(String str, String str2, int i, String str3) {
-        if ((ChatInfo.owN == ChatInfo.ChatCategory.DUZHAN || ChatInfo.owN == ChatInfo.ChatCategory.C2C) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+        if ((ChatInfo.oyr == ChatInfo.ChatCategory.DUZHAN || ChatInfo.oyr == ChatInfo.ChatCategory.C2C) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             String c = c(str, str2, i, str3);
             if (!TextUtils.isEmpty(c)) {
-                b.efv().onEvent(str, c);
+                b.eft().onEvent(str, c);
             }
         }
     }
 
     public String gT(String str, String str2) {
-        if ((ChatInfo.owN != ChatInfo.ChatCategory.DUZHAN && ChatInfo.owN != ChatInfo.ChatCategory.SMART && ChatInfo.owN != ChatInfo.ChatCategory.C2C) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        if ((ChatInfo.oyr != ChatInfo.ChatCategory.DUZHAN && ChatInfo.oyr != ChatInfo.ChatCategory.SMART && ChatInfo.oyr != ChatInfo.ChatCategory.C2C) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return "";
         }
         try {
             JSONObject gU = gU(str, str2);
             JSONObject jSONObject = new JSONObject();
-            if (ChatInfo.owN == ChatInfo.ChatCategory.DUZHAN) {
+            if (ChatInfo.oyr == ChatInfo.ChatCategory.DUZHAN) {
                 jSONObject.put("paid", ChatInfo.mPaid);
             }
-            if (b.efv().isCuidLogin(this.mContext)) {
+            if (b.eft().isCuidLogin(this.mContext)) {
                 jSONObject.put("account_type", "cuid");
             } else {
                 jSONObject.put("account_type", "uid");
@@ -84,7 +84,7 @@ public class a {
             JSONObject gU = gU(str, str2);
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("paid", ChatInfo.mPaid);
-            if (b.efv().isCuidLogin(this.mContext)) {
+            if (b.eft().isCuidLogin(this.mContext)) {
                 jSONObject.put("account_type", "cuid");
             } else {
                 jSONObject.put("account_type", "uid");
@@ -109,16 +109,16 @@ public class a {
         jSONObject.put("network", getNetType());
         jSONObject.put("from", "IM");
         jSONObject.put("type", "");
-        if (ChatInfo.owN == ChatInfo.ChatCategory.DUZHAN) {
+        if (ChatInfo.oyr == ChatInfo.ChatCategory.DUZHAN) {
             if (ChatInfo.mPainfo != null && ChatInfo.mPainfo.getSubsetType() == 16) {
                 jSONObject.put("page", "xianst");
             } else {
                 jSONObject.put("page", "guanfanghao");
             }
-        } else if (ChatInfo.owN == ChatInfo.ChatCategory.SMART) {
+        } else if (ChatInfo.oyr == ChatInfo.ChatCategory.SMART) {
             jSONObject.put("page", "swan");
-        } else if (ChatInfo.owN == ChatInfo.ChatCategory.C2C) {
-            if (ChatInfo.owX) {
+        } else if (ChatInfo.oyr == ChatInfo.ChatCategory.C2C) {
+            if (ChatInfo.oyB) {
                 jSONObject.put("page", "minigame");
             } else {
                 jSONObject.put("page", Constants.PAGE_C2C_NAME);
@@ -127,24 +127,24 @@ public class a {
         if (str.equals("417")) {
             jSONObject.put("source", "");
         } else {
-            jSONObject.put("source", ChatInfo.owW);
+            jSONObject.put("source", ChatInfo.oyA);
         }
         jSONObject.put("value", str2);
         return jSONObject;
     }
 
     private String getNetType() {
-        int gM = e.gM(this.mContext);
-        if (gM == 100) {
+        int gK = e.gK(this.mContext);
+        if (gK == 100) {
             return "wifi";
         }
-        if (gM == 1 || gM == 2 || gM == 4 || gM == 7 || gM == 10) {
+        if (gK == 1 || gK == 2 || gK == 4 || gK == 7 || gK == 10) {
             return "2g";
         }
-        if (gM == 3 || gM == 5 || gM == 6 || gM == 8 || gM == 9 || gM == 11 || gM == 12 || gM == 14) {
+        if (gK == 3 || gK == 5 || gK == 6 || gK == 8 || gK == 9 || gK == 11 || gK == 12 || gK == 14) {
             return "3g";
         }
-        if (gM == 13) {
+        if (gK == 13) {
             return "4g";
         }
         return "other";

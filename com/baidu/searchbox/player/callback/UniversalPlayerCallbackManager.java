@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.callback;
 
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManager {
     private IUniversalPlayerCallback mUniversalCallback;
 

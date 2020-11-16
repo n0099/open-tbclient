@@ -1,28 +1,28 @@
 package com.facebook.imagepipeline.g;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a extends c {
-    private com.facebook.imagepipeline.animated.base.d oWP;
+    private com.facebook.imagepipeline.animated.base.d oYs;
 
     public a(com.facebook.imagepipeline.animated.base.d dVar) {
-        this.oWP = dVar;
+        this.oYs = dVar;
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public synchronized int getWidth() {
-        return isClosed() ? 0 : this.oWP.ene().getWidth();
+        return isClosed() ? 0 : this.oYs.enb().getWidth();
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public synchronized int getHeight() {
-        return isClosed() ? 0 : this.oWP.ene().getHeight();
+        return isClosed() ? 0 : this.oYs.enb().getHeight();
     }
 
     @Override // com.facebook.imagepipeline.g.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (this.oWP != null) {
-                com.facebook.imagepipeline.animated.base.d dVar = this.oWP;
-                this.oWP = null;
+            if (this.oYs != null) {
+                com.facebook.imagepipeline.animated.base.d dVar = this.oYs;
+                this.oYs = null;
                 dVar.dispose();
             }
         }
@@ -30,12 +30,12 @@ public class a extends c {
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized boolean isClosed() {
-        return this.oWP == null;
+        return this.oYs == null;
     }
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized int getSizeInBytes() {
-        return isClosed() ? 0 : this.oWP.ene().getSizeInBytes();
+        return isClosed() ? 0 : this.oYs.enb().getSizeInBytes();
     }
 
     @Override // com.facebook.imagepipeline.g.c
@@ -43,7 +43,7 @@ public class a extends c {
         return true;
     }
 
-    public synchronized com.facebook.imagepipeline.animated.base.d epP() {
-        return this.oWP;
+    public synchronized com.facebook.imagepipeline.animated.base.d epN() {
+        return this.oYs;
     }
 }

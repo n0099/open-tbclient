@@ -17,11 +17,11 @@ import com.heytap.mcssdk.mode.Message;
 import java.io.File;
 import java.net.URI;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1325a = null;
+    private static a f1328a = null;
     private Context b;
     private BroadcastReceiver e;
     private com.baidu.clientupdate.c.a h;
@@ -40,10 +40,10 @@ public final class a {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f1325a == null) {
-                f1325a = new a(context);
+            if (f1328a == null) {
+                f1328a = new a(context);
             }
-            aVar = f1325a;
+            aVar = f1328a;
         }
         return aVar;
     }
@@ -123,8 +123,8 @@ public final class a {
 
     public static void e() {
         synchronized (a.class) {
-            if (f1325a != null && f1325a.e != null) {
-                f1325a.b.unregisterReceiver(f1325a.e);
+            if (f1328a != null && f1328a.e != null) {
+                f1328a.b.unregisterReceiver(f1328a.e);
             }
         }
     }

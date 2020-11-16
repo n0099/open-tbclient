@@ -133,7 +133,7 @@ public class ResourceDownloader {
                         ResourceDownloader.addDownloadingResId(str);
                         DownloaderHelper.cleanDir(new File(str4));
                         downloadData.setPath(str8);
-                        d.bzt().f(downloadData);
+                        d.byJ().f(downloadData);
                         return true;
                     }
                     return false;

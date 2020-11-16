@@ -3,39 +3,39 @@ package com.baidu.swan.gamecenter.c;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.adaptation.a.aw;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class c implements aw {
-    private static volatile c dQg;
-    private com.baidu.swan.gamecenter.a.b dQh;
-    private b dQi;
+    private static volatile c dOy;
+    private b dOA;
+    private com.baidu.swan.gamecenter.a.b dOz;
 
     public c() {
         init();
     }
 
     private void init() {
-        this.dQh = new com.baidu.swan.gamecenter.a.b();
-        this.dQi = new b();
+        this.dOz = new com.baidu.swan.gamecenter.a.b();
+        this.dOA = new b();
     }
 
-    public static c aSt() {
-        if (dQg == null) {
+    public static c aRL() {
+        if (dOy == null) {
             synchronized (c.class) {
-                if (dQg == null) {
-                    dQg = new c();
+                if (dOy == null) {
+                    dOy = new c();
                 }
             }
         }
-        return dQg;
+        return dOy;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aw
     public com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.o.b bVar) {
-        if (this.dQh.wh(str)) {
-            return this.dQh.a(str, jSONObject, bVar);
+        if (this.dOz.wc(str)) {
+            return this.dOz.a(str, jSONObject, bVar);
         }
-        if (this.dQh.aSs()) {
-            return this.dQi.a(str, jSONObject, bVar);
+        if (this.dOz.aRK()) {
+            return this.dOA.a(str, jSONObject, bVar);
         }
         return new com.baidu.swan.apps.api.c.b(10001, "authorize fail.");
     }

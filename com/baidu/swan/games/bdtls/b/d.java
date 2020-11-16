@@ -4,10 +4,10 @@ import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.swan.apps.ap.p;
 import java.util.HashMap;
 import okhttp3.Response;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class d {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void b(boolean z, byte[] bArr);
     }
@@ -16,7 +16,7 @@ public class d {
         HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/octet-stream");
         hashMap.put("Bdtls", "Bdtls");
-        com.baidu.swan.a.c.a.baK().postByteRequest().url("https://mbd.baidu.com/bdtls").cookieManager(com.baidu.swan.apps.t.a.awZ().aij()).headers(hashMap).content(bArr).build().executeAsync(new ResponseCallback<byte[]>() { // from class: com.baidu.swan.games.bdtls.b.d.1
+        com.baidu.swan.a.c.a.bad().postByteRequest().url("https://mbd.baidu.com/bdtls").cookieManager(com.baidu.swan.apps.t.a.awr().ahB()).headers(hashMap).content(bArr).build().executeAsync(new ResponseCallback<byte[]>() { // from class: com.baidu.swan.games.bdtls.b.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public byte[] parseResponse(Response response, int i) throws Exception {

@@ -33,69 +33,69 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickListener {
-    public static volatile boolean hMu = true;
-    public static volatile boolean hMv = false;
+    public static volatile boolean hMb = true;
+    public static volatile boolean hMc = false;
     private FrameLayout container;
     Context context;
-    private LinearLayout hMA;
-    private LinearLayout hMB;
-    private LinearLayout hMC;
-    private HeadImageView hMD;
-    private HeadImageView hME;
-    private HeadImageView hMF;
-    private HeadImageView hMG;
-    private AnimatorSet hMH;
-    private AnimatorSet hMI;
-    private TextView hMJ;
-    private Button hMK;
-    private volatile boolean hML;
-    private boolean hMM;
-    private boolean hMN;
-    private int hMO;
-    private int hMP;
-    com.baidu.tieba.ala.data.j hMQ;
-    com.baidu.tieba.ala.data.k[] hMR;
-    HashMap<Integer, HeadImageView> hMS;
-    a hMT;
-    private final int hMp;
-    private final int hMq;
-    private final int hMr;
-    private final int hMs;
-    private final int hMt;
-    public volatile int hMw;
-    private volatile boolean hMx;
-    private volatile boolean hMy;
-    private volatile boolean hMz;
+    private final int hLW;
+    private final int hLX;
+    private final int hLY;
+    private final int hLZ;
+    a hMA;
+    private final int hMa;
+    public volatile int hMd;
+    private volatile boolean hMe;
+    private volatile boolean hMf;
+    private volatile boolean hMg;
+    private LinearLayout hMh;
+    private LinearLayout hMi;
+    private LinearLayout hMj;
+    private HeadImageView hMk;
+    private HeadImageView hMl;
+    private HeadImageView hMm;
+    private HeadImageView hMn;
+    private AnimatorSet hMo;
+    private AnimatorSet hMp;
+    private TextView hMq;
+    private Button hMr;
+    private volatile boolean hMs;
+    private boolean hMt;
+    private boolean hMu;
+    private int hMv;
+    private int hMw;
+    com.baidu.tieba.ala.data.j hMx;
+    com.baidu.tieba.ala.data.k[] hMy;
+    HashMap<Integer, HeadImageView> hMz;
     boolean isHost;
     private View mView;
     private TextView titleText;
 
     public AlaSeriesGiftPendant(Context context, boolean z, String str) {
         super(context);
-        this.hMp = 4;
-        this.hMq = 0;
-        this.hMr = 1;
-        this.hMs = 2;
-        this.hMt = 3;
-        this.hMw = 0;
-        this.hMx = false;
-        this.hMy = false;
-        this.hMz = true;
-        this.hMH = new AnimatorSet();
-        this.hMI = new AnimatorSet();
-        this.hML = false;
-        this.hMM = false;
-        this.hMS = new HashMap<>();
-        this.hMT = new a(this);
+        this.hLW = 4;
+        this.hLX = 0;
+        this.hLY = 1;
+        this.hLZ = 2;
+        this.hMa = 3;
+        this.hMd = 0;
+        this.hMe = false;
+        this.hMf = false;
+        this.hMg = true;
+        this.hMo = new AnimatorSet();
+        this.hMp = new AnimatorSet();
+        this.hMs = false;
+        this.hMt = false;
+        this.hMz = new HashMap<>();
+        this.hMA = new a(this);
         this.context = context;
         this.isHost = z;
-        this.hMN = true;
+        this.hMu = true;
         initView();
-        clL();
+        cle();
         getSpinTime();
         if (str != null) {
             try {
-                dU(new JSONObject(str));
+                dO(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -105,57 +105,57 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
     private void initView() {
         this.mView = LayoutInflater.from(this.context).inflate(a.g.ala_pendant_series_gift, (ViewGroup) this, true);
         this.container = (FrameLayout) this.mView.findViewById(a.f.pendant_card_container);
-        this.hMA = (LinearLayout) this.mView.findViewById(a.f.front_view);
-        this.hMB = (LinearLayout) this.mView.findViewById(a.f.back_view);
-        this.hMK = (Button) this.mView.findViewById(a.f.pendant_send_btn);
-        this.hMK.setOnClickListener(this);
-        this.hMJ = (TextView) this.mView.findViewById(a.f.pendant_countdown_text);
-        this.hMD = (HeadImageView) this.mView.findViewById(a.f.first_icon);
-        this.hMD.setOnClickListener(this);
-        this.hMS.put(0, this.hMD);
-        this.hME = (HeadImageView) this.mView.findViewById(a.f.second_icon);
-        this.hME.setOnClickListener(this);
-        this.hMS.put(1, this.hME);
-        this.hMF = (HeadImageView) this.mView.findViewById(a.f.third_icon);
-        this.hMF.setOnClickListener(this);
-        this.hMS.put(2, this.hMF);
-        this.hMG = (HeadImageView) this.mView.findViewById(a.f.fourth_icon);
-        this.hMG.setOnClickListener(this);
-        this.hMS.put(3, this.hMG);
-        this.hMC = (LinearLayout) this.mView.findViewById(a.f.second_row);
+        this.hMh = (LinearLayout) this.mView.findViewById(a.f.front_view);
+        this.hMi = (LinearLayout) this.mView.findViewById(a.f.back_view);
+        this.hMr = (Button) this.mView.findViewById(a.f.pendant_send_btn);
+        this.hMr.setOnClickListener(this);
+        this.hMq = (TextView) this.mView.findViewById(a.f.pendant_countdown_text);
+        this.hMk = (HeadImageView) this.mView.findViewById(a.f.first_icon);
+        this.hMk.setOnClickListener(this);
+        this.hMz.put(0, this.hMk);
+        this.hMl = (HeadImageView) this.mView.findViewById(a.f.second_icon);
+        this.hMl.setOnClickListener(this);
+        this.hMz.put(1, this.hMl);
+        this.hMm = (HeadImageView) this.mView.findViewById(a.f.third_icon);
+        this.hMm.setOnClickListener(this);
+        this.hMz.put(2, this.hMm);
+        this.hMn = (HeadImageView) this.mView.findViewById(a.f.fourth_icon);
+        this.hMn.setOnClickListener(this);
+        this.hMz.put(3, this.hMn);
+        this.hMj = (LinearLayout) this.mView.findViewById(a.f.second_row);
         this.titleText = (TextView) this.mView.findViewById(a.f.title_text);
-        this.hMB.setVisibility(8);
+        this.hMi.setVisibility(8);
         setCanVisible(false);
     }
 
-    private void clL() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.hMA, "alpha", 1.0f, 0.0f);
+    private void cle() {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.hMh, "alpha", 1.0f, 0.0f);
         ofFloat.setDuration(750L);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.hMA, "alpha", 0.0f, 1.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.hMh, "alpha", 0.0f, 1.0f);
         ofFloat2.setDuration(750L);
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.hMB, "alpha", 1.0f, 0.0f);
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.hMi, "alpha", 1.0f, 0.0f);
         ofFloat3.setDuration(750L);
-        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.hMB, "alpha", 0.0f, 1.0f);
+        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.hMi, "alpha", 0.0f, 1.0f);
         ofFloat4.setDuration(750L);
-        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.hMA, "scaleX", 1.0f, 0.0f);
+        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.hMh, "scaleX", 1.0f, 0.0f);
         ofFloat5.setDuration(750L);
-        ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.hMA, "scaleY", 1.0f, 0.0f);
+        ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.hMh, "scaleY", 1.0f, 0.0f);
         ofFloat6.setDuration(750L);
-        ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.hMA, "scaleX", 0.0f, 1.0f);
+        ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.hMh, "scaleX", 0.0f, 1.0f);
         ofFloat7.setDuration(750L);
-        ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.hMA, "scaleY", 0.0f, 1.0f);
+        ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.hMh, "scaleY", 0.0f, 1.0f);
         ofFloat8.setDuration(750L);
-        ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.hMB, "scaleX", 1.0f, 0.0f);
+        ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.hMi, "scaleX", 1.0f, 0.0f);
         ofFloat9.setDuration(750L);
-        ObjectAnimator ofFloat10 = ObjectAnimator.ofFloat(this.hMB, "scaleY", 1.0f, 0.0f);
+        ObjectAnimator ofFloat10 = ObjectAnimator.ofFloat(this.hMi, "scaleY", 1.0f, 0.0f);
         ofFloat10.setDuration(750L);
-        ObjectAnimator ofFloat11 = ObjectAnimator.ofFloat(this.hMB, "scaleX", 0.0f, 1.0f);
+        ObjectAnimator ofFloat11 = ObjectAnimator.ofFloat(this.hMi, "scaleX", 0.0f, 1.0f);
         ofFloat11.setDuration(750L);
-        ObjectAnimator ofFloat12 = ObjectAnimator.ofFloat(this.hMB, "scaleY", 0.0f, 1.0f);
+        ObjectAnimator ofFloat12 = ObjectAnimator.ofFloat(this.hMi, "scaleY", 0.0f, 1.0f);
         ofFloat12.setDuration(750L);
-        this.hMH.play(ofFloat2).with(ofFloat7).with(ofFloat8).with(ofFloat3).with(ofFloat9).with(ofFloat10);
-        this.hMI.play(ofFloat4).with(ofFloat11).with(ofFloat12).with(ofFloat).with(ofFloat5).with(ofFloat6);
-        this.hMH.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.AlaSeriesGiftPendant.1
+        this.hMo.play(ofFloat2).with(ofFloat7).with(ofFloat8).with(ofFloat3).with(ofFloat9).with(ofFloat10);
+        this.hMp.play(ofFloat4).with(ofFloat11).with(ofFloat12).with(ofFloat).with(ofFloat5).with(ofFloat6);
+        this.hMo.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.AlaSeriesGiftPendant.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
@@ -164,61 +164,61 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                AlaSeriesGiftPendant.this.oi(true);
+                AlaSeriesGiftPendant.this.oj(true);
                 super.onAnimationEnd(animator);
             }
         });
-        this.hMI.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.AlaSeriesGiftPendant.2
+        this.hMp.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.AlaSeriesGiftPendant.2
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                AlaSeriesGiftPendant.this.hMB.setVisibility(0);
+                AlaSeriesGiftPendant.this.hMi.setVisibility(0);
                 AlaSeriesGiftPendant.this.container.setClickable(false);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                AlaSeriesGiftPendant.this.oi(false);
+                AlaSeriesGiftPendant.this.oj(false);
                 super.onAnimationEnd(animator);
             }
         });
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.baidu.tieba.ala.view.AlaSeriesGiftPendant$3] */
-    public void clM() {
+    public void clf() {
         new Thread() { // from class: com.baidu.tieba.ala.view.AlaSeriesGiftPendant.3
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
-                while (AlaSeriesGiftPendant.this.hMw >= 0 && AlaSeriesGiftPendant.this.hMz) {
-                    if (!AlaSeriesGiftPendant.hMv) {
-                        if (AlaSeriesGiftPendant.this.hMN) {
-                            AlaSeriesGiftPendant.this.hMT.sendEmptyMessageDelayed(1, AlaSeriesGiftPendant.this.hMO);
+                while (AlaSeriesGiftPendant.this.hMd >= 0 && AlaSeriesGiftPendant.this.hMg) {
+                    if (!AlaSeriesGiftPendant.hMc) {
+                        if (AlaSeriesGiftPendant.this.hMu) {
+                            AlaSeriesGiftPendant.this.hMA.sendEmptyMessageDelayed(1, AlaSeriesGiftPendant.this.hMv);
                             try {
-                                sleep(AlaSeriesGiftPendant.this.hMO + AlaSeriesGiftPendant.this.hMP);
+                                sleep(AlaSeriesGiftPendant.this.hMv + AlaSeriesGiftPendant.this.hMw);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            AlaSeriesGiftPendant.this.hMN = false;
+                            AlaSeriesGiftPendant.this.hMu = false;
                         }
-                        if (!AlaSeriesGiftPendant.this.hML) {
-                            AlaSeriesGiftPendant.this.hMx = true;
-                            AlaSeriesGiftPendant.this.hMT.sendEmptyMessage(1);
+                        if (!AlaSeriesGiftPendant.this.hMs) {
+                            AlaSeriesGiftPendant.this.hMe = true;
+                            AlaSeriesGiftPendant.this.hMA.sendEmptyMessage(1);
                             try {
-                                sleep(AlaSeriesGiftPendant.this.hMP);
+                                sleep(AlaSeriesGiftPendant.this.hMw);
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
                         } else {
-                            AlaSeriesGiftPendant.this.hMx = true;
-                            AlaSeriesGiftPendant.this.hMT.sendEmptyMessage(1);
+                            AlaSeriesGiftPendant.this.hMe = true;
+                            AlaSeriesGiftPendant.this.hMA.sendEmptyMessage(1);
                             try {
-                                sleep(AlaSeriesGiftPendant.this.hMO);
+                                sleep(AlaSeriesGiftPendant.this.hMv);
                             } catch (Exception e3) {
                                 e3.printStackTrace();
                             }
                         }
                     } else {
-                        AlaSeriesGiftPendant.this.hMT.sendEmptyMessage(4);
+                        AlaSeriesGiftPendant.this.hMA.sendEmptyMessage(4);
                         return;
                     }
                 }
@@ -228,34 +228,34 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
 
     /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.tieba.ala.view.AlaSeriesGiftPendant$4] */
     public void startCountDown() {
-        if (this.hMw <= 0) {
-            this.hMy = false;
+        if (this.hMd <= 0) {
+            this.hMf = false;
         } else {
             new Thread() { // from class: com.baidu.tieba.ala.view.AlaSeriesGiftPendant.4
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     while (true) {
-                        if (AlaSeriesGiftPendant.this.hMw <= 0) {
+                        if (AlaSeriesGiftPendant.this.hMd <= 0) {
                             break;
-                        } else if (!AlaSeriesGiftPendant.hMv) {
-                            AlaSeriesGiftPendant.this.hMy = true;
-                            AlaSeriesGiftPendant.this.hMT.sendEmptyMessage(2);
+                        } else if (!AlaSeriesGiftPendant.hMc) {
+                            AlaSeriesGiftPendant.this.hMf = true;
+                            AlaSeriesGiftPendant.this.hMA.sendEmptyMessage(2);
                             AlaSeriesGiftPendant alaSeriesGiftPendant = AlaSeriesGiftPendant.this;
-                            alaSeriesGiftPendant.hMw--;
+                            alaSeriesGiftPendant.hMd--;
                             try {
                                 sleep(1000L);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         } else {
-                            AlaSeriesGiftPendant.this.hMT.sendEmptyMessage(5);
+                            AlaSeriesGiftPendant.this.hMA.sendEmptyMessage(5);
                             break;
                         }
                     }
                     try {
                         sleep(2000L);
-                        if (AlaSeriesGiftPendant.this.hMw <= 0) {
-                            AlaSeriesGiftPendant.this.hMT.sendEmptyMessage(3);
+                        if (AlaSeriesGiftPendant.this.hMd <= 0) {
+                            AlaSeriesGiftPendant.this.hMA.sendEmptyMessage(3);
                         } else {
                             AlaSeriesGiftPendant.this.startCountDown();
                         }
@@ -269,169 +269,169 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setCountDownNum(int i) {
-        this.hMJ.setText(i + "s");
-        this.hMK.setText("赠送" + i + "s");
+        this.hMq.setText(i + "s");
+        this.hMr.setText("赠送" + i + "s");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clN() {
-        this.hMJ.setText(" ");
-        this.hMy = false;
+    public void clg() {
+        this.hMq.setText(" ");
+        this.hMf = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clO() {
-        if (this.hML) {
-            this.hML = false;
-            this.hMH.start();
-        } else if (this.hMz) {
-            this.hML = true;
-            this.hMI.start();
+    public void clh() {
+        if (this.hMs) {
+            this.hMs = false;
+            this.hMo.start();
+        } else if (this.hMg) {
+            this.hMs = true;
+            this.hMp.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clP() {
-        if (this.hML) {
-            this.hMH.start();
-            this.hML = false;
+    public void cli() {
+        if (this.hMs) {
+            this.hMo.start();
+            this.hMs = false;
             return;
         }
-        this.hMz = false;
+        this.hMg = false;
     }
 
-    public void dU(JSONObject jSONObject) {
+    public void dO(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.hMQ = new com.baidu.tieba.ala.data.j();
-            this.hMQ.parserJson(jSONObject);
-            this.hMR = this.hMQ.bRQ();
-            this.hMw = this.hMQ.bRO();
-            if (this.hMQ.bRP()) {
-                clN();
+            this.hMx = new com.baidu.tieba.ala.data.j();
+            this.hMx.parserJson(jSONObject);
+            this.hMy = this.hMx.bRj();
+            this.hMd = this.hMx.bRh();
+            if (this.hMx.bRi()) {
+                clg();
             } else {
-                setCountDownNum(this.hMw);
+                setCountDownNum(this.hMd);
             }
-            this.titleText.setText(this.hMQ.GT() == null ? "套系礼物" : this.hMQ.GT());
-            switch (this.hMR.length) {
+            this.titleText.setText(this.hMx.Gk() == null ? "套系礼物" : this.hMx.Gk());
+            switch (this.hMy.length) {
                 case 2:
-                    this.hMC.setVisibility(8);
+                    this.hMj.setVisibility(8);
                     break;
                 case 3:
-                    this.hMC.setVisibility(0);
-                    this.hMG.setVisibility(8);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.hMF.getLayoutParams());
+                    this.hMj.setVisibility(0);
+                    this.hMn.setVisibility(8);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.hMm.getLayoutParams());
                     layoutParams.leftMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds58);
-                    this.hMF.setLayoutParams(layoutParams);
+                    this.hMm.setLayoutParams(layoutParams);
                     break;
                 case 4:
-                    this.hMC.setVisibility(0);
+                    this.hMj.setVisibility(0);
                     break;
             }
-            for (int i = 0; i < this.hMR.length; i++) {
-                if (this.hMR[i].getStatus() == 0) {
-                    HeadImageView headImageView = this.hMS.get(Integer.valueOf(i));
+            for (int i = 0; i < this.hMy.length; i++) {
+                if (this.hMy[i].getStatus() == 0) {
+                    HeadImageView headImageView = this.hMz.get(Integer.valueOf(i));
                     headImageView.setIsRound(true);
                     headImageView.setBorderColor(this.context.getResources().getColor(a.c.sdk_black_alpha10));
                     headImageView.setAutoChangeStyle(false);
                     headImageView.stopLoad();
-                    headImageView.startLoad(this.hMR[i].bRR(), 12, false, false);
-                } else if (this.hMR[i].getStatus() == 1) {
-                    HeadImageView headImageView2 = this.hMS.get(Integer.valueOf(i));
+                    headImageView.startLoad(this.hMy[i].bRk(), 12, false, false);
+                } else if (this.hMy[i].getStatus() == 1) {
+                    HeadImageView headImageView2 = this.hMz.get(Integer.valueOf(i));
                     headImageView2.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     headImageView2.setIsRound(true);
                     headImageView2.setBorderColor(this.context.getResources().getColor(a.c.sdk_black_alpha10));
                     headImageView2.setAutoChangeStyle(false);
                     headImageView2.stopLoad();
-                    headImageView2.startLoad(this.hMR[i].getPortrait(), 12, false, false);
+                    headImageView2.startLoad(this.hMy[i].getPortrait(), 12, false, false);
                 }
             }
             setCanVisible(true);
-            if (this.hMQ.bRP()) {
-                hMv = true;
-                this.hMT.sendEmptyMessageDelayed(3, IMConnection.RETRY_DELAY_TIMES);
+            if (this.hMx.bRi()) {
+                hMc = true;
+                this.hMA.sendEmptyMessageDelayed(3, IMConnection.RETRY_DELAY_TIMES);
             } else {
-                hMv = false;
+                hMc = false;
             }
-            if (!this.hMx && !this.hMy) {
+            if (!this.hMe && !this.hMf) {
                 startCountDown();
                 if (!this.isHost) {
-                    clM();
+                    clf();
                 }
             }
             if (this.isHost) {
-                this.hMA.setOnClickListener(this);
+                this.hMh.setOnClickListener(this);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void oi(boolean z) {
+    public void oj(boolean z) {
         if (z) {
-            this.hMD.setClickable(true);
-            this.hME.setClickable(true);
-            this.hMF.setClickable(true);
-            this.hMG.setClickable(true);
-            this.hMK.setClickable(false);
+            this.hMk.setClickable(true);
+            this.hMl.setClickable(true);
+            this.hMm.setClickable(true);
+            this.hMn.setClickable(true);
+            this.hMr.setClickable(false);
             return;
         }
-        this.hMD.setClickable(false);
-        this.hME.setClickable(false);
-        this.hMF.setClickable(false);
-        this.hMG.setClickable(false);
-        this.hMK.setClickable(true);
+        this.hMk.setClickable(false);
+        this.hMl.setClickable(false);
+        this.hMm.setClickable(false);
+        this.hMn.setClickable(false);
+        this.hMr.setClickable(true);
     }
 
-    private void clQ() {
-        if (this.hMQ.GT() == null) {
-            BdUtilHelper.showToast(this.context, "每" + this.hMQ.bRO() + "s内送出1个套系礼物，集齐全部获得惊喜特效，尊享全站广播哟！");
+    private void clj() {
+        if (this.hMx.Gk() == null) {
+            BdUtilHelper.showToast(this.context, "每" + this.hMx.bRh() + "s内送出1个套系礼物，集齐全部获得惊喜特效，尊享全站广播哟！");
         } else {
-            BdUtilHelper.showToast(this.context, "每" + this.hMQ.bRO() + "s内送出1个" + this.hMQ.GT() + "系列礼物，集齐全部获得惊喜特效，尊享全站广播哟！");
+            BdUtilHelper.showToast(this.context, "每" + this.hMx.bRh() + "s内送出1个" + this.hMx.Gk() + "系列礼物，集齐全部获得惊喜特效，尊享全站广播哟！");
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i = 0;
-        if (this.isHost || this.hMR == null) {
-            clQ();
-        } else if (this.hMD == view) {
-            if (this.hMR[0].getStatus() == 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.hMR[0].bRS()))));
+        if (this.isHost || this.hMy == null) {
+            clj();
+        } else if (this.hMk == view) {
+            if (this.hMy[0].getStatus() == 1) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.hMy[0].bRl()))));
                 return;
             }
             ah ahVar = new ah();
-            ahVar.aKt = this.hMR[0].getGiftId();
+            ahVar.aII = this.hMy[0].getGiftId();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, ahVar));
-        } else if (this.hME == view) {
-            if (this.hMR[1].getStatus() == 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.hMR[1].bRS()))));
+        } else if (this.hMl == view) {
+            if (this.hMy[1].getStatus() == 1) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.hMy[1].bRl()))));
                 return;
             }
             ah ahVar2 = new ah();
-            ahVar2.aKt = this.hMR[1].getGiftId();
+            ahVar2.aII = this.hMy[1].getGiftId();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, ahVar2));
-        } else if (this.hMF == view) {
-            if (this.hMR[2].getStatus() == 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.hMR[2].bRS()))));
+        } else if (this.hMm == view) {
+            if (this.hMy[2].getStatus() == 1) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.hMy[2].bRl()))));
                 return;
             }
             ah ahVar3 = new ah();
-            ahVar3.aKt = this.hMR[2].getGiftId();
+            ahVar3.aII = this.hMy[2].getGiftId();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, ahVar3));
-        } else if (this.hMG == view) {
-            if (this.hMR[3].getStatus() == 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.hMR[3].bRS()))));
+        } else if (this.hMn == view) {
+            if (this.hMy[3].getStatus() == 1) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.hMy[3].bRl()))));
                 return;
             }
             ah ahVar4 = new ah();
-            ahVar4.aKt = this.hMR[3].getGiftId();
+            ahVar4.aII = this.hMy[3].getGiftId();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, ahVar4));
-        } else if (this.hMK == view) {
+        } else if (this.hMr == view) {
             ah ahVar5 = new ah();
-            ahVar5.aKs = -1;
-            ahVar5.aKt = -1;
-            ahVar5.aKv = null;
-            com.baidu.tieba.ala.data.k[] kVarArr = this.hMR;
+            ahVar5.aIH = -1;
+            ahVar5.aII = -1;
+            ahVar5.aIK = null;
+            com.baidu.tieba.ala.data.k[] kVarArr = this.hMy;
             int length = kVarArr.length;
             while (true) {
                 if (i >= length) {
@@ -441,7 +441,7 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
                 if (kVar.getStatus() != 0) {
                     i++;
                 } else {
-                    ahVar5.aKt = kVar.getGiftId();
+                    ahVar5.aII = kVar.getGiftId();
                     break;
                 }
             }
@@ -450,7 +450,7 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void clR() {
+    public synchronized void clk() {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mView, "alpha", 1.0f, 0.0f);
         ofFloat.setDuration(750L);
         ofFloat.start();
@@ -461,32 +461,32 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
                 AlaSeriesGiftPendant.this.mView.setAlpha(1.0f);
             }
         });
-        hMu = true;
-        this.hMz = false;
+        hMb = true;
+        this.hMg = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a extends Handler {
-        private final WeakReference<AlaSeriesGiftPendant> hMV;
+        private final WeakReference<AlaSeriesGiftPendant> hMC;
 
         public a(AlaSeriesGiftPendant alaSeriesGiftPendant) {
-            this.hMV = new WeakReference<>(alaSeriesGiftPendant);
+            this.hMC = new WeakReference<>(alaSeriesGiftPendant);
         }
 
         @Override // android.os.Handler
         public void handleMessage(@NonNull Message message) {
-            if (this.hMV.get() != null) {
-                if (message.what == 1 && !AlaSeriesGiftPendant.hMv) {
-                    this.hMV.get().clO();
+            if (this.hMC.get() != null) {
+                if (message.what == 1 && !AlaSeriesGiftPendant.hMc) {
+                    this.hMC.get().clh();
                 } else if (message.what == 2) {
-                    this.hMV.get().setCountDownNum(this.hMV.get().hMw);
+                    this.hMC.get().setCountDownNum(this.hMC.get().hMd);
                 } else if (message.what == 3) {
-                    this.hMV.get().clR();
+                    this.hMC.get().clk();
                 } else if (message.what == 4) {
-                    this.hMV.get().clP();
+                    this.hMC.get().cli();
                 } else if (message.what == 5) {
-                    this.hMV.get().clN();
+                    this.hMC.get().clg();
                 }
             }
         }
@@ -497,15 +497,15 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
     }
 
     public void setCanVisible(boolean z) {
-        this.hMM = z;
+        this.hMt = z;
         this.mView.setVisibility(z ? 0 : 8);
         if (z) {
-            hMu = false;
+            hMb = false;
         }
     }
 
     private void getSpinTime() {
-        this.hMO = com.baidu.live.aa.a.PQ().bod.aMw * 1000;
-        this.hMP = com.baidu.live.aa.a.PQ().bod.aMx * 1000;
+        this.hMv = com.baidu.live.aa.a.Ph().bms.aKL * 1000;
+        this.hMw = com.baidu.live.aa.a.Ph().bms.aKM * 1000;
     }
 }

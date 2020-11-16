@@ -5,7 +5,7 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public class BaseNCodecInputStream extends FilterInputStream {
     private final BaseNCodec baseNCodec;
     private final BaseNCodec.Context context;

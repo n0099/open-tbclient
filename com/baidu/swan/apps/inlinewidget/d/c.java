@@ -15,57 +15,57 @@ import com.baidu.swan.apps.textarea.ShowConfirmBarLayout;
 import com.baidu.swan.apps.v.f;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class c implements d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final int cWB = ah.N(38.0f);
+    private static final int cUR = ah.M(38.0f);
+    private int cCB;
+    private ShowConfirmBarLayout cCO;
     @Nullable
-    private e cEj;
-    private int cEl;
-    private ShowConfirmBarLayout cEy;
+    private e cCz;
+    private a cUS;
     @Nullable
-    private String cVW;
-    private a cWC;
-    private String cwA;
+    private String cUm;
+    private String cuQ;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void avU();
+        void avm();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ZeusPluginFactory.Invoker invoker, String str) {
         if (invoker != null) {
-            this.cVW = (String) invoker.get("id");
+            this.cUm = (String) invoker.get("id");
         }
-        this.cwA = str;
-        this.cEj = avJ();
+        this.cuQ = str;
+        this.cCz = avb();
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.d
     public void a(@NonNull d.a aVar) {
-        if (com.baidu.swan.apps.runtime.e.aHu() == null) {
-            aVar.fh(false);
+        if (com.baidu.swan.apps.runtime.e.aGM() == null) {
+            aVar.fk(false);
         } else {
-            aVar.fh(true);
+            aVar.fk(true);
         }
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.d
     @Nullable
-    public String avC() {
-        return this.cVW;
+    public String auU() {
+        return this.cUm;
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.d
     @Nullable
     public String getSlaveId() {
-        return this.cwA;
+        return this.cuQ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(@NonNull a aVar) {
-        this.cWC = aVar;
+        this.cUS = aVar;
     }
 
     public void j(final int i, final int i2, final int i3, final int i4) {
@@ -79,92 +79,92 @@ public final class c implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(int i, int i2, int i3, int i4) {
-        if (this.cEj != null) {
-            com.baidu.swan.apps.adaptation.b.d azz = f.azO().azz();
-            if (this.cEl != i3 && azz != null) {
-                this.cEl = i3;
-                int i5 = this.cEy == null ? 0 : cWB;
-                int webViewScrollY = azz.getWebViewScrollY() + ((this.cEj.getWebViewContainer().getHeight() - i) - i2);
+        if (this.cCz != null) {
+            com.baidu.swan.apps.adaptation.b.d ayR = f.azg().ayR();
+            if (this.cCB != i3 && ayR != null) {
+                this.cCB = i3;
+                int i5 = this.cCO == null ? 0 : cUR;
+                int webViewScrollY = ayR.getWebViewScrollY() + ((this.cCz.getWebViewContainer().getHeight() - i) - i2);
                 if (webViewScrollY - i4 < i3) {
                     if (i4 > webViewScrollY) {
-                        this.cEj.getWebViewContainer().setScrollY(i5 + i3);
+                        this.cCz.getWebViewContainer().setScrollY(i5 + i3);
                     } else {
-                        this.cEj.getWebViewContainer().setScrollY(i5 + (i3 - webViewScrollY) + i4);
+                        this.cCz.getWebViewContainer().setScrollY(i5 + (i3 - webViewScrollY) + i4);
                     }
                 }
             }
         }
     }
 
-    public void avG() {
+    public void auY() {
         ak.m(new Runnable() { // from class: com.baidu.swan.apps.inlinewidget.d.c.2
             @Override // java.lang.Runnable
             public void run() {
-                c.this.avH();
+                c.this.auZ();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void avH() {
-        if (this.cEj != null && this.cEl != 0) {
-            this.cEl = 0;
-            if (this.cEj.getWebViewContainer().getScrollY() > 0) {
-                this.cEj.getWebViewContainer().setScrollY(0);
+    public void auZ() {
+        if (this.cCz != null && this.cCB != 0) {
+            this.cCB = 0;
+            if (this.cCz.getWebViewContainer().getScrollY() > 0) {
+                this.cCz.getWebViewContainer().setScrollY(0);
             }
         }
     }
 
-    public void iT(final int i) {
+    public void iP(final int i) {
         ak.m(new Runnable() { // from class: com.baidu.swan.apps.inlinewidget.d.c.3
             @Override // java.lang.Runnable
             public void run() {
-                c.this.iU(i);
+                c.this.iQ(i);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iU(int i) {
-        Activity avI = avI();
-        if (avI != null) {
-            View decorView = avI.getWindow().getDecorView();
+    public void iQ(int i) {
+        Activity ava = ava();
+        if (ava != null) {
+            View decorView = ava.getWindow().getDecorView();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            if (this.cEy == null) {
-                this.cEy = new ShowConfirmBarLayout(avI);
-                this.cEy.setOnConfirmButtonClickListener(new ShowConfirmBarLayout.a() { // from class: com.baidu.swan.apps.inlinewidget.d.c.4
+            if (this.cCO == null) {
+                this.cCO = new ShowConfirmBarLayout(ava);
+                this.cCO.setOnConfirmButtonClickListener(new ShowConfirmBarLayout.a() { // from class: com.baidu.swan.apps.inlinewidget.d.c.4
                     @Override // com.baidu.swan.apps.textarea.ShowConfirmBarLayout.a
                     public void onClick(View view) {
-                        c.this.bI("onConfirmBtnClick", null);
-                        if (c.this.cWC != null) {
-                            c.this.cWC.avU();
+                        c.this.bH("onConfirmBtnClick", null);
+                        if (c.this.cUS != null) {
+                            c.this.cUS.avm();
                         }
                     }
                 });
                 FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
-                layoutParams.topMargin = (frameLayout.getHeight() - i) - cWB;
-                frameLayout.addView(this.cEy, layoutParams);
+                layoutParams.topMargin = (frameLayout.getHeight() - i) - cUR;
+                frameLayout.addView(this.cCO, layoutParams);
             }
         }
     }
 
-    public void avV() {
+    public void avn() {
         ak.m(new Runnable() { // from class: com.baidu.swan.apps.inlinewidget.d.c.5
             @Override // java.lang.Runnable
             public void run() {
-                c.this.avW();
+                c.this.avo();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void avW() {
-        Activity avI = avI();
-        if (avI != null) {
-            View decorView = avI.getWindow().getDecorView();
-            if (this.cEy != null && this.cEy.getVisibility() == 0) {
-                ((FrameLayout) decorView.findViewById(16908290)).removeView(this.cEy);
-                this.cEy = null;
+    public void avo() {
+        Activity ava = ava();
+        if (ava != null) {
+            View decorView = ava.getWindow().getDecorView();
+            if (this.cCO != null && this.cCO.getVisibility() == 0) {
+                ((FrameLayout) decorView.findViewById(16908290)).removeView(this.cCO);
+                this.cCO = null;
             }
         }
     }
@@ -173,17 +173,17 @@ public final class c implements d {
     }
 
     @Nullable
-    private e avJ() {
-        com.baidu.swan.apps.core.d.f afM = f.azO().afM();
-        if (afM == null) {
+    private e avb() {
+        com.baidu.swan.apps.core.d.f afe = f.azg().afe();
+        if (afe == null) {
             return null;
         }
-        int ape = afM.ape();
-        for (int i = 0; i < ape; i++) {
-            com.baidu.swan.apps.core.d.c hZ = afM.hZ(i);
-            if (hZ instanceof e) {
-                e eVar = (e) hZ;
-                if (TextUtils.equals(eVar.aoL(), this.cwA)) {
+        int aow = afe.aow();
+        for (int i = 0; i < aow; i++) {
+            com.baidu.swan.apps.core.d.c hV = afe.hV(i);
+            if (hV instanceof e) {
+                e eVar = (e) hV;
+                if (TextUtils.equals(eVar.aod(), this.cuQ)) {
                     return eVar;
                 }
             }
@@ -192,18 +192,18 @@ public final class c implements d {
     }
 
     @Nullable
-    private Activity avI() {
-        com.baidu.swan.apps.runtime.e aHu = com.baidu.swan.apps.runtime.e.aHu();
-        if (aHu == null) {
+    private Activity ava() {
+        com.baidu.swan.apps.runtime.e aGM = com.baidu.swan.apps.runtime.e.aGM();
+        if (aGM == null) {
             return null;
         }
-        return aHu.getActivity();
+        return aGM.getActivity();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bI(String str, @Nullable String str2) {
+    public void bH(String str, @Nullable String str2) {
         if (DEBUG) {
-            String str3 = (" <<" + avC() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + ">> \t") + " <<" + str + ">> ";
+            String str3 = (" <<" + auU() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + ">> \t") + " <<" + str + ">> ";
             if (!TextUtils.isEmpty(str2)) {
                 str3 = str3 + str2;
             }

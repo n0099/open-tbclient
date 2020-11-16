@@ -6,7 +6,7 @@ import com.baidu.tbadk.util.u;
 import tbclient.CommonReq;
 import tbclient.GetTopicRelateThread.DataReq;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadReqIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class RequestGetTopicRelateThreadMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */

@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.data.b;
+import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes.dex */
-public abstract class b<T extends com.baidu.tieba.card.data.b> implements View.OnClickListener {
+public abstract class b<T extends BaseCardInfo> implements View.OnClickListener {
     public int currentPageType;
-    public ab<T> hVC;
+    public ab<T> hWc;
     public Context mContext;
     private String mFrom;
     public int mSkinType;
@@ -78,10 +78,10 @@ public abstract class b<T extends com.baidu.tieba.card.data.b> implements View.O
     }
 
     public void c(ab<T> abVar) {
-        this.hVC = abVar;
+        this.hWc = abVar;
     }
 
-    public ab<T> cnT() {
-        return this.hVC;
+    public ab<T> cnv() {
+        return this.hWc;
     }
 }

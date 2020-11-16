@@ -1,5 +1,5 @@
 package com.googlecode.mp4parser.h264.model;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AspectRatio {
     public static final AspectRatio Extended_SAR = new AspectRatio(255);
     private int value;

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.http.HttpHost;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class SchemeRegistry {
     public SchemeRegistry() {
         throw new RuntimeException("Stub!");

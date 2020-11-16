@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.FlutterLifeCycleBugEnableSwitch;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.XFlutterView;
@@ -27,7 +26,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class FlutterFragment extends BaseFragment implements FlutterActivityAndFragmentDelegate.Host {
     protected static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
     protected static final String ARG_CACHED_ENGINE_ID = "cached_engine_id";
@@ -61,7 +60,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         return new NewEngineFragmentBuilder();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class NewEngineFragmentBuilder {
         private final Class<? extends FlutterFragment> fragmentClass;
         private boolean isUseTabHost;
@@ -192,7 +191,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
                 this.isResumedOrVisibleToUser = false;
                 this.delegate.onPause();
             }
-            if (FlutterLifeCycleBugEnableSwitch.isOn() && TbadkCoreApplication.getInst().isInBackground()) {
+            if (FlutterLifeCycleBugEnableSwitch.isOn()) {
                 this.sendReumeToDart = z;
                 this.isResumedOrVisibleToUser = z;
             }
@@ -244,7 +243,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         }
     }
 
-    @Override // android.support.v4.app.Fragment, com.baidu.m.a.a.InterfaceC0250a
+    @Override // android.support.v4.app.Fragment, com.baidu.m.a.a.InterfaceC0248a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         this.delegate.onRequestPermissionsResult(i, strArr, iArr);
     }

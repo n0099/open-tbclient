@@ -7,7 +7,7 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import com.baidu.util.LogUtil;
 import java.io.File;
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 public final class b {
     public static long a(File file) {
         StatFs statFs = new StatFs(file.getPath());

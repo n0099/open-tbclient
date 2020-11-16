@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class UpdateGroupActivityConfig extends IntentConfig {
     public static final String EDIT_TYPE = "edit_type";
     public static final String GROUP_TEXT = "group_text";

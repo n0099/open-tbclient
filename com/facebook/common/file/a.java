@@ -1,9 +1,9 @@
 package com.facebook.common.file;
 
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes12.dex */
 public class a {
-    public static String oLb = null;
+    public static String oMF = null;
 
     public static void a(File file, b bVar) {
         File[] b;
@@ -22,10 +22,10 @@ public class a {
                     bVar.al(file2);
                     String path = file2.getPath();
                     if (path != null) {
-                        if (oLb == null) {
-                            oLb = path;
-                        } else if (path.length() > oLb.length()) {
-                            oLb = path;
+                        if (oMF == null) {
+                            oMF = path;
+                        } else if (path.length() > oMF.length()) {
+                            oMF = path;
                         }
                     }
                 }

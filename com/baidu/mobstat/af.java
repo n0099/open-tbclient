@@ -6,7 +6,7 @@ import android.webkit.WebView;
 import com.baidu.mobstat.ActivityLifeObserver;
 import com.baidu.mobstat.BaiduStatJSInterface;
 import org.json.JSONArray;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
@@ -34,7 +34,7 @@ public class af {
         return am.a().e();
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public static class a implements ActivityLifeObserver.IActivityLifeCallback {
         @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
         public void onActivityCreated(Activity activity, Bundle bundle) {
@@ -77,7 +77,7 @@ public class af {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public static class b implements BaiduStatJSInterface.IWebviewPageLoadCallback {
         @Override // com.baidu.mobstat.BaiduStatJSInterface.IWebviewPageLoadCallback
         public void onPageStarted(WebView webView, String str, bl blVar) {

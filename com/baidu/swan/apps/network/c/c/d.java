@@ -5,16 +5,16 @@ import android.support.media.ExifInterface;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final String dib;
-    private long dic;
-    private long die;
+    private final String dgu;
+    private long dgv;
+    private long dgw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
-        this.dib = str;
+        this.dgu = str;
         if (DEBUG) {
             Log.d(ExifInterface.TAG_MODEL, "new model, scope id - " + str);
         }
@@ -22,26 +22,26 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void bW(long j) {
-        this.dic = j;
+        this.dgv = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void bX(long j) {
-        this.die = j;
+        this.dgw = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aCY() {
-        return this.dic;
+    public long aCq() {
+        return this.dgv;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("scope_id", this.dib);
-            jSONObject.put("begin_ts", this.dic);
-            jSONObject.put("end_ts", this.die);
+            jSONObject.put("scope_id", this.dgu);
+            jSONObject.put("begin_ts", this.dgv);
+            jSONObject.put("end_ts", this.dgw);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

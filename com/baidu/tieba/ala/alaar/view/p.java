@@ -7,10 +7,10 @@ import android.widget.LinearLayout;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class p extends j implements View.OnClickListener {
-    private LinearLayout ghr;
-    private FrameLayout ghs;
-    l ght;
-    private a ghu;
+    private LinearLayout ggY;
+    private FrameLayout ggZ;
+    l gha;
+    private a ghb;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -24,35 +24,35 @@ public class p extends j implements View.OnClickListener {
     @Override // com.baidu.tieba.ala.alaar.view.j
     protected void a(ValueAnimator valueAnimator) {
         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-        this.ghs.setAlpha(1.0f - floatValue);
-        this.ghr.setAlpha(1.0f - floatValue);
+        this.ggZ.setAlpha(1.0f - floatValue);
+        this.ggY.setAlpha(1.0f - floatValue);
     }
 
     @Override // com.baidu.tieba.ala.alaar.view.j
-    protected void lv(boolean z) {
+    protected void lw(boolean z) {
         if (z) {
-            if (this.ghs != null) {
-                this.ghs.setAlpha(1.0f);
-                this.ghr.setAlpha(1.0f);
-                this.ghs.setVisibility(0);
-                this.ghr.setVisibility(0);
+            if (this.ggZ != null) {
+                this.ggZ.setAlpha(1.0f);
+                this.ggY.setAlpha(1.0f);
+                this.ggZ.setVisibility(0);
+                this.ggY.setVisibility(0);
             }
-        } else if (this.ghs != null) {
-            this.ghs.setVisibility(4);
-            this.ghr.setVisibility(4);
+        } else if (this.ggZ != null) {
+            this.ggZ.setVisibility(4);
+            this.ggY.setVisibility(4);
         }
     }
 
-    public void bU(View view) {
+    public void bX(View view) {
         this.view = view;
-        this.ghr = (LinearLayout) view.findViewById(a.f.tab_title_content);
-        this.ghs = (FrameLayout) view.findViewById(a.f.effect_beauty_select);
+        this.ggY = (LinearLayout) view.findViewById(a.f.tab_title_content);
+        this.ggZ = (FrameLayout) view.findViewById(a.f.effect_beauty_select);
     }
 
     public void b(l lVar) {
-        View b = lVar.b(null, this.ghr);
-        this.ghr.addView(b);
-        this.ghs.addView(lVar.bOt());
+        View b = lVar.b(null, this.ggY);
+        this.ggY.addView(b);
+        this.ggZ.addView(lVar.bNM());
         b.setOnClickListener(this);
         b.setTag(lVar);
     }
@@ -65,21 +65,21 @@ public class p extends j implements View.OnClickListener {
     }
 
     public void c(l lVar) {
-        if (this.ght != lVar) {
-            if (this.ght != null) {
-                this.ght.setSelected(false);
+        if (this.gha != lVar) {
+            if (this.gha != null) {
+                this.gha.setSelected(false);
             }
-            this.ght = lVar;
-            if (this.ght != null) {
-                this.ght.setSelected(true);
+            this.gha = lVar;
+            if (this.gha != null) {
+                this.gha.setSelected(true);
             }
-            if (this.ghu != null) {
-                this.ghu.a(this.ght);
+            if (this.ghb != null) {
+                this.ghb.a(this.gha);
             }
         }
     }
 
     public void a(a aVar) {
-        this.ghu = aVar;
+        this.ghb = aVar;
     }
 }

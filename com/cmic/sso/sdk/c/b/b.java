@@ -2,7 +2,7 @@ package com.cmic.sso.sdk.c.b;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends g {
 
     /* renamed from: a  reason: collision with root package name */
@@ -67,6 +67,6 @@ public class b extends g {
     }
 
     public String c() {
-        return dN(this.f4009a + this.e + this.f + "iYm0HAnkxQtpvN44").toLowerCase();
+        return dP(this.f4009a + this.e + this.f + "iYm0HAnkxQtpvN44").toLowerCase();
     }
 }

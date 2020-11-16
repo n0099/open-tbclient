@@ -27,12 +27,12 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.tbadkCore.t;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import java.util.ArrayList;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class b extends com.baidu.tbadk.editortools.c {
     private String forumId;
     private String forumName;
-    private boolean fqo = false;
-    public boolean kzq;
+    private boolean fpw = false;
+    public boolean kzF;
 
     public void ei(String str, String str2) {
         this.forumName = str;
@@ -43,11 +43,11 @@ public class b extends com.baidu.tbadk.editortools.c {
     protected e ej(Context context) {
         EditorTools editorTools = new EditorTools(context);
         editorTools.setBarMaxLauCount(5);
-        editorTools.setBarLauncherType(this.kzq ? 2 : 3);
+        editorTools.setBarLauncherType(this.kzF ? 2 : 3);
         editorTools.setBackgroundColorId(0);
-        editorTools.setBarBackgroundColorId(R.color.cp_bg_line_h);
-        editorTools.setDeskBackgroundColorId(R.color.cp_bg_line_h);
-        editorTools.kc(false);
+        editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
+        editorTools.setDeskBackgroundColorId(R.color.CAM_X0207);
+        editorTools.kd(false);
         editorTools.setMoreButtonAtEnd(true);
         return new a(editorTools);
     }
@@ -56,61 +56,61 @@ public class b extends com.baidu.tbadk.editortools.c {
     protected void a(e eVar) {
         CustomResponsedMessage runTask;
         m mVar;
-        EditorTools bzx = eVar.bzx();
-        if (com.baidu.tieba.tbadkCore.voice.c.dLl() && t.d(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, bzx.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
-            mVar.foi = 2;
-            bzx.b(mVar);
+        EditorTools byN = eVar.byN();
+        if (com.baidu.tieba.tbadkCore.voice.c.dLk() && t.d(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, byN.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
+            mVar.fnq = 2;
+            byN.b(mVar);
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        bzx.bA(arrayList);
-        m rk = bzx.rk(5);
-        if (rk != null) {
-            rk.ke(!this.kzq);
-            rk.foi = this.kzq ? 1 : 3;
+        byN.bA(arrayList);
+        m rI = byN.rI(5);
+        if (rI != null) {
+            rI.kf(!this.kzF);
+            rI.fnq = this.kzF ? 1 : 3;
         }
-        com.baidu.tbadk.editortools.a.a aVar = new com.baidu.tbadk.editortools.a.a(bzx.getContext(), 4);
-        aVar.fof = true;
-        bzx.b(aVar);
-        if (!this.kzq) {
-            bzx.b(new d(bzx.getContext(), 1));
-            CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_BUBBLE_TOOL_CRTL, bzx.getContext()), m.class);
+        com.baidu.tbadk.editortools.a.a aVar = new com.baidu.tbadk.editortools.a.a(byN.getContext(), 4);
+        aVar.fnn = false;
+        byN.b(aVar);
+        if (!this.kzF) {
+            byN.b(new d(byN.getContext(), 1));
+            CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_BUBBLE_TOOL_CRTL, byN.getContext()), m.class);
             if (runTask2 != null && runTask2.getData() != null) {
                 m mVar2 = (m) runTask2.getData();
-                mVar2.foi = 6;
-                bzx.b(mVar2);
+                mVar2.fnq = 6;
+                byN.b(mVar2);
             }
-            bzx.b(new f(bzx.getContext(), false, true));
-            CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_TAIL_TOOL_CRTL, bzx.getContext()), m.class);
+            byN.b(new f(byN.getContext(), false, true));
+            CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_TAIL_TOOL_CRTL, byN.getContext()), m.class);
             if (runTask3 != null && runTask3.getData() != null) {
                 m mVar3 = (m) runTask3.getData();
-                mVar3.foi = 7;
-                bzx.b(mVar3);
+                mVar3.fnq = 7;
+                byN.b(mVar3);
             }
-            bzx.b(new com.baidu.tbadk.editortools.b.a(bzx.getContext(), 5));
+            byN.b(new com.baidu.tbadk.editortools.b.a(byN.getContext(), 5));
         } else {
-            bzx.b(new f(bzx.getContext(), false, false));
+            byN.b(new f(byN.getContext(), false, false));
         }
-        bzx.build();
+        byN.build();
     }
 
     @Override // com.baidu.tbadk.editortools.c
     protected void b(e eVar) {
         if (eVar instanceof a) {
-            EditorTools bzx = eVar.bzx();
+            EditorTools byN = eVar.byN();
             final a aVar = (a) eVar;
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.image.a.b.1
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar2) {
                     int size;
-                    if (aVar != null && aVar.bzx() != null && aVar2 != null) {
+                    if (aVar != null && aVar.byN() != null && aVar2 != null) {
                         switch (aVar2.code) {
                             case 4:
-                                aVar.DP(aVar2.data.toString());
+                                aVar.Do(aVar2.data.toString());
                                 if (aVar2.data instanceof SpanGroupManager) {
                                     aVar.setSpanGroupManager((SpanGroupManager) aVar2.data);
                                 }
-                                b.this.fqo = false;
+                                b.this.fpw = false;
                                 return;
                             case 5:
                             case 6:
@@ -136,11 +136,11 @@ public class b extends com.baidu.tbadk.editortools.c {
                             default:
                                 return;
                             case 7:
-                                l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.over_limit_tip);
-                                b.this.fqo = true;
+                                l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.over_limit_tip);
+                                b.this.fpw = true;
                                 return;
                             case 8:
-                                if (b.this.a(aVar.buC(), (int) RequestResponseCode.REQUEST_LOGIN_WRITE)) {
+                                if (b.this.a(aVar.btS(), (int) RequestResponseCode.REQUEST_LOGIN_WRITE)) {
                                     aVar.a((String) null, (WriteData) null);
                                     return;
                                 }
@@ -156,12 +156,12 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 aVar.setVoiceModel(null);
                                 return;
                             case 14:
-                                AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(aVar.buC().getPageActivity(), aVar.getWriteImagesInfo().toJsonString(), true, true);
+                                AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(aVar.btS().getPageActivity(), aVar.getWriteImagesInfo().toJsonString(), true, true);
                                 if (!StringUtils.isNull(b.this.forumId, true)) {
                                     albumFloatActivityConfig.getIntent().putExtra("forum_id", b.this.forumId);
                                 }
                                 albumFloatActivityConfig.setRequestCode(RequestResponseCode.REQUEST_ALBUM_IMAGE);
-                                if (com.baidu.tbadk.editortools.pb.a.bAa().getStatus() == 1) {
+                                if (com.baidu.tbadk.editortools.pb.a.bzq().getStatus() == 1) {
                                     albumFloatActivityConfig.setRequestFrom(2);
                                     if (aVar.getWriteImagesInfo() != null) {
                                         aVar.getWriteImagesInfo().setMaxImagesAllowed(1);
@@ -169,52 +169,52 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 } else if (aVar.getWriteImagesInfo() != null) {
                                     aVar.getWriteImagesInfo().setMaxImagesAllowed(9);
                                 }
-                                l.hideSoftKeyPad(aVar.buC().getPageActivity(), aVar.buC().getPageActivity().getCurrentFocus());
+                                l.hideSoftKeyPad(aVar.btS().getPageActivity(), aVar.btS().getPageActivity().getCurrentFocus());
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumFloatActivityConfig));
                                 return;
                             case 15:
                                 int intValue = ((Integer) aVar2.data).intValue();
                                 if (aVar.getWriteImagesInfo() != null && aVar.getWriteImagesInfo().getChosedFiles() != null && (size = aVar.getWriteImagesInfo().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(aVar.buC().getPageActivity(), RequestResponseCode.REQUEST_MOTU_IMAGE, aVar.getWriteImagesInfo(), intValue)));
+                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(aVar.btS().getPageActivity(), RequestResponseCode.REQUEST_MOTU_IMAGE, aVar.getWriteImagesInfo(), intValue)));
                                     return;
                                 }
                                 return;
                             case 16:
-                                if (b.this.fqo) {
-                                    l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.over_limit_tip);
+                                if (b.this.fpw) {
+                                    l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.over_limit_tip);
                                 }
-                                if (b.this.a(aVar.buC(), (int) RequestResponseCode.REQUEST_LOGIN_PB_AT)) {
-                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(aVar.buC().getPageActivity(), RequestResponseCode.REQUEST_AT_SELECT, true)));
+                                if (b.this.a(aVar.btS(), (int) RequestResponseCode.REQUEST_LOGIN_PB_AT)) {
+                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(aVar.btS().getPageActivity(), RequestResponseCode.REQUEST_AT_SELECT, true)));
                                     return;
                                 }
                                 return;
                             case 18:
                                 if (aVar2.data != null) {
-                                    aVar.bAk();
+                                    aVar.bzA();
                                     return;
                                 }
-                                switch (aVar.bAo()) {
+                                switch (aVar.bzE()) {
                                     case 0:
-                                        aVar.bAh();
+                                        aVar.bzx();
                                         return;
                                     case 1:
                                     default:
                                         return;
                                     case 2:
-                                        aVar.bAf();
+                                        aVar.bzv();
                                         return;
                                 }
                             case 20:
-                                aVar.bzx().b(new com.baidu.tbadk.editortools.a(2, 7, null));
-                                com.baidu.tieba.tbadkCore.location.b.dKC().xv(true);
+                                aVar.byN().b(new com.baidu.tbadk.editortools.a(2, 7, null));
+                                com.baidu.tieba.tbadkCore.location.b.dKB().xC(true);
                                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                                 return;
                             case 32:
-                                aVar.bzx().b(new com.baidu.tbadk.editortools.a(1, 11, null));
+                                aVar.byN().b(new com.baidu.tbadk.editortools.a(1, 11, null));
                                 return;
                             case 36:
-                                if (b.this.a(aVar.buC(), (int) RequestResponseCode.REQUEST_LOGIN_PB_GIFT_TAB)) {
-                                    aVar.bAe();
+                                if (b.this.a(aVar.btS(), (int) RequestResponseCode.REQUEST_LOGIN_PB_GIFT_TAB)) {
+                                    aVar.bzu();
                                     return;
                                 }
                                 return;
@@ -222,19 +222,19 @@ public class b extends com.baidu.tbadk.editortools.c {
                     }
                 }
             };
-            bzx.setActionListener(5, bVar);
-            bzx.setActionListener(4, bVar);
-            bzx.setActionListener(7, bVar);
-            bzx.setActionListener(16, bVar);
-            bzx.setActionListener(14, bVar);
-            bzx.setActionListener(15, bVar);
-            bzx.setActionListener(8, bVar);
-            bzx.setActionListener(18, bVar);
-            bzx.setActionListener(20, bVar);
-            bzx.setActionListener(10, bVar);
-            bzx.setActionListener(11, bVar);
-            bzx.setActionListener(36, bVar);
-            bzx.setActionListener(32, bVar);
+            byN.setActionListener(5, bVar);
+            byN.setActionListener(4, bVar);
+            byN.setActionListener(7, bVar);
+            byN.setActionListener(16, bVar);
+            byN.setActionListener(14, bVar);
+            byN.setActionListener(15, bVar);
+            byN.setActionListener(8, bVar);
+            byN.setActionListener(18, bVar);
+            byN.setActionListener(20, bVar);
+            byN.setActionListener(10, bVar);
+            byN.setActionListener(11, bVar);
+            byN.setActionListener(36, bVar);
+            byN.setActionListener(32, bVar);
         }
     }
 

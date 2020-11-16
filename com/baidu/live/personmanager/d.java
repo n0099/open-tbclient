@@ -15,8 +15,8 @@ import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.data.Config;
 /* loaded from: classes4.dex */
 public class d {
-    private a bqm;
-    private b bqn;
+    private a boB;
+    private b boC;
     private Context context;
     private boolean hasMore;
     private TbPageContext mTbPageContext;
@@ -42,8 +42,8 @@ public class d {
 
     public void c(int i, String str, String str2) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.bqm != null) {
-                this.bqm.onFail(this.context.getResources().getString(a.h.sdk_no_network));
+            if (this.boB != null) {
+                this.boB.onFail(this.context.getResources().getString(a.h.sdk_no_network));
                 return;
             }
             return;
@@ -55,12 +55,12 @@ public class d {
             this.url = TbConfig.SERVER_ADDRESS + "ala/user/followList";
         }
         this.pn++;
-        this.bqn = new b();
-        this.bqn.execute(str, str2);
+        this.boC = new b();
+        this.boC.execute(str, str2);
     }
 
     public void a(a aVar) {
-        this.bqm = aVar;
+        this.boB = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -113,8 +113,8 @@ public class d {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (d.this.bqm != null) {
-                d.this.bqm.a((bs) obj);
+            if (d.this.boB != null) {
+                d.this.boB.a((bs) obj);
             }
         }
     }
@@ -125,7 +125,7 @@ public class d {
             for (be beVar : bsVar.user_list) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.equals(str)) {
-                    beVar.aOM = 1;
+                    beVar.aNb = 1;
                 }
             }
         }

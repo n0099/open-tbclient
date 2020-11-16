@@ -1,5 +1,5 @@
 package com.baidu.tieba.a;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public interface f {
-    void EZ(String str);
+    void EA(String str);
 }

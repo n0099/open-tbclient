@@ -2,14 +2,14 @@ package com.facebook.d;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 class d {
-    private static final Class<?> oJR = d.class;
+    private static final Class<?> oLv = d.class;
 
     d() {
     }
 
-    public static int PR(int i) {
+    public static int Qu(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -31,20 +31,20 @@ class d {
     public static int h(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.paw - 8;
+        int i2 = aVar.pca - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.pau, 274), aVar.pau);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.pbY, 274), aVar.pbY);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public static class a {
-        boolean pau;
-        int pav;
-        int paw;
+        boolean pbY;
+        int pbZ;
+        int pca;
 
         private a() {
         }
@@ -54,17 +54,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.pav = c.a(inputStream, 4, false);
+        aVar.pbZ = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.pav != 1229531648 && aVar.pav != 1296891946) {
-            com.facebook.common.c.a.h(oJR, "Invalid TIFF header");
+        if (aVar.pbZ != 1229531648 && aVar.pbZ != 1296891946) {
+            com.facebook.common.c.a.h(oLv, "Invalid TIFF header");
             return 0;
         }
-        aVar.pau = aVar.pav == 1229531648;
-        aVar.paw = c.a(inputStream, 4, aVar.pau);
+        aVar.pbY = aVar.pbZ == 1229531648;
+        aVar.pca = c.a(inputStream, 4, aVar.pbY);
         int i3 = i2 - 4;
-        if (aVar.paw < 8 || aVar.paw - 8 > i3) {
-            com.facebook.common.c.a.h(oJR, "Invalid offset");
+        if (aVar.pca < 8 || aVar.pca - 8 > i3) {
+            com.facebook.common.c.a.h(oLv, "Invalid offset");
             return 0;
         }
         return i3;

@@ -1,8 +1,8 @@
 package com.facebook.imagepipeline.d;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class d implements c {
     @Override // com.facebook.imagepipeline.d.c
     public com.facebook.cache.disk.c b(com.facebook.cache.disk.b bVar) {
-        return new com.facebook.cache.disk.e(bVar.getVersion(), bVar.ejA(), bVar.ejz(), bVar.ejF());
+        return new com.facebook.cache.disk.e(bVar.getVersion(), bVar.ejy(), bVar.ejx(), bVar.ejD());
     }
 }

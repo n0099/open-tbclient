@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.util.Pair;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class h<T> {
     @Nullable
     T first;

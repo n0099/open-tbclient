@@ -6,7 +6,7 @@ import com.baidu.tbadk.util.u;
 import tbclient.CommonReq;
 import tbclient.NewHottopic.DataReq;
 import tbclient.NewHottopic.NewHottopicReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class RequestGetTopicDetailMessage extends NetMessage {
     private String callFrom;
 

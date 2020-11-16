@@ -5,7 +5,7 @@ import android.support.annotation.Keep;
 import com.sdk.base.api.CallBack;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.module.a.a;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public abstract class SDKManager {
     private static boolean closePermission;
     protected static Context mContext;

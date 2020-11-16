@@ -3,7 +3,7 @@ package com.baidu.swan.pms.node;
 import android.support.annotation.Nullable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public interface e {
     @Nullable
     JSONArray a(@Nullable c<JSONArray> cVar);

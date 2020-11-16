@@ -5,21 +5,21 @@ import android.os.Build;
 import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bf;
-/* loaded from: classes22.dex */
+import com.baidu.tbadk.core.util.bg;
+/* loaded from: classes21.dex */
 public class a extends PopupWindow {
-    private TbPageContext eIc;
-    private InterfaceC0741a jAt;
+    private TbPageContext eGu;
+    private InterfaceC0744a jBp;
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    public interface InterfaceC0741a {
-        void cKb();
+    /* loaded from: classes21.dex */
+    public interface InterfaceC0744a {
+        void cJG();
     }
 
     public a(TbPageContext tbPageContext, View view, int i, int i2) {
         super(view, i, i2);
-        this.eIc = tbPageContext;
+        this.eGu = tbPageContext;
     }
 
     @Override // android.widget.PopupWindow
@@ -27,7 +27,7 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(bf.getScreenFullSize(this.eIc.getPageActivity())[1] - rect.bottom);
+            setHeight(bg.getScreenFullSize(this.eGu.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view);
     }
@@ -37,25 +37,25 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(bf.getScreenFullSize(this.eIc.getPageActivity())[1] - rect.bottom);
+            setHeight(bg.getScreenFullSize(this.eGu.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view, i, i2);
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        if (this.jAt != null) {
-            this.jAt.cKb();
+        if (this.jBp != null) {
+            this.jBp.cJG();
         } else {
             super.dismiss();
         }
     }
 
-    public void Xa() {
+    public void Wr() {
         super.dismiss();
     }
 
-    public void a(InterfaceC0741a interfaceC0741a) {
-        this.jAt = interfaceC0741a;
+    public void a(InterfaceC0744a interfaceC0744a) {
+        this.jBp = interfaceC0744a;
     }
 }

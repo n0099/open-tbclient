@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class Sticker extends BaseBeautyItem {
     private AbilityModel mAbilityModel;
     private int mArType;
@@ -109,7 +109,7 @@ public class Sticker extends BaseBeautyItem {
         return this.mSoFileList;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class AbilityModel implements Serializable {
         private File mFile;
 

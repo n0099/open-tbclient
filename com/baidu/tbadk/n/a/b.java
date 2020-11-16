@@ -5,20 +5,20 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class b {
     public static void log() {
-        aq aqVar = new aq("c13395");
-        aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-        aqVar.dR("obj_id", TbadkCoreApplication.getInst().getCuidGalaxy2());
-        aqVar.w("obj_duration", System.currentTimeMillis());
-        aqVar.dR("obj_type", Build.MODEL);
-        aqVar.dR("resource_id", Build.VERSION.RELEASE);
-        aqVar.al("aid", TbSingleton.getInstance().getCpuFlopsDuration());
-        aqVar.al("obj_param1", TbSingleton.getInstance().getAnimComputedFps("anim_switch_slide"));
-        aqVar.al(TiebaInitialize.Params.OBJ_PARAM2, TbSingleton.getInstance().getAnimComputedFps("anim_switch_trans_frs"));
-        aqVar.al(TiebaInitialize.Params.OBJ_PARAM3, TbSingleton.getInstance().getAnimComputedFps("anim_switch_sendthread_maintab"));
-        TiebaStatic.log(aqVar);
+        ar arVar = new ar("c13395");
+        arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+        arVar.dR("obj_id", TbadkCoreApplication.getInst().getCuidGalaxy2());
+        arVar.w("obj_duration", System.currentTimeMillis());
+        arVar.dR("obj_type", Build.MODEL);
+        arVar.dR("resource_id", Build.VERSION.RELEASE);
+        arVar.ak("aid", TbSingleton.getInstance().getCpuFlopsDuration());
+        arVar.ak("obj_param1", TbSingleton.getInstance().getAnimComputedFps("anim_switch_slide"));
+        arVar.ak(TiebaInitialize.Params.OBJ_PARAM2, TbSingleton.getInstance().getAnimComputedFps("anim_switch_trans_frs"));
+        arVar.ak(TiebaInitialize.Params.OBJ_PARAM3, TbSingleton.getInstance().getAnimComputedFps("anim_switch_sendthread_maintab"));
+        TiebaStatic.log(arVar);
     }
 }

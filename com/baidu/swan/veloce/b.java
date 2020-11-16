@@ -1,7 +1,7 @@
 package com.baidu.swan.veloce;
-/* loaded from: classes20.dex */
+/* loaded from: classes19.dex */
 public class b {
-    public static a bev() {
-        return com.baidu.tieba.aiapps.apps.l.b.bLH();
+    public static a bdO() {
+        return com.baidu.tieba.aiapps.apps.l.b.bLa();
     }
 }

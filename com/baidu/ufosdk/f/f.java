@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Arrays;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class f {
     private static String c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
     private static f d = null;

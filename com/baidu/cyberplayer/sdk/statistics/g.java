@@ -5,7 +5,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */

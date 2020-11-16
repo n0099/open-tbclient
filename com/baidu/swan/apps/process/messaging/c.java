@@ -8,30 +8,30 @@ import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class c {
-    private final Message dlJ;
-    private final Set<SwanAppProcessInfo> dlK;
-    private final Set<String> dlL;
-    private boolean dlM;
-    private long dlN;
-    private boolean dly;
+    private boolean djR;
+    private final Message dkc;
+    private final Set<SwanAppProcessInfo> dkd;
+    private final Set<String> dke;
+    private boolean dkf;
+    private long dkg;
 
     @NonNull
-    public Message aFi() {
-        if (this.dlJ.obj == null) {
+    public Message aEA() {
+        if (this.dkc.obj == null) {
             X(new Bundle());
         }
-        return this.dlJ;
+        return this.dkc;
     }
 
     public c(Message message) {
-        this.dlK = new HashSet();
-        this.dlL = new HashSet();
-        this.dly = false;
-        this.dlM = false;
-        this.dlN = 0L;
-        this.dlJ = message == null ? Message.obtain() : message;
+        this.dkd = new HashSet();
+        this.dke = new HashSet();
+        this.djR = false;
+        this.dkf = false;
+        this.dkg = 0L;
+        this.dkc = message == null ? Message.obtain() : message;
     }
 
     public c(int i, Object obj) {
@@ -46,13 +46,13 @@ public final class c {
         this(Message.obtain());
     }
 
-    public c gf(boolean z) {
-        this.dlM = z;
+    public c gi(boolean z) {
+        this.dkf = z;
         return this;
     }
 
     public boolean isSticky() {
-        return this.dlM;
+        return this.dkf;
     }
 
     private boolean a(int[] iArr, int i) {
@@ -69,14 +69,14 @@ public final class c {
 
     public c a(SwanAppProcessInfo... swanAppProcessInfoArr) {
         if (swanAppProcessInfoArr != null) {
-            this.dlK.addAll(Arrays.asList(swanAppProcessInfoArr));
+            this.dkd.addAll(Arrays.asList(swanAppProcessInfoArr));
         }
         return this;
     }
 
     public c w(String... strArr) {
         if (strArr != null) {
-            this.dlL.addAll(Arrays.asList(strArr));
+            this.dke.addAll(Arrays.asList(strArr));
         }
         return this;
     }
@@ -92,7 +92,7 @@ public final class c {
         return this;
     }
 
-    public c aFj() {
+    public c aEB() {
         SwanAppProcessInfo[] indices;
         for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
             if (swanAppProcessInfo.isSwanAppProcess()) {
@@ -112,25 +112,25 @@ public final class c {
         return this;
     }
 
-    public c gg(boolean z) {
-        this.dly = z;
+    public c gj(boolean z) {
+        this.djR = z;
         return this;
     }
 
-    public Set<SwanAppProcessInfo> aFk() {
-        return new HashSet(this.dlK);
+    public Set<SwanAppProcessInfo> aEC() {
+        return new HashSet(this.dkd);
     }
 
-    public Set<String> aFl() {
-        return new HashSet(this.dlL);
+    public Set<String> aED() {
+        return new HashSet(this.dke);
     }
 
-    public boolean aFm() {
-        return this.dly;
+    public boolean aEE() {
+        return this.djR;
     }
 
     public c X(Object obj) {
-        this.dlJ.obj = obj;
+        this.dkc.obj = obj;
         return this;
     }
 
@@ -138,14 +138,14 @@ public final class c {
         if (j < 0) {
             j = 0;
         }
-        this.dlN = j;
+        this.dkg = j;
         return this;
     }
 
-    public long aFn() {
-        if (this.dlN < 0) {
+    public long aEF() {
+        if (this.dkg < 0) {
             return 0L;
         }
-        return this.dlN;
+        return this.dkg;
     }
 }

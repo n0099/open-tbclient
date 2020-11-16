@@ -24,9 +24,9 @@ public class d extends com.kascend.chushou.view.base.c<f> {
             @Override // com.kascend.chushou.c.b
             public void a(String str, JSONObject jSONObject) {
                 if (d.this.b()) {
-                    ParserRet eL = com.kascend.chushou.c.f.eL(jSONObject);
-                    ((f) d.this.b).g((List) eL.mData, true, false);
-                    d.this.c = eL.mBreakpoint;
+                    ParserRet eG = com.kascend.chushou.c.f.eG(jSONObject);
+                    ((f) d.this.b).g((List) eG.mData, true, false);
+                    d.this.c = eG.mBreakpoint;
                 }
             }
 

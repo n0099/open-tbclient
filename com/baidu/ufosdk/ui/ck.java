@@ -3,7 +3,7 @@ package com.baidu.ufosdk.ui;
 import android.view.View;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import java.util.Map;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class ck implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

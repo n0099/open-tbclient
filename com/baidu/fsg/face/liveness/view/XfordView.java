@@ -12,7 +12,7 @@ import android.graphics.Xfermode;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class XfordView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */

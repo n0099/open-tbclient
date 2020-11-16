@@ -9,7 +9,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class SdkConfigOptions {
     public static final String HOST_VERSION = "3.0.0";
     public static final String TAG = "SdkConfigOptions";
@@ -36,7 +36,7 @@ public class SdkConfigOptions {
     public boolean updateFail;
     public String zipVersion;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public static class DistributedFile {
 
         /* renamed from: a  reason: collision with root package name */
@@ -164,7 +164,7 @@ public class SdkConfigOptions {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public static class LivenessConfigOption {
         private static final int A = 10;
         private static final int B = 6;

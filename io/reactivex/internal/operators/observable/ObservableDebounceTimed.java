@@ -6,7 +6,7 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class ObservableDebounceTimed<T> extends io.reactivex.internal.operators.observable.a<T, T> {
     final v scheduler;
     final long timeout;
@@ -14,11 +14,11 @@ public final class ObservableDebounceTimed<T> extends io.reactivex.internal.oper
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
-        this.source.subscribe(new a(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.eAA()));
+        this.source.subscribe(new a(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.eAB()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T> implements io.reactivex.disposables.b, u<T> {
         final u<? super T> actual;
         boolean done;
@@ -107,7 +107,7 @@ public final class ObservableDebounceTimed<T> extends io.reactivex.internal.oper
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class DebounceEmitter<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, Runnable {
         private static final long serialVersionUID = 6812032969491025141L;
         final long idx;

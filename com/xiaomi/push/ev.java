@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class ev implements et {
     private void a(Context context, String str) {
         try {
@@ -58,7 +58,7 @@ public class ev implements et {
             try {
                 if (TextUtils.isEmpty(a3)) {
                     em.a(context, d, 1008, "info is empty");
-                } else if (a2 != 1 || eq.m267a(context)) {
+                } else if (a2 != 1 || eq.m270a(context)) {
                     String type = context.getContentResolver().getType(el.a(b, a3));
                     if (TextUtils.isEmpty(type) || !"success".equals(type)) {
                         em.a(context, d, 1008, "A is fail to help B's provider");

@@ -10,9 +10,9 @@ import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
-    public static final TypeAdapterFactory pdR = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ArrayTypeAdapter.1
+    public static final TypeAdapterFactory pfu = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ArrayTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             Type type = aVar.getType();
@@ -24,10 +24,10 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
         }
     };
     private final Class<E> componentType;
-    private final TypeAdapter<E> pdS;
+    private final TypeAdapter<E> pfv;
 
     public ArrayTypeAdapter(Gson gson, TypeAdapter<E> typeAdapter, Class<E> cls) {
-        this.pdS = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, cls);
+        this.pfv = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, cls);
         this.componentType = cls;
     }
 
@@ -40,7 +40,7 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
         ArrayList arrayList = new ArrayList();
         aVar.esU();
         while (aVar.hasNext()) {
-            arrayList.add(this.pdS.read(aVar));
+            arrayList.add(this.pfv.read(aVar));
         }
         aVar.endArray();
         int size = arrayList.size();
@@ -62,7 +62,7 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
         bVar.eth();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.pdS.write(bVar, Array.get(obj, i));
+            this.pfv.write(bVar, Array.get(obj, i));
         }
         bVar.eti();
     }

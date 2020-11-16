@@ -10,33 +10,33 @@ import android.util.Base64;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class j extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cCl;
+    private String cAB;
     private Bitmap mBitmap;
     private Matrix mMatrix;
 
     public j(String str) {
-        this.cCl = str;
+        this.cAB = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
     }
 
-    public int akC() {
+    public int ajU() {
         try {
-            JSONObject jSONObject = new JSONObject(this.cCl);
-            int N = com.baidu.swan.apps.ap.ah.N((float) jSONObject.optDouble("x"));
-            int N2 = com.baidu.swan.apps.ap.ah.N((float) jSONObject.optDouble("y"));
+            JSONObject jSONObject = new JSONObject(this.cAB);
+            int M = com.baidu.swan.apps.ap.ah.M((float) jSONObject.optDouble("x"));
+            int M2 = com.baidu.swan.apps.ap.ah.M((float) jSONObject.optDouble("y"));
             int optInt = jSONObject.optInt("width");
             int optInt2 = jSONObject.optInt("height");
             if (optInt <= 0 || optInt2 <= 0) {
                 return 2002;
             }
-            float N3 = com.baidu.swan.apps.ap.ah.N(optInt);
-            float N4 = com.baidu.swan.apps.ap.ah.N(optInt2);
+            float M3 = com.baidu.swan.apps.ap.ah.M(optInt);
+            float M4 = com.baidu.swan.apps.ap.ah.M(optInt2);
             String optString = jSONObject.optString("data");
             if (TextUtils.isEmpty(optString)) {
                 return 2001;
@@ -47,9 +47,9 @@ public class j extends a {
                 if (decode == null || decode.length != i) {
                     return 2001;
                 }
-                this.mBitmap = b(q(decode, optInt, optInt2), N3, N4);
+                this.mBitmap = b(q(decode, optInt, optInt2), M3, M4);
                 this.mMatrix = new Matrix();
-                this.mMatrix.postTranslate(N, N2);
+                this.mMatrix.postTranslate(M, M2);
                 return 0;
             } catch (Exception e) {
                 if (DEBUG) {

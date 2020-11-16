@@ -6,11 +6,11 @@ import android.support.annotation.RestrictTo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class e {
     private final List<String> EJ;
     @Nullable
-    private f pJf;
+    private f pKI;
 
     public e(String... strArr) {
         this.EJ = Arrays.asList(strArr);
@@ -18,12 +18,12 @@ public class e {
 
     private e(e eVar) {
         this.EJ = new ArrayList(eVar.EJ);
-        this.pJf = eVar.pJf;
+        this.pKI = eVar.pKI;
     }
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public e Zl(String str) {
+    public e YW(String str) {
         e eVar = new e(this);
         eVar.EJ.add(str);
         return eVar;
@@ -32,14 +32,14 @@ public class e {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e a(f fVar) {
         e eVar = new e(this);
-        eVar.pJf = fVar;
+        eVar.pKI = fVar;
         return eVar;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f eyJ() {
-        return this.pJf;
+    public f eyK() {
+        return this.pKI;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -103,6 +103,6 @@ public class e {
     }
 
     public String toString() {
-        return "KeyPath{keys=" + this.EJ + ",resolved=" + (this.pJf != null) + '}';
+        return "KeyPath{keys=" + this.EJ + ",resolved=" + (this.pKI != null) + '}';
     }
 }

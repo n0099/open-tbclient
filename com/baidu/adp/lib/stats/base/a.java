@@ -2,7 +2,7 @@ package com.baidu.adp.lib.stats.base;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.b.j;
+import com.baidu.adp.lib.stats.c.j;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;

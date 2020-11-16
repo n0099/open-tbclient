@@ -1,6 +1,6 @@
 package com.baidu.tieba.hottopic.data;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class k {
-    public static int jPV = 1;
-    public static int jPW = 2;
+    public static int jQF = 1;
+    public static int jQG = 2;
 }

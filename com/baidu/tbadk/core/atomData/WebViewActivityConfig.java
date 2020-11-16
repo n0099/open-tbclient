@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class WebViewActivityConfig extends IntentConfig {
@@ -115,10 +115,10 @@ public class WebViewActivityConfig extends IntentConfig {
         }
     }
 
-    public static String addTiebaParams(String str) {
-        if (!at.isEmpty(str)) {
+    public String addTiebaParams(String str) {
+        if (!au.isEmpty(str)) {
             if (str.indexOf("_client_version=") < 0) {
-                if (at.isEmpty(Uri.parse(str).getQuery())) {
+                if (au.isEmpty(Uri.parse(str).getQuery())) {
                     str = str + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     str = str + "&_client_version=" + TbConfig.getVersion();

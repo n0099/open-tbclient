@@ -1,5 +1,5 @@
 package com.baidu.ar.vo.c;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class a implements c {
     protected static final float[] yj = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
     protected int mPreviewHeight;

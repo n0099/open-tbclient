@@ -5,20 +5,20 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class SingleAmb<T> extends w<T> {
-    private final Iterable<? extends aa<? extends T>> pML;
-    private final aa<? extends T>[] pOU;
+    private final Iterable<? extends aa<? extends T>> pOo;
+    private final aa<? extends T>[] pQx;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         int length;
-        aa<? extends T>[] aaVarArr = this.pOU;
+        aa<? extends T>[] aaVarArr = this.pQx;
         if (aaVarArr == null) {
             aa<? extends T>[] aaVarArr2 = new aa[8];
             try {
                 int i = 0;
-                for (aa<? extends T> aaVar : this.pML) {
+                for (aa<? extends T> aaVar : this.pOo) {
                     if (aaVar == null) {
                         EmptyDisposable.error(new NullPointerException("One of the sources is null"), yVar);
                         return;
@@ -66,7 +66,7 @@ public final class SingleAmb<T> extends w<T> {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class AmbSingleObserver<T> extends AtomicBoolean implements y<T> {
         private static final long serialVersionUID = -1944085461036028108L;
         final y<? super T> s;

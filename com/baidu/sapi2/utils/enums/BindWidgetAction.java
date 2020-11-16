@@ -1,5 +1,5 @@
 package com.baidu.sapi2.utils.enums;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public enum BindWidgetAction {
     BIND_MOBILE("/wp/bindwidget-bindmobile", "绑定手机"),
     BIND_EMAIL("/wp/bindwidget-bindemail", "绑定邮箱"),

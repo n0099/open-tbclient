@@ -6,19 +6,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.dialog.RoundLinearLayout;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class f extends com.baidu.adp.base.c {
-    TextView efP;
-    TextView hGx;
-    TextView lTU;
-    TextView lTV;
-    TextView lTW;
-    TextView lTX;
-    TextView lyX;
+    TextView eei;
+    TextView hGe;
+    RoundLinearLayout lUk;
+    TextView lUl;
+    TextView lUm;
+    TextView lUn;
+    TextView lUo;
+    TextView lUp;
     TbPageContext mPageContext;
-    View mView;
 
     public f(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext);
@@ -27,90 +29,91 @@ public class f extends com.baidu.adp.base.c {
     }
 
     private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
-        this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.person_info_more_view, (ViewGroup) null);
-        this.lTU = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_friend);
-        this.lTU.setOnClickListener(onClickListener);
-        this.lyX = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_report);
-        this.lyX.setOnClickListener(onClickListener);
-        this.lTV = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_black);
-        this.lTV.setOnClickListener(onClickListener);
-        this.lTW = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_mute);
-        this.lTW.setOnClickListener(onClickListener);
-        this.efP = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_cancel);
-        this.efP.setOnClickListener(onClickListener);
-        this.hGx = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_username);
-        this.lTX = (TextView) this.mView.findViewById(R.id.person_info_item_remove_fans_view);
-        this.lTX.setOnClickListener(onClickListener);
+        this.lUk = (RoundLinearLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.person_info_more_view, (ViewGroup) null);
+        this.lUk.setRadius(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds31));
+        this.lUl = (TextView) this.lUk.findViewById(R.id.person_info_more_view_item_friend);
+        this.lUl.setOnClickListener(onClickListener);
+        this.lUm = (TextView) this.lUk.findViewById(R.id.person_info_more_view_item_report);
+        this.lUm.setOnClickListener(onClickListener);
+        this.lUn = (TextView) this.lUk.findViewById(R.id.person_info_more_view_item_black);
+        this.lUn.setOnClickListener(onClickListener);
+        this.lUo = (TextView) this.lUk.findViewById(R.id.person_info_more_view_item_mute);
+        this.lUo.setOnClickListener(onClickListener);
+        this.eei = (TextView) this.lUk.findViewById(R.id.person_info_more_view_item_cancel);
+        this.eei.setOnClickListener(onClickListener);
+        this.hGe = (TextView) this.lUk.findViewById(R.id.person_info_more_view_item_username);
+        this.lUp = (TextView) this.lUk.findViewById(R.id.person_info_item_remove_fans_view);
+        this.lUp.setOnClickListener(onClickListener);
     }
 
     public void l(boolean z, boolean z2, boolean z3) {
         if (z) {
-            this.lTU.setText(R.string.remove_friend);
+            this.lUl.setText(R.string.remove_friend);
         } else {
-            this.lTU.setText(R.string.frs_recommend_friend_item_add);
+            this.lUl.setText(R.string.frs_recommend_friend_item_add);
         }
         if (z2) {
-            this.lTV.setText(R.string.remove_block_chat);
+            this.lUn.setText(R.string.remove_block_chat);
         } else {
-            this.lTV.setText(R.string.block_chat_message);
+            this.lUn.setText(R.string.block_chat_message);
         }
         if (z3) {
-            this.lTX.setVisibility(0);
+            this.lUp.setVisibility(0);
         } else {
-            this.lTX.setVisibility(8);
+            this.lUp.setVisibility(8);
         }
     }
 
     public View getView() {
-        return this.mView;
+        return this.lUk;
     }
 
-    public View dtk() {
-        return this.lTU;
+    public View dsK() {
+        return this.lUl;
     }
 
-    public View dtl() {
-        return this.lTV;
+    public View dsL() {
+        return this.lUn;
     }
 
-    public View dtm() {
-        return this.lTW;
+    public View dsM() {
+        return this.lUo;
     }
 
-    public View dtn() {
-        return this.lyX;
+    public View dsN() {
+        return this.lUm;
     }
 
-    public View dto() {
-        return this.lTX;
+    public View dsO() {
+        return this.lUp;
     }
 
-    public void GR(int i) {
-        this.lTW.setVisibility(0);
+    public void Hp(int i) {
+        this.lUo.setVisibility(0);
         if (i == 0) {
-            this.lTW.setText(this.mPageContext.getResources().getString(R.string.mute));
+            this.lUo.setText(this.mPageContext.getResources().getString(R.string.mute));
         } else if (i == 1) {
-            this.lTW.setText(this.mPageContext.getResources().getString(R.string.un_mute));
+            this.lUo.setText(this.mPageContext.getResources().getString(R.string.un_mute));
         }
     }
 
     public void setUserName(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.hGx.setVisibility(8);
+            this.hGe.setVisibility(8);
             return;
         }
-        this.hGx.setVisibility(0);
-        this.hGx.setText(String.format(this.mPageContext.getResources().getString(R.string.more_info_username), str));
+        this.hGe.setVisibility(0);
+        this.hGe.setText(String.format(this.mPageContext.getResources().getString(R.string.more_info_username), str));
     }
 
     public void onChangeSkinType() {
-        ap.setBackgroundResource(this.mView, R.color.cp_bg_line_k);
-        ap.setViewTextColor(this.lTV, R.color.pop_window_item_txt_color_selector);
-        ap.setViewTextColor(this.lTU, R.color.pop_window_item_txt_color_selector);
-        ap.setViewTextColor(this.lyX, R.color.pop_window_item_txt_color_selector);
-        ap.setViewTextColor(this.lTW, R.color.pop_window_item_txt_color_selector);
-        ap.setViewTextColor(this.hGx, R.color.cp_cont_c, 1);
-        ap.setViewTextColor(this.lTX, R.color.pop_window_item_txt_color_selector);
-        ap.setViewTextColor(this.efP, R.color.pop_window_cancel_txt_color_selector);
+        ap.setBackgroundResource(this.lUk, R.color.CAM_X0211);
+        ap.k(this.lUn, R.color.CAM_X0105);
+        ap.k(this.lUl, R.color.CAM_X0105);
+        ap.k(this.lUm, R.color.CAM_X0105);
+        ap.k(this.lUo, R.color.CAM_X0105);
+        ap.setViewTextColor(this.hGe, R.color.CAM_X0109, 1);
+        ap.k(this.lUp, R.color.CAM_X0105);
+        ap.k(this.eei, R.color.CAM_X0107);
     }
 }

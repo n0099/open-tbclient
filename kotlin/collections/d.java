@@ -7,9 +7,9 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 import java.util.RandomAccess;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a pRV = new a(null);
+    public static final a pTy = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -50,36 +50,36 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
     @Override // java.util.List
     public List<E> subList(int i, int i2) {
-        return new C1077d(this, i, i2);
+        return new C1080d(this, i, i2);
     }
 
     @kotlin.h
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    private static final class C1077d<E> extends d<E> implements RandomAccess {
-        private int pRX;
-        private final d<E> pRY;
-        private final int pRZ;
+    /* loaded from: classes9.dex */
+    private static final class C1080d<E> extends d<E> implements RandomAccess {
+        private int pTA;
+        private final d<E> pTB;
+        private final int pTC;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
-        public C1077d(d<? extends E> dVar, int i, int i2) {
+        public C1080d(d<? extends E> dVar, int i, int i2) {
             kotlin.jvm.internal.q.n(dVar, "list");
-            this.pRY = dVar;
-            this.pRZ = i;
-            d.pRV.am(this.pRZ, i2, this.pRY.size());
-            this.pRX = i2 - this.pRZ;
+            this.pTB = dVar;
+            this.pTC = i;
+            d.pTy.ap(this.pTC, i2, this.pTB.size());
+            this.pTA = i2 - this.pTC;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.pRV.em(i, this.pRX);
-            return this.pRY.get(this.pRZ + i);
+            d.pTy.en(i, this.pTA);
+            return this.pTB.get(this.pTC + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.pRX;
+            return this.pTA;
         }
     }
 
@@ -89,19 +89,19 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return pRV.a(this, (Collection) obj);
+            return pTy.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return pRV.n(this);
+        return pTy.n(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @kotlin.h
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class b implements Iterator<E> {
         private int index;
 
@@ -140,7 +140,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
     }
 
     @kotlin.h
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     private class c extends d<E>.b implements ListIterator<E> {
         @Override // java.util.ListIterator
         public void add(E e) {
@@ -154,7 +154,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.pRV.en(i, d.this.size());
+            d.pTy.eo(i, d.this.size());
             setIndex(i);
         }
 
@@ -185,7 +185,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
     }
 
     @kotlin.h
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         private a() {
         }
@@ -194,19 +194,19 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             this();
         }
 
-        public final void em(int i, int i2) {
+        public final void en(int i, int i2) {
             if (i < 0 || i >= i2) {
                 throw new IndexOutOfBoundsException("index: " + i + ", size: " + i2);
             }
         }
 
-        public final void en(int i, int i2) {
+        public final void eo(int i, int i2) {
             if (i < 0 || i > i2) {
                 throw new IndexOutOfBoundsException("index: " + i + ", size: " + i2);
             }
         }
 
-        public final void am(int i, int i2, int i3) {
+        public final void ap(int i, int i2, int i3) {
             if (i < 0 || i2 > i3) {
                 throw new IndexOutOfBoundsException("fromIndex: " + i + ", toIndex: " + i2 + ", size: " + i3);
             }

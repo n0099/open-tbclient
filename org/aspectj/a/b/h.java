@@ -1,66 +1,66 @@
 package org.aspectj.a.b;
 
 import java.lang.reflect.Modifier;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 class h {
-    static h qaA = new h();
-    static h qaB;
-    static h qaC;
-    boolean qar = true;
-    boolean qas = true;
-    boolean qat = false;
-    boolean qau = false;
-    boolean qav = false;
-    boolean qaw = true;
-    boolean qax = true;
-    boolean qay = true;
-    int qaz;
+    static h qcd = new h();
+    static h qce;
+    static h qcf;
+    boolean qbU = true;
+    boolean qbV = true;
+    boolean qbW = false;
+    boolean qbX = false;
+    boolean qbY = false;
+    boolean qbZ = true;
+    boolean qca = true;
+    boolean qcb = true;
+    int qcc;
 
     h() {
     }
 
     static {
-        qaA.qar = true;
-        qaA.qas = false;
-        qaA.qat = false;
-        qaA.qau = false;
-        qaA.qav = true;
-        qaA.qaw = false;
-        qaA.qax = false;
-        qaA.qaz = 0;
-        qaB = new h();
-        qaB.qar = true;
-        qaB.qas = true;
-        qaB.qat = false;
-        qaB.qau = false;
-        qaB.qav = false;
-        qaA.qaz = 1;
-        qaC = new h();
-        qaC.qar = false;
-        qaC.qas = true;
-        qaC.qat = false;
-        qaC.qau = true;
-        qaC.qav = false;
-        qaC.qay = false;
-        qaC.qaz = 2;
+        qcd.qbU = true;
+        qcd.qbV = false;
+        qcd.qbW = false;
+        qcd.qbX = false;
+        qcd.qbY = true;
+        qcd.qbZ = false;
+        qcd.qca = false;
+        qcd.qcc = 0;
+        qce = new h();
+        qce.qbU = true;
+        qce.qbV = true;
+        qce.qbW = false;
+        qce.qbX = false;
+        qce.qbY = false;
+        qcd.qcc = 1;
+        qcf = new h();
+        qcf.qbU = false;
+        qcf.qbV = true;
+        qcf.qbW = false;
+        qcf.qbX = true;
+        qcf.qbY = false;
+        qcf.qcb = false;
+        qcf.qcc = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String ZX(String str) {
+    public String ZI(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String RI(int i) {
-        if (this.qau) {
+    public String Sl(int i) {
+        if (this.qbX) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String ZY(String str) {
+    String ZJ(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return ZY(str).replace('$', '.');
+            return ZJ(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
     public String N(Class cls) {
-        return b(cls, cls.getName(), this.qar);
+        return b(cls, cls.getName(), this.qbU);
     }
 
     public String k(Class cls, String str) {
-        return b(cls, str, this.qav);
+        return b(cls, str, this.qbY);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.qas) {
+            if (!this.qbV) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.qat && clsArr != null && clsArr.length != 0) {
+        if (this.qbW && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

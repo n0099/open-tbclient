@@ -14,9 +14,9 @@ import com.baidu.live.utils.p;
 import com.baidu.tieba.ala.guardclub.model.m;
 /* loaded from: classes4.dex */
 public class i implements m {
-    private m.a gHW;
-    private HttpMessageListener gHX;
-    private HttpMessageListener gHY;
+    private m.a gHD;
+    private HttpMessageListener gHE;
+    private HttpMessageListener gHF;
 
     public i() {
         registerTask();
@@ -24,13 +24,13 @@ public class i implements m {
     }
 
     public void a(m.a aVar) {
-        this.gHW = aVar;
+        this.gHD = aVar;
     }
 
-    public void Hr(String str) {
+    public void GS(String str) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
         httpMessage.addParam("guard_club_id", str);
-        httpMessage.addParam("scene_from", p.Hr());
+        httpMessage.addParam("scene_from", p.GI());
         httpMessage.addParam("client_type", 2);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
@@ -42,20 +42,20 @@ public class i implements m {
     }
 
     public void release() {
-        this.gHW = null;
+        this.gHD = null;
         unRegisterListener();
         unRegisterTask();
     }
 
     private void registerTask() {
-        bTr();
+        bSK();
     }
 
     private void unRegisterTask() {
         MessageManager.getInstance().unRegisterTask(1021146);
     }
 
-    private void bTr() {
+    private void bSK() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021146, TbConfig.SERVER_HOST + "liveserver/guardClub/clubRankList");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -66,61 +66,61 @@ public class i implements m {
     }
 
     private void registerListener() {
-        bTs();
-        bTt();
+        bSL();
+        bSM();
     }
 
     private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.gHX);
-        MessageManager.getInstance().unRegisterListener(this.gHY);
+        MessageManager.getInstance().unRegisterListener(this.gHE);
+        MessageManager.getInstance().unRegisterListener(this.gHF);
     }
 
-    private void bTs() {
-        if (this.gHX == null) {
-            this.gHX = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS) { // from class: com.baidu.tieba.ala.guardclub.model.i.1
+    private void bSL() {
+        if (this.gHE == null) {
+            this.gHE = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS) { // from class: com.baidu.tieba.ala.guardclub.model.i.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (i.this.gHW != null) {
+                    if (i.this.gHD != null) {
                         if (!(httpResponsedMessage instanceof GuardClubJoinHttpResponseMessage)) {
-                            i.this.gHW.a(false, "", 0L, "", httpResponsedMessage.getErrorString());
+                            i.this.gHD.a(false, "", 0L, "", httpResponsedMessage.getErrorString());
                             return;
                         }
                         GuardClubJoinHttpResponseMessage guardClubJoinHttpResponseMessage = (GuardClubJoinHttpResponseMessage) httpResponsedMessage;
                         if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                            if (!guardClubJoinHttpResponseMessage.bgK) {
-                                guardClubJoinHttpResponseMessage.bgK = true;
-                                i.this.gHW.a(false, "", 0L, "", httpResponsedMessage.getErrorString());
+                            if (!guardClubJoinHttpResponseMessage.beW) {
+                                guardClubJoinHttpResponseMessage.beW = true;
+                                i.this.gHD.a(false, "", 0L, "", httpResponsedMessage.getErrorString());
                                 return;
                             }
                             return;
                         }
-                        i.this.gHW.a(true, String.valueOf(guardClubJoinHttpResponseMessage.bgH), guardClubJoinHttpResponseMessage.bgz != null ? guardClubJoinHttpResponseMessage.bgz.bgo : 0L, guardClubJoinHttpResponseMessage.bgz != null ? String.valueOf(guardClubJoinHttpResponseMessage.bgz.liveId) : "", httpResponsedMessage.getErrorString());
+                        i.this.gHD.a(true, String.valueOf(guardClubJoinHttpResponseMessage.beT), guardClubJoinHttpResponseMessage.beL != null ? guardClubJoinHttpResponseMessage.beL.beB : 0L, guardClubJoinHttpResponseMessage.beL != null ? String.valueOf(guardClubJoinHttpResponseMessage.beL.liveId) : "", httpResponsedMessage.getErrorString());
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.gHX);
+            MessageManager.getInstance().registerListener(this.gHE);
         }
     }
 
-    private void bTt() {
-        if (this.gHY == null) {
-            this.gHY = new HttpMessageListener(1021146) { // from class: com.baidu.tieba.ala.guardclub.model.i.2
+    private void bSM() {
+        if (this.gHF == null) {
+            this.gHF = new HttpMessageListener(1021146) { // from class: com.baidu.tieba.ala.guardclub.model.i.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (i.this.gHW != null && (httpResponsedMessage instanceof GuardClubRankHttpResponseMessage)) {
+                    if (i.this.gHD != null && (httpResponsedMessage instanceof GuardClubRankHttpResponseMessage)) {
                         int i = ((l) httpResponsedMessage.getOrginalMessage()).type;
                         if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                            i.this.gHW.a(i, null, null, null, 0, false, false);
+                            i.this.gHD.a(i, null, null, null, 0, false, false);
                             return;
                         }
                         GuardClubRankHttpResponseMessage guardClubRankHttpResponseMessage = (GuardClubRankHttpResponseMessage) httpResponsedMessage;
-                        i.this.gHW.a(i, guardClubRankHttpResponseMessage.gIb, guardClubRankHttpResponseMessage.gIa, guardClubRankHttpResponseMessage.bgF, guardClubRankHttpResponseMessage.pageIndex, guardClubRankHttpResponseMessage.hasMore, guardClubRankHttpResponseMessage.bgD);
+                        i.this.gHD.a(i, guardClubRankHttpResponseMessage.gHI, guardClubRankHttpResponseMessage.gHH, guardClubRankHttpResponseMessage.beR, guardClubRankHttpResponseMessage.pageIndex, guardClubRankHttpResponseMessage.hasMore, guardClubRankHttpResponseMessage.beP);
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.gHY);
+            MessageManager.getInstance().registerListener(this.gHF);
         }
     }
 }

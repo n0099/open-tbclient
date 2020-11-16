@@ -75,11 +75,11 @@ public class PersonUserData implements Serializable {
     }
 
     public boolean isChatOnceBan() {
-        return this.user_info != null && this.user_info.aOd == 1;
+        return this.user_info != null && this.user_info.aMs == 1;
     }
 
     public boolean isChatForeverBan() {
-        return this.user_info != null && this.user_info.aOd == 2;
+        return this.user_info != null && this.user_info.aMs == 2;
     }
 
     public boolean isLandScapeLive() {

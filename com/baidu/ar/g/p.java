@@ -1,7 +1,7 @@
 package com.baidu.ar.g;
 
 import android.content.Context;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class p {
     public static float y(Context context) {
         if (context != null) {

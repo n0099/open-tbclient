@@ -10,7 +10,7 @@ public class b {
 
     /* renamed from: a  reason: collision with root package name */
     private final Context f2975a;
-    private C0289b b;
+    private C0287b b;
     private a c;
     private g d;
 
@@ -97,7 +97,7 @@ public class b {
 
     private void d(String str) {
         b();
-        this.b = new C0289b(this.f2975a, str);
+        this.b = new C0287b(this.f2975a, str);
         this.b.start();
     }
 
@@ -156,12 +156,12 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0289b extends Thread {
+    public class C0287b extends Thread {
         private Context b;
         private String c;
         private volatile boolean d = false;
 
-        public C0289b(Context context, String str) {
+        public C0287b(Context context, String str) {
             this.b = context;
             this.c = str;
         }

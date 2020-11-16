@@ -31,7 +31,7 @@ import org.apache.http.HttpHost;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"InlinedApi", "SetJavaScriptEnabled", "JavascriptInterface", "NewApi"})
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class FeedbackHotActivity extends Activity {
     private RelativeLayout g;
     private LinearLayout h;

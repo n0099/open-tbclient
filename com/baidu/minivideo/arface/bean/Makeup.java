@@ -1,5 +1,5 @@
 package com.baidu.minivideo.arface.bean;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class Makeup extends BaseBeautyItem {
     private String mResPath;
     private BeautyType mType;

@@ -10,7 +10,7 @@ import com.baidu.tieba.ad.download.d;
 import com.baidu.tieba.ad.download.mvp.b;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
 import java.io.File;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class a extends com.baidu.tieba.ad.download.mvp.a<b, AdDownloadData> {
     private PermissionJudgePolicy mPermissionJudgePolicy;
 
@@ -24,28 +24,28 @@ public class a extends com.baidu.tieba.ad.download.mvp.a<b, AdDownloadData> {
     public void a(AdDownloadData adDownloadData) {
         if (adDownloadData != null) {
             DownloadStatus currentState = adDownloadData.getCurrentState();
-            DownloadCacheKey Fl = d.bJw().Fl(adDownloadData.adId());
+            DownloadCacheKey EM = d.bIP().EM(adDownloadData.adId());
             switch (currentState) {
                 case STATUS_NONE:
-                    if (Fl != null && bJs()) {
-                        d.bJw().c(Fl, null);
+                    if (EM != null && bIL()) {
+                        d.bIP().c(EM, null);
                         return;
                     }
                     return;
                 case STATUS_DOWNLOADING:
-                    d.bJw().Fi(adDownloadData.adId());
+                    d.bIP().EJ(adDownloadData.adId());
                     return;
                 case STATUS_PAUSED:
-                    if (bJs()) {
-                        d.bJw().Fj(adDownloadData.adId());
+                    if (bIL()) {
+                        d.bIP().EK(adDownloadData.adId());
                         return;
                     }
                     return;
                 case STATUS_SUCCESS:
-                    if (Fl != null && bJs()) {
+                    if (EM != null && bIL()) {
                         String downloadFilePath = adDownloadData.extra().getDownloadFilePath();
                         if (!TextUtils.isEmpty(downloadFilePath) && new File(downloadFilePath).exists()) {
-                            d.bJw().a(bJy().getRealView().getContext(), Fl, adDownloadData.extra().getDownloadFilePath());
+                            d.bIP().a(bIR().getRealView().getContext(), EM, adDownloadData.extra().getDownloadFilePath());
                             return;
                         }
                         adDownloadData.extra().setStatus(DownloadStatus.STATUS_NONE);
@@ -54,7 +54,7 @@ public class a extends com.baidu.tieba.ad.download.mvp.a<b, AdDownloadData> {
                     }
                     return;
                 case STATUS_INSTALL_SUCCESS:
-                    d.bJw().aG(bJy().getRealView().getContext(), adDownloadData.pkgName());
+                    d.bIP().aD(bIR().getRealView().getContext(), adDownloadData.pkgName());
                     return;
                 default:
                     return;
@@ -62,15 +62,15 @@ public class a extends com.baidu.tieba.ad.download.mvp.a<b, AdDownloadData> {
         }
     }
 
-    private boolean bJs() {
-        if (bJy() == null || !(bJy().getRealView().getContext() instanceof Activity)) {
+    private boolean bIL() {
+        if (bIR() == null || !(bIR().getRealView().getContext() instanceof Activity)) {
             return true;
         }
         if (this.mPermissionJudgePolicy == null) {
             this.mPermissionJudgePolicy = new PermissionJudgePolicy();
         }
         this.mPermissionJudgePolicy.clearRequestPermissionList();
-        this.mPermissionJudgePolicy.appendRequestPermission((Activity) bJy().getRealView().getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
-        return !this.mPermissionJudgePolicy.startRequestPermission((Activity) bJy().getRealView().getContext());
+        this.mPermissionJudgePolicy.appendRequestPermission((Activity) bIR().getRealView().getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
+        return !this.mPermissionJudgePolicy.startRequestPermission((Activity) bIR().getRealView().getContext());
     }
 }

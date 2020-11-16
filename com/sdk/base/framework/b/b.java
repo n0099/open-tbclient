@@ -1,7 +1,7 @@
 package com.sdk.base.framework.b;
 
 import com.sdk.base.framework.a.k;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public abstract class b<T> {
 
     /* renamed from: a  reason: collision with root package name */

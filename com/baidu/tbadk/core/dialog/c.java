@@ -10,9 +10,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends AlertDialog {
-    private FrameLayout bvK;
-    private TextView eHY;
-    private CircleView eHZ;
+    private FrameLayout btY;
+    private TextView eGq;
+    private CircleView eGr;
     private String mMessage;
     private TextView mTextView;
 
@@ -26,16 +26,16 @@ public class c extends AlertDialog {
         Window window = getWindow();
         if (window != null) {
             window.setContentView(R.layout.post_video_progress_dialog);
-            this.bvK = (FrameLayout) window.findViewById(R.id.frame_progress_dialog);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bvK.getLayoutParams();
+            this.btY = (FrameLayout) window.findViewById(R.id.frame_progress_dialog);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.btY.getLayoutParams();
             layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
-            this.bvK.setLayoutParams(layoutParams);
+            this.btY.setLayoutParams(layoutParams);
             if (!StringUtils.isNull(this.mMessage)) {
-                this.eHY = (TextView) window.findViewById(R.id.text_progress_dialog_message);
-                this.eHY.setText(this.mMessage);
+                this.eGq = (TextView) window.findViewById(R.id.text_progress_dialog_message);
+                this.eGq.setText(this.mMessage);
             }
             this.mTextView = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
-            this.eHZ = (CircleView) window.findViewById(R.id.circle_progress_dialog);
+            this.eGr = (CircleView) window.findViewById(R.id.circle_progress_dialog);
         }
     }
 
@@ -43,15 +43,15 @@ public class c extends AlertDialog {
         if (this.mTextView != null) {
             this.mTextView.setText(i + "%");
         }
-        if (this.eHZ != null) {
-            this.eHZ.setProgress(i);
+        if (this.eGr != null) {
+            this.eGr.setProgress(i);
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.eHY != null) {
-            this.eHY.setText(this.mMessage);
+        if (this.eGq != null) {
+            this.eGq.setText(this.mMessage);
         }
     }
 }

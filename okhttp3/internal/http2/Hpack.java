@@ -22,7 +22,7 @@ import okio.Okio;
 import okio.Source;
 import org.apache.http.HttpHost;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class Hpack {
     private static final int PREFIX_4_BITS = 15;
     private static final int PREFIX_5_BITS = 31;
@@ -34,7 +34,7 @@ public final class Hpack {
     private Hpack() {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     static final class Reader {
         Header[] dynamicTable;
         int dynamicTableByteCount;
@@ -253,7 +253,7 @@ public final class Hpack {
         return Collections.unmodifiableMap(linkedHashMap);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     static final class Writer {
         private static final int SETTINGS_HEADER_TABLE_SIZE = 4096;
         private static final int SETTINGS_HEADER_TABLE_SIZE_LIMIT = 16384;

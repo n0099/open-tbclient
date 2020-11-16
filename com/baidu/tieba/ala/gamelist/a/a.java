@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<AlaSquareTabInfo> gEI;
+    private ArrayList<AlaSquareTabInfo> gEp;
     private TbPageContext mTbPageContext;
 
     public a(TbPageContext tbPageContext) {
@@ -23,18 +23,18 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (y.isEmpty(this.gEI)) {
+        if (y.isEmpty(this.gEp)) {
             return 0;
         }
-        return this.gEI.size();
+        return this.gEp.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (y.isEmpty(this.gEI)) {
+        if (y.isEmpty(this.gEp)) {
             return null;
         }
-        return this.gEI.get(i);
+        return this.gEp.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -48,35 +48,35 @@ public class a extends BaseAdapter {
         if (view == null) {
             c0645a = new C0645a();
             view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(R.layout.ala_all_game_entry_item, (ViewGroup) null);
-            c0645a.gro = (TbImageView) view.findViewById(R.id.cover);
-            c0645a.gro.setDrawerType(1);
-            c0645a.gro.setDefaultErrorResource(R.drawable.ala_all_game_default_icon);
-            c0645a.gro.setDefaultResource(R.drawable.ala_all_game_default_icon);
-            c0645a.gro.setDefaultBgResource(R.color.transparent);
-            c0645a.gro.setRadius(this.mTbPageContext.getResources().getDimensionPixelSize(R.dimen.ds20));
+            c0645a.gqV = (TbImageView) view.findViewById(R.id.cover);
+            c0645a.gqV.setDrawerType(1);
+            c0645a.gqV.setDefaultErrorResource(R.drawable.ala_all_game_default_icon);
+            c0645a.gqV.setDefaultResource(R.drawable.ala_all_game_default_icon);
+            c0645a.gqV.setDefaultBgResource(R.color.transparent);
+            c0645a.gqV.setRadius(this.mTbPageContext.getResources().getDimensionPixelSize(R.dimen.ds20));
             c0645a.title = (TextView) view.findViewById(R.id.title);
-            ap.setViewTextColor(c0645a.title, (int) R.color.cp_cont_f);
+            ap.setViewTextColor(c0645a.title, R.color.CAM_X0106);
             view.setTag(c0645a);
         } else {
             c0645a = (C0645a) view.getTag();
         }
-        c0645a.gro.startLoad(this.gEI.get(i).iconUrl, 10, false);
-        c0645a.title.setText(this.gEI.get(i).name);
+        c0645a.gqV.startLoad(this.gEp.get(i).iconUrl, 10, false);
+        c0645a.title.setText(this.gEp.get(i).name);
         return view;
     }
 
     public void setData(ArrayList<AlaSquareTabInfo> arrayList) {
-        this.gEI = arrayList;
+        this.gEp = arrayList;
     }
 
     public ArrayList<AlaSquareTabInfo> getData() {
-        return this.gEI;
+        return this.gEp;
     }
 
     /* renamed from: com.baidu.tieba.ala.gamelist.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     class C0645a {
-        TbImageView gro;
+        TbImageView gqV;
         TextView title;
 
         C0645a() {

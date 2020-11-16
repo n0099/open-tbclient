@@ -1,13 +1,13 @@
 package com.baidu.crabsdk.sender;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public abstract class a {
-    public final int apR = 30000;
-    public Context apS;
+    public final int apX = 30000;
+    public Context apY;
 
     public a(Context context) {
-        this.apS = context;
+        this.apY = context;
     }
 
     public abstract void e(String str);

@@ -1,7 +1,7 @@
 package com.baidu.sofire.m;
 
 import android.database.ContentObserver;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public final class a extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */

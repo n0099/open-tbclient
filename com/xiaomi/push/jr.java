@@ -1,12 +1,12 @@
 package com.xiaomi.push;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public final class jr extends js {
 
     /* renamed from: a  reason: collision with root package name */
     private int f5010a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f784a;
+    private byte[] f787a;
     private int b;
 
     @Override // com.xiaomi.push.js
@@ -21,7 +21,7 @@ public final class jr extends js {
             i2 = b;
         }
         if (i2 > 0) {
-            System.arraycopy(this.f784a, this.f5010a, bArr, i, i2);
+            System.arraycopy(this.f787a, this.f5010a, bArr, i, i2);
             a(i2);
         }
         return i2;
@@ -43,7 +43,7 @@ public final class jr extends js {
 
     @Override // com.xiaomi.push.js
     public byte[] a() {
-        return this.f784a;
+        return this.f787a;
     }
 
     @Override // com.xiaomi.push.js
@@ -53,7 +53,7 @@ public final class jr extends js {
 
     @Override // com.xiaomi.push.js
     public void b(byte[] bArr, int i, int i2) {
-        this.f784a = bArr;
+        this.f787a = bArr;
         this.f5010a = i;
         this.b = i + i2;
     }

@@ -5,7 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class CheckDefaultSoExist {
     private static String a(Context context, String str) {
         Object invoke;

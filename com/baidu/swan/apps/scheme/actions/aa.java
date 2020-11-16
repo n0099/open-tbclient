@@ -10,7 +10,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public abstract class aa extends d<UnitedSchemeBaseDispatcher> {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -20,17 +20,17 @@ public abstract class aa extends d<UnitedSchemeBaseDispatcher> {
         super(unitedSchemeBaseDispatcher, str);
     }
 
-    public com.baidu.swan.apps.runtime.e aoc() {
-        return com.baidu.swan.apps.runtime.e.aHu();
+    public com.baidu.swan.apps.runtime.e anu() {
+        return com.baidu.swan.apps.runtime.e.aGM();
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         boolean d;
         try {
             if (TextUtils.equals(this.name, str)) {
-                d = a(context, unitedSchemeEntity, callbackHandler, aoc());
+                d = a(context, unitedSchemeEntity, callbackHandler, anu());
             } else {
-                d = d(context, unitedSchemeEntity, callbackHandler, str, aoc());
+                d = d(context, unitedSchemeEntity, callbackHandler, str, anu());
             }
             return d;
         } catch (Throwable th) {

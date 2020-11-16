@@ -10,27 +10,27 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class TabItemView extends TextView {
-    private d jgn;
-    private boolean jgo;
-    private int jgp;
+    private d jgY;
+    private boolean jgZ;
+    private int jha;
     private int mState;
-    public static int jgl = 0;
-    public static int jgm = 1;
+    public static int jgW = 0;
+    public static int jgX = 1;
     public static int STATE_EXPANDED = 2;
 
     public TabItemView(Context context, d dVar, int i, boolean z) {
         super(context);
-        this.mState = jgl;
-        this.jgp = 0;
-        this.jgn = dVar;
-        this.jgo = z;
+        this.mState = jgW;
+        this.jha = 0;
+        this.jgY = dVar;
+        this.jgZ = z;
         m(context, i);
     }
 
     private void m(Context context, int i) {
-        if (this.jgo) {
+        if (this.jgZ) {
             setPadding(0, l.getDimens(getContext(), R.dimen.tbds20), 0, 0);
             setTextSize(0, l.getDimens(context, R.dimen.tbds42));
         } else {
@@ -38,16 +38,16 @@ public class TabItemView extends TextView {
         }
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.jgn != null) {
-            setText(this.jgn.name);
+        if (this.jgY != null) {
+            setText(this.jgY.name);
         }
-        bsD();
+        brT();
     }
 
     public void setState(int i) {
-        if (this.jgn != null && this.jgn.jgk != null && this.jgn.jgk.iLR != null && this.jgn.jgk.iLR.size() > 0) {
+        if (this.jgY != null && this.jgY.jgV != null && this.jgY.jgV.iME != null && this.jgY.jgV.iME.size() > 0) {
             int i2 = -l.getDimens(getContext(), R.dimen.tbds20);
-            if (!this.jgo) {
+            if (!this.jgZ) {
                 i2 = 0;
             }
             if (i == STATE_EXPANDED) {
@@ -61,17 +61,17 @@ public class TabItemView extends TextView {
             }
             setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
         }
-        if (this.jgo) {
-            ap.setViewTextColor(this, R.color.cp_cont_b, 1);
+        if (this.jgZ) {
+            ap.setViewTextColor(this, R.color.CAM_X0105, 1);
         } else {
-            if (i == jgm || i == STATE_EXPANDED) {
-                if (this.jgp == 0) {
-                    ap.setViewTextColor(this, R.color.cp_link_tip_a, 1);
+            if (i == jgX || i == STATE_EXPANDED) {
+                if (this.jha == 0) {
+                    ap.setViewTextColor(this, R.color.CAM_X0302, 1);
                 } else {
-                    ap.setViewTextColor(this, this.jgp, 1);
+                    ap.setViewTextColor(this, this.jha, 1);
                 }
             } else {
-                ap.setViewTextColor(this, R.color.cp_cont_f, 1);
+                ap.setViewTextColor(this, R.color.CAM_X0106, 1);
             }
             setGravity(17);
         }
@@ -80,17 +80,17 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.jgn == null) {
+        if (this.jgY == null) {
             return -1;
         }
-        return this.jgn.tabId;
+        return this.jgY.tabId;
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void bsD() {
+    public void brT() {
         setState(this.mState);
     }
 
@@ -98,7 +98,7 @@ public class TabItemView extends TextView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int spaceWidth = getSpaceWidth();
         if (spaceWidth >= 0) {
-            if (this.jgo) {
+            if (this.jgZ) {
                 setPadding(0, l.getDimens(getContext(), R.dimen.ds16), spaceWidth, 0);
             } else {
                 setPadding(0, 0, spaceWidth, 0);
@@ -127,10 +127,10 @@ public class TabItemView extends TextView {
     }
 
     public String getUrl() {
-        if (this.jgn == null) {
+        if (this.jgY == null) {
             return null;
         }
-        return this.jgn.url;
+        return this.jgY.url;
     }
 
     public int getDrawableWidth() {
@@ -143,10 +143,10 @@ public class TabItemView extends TextView {
     }
 
     public void setForNewFrame(boolean z) {
-        this.jgo = z;
+        this.jgZ = z;
     }
 
     public void setSelectItemColorResId(int i) {
-        this.jgp = i;
+        this.jha = i;
     }
 }

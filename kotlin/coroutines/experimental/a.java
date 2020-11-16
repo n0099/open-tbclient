@@ -6,16 +6,16 @@ import kotlin.h;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class a implements d {
-    private final d pSi;
-    private final d.b pSj;
+    private final d pTL;
+    private final d.b pTM;
 
     public a(d dVar, d.b bVar) {
         q.n(dVar, "left");
         q.n(bVar, "element");
-        this.pSi = dVar;
-        this.pSj = bVar;
+        this.pTL = dVar;
+        this.pTM = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
@@ -23,9 +23,9 @@ public final class a implements d {
         q.n(cVar, "key");
         a aVar = this;
         while (true) {
-            E e = (E) aVar.pSj.a(cVar);
+            E e = (E) aVar.pTM.a(cVar);
             if (e == null) {
-                d dVar = aVar.pSi;
+                d dVar = aVar.pTL;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -40,33 +40,33 @@ public final class a implements d {
     @Override // kotlin.coroutines.experimental.d
     public <R> R fold(R r, m<? super R, ? super d.b, ? extends R> mVar) {
         q.n(mVar, "operation");
-        return mVar.invoke((Object) this.pSi.fold(r, mVar), this.pSj);
+        return mVar.invoke((Object) this.pTL.fold(r, mVar), this.pTM);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
         q.n(cVar, "key");
-        if (this.pSj.a(cVar) != null) {
-            return this.pSi;
+        if (this.pTM.a(cVar) != null) {
+            return this.pTL;
         }
-        d b = this.pSi.b(cVar);
-        return b == this.pSi ? this : b == e.pSm ? this.pSj : new a(b, this.pSj);
+        d b = this.pTL.b(cVar);
+        return b == this.pTL ? this : b == e.pTP ? this.pTM : new a(b, this.pTM);
     }
 
     private final int size() {
-        if (this.pSi instanceof a) {
-            return ((a) this.pSi).size() + 1;
+        if (this.pTL instanceof a) {
+            return ((a) this.pTL).size() + 1;
         }
         return 2;
     }
 
     private final boolean a(d.b bVar) {
-        return q.l(a((d.c<d.b>) bVar.eBI()), bVar);
+        return q.l(a((d.c<d.b>) bVar.eBJ()), bVar);
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.pSj)) {
-            d dVar = aVar.pSi;
+        while (a(aVar.pTM)) {
+            d dVar = aVar.pTL;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -83,7 +83,7 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.pSi.hashCode() + this.pSj.hashCode();
+        return this.pTL.hashCode() + this.pTM.hashCode();
     }
 
     public String toString() {

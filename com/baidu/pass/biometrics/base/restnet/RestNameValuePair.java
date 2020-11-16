@@ -1,7 +1,7 @@
 package com.baidu.pass.biometrics.base.restnet;
 
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class RestNameValuePair implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */

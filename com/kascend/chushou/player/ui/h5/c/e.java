@@ -27,7 +27,7 @@ public class e extends d {
         return this.b;
     }
 
-    public e QJ(int i) {
+    public e Rm(int i) {
         this.b = i;
         return this;
     }
@@ -36,16 +36,16 @@ public class e extends d {
         return this.f4176a;
     }
 
-    public e YJ(String str) {
+    public e Yu(String str) {
         this.f4176a = str;
         return this;
     }
 
     public H5Positon evU() {
-        return this.pvh;
+        return this.pwL;
     }
 
     public H5Positon evV() {
-        return this.pvi;
+        return this.pwM;
     }
 }

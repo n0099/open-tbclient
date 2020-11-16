@@ -28,7 +28,7 @@ public class XiaoyingUtil {
     private static int showTime;
 
     public static boolean isXiaoyingForbidden() {
-        return PluginPackageManager.pT().cD(PKG_NAME_VIDEO);
+        return PluginPackageManager.pT().cF(PKG_NAME_VIDEO);
     }
 
     public static int getShowTime() {
@@ -40,7 +40,7 @@ public class XiaoyingUtil {
     }
 
     public static boolean isXiaoyingInstalled() {
-        return PluginPackageManager.pT().cx(PKG_NAME_VIDEO) && TbadkCoreApplication.getInst().appResponseToIntentClass(MotuVideoConfig.class);
+        return PluginPackageManager.pT().cz(PKG_NAME_VIDEO) && TbadkCoreApplication.getInst().appResponseToIntentClass(MotuVideoConfig.class);
     }
 
     public static void startXiaoying(Context context) {
@@ -52,8 +52,8 @@ public class XiaoyingUtil {
     public static void startXiaoying(Context context, boolean z, String str, String str2, String str3) {
         boolean z2 = false;
         if (context != null) {
-            com.baidu.tbadk.core.sharedPref.b.bqh().putBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, z);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MotuVideoConfig(context, (z || com.baidu.tbadk.core.sharedPref.b.bqh().getBoolean("localvideo_open", false)) ? true : true, str, str2, str3)));
+            com.baidu.tbadk.core.sharedPref.b.bpu().putBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, z);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MotuVideoConfig(context, (z || com.baidu.tbadk.core.sharedPref.b.bpu().getBoolean("localvideo_open", false)) ? true : true, str, str2, str3)));
         }
     }
 
@@ -64,9 +64,9 @@ public class XiaoyingUtil {
     public static void startPlayXiaoyingVideo(Context context, String str, int i, int i2, String str2, boolean z) {
         if (context != null && !StringUtils.isNull(str)) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
-                BdToast.b(context, context.getString(R.string.plugin_xiaoying_install_fail)).bpi();
+                BdToast.b(context, context.getString(R.string.plugin_xiaoying_install_fail)).bom();
             } else if (z && !j.isNetWorkAvailable()) {
-                BdToast.b(context, context.getString(R.string.neterror)).bpi();
+                BdToast.b(context, context.getString(R.string.neterror)).bom();
             } else if (z) {
                 if (j.isWifiNet()) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new XiaoyingPlayerConfig(context, str, i, i2, str2)));
@@ -83,7 +83,7 @@ public class XiaoyingUtil {
         e<?> I = i.I(context);
         if (I != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(I.getPageActivity());
-            aVar.Bo(TbadkCoreApplication.getInst().getString(R.string.play_video_mobile_tip));
+            aVar.AJ(TbadkCoreApplication.getInst().getString(R.string.play_video_mobile_tip));
             aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -97,7 +97,7 @@ public class XiaoyingUtil {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(I).bpc();
+            aVar.b(I).bog();
         }
     }
 
@@ -110,7 +110,7 @@ public class XiaoyingUtil {
         final Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.Bo(str);
+            aVar.AJ(str);
             aVar.a(str2, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -124,7 +124,7 @@ public class XiaoyingUtil {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(tbPageContext).bpc();
+            aVar.b(tbPageContext).bog();
         }
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Looper;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class RtcUtility {
     private static final String KEY_APPID = "appid";
     private static final String KEY_BDUID = "bduid";

@@ -6,7 +6,7 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class c implements b {
 
     /* renamed from: a  reason: collision with root package name */

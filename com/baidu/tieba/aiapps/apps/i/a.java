@@ -4,19 +4,19 @@ import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatDelegate;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class a {
     public static boolean getNightModeSwitcherState() {
-        return com.baidu.swan.apps.t.a.awW().getNightModeSwitcherState();
+        return com.baidu.swan.apps.t.a.awo().getNightModeSwitcherState();
     }
 
-    public static void lo(boolean z) {
+    public static void lp(boolean z) {
         Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
         intent.putExtra("key_night_mode", z);
         LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
     }
 
-    public static void bLC() {
+    public static void bKV() {
         int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
         int i = getNightModeSwitcherState() ? 2 : 1;
         if (defaultNightMode != i) {

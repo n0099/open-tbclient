@@ -34,8 +34,8 @@ import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.view.spanGroup.UrlParserHttpResponseMessage;
 import com.baidu.tbadk.core.view.spanGroup.UrlParserSocketResponseMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -57,8 +57,8 @@ import com.baidu.tieba.write.write.vote.WriteVoteActivity;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class WriteActivityStatic {
-    private static int nOl = 11;
-    private static int nOm = 18;
+    private static int nPO = 11;
+    private static int nPP = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -78,10 +78,10 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(AccountAccessActivityConfig.class, AccountAccessActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteVoteActivityConfig.class, WriteVoteActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AddLinkActivityConfig.class, AddLinkActivity.class);
-        LocationModel.dKI();
-        cIo();
-        be.brr().a(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new be.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
-            @Override // com.baidu.tbadk.core.util.be.b
+        LocationModel.dKH();
+        cHT();
+        bf.bqF().a(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new bf.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
+            @Override // com.baidu.tbadk.core.util.bf.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {
                     WriteActivityStatic.K(tbPageContext);
@@ -96,7 +96,7 @@ public class WriteActivityStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void K(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= nOm && Build.VERSION.SDK_INT >= nOl) {
+        if (Build.VERSION.SDK_INT <= nPP && Build.VERSION.SDK_INT >= nPO) {
             O(tbPageContext);
         } else {
             P(tbPageContext);
@@ -128,24 +128,24 @@ public class WriteActivityStatic {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && bc.getCurrentActivity() != null && bc.getCurrentActivity().indexOf("NewVcode") != -1) {
+                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && bd.getCurrentActivity() != null && bd.getCurrentActivity().indexOf("NewVcode") != -1) {
                     TbadkCoreApplication.getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() + 1);
                 }
             }
         });
     }
 
-    public static void cIo() {
+    public static void cHT() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.tieba.c.c> run(CustomMessage<Object> customMessage) {
+            public CustomResponsedMessage<com.baidu.tieba.d.c> run(CustomMessage<Object> customMessage) {
                 return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, new com.baidu.tieba.write.b());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         com.baidu.tieba.tbadkCore.a.a.c(309686, UrlParserSocketResponseMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, com.baidu.tieba.tbadkCore.a.a.bL(TbConfig.URL_URL_PARSER, 309686));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, com.baidu.tieba.tbadkCore.a.a.bK(TbConfig.URL_URL_PARSER, 309686));
         tbHttpMessageTask.setResponsedClass(UrlParserHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

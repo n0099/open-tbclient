@@ -6,12 +6,11 @@ import android.widget.LinearLayout;
 import com.baidu.card.b;
 import com.baidu.card.view.BjhArticleLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class ao extends i {
-    private AbsThreadDataSupport afI;
-    private BjhArticleLayout aig;
+    private com.baidu.tbadk.core.data.a afN;
+    private BjhArticleLayout aij;
     private LinearLayout mRootView;
     private int mSkinType;
 
@@ -24,50 +23,50 @@ public class ao extends i {
     public View getView() {
         if (this.mRootView == null) {
             this.mRootView = new LinearLayout(this.mContext);
-            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
+            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.mRootView, R.color.CAM_X0206);
             this.mRootView.setOrientation(1);
             this.mRootView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
         this.mRootView.removeAllViews();
-        if (this.aig == null) {
-            this.aig = new BjhArticleLayout(this.mContext);
-            this.aig.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.ao.1
+        if (this.aij == null) {
+            this.aij = new BjhArticleLayout(this.mContext);
+            this.aij.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.ao.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (ao.this.afG != null) {
-                        ao.this.afG.a(ao.this.afI);
+                    if (ao.this.afL != null) {
+                        ao.this.afL.a(ao.this.afN);
                     }
                 }
             });
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.topMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds22);
-        layoutParams.leftMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
-        layoutParams.rightMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
-        layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds40);
-        this.mRootView.addView(this.aig, layoutParams);
+        layoutParams.topMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+        layoutParams.leftMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+        layoutParams.rightMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+        layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
+        this.mRootView.addView(this.aij, layoutParams);
         return this.mRootView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void H(AbsThreadDataSupport absThreadDataSupport) {
-        this.afI = absThreadDataSupport;
-        if (this.aig != null) {
-            this.aig.H(this.afI);
+    public void H(com.baidu.tbadk.core.data.a aVar) {
+        this.afN = aVar;
+        if (this.aij != null) {
+            this.aij.H(this.afN);
         }
     }
 
     public void a(b.a aVar) {
-        this.afG = aVar;
+        this.afL = aVar;
     }
 
     @Override // com.baidu.card.b
-    public void setOnCardSubClickListener(com.baidu.tieba.card.ab<AbsThreadDataSupport> abVar) {
+    public void setOnCardSubClickListener(com.baidu.tieba.card.ab<com.baidu.tbadk.core.data.a> abVar) {
         super.setOnCardSubClickListener(abVar);
-        if (this.aig != null) {
-            this.aig.setSubClickListener(abVar);
+        if (this.aij != null) {
+            this.aij.setSubClickListener(abVar);
         }
     }
 
@@ -75,9 +74,9 @@ public class ao extends i {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
-            if (this.aig != null) {
-                this.aig.onChangeSkinType(tbPageContext, i);
+            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.mRootView, R.color.CAM_X0206);
+            if (this.aij != null) {
+                this.aij.onChangeSkinType(tbPageContext, i);
             }
         }
     }

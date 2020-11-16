@@ -1,20 +1,20 @@
 package com.xiaomi.push;
 
 import android.os.Bundle;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class gl extends gj {
 
     /* renamed from: a  reason: collision with root package name */
     private int f4926a;
 
     /* renamed from: a  reason: collision with other field name */
-    private a f398a;
+    private a f401a;
 
     /* renamed from: a  reason: collision with other field name */
-    private b f399a;
+    private b f402a;
     private String b;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes18.dex */
     public enum a {
         chat,
         available,
@@ -23,7 +23,7 @@ public class gl extends gj {
         dnd
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes18.dex */
     public enum b {
         available,
         unavailable,
@@ -37,12 +37,12 @@ public class gl extends gj {
 
     public gl(Bundle bundle) {
         super(bundle);
-        this.f399a = b.available;
+        this.f402a = b.available;
         this.b = null;
         this.f4926a = Integer.MIN_VALUE;
-        this.f398a = null;
+        this.f401a = null;
         if (bundle.containsKey("ext_pres_type")) {
-            this.f399a = b.valueOf(bundle.getString("ext_pres_type"));
+            this.f402a = b.valueOf(bundle.getString("ext_pres_type"));
         }
         if (bundle.containsKey("ext_pres_status")) {
             this.b = bundle.getString("ext_pres_status");
@@ -51,23 +51,23 @@ public class gl extends gj {
             this.f4926a = bundle.getInt("ext_pres_prio");
         }
         if (bundle.containsKey("ext_pres_mode")) {
-            this.f398a = a.valueOf(bundle.getString("ext_pres_mode"));
+            this.f401a = a.valueOf(bundle.getString("ext_pres_mode"));
         }
     }
 
     public gl(b bVar) {
-        this.f399a = b.available;
+        this.f402a = b.available;
         this.b = null;
         this.f4926a = Integer.MIN_VALUE;
-        this.f398a = null;
+        this.f401a = null;
         a(bVar);
     }
 
     @Override // com.xiaomi.push.gj
     public Bundle a() {
         Bundle a2 = super.a();
-        if (this.f399a != null) {
-            a2.putString("ext_pres_type", this.f399a.toString());
+        if (this.f402a != null) {
+            a2.putString("ext_pres_type", this.f402a.toString());
         }
         if (this.b != null) {
             a2.putString("ext_pres_status", this.b);
@@ -75,8 +75,8 @@ public class gl extends gj {
         if (this.f4926a != Integer.MIN_VALUE) {
             a2.putInt("ext_pres_prio", this.f4926a);
         }
-        if (this.f398a != null && this.f398a != a.available) {
-            a2.putString("ext_pres_mode", this.f398a.toString());
+        if (this.f401a != null && this.f401a != a.available) {
+            a2.putString("ext_pres_mode", this.f401a.toString());
         }
         return a2;
     }
@@ -100,8 +100,8 @@ public class gl extends gj {
         if (k() != null) {
             sb.append(" chid=\"").append(gu.a(k())).append("\"");
         }
-        if (this.f399a != null) {
-            sb.append(" type=\"").append(this.f399a).append("\"");
+        if (this.f402a != null) {
+            sb.append(" type=\"").append(this.f402a).append("\"");
         }
         sb.append(">");
         if (this.b != null) {
@@ -110,13 +110,13 @@ public class gl extends gj {
         if (this.f4926a != Integer.MIN_VALUE) {
             sb.append("<priority>").append(this.f4926a).append("</priority>");
         }
-        if (this.f398a != null && this.f398a != a.available) {
-            sb.append("<show>").append(this.f398a).append("</show>");
+        if (this.f401a != null && this.f401a != a.available) {
+            sb.append("<show>").append(this.f401a).append("</show>");
         }
         sb.append(o());
         gn a2 = a();
         if (a2 != null) {
-            sb.append(a2.m318a());
+            sb.append(a2.m321a());
         }
         sb.append("</presence>");
         return sb.toString();
@@ -130,14 +130,14 @@ public class gl extends gj {
     }
 
     public void a(a aVar) {
-        this.f398a = aVar;
+        this.f401a = aVar;
     }
 
     public void a(b bVar) {
         if (bVar == null) {
             throw new NullPointerException("Type cannot be null");
         }
-        this.f399a = bVar;
+        this.f402a = bVar;
     }
 
     @Override // com.xiaomi.push.gj

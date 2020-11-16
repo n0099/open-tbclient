@@ -6,18 +6,18 @@ import android.os.SystemClock;
 import android.util.Printer;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 final class l implements Printer {
-    private final Context anO;
-    private i aoa;
-    private long anY = 0;
-    private long anZ = 0;
+    private final Context anU;
+    private i aog;
+    private long aoe = 0;
+    private long aof = 0;
     private boolean aB = false;
 
     public l(i iVar, Context context) {
-        this.aoa = null;
-        this.aoa = iVar;
-        this.anO = context;
+        this.aog = null;
+        this.aog = iVar;
+        this.anU = context;
     }
 
     @Override // android.util.Printer
@@ -26,23 +26,23 @@ final class l implements Printer {
             return;
         }
         if (!this.aB) {
-            this.anY = System.currentTimeMillis();
-            this.anZ = SystemClock.currentThreadTimeMillis();
+            this.aoe = System.currentTimeMillis();
+            this.aof = SystemClock.currentThreadTimeMillis();
             this.aB = true;
-            if (c.ad(this.anO).anM != null) {
-                c.ad(this.anO).anM.start();
+            if (c.ad(this.anU).anS != null) {
+                c.ad(this.anU).anS.start();
                 return;
             }
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         this.aB = false;
-        if (currentTimeMillis - this.anY >= ((long) a.W)) {
-            com.baidu.crabsdk.c.a.dA("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.anY + ETAG.EQUAL + (currentTimeMillis - this.anY) + " >= " + a.W);
-            j.vk().post(new m(this, this.anY, currentTimeMillis, this.anZ, SystemClock.currentThreadTimeMillis()));
+        if (currentTimeMillis - this.aoe >= ((long) a.W)) {
+            com.baidu.crabsdk.c.a.dC("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.aoe + ETAG.EQUAL + (currentTimeMillis - this.aoe) + " >= " + a.W);
+            j.vj().post(new m(this, this.aoe, currentTimeMillis, this.aof, SystemClock.currentThreadTimeMillis()));
         }
-        if (c.ad(this.anO).anM != null) {
-            c.ad(this.anO).anM.stop();
+        if (c.ad(this.anU).anS != null) {
+            c.ad(this.anU).anS.stop();
         }
     }
 }

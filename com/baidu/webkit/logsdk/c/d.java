@@ -2,7 +2,7 @@ package com.baidu.webkit.logsdk.c;
 
 import java.io.File;
 import java.util.Comparator;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 final class d implements Comparator<File> {
 
     /* renamed from: a  reason: collision with root package name */

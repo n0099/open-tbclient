@@ -2,47 +2,47 @@ package com.facebook.drawee.a.a.a.a;
 
 import com.facebook.drawee.a.a.a.h;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public class c extends com.facebook.imagepipeline.h.a {
-    private final h oNq;
-    private final com.facebook.common.time.b oNx;
+    private final h oOU;
+    private final com.facebook.common.time.b oPb;
 
     public c(com.facebook.common.time.b bVar, h hVar) {
-        this.oNx = bVar;
-        this.oNq = hVar;
+        this.oPb = bVar;
+        this.oOU = hVar;
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, Object obj, String str, boolean z) {
-        this.oNq.hJ(this.oNx.now());
-        this.oNq.setImageRequest(imageRequest);
-        this.oNq.bk(obj);
-        this.oNq.setRequestId(str);
-        this.oNq.Ab(z);
+        this.oOU.hM(this.oPb.now());
+        this.oOU.setImageRequest(imageRequest);
+        this.oOU.bl(obj);
+        this.oOU.setRequestId(str);
+        this.oOU.Ai(z);
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, String str, boolean z) {
-        this.oNq.hK(this.oNx.now());
-        this.oNq.setImageRequest(imageRequest);
-        this.oNq.setRequestId(str);
-        this.oNq.Ab(z);
-        this.oNq.Aa(true);
+        this.oOU.hN(this.oPb.now());
+        this.oOU.setImageRequest(imageRequest);
+        this.oOU.setRequestId(str);
+        this.oOU.Ai(z);
+        this.oOU.Ah(true);
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, String str, Throwable th, boolean z) {
-        this.oNq.hK(this.oNx.now());
-        this.oNq.setImageRequest(imageRequest);
-        this.oNq.setRequestId(str);
-        this.oNq.Ab(z);
-        this.oNq.Aa(false);
+        this.oOU.hN(this.oPb.now());
+        this.oOU.setImageRequest(imageRequest);
+        this.oOU.setRequestId(str);
+        this.oOU.Ai(z);
+        this.oOU.Ah(false);
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
-    public void Yh(String str) {
-        this.oNq.hK(this.oNx.now());
-        this.oNq.setRequestId(str);
-        this.oNq.zZ(true);
+    public void XS(String str) {
+        this.oOU.hN(this.oPb.now());
+        this.oOU.setRequestId(str);
+        this.oOU.Ag(true);
     }
 }

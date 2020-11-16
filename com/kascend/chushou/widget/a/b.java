@@ -14,11 +14,11 @@ public class b {
     private String f4261a;
     private String b;
     private long g;
-    private a pAh;
+    private a pBK;
     private volatile boolean c = false;
-    private d<ParserRet> pAg = new com.kascend.chushou.widget.a.a();
+    private d<ParserRet> pBJ = new com.kascend.chushou.widget.a.a();
     private boolean f = false;
-    private final tv.chushou.zues.c pAi = new tv.chushou.zues.c(Looper.getMainLooper(), new Handler.Callback() { // from class: com.kascend.chushou.widget.a.b.2
+    private final tv.chushou.zues.c pBL = new tv.chushou.zues.c(Looper.getMainLooper(), new Handler.Callback() { // from class: com.kascend.chushou.widget.a.b.2
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
@@ -41,25 +41,25 @@ public class b {
 
     public void a(String str) {
         this.f4261a = str;
-        if (this.pAg != null) {
-            this.pAg.b();
+        if (this.pBJ != null) {
+            this.pBJ.b();
         }
     }
 
     public void a(a aVar) {
-        this.pAh = aVar;
+        this.pBK = aVar;
     }
 
     public void a(boolean z) {
         if (z) {
-            this.pAg = new c();
+            this.pBJ = new c();
         } else {
-            this.pAg = new com.kascend.chushou.widget.a.a();
+            this.pBJ = new com.kascend.chushou.widget.a.a();
         }
     }
 
     public void b(boolean z) {
-        this.pAi.removeMessages(1);
+        this.pBL.removeMessages(1);
         this.c = true;
         if (z) {
             this.b = null;
@@ -71,8 +71,8 @@ public class b {
     }
 
     public void b() {
-        if (this.pAg != null) {
-            this.pAg.c();
+        if (this.pBJ != null) {
+            this.pBJ.c();
         }
         d();
     }
@@ -83,7 +83,7 @@ public class b {
 
     public void d() {
         this.c = false;
-        this.pAi.removeMessages(1);
+        this.pBL.removeMessages(1);
         if (!this.f || System.currentTimeMillis() - this.g >= 20000) {
             if (this.f) {
                 com.kascend.chushou.toolkit.a.a.a("type", Constants.VIA_REPORT_TYPE_WPA_STATE, "value", this.f4261a);
@@ -99,26 +99,26 @@ public class b {
                 public void a(String str, JSONObject jSONObject) {
                     long j;
                     b.this.f = false;
-                    ParserRet F = e.F(jSONObject, b.this.b);
-                    if (F.mRc == 0 && F.mData != null) {
-                        b.this.b = F.mBreakpoint;
-                        if (b.this.pAh != null) {
-                            b.this.pAh.b(F);
+                    ParserRet C = e.C(jSONObject, b.this.b);
+                    if (C.mRc == 0 && C.mData != null) {
+                        b.this.b = C.mBreakpoint;
+                        if (b.this.pBK != null) {
+                            b.this.pBK.b(C);
                         }
-                        long longValue = ((Long) F.mData1).longValue();
+                        long longValue = ((Long) C.mData1).longValue();
                         if (longValue == -1) {
-                            if (b.this.pAg != null) {
-                                j = b.this.pAg.G(F);
+                            if (b.this.pBJ != null) {
+                                j = b.this.pBJ.G(C);
                             } else {
                                 j = 1000;
                             }
-                            b.this.pAi.D(1, j);
+                            b.this.pBL.D(1, j);
                             return;
                         }
-                        if (b.this.pAg != null) {
-                            b.this.pAg.b();
+                        if (b.this.pBJ != null) {
+                            b.this.pBJ.b();
                         }
-                        b.this.pAi.D(1, longValue);
+                        b.this.pBL.D(1, longValue);
                         return;
                     }
                     a(-1, "");
@@ -128,12 +128,12 @@ public class b {
                 public void a(int i, String str) {
                     long j;
                     b.this.f = false;
-                    if (b.this.pAg != null) {
-                        j = b.this.pAg.a();
+                    if (b.this.pBJ != null) {
+                        j = b.this.pBJ.a();
                     } else {
                         j = 1000;
                     }
-                    b.this.pAi.D(1, j);
+                    b.this.pBL.D(1, j);
                 }
             }, this.f4261a, this.b);
         }

@@ -3,20 +3,20 @@ package io.reactivex.subjects;
 import io.reactivex.c;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class CompletableSubject extends io.reactivex.a implements c {
-    static final CompletableDisposable[] pRw = new CompletableDisposable[0];
-    static final CompletableDisposable[] pRx = new CompletableDisposable[0];
+    static final CompletableDisposable[] pSZ = new CompletableDisposable[0];
+    static final CompletableDisposable[] pTa = new CompletableDisposable[0];
     Throwable error;
     final AtomicBoolean once = new AtomicBoolean();
-    final AtomicReference<CompletableDisposable[]> observers = new AtomicReference<>(pRw);
+    final AtomicReference<CompletableDisposable[]> observers = new AtomicReference<>(pSZ);
 
     CompletableSubject() {
     }
 
     @Override // io.reactivex.c
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.observers.get() == pRx) {
+        if (this.observers.get() == pTa) {
             bVar.dispose();
         }
     }
@@ -26,7 +26,7 @@ public final class CompletableSubject extends io.reactivex.a implements c {
         io.reactivex.internal.functions.a.l(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.once.compareAndSet(false, true)) {
             this.error = th;
-            for (CompletableDisposable completableDisposable : this.observers.getAndSet(pRx)) {
+            for (CompletableDisposable completableDisposable : this.observers.getAndSet(pTa)) {
                 completableDisposable.actual.onError(th);
             }
             return;
@@ -37,7 +37,7 @@ public final class CompletableSubject extends io.reactivex.a implements c {
     @Override // io.reactivex.c
     public void onComplete() {
         if (this.once.compareAndSet(false, true)) {
-            for (CompletableDisposable completableDisposable : this.observers.getAndSet(pRx)) {
+            for (CompletableDisposable completableDisposable : this.observers.getAndSet(pTa)) {
                 completableDisposable.actual.onComplete();
             }
         }
@@ -67,7 +67,7 @@ public final class CompletableSubject extends io.reactivex.a implements c {
         CompletableDisposable[] completableDisposableArr2;
         do {
             completableDisposableArr = this.observers.get();
-            if (completableDisposableArr == pRx) {
+            if (completableDisposableArr == pTa) {
                 return false;
             }
             int length = completableDisposableArr.length;
@@ -99,7 +99,7 @@ public final class CompletableSubject extends io.reactivex.a implements c {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        completableDisposableArr2 = pRw;
+                        completableDisposableArr2 = pSZ;
                     } else {
                         completableDisposableArr2 = new CompletableDisposable[length - 1];
                         System.arraycopy(completableDisposableArr, 0, completableDisposableArr2, 0, i);
@@ -115,7 +115,7 @@ public final class CompletableSubject extends io.reactivex.a implements c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class CompletableDisposable extends AtomicReference<CompletableSubject> implements io.reactivex.disposables.b {
         private static final long serialVersionUID = -7650903191002190468L;
         final c actual;

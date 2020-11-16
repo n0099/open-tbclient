@@ -16,7 +16,7 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class AdElementInfo implements Parcelable {
     public static final int ACTION_TYPE_DOWNLOAD = 2;
     public static final int ACTION_TYPE_LANDING_PAGE = 1;
@@ -31,7 +31,7 @@ public class AdElementInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: lN */
+        /* renamed from: lJ */
         public AdElementInfo[] newArray(int i) {
             return new AdElementInfo[i];
         }
@@ -133,7 +133,7 @@ public class AdElementInfo implements Parcelable {
                     if (next.equals("s")) {
                         JSONArray optJSONArray = optJSONObject.optJSONArray(next);
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            vy(optJSONArray.optString(i));
+                            vt(optJSONArray.optString(i));
                         }
                     } else if (next.equals("vskip")) {
                         JSONArray optJSONArray2 = optJSONObject.optJSONArray(next);
@@ -153,12 +153,12 @@ public class AdElementInfo implements Parcelable {
                     } else if (next.equals("click")) {
                         JSONArray optJSONArray5 = optJSONObject.optJSONArray(next);
                         for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
-                            vA(optJSONArray5.optString(i5));
+                            vv(optJSONArray5.optString(i5));
                         }
                     } else if (next.equals("c")) {
                         JSONArray optJSONArray6 = optJSONObject.optJSONArray(next);
                         for (int i6 = 0; i6 < optJSONArray6.length(); i6++) {
-                            vz(optJSONArray6.optString(i6));
+                            vu(optJSONArray6.optString(i6));
                         }
                     }
                 }
@@ -242,7 +242,7 @@ public class AdElementInfo implements Parcelable {
             if (jSONObject.has("click_urls")) {
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("click_urls");
                 for (int i2 = 0; optJSONArray3 != null && i2 < optJSONArray3.length(); i2++) {
-                    vz(optJSONArray3.optString(i2));
+                    vu(optJSONArray3.optString(i2));
                 }
             }
             if (jSONObject.has("video_play_urls")) {
@@ -254,7 +254,7 @@ public class AdElementInfo implements Parcelable {
             if (jSONObject.has("conversion_urls")) {
                 JSONArray optJSONArray5 = jSONObject.optJSONArray("conversion_urls");
                 for (int i4 = 0; optJSONArray5 != null && i4 < optJSONArray5.length(); i4++) {
-                    vB(optJSONArray5.optString(i4));
+                    vw(optJSONArray5.optString(i4));
                 }
             }
             this.mExpire = jSONObject.optInt("expiration", 0);
@@ -343,7 +343,7 @@ public class AdElementInfo implements Parcelable {
         return this.mDescription;
     }
 
-    public String aQz() {
+    public String aPR() {
         return this.mPictureUrl;
     }
 
@@ -359,23 +359,23 @@ public class AdElementInfo implements Parcelable {
         return this.mDuration;
     }
 
-    public int aQA() {
-        return aQD() == 6 ? this.mRewardTime : this.mRewardTimeDefault;
+    public int aPS() {
+        return aPV() == 6 ? this.mRewardTime : this.mRewardTimeDefault;
     }
 
-    public int aQB() {
-        return aQD() == 6 ? this.mSkipTime : this.mSkipTimeDefault;
+    public int aPT() {
+        return aPV() == 6 ? this.mSkipTime : this.mSkipTimeDefault;
     }
 
-    public String aQC() {
+    public String aPU() {
         return this.mEndFrameUrl;
     }
 
-    public int aQD() {
+    public int aPV() {
         return this.mCloseType;
     }
 
-    public String aQE() {
+    public String aPW() {
         return this.mClickUrl;
     }
 
@@ -400,7 +400,7 @@ public class AdElementInfo implements Parcelable {
         return 0;
     }
 
-    public int aQF() {
+    public int aPX() {
         return this.mExpire;
     }
 
@@ -412,23 +412,23 @@ public class AdElementInfo implements Parcelable {
         return this.mVideoHeight;
     }
 
-    public String aQG() {
+    public String aPY() {
         return this.mBannerHtml;
     }
 
-    public String aQH() {
+    public String aPZ() {
         return this.mLandBannerHtml;
     }
 
-    public String aQI() {
+    public String aQa() {
         return this.mEndFrameHtml;
     }
 
-    public List<String> aQJ() {
+    public List<String> aQb() {
         return new ArrayList(this.mImpressionUrls);
     }
 
-    public JSONObject aQK() {
+    public JSONObject aQc() {
         return this.mAdMonitors;
     }
 
@@ -452,17 +452,17 @@ public class AdElementInfo implements Parcelable {
         return new ArrayList(this.mCloseTrackers);
     }
 
-    public List<String> aQL() {
+    public List<String> aQd() {
         return new ArrayList(this.mConversionUrls);
     }
 
-    private void vy(String str) {
+    private void vt(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mThirdImpMonitorTrackers.add(str);
         }
     }
 
-    private void vz(String str) {
+    private void vu(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mThirdClickMonitorTrackers.add(str);
         }
@@ -486,19 +486,19 @@ public class AdElementInfo implements Parcelable {
         }
     }
 
-    private void vA(String str) {
+    private void vv(String str) {
         if (str != null && !str.equals("")) {
             this.mMonitorClickers.add(str);
         }
     }
 
-    private void vB(String str) {
+    private void vw(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mConversionUrls.add(str);
         }
     }
 
-    public boolean aQM() {
+    public boolean aQe() {
         return this.mGdtAd;
     }
 }

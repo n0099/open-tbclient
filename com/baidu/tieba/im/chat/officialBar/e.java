@@ -14,9 +14,9 @@ import com.baidu.tieba.im.chat.j;
 import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class e extends BaseAdapter {
-    private View.OnClickListener jYv = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.e.1
+    private View.OnClickListener jZf = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.e.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue = ((Integer) view.getTag()).intValue();
@@ -123,7 +123,7 @@ public class e extends BaseAdapter {
                     chatMessage2.setMsgType(aVar.type);
                     j.a(this.mContext, historyItemView3, historyItemView4.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     historyItemView4.getImageView().setTag(Integer.valueOf(i));
-                    historyItemView4.getImageView().setOnClickListener(this.jYv);
+                    historyItemView4.getImageView().setOnClickListener(this.jZf);
                     return historyItemView3;
                 case 2:
                     View historyItemView5 = view == null ? new HistoryItemView(this.mContext) : view;
@@ -131,7 +131,7 @@ public class e extends BaseAdapter {
                     multiContentView.setNeedNightMode(true);
                     multiContentView.setTime(aVar.time);
                     multiContentView.setData(this.mActivity.getPageContext(), com.baidu.tieba.im.message.chat.a.c(aVar.content, "", 0L, 0L), viewGroup);
-                    ((HistoryItemView) historyItemView5).cR(multiContentView);
+                    ((HistoryItemView) historyItemView5).cW(multiContentView);
                     return historyItemView5;
                 default:
                     return view;

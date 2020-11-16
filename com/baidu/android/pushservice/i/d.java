@@ -4,11 +4,11 @@ import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    byte[] f1149a = new byte[8];
+    byte[] f1152a = new byte[8];
     private DataInputStream b;
 
     public d(InputStream inputStream) {
@@ -18,7 +18,7 @@ public class d {
     private int a(int i) throws IOException {
         int i2 = 0;
         while (i2 < i) {
-            int read = this.b.read(this.f1149a, i2, i - i2);
+            int read = this.b.read(this.f1152a, i2, i - i2);
             if (read == -1) {
                 return read;
             }
@@ -39,21 +39,21 @@ public class d {
         if (a(4) < 0) {
             throw new EOFException();
         }
-        return ((this.f1149a[3] & 255) << 24) | ((this.f1149a[2] & 255) << 16) | ((this.f1149a[1] & 255) << 8) | (this.f1149a[0] & 255);
+        return ((this.f1152a[3] & 255) << 24) | ((this.f1152a[2] & 255) << 16) | ((this.f1152a[1] & 255) << 8) | (this.f1152a[0] & 255);
     }
 
     public final short c() throws IOException {
         if (a(2) < 0) {
             throw new EOFException();
         }
-        return (short) (((this.f1149a[1] & 255) << 8) | (this.f1149a[0] & 255));
+        return (short) (((this.f1152a[1] & 255) << 8) | (this.f1152a[0] & 255));
     }
 
     public final long d() throws IOException {
         if (a(8) < 0) {
             throw new EOFException();
         }
-        int i = ((this.f1149a[7] & 255) << 24) | ((this.f1149a[6] & 255) << 16) | ((this.f1149a[5] & 255) << 8) | (this.f1149a[4] & 255);
-        return ((((this.f1149a[3] & 255) << 24) | ((this.f1149a[2] & 255) << 16) | ((this.f1149a[1] & 255) << 8) | (this.f1149a[0] & 255)) & 4294967295L) | ((i & 4294967295L) << 32);
+        int i = ((this.f1152a[7] & 255) << 24) | ((this.f1152a[6] & 255) << 16) | ((this.f1152a[5] & 255) << 8) | (this.f1152a[4] & 255);
+        return ((((this.f1152a[3] & 255) << 24) | ((this.f1152a[2] & 255) << 16) | ((this.f1152a[1] & 255) << 8) | (this.f1152a[0] & 255)) & 4294967295L) | ((i & 4294967295L) << 32);
     }
 }

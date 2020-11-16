@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public final class Version {
     private final int[] alignmentPatternCenters;
     private final ECBlocks[] ecBlocks;
@@ -111,7 +111,7 @@ public final class Version {
         return bitMatrix;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static final class ECBlocks {
         private final ECB[] ecBlocks;
         private final int ecCodewordsPerBlock;
@@ -142,7 +142,7 @@ public final class Version {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static final class ECB {
         private final int count;
         private final int dataCodewords;

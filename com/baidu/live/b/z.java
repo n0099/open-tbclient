@@ -8,12 +8,12 @@ public class z extends IntentConfig {
         super(context);
     }
 
-    public void ai(String str, String str2) {
+    public void ah(String str, String str2) {
         getIntent().putExtra("live_id", str);
         getIntent().putExtra("room_id", str2);
     }
 
-    public void ge(String str) {
+    public void fY(String str) {
         getIntent().putExtra("user_key", str);
     }
 }

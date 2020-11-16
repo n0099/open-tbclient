@@ -7,22 +7,22 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class a implements View.OnClickListener {
-    private b fRv;
-    private AccountSafeModel fRw;
+    private b fRd;
+    private AccountSafeModel fRe;
     private final BaseActivity mActivity;
     private com.baidu.adp.framework.listener.a mNetMessagelistener = new com.baidu.adp.framework.listener.a(1002501, CmdConfigSocket.CMD_GET_PRIVATE_INFO) { // from class: com.baidu.tieba.account.safeManage.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
-            if (a.this.fRw != null) {
-                a.this.fRw.setLoading(false);
+            if (a.this.fRe != null) {
+                a.this.fRe.setLoading(false);
             }
             a.this.mActivity.closeLoadingDialog();
             if (responsedMessage != null) {
@@ -42,11 +42,11 @@ public class a implements View.OnClickListener {
                 if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                     aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                 }
-                if (a.this.fRw != null) {
-                    a.this.fRw.a(aVar);
+                if (a.this.fRe != null) {
+                    a.this.fRe.a(aVar);
                 }
-                if (a.this.fRv != null && a.this.fRw != null && a.this.fRw.bJe() != null) {
-                    a.this.fRv.a(a.this.fRw.bJe().bJi());
+                if (a.this.fRd != null && a.this.fRe != null && a.this.fRe.bIy() != null) {
+                    a.this.fRd.a(a.this.fRe.bIy().bIC());
                 }
             }
         }
@@ -55,38 +55,38 @@ public class a implements View.OnClickListener {
     public a(BaseActivity baseActivity) {
         this.mActivity = baseActivity;
         this.mActivity.registerListener(this.mNetMessagelistener);
-        this.fRv = new b(this.mActivity, this);
-        this.fRw = new AccountSafeModel(this.mActivity);
+        this.fRd = new b(this.mActivity, this);
+        this.fRe = new AccountSafeModel(this.mActivity);
         if (j.isNetWorkAvailable()) {
-            bJj();
+            bID();
         } else {
             this.mActivity.showToast(R.string.neterror);
         }
     }
 
     public View getRootView() {
-        return this.fRv.getView();
+        return this.fRd.getView();
     }
 
-    private void bJj() {
-        if (this.fRw != null && !this.fRw.isLoading()) {
-            this.fRw.bJg();
+    private void bID() {
+        if (this.fRe != null && !this.fRe.isLoading()) {
+            this.fRe.bIA();
         }
     }
 
     public void onDestroy() {
         this.mActivity.closeLoadingDialog();
-        if (this.fRw != null) {
-            this.fRw.cancelLoadData();
+        if (this.fRe != null) {
+            this.fRe.cancelLoadData();
         }
-        if (this.fRv != null) {
-            this.fRv.release();
+        if (this.fRd != null) {
+            this.fRd.release();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fRv != null) {
-            this.fRv.qZ(i);
+        if (this.fRd != null) {
+            this.fRd.rx(i);
         }
     }
 
@@ -97,10 +97,10 @@ public class a implements View.OnClickListener {
             if (!j.isNetWorkAvailable()) {
                 this.mActivity.showToast(R.string.neterror);
             } else {
-                be.brr().b(this.mActivity.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
+                bf.bqF().b(this.mActivity.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
             }
         } else if (view.getId() == R.id.account_status) {
-            AntiHelper.bn(this.mActivity, this.fRw != null ? this.fRw.Ei() : "");
+            AntiHelper.bk(this.mActivity, this.fRe != null ? this.fRe.Dz() : "");
         }
     }
 }

@@ -1,23 +1,23 @@
 package com.baidu.swan.games.b;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class g {
-    public String dQA;
-    public int dQB;
+    public String dOS;
+    public int dOT;
     public long interval;
     public int state;
 
-    public static g cs(JSONObject jSONObject) {
+    public static g cm(JSONObject jSONObject) {
         g gVar = new g();
         gVar.state = jSONObject.optInt("state");
-        gVar.dQA = jSONObject.optString("msg");
-        gVar.dQB = jSONObject.optInt("switch_open");
+        gVar.dOS = jSONObject.optString("msg");
+        gVar.dOT = jSONObject.optInt("switch_open");
         gVar.interval = jSONObject.optLong("heartbeat_time");
         return gVar;
     }
 
     public String toString() {
-        return "UpUseTimeModel{state=" + this.state + ", limit='" + this.dQA + "', open=" + this.dQB + ", interval=" + this.interval + '}';
+        return "UpUseTimeModel{state=" + this.state + ", limit='" + this.dOS + "', open=" + this.dOT + ", interval=" + this.interval + '}';
     }
 }

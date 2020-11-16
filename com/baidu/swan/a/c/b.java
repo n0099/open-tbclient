@@ -8,11 +8,11 @@ import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class b {
     @NonNull
     public static HttpRequestBuilder d(@NonNull com.baidu.swan.a.b.a aVar) {
-        HttpCommonRequestBuilder baO;
+        HttpCommonRequestBuilder bah;
         String str = aVar.method;
         char c = 65535;
         switch (str.hashCode()) {
@@ -67,34 +67,34 @@ public class b {
         }
         switch (c) {
             case 0:
-                return a.baK().getRequest();
+                return a.bad().getRequest();
             case 1:
-                return a.baK().headerRequest();
+                return a.bad().headerRequest();
             case 2:
-                baO = a.baK().baM();
+                bah = a.bad().baf();
                 break;
             case 3:
-                baO = a.baK().postRequest();
+                bah = a.bad().postRequest();
                 break;
             case 4:
-                baO = a.baK().putRequest();
+                bah = a.bad().putRequest();
                 break;
             case 5:
-                baO = a.baK().deleteRequest();
+                bah = a.bad().deleteRequest();
                 break;
             case 6:
-                baO = a.baK().baN();
+                bah = a.bad().bag();
                 break;
             case 7:
-                baO = a.baK().baO();
+                bah = a.bad().bah();
                 break;
             default:
-                return a.baK().getRequest();
+                return a.bad().getRequest();
         }
         if (aVar.requestBody != null) {
-            baO.requestBody(aVar.requestBody);
-            return baO;
+            bah.requestBody(aVar.requestBody);
+            return bah;
         }
-        return baO;
+        return bah;
     }
 }

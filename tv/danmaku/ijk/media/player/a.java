@@ -2,19 +2,18 @@ package tv.danmaku.ijk.media.player;
 
 import tv.danmaku.ijk.media.player.b;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes16.dex */
+/* loaded from: classes18.dex */
 public abstract class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private b.f f5403a;
-    private b.InterfaceC1127b b;
+    private b.e f5403a;
+    private b.InterfaceC1130b b;
     private b.a c;
-    private b.g d;
-    private b.i e;
+    private b.f d;
+    private b.h e;
     private b.c f;
     private b.d g;
-    private b.h h;
-    private b.e i;
+    private b.g h;
 
     public void a() {
         this.f5403a = null;
@@ -25,7 +24,6 @@ public abstract class a implements b {
         this.f = null;
         this.g = null;
         this.h = null;
-        this.i = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -42,15 +40,12 @@ public abstract class a implements b {
         }
     }
 
-    public void a(String str) {
-    }
-
     public final void a(b.a aVar) {
         this.c = aVar;
     }
 
-    public final void a(b.InterfaceC1127b interfaceC1127b) {
-        this.b = interfaceC1127b;
+    public final void a(b.InterfaceC1130b interfaceC1130b) {
+        this.b = interfaceC1130b;
     }
 
     public final void a(b.c cVar) {
@@ -62,19 +57,15 @@ public abstract class a implements b {
     }
 
     public final void a(b.e eVar) {
-        this.i = eVar;
+        this.f5403a = eVar;
     }
 
     public final void a(b.f fVar) {
-        this.f5403a = fVar;
+        this.d = fVar;
     }
 
-    public final void a(b.g gVar) {
-        this.d = gVar;
-    }
-
-    public final void a(b.i iVar) {
-        this.e = iVar;
+    public final void a(b.h hVar) {
+        this.e = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -106,11 +97,6 @@ public abstract class a implements b {
         if (this.b != null) {
             this.b.b(this);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean c(int i, int i2, Object obj) {
-        return this.i != null && this.i.c(this, i, i2, obj);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -14,7 +14,7 @@ import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDial
 import com.baidu.swan.bdprivate.extensions.quicklogin.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void a(Activity activity, String str, e eVar);
 
@@ -22,9 +22,9 @@ public interface a {
 
     void a(Context context, Bundle bundle, com.baidu.swan.apps.a.a aVar);
 
-    void a(Context context, a.InterfaceC0502a interfaceC0502a);
+    void a(Context context, a.InterfaceC0500a interfaceC0500a);
 
-    void a(Context context, a.InterfaceC0504a interfaceC0504a);
+    void a(Context context, a.InterfaceC0502a interfaceC0502a);
 
     void a(Context context, SwanAppPhoneLoginDialog.a aVar, String str);
 

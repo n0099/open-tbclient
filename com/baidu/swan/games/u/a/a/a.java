@@ -9,16 +9,16 @@ import com.baidu.swan.apps.core.d.f;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public abstract class a extends aa {
-    private final String dYZ;
+    private final String dXr;
 
     abstract boolean a(@NonNull com.baidu.swan.games.u.a.b.a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(j jVar, String str, String str2) {
         super(jVar, str);
-        this.dYZ = str2;
+        this.dXr = str2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,18 +28,18 @@ public abstract class a extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        f afM = com.baidu.swan.apps.v.f.azO().afM();
-        if (afM == null) {
-            com.baidu.swan.apps.console.c.e(this.dYZ, "fragment manager is null");
+        f afe = com.baidu.swan.apps.v.f.azg().afe();
+        if (afe == null) {
+            com.baidu.swan.apps.console.c.e(this.dXr, "fragment manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.games.u.a.b.b bVar = (com.baidu.swan.games.u.a.b.b) afM.q(com.baidu.swan.apps.core.d.j.class);
+        com.baidu.swan.games.u.a.b.b bVar = (com.baidu.swan.games.u.a.b.b) afe.q(com.baidu.swan.apps.core.d.j.class);
         if (bVar == null) {
-            com.baidu.swan.apps.console.c.e(this.dYZ, "fragment is null");
+            com.baidu.swan.apps.console.c.e(this.dXr, "fragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        return a(bVar.apz(), unitedSchemeEntity, callbackHandler);
+        return a(bVar.aoQ(), unitedSchemeEntity, callbackHandler);
     }
 }

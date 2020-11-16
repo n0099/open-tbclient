@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
 
     /* renamed from: a  reason: collision with root package name */

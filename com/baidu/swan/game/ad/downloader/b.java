@@ -22,17 +22,17 @@ import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class b extends com.baidu.swan.apps.process.a.a.a {
-    private AdDownloadService.a dMf;
+    private static final String cZl = AppRuntime.getAppContext().getPackageName();
+    private static boolean dKy = false;
+    private AdDownloadService.a dKx;
     private Bundle mParams;
-    private static final String daV = AppRuntime.getAppContext().getPackageName();
-    private static boolean dMg = false;
-    private boolean daX = false;
-    private ServiceConnection SA = new ServiceConnection() { // from class: com.baidu.swan.game.ad.downloader.b.1
+    private boolean cZn = false;
+    private ServiceConnection SB = new ServiceConnection() { // from class: com.baidu.swan.game.ad.downloader.b.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            b.this.dMf = (AdDownloadService.a) iBinder;
+            b.this.dKx = (AdDownloadService.a) iBinder;
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.d("AdDownload", "service connected");
             }
@@ -41,7 +41,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            b.this.dMf = null;
+            b.this.dKx = null;
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.d("AdDownload", "service disconnected");
             }
@@ -52,54 +52,54 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
     public void y(@NonNull Bundle bundle) {
         this.mParams = bundle;
         if (SwanAppDownloadAction.SwanAppDownloadType.find(bundle.getString("type")) == SwanAppDownloadAction.SwanAppDownloadType.TYPE_STOP_SERVICE) {
-            aQf();
+            aPx();
             return;
         }
-        aQe();
-        aQg();
+        aPw();
+        aPy();
     }
 
-    public void aQe() {
-        if (!dMg) {
+    public void aPw() {
+        if (!dKy) {
             Context context = getContext();
             Intent intent = new Intent();
             intent.setAction("com.baidu.swan.game.ad.downloader.core.AdDownloadService");
-            intent.setPackage(daV);
+            intent.setPackage(cZl);
             context.startService(intent);
-            dMg = true;
+            dKy = true;
         }
     }
 
-    public void aQf() {
-        if (dMg) {
+    public void aPx() {
+        if (dKy) {
             Context context = getContext();
             Intent intent = new Intent();
             intent.setAction("com.baidu.swan.game.ad.downloader.core.AdDownloadService");
-            intent.setPackage(daV);
+            intent.setPackage(cZl);
             context.stopService(intent);
-            dMg = false;
+            dKy = false;
         }
     }
 
-    public void aQg() {
-        if (!this.daX) {
-            this.daX = true;
+    public void aPy() {
+        if (!this.cZn) {
+            this.cZn = true;
             Context context = getContext();
             Intent intent = new Intent();
             intent.setAction("com.baidu.swan.game.ad.downloader.core.AdDownloadService");
-            intent.setPackage(daV);
-            context.bindService(intent, this.SA, 128);
+            intent.setPackage(cZl);
+            context.bindService(intent, this.SB, 128);
         }
     }
 
-    public void aQh() {
-        if (this.daX) {
-            this.daX = false;
+    public void aPz() {
+        if (this.cZn) {
+            this.cZn = false;
             Context context = getContext();
             Intent intent = new Intent();
             intent.setAction("com.baidu.swan.game.ad.downloader.core.AdDownloadService");
-            intent.setPackage(daV);
-            context.unbindService(this.SA);
+            intent.setPackage(cZl);
+            context.unbindService(this.SB);
         }
     }
 
@@ -108,30 +108,30 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
             SwanAppDownloadAction.SwanAppDownloadType find = SwanAppDownloadAction.SwanAppDownloadType.find(bundle.getString("type"));
             JSONObject parseString = v.parseString(bundle.getString(PushConstants.PARAMS, null));
             String optString = parseString.optString("url");
-            if (!TextUtils.isEmpty(optString) && this.dMf != null) {
+            if (!TextUtils.isEmpty(optString) && this.dKx != null) {
                 switch (find) {
                     case TYPE_QUERY_STATUS:
-                        y(parseString, optString);
+                        v(parseString, optString);
                         break;
                     case TYPE_START_DOWNLOAD:
-                        z(parseString, optString);
+                        w(parseString, optString);
                         break;
                     case TYPE_PAUSE_DOWNLOAD:
-                        vk(optString);
+                        vf(optString);
                         break;
                     case TYPE_CANCEL_DOWNLOAD:
-                        vo(optString);
+                        vj(optString);
                         break;
                     case TYPE_RESUME_DOWNLOAD:
-                        vp(optString);
+                        vk(optString);
                         break;
                     case TYPE_INSTALL_APP:
-                        A(parseString, optString);
+                        x(parseString, optString);
                         break;
                 }
             }
         } catch (Exception e) {
-            aQi();
+            aPA();
         }
     }
 
@@ -148,17 +148,17 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         return str;
     }
 
-    private void y(@NonNull JSONObject jSONObject, @NonNull String str) {
-        DownloadInfo vr = this.dMf.vr(str);
+    private void v(@NonNull JSONObject jSONObject, @NonNull String str) {
+        DownloadInfo vm = this.dKx.vm(str);
         int value = SwanAdDownloadState.NOT_START.value();
         int parseInt = Integer.parseInt("0");
-        if (vr == null) {
+        if (vm == null) {
             ax(value, parseInt);
             return;
         }
-        long progress = vr.getProgress();
-        long size = vr.getSize();
-        switch (SwanAdDownloadState.convert(vr.getStatus())) {
+        long progress = vm.getProgress();
+        long size = vm.getSize();
+        switch (SwanAdDownloadState.convert(vm.getStatus())) {
             case NOT_START:
             case WAIT:
             case PREPARE_DOWNLOAD:
@@ -189,45 +189,45 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         ax(value, parseInt);
     }
 
-    private void z(@NonNull JSONObject jSONObject, @NonNull String str) {
-        DownloadInfo vr = this.dMf.vr(str);
+    private void w(@NonNull JSONObject jSONObject, @NonNull String str) {
+        DownloadInfo vm = this.dKx.vm(str);
         String optString = jSONObject.optString("name");
         String downloadDir = getDownloadDir();
         if (TextUtils.isEmpty(downloadDir)) {
-            aQi();
+            aPA();
             return;
         }
         String concat = new File(downloadDir).getAbsolutePath().concat("/").concat(String.valueOf(str.hashCode()) + ".apk");
-        if (vr == null) {
-            vr = new DownloadInfo.a().vu(str).vv(concat).vw(optString).aQu();
+        if (vm == null) {
+            vm = new DownloadInfo.a().vp(str).vq(concat).vr(optString).aPM();
         }
-        vr.setDownloadListener(new a(optString, str));
-        this.dMf.a(vr);
+        vm.setDownloadListener(new a(optString, str));
+        this.dKx.a(vm);
     }
 
-    private void aQi() {
+    private void aPA() {
         ax(SwanAdDownloadState.DOWNLOAD_FAILED.value(), Integer.parseInt("0"));
     }
 
+    private void vf(@NonNull String str) {
+        this.dKx.b(this.dKx.vm(str));
+    }
+
+    private void vj(@NonNull String str) {
+        this.dKx.c(this.dKx.vm(str));
+    }
+
     private void vk(@NonNull String str) {
-        this.dMf.b(this.dMf.vr(str));
-    }
-
-    private void vo(@NonNull String str) {
-        this.dMf.c(this.dMf.vr(str));
-    }
-
-    private void vp(@NonNull String str) {
-        this.dMf.d(this.dMf.vr(str));
+        this.dKx.d(this.dKx.vm(str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String vq(@NonNull String str) {
-        return this.dMf.vr(str).getPackageName();
+    public String vl(@NonNull String str) {
+        return this.dKx.vm(str).getPackageName();
     }
 
-    private void A(@NonNull JSONObject jSONObject, @NonNull String str) {
-        e.aj(this.dMf.vr(str).getPath(), false);
+    private void x(@NonNull JSONObject jSONObject, @NonNull String str) {
+        e.aj(this.dKx.vm(str).getPath(), false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -235,12 +235,12 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         com.baidu.swan.apps.runtime.d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.game.ad.downloader.b.2
             @Override // java.lang.Runnable
             public void run() {
-                b.this.dlj.putInt("state", i);
-                b.this.dlj.putInt("progress", i2);
+                b.this.djC.putInt("state", i);
+                b.this.djC.putInt("progress", i2);
                 b.this.finish();
             }
         });
-        aQh();
+        aPz();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -248,7 +248,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         com.baidu.swan.apps.runtime.d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.game.ad.downloader.b.3
             @Override // java.lang.Runnable
             public void run() {
-                b.this.dlj.putString("packageName", str);
+                b.this.djC.putString("packageName", str);
                 b.this.finish();
             }
         });
@@ -264,7 +264,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public class a implements com.baidu.swan.game.ad.downloader.c.b {
         private final String packageName;
         private final String url;
@@ -283,7 +283,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         }
 
         @Override // com.baidu.swan.game.ad.downloader.c.b
-        public void aQj() {
+        public void aPB() {
             b.this.ax(SwanAdDownloadState.NOT_START.value(), Integer.parseInt("0"));
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.d("AdDownload", "下载等待");
@@ -309,7 +309,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         }
 
         @Override // com.baidu.swan.game.ad.downloader.c.b
-        public void aQk() {
+        public void aPC() {
             b.this.ax(SwanAdDownloadState.DELETED.value(), Integer.parseInt("0"));
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.d("AdDownload", "下载移除");
@@ -317,22 +317,22 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         }
 
         @Override // com.baidu.swan.game.ad.downloader.c.b
-        public void aQl() {
+        public void aPD() {
             b.this.ax(SwanAdDownloadState.DOWNLOADED.value(), Integer.parseInt("100"));
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.d("AdDownload", "下载完成");
             }
             String str = this.packageName;
             if (TextUtils.isEmpty(this.packageName) && this.url != null) {
-                str = b.this.vq(this.url);
+                str = b.this.vl(this.url);
                 b.this.setPackageName(str);
             }
             if (!TextUtils.isEmpty(str)) {
                 Uri parse = Uri.parse(this.url);
                 final com.baidu.swan.game.ad.downloader.c.c a2 = com.baidu.swan.game.ad.downloader.core.a.a(b.this.getContext(), null);
-                a2.a(str, parse, new a.AbstractC0520a<Boolean>() { // from class: com.baidu.swan.game.ad.downloader.b.a.1
+                a2.a(str, parse, new a.AbstractC0518a<Boolean>() { // from class: com.baidu.swan.game.ad.downloader.b.a.1
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.swan.game.ad.downloader.core.a.AbstractC0520a
+                    @Override // com.baidu.swan.game.ad.downloader.core.a.AbstractC0518a
                     /* renamed from: k */
                     public void onResult(Boolean bool) {
                         super.onResult(bool);
@@ -340,7 +340,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
                             if (com.baidu.swan.apps.b.DEBUG) {
                                 Log.d("AdDownload", "安装完成");
                             }
-                            a2.i(a2.vr(a.this.url));
+                            a2.i(a2.vm(a.this.url));
                             b.this.ax(SwanAdDownloadState.INSTALLED.value(), Integer.parseInt("100"));
                         }
                     }

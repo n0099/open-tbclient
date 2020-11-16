@@ -7,28 +7,28 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
 public class f {
-    private RelativeLayout jVp;
-    private final ConcurrentHashMap<String, ConnectionLineView> odV = new ConcurrentHashMap<>();
-    private final ConcurrentHashMap<String, Boolean> odW = new ConcurrentHashMap<>();
-    private a odX;
+    private RelativeLayout jVZ;
+    private a ofB;
+    private final ConcurrentHashMap<String, ConnectionLineView> ofz = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, Boolean> ofA = new ConcurrentHashMap<>();
 
     /* loaded from: classes4.dex */
     public interface a {
-        void VK(String str);
+        void Vv(String str);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0032, code lost:
-        if (r8.jVp.indexOfChild(r8.odV.get(r1)) == (-1)) goto L16;
+        if (r8.jVZ.indexOfChild(r8.ofz.get(r1)) == (-1)) goto L16;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void a(int[] iArr, RelativeLayout relativeLayout, double[] dArr, double[] dArr2, int i) {
         if (dArr[0] != dArr2[0] || dArr[1] != dArr2[1]) {
-            String k = k(iArr);
-            if (this.odV.containsKey(k)) {
+            String n = n(iArr);
+            if (this.ofz.containsKey(n)) {
             }
-            this.jVp = relativeLayout;
+            this.jVZ = relativeLayout;
             ConnectionLineView connectionLineView = new ConnectionLineView(relativeLayout.getContext());
             int a2 = (int) a(dArr, dArr2);
             connectionLineView.setLayoutParams(new RelativeLayout.LayoutParams(a2 - com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(52.0f, relativeLayout.getContext()), -2));
@@ -41,32 +41,32 @@ public class f {
             }
             connectionLineView.setRotation(b);
             relativeLayout.addView(connectionLineView, i + 1);
-            this.odV.put(k, connectionLineView);
-            if (this.odX != null) {
-                this.odX.VK(k);
+            this.ofz.put(n, connectionLineView);
+            if (this.ofB != null) {
+                this.ofB.Vv(n);
             }
         }
     }
 
-    public synchronized void VI(String str) {
-        if (!ListUtils.isEmpty(this.odV) && this.odV.containsKey(str)) {
-            ConnectionLineView connectionLineView = this.odV.get(str);
-            if (connectionLineView != null && this.jVp.indexOfChild(connectionLineView) != -1) {
-                this.jVp.removeView(connectionLineView);
+    public synchronized void Vt(String str) {
+        if (!ListUtils.isEmpty(this.ofz) && this.ofz.containsKey(str)) {
+            ConnectionLineView connectionLineView = this.ofz.get(str);
+            if (connectionLineView != null && this.jVZ.indexOfChild(connectionLineView) != -1) {
+                this.jVZ.removeView(connectionLineView);
             }
-            this.odV.remove(str);
+            this.ofz.remove(str);
         }
     }
 
-    public synchronized void dZm() {
-        if (!ListUtils.isEmpty(this.odV)) {
-            for (Map.Entry<String, ConnectionLineView> entry : this.odV.entrySet()) {
-                VI(entry.getKey());
+    public synchronized void dZl() {
+        if (!ListUtils.isEmpty(this.ofz)) {
+            for (Map.Entry<String, ConnectionLineView> entry : this.ofz.entrySet()) {
+                Vt(entry.getKey());
             }
         }
     }
 
-    public String k(int[] iArr) {
+    public String n(int[] iArr) {
         return (iArr == null || iArr.length != 2) ? "" : Integer.toString(iArr[0]) + Integer.toString(iArr[1]);
     }
 
@@ -81,40 +81,40 @@ public class f {
     }
 
     private double[] a(int i, double[] dArr, double[] dArr2) {
-        return new double[]{((dArr[0] + dArr2[0]) - i) / 2.0d, ((dArr[1] + dArr2[1]) / 2.0d) - com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(11.0f, this.jVp.getContext())};
+        return new double[]{((dArr[0] + dArr2[0]) - i) / 2.0d, ((dArr[1] + dArr2[1]) / 2.0d) - com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(11.0f, this.jVZ.getContext())};
     }
 
     public void a(a aVar) {
-        this.odX = aVar;
+        this.ofB = aVar;
     }
 
-    public synchronized void l(int[] iArr) {
+    public synchronized void o(int[] iArr) {
         ConnectionLineView connectionLineView;
-        if (!ListUtils.isEmpty(this.odV) && (connectionLineView = this.odV.get(k(iArr))) != null) {
-            connectionLineView.eax();
+        if (!ListUtils.isEmpty(this.ofz) && (connectionLineView = this.ofz.get(n(iArr))) != null) {
+            connectionLineView.eaw();
         }
     }
 
-    public ConcurrentHashMap<String, ConnectionLineView> dZn() {
-        return this.odV;
+    public ConcurrentHashMap<String, ConnectionLineView> dZm() {
+        return this.ofz;
     }
 
     public synchronized void bh(String str, boolean z) {
-        if (this.odW != null) {
-            if (this.odW.containsKey(str)) {
-                this.odW.remove(str);
+        if (this.ofA != null) {
+            if (this.ofA.containsKey(str)) {
+                this.ofA.remove(str);
             }
-            this.odW.put(str, Boolean.valueOf(z));
+            this.ofA.put(str, Boolean.valueOf(z));
         }
     }
 
-    public synchronized boolean VJ(String str) {
-        return (this.odW == null || !this.odW.containsKey(str)) ? false : this.odW.get(str).booleanValue();
+    public synchronized boolean Vu(String str) {
+        return (this.ofA == null || !this.ofA.containsKey(str)) ? false : this.ofA.get(str).booleanValue();
     }
 
-    public synchronized void dZo() {
-        if (this.odW != null) {
-            this.odW.clear();
+    public synchronized void dZn() {
+        if (this.ofA != null) {
+            this.ofA.clear();
         }
     }
 }

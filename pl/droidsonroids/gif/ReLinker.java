@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 class ReLinker {
     private static final int COPY_BUFFER_SIZE = 8192;
     private static final String LIB_DIR = "lib";

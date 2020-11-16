@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class b {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void e(byte[] bArr);
     }

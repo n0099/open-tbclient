@@ -4,12 +4,12 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public c() {
-        b.aCW().reset();
+        b.aCo().reset();
         if (DEBUG) {
             Log.d("MaUpdateReporter", "MaUpdateReporter init - " + System.currentTimeMillis());
         }
@@ -23,39 +23,39 @@ public class c implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
             Log.i("MaUpdateReporter", "report: flow=" + hybridUbcFlow);
         }
         if (hybridUbcFlow != null) {
-            final UbcFlowEvent qQ = hybridUbcFlow.qQ("naStart");
-            final UbcFlowEvent qQ2 = hybridUbcFlow.qQ("na_first_meaningful_paint");
-            if (qQ == null || qQ2 == null) {
+            final UbcFlowEvent qK = hybridUbcFlow.qK("naStart");
+            final UbcFlowEvent qK2 = hybridUbcFlow.qK("na_first_meaningful_paint");
+            if (qK == null || qK2 == null) {
                 if (DEBUG) {
-                    if (qQ == null) {
+                    if (qK == null) {
                         Log.w("MaUpdateReporter", "MaUpdateReporter: na_start = null !!!");
                     } else {
                         Log.w("MaUpdateReporter", "MaUpdateReporter: na_first_meaningful_paint = null !!!");
                     }
                 }
-                b.aCW().done();
+                b.aCo().done();
                 return;
             }
-            b.aCW().a(new a() { // from class: com.baidu.swan.apps.network.c.c.c.1
+            b.aCo().a(new a() { // from class: com.baidu.swan.apps.network.c.c.c.1
                 @Override // com.baidu.swan.apps.network.c.c.a
                 public boolean a(d dVar) {
                     if (dVar != null) {
-                        return c.this.a(dVar, qQ, qQ2);
+                        return c.this.a(dVar, qK, qK2);
                     }
                     return false;
                 }
             });
-            b.aCW().b(hybridUbcFlow);
+            b.aCo().b(hybridUbcFlow);
             if (DEBUG) {
-                Log.d("MaUpdateReporter", "na_start ts - " + qQ.aDK());
-                Log.d("MaUpdateReporter", "fmp_end ts - " + qQ2.aDK());
+                Log.d("MaUpdateReporter", "na_start ts - " + qK.aDc());
+                Log.d("MaUpdateReporter", "fmp_end ts - " + qK2.aDc());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(@NonNull d dVar, @NonNull UbcFlowEvent ubcFlowEvent, @NonNull UbcFlowEvent ubcFlowEvent2) {
-        long aCY = dVar.aCY();
-        return aCY >= ubcFlowEvent.aDK() && aCY <= ubcFlowEvent2.aDK();
+        long aCq = dVar.aCq();
+        return aCq >= ubcFlowEvent.aDc() && aCq <= ubcFlowEvent2.aDc();
     }
 }

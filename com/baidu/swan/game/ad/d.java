@@ -7,17 +7,17 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.swan.game.ad.c;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class d extends b {
-    private boolean dLK;
+    private boolean dKc;
 
     public d(Context context, AdElementInfo adElementInfo, com.baidu.swan.game.ad.jsbridge.a aVar) {
         super(context, adElementInfo, aVar);
-        this.dLK = false;
+        this.dKc = false;
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public View aPQ() {
+    public View aPi() {
         return LayoutInflater.from(this.mContext).inflate(c.f.ng_game_land_play, (ViewGroup) null);
     }
 
@@ -25,14 +25,14 @@ public class d extends b {
     public void a(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
         int videoWidth = adElementInfo.getVideoWidth();
         int videoHeight = adElementInfo.getVideoHeight();
-        this.chr = com.baidu.swan.games.view.a.c.aYi();
-        this.chs = com.baidu.swan.games.view.a.c.aYj();
+        this.cfG = com.baidu.swan.games.view.a.c.aXA();
+        this.cfH = com.baidu.swan.games.view.a.c.aXB();
         if (videoWidth < videoHeight) {
-            this.dLK = true;
-            int i = (int) (((this.chr - videoWidth) / 2) * 0.8d);
-            int i2 = (int) (((this.chr - videoWidth) / 2) * 0.1d);
+            this.dKc = true;
+            int i = (int) (((this.cfG - videoWidth) / 2) * 0.8d);
+            int i2 = (int) (((this.cfG - videoWidth) / 2) * 0.1d);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, i);
-            layoutParams.leftMargin = (this.chr - i) - i2;
+            layoutParams.leftMargin = (this.cfG - i) - i2;
             layoutParams.addRule(15);
             layoutParams.removeRule(13);
             layoutParams.removeRule(12);
@@ -43,7 +43,7 @@ public class d extends b {
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public String aPR() {
-        return this.dLK ? "reward_banner_land_html" : "reward_banner_html";
+    public String aPj() {
+        return this.dKc ? "reward_banner_land_html" : "reward_banner_html";
     }
 }

@@ -15,30 +15,30 @@ import com.baidu.tieba.person.a.e;
 import com.baidu.tieba.person.a.f;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class d extends af.a {
-    public int ajq;
-    public TextView evg;
-    public View jBh;
-    public HTypeListView lUB;
-    public e lUC;
+    public int ajv;
+    public TextView etx;
+    public View jDj;
+    public HTypeListView lUT;
+    public e lUU;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.ajq = 3;
+        this.ajv = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.jBh = view.findViewById(R.id.divider_view_under_photo_album);
-        this.evg = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.lUB = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.lUC = new e(this.mPageContext, this.lUB);
+        this.jDj = view.findViewById(R.id.divider_view_under_photo_album);
+        this.etx = (TextView) view.findViewById(R.id.text_view_photo_album);
+        this.lUT = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.lUU = new e(this.mPageContext, this.lUT);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.lUC.setDatas(fi(fVar.getPhotoAlbum()));
+            this.lUU.setDatas(fi(fVar.getPhotoAlbum()));
         }
     }
 
@@ -53,13 +53,13 @@ public class d extends af.a {
         return list;
     }
 
-    public void dtq() {
-        if (this.ajq != TbadkCoreApplication.getInst().getSkinType()) {
-            this.ajq = TbadkCoreApplication.getInst().getSkinType();
-            ap.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-            ap.setBackgroundColor(this.jBh, R.color.cp_bg_line_c);
-            ap.setViewTextColor(this.evg, R.color.cp_cont_d, 1);
-            this.lUC.notifyDataSetChanged();
+    public void dsQ() {
+        if (this.ajv != TbadkCoreApplication.getInst().getSkinType()) {
+            this.ajv = TbadkCoreApplication.getInst().getSkinType();
+            ap.setBackgroundColor(this.rootView, R.color.CAM_X0201);
+            ap.setBackgroundColor(this.jDj, R.color.CAM_X0204);
+            ap.setViewTextColor(this.etx, R.color.CAM_X0109, 1);
+            this.lUU.notifyDataSetChanged();
         }
     }
 }

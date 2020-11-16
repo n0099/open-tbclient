@@ -6,7 +6,7 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class ObservableScalarXMap {
     public static <T, R> boolean a(t<T> tVar, u<? super R> uVar, h<? super T, ? extends t<? extends R>> hVar) {
         if (tVar instanceof Callable) {
@@ -51,7 +51,7 @@ public final class ObservableScalarXMap {
         return false;
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class ScalarDisposable<T> extends AtomicInteger implements io.reactivex.internal.a.b<T>, Runnable {
         static final int FUSED = 1;
         static final int ON_COMPLETE = 3;

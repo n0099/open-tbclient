@@ -2,7 +2,7 @@ package com.alibaba.fastjson.serializer;
 
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class SimplePropertyPreFilter implements PropertyPreFilter {
     private final Class<?> clazz;
     private final Set<String> excludes;

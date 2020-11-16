@@ -1,5 +1,5 @@
 package com.google.vr.dynamite.client;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class c extends Exception {
 
     /* renamed from: a  reason: collision with root package name */

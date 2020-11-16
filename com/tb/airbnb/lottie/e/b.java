@@ -1,7 +1,7 @@
 package com.tb.airbnb.lottie.e;
 
 import android.support.annotation.RestrictTo;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class b<T> {
     private float Bo;
     private float Bp;

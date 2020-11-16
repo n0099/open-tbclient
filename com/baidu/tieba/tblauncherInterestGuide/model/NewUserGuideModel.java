@@ -13,16 +13,16 @@ import com.baidu.tbadk.core.util.aa;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 import java.lang.ref.WeakReference;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int LIMIT = 100;
     public static final int OFFSET = 0;
-    private static final String neT = TbConfig.SERVER_ADDRESS + Config.INTERESTS_FRS_URL;
-    private boolean neU;
-    private InterestFrsData neV;
-    private a neW;
+    private static final String nfU = TbConfig.SERVER_ADDRESS + Config.INTERESTS_FRS_URL;
+    private boolean nfV;
+    private InterestFrsData nfW;
+    private a nfX;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public interface b {
         void a(InterestFrsData interestFrsData);
 
@@ -33,30 +33,30 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         super(baseFragmentActivity.getPageContext());
     }
 
-    public boolean dMH() {
-        return this.neU;
+    public boolean dMG() {
+        return this.nfV;
     }
 
-    public void xK(boolean z) {
-        this.neU = z;
+    public void xR(boolean z) {
+        this.nfV = z;
     }
 
-    public InterestFrsData dMI() {
-        return this.neV;
+    public InterestFrsData dMH() {
+        return this.nfW;
     }
 
     public void e(InterestFrsData interestFrsData) {
-        this.neV = interestFrsData;
+        this.nfW = interestFrsData;
     }
 
     public void a(int i, int i2, int i3, b bVar) {
-        this.neW = new a(i, i2, i3, bVar);
-        this.neW.execute(new Void[0]);
+        this.nfX = new a(i, i2, i3, bVar);
+        this.nfX.execute(new Void[0]);
     }
 
-    public void dMJ() {
-        if (this.neW != null) {
-            this.neW.cancel();
+    public void dMI() {
+        if (this.nfX != null) {
+            this.nfX.cancel();
         }
     }
 
@@ -71,10 +71,10 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public static class a extends BdAsyncTask<Void, Void, InterestFrsData> {
         private int limit;
-        private WeakReference<b> lln;
+        private WeakReference<b> llD;
         private int offset;
         private int userType;
 
@@ -82,7 +82,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
             this.userType = i;
             this.offset = i2;
             this.limit = i3;
-            this.lln = new WeakReference<>(bVar);
+            this.llD = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -91,12 +91,12 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: p */
         public InterestFrsData doInBackground(Void... voidArr) {
-            aa aaVar = new aa(NewUserGuideModel.neT);
+            aa aaVar = new aa(NewUserGuideModel.nfU);
             aaVar.addPostData("user_type", String.valueOf(this.userType));
             aaVar.addPostData("offset", String.valueOf(this.offset));
             aaVar.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(this.limit));
             String postNetData = aaVar.postNetData();
-            if (aaVar.bqN().bru().isRequestSuccess()) {
+            if (aaVar.bqa().bqI().isRequestSuccess()) {
                 try {
                     return (InterestFrsData) OrmObject.objectWithJsonStr(postNetData, InterestFrsData.class);
                 } catch (Exception e) {
@@ -119,7 +119,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         /* renamed from: f */
         public void onPostExecute(InterestFrsData interestFrsData) {
             super.onPostExecute(interestFrsData);
-            b bVar = this.lln.get();
+            b bVar = this.llD.get();
             if (bVar != null) {
                 if (interestFrsData.getErrno() == 0) {
                     bVar.a(interestFrsData);

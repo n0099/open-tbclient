@@ -2,7 +2,7 @@ package com.baidu.pyramid.runtime.multiprocess;
 
 import android.app.Application;
 import android.content.Context;
-/* loaded from: classes16.dex */
+/* loaded from: classes10.dex */
 public class e {
     private static Application sApplication;
 

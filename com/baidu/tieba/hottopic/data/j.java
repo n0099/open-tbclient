@@ -9,84 +9,84 @@ import tbclient.TopicList.DataRes;
 import tbclient.TopicList.NewTopicList;
 import tbclient.TopicList.TabList;
 import tbclient.TopicList.TopicList;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class j {
-    public List<p> jPQ;
-    public o jPR;
-    public List<c> jPS;
-    private List<b> jPT;
-    public List<NewTopicList> jPU;
-    private ArrayList<q> jPd = null;
+    private ArrayList<q> jPN = null;
+    public List<p> jQA;
+    public o jQB;
+    public List<c> jQC;
+    private List<b> jQD;
+    public List<NewTopicList> jQE;
     private List<TopicList> mTopicList;
     public String type;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (dataRes.tab_list != null && !y.isEmpty(dataRes.tab_list)) {
-                this.jPQ = new ArrayList();
+                this.jQA = new ArrayList();
                 for (TabList tabList : dataRes.tab_list) {
                     p pVar = new p();
                     pVar.a(tabList);
-                    this.jPQ.add(pVar);
+                    this.jQA.add(pVar);
                 }
             }
             if (dataRes.media_topic != null) {
-                this.jPR = new o();
-                this.jPR.a(dataRes.media_topic);
+                this.jQB = new o();
+                this.jQB.a(dataRes.media_topic);
             }
             if (dataRes.topic_manual != null && dataRes.topic_manual.topic_list != null && dataRes.topic_manual.topic_list.size() > 0) {
-                this.jPT = new ArrayList();
+                this.jQD = new ArrayList();
                 for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
                     b bVar = new b();
                     bVar.a(dataRes.topic_manual);
                     bVar.a(dataRes.topic_manual.topic_list.get(i));
-                    this.jPT.add(bVar);
+                    this.jQD.add(bVar);
                 }
             }
             if (dataRes.topic_bang != null && dataRes.topic_bang.topic_list != null && dataRes.topic_bang.topic_list.size() > 0) {
-                this.jPS = new ArrayList();
+                this.jQC = new ArrayList();
                 for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
                     c cVar = new c();
                     cVar.a(dataRes.topic_bang);
                     cVar.a(dataRes.topic_bang.topic_list.get(i2));
-                    this.jPS.add(cVar);
+                    this.jQC.add(cVar);
                 }
             }
             this.mTopicList = dataRes.frs_tab_topic;
-            this.jPU = dataRes.topic_list;
+            this.jQE = dataRes.topic_list;
         }
     }
 
-    public List<TopicList> cNi() {
+    public List<TopicList> cMP() {
         return this.mTopicList;
     }
 
-    public ArrayList<q> cNe() {
-        return cNg();
+    public ArrayList<q> cML() {
+        return cMN();
     }
 
-    private ArrayList<q> cNg() {
-        this.jPd = new ArrayList<>();
-        if (this.jPR != null && (!StringUtils.isNull(this.jPR.picUrl) || !StringUtils.isNull(this.jPR.videoUrl))) {
-            this.jPd.add(this.jPR);
+    private ArrayList<q> cMN() {
+        this.jPN = new ArrayList<>();
+        if (this.jQB != null && (!StringUtils.isNull(this.jQB.picUrl) || !StringUtils.isNull(this.jQB.videoUrl))) {
+            this.jPN.add(this.jQB);
         }
-        if (this.jPT != null && this.jPT.size() > 0) {
-            int size = this.jPT.size() == 1 ? this.jPT.size() : 1;
+        if (this.jQD != null && this.jQD.size() > 0) {
+            int size = this.jQD.size() == 1 ? this.jQD.size() : 1;
             for (int i = 0; i < size; i++) {
-                b bVar = this.jPT.get(i);
-                if (bVar != null && (!StringUtils.isNull(bVar.cMR()) || !StringUtils.isNull(bVar.cMS()) || !StringUtils.isNull(bVar.getName()))) {
-                    this.jPd.add(this.jPT.get(i));
+                b bVar = this.jQD.get(i);
+                if (bVar != null && (!StringUtils.isNull(bVar.cMy()) || !StringUtils.isNull(bVar.cMz()) || !StringUtils.isNull(bVar.getName()))) {
+                    this.jPN.add(this.jQD.get(i));
                 }
             }
         }
-        if (this.jPS != null && this.jPS.size() > 0) {
-            int size2 = this.jPS.size() <= 20 ? this.jPS.size() : 20;
+        if (this.jQC != null && this.jQC.size() > 0) {
+            int size2 = this.jQC.size() <= 20 ? this.jQC.size() : 20;
             for (int i2 = 0; i2 < size2; i2++) {
-                c cVar = this.jPS.get(i2);
-                cVar.Ce(i2 + 1);
-                this.jPd.add(cVar);
+                c cVar = this.jQC.get(i2);
+                cVar.CC(i2 + 1);
+                this.jPN.add(cVar);
             }
         }
-        return this.jPd;
+        return this.jPN;
     }
 }

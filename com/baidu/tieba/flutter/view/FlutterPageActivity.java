@@ -36,7 +36,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.c;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.m.a;
 import com.baidu.tbadk.m.b;
@@ -54,7 +54,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>, TbPageContextSupport, a {
     private static Class<? extends TbPageContext> mClazz4GetPageContext = FlutterActivityPageContext.class;
     private long lastResumeTime;
@@ -139,7 +139,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
         this.mLayoutInflateFactory = new com.baidu.tbadk.core.a();
         this.mLayoutInflateFactory.a(this.mLayoutMode);
         TbadkCoreApplication.setIsAppRunning(true);
-        bc.setCurrentActivity(getClass().getName());
+        bd.setCurrentActivity(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         com.baidu.adp.base.a.lg().pushActivity(getPageContext().getPageActivity());
         if (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) {
@@ -203,10 +203,10 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         this.flutterStartTime = System.currentTimeMillis();
         super.onResume();
-        com.baidu.tieba.t.a.getInstance().onResume(this);
+        com.baidu.tieba.u.a.getInstance().onResume(this);
         this.lastResumeTime = System.currentTimeMillis();
         TbadkCoreApplication.getInst().AddResumeNum();
-        bc.setCurrentActivity(getClass().getName());
+        bd.setCurrentActivity(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         TbadkCoreApplication.isLogin();
         if (TbadkCoreApplication.getInst().canSendForegroundMessage()) {
@@ -227,13 +227,13 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, android.app.Activity
     public void onPause() {
-        com.baidu.tieba.t.a.getInstance().onPause(this);
+        com.baidu.tieba.u.a.getInstance().onPause(this);
         super.onPause();
         if (this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            e.bCg().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
+            e.bBw().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
         }
         TbadkCoreApplication.getInst().DelResumeNum();
         TbadkCoreApplication.getInst().setCurrentActivity(null);
@@ -243,7 +243,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         r.a(motionEvent, getPageId(), 0L);
-        com.baidu.tieba.t.a.getInstance().behaviorRecordEvent(motionEvent, this);
+        com.baidu.tieba.u.a.getInstance().behaviorRecordEvent(motionEvent, this);
         try {
             return super.dispatchTouchEvent(motionEvent);
         } catch (Exception e) {
@@ -272,6 +272,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
         hashMap.put("native_view_cost", Long.valueOf(this.creatTime));
         hashMap.put("native_start_time", Long.valueOf(this.startTime));
         hashMap.put("flutter_start_time", Long.valueOf(this.flutterStartTime));
+        hashMap.put("sorce_key_list", com.baidu.tbadk.m.c.toSourceTraceString(getCurrentPageSourceKeyList()));
         return hashMap;
     }
 
@@ -337,7 +338,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
 
             @Override // com.baidu.tbadk.m.b
             public int getMaxCost() {
-                return e.bCg().getMaxCostFromServer();
+                return e.bBw().getMaxCostFromServer();
             }
 
             @Override // com.baidu.tbadk.m.b

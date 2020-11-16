@@ -11,20 +11,20 @@ import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.ap.p;
 import com.baidu.swan.apps.u.c.b;
 import com.baidu.swan.apps.y.b.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile String dgE = "";
-    private static volatile boolean dgF = true;
+    private static volatile String deX = "";
+    private static volatile boolean deY = true;
 
-    public static void aCq() {
+    public static void aBI() {
     }
 
-    public static void fO(boolean z) {
+    public static void fR(boolean z) {
         if (DEBUG) {
             Log.d("SwanArrivalMonitor", "on swan page change, isFromRoute : " + z);
         }
-        if (z && com.baidu.swan.apps.statistic.e.aKn()) {
+        if (z && com.baidu.swan.apps.statistic.e.aJF()) {
             if (DEBUG) {
                 Log.d("SwanArrivalMonitor", "end handle swan page change");
                 return;
@@ -32,33 +32,33 @@ public final class e {
             return;
         }
         if (z) {
-            dgF = false;
+            deY = false;
         }
         if (!z) {
-            aCt();
+            aBL();
         }
-        com.baidu.swan.apps.statistic.e.aKf();
-        aCs();
-        com.baidu.swan.apps.runtime.e aHu = com.baidu.swan.apps.runtime.e.aHu();
-        if (aHu != null && !z) {
-            com.baidu.swan.apps.statistic.e.b(aHu.afO());
+        com.baidu.swan.apps.statistic.e.aJx();
+        aBK();
+        com.baidu.swan.apps.runtime.e aGM = com.baidu.swan.apps.runtime.e.aGM();
+        if (aGM != null && !z) {
+            com.baidu.swan.apps.statistic.e.b(aGM.afg());
         }
     }
 
-    public static void aCr() {
-        dgE = "";
-        dgF = true;
+    public static void aBJ() {
+        deX = "";
+        deY = true;
     }
 
-    public static void qu(String str) {
-        dgE = str;
+    public static void qo(String str) {
+        deX = str;
     }
 
     public static boolean g(com.baidu.swan.apps.core.d.e eVar) {
         if (eVar == null) {
             return false;
         }
-        boolean equals = TextUtils.equals(dgE, eVar.aoL());
+        boolean equals = TextUtils.equals(deX, eVar.aod());
         if (DEBUG) {
             Log.d("SwanArrivalMonitor", "FirstPage: " + equals);
             return equals;
@@ -66,73 +66,73 @@ public final class e {
         return equals;
     }
 
-    private static void aCs() {
-        com.baidu.swan.apps.core.d.f afM;
+    private static void aBK() {
+        com.baidu.swan.apps.core.d.f afe;
         if (DEBUG) {
             Log.d("SwanArrivalMonitor", "start handle arrival report");
         }
-        if (!com.baidu.swan.apps.statistic.e.aKm() && (afM = com.baidu.swan.apps.v.f.azO().afM()) != null) {
-            com.baidu.swan.apps.core.d.e apc = afM.apc();
+        if (!com.baidu.swan.apps.statistic.e.aJE() && (afe = com.baidu.swan.apps.v.f.azg().afe()) != null) {
+            com.baidu.swan.apps.core.d.e aou = afe.aou();
             com.baidu.swan.apps.adaptation.b.a.d dVar = null;
-            if (apc != null) {
-                com.baidu.swan.apps.adaptation.b.c aoQ = apc.aoQ();
-                if (aoQ != null) {
-                    com.baidu.swan.apps.adaptation.b.f aiA = aoQ.aiA();
-                    if (aiA != null) {
-                        dVar = aiA.aiF();
+            if (aou != null) {
+                com.baidu.swan.apps.adaptation.b.c aoi = aou.aoi();
+                if (aoi != null) {
+                    com.baidu.swan.apps.adaptation.b.f ahS = aoi.ahS();
+                    if (ahS != null) {
+                        dVar = ahS.ahX();
                     } else {
-                        dVar = aoQ.aiF();
+                        dVar = aoi.ahX();
                     }
                 } else {
                     return;
                 }
             }
-            if (dVar != null && dVar.cvL > 0) {
+            if (dVar != null && dVar.ctZ > 0) {
                 com.baidu.swan.apps.statistic.e.a(dVar);
             }
         }
     }
 
-    private static void aCt() {
-        if (!com.baidu.swan.apps.statistic.e.aKl()) {
-            com.baidu.swan.apps.core.d.e apc = com.baidu.swan.apps.v.f.azO().apc();
-            if (apc == null) {
+    private static void aBL() {
+        if (!com.baidu.swan.apps.statistic.e.aJD()) {
+            com.baidu.swan.apps.core.d.e aou = com.baidu.swan.apps.v.f.azg().aou();
+            if (aou == null) {
                 if (DEBUG) {
                     Log.d("SwanArrivalMonitor", "NAArrival：top fragment is null");
                 }
-            } else if (!g(apc)) {
+            } else if (!g(aou)) {
                 if (DEBUG) {
                     Log.d("SwanArrivalMonitor", "start na report");
                 }
-                aCu();
+                aBM();
             } else {
                 if (DEBUG) {
                     Log.d("SwanArrivalMonitor", "start check for na arrival");
                 }
-                qv(apc.aoL());
+                qp(aou.aod());
             }
         }
     }
 
-    private static void qv(final String str) {
+    private static void qp(final String str) {
         ak.m(new Runnable() { // from class: com.baidu.swan.apps.y.e.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.core.d.f afM;
-                com.baidu.swan.apps.core.d.e apc;
-                SwanAppActivity azy = com.baidu.swan.apps.v.f.azO().azy();
-                if (azy != null && !azy.isFinishing() && !azy.isDestroyed() && (afM = azy.afM()) != null && (apc = afM.apc()) != null) {
-                    final Bitmap aMP = ah.aMP();
-                    AbsoluteLayout pN = com.baidu.swan.apps.v.f.azO().pN(str);
-                    final int f = c.f(apc);
-                    final Rect a2 = c.a(aMP, apc, pN);
-                    p.aMA().execute(new Runnable() { // from class: com.baidu.swan.apps.y.e.1.1
+                com.baidu.swan.apps.core.d.f afe;
+                com.baidu.swan.apps.core.d.e aou;
+                SwanAppActivity ayQ = com.baidu.swan.apps.v.f.azg().ayQ();
+                if (ayQ != null && !ayQ.isFinishing() && !ayQ.isDestroyed() && (afe = ayQ.afe()) != null && (aou = afe.aou()) != null) {
+                    final Bitmap aMh = ah.aMh();
+                    AbsoluteLayout pH = com.baidu.swan.apps.v.f.azg().pH(str);
+                    final int f = c.f(aou);
+                    final Rect a2 = c.a(aMh, aou, pH);
+                    p.aLS().execute(new Runnable() { // from class: com.baidu.swan.apps.y.e.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.baidu.swan.apps.y.b.a qw = a.C0499a.qw("simple_parser");
-                            qw.jC(f);
-                            if (!qw.a(aMP, a2)) {
-                                e.aCu();
+                            com.baidu.swan.apps.y.b.a qq = a.C0497a.qq("simple_parser");
+                            qq.jy(f);
+                            if (!qq.a(aMh, a2)) {
+                                e.aBM();
                             }
                         }
                     }, "SwanNAArrivalCheck");
@@ -142,15 +142,15 @@ public final class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void aCu() {
+    public static void aBM() {
         b.a aVar = null;
-        if (com.baidu.swan.apps.runtime.e.aHu() != null) {
-            aVar = com.baidu.swan.apps.runtime.e.aHu().afO();
+        if (com.baidu.swan.apps.runtime.e.aGM() != null) {
+            aVar = com.baidu.swan.apps.runtime.e.aGM().afg();
         }
         com.baidu.swan.apps.statistic.e.c(aVar);
     }
 
-    public static boolean aCv() {
-        return dgF;
+    public static boolean aBN() {
+        return deY;
     }
 }

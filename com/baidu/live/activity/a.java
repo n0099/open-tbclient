@@ -10,17 +10,17 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.im.n;
 /* loaded from: classes4.dex */
 public class a {
-    private static Application.ActivityLifecycleCallbacks aAe;
+    private static Application.ActivityLifecycleCallbacks ayt;
 
     public static void d(Application application) {
-        if (aAe == null) {
-            aAe = new C0170a();
+        if (ayt == null) {
+            ayt = new C0168a();
         }
-        application.registerActivityLifecycleCallbacks(aAe);
+        application.registerActivityLifecycleCallbacks(ayt);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean p(Activity activity) {
+    public static boolean o(Activity activity) {
         String className = activity.getComponentName().getClassName();
         if (className.contains("AlaMasterLiveRoomActivity") || className.contains("LivePlayerActivity") || className.contains("AlaLiveEndActivity")) {
             return true;
@@ -37,17 +37,17 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.activity.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0170a implements Application.ActivityLifecycleCallbacks {
-        private n aAf;
-        private CustomMessageListener aAg;
+    public static class C0168a implements Application.ActivityLifecycleCallbacks {
+        private n ayu;
+        private CustomMessageListener ayv;
 
-        private C0170a() {
-            this.aAg = new CustomMessageListener(2913191) { // from class: com.baidu.live.activity.a.a.1
+        private C0168a() {
+            this.ayv = new CustomMessageListener(2913191) { // from class: com.baidu.live.activity.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (C0170a.this.aAf != null) {
-                        C0170a.this.aAf.LW();
+                    if (C0168a.this.ayu != null) {
+                        C0168a.this.ayu.Ln();
                     }
                 }
             };
@@ -59,12 +59,12 @@ public class a {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
-            if (a.p(activity)) {
-                if (this.aAf == null) {
-                    this.aAf = new n();
+            if (a.o(activity)) {
+                if (this.ayu == null) {
+                    this.ayu = new n();
                 }
-                this.aAf.init(String.valueOf(activity.hashCode()));
-                MessageManager.getInstance().registerListener(this.aAg);
+                this.ayu.init(String.valueOf(activity.hashCode()));
+                MessageManager.getInstance().registerListener(this.ayv);
             }
         }
 
@@ -86,11 +86,11 @@ public class a {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
-            if (a.p(activity)) {
-                if (this.aAf != null) {
-                    this.aAf.hK(String.valueOf(activity.hashCode()));
+            if (a.o(activity)) {
+                if (this.ayu != null) {
+                    this.ayu.hE(String.valueOf(activity.hashCode()));
                 }
-                MessageManager.getInstance().unRegisterListener(this.aAg);
+                MessageManager.getInstance().unRegisterListener(this.ayv);
             }
         }
     }

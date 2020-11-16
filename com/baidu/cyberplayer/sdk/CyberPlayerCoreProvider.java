@@ -1,18 +1,16 @@
 package com.baidu.cyberplayer.sdk;
 
 import android.content.Context;
-import android.util.AttributeSet;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.extractor.ExtractorProvider;
 import com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder;
 import com.baidu.cyberplayer.sdk.rtc.CaptureManagerProvider;
 import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
-import com.baidu.cyberplayer.sdk.rtc.RTCVideoViewProvider;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public abstract class CyberPlayerCoreProvider {
     public abstract long caculateFolderSize();
 
@@ -27,8 +25,6 @@ public abstract class CyberPlayerCoreProvider {
     public abstract MediaInstanceManagerProvider createInstanceManager();
 
     public abstract RTCRoomProvider createRTCRoom();
-
-    public abstract RTCVideoViewProvider createRTCVideoView(Context context, AttributeSet attributeSet);
 
     public abstract void duplayerEncrypt(byte[] bArr, int i, byte[] bArr2);
 

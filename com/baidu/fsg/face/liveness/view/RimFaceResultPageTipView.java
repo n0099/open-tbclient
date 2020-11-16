@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class RimFaceResultPageTipView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
@@ -24,14 +24,14 @@ public class RimFaceResultPageTipView extends LinearLayout {
     private a i;
     private b j;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public interface a {
         void a();
 
         void b();
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public interface b {
         void a();
     }

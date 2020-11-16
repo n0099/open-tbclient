@@ -24,28 +24,28 @@ import android.widget.LinearLayout;
 import com.baidu.swan.bdprivate.b;
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
-    protected QuickLoginInfo dIG;
-    protected String dIH;
-    protected a dIN;
-    protected FragmentActivity dIO;
+    protected QuickLoginInfo dGY;
+    protected String dGZ;
+    protected a dHf;
+    protected FragmentActivity dHg;
     protected String mAppId;
     protected LinearLayout mRootView;
-    protected boolean dpn = false;
-    protected String dIE = "";
-    private boolean dIP = true;
+    protected boolean dnE = false;
+    protected String dGW = "";
+    private boolean dHh = true;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void hb(boolean z);
+        void he(boolean z);
 
-        void lD(int i);
+        void lz(int i);
     }
 
     protected abstract void a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup);
 
-    protected abstract void aOq();
+    protected abstract void aNI();
 
     protected abstract void updateUI();
 
@@ -55,13 +55,13 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     }
 
     public void d(FragmentActivity fragmentActivity) {
-        this.dIO = fragmentActivity;
+        this.dHg = fragmentActivity;
     }
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        aoF();
+        anX();
         getDialog().requestWindowFeature(1);
         getDialog().setCanceledOnTouchOutside(true);
         Window window = getDialog().getWindow();
@@ -71,12 +71,12 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         a(window);
         a(layoutInflater, viewGroup);
         updateUI();
-        aOq();
+        aNI();
         return this.mRootView;
     }
 
     private void a(Window window) {
-        window.setBackgroundDrawable(getContext().getResources().getDrawable(this.dpn ? b.d.aiapps_login_getmobile_dark_bg : b.d.aiapps_login_getmobile_bg));
+        window.setBackgroundDrawable(getContext().getResources().getDrawable(this.dnE ? b.d.aiapps_login_getmobile_dark_bg : b.d.aiapps_login_getmobile_bg));
         window.getDecorView().setPadding(0, 0, 0, 0);
         window.setFlags(32, 32);
         window.setFlags(262144, 262144);
@@ -84,8 +84,8 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 4) {
-                    SwanAppLoginAndGetMobileDialog.this.hc(true);
-                    SwanAppLoginAndGetMobileDialog.this.aOr();
+                    SwanAppLoginAndGetMobileDialog.this.hf(true);
+                    SwanAppLoginAndGetMobileDialog.this.aNJ();
                 }
                 return true;
             }
@@ -97,26 +97,26 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         window.setAttributes(attributes);
     }
 
-    public void hc(boolean z) {
-        this.dIP = z;
+    public void hf(boolean z) {
+        this.dHh = z;
     }
 
-    private void aoF() {
+    private void anX() {
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.dIE = arguments.getString("auth_tip");
-            this.dpn = arguments.getBoolean("is_night");
-            this.dIG = (QuickLoginInfo) arguments.getParcelable("quick_login_info");
-            this.dIH = arguments.getString("launch_from");
+            this.dGW = arguments.getString("auth_tip");
+            this.dnE = arguments.getBoolean("is_night");
+            this.dGY = (QuickLoginInfo) arguments.getParcelable("quick_login_info");
+            this.dGZ = arguments.getString("launch_from");
             this.mAppId = arguments.getString("app_id");
         }
     }
 
-    public void hd(boolean z) {
-        this.dpn = z;
+    public void hg(boolean z) {
+        this.dnE = z;
         Window window = getDialog().getWindow();
         if (window != null) {
-            window.setBackgroundDrawable(getContext().getResources().getDrawable(this.dpn ? b.d.aiapps_login_getmobile_dark_bg : b.d.aiapps_login_getmobile_bg));
+            window.setBackgroundDrawable(getContext().getResources().getDrawable(this.dnE ? b.d.aiapps_login_getmobile_dark_bg : b.d.aiapps_login_getmobile_bg));
         }
         updateUI();
     }
@@ -124,14 +124,14 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     @Override // android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        boolean nightModeSwitcherState = com.baidu.swan.apps.t.a.awW().getNightModeSwitcherState();
-        if (nightModeSwitcherState != this.dpn) {
-            hd(nightModeSwitcherState);
+        boolean nightModeSwitcherState = com.baidu.swan.apps.t.a.awo().getNightModeSwitcherState();
+        if (nightModeSwitcherState != this.dnE) {
+            hg(nightModeSwitcherState);
         }
     }
 
     public void a(a aVar) {
-        this.dIN = aVar;
+        this.dHf = aVar;
     }
 
     @Override // android.support.v4.app.DialogFragment
@@ -143,41 +143,41 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aOr() {
-        if (this.dIN != null) {
-            this.dIN.hb(this.dIP);
+    public void aNJ() {
+        if (this.dHf != null) {
+            this.dHf.he(this.dHh);
         }
         dismissAllowingStateLoss();
     }
 
     @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        aOr();
+        aNJ();
         super.onConfigurationChanged(configuration);
     }
 
     @Override // android.support.v4.app.DialogFragment, android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        if (this.dIN != null) {
-            this.dIN.hb(this.dIP);
+        if (this.dHf != null) {
+            this.dHf.he(this.dHh);
         }
         super.onDismiss(dialogInterface);
     }
 
     @Override // android.support.v4.app.DialogFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        if (this.dIN != null) {
-            this.dIN.hb(this.dIP);
+        if (this.dHf != null) {
+            this.dHf.he(this.dHh);
         }
         super.onDestroyView();
     }
 
     public void a(SpannableStringBuilder spannableStringBuilder, int i, String str, String str2) {
         spannableStringBuilder.append((CharSequence) str);
-        spannableStringBuilder.setSpan(new b(str2, this.dIO), i, spannableStringBuilder.length(), 33);
+        spannableStringBuilder.setSpan(new b(str2, this.dHg), i, spannableStringBuilder.length(), 33);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     static class b extends ClickableSpan {
         private WeakReference<Activity> mActivityRef;
         private String mUrl;

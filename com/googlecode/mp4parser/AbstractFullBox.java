@@ -7,10 +7,10 @@ import com.googlecode.mp4parser.annotations.DoNotParseDetail;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class AbstractFullBox extends AbstractBox implements FullBox {
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_1 = null;
     private int flags;
     private int version;
 
@@ -45,7 +45,7 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
 
     @Override // com.coremedia.iso.boxes.FullBox
     public void setVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this, org.aspectj.a.a.a.RD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this, org.aspectj.a.a.a.Sg(i)));
         this.version = i;
     }
 
@@ -60,7 +60,7 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
 
     @Override // com.coremedia.iso.boxes.FullBox
     public void setFlags(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.RD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Sg(i)));
         this.flags = i;
     }
 

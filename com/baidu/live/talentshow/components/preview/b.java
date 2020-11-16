@@ -16,125 +16,125 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 /* loaded from: classes4.dex */
 public class b {
-    private w aES;
-    private LiveBCAudiencePreviewLayer bwk;
-    private c bwl;
-    private com.baidu.live.talentshow.a.a bwm;
-    private a bwn;
-    private LiveBCAudiencePreviewLayer.a bwo = new LiveBCAudiencePreviewLayer.a() { // from class: com.baidu.live.talentshow.components.preview.b.1
+    private w aDh;
+    private c buA;
+    private com.baidu.live.talentshow.a.a buB;
+    private a buC;
+    private LiveBCAudiencePreviewLayer buz;
+    private TbPageContext mPageContext;
+    private LiveBCAudiencePreviewLayer.a buD = new LiveBCAudiencePreviewLayer.a() { // from class: com.baidu.live.talentshow.components.preview.b.1
         @Override // com.baidu.live.talentshow.components.preview.LiveBCAudiencePreviewLayer.a
-        public void Rv() {
-            b.this.bwl.x(b.this.bwk.getRenderViewParent());
-            b.this.bwl.startPreview();
+        public void QM() {
+            b.this.buA.t(b.this.buz.getRenderViewParent());
+            b.this.buA.startPreview();
         }
 
         @Override // com.baidu.live.talentshow.components.preview.LiveBCAudiencePreviewLayer.a
-        public void Rw() {
-            b.this.bwl.RW();
-            b.this.bwl.RX();
+        public void QN() {
+            b.this.buA.Rn();
+            b.this.buA.Ro();
         }
     };
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.preview.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!UtilHelper.isFastDoubleClick()) {
-                if (view != b.this.bwk.getBtnClose()) {
-                    if (view == b.this.bwk.getChatOptBtn()) {
-                        if (b.this.bwn != null) {
-                            b.this.bwn.Rd();
+                if (view != b.this.buz.getBtnClose()) {
+                    if (view == b.this.buz.getChatOptBtn()) {
+                        if (b.this.buC != null) {
+                            b.this.buC.Qu();
                             return;
                         }
                         return;
-                    } else if (view == b.this.bwk.getBeautyBtn()) {
+                    } else if (view == b.this.buz.getBeautyBtn()) {
                         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", UbcStatConstant.Value.VALUE_BC_CHAT_DUO_PRE_BEAUTY_CLICK).setContentExt(null, "popup", null));
-                        b.this.Rq();
+                        b.this.QH();
                         return;
                     } else {
                         return;
                     }
                 }
-                b.this.Ru();
+                b.this.QL();
                 UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", UbcStatConstant.Value.VALUE_BC_CHAT_DUO_PRE_POP_SEC).setContentExt(null, "popup", null));
             }
         }
     };
-    private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
     }
 
     public void a(c cVar) {
-        this.bwl = cVar;
+        this.buA = cVar;
     }
 
     public void setLiveShowData(w wVar) {
-        this.aES = wVar;
+        this.aDh = wVar;
     }
 
     public void a(a aVar) {
-        this.bwn = aVar;
+        this.buC = aVar;
     }
 
-    public void j(Context context, boolean z) {
-        if (this.bwk == null) {
-            this.bwk = new LiveBCAudiencePreviewLayer(context);
-            this.bwk.setNeedHideAnim(true);
-            this.bwk.setNeedShowAnim(true);
-            this.bwk.setCanceledOnTouchOutside(true);
-            this.bwk.setOutOnClickListener(this.mClickListener);
-            this.bwk.setLayerVisibleListener(this.bwo);
+    public void i(Context context, boolean z) {
+        if (this.buz == null) {
+            this.buz = new LiveBCAudiencePreviewLayer(context);
+            this.buz.setNeedHideAnim(true);
+            this.buz.setNeedShowAnim(true);
+            this.buz.setCanceledOnTouchOutside(true);
+            this.buz.setOutOnClickListener(this.mClickListener);
+            this.buz.setLayerVisibleListener(this.buD);
         }
-        this.bwk.Rx();
+        this.buz.QO();
         if (UtilHelper.getRealScreenOrientation(context) != 2) {
-            com.baidu.live.core.layer.b.DX().d(this.bwk);
+            com.baidu.live.core.layer.b.Do().d(this.buz);
             UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", UbcStatConstant.Value.VALUE_BC_CHAT_DUO_PRE_POP_SHOW).setContentExt(null, "popup", null));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Rq() {
-        if (bl.c(com.baidu.live.aa.a.PQ().btT)) {
+    public void QH() {
+        if (bl.c(com.baidu.live.aa.a.Ph().bsh)) {
             this.mPageContext.showToast(a.h.sdk_filter_beauty_grey_tip);
-        } else if (this.bwl.RT() != null) {
-            if (this.bwm == null) {
-                this.bwm = new com.baidu.live.talentshow.a.a(this.mPageContext, this.bwk.getRootView(), this.bwl.RT());
+        } else if (this.buA.Rk() != null) {
+            if (this.buB == null) {
+                this.buB = new com.baidu.live.talentshow.a.a(this.mPageContext, this.buz.getRootView(), this.buA.Rk());
             }
-            this.bwm.setLiveShowData(this.aES);
-            this.bwm.RO();
-            BdUtilHelper.hideSoftKeyPad(this.mPageContext.getPageActivity(), this.bwk);
+            this.buB.setLiveShowData(this.aDh);
+            this.buB.Rf();
+            BdUtilHelper.hideSoftKeyPad(this.mPageContext.getPageActivity(), this.buz);
         }
     }
 
-    public void Rr() {
-        if (this.bwk != null) {
-            this.bwk.Rr();
+    public void QI() {
+        if (this.buz != null) {
+            this.buz.QI();
         }
     }
 
-    public void Rs() {
-        if (this.bwk != null) {
-            this.bwk.Rs();
+    public void QJ() {
+        if (this.buz != null) {
+            this.buz.QJ();
         }
     }
 
-    public boolean Rt() {
-        return (this.bwk == null || this.bwk.getParent() == null) ? false : true;
+    public boolean QK() {
+        return (this.buz == null || this.buz.getParent() == null) ? false : true;
     }
 
-    public void Ru() {
-        com.baidu.live.core.layer.b.DX().e(this.bwk);
+    public void QL() {
+        com.baidu.live.core.layer.b.Do().e(this.buz);
     }
 
     public void onDestroy() {
-        if (this.bwm != null) {
-            this.bwm.onDestroy();
+        if (this.buB != null) {
+            this.buB.onDestroy();
         }
-        if (this.bwl != null) {
-            this.bwl.onDestroy();
+        if (this.buA != null) {
+            this.buA.onDestroy();
         }
-        if (this.bwk != null && this.bwk.getParent() != null) {
-            com.baidu.live.core.layer.b.DX().e(this.bwk);
+        if (this.buz != null && this.buz.getParent() != null) {
+            com.baidu.live.core.layer.b.Do().e(this.buz);
         }
     }
 }

@@ -48,7 +48,7 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class a extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
@@ -121,7 +121,7 @@ public class a extends Dialog {
         super.onStop();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     private class c extends Handler {
         private b b;
 
@@ -148,7 +148,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     private class b implements IUiListener {
 
         /* renamed from: a  reason: collision with root package name */
@@ -215,9 +215,9 @@ public class a extends Dialog {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C1041a extends WebViewClient {
-        private C1041a() {
+    /* loaded from: classes11.dex */
+    public class C1044a extends WebViewClient {
+        private C1044a() {
         }
 
         @Override // android.webkit.WebViewClient
@@ -387,7 +387,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     class d implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
@@ -473,7 +473,7 @@ public class a extends Dialog {
     private void d() {
         this.j.setVerticalScrollBarEnabled(false);
         this.j.setHorizontalScrollBarEnabled(false);
-        this.j.setWebViewClient(new C1041a());
+        this.j.setWebViewClient(new C1044a());
         this.j.setWebChromeClient(new WebChromeClient());
         this.j.clearFormData();
         this.j.clearSslPreferences();

@@ -6,7 +6,7 @@ import com.baidu.ufosdk.UfoSDK;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class cj implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

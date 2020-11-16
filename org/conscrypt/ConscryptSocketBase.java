@@ -15,7 +15,7 @@ import java.util.List;
 import javax.net.ssl.HandshakeCompletedEvent;
 import javax.net.ssl.HandshakeCompletedListener;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 abstract class ConscryptSocketBase extends AbstractConscryptSocket {
     private final boolean autoClose;
     private final List<HandshakeCompletedListener> listeners;

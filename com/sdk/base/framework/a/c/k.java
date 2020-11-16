@@ -1,5 +1,5 @@
 package com.sdk.base.framework.a.c;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class k<E> {
 
     /* renamed from: a  reason: collision with root package name */

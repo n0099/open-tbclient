@@ -3,14 +3,14 @@ package com.baidu.swan.apps.runtime;
 import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class g extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, Object> dtb;
+    private Map<String, Object> drt;
 
     public g(e eVar) {
         super(eVar);
-        this.dtb = new HashMap();
+        this.drt = new HashMap();
     }
 
     public void putString(String str, String str2) {
@@ -59,23 +59,23 @@ public class g extends f {
     }
 
     public void clear() {
-        this.dtb.clear();
+        this.drt.clear();
     }
 
     public boolean containsKey(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.dtb.containsKey(str);
+        return this.drt.containsKey(str);
     }
 
     private <V> V s(String str, V v) {
         if (containsKey(str)) {
-            if (this.dtb.get(str) == null) {
+            if (this.drt.get(str) == null) {
                 return null;
             }
             try {
-                return (V) this.dtb.get(str);
+                return (V) this.drt.get(str);
             } catch (Exception e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -88,7 +88,7 @@ public class g extends f {
     }
 
     private <V> void t(String str, V v) {
-        this.dtb.put(str, v);
+        this.drt.put(str, v);
     }
 
     @Override // com.baidu.swan.apps.runtime.f

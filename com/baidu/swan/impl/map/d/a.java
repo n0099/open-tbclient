@@ -8,11 +8,11 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.tieba.R;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class a extends c {
     public a(@NonNull Context context) {
         super("BaiduMap", context.getString(R.string.openlocation_bottommenu_baidumap), "com.baidu.BaiduMap");
-        this.efo = true;
+        this.edH = true;
     }
 
     @Override // com.baidu.swan.impl.map.d.c

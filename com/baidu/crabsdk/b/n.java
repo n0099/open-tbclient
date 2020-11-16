@@ -2,40 +2,40 @@ package com.baidu.crabsdk.b;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class n {
-    private static SharedPreferences aoG;
-    private static SharedPreferences.Editor aoH;
-    private static long aoI = 30000;
+    private static SharedPreferences aoM;
+    private static SharedPreferences.Editor aoN;
+    private static long aoO = 30000;
 
     public static void F() {
-        aoH.putInt("used_count", vn() + 1);
-        com.baidu.crabsdk.c.c.a(aoH, false);
+        aoN.putInt("used_count", vm() + 1);
+        com.baidu.crabsdk.c.c.a(aoN, false);
     }
 
     public static void clear() {
-        if (aoH != null) {
-            aoH.putInt("used_count", 0);
-            com.baidu.crabsdk.c.c.a(aoH, false);
+        if (aoN != null) {
+            aoN.putInt("used_count", 0);
+            com.baidu.crabsdk.c.c.a(aoN, false);
         }
     }
 
     public static void e(Context context) {
-        if (aoG == null) {
-            aoG = context.getSharedPreferences("crab_app_life", 0);
+        if (aoM == null) {
+            aoM = context.getSharedPreferences("crab_app_life", 0);
         }
-        if (aoH == null) {
-            aoH = aoG.edit();
+        if (aoN == null) {
+            aoN = aoM.edit();
         }
     }
 
     public static void onPause(Context context) {
         e(context);
-        if (aoG == null || aoH == null) {
+        if (aoM == null || aoN == null) {
             return;
         }
-        aoH.putLong("used_last_time", System.currentTimeMillis());
-        com.baidu.crabsdk.c.c.a(aoH, false);
+        aoN.putLong("used_last_time", System.currentTimeMillis());
+        com.baidu.crabsdk.c.c.a(aoN, false);
     }
 
     public static void onResume(Context context) {
@@ -43,18 +43,18 @@ public final class n {
         if (com.baidu.crabsdk.a.N) {
             return;
         }
-        if (aoG == null || aoH == null) {
+        if (aoM == null || aoN == null) {
             com.baidu.crabsdk.c.a.w("MobclickAgent init error!! applife upload failed!");
             return;
         }
-        com.baidu.crabsdk.c.a.dA("MobclickAgent init success!");
-        if (System.currentTimeMillis() - aoG.getLong("used_last_time", 0L) > aoI) {
+        com.baidu.crabsdk.c.a.dC("MobclickAgent init success!");
+        if (System.currentTimeMillis() - aoM.getLong("used_last_time", 0L) > aoO) {
             F();
             com.baidu.crabsdk.sender.k.ag(context);
         }
     }
 
-    public static int vn() {
-        return aoG.getInt("used_count", 0);
+    public static int vm() {
+        return aoM.getInt("used_count", 0);
     }
 }

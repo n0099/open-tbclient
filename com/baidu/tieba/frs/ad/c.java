@@ -2,73 +2,74 @@ package com.baidu.tieba.frs.ad;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AdInfo;
 import tbclient.Media;
-/* loaded from: classes22.dex */
-public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId iNF = BdUniqueId.gen();
-    private String eyP;
-    private String eyQ;
-    public boolean iCv = false;
-    private String iNG;
-    private String iNH;
-    private List<MediaData> iNI;
-    private int iNJ;
+/* loaded from: classes21.dex */
+public class c extends BaseCardInfo {
+    public static final BdUniqueId iOs = BdUniqueId.gen();
+    private String exd;
+    private String exe;
+    public boolean iDk = false;
+    private String iOt;
+    private String iOu;
+    private List<MediaData> iOv;
+    private int iOw;
 
     public void a(AdInfo adInfo) {
         if (adInfo != null) {
-            this.iNG = adInfo.portrait;
-            this.eyP = adInfo.ad_name;
-            this.iNH = adInfo.ad_desc;
-            this.eyQ = adInfo.ad_url;
-            this.iNJ = adInfo.show_rule.intValue();
+            this.iOt = adInfo.portrait;
+            this.exd = adInfo.ad_name;
+            this.iOu = adInfo.ad_desc;
+            this.exe = adInfo.ad_url;
+            this.iOw = adInfo.show_rule.intValue();
             if (adInfo.media != null) {
-                this.iNI = new ArrayList();
+                this.iOv = new ArrayList();
                 for (Media media : adInfo.media) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.iNI.add(mediaData);
+                    this.iOv.add(mediaData);
                 }
             }
         }
     }
 
-    public int cAP() {
-        return this.iNJ;
+    public int cAs() {
+        return this.iOw;
     }
 
-    public String cAQ() {
-        return this.iNG;
+    public String cAt() {
+        return this.iOt;
     }
 
-    public String cAR() {
-        return this.eyP;
+    public String cAu() {
+        return this.exd;
     }
 
-    public String cAS() {
-        return this.iNH;
+    public String cAv() {
+        return this.iOu;
     }
 
-    public String bDh() {
-        return this.eyQ;
+    public String bCA() {
+        return this.exe;
     }
 
-    public List<MediaData> cAT() {
-        return this.iNI;
+    public List<MediaData> cAw() {
+        return this.iOv;
     }
 
-    public void pP(boolean z) {
-        this.iCv = z;
+    public void pS(boolean z) {
+        this.iDk = z;
     }
 
-    public boolean cAU() {
-        return this.iCv;
+    public boolean cAx() {
+        return this.iDk;
     }
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iNF;
+        return iOs;
     }
 }

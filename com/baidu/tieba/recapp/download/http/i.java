@@ -3,7 +3,7 @@ package com.baidu.tieba.recapp.download.http;
 import java.net.HttpURLConnection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class i {
     public Map<String, List<String>> Mp;
     public int downSize;

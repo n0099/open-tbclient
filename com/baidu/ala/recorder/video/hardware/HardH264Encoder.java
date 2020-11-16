@@ -14,7 +14,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class HardH264Encoder {
     private static final int CHECK_STREAM_DURATION = 5000;
     public static final int ENCODE_FPS = 25;

@@ -13,10 +13,10 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 /* loaded from: classes4.dex */
 public class b {
-    private a bqh;
-    private com.baidu.live.p.d bqi;
-    private d bqj;
-    private d bqk;
+    private a bow;
+    private com.baidu.live.p.d box;
+    private d boy;
+    private d boz;
     private TbPageContext mTbPageContext;
 
     /* loaded from: classes4.dex */
@@ -32,13 +32,13 @@ public class b {
 
     public b(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.bqj = new d(tbPageContext);
-        this.bqk = new d(tbPageContext);
-        this.bqj.a(new d.a() { // from class: com.baidu.live.personmanager.b.1
+        this.boy = new d(tbPageContext);
+        this.boz = new d(tbPageContext);
+        this.boy.a(new d.a() { // from class: com.baidu.live.personmanager.b.1
             @Override // com.baidu.live.personmanager.d.a
             public void a(bs bsVar) {
-                if (bsVar != null && b.this.bqh != null) {
-                    b.this.bqh.b(bsVar);
+                if (bsVar != null && b.this.bow != null) {
+                    b.this.bow.b(bsVar);
                 }
             }
 
@@ -46,11 +46,11 @@ public class b {
             public void onFail(String str) {
             }
         });
-        this.bqk.a(new d.a() { // from class: com.baidu.live.personmanager.b.2
+        this.boz.a(new d.a() { // from class: com.baidu.live.personmanager.b.2
             @Override // com.baidu.live.personmanager.d.a
             public void a(bs bsVar) {
-                if (bsVar != null && b.this.bqh != null) {
-                    b.this.bqh.c(bsVar);
+                if (bsVar != null && b.this.bow != null) {
+                    b.this.bow.c(bsVar);
                 }
             }
 
@@ -62,57 +62,57 @@ public class b {
 
     public void b(String str, String str2, String str3, String str4, String str5, String str6) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            if (this.bqh != null) {
-                this.bqh.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.h.sdk_no_network));
+            if (this.bow != null) {
+                this.bow.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.h.sdk_no_network));
             }
         } else if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-            if (this.bqh != null) {
-                this.bqh.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.h.sdk_error_unkown_try_again));
+            if (this.bow != null) {
+                this.bow.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.h.sdk_error_unkown_try_again));
             }
         } else {
-            this.bqi = new com.baidu.live.p.d(new com.baidu.live.p.c() { // from class: com.baidu.live.personmanager.b.3
+            this.box = new com.baidu.live.p.d(new com.baidu.live.p.c() { // from class: com.baidu.live.personmanager.b.3
                 @Override // com.baidu.live.p.c
                 public void a(PersonUserData personUserData) {
-                    if (b.this.bqh != null) {
-                        b.this.bqh.b(personUserData);
+                    if (b.this.bow != null) {
+                        b.this.bow.b(personUserData);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501021, personUserData));
                 }
 
                 @Override // com.baidu.live.p.c
                 public void s(int i, String str7) {
-                    if (b.this.bqh != null) {
-                        b.this.bqh.onFail(str7);
+                    if (b.this.bow != null) {
+                        b.this.bow.onFail(str7);
                     }
                 }
             });
             if (TextUtils.isEmpty(str2)) {
                 str2 = ExtraParamsManager.getEncryptionUserId(str);
             }
-            this.bqi.execute(str2, str4, str3);
-            aE(str, str5);
+            this.box.execute(str2, str4, str3);
+            aD(str, str5);
         }
     }
 
-    public void aE(String str, String str2) {
+    public void aD(String str, String str2) {
         if (TbadkCoreApplication.isLogin()) {
-            this.bqj.setPn(-1);
-            this.bqj.c(0, str, str2);
-            this.bqk.setPn(-1);
-            this.bqk.c(1, str, str2);
+            this.boy.setPn(-1);
+            this.boy.c(0, str, str2);
+            this.boz.setPn(-1);
+            this.boz.c(1, str, str2);
         }
     }
 
     public void onDestroy() {
-        if (this.bqi != null && !this.bqi.isCancelled()) {
-            this.bqi.cancel();
+        if (this.box != null && !this.box.isCancelled()) {
+            this.box.cancel();
         }
-        if (this.bqh != null) {
-            this.bqh.onFail(null);
+        if (this.bow != null) {
+            this.bow.onFail(null);
         }
     }
 
     public void a(a aVar) {
-        this.bqh = aVar;
+        this.bow = aVar;
     }
 }

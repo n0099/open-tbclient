@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
     public FrsTabViewPager(Context context) {
         this(context, null);
@@ -20,10 +20,10 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                pK(true);
+                pN(true);
                 break;
             case 1:
-                pK(false);
+                pN(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -33,46 +33,46 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                pK(false);
+                pN(false);
                 break;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void pK(boolean z) {
+    public void pN(boolean z) {
         a aVar = new a();
-        aVar.pL(cAr());
-        aVar.pM(z);
+        aVar.pO(czU());
+        aVar.pP(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void cAq() {
-        pK(false);
+    public void czT() {
+        pN(false);
     }
 
-    private boolean cAr() {
+    private boolean czU() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public static class a {
-        private boolean iLU;
-        private boolean iLV;
+        private boolean iMH;
+        private boolean iMI;
 
-        public boolean cAs() {
-            return this.iLU;
+        public boolean czV() {
+            return this.iMH;
         }
 
-        public void pL(boolean z) {
-            this.iLU = z;
+        public void pO(boolean z) {
+            this.iMH = z;
         }
 
-        public boolean cAt() {
-            return this.iLV;
+        public boolean czW() {
+            return this.iMI;
         }
 
-        public void pM(boolean z) {
-            this.iLV = z;
+        public void pP(boolean z) {
+            this.iMI = z;
         }
     }
 }

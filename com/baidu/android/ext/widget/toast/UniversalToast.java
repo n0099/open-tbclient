@@ -15,7 +15,7 @@ import com.baidu.android.ext.manage.PopItem;
 import com.baidu.android.ext.manage.PopItemMethodConstant;
 import com.baidu.android.toast.R;
 import com.baidu.android.util.devices.DeviceUtil;
-/* loaded from: classes12.dex */
+/* loaded from: classes9.dex */
 public class UniversalToast implements PopItem {
     public static final int BOTTOM_ICON_STYLE_RECT = 2;
     public static final int BOTTOM_ICON_STYLE_ROUND = 1;
@@ -49,17 +49,17 @@ public class UniversalToast implements PopItem {
     private int mDuration = 2;
     private int mTextSize = 14;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes9.dex */
     public interface OnDismissListener {
         void onDismiss();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes9.dex */
     public interface ToastCallback {
         void onToastClick();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes9.dex */
     public interface ToastCallbackWithAction extends ToastCallback {
         public static final int ACTION_CANCEL = -1;
         public static final int ACTION_CONFIRM = 0;

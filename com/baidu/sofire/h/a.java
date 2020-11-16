@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static long d = 0;
 
@@ -25,7 +25,7 @@ public final class a {
     public e f3628a;
     public Context b;
     public Receiver c;
-    private HandlerC0359a e = new HandlerC0359a(m.a());
+    private HandlerC0357a e = new HandlerC0357a(m.a());
     private com.baidu.sofire.g.a f;
 
     public a(Context context) {
@@ -40,9 +40,9 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sofire.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public class HandlerC0359a extends Handler {
-        public HandlerC0359a(Looper looper) {
+    /* loaded from: classes9.dex */
+    public class HandlerC0357a extends Handler {
+        public HandlerC0357a(Looper looper) {
             super(looper);
         }
 

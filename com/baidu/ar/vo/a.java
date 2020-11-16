@@ -1,7 +1,7 @@
 package com.baidu.ar.vo;
 
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public interface a {
     void b(int i, HashMap<String, Object> hashMap);
 

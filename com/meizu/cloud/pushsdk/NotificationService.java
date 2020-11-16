@@ -10,7 +10,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.b.b;
 import com.meizu.cloud.pushsdk.util.d;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class NotificationService extends IntentService {
 
     /* renamed from: a  reason: collision with root package name */

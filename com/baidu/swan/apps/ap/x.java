@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationManagerCompat;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class x {
     public static boolean cC(@NonNull Context context) {
         if (Build.VERSION.SDK_INT >= 19) {

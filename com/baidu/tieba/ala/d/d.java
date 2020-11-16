@@ -25,10 +25,10 @@ import com.baidu.tieba.ala.data.s;
 /* loaded from: classes4.dex */
 public class d {
     private Activity activity;
-    private e gys;
+    private e gxZ;
     private String liveId;
     private String roomId;
-    private HttpMessageListener gyt = new HttpMessageListener(1021159) { // from class: com.baidu.tieba.ala.d.d.1
+    private HttpMessageListener gya = new HttpMessageListener(1021159) { // from class: com.baidu.tieba.ala.d.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -44,11 +44,11 @@ public class d {
                 long logId = redPktSendHttpResponseMessage.getLogId();
                 AlaStatsItem alaStatsItem = new AlaStatsItem();
                 alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(redPktSendHttpResponseMessage.getError()));
-                alaStatsItem.addValue("redpacketId", Long.valueOf(redPktSendHttpResponseMessage.gAK));
+                alaStatsItem.addValue("redpacketId", Long.valueOf(redPktSendHttpResponseMessage.gAr));
                 AlaStatManager.getInstance().debug("redpacket_send_result", logId, "", alaStatsItem);
             }
             if ((httpResponsedMessage instanceof RedPktSendHttpResponseMessage) && httpResponsedMessage.getError() == 0) {
-                com.baidu.live.o.a.a(d.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).gAK, ((RedPktSendHttpResponseMessage) httpResponsedMessage).gAL, "send_redpacket");
+                com.baidu.live.o.a.a(d.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).gAr, ((RedPktSendHttpResponseMessage) httpResponsedMessage).gAs, "send_redpacket");
                 d.this.activity.finish();
                 try {
                     com.baidu.live.n.a.b(Long.parseLong(d.this.liveId), 8);
@@ -63,8 +63,8 @@ public class d {
             } else if (!TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
                 BdUtilHelper.showToast(d.this.activity, httpResponsedMessage.getErrorString());
             }
-            if (d.this.gys != null) {
-                d.this.gys.mc(true);
+            if (d.this.gxZ != null) {
+                d.this.gxZ.md(true);
             }
         }
     };
@@ -86,7 +86,7 @@ public class d {
     public d(Activity activity) {
         this.activity = activity;
         initView();
-        bRA();
+        bQT();
     }
 
     private void initView() {
@@ -95,10 +95,10 @@ public class d {
             this.liveId = intent.getStringExtra("live_id");
             this.roomId = intent.getStringExtra("room_id");
         }
-        this.gys = new e(this.activity, this);
+        this.gxZ = new e(this.activity, this);
     }
 
-    private static void bRz() {
+    private static void bQS() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021159, TbConfig.SERVER_HOST + "liveserver/redpacket/send");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -108,21 +108,21 @@ public class d {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bRA() {
-        bRz();
-        MessageManager.getInstance().registerListener(this.gyt);
+    private void bQT() {
+        bQS();
+        MessageManager.getInstance().registerListener(this.gya);
         MessageManager.getInstance().registerListener(this.notifyDialogDismissListener);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(1021159);
-        MessageManager.getInstance().unRegisterListener(this.gyt);
+        MessageManager.getInstance().unRegisterListener(this.gya);
         MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
     }
 
     public View getView() {
-        if (this.gys != null) {
-            return this.gys.getView();
+        if (this.gxZ != null) {
+            return this.gxZ.getView();
         }
         return null;
     }
@@ -133,21 +133,21 @@ public class d {
             sVar.setRoomId(this.roomId);
             sVar.setParams();
             MessageManager.getInstance().sendMessage(sVar);
-            if (this.gys != null) {
-                this.gys.mc(false);
+            if (this.gxZ != null) {
+                this.gxZ.md(false);
             }
         }
     }
 
-    public void HJ() {
-        if (this.gys != null) {
-            this.gys.HJ();
+    public void Ha() {
+        if (this.gxZ != null) {
+            this.gxZ.Ha();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.gys != null) {
-            this.gys.onKeyboardVisibilityChanged(z);
+        if (this.gxZ != null) {
+            this.gxZ.onKeyboardVisibilityChanged(z);
         }
     }
 }

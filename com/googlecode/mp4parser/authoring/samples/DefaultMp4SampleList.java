@@ -12,7 +12,7 @@ import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
 import java.util.AbstractList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DefaultMp4SampleList extends AbstractList<Sample> {
     SoftReference<Sample>[] cache;
     int[] chunkNumsStartSampleNum;

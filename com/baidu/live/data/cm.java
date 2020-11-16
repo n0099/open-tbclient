@@ -8,30 +8,30 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class cm {
-    public static cm aSk = new cm();
-    public int aSg;
-    public int aSh;
-    public int aSi;
-    public int aSj;
+    public static cm aQz = new cm();
+    public int aQv;
+    public int aQw;
+    public int aQx;
+    public int aQy;
     public List<a> dataList;
     public int fps;
 
     static {
-        aSk.fps = 15;
-        aSk.aSg = 720;
-        aSk.aSh = PlatformPlugin.DEFAULT_SYSTEM_UI;
-        aSk.aSi = FeatureCodes.ADVANCE_BEAUTY;
-        aSk.aSj = 1100;
-        aSk.dataList = a.aSl;
+        aQz.fps = 15;
+        aQz.aQv = 720;
+        aQz.aQw = PlatformPlugin.DEFAULT_SYSTEM_UI;
+        aQz.aQx = FeatureCodes.ADVANCE_BEAUTY;
+        aQz.aQy = 1100;
+        aQz.dataList = a.aQA;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.fps = jSONObject.optInt("fps");
-            this.aSg = jSONObject.optInt("video_w");
-            this.aSh = jSONObject.optInt("video_h");
-            this.aSi = jSONObject.optInt("max_bitrate");
-            this.aSj = jSONObject.optInt("min_bitrate");
+            this.aQv = jSONObject.optInt("video_w");
+            this.aQw = jSONObject.optInt("video_h");
+            this.aQx = jSONObject.optInt("max_bitrate");
+            this.aQy = jSONObject.optInt("min_bitrate");
             JSONArray optJSONArray = jSONObject.optJSONArray("list");
             if (optJSONArray != null && optJSONArray.length() == 2) {
                 this.dataList = new ArrayList();
@@ -45,13 +45,13 @@ public class cm {
                 }
                 return;
             }
-            this.dataList = a.aSl;
+            this.dataList = a.aQA;
         }
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        public static List<a> aSl = new ArrayList();
+        public static List<a> aQA = new ArrayList();
         public int height;
         public int width;
         public int x;
@@ -63,12 +63,12 @@ public class cm {
             aVar.y = 0;
             aVar.width = 720;
             aVar.height = PlatformPlugin.DEFAULT_SYSTEM_UI;
-            aSl.add(aVar);
+            aQA.add(aVar);
             aVar.x = 10;
             aVar.y = 152;
             aVar.width = 110;
             aVar.height = 196;
-            aSl.add(aVar);
+            aQA.add(aVar);
         }
 
         public void parserJson(JSONObject jSONObject) {

@@ -11,11 +11,11 @@ import master.flame.danmaku.danmaku.model.android.DanmakuContext;
 import master.flame.danmaku.danmaku.model.l;
 /* loaded from: classes6.dex */
 public class b {
-    public final Exception pUr = new Exception("not suuport this filter tag");
-    private final Map<String, e<?>> pUs = Collections.synchronizedSortedMap(new TreeMap());
-    private final Map<String, e<?>> pUt = Collections.synchronizedSortedMap(new TreeMap());
-    e<?>[] pUu = new e[0];
-    e<?>[] pUv = new e[0];
+    public final Exception pVU = new Exception("not suuport this filter tag");
+    private final Map<String, e<?>> pVV = Collections.synchronizedSortedMap(new TreeMap());
+    private final Map<String, e<?>> pVW = Collections.synchronizedSortedMap(new TreeMap());
+    e<?>[] pVX = new e[0];
+    e<?>[] pVY = new e[0];
 
     /* loaded from: classes6.dex */
     public interface e<T> {
@@ -35,19 +35,19 @@ public class b {
 
     /* loaded from: classes6.dex */
     public static class j extends a<List<Integer>> {
-        final List<Integer> pUH = Collections.synchronizedList(new ArrayList());
+        final List<Integer> pWk = Collections.synchronizedList(new ArrayList());
 
         public void y(Integer num) {
-            if (!this.pUH.contains(num)) {
-                this.pUH.add(num);
+            if (!this.pWk.contains(num)) {
+                this.pWk.add(num);
             }
         }
 
         @Override // master.flame.danmaku.a.b.e
         public boolean c(master.flame.danmaku.danmaku.model.d dVar, int i, int i2, master.flame.danmaku.danmaku.model.f fVar, boolean z, DanmakuContext danmakuContext) {
-            boolean z2 = dVar != null && this.pUH.contains(Integer.valueOf(dVar.getType()));
+            boolean z2 = dVar != null && this.pWk.contains(Integer.valueOf(dVar.getType()));
             if (z2) {
-                dVar.pWc |= 1;
+                dVar.pXF |= 1;
             }
             return z2;
         }
@@ -64,28 +64,28 @@ public class b {
         }
 
         public void reset() {
-            this.pUH.clear();
+            this.pWk.clear();
         }
     }
 
     /* loaded from: classes6.dex */
     public static class h extends a<Integer> {
-        protected int pUE = -1;
-        protected master.flame.danmaku.danmaku.model.d pUF = null;
+        protected int pWh = -1;
+        protected master.flame.danmaku.danmaku.model.d pWi = null;
         private float mFilterFactor = 1.0f;
 
         private boolean d(master.flame.danmaku.danmaku.model.d dVar, int i, int i2, master.flame.danmaku.danmaku.model.f fVar, boolean z, DanmakuContext danmakuContext) {
-            if (this.pUE <= 0 || dVar.getType() != 1) {
+            if (this.pWh <= 0 || dVar.getType() != 1) {
                 return false;
             }
-            if (this.pUF == null || this.pUF.eDe()) {
-                this.pUF = dVar;
+            if (this.pWi == null || this.pWi.eDf()) {
+                this.pWi = dVar;
                 return false;
             }
-            long eDo = dVar.eDo() - this.pUF.eDo();
-            master.flame.danmaku.danmaku.model.g gVar = danmakuContext.pXT.pXZ;
-            if ((eDo < 0 || gVar == null || ((float) eDo) >= ((float) gVar.value) * this.mFilterFactor) && i <= this.pUE) {
-                this.pUF = dVar;
+            long eDp = dVar.eDp() - this.pWi.eDp();
+            master.flame.danmaku.danmaku.model.g gVar = danmakuContext.pZw.pZC;
+            if ((eDp < 0 || gVar == null || ((float) eDp) >= ((float) gVar.value) * this.mFilterFactor) && i <= this.pWh) {
+                this.pWi = dVar;
                 return false;
             }
             return true;
@@ -96,7 +96,7 @@ public class b {
             boolean d;
             d = d(dVar, i, i2, fVar, z, danmakuContext);
             if (d) {
-                dVar.pWc |= 2;
+                dVar.pXF |= 2;
             }
             return d;
         }
@@ -106,14 +106,14 @@ public class b {
         /* renamed from: w */
         public void setData(Integer num) {
             reset();
-            if (num != null && num.intValue() != this.pUE) {
-                this.pUE = num.intValue() + (num.intValue() / 5);
-                this.mFilterFactor = 1.0f / this.pUE;
+            if (num != null && num.intValue() != this.pWh) {
+                this.pWh = num.intValue() + (num.intValue() / 5);
+                this.mFilterFactor = 1.0f / this.pWh;
             }
         }
 
         public synchronized void reset() {
-            this.pUF = null;
+            this.pWi = null;
         }
 
         @Override // master.flame.danmaku.a.b.a, master.flame.danmaku.a.b.e
@@ -124,14 +124,14 @@ public class b {
 
     /* loaded from: classes6.dex */
     public static class c extends a<Object> {
-        long emW = 20;
+        long elp = 20;
 
         private synchronized boolean a(master.flame.danmaku.danmaku.model.d dVar, int i, int i2, master.flame.danmaku.danmaku.model.f fVar, boolean z) {
             boolean z2 = false;
             synchronized (this) {
                 if (fVar != null) {
-                    if (dVar.eDf()) {
-                        if (master.flame.danmaku.danmaku.c.c.eEl() - fVar.pWi >= this.emW) {
+                    if (dVar.eDg()) {
+                        if (master.flame.danmaku.danmaku.c.c.eEm() - fVar.pXL >= this.elp) {
                             z2 = true;
                         }
                     }
@@ -144,7 +144,7 @@ public class b {
         public boolean c(master.flame.danmaku.danmaku.model.d dVar, int i, int i2, master.flame.danmaku.danmaku.model.f fVar, boolean z, DanmakuContext danmakuContext) {
             boolean a2 = a(dVar, i, i2, fVar, z);
             if (a2) {
-                dVar.pWc |= 4;
+                dVar.pXF |= 4;
             }
             return a2;
         }
@@ -165,19 +165,19 @@ public class b {
 
     /* loaded from: classes6.dex */
     public static class i extends a<List<Integer>> {
-        public List<Integer> pUG = new ArrayList();
+        public List<Integer> pWj = new ArrayList();
 
         private void x(Integer num) {
-            if (!this.pUG.contains(num)) {
-                this.pUG.add(num);
+            if (!this.pWj.contains(num)) {
+                this.pWj.add(num);
             }
         }
 
         @Override // master.flame.danmaku.a.b.e
         public boolean c(master.flame.danmaku.danmaku.model.d dVar, int i, int i2, master.flame.danmaku.danmaku.model.f fVar, boolean z, DanmakuContext danmakuContext) {
-            boolean z2 = (dVar == null || this.pUG.contains(Integer.valueOf(dVar.textColor))) ? false : true;
+            boolean z2 = (dVar == null || this.pWj.contains(Integer.valueOf(dVar.textColor))) ? false : true;
             if (z2) {
-                dVar.pWc |= 8;
+                dVar.pXF |= 8;
             }
             return z2;
         }
@@ -194,22 +194,22 @@ public class b {
         }
 
         public void reset() {
-            this.pUG.clear();
+            this.pWj.clear();
         }
     }
 
     /* loaded from: classes6.dex */
     public static abstract class k<T> extends a<List<T>> {
-        public List<T> pUI = new ArrayList();
+        public List<T> pWl = new ArrayList();
 
         @Override // master.flame.danmaku.a.b.e
         public /* bridge */ /* synthetic */ void setData(Object obj) {
             setData((List) ((List) obj));
         }
 
-        private void bY(T t) {
-            if (!this.pUI.contains(t)) {
-                this.pUI.add(t);
+        private void bZ(T t) {
+            if (!this.pWl.contains(t)) {
+                this.pWl.add(t);
             }
         }
 
@@ -217,13 +217,13 @@ public class b {
             reset();
             if (list != null) {
                 for (T t : list) {
-                    bY(t);
+                    bZ(t);
                 }
             }
         }
 
         public void reset() {
-            this.pUI.clear();
+            this.pWl.clear();
         }
     }
 
@@ -231,9 +231,9 @@ public class b {
     public static class m extends k<Integer> {
         @Override // master.flame.danmaku.a.b.e
         public boolean c(master.flame.danmaku.danmaku.model.d dVar, int i, int i2, master.flame.danmaku.danmaku.model.f fVar, boolean z, DanmakuContext danmakuContext) {
-            boolean z2 = dVar != null && this.pUI.contains(Integer.valueOf(dVar.userId));
+            boolean z2 = dVar != null && this.pWl.contains(Integer.valueOf(dVar.userId));
             if (z2) {
-                dVar.pWc |= 16;
+                dVar.pXF |= 16;
             }
             return z2;
         }
@@ -243,9 +243,9 @@ public class b {
     public static class l extends k<String> {
         @Override // master.flame.danmaku.a.b.e
         public boolean c(master.flame.danmaku.danmaku.model.d dVar, int i, int i2, master.flame.danmaku.danmaku.model.f fVar, boolean z, DanmakuContext danmakuContext) {
-            boolean z2 = dVar != null && this.pUI.contains(dVar.pWa);
+            boolean z2 = dVar != null && this.pWl.contains(dVar.pXD);
             if (z2) {
-                dVar.pWc |= 32;
+                dVar.pXF |= 32;
             }
             return z2;
         }
@@ -253,13 +253,13 @@ public class b {
 
     /* loaded from: classes6.dex */
     public static class d extends a<Boolean> {
-        private Boolean pUB = false;
+        private Boolean pWe = false;
 
         @Override // master.flame.danmaku.a.b.e
         public boolean c(master.flame.danmaku.danmaku.model.d dVar, int i, int i2, master.flame.danmaku.danmaku.model.f fVar, boolean z, DanmakuContext danmakuContext) {
-            boolean z2 = this.pUB.booleanValue() && dVar.pWb;
+            boolean z2 = this.pWe.booleanValue() && dVar.pXE;
             if (z2) {
-                dVar.pWc |= 64;
+                dVar.pXF |= 64;
             }
             return z2;
         }
@@ -268,30 +268,30 @@ public class b {
         @Override // master.flame.danmaku.a.b.e
         /* renamed from: y */
         public void setData(Boolean bool) {
-            this.pUB = bool;
+            this.pWe = bool;
         }
     }
 
     /* renamed from: master.flame.danmaku.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1082b extends a<Void> {
-        protected final master.flame.danmaku.danmaku.model.l pUw = new master.flame.danmaku.danmaku.model.android.d(4);
-        protected final LinkedHashMap<String, master.flame.danmaku.danmaku.model.d> pUx = new LinkedHashMap<>();
-        private final master.flame.danmaku.danmaku.model.l pUy = new master.flame.danmaku.danmaku.model.android.d(4);
+    public static class C1085b extends a<Void> {
+        protected final master.flame.danmaku.danmaku.model.l pVZ = new master.flame.danmaku.danmaku.model.android.d(4);
+        protected final LinkedHashMap<String, master.flame.danmaku.danmaku.model.d> pWa = new LinkedHashMap<>();
+        private final master.flame.danmaku.danmaku.model.l pWb = new master.flame.danmaku.danmaku.model.android.d(4);
 
         private final void a(master.flame.danmaku.danmaku.model.l lVar, final long j) {
             lVar.a(new l.c<master.flame.danmaku.danmaku.model.d>() { // from class: master.flame.danmaku.a.b.b.1
-                long startTime = master.flame.danmaku.danmaku.c.c.eEl();
+                long startTime = master.flame.danmaku.danmaku.c.c.eEm();
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // master.flame.danmaku.danmaku.model.l.b
                 /* renamed from: e */
-                public int bX(master.flame.danmaku.danmaku.model.d dVar) {
+                public int bY(master.flame.danmaku.danmaku.model.d dVar) {
                     try {
-                        if (master.flame.danmaku.danmaku.c.c.eEl() - this.startTime > j) {
+                        if (master.flame.danmaku.danmaku.c.c.eEm() - this.startTime > j) {
                             return 1;
                         }
-                        return dVar.eDe() ? 2 : 1;
+                        return dVar.eDf() ? 2 : 1;
                     } catch (Exception e) {
                         return 1;
                     }
@@ -301,12 +301,12 @@ public class b {
 
         private void a(LinkedHashMap<String, master.flame.danmaku.danmaku.model.d> linkedHashMap, int i) {
             Iterator<Map.Entry<String, master.flame.danmaku.danmaku.model.d>> it = linkedHashMap.entrySet().iterator();
-            long eEl = master.flame.danmaku.danmaku.c.c.eEl();
+            long eEm = master.flame.danmaku.danmaku.c.c.eEm();
             while (it.hasNext()) {
                 try {
-                    if (it.next().getValue().eDe()) {
+                    if (it.next().getValue().eDf()) {
                         it.remove();
-                        if (master.flame.danmaku.danmaku.c.c.eEl() - eEl > i) {
+                        if (master.flame.danmaku.danmaku.c.c.eEm() - eEm > i) {
                             return;
                         }
                     } else {
@@ -321,19 +321,19 @@ public class b {
         public synchronized boolean a(master.flame.danmaku.danmaku.model.d dVar, int i, int i2, master.flame.danmaku.danmaku.model.f fVar, boolean z) {
             boolean z2 = true;
             synchronized (this) {
-                a(this.pUw, 2L);
-                a(this.pUy, 2L);
-                a(this.pUx, 3);
-                if (!this.pUw.m(dVar) || dVar.eDf()) {
-                    if (this.pUy.m(dVar)) {
+                a(this.pVZ, 2L);
+                a(this.pWb, 2L);
+                a(this.pWa, 3);
+                if (!this.pVZ.m(dVar) || dVar.eDg()) {
+                    if (this.pWb.m(dVar)) {
                         z2 = false;
-                    } else if (this.pUx.containsKey(dVar.text)) {
-                        this.pUx.put(String.valueOf(dVar.text), dVar);
-                        this.pUw.l(dVar);
-                        this.pUw.k(dVar);
+                    } else if (this.pWa.containsKey(dVar.text)) {
+                        this.pWa.put(String.valueOf(dVar.text), dVar);
+                        this.pVZ.l(dVar);
+                        this.pVZ.k(dVar);
                     } else {
-                        this.pUx.put(String.valueOf(dVar.text), dVar);
-                        this.pUy.k(dVar);
+                        this.pWa.put(String.valueOf(dVar.text), dVar);
+                        this.pWb.k(dVar);
                         z2 = false;
                     }
                 }
@@ -345,7 +345,7 @@ public class b {
         public boolean c(master.flame.danmaku.danmaku.model.d dVar, int i, int i2, master.flame.danmaku.danmaku.model.f fVar, boolean z, DanmakuContext danmakuContext) {
             boolean a2 = a(dVar, i, i2, fVar, z);
             if (a2) {
-                dVar.pWc |= 128;
+                dVar.pXF |= 128;
             }
             return a2;
         }
@@ -357,9 +357,9 @@ public class b {
         }
 
         public synchronized void reset() {
-            this.pUy.clear();
-            this.pUw.clear();
-            this.pUx.clear();
+            this.pWb.clear();
+            this.pVZ.clear();
+            this.pWa.clear();
         }
 
         @Override // master.flame.danmaku.a.b.a, master.flame.danmaku.a.b.e
@@ -370,15 +370,15 @@ public class b {
 
     /* loaded from: classes6.dex */
     public static class f extends a<Map<Integer, Integer>> {
-        private Map<Integer, Integer> pUC;
+        private Map<Integer, Integer> pWf;
 
         @Override // master.flame.danmaku.a.b.e
         public boolean c(master.flame.danmaku.danmaku.model.d dVar, int i, int i2, master.flame.danmaku.danmaku.model.f fVar, boolean z, DanmakuContext danmakuContext) {
-            if (this.pUC != null) {
-                Integer num = this.pUC.get(Integer.valueOf(dVar.getType()));
+            if (this.pWf != null) {
+                Integer num = this.pWf.get(Integer.valueOf(dVar.getType()));
                 boolean z2 = num != null && i >= num.intValue();
                 if (z2) {
-                    dVar.pWc |= 256;
+                    dVar.pXF |= 256;
                     return z2;
                 }
                 return z2;
@@ -389,21 +389,21 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // master.flame.danmaku.a.b.e
         public void setData(Map<Integer, Integer> map) {
-            this.pUC = map;
+            this.pWf = map;
         }
     }
 
     /* loaded from: classes6.dex */
     public static class g extends a<Map<Integer, Boolean>> {
-        private Map<Integer, Boolean> pUD;
+        private Map<Integer, Boolean> pWg;
 
         @Override // master.flame.danmaku.a.b.e
         public boolean c(master.flame.danmaku.danmaku.model.d dVar, int i, int i2, master.flame.danmaku.danmaku.model.f fVar, boolean z, DanmakuContext danmakuContext) {
-            if (this.pUD != null) {
-                Boolean bool = this.pUD.get(Integer.valueOf(dVar.getType()));
+            if (this.pWg != null) {
+                Boolean bool = this.pWg.get(Integer.valueOf(dVar.getType()));
                 boolean z2 = bool != null && bool.booleanValue() && z;
                 if (z2) {
-                    dVar.pWc |= 512;
+                    dVar.pXF |= 512;
                     return z2;
                 }
                 return z2;
@@ -414,16 +414,16 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // master.flame.danmaku.a.b.e
         public void setData(Map<Integer, Boolean> map) {
-            this.pUD = map;
+            this.pWg = map;
         }
     }
 
     public void a(master.flame.danmaku.danmaku.model.d dVar, int i2, int i3, master.flame.danmaku.danmaku.model.f fVar, boolean z, DanmakuContext danmakuContext) {
         e<?>[] eVarArr;
-        for (e<?> eVar : this.pUu) {
+        for (e<?> eVar : this.pVX) {
             if (eVar != null) {
                 boolean c2 = eVar.c(dVar, i2, i3, fVar, z, danmakuContext);
-                dVar.pWd = danmakuContext.pXR.pWs;
+                dVar.pXG = danmakuContext.pZu.pXV;
                 if (c2) {
                     return;
                 }
@@ -433,10 +433,10 @@ public class b {
 
     public boolean b(master.flame.danmaku.danmaku.model.d dVar, int i2, int i3, master.flame.danmaku.danmaku.model.f fVar, boolean z, DanmakuContext danmakuContext) {
         e<?>[] eVarArr;
-        for (e<?> eVar : this.pUv) {
+        for (e<?> eVar : this.pVY) {
             if (eVar != null) {
                 boolean c2 = eVar.c(dVar, i2, i3, fVar, z, danmakuContext);
-                dVar.pWd = danmakuContext.pXR.pWs;
+                dVar.pXG = danmakuContext.pZu.pXV;
                 if (c2) {
                     return true;
                 }
@@ -446,14 +446,14 @@ public class b {
     }
 
     public e<?> bq(String str, boolean z) {
-        e<?> eVar = z ? this.pUs.get(str) : this.pUt.get(str);
+        e<?> eVar = z ? this.pVV.get(str) : this.pVW.get(str);
         if (eVar == null) {
             return br(str, z);
         }
         return eVar;
     }
 
-    public e<?> ZT(String str) {
+    public e<?> ZE(String str) {
         return br(str, true);
     }
 
@@ -465,10 +465,10 @@ public class b {
     public e<?> br(String str, boolean z) {
         j jVar;
         if (str == null) {
-            eCB();
+            eCC();
             return null;
         }
-        e<?> eVar = this.pUs.get(str);
+        e<?> eVar = this.pVV.get(str);
         if (eVar == null) {
             if ("1010_Filter".equals(str)) {
                 jVar = new j();
@@ -485,23 +485,23 @@ public class b {
             } else if ("1016_Filter".equals(str)) {
                 jVar = new d();
             } else if ("1017_Filter".equals(str)) {
-                jVar = new C1082b();
+                jVar = new C1085b();
             } else if ("1018_Filter".equals(str)) {
                 jVar = new f();
             } else if ("1019_Filter".equals(str)) {
                 jVar = new g();
             }
             if (jVar != null) {
-                eCB();
+                eCC();
                 return null;
             }
             jVar.setData(null);
             if (z) {
-                this.pUs.put(str, jVar);
-                this.pUu = (e[]) this.pUs.values().toArray(this.pUu);
+                this.pVV.put(str, jVar);
+                this.pVX = (e[]) this.pVV.values().toArray(this.pVX);
             } else {
-                this.pUt.put(str, jVar);
-                this.pUv = (e[]) this.pUt.values().toArray(this.pUv);
+                this.pVW.put(str, jVar);
+                this.pVY = (e[]) this.pVW.values().toArray(this.pVY);
             }
             return jVar;
         }
@@ -510,18 +510,18 @@ public class b {
         }
     }
 
-    public void ZU(String str) {
+    public void ZF(String str) {
         bs(str, true);
     }
 
     public void bs(String str, boolean z) {
-        e<?> remove = z ? this.pUs.remove(str) : this.pUt.remove(str);
+        e<?> remove = z ? this.pVV.remove(str) : this.pVW.remove(str);
         if (remove != null) {
             remove.clear();
             if (z) {
-                this.pUu = (e[]) this.pUs.values().toArray(this.pUu);
+                this.pVX = (e[]) this.pVV.values().toArray(this.pVX);
             } else {
-                this.pUv = (e[]) this.pUt.values().toArray(this.pUv);
+                this.pVY = (e[]) this.pVW.values().toArray(this.pVY);
             }
         }
     }
@@ -529,21 +529,21 @@ public class b {
     public void clear() {
         e<?>[] eVarArr;
         e<?>[] eVarArr2;
-        for (e<?> eVar : this.pUu) {
+        for (e<?> eVar : this.pVX) {
             if (eVar != null) {
                 eVar.clear();
             }
         }
-        for (e<?> eVar2 : this.pUv) {
+        for (e<?> eVar2 : this.pVY) {
             if (eVar2 != null) {
                 eVar2.clear();
             }
         }
     }
 
-    private void eCB() {
+    private void eCC() {
         try {
-            throw this.pUr;
+            throw this.pVU;
         } catch (Exception e2) {
         }
     }

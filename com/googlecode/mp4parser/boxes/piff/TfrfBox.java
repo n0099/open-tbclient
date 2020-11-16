@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TfrfBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1089a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_2 = null;
     public List<Entry> entries;
 
     static {
@@ -94,7 +94,7 @@ public class TfrfBox extends AbstractFullBox {
         return sb.toString();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class Entry {
         long fragmentAbsoluteDuration;
         long fragmentAbsoluteTime;

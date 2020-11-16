@@ -2,7 +2,7 @@ package com.baidu.swan.apps.console.v8inspector.websocket;
 
 import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketFrame;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class WebSocketException extends IOException {
     private final WebSocketFrame.CloseCode mCode;
     private final String mReason;

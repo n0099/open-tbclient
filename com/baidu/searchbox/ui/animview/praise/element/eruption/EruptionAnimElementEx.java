@@ -6,7 +6,7 @@ import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public class EruptionAnimElementEx extends EruptionAnimElement {
     private static final boolean DEBUG = false;
 

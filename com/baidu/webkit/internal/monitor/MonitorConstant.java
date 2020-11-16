@@ -1,10 +1,10 @@
 package com.baidu.webkit.internal.monitor;
 
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class MonitorConstant implements INoProGuard {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public enum KeySectionType implements INoProGuard {
         GET_VISITED_HISTORY,
         DO_UPDATE_VISITED_HISTORY,

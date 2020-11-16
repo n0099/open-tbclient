@@ -2,15 +2,15 @@ package com.baidu.ubs.analytics;
 
 import android.content.Context;
 import com.baidu.ubs.analytics.d.j;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public final class c {
     private long e;
     private Context mContext;
-    private boolean oqV;
-    private long oqW;
-    private long oqX;
-    private boolean oqY;
-    private int oqZ;
+    private long osA;
+    private long osB;
+    private boolean osC;
+    private int osD;
+    private boolean osz;
 
     /* synthetic */ c(a aVar, byte b) {
         this(aVar);
@@ -18,12 +18,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.oqV = aVar.oqV;
-        this.e = aVar.ora;
-        this.oqW = aVar.oqW;
-        this.oqY = aVar.oqY;
-        this.oqX = aVar.oqX;
-        this.oqZ = aVar.oqZ;
+        this.osz = aVar.osz;
+        this.e = aVar.osE;
+        this.osA = aVar.osA;
+        this.osC = aVar.osC;
+        this.osB = aVar.osB;
+        this.osD = aVar.osD;
     }
 
     public final Context b() {
@@ -31,7 +31,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.oqV;
+        return this.osz;
     }
 
     public final long d() {
@@ -39,68 +39,68 @@ public final class c {
     }
 
     public final long e() {
-        return this.oqW;
+        return this.osA;
     }
 
     public final long f() {
-        return this.oqX;
+        return this.osB;
     }
 
     public final boolean g() {
-        return this.oqY;
+        return this.osC;
     }
 
     public final int h() {
-        return this.oqZ;
+        return this.osD;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     public static class a {
         private Context mContext;
-        private boolean oqV = true;
-        private long ora = 30000;
-        private long oqW = 60000;
-        private long oqX = 10000;
-        private boolean oqY = false;
-        private int oqZ = 1000;
+        private boolean osz = true;
+        private long osE = 30000;
+        private long osA = 60000;
+        private long osB = 10000;
+        private boolean osC = false;
+        private int osD = 1000;
 
-        public a gp(Context context) {
+        public a go(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a zA(boolean z) {
-            this.oqV = z;
+        public a zH(boolean z) {
+            this.osz = z;
             return this;
         }
 
-        public a hp(long j) {
-            this.ora = 1000 * j;
+        public a hs(long j) {
+            this.osE = 1000 * j;
             return this;
         }
 
-        public a Nj(int i) {
-            this.oqW = i * 60 * 1000;
+        public a NM(int i) {
+            this.osA = i * 60 * 1000;
             return this;
         }
 
-        public a hq(long j) {
-            this.oqX = 1000 * j;
+        public a ht(long j) {
+            this.osB = 1000 * j;
             return this;
         }
 
-        public a zB(boolean z) {
-            this.oqY = z;
+        public a zI(boolean z) {
+            this.osC = z;
             return this;
         }
 
-        public a Nk(int i) {
+        public a NN(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.oqZ = i2 < 1000 ? i2 : 1000;
+            this.osD = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c edy() {
+        public c edx() {
             if (this.mContext == null) {
                 j.I("Context must be not empty!");
                 return null;

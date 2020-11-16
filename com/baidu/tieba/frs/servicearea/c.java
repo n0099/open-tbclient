@@ -4,40 +4,43 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tbadkCore.aa;
 import com.baidu.tieba.tbadkCore.z;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class c implements b {
+    private FrsViewData jfx;
+    private final Context mContext;
     private RecyclerView mRecyclerView;
     private List<aa> mDataList = new ArrayList();
-    private boolean jeK = false;
     private RecyclerView.Adapter mAdapter = new RecyclerView.Adapter<a>() { // from class: com.baidu.tieba.frs.servicearea.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.support.v7.widget.RecyclerView.Adapter
         /* renamed from: z */
         public a onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-            int i2 = 0;
-            if (c.this.jeK) {
-                i2 = l.getEquipmentWidth(viewGroup.getContext()) / getItemCount();
-            }
-            return new a(new LinearLayout(viewGroup.getContext()), i2);
+            return new a(new LinearLayout(viewGroup.getContext()), c.this.jfx);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,6 +57,7 @@ public class c implements b {
     };
 
     public c(Context context) {
+        this.mContext = context;
         this.mRecyclerView = new RecyclerView(context);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(0);
@@ -62,15 +66,13 @@ public class c implements b {
     }
 
     @Override // com.baidu.tieba.frs.servicearea.b
-    public void setData(z zVar) {
+    public void setData(z zVar, FrsViewData frsViewData) {
         if (zVar != null && !y.isEmpty(zVar.dataList)) {
             this.mDataList = zVar.dataList;
+            this.jfx = frsViewData;
             this.mAdapter.notifyDataSetChanged();
-            this.jeK = zVar.mVW == 4 || zVar.mVW == 5;
-            if (!this.jeK) {
-                this.mRecyclerView.setPadding(l.getDimens(this.mRecyclerView.getContext(), R.dimen.tbds3), 0, 0, 0);
-                this.mRecyclerView.setClipToPadding(false);
-            }
+            this.mRecyclerView.setPadding(l.getDimens(this.mRecyclerView.getContext(), R.dimen.M_W_X007), 0, 0, 0);
+            this.mRecyclerView.setClipToPadding(false);
         }
     }
 
@@ -79,72 +81,80 @@ public class c implements b {
         return this.mRecyclerView;
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private LinearLayout fDP;
-        private FrameLayout jeM;
-        private TbClipImageView jeN;
-        private View jeO;
-        private aa jeP;
-        private List<String> jeQ;
+        private LinearLayout fDs;
+        private TbClipImageView jfA;
+        private aa jfB;
+        private List<String> jfC;
+        private FrsViewData jfx;
+        private FrameLayout jfz;
         private View.OnClickListener mOnClickListener;
         private TextView mTextView;
 
-        public a(View view, int i) {
+        public a(View view, FrsViewData frsViewData) {
             super(view);
-            this.jeQ = new ArrayList();
+            this.jfC = new ArrayList();
             this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.servicearea.c.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.jeP != null && a.this.jeP.mVX != null) {
-                        TiebaStatic.log(new aq("c13274").w("uid", TbadkCoreApplication.getCurrentAccountId()).dR("fid", a.this.jeP.forumId).dR("obj_source", "frs_card").dR("obj_id", a.this.jeP.mVX.id).dR("obj_name", a.this.jeP.mVX.name).al("obj_param1", a.this.jeP.mVX.esj.intValue()));
+                    if (!TextUtils.equals(view2.getResources().getString(R.string.hot_user_rank), a.this.jfB.imageUrl) || a.this.jfx == null || a.this.jfx.getForum() == null || TextUtils.isEmpty(a.this.jfx.getForum().getId())) {
+                        if (a.this.jfB != null && a.this.jfB.mWQ != null) {
+                            TiebaStatic.log(new ar("c13274").w("uid", TbadkCoreApplication.getCurrentAccountId()).dR("fid", a.this.jfB.forumId).dR("obj_source", "frs_card").dR("obj_id", a.this.jfB.mWQ.id).dR("obj_name", a.this.jfB.mWQ.name).ak("obj_param1", a.this.jfB.mWQ.eqD.intValue()));
+                        }
+                        e.a(view2.getContext(), a.this.jfB);
+                        e.c(a.this.jfB);
+                        return;
                     }
-                    e.a(view2.getContext(), a.this.jeP, a.this.jeO);
-                    e.c(a.this.jeP);
+                    HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view2.getContext());
+                    hotUserRankActivityConfig.setForumId(Long.valueOf(com.baidu.adp.lib.f.b.toLong(a.this.jfx.getForum().getId(), 0L)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hotUserRankActivityConfig));
+                    ar arVar = new ar("c13666");
+                    arVar.dR("fid", a.this.jfx.getForum().getId());
+                    TiebaStatic.log(arVar);
                 }
             };
             Context context = view.getContext();
-            this.fDP = (LinearLayout) view;
-            this.fDP.setGravity(1);
-            this.fDP.setOrientation(1);
-            this.jeM = new FrameLayout(context);
-            this.jeN = new TbClipImageView(context);
-            int dimens = l.getDimens(context, R.dimen.tbds94);
-            int dimens2 = i > 0 ? (i - dimens) / 2 : l.getDimens(context, R.dimen.tbds53);
-            this.jeN.setDrawerType(1);
-            this.jeN.setIsRound(true);
-            this.jeN.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.jeN.setPlaceHolder(1);
-            this.jeM.addView(this.jeN, new FrameLayout.LayoutParams(dimens, dimens));
-            this.jeO = new View(context);
-            int dimens3 = l.getDimens(context, R.dimen.tbds20);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimens3, dimens3);
-            layoutParams.gravity = 5;
-            this.jeM.addView(this.jeO, layoutParams);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams2.leftMargin = dimens2;
-            layoutParams2.rightMargin = dimens2;
-            this.fDP.addView(this.jeM, layoutParams2);
+            this.jfx = frsViewData;
+            this.fDs = (LinearLayout) view;
+            this.fDs.setGravity(16);
+            this.fDs.setOrientation(0);
+            this.jfz = new FrameLayout(context);
+            this.jfA = new TbClipImageView(context);
+            int dimens = l.getDimens(context, R.dimen.tbds57);
+            this.jfA.setDrawerType(1);
+            this.jfA.setIsRound(true);
+            this.jfA.setBorderWidth(R.dimen.L_X01);
+            this.jfA.setBorderColor(R.color.CAM_X0401);
+            this.jfA.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.jfA.setPlaceHolder(1);
+            this.jfz.addView(this.jfA, new FrameLayout.LayoutParams(dimens, dimens));
+            this.fDs.addView(this.jfz, new LinearLayout.LayoutParams(-2, l.getDimens(this.jfA.getContext(), R.dimen.tbds62)));
             this.mTextView = new TextView(context);
-            this.mTextView.setTextSize(0, l.getDimens(context, R.dimen.tbfontsize31));
-            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams3.topMargin = l.getDimens(context, R.dimen.tbds16);
-            this.fDP.addView(this.mTextView, layoutParams3);
+            this.mTextView.setTextSize(0, l.getDimens(context, R.dimen.T_X08));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.leftMargin = l.getDimens(context, R.dimen.tbds10);
+            layoutParams.rightMargin = l.getDimens(context, R.dimen.M_W_X008);
+            this.fDs.addView(this.mTextView, layoutParams);
             view.setOnClickListener(this.mOnClickListener);
         }
 
         public void a(aa aaVar) {
             if (aaVar != null) {
-                this.jeP = aaVar;
-                this.jeN.startLoad(aaVar.imageUrl, 10, false);
-                this.mTextView.setText(at.cutChineseAndEnglishWithSuffix(aaVar.name, 8, ""));
-                ap.setViewTextColor(this.mTextView, R.color.cp_cont_b);
-                ap.setBackgroundColor(this.itemView, R.color.cp_bg_line_d);
-                this.jeO.setBackground(ap.getDrawable(R.drawable.frs_service_red_dot));
-                this.jeO.setVisibility(aaVar.bfM ? 0 : 8);
-                if (!this.jeQ.contains(aaVar.name)) {
+                this.jfB = aaVar;
+                if (TextUtils.equals(this.itemView.getResources().getString(R.string.hot_user_rank), aaVar.imageUrl)) {
+                    this.jfA.setImageResource(R.drawable.icon_mask_service_celebrity24);
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.jfA.getLayoutParams();
+                    layoutParams.width = l.getDimens(this.jfA.getContext(), R.dimen.tbds62);
+                    layoutParams.height = l.getDimens(this.jfA.getContext(), R.dimen.tbds62);
+                } else {
+                    this.jfA.startLoad(aaVar.imageUrl, 10, false);
+                }
+                this.mTextView.setText(au.cutChineseAndEnglishWithSuffix(aaVar.name, 10, ""));
+                ap.setViewTextColor(this.mTextView, R.color.CAM_X0105);
+                if (!this.jfC.contains(aaVar.name)) {
                     e.b(aaVar);
-                    this.jeQ.add(aaVar.name);
+                    this.jfC.add(aaVar.name);
                 }
             }
         }

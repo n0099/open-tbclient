@@ -17,8 +17,8 @@ public class k {
         public String mQuery;
         public String mPath = "/";
         public String mOrigin = null;
-        public String[] QH = null;
-        public List<BasicNameValuePair> QI = null;
+        public String[] QI = null;
+        public List<BasicNameValuePair> QJ = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b(String str) {
@@ -28,93 +28,93 @@ public class k {
 
     /* loaded from: classes.dex */
     public static class q extends h {
-        public boolean QP;
+        public boolean QR;
         public Map<String, String> mHeaders;
 
         public q(boolean z, Map<String, String> map) {
-            this.QP = z;
+            this.QR = z;
             this.mHeaders = map;
         }
     }
 
     /* loaded from: classes.dex */
     public static class d extends h {
-        public SocketException QJ;
+        public SocketException QK;
 
         public d(SocketException socketException) {
-            this.QJ = socketException;
+            this.QK = socketException;
         }
     }
 
     /* loaded from: classes.dex */
     public static class e extends h {
-        public String QK;
+        public String QL;
         public int mStatusCode;
 
         public e(int i, String str) {
             this.mStatusCode = i;
-            this.QK = str;
+            this.QL = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class p extends h {
-        public String QK;
+        public String QL;
         public int mStatusCode;
 
         public p(int i, String str) {
             this.mStatusCode = i;
-            this.QK = str;
+            this.QL = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class l extends h {
-        public WebSocketException QN;
+        public WebSocketException QO;
 
         public l(WebSocketException webSocketException) {
-            this.QN = webSocketException;
+            this.QO = webSocketException;
         }
     }
 
     /* loaded from: classes.dex */
     public static class f extends h {
-        public Exception QL;
+        public Exception QM;
 
         public f(Exception exc) {
-            this.QL = exc;
+            this.QM = exc;
         }
     }
 
     /* loaded from: classes.dex */
     public static class s extends h {
-        public String QR;
+        public String QS;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public s(String str) {
-            this.QR = str;
+            this.QS = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class m extends h {
-        public byte[] QG;
+        public byte[] QH;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public m(byte[] bArr) {
-            this.QG = bArr;
+            this.QH = bArr;
         }
     }
 
     /* loaded from: classes.dex */
     public static class a extends h {
-        public byte[] QG;
+        public byte[] QH;
         public long allDataReadTime;
         public long firstByteReachTime;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(byte[] bArr, long j, long j2) {
-            this.QG = bArr;
+            this.QH = bArr;
             this.firstByteReachTime = j;
             this.allDataReadTime = j2;
         }
@@ -122,11 +122,11 @@ public class k {
 
     /* loaded from: classes.dex */
     public static class i extends h {
-        com.baidu.adp.lib.webSocket.c QM;
+        com.baidu.adp.lib.webSocket.c QN;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public i(com.baidu.adp.lib.webSocket.c cVar) {
-            this.QM = cVar;
+            this.QN = cVar;
         }
     }
 
@@ -150,41 +150,41 @@ public class k {
 
     /* loaded from: classes.dex */
     public static class j extends h {
-        public byte[] QG;
+        public byte[] QH;
 
         j() {
-            this.QG = null;
+            this.QH = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public j(byte[] bArr) {
-            this.QG = bArr;
+            this.QH = bArr;
         }
     }
 
     /* renamed from: com.baidu.adp.lib.webSocket.k$k  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0024k extends h {
-        public byte[] QG;
+        public byte[] QH;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public C0024k() {
-            this.QG = null;
+            this.QH = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public C0024k(byte[] bArr) {
-            this.QG = bArr;
+            this.QH = bArr;
         }
     }
 
     /* loaded from: classes.dex */
     public static class o extends h {
-        com.baidu.adp.lib.webSocket.c QO;
+        com.baidu.adp.lib.webSocket.c QP;
 
         public o(com.baidu.adp.lib.webSocket.c cVar) {
-            this.QO = null;
-            this.QO = cVar;
+            this.QP = null;
+            this.QP = cVar;
         }
     }
 

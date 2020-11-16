@@ -1,50 +1,50 @@
 package com.facebook.imagepipeline.common;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class e {
-    private static final e oUN = new e(-1, false);
-    private static final e oUO = new e(-2, false);
-    private static final e oUP = new e(-1, true);
+    private static final e oWq = new e(-1, false);
+    private static final e oWr = new e(-2, false);
+    private static final e oWs = new e(-1, true);
     private final int mRotation;
-    private final boolean oUM;
+    private final boolean oWp;
+
+    public static e enT() {
+        return oWq;
+    }
+
+    public static e enU() {
+        return oWr;
+    }
 
     public static e enV() {
-        return oUN;
-    }
-
-    public static e enW() {
-        return oUO;
-    }
-
-    public static e enX() {
-        return oUP;
+        return oWs;
     }
 
     private e(int i, boolean z) {
         this.mRotation = i;
-        this.oUM = z;
+        this.oWp = z;
     }
 
-    public boolean enY() {
+    public boolean enW() {
         return this.mRotation == -1;
     }
 
-    public boolean enZ() {
+    public boolean enX() {
         return this.mRotation != -2;
     }
 
-    public int eoa() {
-        if (enY()) {
+    public int enY() {
+        if (enW()) {
             throw new IllegalStateException("Rotation is set to use EXIF");
         }
         return this.mRotation;
     }
 
-    public boolean eob() {
-        return this.oUM;
+    public boolean enZ() {
+        return this.oWp;
     }
 
     public int hashCode() {
-        return com.facebook.common.util.a.h(Integer.valueOf(this.mRotation), Boolean.valueOf(this.oUM));
+        return com.facebook.common.util.a.h(Integer.valueOf(this.mRotation), Boolean.valueOf(this.oWp));
     }
 
     public boolean equals(Object obj) {
@@ -53,12 +53,12 @@ public class e {
         }
         if (obj instanceof e) {
             e eVar = (e) obj;
-            return this.mRotation == eVar.mRotation && this.oUM == eVar.oUM;
+            return this.mRotation == eVar.mRotation && this.oWp == eVar.oWp;
         }
         return false;
     }
 
     public String toString() {
-        return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.oUM));
+        return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.oWp));
     }
 }

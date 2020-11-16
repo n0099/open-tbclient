@@ -1,6 +1,6 @@
 package com.baidu.swan.apps.ap.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c extends a {
-    public String dEk = "";
-    public String dEl = "";
+    public String dCD = "";
+    public String dCE = "";
 }

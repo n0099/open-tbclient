@@ -13,7 +13,7 @@ import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
 import org.webrtc.MediaStreamTrack;
 import org.webrtc.ThreadUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class WebRtcAudioTrack {
     private static final long AUDIO_TRACK_THREAD_JOIN_TIMEOUT_MS = 2000;
     private static final int BITS_PER_SAMPLE = 16;
@@ -38,13 +38,13 @@ public class WebRtcAudioTrack {
     private static final int DEFAULT_USAGE = getDefaultUsageAttribute();
     private static int usageAttribute = DEFAULT_USAGE;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public enum AudioTrackStartErrorCode {
         AUDIO_TRACK_START_EXCEPTION,
         AUDIO_TRACK_START_STATE_MISMATCH
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     private class AudioTrackThread extends Thread {
         private volatile boolean keepAlive;
 
@@ -99,7 +99,7 @@ public class WebRtcAudioTrack {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public interface ErrorCallback {
         void onWebRtcAudioTrackError(String str);
 
@@ -109,7 +109,7 @@ public class WebRtcAudioTrack {
     }
 
     @Deprecated
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public interface WebRtcAudioTrackErrorCallback {
         void onWebRtcAudioTrackError(String str);
 

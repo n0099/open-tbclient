@@ -25,10 +25,10 @@ public class HttpParam {
         }
     };
     private final Map<String, String> c;
-    private final RequestTag qlz;
+    private final RequestTag qnc;
 
     public HttpParam(RequestTag requestTag) {
-        this.qlz = requestTag == null ? RequestTag.normal() : requestTag;
+        this.qnc = requestTag == null ? RequestTag.normal() : requestTag;
         this.c = new TreeMap(f5398a);
     }
 
@@ -48,14 +48,14 @@ public class HttpParam {
 
     public void a() {
         Map<String, String> ewc;
-        if (this.qlz.signType == 2) {
+        if (this.qnc.signType == 2) {
             return;
         }
-        b bVar = (b) tv.chushou.basis.d.b.eHq().S(b.class);
+        b bVar = (b) tv.chushou.basis.d.b.eHr().S(b.class);
         if (bVar != null) {
             b("_appkey", bVar.getAppKey());
             b("_xappkey", bVar.evY());
-            b("_appSource", bVar.asG());
+            b("_appSource", bVar.arX());
             b("_appVersion", bVar.getSdkVersion());
             String token = bVar.getToken();
             if (!TextUtils.isEmpty(token)) {
@@ -63,13 +63,13 @@ public class HttpParam {
             }
             b("_cssdkVersion", bVar.ewb());
         }
-        d dVar = (d) tv.chushou.basis.d.b.eHq().S(d.class);
+        d dVar = (d) tv.chushou.basis.d.b.eHr().S(d.class);
         if (dVar != null) {
             b("_identifier", dVar.getIdentifier());
-            b("_imei", dVar.aMZ());
-            b("device_cs", dVar.eHg());
-            b("device_ds", dVar.eHh());
-            for (Map.Entry<String, String> entry : dVar.eHi().entrySet()) {
+            b("_imei", dVar.aMr());
+            b("device_cs", dVar.eHh());
+            b("device_ds", dVar.eHi());
+            for (Map.Entry<String, String> entry : dVar.eHj().entrySet()) {
                 b(entry.getKey(), entry.getValue());
             }
         }
@@ -89,10 +89,10 @@ public class HttpParam {
     }
 
     public void b() {
-        if (this.qlz.signType == 2) {
+        if (this.qnc.signType == 2) {
             return;
         }
-        c cVar = (c) tv.chushou.basis.d.b.eHq().S(c.class);
+        c cVar = (c) tv.chushou.basis.d.b.eHr().S(c.class);
         if (cVar == null) {
             this.c.put("_t", String.valueOf(System.currentTimeMillis()));
             return;
@@ -112,23 +112,23 @@ public class HttpParam {
     }
 
     public void c() {
-        if (this.qlz.signType == 2) {
+        if (this.qnc.signType == 2) {
             return;
         }
-        String str = this.qlz.signKey;
-        String str2 = this.qlz.signSecret;
+        String str = this.qnc.signKey;
+        String str2 = this.qnc.signSecret;
         String str3 = TextUtils.isEmpty(str) ? "_sign" : str;
-        b bVar = (b) tv.chushou.basis.d.b.eHq().S(b.class);
+        b bVar = (b) tv.chushou.basis.d.b.eHr().S(b.class);
         String evZ = (!TextUtils.isEmpty(str2) || bVar == null) ? str2 : bVar.evZ();
         this.c.remove(str3);
-        e eVar = (e) tv.chushou.basis.d.b.eHq().S(e.class);
+        e eVar = (e) tv.chushou.basis.d.b.eHr().S(e.class);
         if (bVar == null || eVar == null) {
             return;
         }
         this.c.put(str3, eVar.hb(evZ, e()));
     }
 
-    public Set<Map.Entry<String, String>> eHn() {
+    public Set<Map.Entry<String, String>> eHo() {
         return this.c.entrySet();
     }
 

@@ -7,7 +7,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class FlowableTimer extends io.reactivex.g<Long> {
     final long delay;
     final v scheduler;
@@ -20,7 +20,7 @@ public final class FlowableTimer extends io.reactivex.g<Long> {
         timerSubscriber.setResource(this.scheduler.b(timerSubscriber, this.delay, this.unit));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class TimerSubscriber extends AtomicReference<io.reactivex.disposables.b> implements Runnable, org.a.d {
         private static final long serialVersionUID = -2809475196591179431L;
         final org.a.c<? super Long> actual;

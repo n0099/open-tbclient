@@ -1,5 +1,5 @@
 package com.baidu.android.imrtc;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.imrtc";
     public static final String BUILD_TYPE = "release";

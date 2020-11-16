@@ -20,10 +20,6 @@ public class b extends ImageSpan {
         super(context, bitmap, i);
     }
 
-    public b(Drawable drawable) {
-        super(drawable);
-    }
-
     public b(Drawable drawable, int i) {
         super(drawable, i);
     }
@@ -61,11 +57,7 @@ public class b extends ImageSpan {
         return drawable;
     }
 
-    public void setPaddingRight(int i) {
-        this.mPaddingRight = i;
-    }
-
-    public void aG(int i) {
+    public void aH(int i) {
         this.mPaddingLeft = i;
     }
 }

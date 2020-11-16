@@ -2,7 +2,7 @@ package com.xiaomi.clientreport.processor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public interface IEventProcessor extends c, d {
     String bytesToString(byte[] bArr);
 

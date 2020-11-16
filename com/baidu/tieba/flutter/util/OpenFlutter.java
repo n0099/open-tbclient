@@ -3,17 +3,19 @@ package com.baidu.tieba.flutter.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.a;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
 import com.baidu.live.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.BdToken.f;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.a.b;
-import com.baidu.tbadk.a.d;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
@@ -22,6 +24,7 @@ import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.switchs.FlutterConcernForumEnableSwitch;
 import com.baidu.tbadk.switchs.FlutterForumDetailEnableSwitch;
 import com.baidu.tbadk.switchs.FlutterPersonAttentionEnableSwitch;
@@ -31,7 +34,9 @@ import com.baidu.tieba.flutter.view.FlutterPageActivity;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes25.dex */
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* loaded from: classes24.dex */
 public class OpenFlutter {
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForum";
     public static final String ACTIVITY_FANS = "PersonFansList";
@@ -128,12 +133,69 @@ public class OpenFlutter {
                 hashMap.put("uid", String.valueOf(intentConfig.getIntent().getLongExtra("user_id", 0L)));
             }
         }
+        if (intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null) {
+            parseUriParmes(str, hashMap, (Uri) intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI));
+        }
         return hashMap;
+    }
+
+    public static void parseUriParmes(String str, final HashMap<String, Object> hashMap, Uri uri) {
+        Map<String, String> paramPair;
+        int length;
+        String substring;
+        if (ACTIVITY_PERSON_CENTER.equals(str)) {
+            String uri2 = uri.toString();
+            if (f.p(uri)) {
+                f.bfS().d(uri, new f.a() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.1
+                    @Override // com.baidu.tbadk.BdToken.f.a
+                    public void onCallBack(HashMap<String, Object> hashMap2) {
+                        if (hashMap2 != null && (hashMap2.get(f.eqh) instanceof String)) {
+                            String str2 = (String) hashMap2.get(f.eqh);
+                            if (!StringUtils.isNull(str2)) {
+                                hashMap.put("portrait", str2);
+                            }
+                        }
+                    }
+                });
+            } else if (!StringUtils.isNull(uri2)) {
+                if (uri2.startsWith("tbusercenter://") || uri2.startsWith("com.baidu.tieba://usercenter")) {
+                    String decode = Uri.decode(uri.getEncodedPath());
+                    if (!StringUtils.isNull(decode)) {
+                        if (uri2.startsWith("tbusercenter://")) {
+                            Matcher matcher = Pattern.compile(".*fr=(.*)&portrait=([\\d]+).*").matcher(decode);
+                            if (matcher.find()) {
+                                substring = matcher.group(2);
+                            } else {
+                                int indexOf = decode.indexOf("portrait=");
+                                if (indexOf >= 0 && (length = indexOf + "portrait=".length()) <= decode.length()) {
+                                    substring = decode.substring(length);
+                                } else {
+                                    return;
+                                }
+                            }
+                            if (!StringUtils.isNull(substring)) {
+                                hashMap.put("portrait", substring);
+                            }
+                        } else if (uri2.startsWith("com.baidu.tieba://usercenter")) {
+                            if (decode.startsWith("//")) {
+                                decode = decode.substring(2);
+                            }
+                            if (!StringUtils.isNull(decode) && (paramPair = bf.getParamPair(decode)) != null) {
+                                String str2 = paramPair.get("uid");
+                                if (!StringUtils.isNull(str2)) {
+                                    hashMap.put("uid", str2);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public static boolean checkSwitch(String str) {
         if (str.contains(ACTIVITY_SIGN_TOGETHER)) {
-            return !b.zM("flutter_page_test") && FlutterSignAllEnableSwitch.isOn();
+            return !b.zG("flutter_page_test") && FlutterSignAllEnableSwitch.isOn();
         } else if (str.contains(ACTIVITY_FANS)) {
             return FlutterPersonAttentionEnableSwitch.isOn();
         } else {
@@ -144,7 +206,7 @@ public class OpenFlutter {
                 return FlutterConcernForumEnableSwitch.isOn();
             }
             if (str.contains(ACTIVITY_PERSON_CENTER)) {
-                return FlutterPersonCenterEnableSwitch.isOn() && d.bhO();
+                return FlutterPersonCenterEnableSwitch.isOn();
             }
             return true;
         }

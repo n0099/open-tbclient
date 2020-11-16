@@ -1,5 +1,5 @@
 package com.baidu.ar.constants;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class HttpConstants {
     public static final String AIP_APP_ID = "aip_app_id";
     public static final String APP_VERSION = "app_version";

@@ -1,25 +1,25 @@
 package com.baidu.turbonet.net;
-/* loaded from: classes17.dex */
+/* loaded from: classes12.dex */
 public final class RequestTimeInfo {
-    private final long omt;
-    private final long omu;
-    private final long oop;
-    private final long ooq;
-    private final long oor;
+    private final long onX;
+    private final long onY;
+    private final long opT;
+    private final long opU;
+    private final long opV;
 
     public RequestTimeInfo() {
-        this.oop = 0L;
-        this.ooq = 0L;
-        this.oor = 0L;
-        this.omt = 0L;
-        this.omu = 0L;
+        this.opT = 0L;
+        this.opU = 0L;
+        this.opV = 0L;
+        this.onX = 0L;
+        this.onY = 0L;
     }
 
     public RequestTimeInfo(long j, long j2, long j3, long j4, long j5) {
-        this.oop = j;
-        this.ooq = j2;
-        this.oor = j3;
-        this.omt = j4;
-        this.omu = j5;
+        this.opT = j;
+        this.opU = j2;
+        this.opV = j3;
+        this.onX = j4;
+        this.onY = j5;
     }
 }

@@ -45,7 +45,7 @@ import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class ExifInterface {
     public static final short ALTITUDE_ABOVE_SEA_LEVEL = 0;
     public static final short ALTITUDE_BELOW_SEA_LEVEL = 1;
@@ -483,7 +483,7 @@ public class ExifInterface {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public @interface IfdType {
     }
 
@@ -509,7 +509,7 @@ public class ExifInterface {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static class Rational {
         public final long denominator;
         public final long numerator;
@@ -538,7 +538,7 @@ public class ExifInterface {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static class ExifAttribute {
         public final byte[] bytes;
         public final int format;
@@ -1052,7 +1052,7 @@ public class ExifInterface {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static class ExifTag {
         public final String name;
         public final int number;
@@ -2732,7 +2732,7 @@ public class ExifInterface {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static class ByteOrderedDataInputStream extends InputStream implements DataInput {
         private ByteOrder mByteOrder;
         private DataInputStream mDataInputStream;
@@ -2972,7 +2972,7 @@ public class ExifInterface {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static class ByteOrderedDataOutputStream extends FilterOutputStream {
         private ByteOrder mByteOrder;
         private final OutputStream mOutputStream;

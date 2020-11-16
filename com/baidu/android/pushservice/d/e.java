@@ -11,7 +11,7 @@ import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.mobstat.Config;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class e extends d {
     protected int e;
     private int f;
@@ -52,24 +52,24 @@ public class e extends d {
         hashMap.put("bind_name", Build.MODEL);
         hashMap.put("bind_status", this.e + "");
         hashMap.put("push_sdk_version", this.f + "");
-        if (com.baidu.android.pushservice.b.d.b(this.f1055a)) {
-            String cuid = DeviceId.getCUID(this.f1055a);
+        if (com.baidu.android.pushservice.b.d.b(this.f1058a)) {
+            String cuid = DeviceId.getCUID(this.f1058a);
             if (!TextUtils.isEmpty(cuid)) {
                 hashMap.put("cuid", cuid);
             }
-            hashMap.put("new_channel_id", com.baidu.android.pushservice.j.a(this.f1055a).c());
+            hashMap.put("new_channel_id", com.baidu.android.pushservice.j.a(this.f1058a).c());
         }
         if (!TextUtils.isEmpty(this.g)) {
             hashMap.put("bind_notify_status", this.g);
         }
-        if (!TextUtils.isEmpty(this.b.i) && com.baidu.android.pushservice.b.d.q(this.f1055a)) {
+        if (!TextUtils.isEmpty(this.b.i) && com.baidu.android.pushservice.b.d.q(this.f1058a)) {
             hashMap.put("push_proxy", this.b.i);
         }
         hashMap.put("manufacture", Build.MANUFACTURER);
         if (com.baidu.android.pushservice.i.m.n()) {
-            hashMap.put(Config.ROM, com.baidu.android.pushservice.i.m.m(this.f1055a));
+            hashMap.put(Config.ROM, com.baidu.android.pushservice.i.m.m(this.f1058a));
         }
-        if (com.baidu.android.pushservice.i.m.o(this.f1055a)) {
+        if (com.baidu.android.pushservice.i.m.o(this.f1058a)) {
             hashMap.put("connect_version", "3");
         } else {
             hashMap.put("connect_version", "2");
@@ -79,7 +79,7 @@ public class e extends d {
         if (!TextUtils.isEmpty(str) && str.length() <= 128) {
             hashMap.put("package_name", str);
         }
-        String deviceID = DeviceId.getDeviceID(this.f1055a);
+        String deviceID = DeviceId.getDeviceID(this.f1058a);
         if (com.baidu.android.pushservice.h.f()) {
             try {
                 hashMap.put("rsa_device_id", Base64.encodeToString(com.baidu.android.pushservice.i.k.a(deviceID.getBytes(), BaiduAppSSOJni.getPublicKey(1)), 2));
@@ -89,13 +89,13 @@ public class e extends d {
             hashMap.put("device_id", deviceID);
         }
         hashMap.put(HttpConstants.DEVICE_TYPE, "3");
-        hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(this.f1055a) ? 1 : 0) + "");
-        hashMap.put("dual_channel", (com.baidu.android.pushservice.b.d.c(this.f1055a) ? 1 : 0) + "");
+        hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(this.f1058a) ? 1 : 0) + "");
+        hashMap.put("dual_channel", (com.baidu.android.pushservice.b.d.c(this.f1058a) ? 1 : 0) + "");
         hashMap.put("ignore_token", (this.b.k ? 1 : 0) + "");
-        if (PushSettings.e(this.f1055a)) {
+        if (PushSettings.e(this.f1058a)) {
             return;
         }
-        hashMap.put("check_sdk", com.baidu.android.pushservice.i.i.a(this.f1055a, "com.baidu.android.pushservice.CHECK_SDK"));
+        hashMap.put("check_sdk", com.baidu.android.pushservice.i.i.a(this.f1058a, "com.baidu.android.pushservice.CHECK_SDK"));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -103,9 +103,9 @@ public class e extends d {
     public String b(String str) {
         String b = super.b(str);
         if (!TextUtils.isEmpty(this.b.d)) {
-            com.baidu.android.pushservice.a.b.a(this.f1055a).e(this.b.d);
+            com.baidu.android.pushservice.a.b.a(this.f1058a).e(this.b.d);
             if (!TextUtils.isEmpty(this.b.g)) {
-                com.baidu.android.pushservice.a.b.a(this.f1055a).a(this.b.d, new f(this.b.g, b));
+                com.baidu.android.pushservice.a.b.a(this.f1058a).a(this.b.d, new f(this.b.g, b));
             }
         }
         return b;

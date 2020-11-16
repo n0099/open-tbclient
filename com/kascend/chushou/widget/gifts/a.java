@@ -18,11 +18,11 @@ public class a extends PopupWindow implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
     private final TextView f4283a;
-    private InterfaceC1022a pCl;
+    private InterfaceC1025a pDO;
 
     /* renamed from: com.kascend.chushou.widget.gifts.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1022a {
+    public interface InterfaceC1025a {
         void a(int i);
 
         void b(int i);
@@ -51,7 +51,7 @@ public class a extends PopupWindow implements View.OnClickListener {
             textView.setOnClickListener(this);
         }
         if (z) {
-            setWidth(tv.chushou.zues.utils.a.hD(context).x);
+            setWidth(tv.chushou.zues.utils.a.hB(context).x);
         } else {
             inflate.findViewById(a.f.space_1).setVisibility(8);
             ((LinearLayout) inflate.findViewById(a.f.ll_keyboard)).setBackgroundColor(Color.parseColor("#4A4A4A"));
@@ -104,8 +104,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         int parseInt = h.parseInt(this.f4283a.getText().toString());
         if (parseInt != 0) {
             dismiss();
-            if (this.pCl != null) {
-                this.pCl.a(parseInt);
+            if (this.pDO != null) {
+                this.pDO.a(parseInt);
             }
         }
     }
@@ -118,8 +118,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         } else if (charSequence.length() < 4) {
             this.f4283a.setText(String.valueOf(charSequence + i));
         }
-        if (this.pCl != null && (parseInt = h.parseInt(this.f4283a.getText().toString())) != 0) {
-            this.pCl.b(parseInt);
+        if (this.pDO != null && (parseInt = h.parseInt(this.f4283a.getText().toString())) != 0) {
+            this.pDO.b(parseInt);
         }
     }
 
@@ -129,12 +129,12 @@ public class a extends PopupWindow implements View.OnClickListener {
         if (charSequence.length() > 0) {
             this.f4283a.setText(charSequence.substring(0, charSequence.length() - 1));
         }
-        if (this.pCl != null && (parseInt = h.parseInt(this.f4283a.getText().toString())) != 0) {
-            this.pCl.b(parseInt);
+        if (this.pDO != null && (parseInt = h.parseInt(this.f4283a.getText().toString())) != 0) {
+            this.pDO.b(parseInt);
         }
     }
 
-    public void a(InterfaceC1022a interfaceC1022a) {
-        this.pCl = interfaceC1022a;
+    public void a(InterfaceC1025a interfaceC1025a) {
+        this.pDO = interfaceC1025a;
     }
 }

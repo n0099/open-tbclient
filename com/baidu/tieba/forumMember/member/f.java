@@ -4,17 +4,17 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class f implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         if (!(customMessage instanceof ForumMemberReadCacheRequestMessage)) {
             return null;
         }
-        byte[] Kg = new d().Kg(((ForumMemberReadCacheRequestMessage) customMessage).getForumName());
+        byte[] JH = new d().JH(((ForumMemberReadCacheRequestMessage) customMessage).getForumName());
         ForumMemberReadCacheResponseMessage forumMemberReadCacheResponseMessage = new ForumMemberReadCacheResponseMessage();
         try {
-            forumMemberReadCacheResponseMessage.decodeInBackGround(CmdConfigCustom.CMD_FRS_MEMBER_INFO_CACHE, Kg);
+            forumMemberReadCacheResponseMessage.decodeInBackGround(CmdConfigCustom.CMD_FRS_MEMBER_INFO_CACHE, JH);
             return forumMemberReadCacheResponseMessage;
         } catch (Exception e) {
             e.printStackTrace();

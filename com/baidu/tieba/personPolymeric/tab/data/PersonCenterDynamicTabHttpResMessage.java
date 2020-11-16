@@ -1,7 +1,7 @@
 package com.baidu.tieba.personPolymeric.tab.data;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.y;
 import com.squareup.wire.Wire;
@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
     public long mCursor;
     public boolean mHasMore;
-    public List<bw> mThreadDataList;
+    public List<bx> mThreadDataList;
 
     public PersonCenterDynamicTabHttpResMessage() {
         super(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB);
@@ -34,9 +34,9 @@ public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
             if (!y.isEmpty(getShoubaiThreadListResIdl.data.thread_list)) {
                 for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
                     if (threadInfo != null) {
-                        bw bwVar = new bw();
-                        bwVar.a(threadInfo);
-                        this.mThreadDataList.add(bwVar);
+                        bx bxVar = new bx();
+                        bxVar.a(threadInfo);
+                        this.mThreadDataList.add(bxVar);
                     }
                 }
             }

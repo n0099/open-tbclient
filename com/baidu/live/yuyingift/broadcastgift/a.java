@@ -18,17 +18,17 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
 /* loaded from: classes4.dex */
 public class a extends Dialog implements DialogInterface.OnDismissListener, View.OnClickListener {
-    private View bPK;
-    private TextView bPL;
-    private TextView bPM;
-    private InterfaceC0235a bPN;
-    public CustomMessageListener bek;
+    private View bOa;
+    private TextView bOb;
+    private TextView bOc;
+    private InterfaceC0233a bOd;
+    public CustomMessageListener bcy;
     private Context mContext;
     private TextView mTitle;
 
     /* renamed from: com.baidu.live.yuyingift.broadcastgift.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0235a {
+    public interface InterfaceC0233a {
         void onCancel();
 
         void onConfirm();
@@ -36,7 +36,7 @@ public class a extends Dialog implements DialogInterface.OnDismissListener, View
 
     public a(Context context) {
         super(context);
-        this.bek = new CustomMessageListener(2913097) { // from class: com.baidu.live.yuyingift.broadcastgift.a.1
+        this.bcy = new CustomMessageListener(2913097) { // from class: com.baidu.live.yuyingift.broadcastgift.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -52,12 +52,12 @@ public class a extends Dialog implements DialogInterface.OnDismissListener, View
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.g.yuyin_layout_dialog_connnection_wheat_remind);
-        Xy();
+        WP();
         initView();
         initListener();
     }
 
-    private void Xy() {
+    private void WP() {
         Window window = getWindow();
         if (window != null) {
             window.setBackgroundDrawable(new ColorDrawable(getContext().getResources().getColor(a.c.sdk_black_alpha65)));
@@ -77,16 +77,16 @@ public class a extends Dialog implements DialogInterface.OnDismissListener, View
     }
 
     private void initView() {
-        this.bPK = findViewById(a.f.view);
+        this.bOa = findViewById(a.f.view);
         this.mTitle = (TextView) findViewById(a.f.tv_title);
-        this.bPL = (TextView) findViewById(a.f.tv_cancel);
-        this.bPM = (TextView) findViewById(a.f.tv_confirm);
+        this.bOb = (TextView) findViewById(a.f.tv_cancel);
+        this.bOc = (TextView) findViewById(a.f.tv_confirm);
     }
 
     private void initListener() {
-        this.bPK.setOnClickListener(this);
-        this.bPL.setOnClickListener(this);
-        this.bPM.setOnClickListener(this);
+        this.bOa.setOnClickListener(this);
+        this.bOb.setOnClickListener(this);
+        this.bOc.setOnClickListener(this);
         setOnDismissListener(this);
     }
 
@@ -112,30 +112,30 @@ public class a extends Dialog implements DialogInterface.OnDismissListener, View
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        MessageManager.getInstance().registerListener(this.bek);
+        MessageManager.getInstance().registerListener(this.bcy);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bPK || view == this.bPL) {
+        if (view == this.bOa || view == this.bOb) {
             dismiss();
-            if (this.bPN != null) {
-                this.bPN.onCancel();
+            if (this.bOd != null) {
+                this.bOd.onCancel();
             }
-        } else if (view == this.bPM) {
+        } else if (view == this.bOc) {
             dismiss();
-            if (this.bPN != null) {
-                this.bPN.onConfirm();
+            if (this.bOd != null) {
+                this.bOd.onConfirm();
             }
         }
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        MessageManager.getInstance().unRegisterListener(this.bek);
+        MessageManager.getInstance().unRegisterListener(this.bcy);
     }
 
-    public void a(InterfaceC0235a interfaceC0235a) {
-        this.bPN = interfaceC0235a;
+    public void a(InterfaceC0233a interfaceC0233a) {
+        this.bOd = interfaceC0233a;
     }
 }

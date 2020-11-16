@@ -15,13 +15,13 @@ import com.baidu.ar.statistic.StatisticConstants;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class ImuAR extends com.baidu.ar.c implements g {
     private static final String TAG = ImuAR.class.getSimpleName();
     private com.baidu.ar.lua.c rw;
 
     /* renamed from: rx  reason: collision with root package name */
-    private i f1193rx;
+    private i f1196rx;
     private Matrixf4x4 ry = new Matrixf4x4();
     private Matrixf4x4 rz = new Matrixf4x4();
     private Matrixf4x4 rA = new Matrixf4x4();
@@ -232,7 +232,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
             if (this.rJ) {
                 b(a3);
             }
-            if (this.f1193rx != null && this.f1193rx.eX() == b.WORLD && this.rH) {
+            if (this.f1196rx != null && this.f1196rx.eX() == b.WORLD && this.rH) {
                 a3 = c(a3);
             }
             l lVar = new l();
@@ -258,7 +258,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
         hashMap.put("succeeded", 1);
         b(304, hashMap);
         b(this.rw);
-        this.f1193rx = null;
+        this.f1196rx = null;
         super.release();
     }
 
@@ -278,18 +278,18 @@ public class ImuAR extends com.baidu.ar.c implements g {
                     i = (int) ((Float) obj2).floatValue();
                 }
             }
-            this.f1193rx = new i();
-            this.f1193rx.b(b.J(intValue));
-            this.f1193rx.L(i);
-            a(this.f1193rx, this);
+            this.f1196rx = new i();
+            this.f1196rx.b(b.J(intValue));
+            this.f1196rx.L(i);
+            a(this.f1196rx, this);
             eT();
             com.baidu.ar.arrender.k r = r();
             if (r != null) {
                 r.bz();
-                if (this.f1193rx.eX() == b.RELATIVE) {
+                if (this.f1196rx.eX() == b.RELATIVE) {
                     r.aI();
                 }
-                r.a(this.f1193rx.eX());
+                r.a(this.f1196rx.eX());
             }
             HashMap<String, Object> hashMap2 = new HashMap<>();
             hashMap2.put("succeeded", 1);

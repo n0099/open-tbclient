@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui.animview.praise.data;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public class PraiseSourceDef {
     public static final String H5_PRAISE_SRC_COMMUNITY = "h5_community";
     public static final String H5_PRAISE_SRC_DYNAMIC_NACMT = "h5_dynamic_nacmt";

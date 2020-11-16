@@ -7,7 +7,7 @@ import com.tb.airbnb.lottie.model.a.l;
 import com.tb.airbnb.lottie.model.content.Mask;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class Layer {
     private final float Bo;
     private final List<Mask> DV;
@@ -24,18 +24,18 @@ public class Layer {
     private final int Gv;
     private final List<com.tb.airbnb.lottie.e.a<Float>> Gz;
     private final com.tb.airbnb.lottie.e composition;
-    private final l pJQ;
-    private final LayerType pKb;
+    private final LayerType pLE;
     @Nullable
-    private final j pKc;
+    private final j pLF;
     @Nullable
-    private final k pKd;
+    private final k pLG;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b pKe;
-    private final MatteType pKf;
+    private final com.tb.airbnb.lottie.model.a.b pLH;
+    private final MatteType pLI;
+    private final l pLt;
     private final List<com.tb.airbnb.lottie.model.content.b> shapes;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public enum LayerType {
         PreComp,
         Solid,
@@ -46,7 +46,7 @@ public class Layer {
         Unknown
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public enum MatteType {
         None,
         Add,
@@ -59,11 +59,11 @@ public class Layer {
         this.composition = eVar;
         this.Gl = str;
         this.Gm = j;
-        this.pKb = layerType;
+        this.pLE = layerType;
         this.Go = j2;
         this.Gp = str2;
         this.DV = list2;
-        this.pJQ = lVar;
+        this.pLt = lVar;
         this.Gq = i;
         this.Gr = i2;
         this.Gs = i3;
@@ -71,11 +71,11 @@ public class Layer {
         this.Bo = f2;
         this.Gu = i4;
         this.Gv = i5;
-        this.pKc = jVar;
-        this.pKd = kVar;
+        this.pLF = jVar;
+        this.pLG = kVar;
         this.Gz = list3;
-        this.pKf = matteType;
-        this.pKe = bVar;
+        this.pLI = matteType;
+        this.pLH = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,13 +128,13 @@ public class Layer {
         return this.DV;
     }
 
-    public LayerType ezw() {
-        return this.pKb;
+    public LayerType ezx() {
+        return this.pLE;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public MatteType ezx() {
-        return this.pKf;
+    public MatteType ezy() {
+        return this.pLI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -148,8 +148,8 @@ public class Layer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l ezq() {
-        return this.pJQ;
+    public l ezr() {
+        return this.pLt;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -169,20 +169,20 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public j ezy() {
-        return this.pKc;
+    public j ezz() {
+        return this.pLF;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public k ezz() {
-        return this.pKd;
+    public k ezA() {
+        return this.pLG;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public com.tb.airbnb.lottie.model.a.b ezA() {
-        return this.pKe;
+    public com.tb.airbnb.lottie.model.a.b ezB() {
+        return this.pLH;
     }
 
     public String toString() {
@@ -192,13 +192,13 @@ public class Layer {
     public String toString(String str) {
         StringBuilder sb = new StringBuilder();
         sb.append(str).append(getName()).append("\n");
-        Layer ic = this.composition.ic(kF());
-        if (ic != null) {
-            sb.append("\t\tParents: ").append(ic.getName());
-            Layer ic2 = this.composition.ic(ic.kF());
-            while (ic2 != null) {
-                sb.append("->").append(ic2.getName());
-                ic2 = this.composition.ic(ic2.kF());
+        Layer m56if = this.composition.m56if(kF());
+        if (m56if != null) {
+            sb.append("\t\tParents: ").append(m56if.getName());
+            Layer m56if2 = this.composition.m56if(m56if.kF());
+            while (m56if2 != null) {
+                sb.append("->").append(m56if2.getName());
+                m56if2 = this.composition.m56if(m56if2.kF());
             }
             sb.append(str).append("\n");
         }

@@ -32,15 +32,15 @@ import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class a extends SSLSocketFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private HostnameVerifier f1076a = HttpsURLConnection.getDefaultHostnameVerifier();
+        private HostnameVerifier f1079a = HttpsURLConnection.getDefaultHostnameVerifier();
         private HttpsURLConnection b;
 
         a(HttpsURLConnection httpsURLConnection) {
@@ -93,7 +93,7 @@ public class b {
                 } catch (Throwable th) {
                 }
             }
-            if (this.f1076a.verify(str, sSLSocket.getSession())) {
+            if (this.f1079a.verify(str, sSLSocket.getSession())) {
                 return sSLSocket;
             }
             throw new SSLPeerUnverifiedException("Cannot verify hostname: " + str);

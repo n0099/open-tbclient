@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class BoxConfig extends DefaultConfig {
     @Override // com.baidu.android.imsdk.internal.DefaultConfig, com.baidu.android.imsdk.internal.IIMConfig
     public ChatObject parseTokenToChatObject(Context context, String str) {

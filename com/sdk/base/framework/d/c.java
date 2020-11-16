@@ -5,7 +5,7 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.sdk.base.framework.a.k;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class c extends com.sdk.base.framework.b.b<String> {
 
     /* renamed from: a  reason: collision with root package name */

@@ -1,63 +1,63 @@
 package com.baidu.swan.pms.c.d;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class f extends g {
-    private String eiH;
-    private String eiK;
-    private String eiL;
-    private int eiM;
-    private String eiO;
-    private int eiQ;
+    private String eha;
+    private String ehd;
+    private String ehe;
+    private int ehf;
+    private String ehh;
+    private int ehj;
 
     public f(String str, int i, String str2, int i2) {
         super(i2);
-        this.eiM = -1;
-        this.eiH = str;
-        this.eiO = str2;
-        this.eiQ = i;
+        this.ehf = -1;
+        this.eha = str;
+        this.ehh = str2;
+        this.ehj = i;
     }
 
     public f(String str, String str2, String str3, int i) {
         super(i);
-        this.eiM = -1;
-        this.eiH = str;
-        this.eiO = str3;
+        this.ehf = -1;
+        this.eha = str;
+        this.ehh = str3;
         try {
-            this.eiQ = Integer.valueOf(str2).intValue();
+            this.ehj = Integer.valueOf(str2).intValue();
         } catch (NumberFormatException e) {
-            this.eiQ = 0;
+            this.ehj = 0;
         }
     }
 
-    public f yy(String str) {
-        this.eiK = str;
+    public f yt(String str) {
+        this.ehd = str;
         return this;
     }
 
-    public int bca() {
-        return this.eiM;
+    public int bbt() {
+        return this.ehf;
     }
 
-    public void yz(String str) {
-        this.eiL = str;
+    public void yu(String str) {
+        this.ehe = str;
     }
 
     public String getBundleId() {
-        return this.eiH;
+        return this.eha;
     }
 
-    public String bcf() {
-        return this.eiO;
+    public String bby() {
+        return this.ehh;
     }
 
-    public int bch() {
-        return this.eiQ;
+    public int bbA() {
+        return this.ehj;
     }
 
-    public String bcb() {
-        return this.eiK;
+    public String bbu() {
+        return this.ehd;
     }
 
-    public String bcc() {
-        return this.eiL;
+    public String bbv() {
+        return this.ehe;
     }
 }

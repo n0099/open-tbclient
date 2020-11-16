@@ -8,13 +8,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    public long aBv;
+    public long azK;
     public String order;
 
     public String toJsonString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("imuk", this.aBv);
+            jSONObject.put("imuk", this.azK);
             jSONObject.put(IMConstants.SERVICE_TYPE_ORDER, this.order);
         } catch (JSONException e) {
         }
@@ -24,7 +24,7 @@ public class b {
     public JSONObject toJSON() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("imuk", this.aBv);
+            jSONObject.put("imuk", this.azK);
             jSONObject.put(IMConstants.SERVICE_TYPE_ORDER, this.order);
         } catch (JSONException e) {
         }
@@ -42,22 +42,22 @@ public class b {
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aBv = jSONObject.optLong("imuk");
+            this.azK = jSONObject.optLong("imuk");
             this.order = jSONObject.optString(IMConstants.SERVICE_TYPE_ORDER);
         }
     }
 
     public static String b(c cVar) {
-        if (cVar == null || cVar.aBv == 0) {
+        if (cVar == null || cVar.azK == 0) {
             return "";
         }
         b bVar = new b();
-        bVar.aBv = cVar.aBv;
+        bVar.azK = cVar.azK;
         bVar.order = cVar.order;
         return bVar.toJsonString();
     }
 
-    public static b fP(String str) {
+    public static b fJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -73,7 +73,7 @@ public class b {
 
     public static void a(c cVar, a aVar) {
         b ae;
-        if (cVar != null && cVar.aBv != 0 && cVar.aBv != 0 && aVar != null && aVar != null && (ae = aVar.ae(cVar.aBv)) != null) {
+        if (cVar != null && cVar.azK != 0 && cVar.azK != 0 && aVar != null && aVar != null && (ae = aVar.ae(cVar.azK)) != null) {
             cVar.order = ae.order;
             com.baidu.live.alablmsdk.a.b.d(" addUserExtInfo add order , user=" + cVar.toString());
         }

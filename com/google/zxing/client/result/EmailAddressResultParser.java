@@ -5,7 +5,7 @@ import com.google.zxing.Result;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public final class EmailAddressResultParser extends ResultParser {
     private static final Pattern COMMA = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
 

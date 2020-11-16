@@ -1,10 +1,9 @@
 package com.baidu.cyberplayer.sdk.rtc;
 
 import android.content.Context;
-import android.util.AttributeSet;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.d;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
@@ -43,18 +42,6 @@ public class a {
             }
             if (0 == 0) {
                 return d.e();
-            }
-            return null;
-        }
-        return null;
-    }
-
-    public RTCVideoViewProvider a(Context context, AttributeSet attributeSet, boolean z) {
-        if (CyberCfgManager.getInstance().getCfgBoolValue("enable_rtc", true)) {
-            if (z) {
-            }
-            if (0 == 0) {
-                return d.a(context, attributeSet);
             }
             return null;
         }

@@ -18,9 +18,9 @@ public class k extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bp(int i, String str);
+        void bn(int i, String str);
 
-        void ciR();
+        void cik();
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -40,7 +40,7 @@ public class k extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        ciP();
+        cii();
         b(aVar);
     }
 
@@ -52,10 +52,10 @@ public class k extends BdBaseModel {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021212 && (httpResponsedMessage instanceof CancelPkResponseMessage)) {
                     CancelPkResponseMessage cancelPkResponseMessage = (CancelPkResponseMessage) httpResponsedMessage;
                     if (cancelPkResponseMessage.getError() != 0 || !cancelPkResponseMessage.isSuccess()) {
-                        aVar.bp(cancelPkResponseMessage.getError(), cancelPkResponseMessage.getErrorString());
+                        aVar.bn(cancelPkResponseMessage.getError(), cancelPkResponseMessage.getErrorString());
                         return;
                     }
-                    aVar.ciR();
+                    aVar.cik();
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
                     alaStatsItem.addValue("lodId", Long.valueOf(cancelPkResponseMessage.getLogId()));
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(cancelPkResponseMessage.getError()));
@@ -66,7 +66,7 @@ public class k extends BdBaseModel {
         registerListener(this.messageListener);
     }
 
-    private void ciP() {
+    private void cii() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021212, TbConfig.SERVER_ADDRESS + "ala/pksolo/cancelPk");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -76,7 +76,7 @@ public class k extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void ciQ() {
+    public void cij() {
         MessageManager.getInstance().unRegisterListener(this.messageListener);
         MessageManager.getInstance().unRegisterTask(1021212);
     }

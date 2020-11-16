@@ -1,54 +1,27 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.ActivityHead;
-import tbclient.FrsPage.HeadImgs;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class v {
-    private String eAq;
-    private int eAr;
-    private ArrayList<y> eAs = new ArrayList<>();
-    private int height;
-    private String obj_id;
-    private int width;
+public class v extends a implements com.baidu.tbadk.mvc.b.a {
+    public static final BdUniqueId eyF = BdUniqueId.gen();
+    public static final int[] eyG = {0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11};
+    private int mType = 6;
 
-    public ArrayList<y> bkE() {
-        return this.eAs;
+    public void nP(int i) {
+        this.mType = i;
     }
 
-    public void C(ArrayList<y> arrayList) {
-        this.eAs = arrayList;
+    public int getItemViewType() {
+        return this.mType;
     }
 
-    public String bkF() {
-        return this.obj_id;
+    @Override // com.baidu.tbadk.core.data.a
+    public bx bjd() {
+        return null;
     }
 
-    public void a(ActivityHead activityHead) {
-        if (activityHead != null) {
-            this.eAr = activityHead.activity_type.intValue();
-            this.eAq = activityHead.activity_title;
-            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
-            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
-            this.obj_id = activityHead.obj_id;
-            bh(activityHead.head_imgs);
-        }
-    }
-
-    public void bh(List<HeadImgs> list) {
-        if (!com.baidu.tbadk.core.util.y.isEmpty(list)) {
-            for (HeadImgs headImgs : list) {
-                a(headImgs);
-            }
-        }
-    }
-
-    public void a(HeadImgs headImgs) {
-        if (headImgs != null) {
-            y yVar = new y();
-            yVar.b(headImgs);
-            this.eAs.add(yVar);
-        }
+    @Override // com.baidu.tbadk.core.data.a
+    public as bjf() {
+        return null;
     }
 }

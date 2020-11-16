@@ -7,7 +7,7 @@ import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 import java.lang.reflect.Field;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class RotateProgressBar extends ProgressBar {
     protected Drawable mCurrentDrawable;
     protected int mDegree;

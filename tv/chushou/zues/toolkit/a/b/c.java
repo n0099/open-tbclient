@@ -7,20 +7,20 @@ import java.util.Map;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class c<T> {
-    private final Map<String, WeakReference<T>> dhU;
+    private final Map<String, WeakReference<T>> dgn;
 
     public c() {
-        this.dhU = new ArrayMap(4);
+        this.dgn = new ArrayMap(4);
     }
 
     public c(int i) {
-        this.dhU = new ArrayMap(i <= 0 ? 4 : i);
+        this.dgn = new ArrayMap(i <= 0 ? 4 : i);
     }
 
     public void put(String str, T t) {
         if (!h.isEmpty(str) && t != null) {
             synchronized (this) {
-                this.dhU.put(str, new WeakReference<>(t));
+                this.dgn.put(str, new WeakReference<>(t));
             }
         }
     }
@@ -32,11 +32,11 @@ public class c<T> {
             return null;
         }
         synchronized (this) {
-            WeakReference<T> weakReference = this.dhU.get(str);
+            WeakReference<T> weakReference = this.dgn.get(str);
             if (weakReference != null) {
                 t = weakReference.get();
                 if (t == null) {
-                    this.dhU.remove(str);
+                    this.dgn.remove(str);
                 }
             } else {
                 t = null;
@@ -47,7 +47,7 @@ public class c<T> {
 
     public void clear() {
         synchronized (this) {
-            this.dhU.clear();
+            this.dgn.clear();
         }
     }
 }

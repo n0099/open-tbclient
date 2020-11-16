@@ -11,17 +11,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes4.dex */
 public class PlayDrawable extends Drawable {
-    private static final float[] gBP = new float[8];
-    private float[] gBR;
-    private float[] gBS;
-    private float[] gBT;
-    private float[] gBU;
+    private static final float[] gBw = new float[8];
+    private float[] gBA;
+    private float[] gBB;
+    private float[] gBy;
+    private float[] gBz;
     private float mCurrentFraction;
-    private final ValueAnimator gBQ = ValueAnimator.ofFloat(0.0f, 1.0f);
-    private final Path gBV = new Path();
-    private final Path gBW = new Path();
-    private final Paint gBX = new Paint(1);
-    private IconState gBY = IconState.PLAY_STATE;
+    private final ValueAnimator gBx = ValueAnimator.ofFloat(0.0f, 1.0f);
+    private final Path gBC = new Path();
+    private final Path gBD = new Path();
+    private final Paint gBE = new Paint(1);
+    private IconState gBF = IconState.PLAY_STATE;
 
     /* loaded from: classes4.dex */
     public enum IconState {
@@ -30,12 +30,12 @@ public class PlayDrawable extends Drawable {
     }
 
     public PlayDrawable() {
-        this.gBX.setColor(-1);
-        this.gBQ.setDuration(150L);
-        this.gBQ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.floating.PlayDrawable.1
+        this.gBE.setColor(-1);
+        this.gBx.setDuration(150L);
+        this.gBx.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.floating.PlayDrawable.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                PlayDrawable.this.aq(valueAnimator.getAnimatedFraction());
+                PlayDrawable.this.as(valueAnimator.getAnimatedFraction());
             }
         });
     }
@@ -43,28 +43,28 @@ public class PlayDrawable extends Drawable {
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        bSw();
+        bRP();
     }
 
-    private void bSw() {
-        Rect bSx = bSx();
+    private void bRP() {
+        Rect bRQ = bRQ();
         int width = (int) (0.074f * getWidth());
-        this.gBR = new float[]{bSx.left + width, bSx.top, ((int) bSy()) + width, (bSx.height() * 0.25f) + bSx.top, ((int) bSy()) + width, (bSx.height() * 0.75f) + bSx.top, bSx.left + width, bSx.height() + bSx.top};
-        this.gBS = new float[]{((int) bSy()) + width, (bSx.height() * 0.25f) + bSx.top, bSx.left + bSx.width() + width, bSz(), bSx.left + bSx.width() + width, bSz(), width + ((int) bSy()), (bSx.height() * 0.75f) + bSx.top};
-        this.gBT = new float[]{bSx.left, bSx.top, bSx.left + (bSx.width() * 0.285f), bSx.top, bSx.left + (bSx.width() * 0.285f), bSx.top + bSx.height(), bSx.left, bSx.top + bSx.height()};
-        this.gBU = new float[]{bSx.left + (bSx.width() * 0.715f), bSx.top, bSx.left + bSx.width(), bSx.top, bSx.left + bSx.width(), bSx.top + bSx.height(), bSx.left + (bSx.width() * 0.715f), bSx.height() + bSx.top};
+        this.gBy = new float[]{bRQ.left + width, bRQ.top, ((int) bRR()) + width, (bRQ.height() * 0.25f) + bRQ.top, ((int) bRR()) + width, (bRQ.height() * 0.75f) + bRQ.top, bRQ.left + width, bRQ.height() + bRQ.top};
+        this.gBz = new float[]{((int) bRR()) + width, (bRQ.height() * 0.25f) + bRQ.top, bRQ.left + bRQ.width() + width, bRS(), bRQ.left + bRQ.width() + width, bRS(), width + ((int) bRR()), (bRQ.height() * 0.75f) + bRQ.top};
+        this.gBA = new float[]{bRQ.left, bRQ.top, bRQ.left + (bRQ.width() * 0.285f), bRQ.top, bRQ.left + (bRQ.width() * 0.285f), bRQ.top + bRQ.height(), bRQ.left, bRQ.top + bRQ.height()};
+        this.gBB = new float[]{bRQ.left + (bRQ.width() * 0.715f), bRQ.top, bRQ.left + bRQ.width(), bRQ.top, bRQ.left + bRQ.width(), bRQ.top + bRQ.height(), bRQ.left + (bRQ.width() * 0.715f), bRQ.height() + bRQ.top};
     }
 
-    private Rect bSx() {
+    private Rect bRQ() {
         float width = getWidth();
         float height = getHeight();
-        float bSA = bSA();
-        float bSB = bSB();
+        float bRT = bRT();
+        float bRU = bRU();
         Rect rect = new Rect();
-        rect.left = (int) ((width - bSA) / 2.0f);
-        rect.top = (int) ((height - bSB) / 2.0f);
-        rect.right = (int) (rect.left + bSA);
-        rect.bottom = (int) (rect.top + bSB);
+        rect.left = (int) ((width - bRT) / 2.0f);
+        rect.top = (int) ((height - bRU) / 2.0f);
+        rect.right = (int) (rect.left + bRT);
+        rect.bottom = (int) (rect.top + bRU);
         return rect;
     }
 
@@ -78,8 +78,8 @@ public class PlayDrawable extends Drawable {
     }
 
     private void a(Canvas canvas, float[] fArr, float[] fArr2, float f, Path path, Paint paint) {
-        a(gBP, fArr, fArr2, f);
-        a(path, gBP);
+        a(gBw, fArr, fArr2, f);
+        a(path, gBw);
         canvas.drawPath(path, paint);
     }
 
@@ -98,7 +98,7 @@ public class PlayDrawable extends Drawable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aq(float f) {
+    public void as(float f) {
         this.mCurrentFraction = f;
         invalidateSelf();
     }
@@ -111,37 +111,37 @@ public class PlayDrawable extends Drawable {
         return getBounds().height();
     }
 
-    private float bSy() {
+    private float bRR() {
         return getBounds().exactCenterX();
     }
 
-    private float bSz() {
+    private float bRS() {
         return getBounds().exactCenterY();
     }
 
-    private float bSA() {
+    private float bRT() {
         return 0.33f * getWidth();
     }
 
-    private float bSB() {
+    private float bRU() {
         return 0.38f * getHeight();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(@NonNull Canvas canvas) {
-        a(canvas, this.gBR, this.gBT, this.mCurrentFraction, this.gBV, this.gBX);
-        a(canvas, this.gBS, this.gBU, this.mCurrentFraction, this.gBW, this.gBX);
+        a(canvas, this.gBy, this.gBA, this.mCurrentFraction, this.gBC, this.gBE);
+        a(canvas, this.gBz, this.gBB, this.mCurrentFraction, this.gBD, this.gBE);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.gBX.setAlpha(i);
+        this.gBE.setAlpha(i);
         invalidateSelf();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        this.gBX.setColorFilter(colorFilter);
+        this.gBE.setColorFilter(colorFilter);
         invalidateSelf();
     }
 
@@ -151,12 +151,12 @@ public class PlayDrawable extends Drawable {
     }
 
     private boolean isRunning() {
-        return this.gBQ.isRunning();
+        return this.gBx.isRunning();
     }
 
     public void setIconState(IconState iconState) {
         if (isRunning()) {
-            this.gBQ.cancel();
+            this.gBx.cancel();
         }
         this.mCurrentFraction = iconState == IconState.PLAY_STATE ? 0.0f : 1.0f;
         a(iconState);
@@ -164,6 +164,6 @@ public class PlayDrawable extends Drawable {
     }
 
     private void a(IconState iconState) {
-        this.gBY = iconState;
+        this.gBF = iconState;
     }
 }

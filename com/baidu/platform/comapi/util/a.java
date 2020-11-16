@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes7.dex */
 public class a {
-    private final Map<Class<?>, CopyOnWriteArraySet<C0285a>> c = new HashMap();
+    private final Map<Class<?>, CopyOnWriteArraySet<C0283a>> c = new HashMap();
     private final Map<Class<?>, Object> d = new HashMap();
     private static final String b = a.class.getName();
 
@@ -16,7 +16,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0285a implements b {
+    public class C0283a implements b {
 
         /* renamed from: a  reason: collision with root package name */
         private final b f2943a;
@@ -49,12 +49,12 @@ public class a {
     }
 
     public void a(Object obj) {
-        CopyOnWriteArraySet<C0285a> copyOnWriteArraySet;
+        CopyOnWriteArraySet<C0283a> copyOnWriteArraySet;
         if (this.c.containsKey(obj.getClass())) {
             synchronized (this) {
                 copyOnWriteArraySet = this.c.get(obj.getClass());
             }
-            Iterator<C0285a> it = copyOnWriteArraySet.iterator();
+            Iterator<C0283a> it = copyOnWriteArraySet.iterator();
             while (it.hasNext()) {
                 j.a(new com.baidu.platform.comapi.util.b(this, it.next(), obj), 0L);
             }

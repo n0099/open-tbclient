@@ -4,30 +4,30 @@ import com.tb.airbnb.lottie.a.b.a;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
-public class r implements b, a.InterfaceC1038a {
-    private final List<a.InterfaceC1038a> listeners = new ArrayList();
+/* loaded from: classes17.dex */
+public class r implements b, a.InterfaceC1041a {
+    private final List<a.InterfaceC1041a> listeners = new ArrayList();
     private final String name;
-    private final ShapeTrimPath.Type pIJ;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> pIK;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> pIL;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> pIM;
+    private final ShapeTrimPath.Type pKm;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> pKn;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> pKo;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> pKp;
 
     public r(com.tb.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.pIJ = shapeTrimPath.eyB();
-        this.pIK = shapeTrimPath.ezu().eyL();
-        this.pIL = shapeTrimPath.ezt().eyL();
-        this.pIM = shapeTrimPath.ezp().eyL();
-        aVar.a(this.pIK);
-        aVar.a(this.pIL);
-        aVar.a(this.pIM);
-        this.pIK.b(this);
-        this.pIL.b(this);
-        this.pIM.b(this);
+        this.pKm = shapeTrimPath.eyC();
+        this.pKn = shapeTrimPath.ezv().eyM();
+        this.pKo = shapeTrimPath.ezu().eyM();
+        this.pKp = shapeTrimPath.ezq().eyM();
+        aVar.a(this.pKn);
+        aVar.a(this.pKo);
+        aVar.a(this.pKp);
+        this.pKn.b(this);
+        this.pKo.b(this);
+        this.pKp.b(this);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC1038a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC1041a
     public void iT() {
         int i = 0;
         while (true) {
@@ -51,24 +51,24 @@ public class r implements b, a.InterfaceC1038a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(a.InterfaceC1038a interfaceC1038a) {
-        this.listeners.add(interfaceC1038a);
+    public void a(a.InterfaceC1041a interfaceC1041a) {
+        this.listeners.add(interfaceC1041a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type eyB() {
-        return this.pIJ;
-    }
-
-    public com.tb.airbnb.lottie.a.b.a<?, Float> eyC() {
-        return this.pIK;
+    public ShapeTrimPath.Type eyC() {
+        return this.pKm;
     }
 
     public com.tb.airbnb.lottie.a.b.a<?, Float> eyD() {
-        return this.pIL;
+        return this.pKn;
     }
 
     public com.tb.airbnb.lottie.a.b.a<?, Float> eyE() {
-        return this.pIM;
+        return this.pKo;
+    }
+
+    public com.tb.airbnb.lottie.a.b.a<?, Float> eyF() {
+        return this.pKp;
     }
 }

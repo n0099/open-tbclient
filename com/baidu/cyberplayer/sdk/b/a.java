@@ -9,7 +9,6 @@ import android.util.AttributeSet;
 import android.view.Surface;
 import android.view.View;
 import android.widget.FrameLayout;
-import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayer;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.ICyberVideoView;
@@ -18,7 +17,7 @@ import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import java.util.HashMap;
 import java.util.Map;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class a extends FrameLayout implements ICyberVideoView {
     protected g A;
     protected CyberPlayerManager.OnVideoSizeChangedListener B;
@@ -45,7 +44,7 @@ public class a extends FrameLayout implements ICyberVideoView {
     private int W;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1361a;
+    private int f1364a;
     private int aa;
     private boolean ab;
     private float ac;
@@ -73,45 +72,45 @@ public class a extends FrameLayout implements ICyberVideoView {
     protected CyberPlayerManager.OnSeekCompleteListener v;
     protected CyberPlayerManager.OnInfoListener w;
     protected b x;
-    protected InterfaceC0110a y;
+    protected InterfaceC0109a y;
     protected e z;
 
     /* renamed from: com.baidu.cyberplayer.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public interface InterfaceC0110a {
+    /* loaded from: classes17.dex */
+    public interface InterfaceC0109a {
         void a();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public interface c {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public interface d {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public interface e {
         void a();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public interface f {
         void a();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public interface g {
         void a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public enum h {
         ERROR,
         IDLE,
@@ -122,7 +121,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         PLAYBACK_COMPLETED
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     protected enum i {
         PAUSED,
         RESUMED
@@ -137,7 +136,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1361a = 0;
+        this.f1364a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -165,7 +164,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1361a = 0;
+        this.f1364a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -190,7 +189,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1361a = 0;
+        this.f1364a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -228,11 +227,10 @@ public class a extends FrameLayout implements ICyberVideoView {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(Context context) {
-        if (context != null) {
-            this.b = context.getApplicationContext();
-        } else {
-            CyberLog.e("VrMovieView", "Context not be null");
+        if (context == null) {
+            throw new RuntimeException("Context not be null");
         }
+        this.b = context.getApplicationContext();
     }
 
     protected void a(boolean z) {
@@ -686,10 +684,6 @@ public class a extends FrameLayout implements ICyberVideoView {
         e(i2);
     }
 
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setClarityInfo(String str) {
-    }
-
     protected void setCurPlayerState(h hVar) {
         this.G = hVar;
     }
@@ -727,8 +721,8 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.J = z;
     }
 
-    public void setOnBufferingEndListener(InterfaceC0110a interfaceC0110a) {
-        this.y = interfaceC0110a;
+    public void setOnBufferingEndListener(InterfaceC0109a interfaceC0109a) {
+        this.y = interfaceC0109a;
     }
 
     public void setOnBufferingStartListener(b bVar) {
@@ -757,10 +751,6 @@ public class a extends FrameLayout implements ICyberVideoView {
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
         this.w = onInfoListener;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
     }
 
     public void setOnPitchYawRollListener(d dVar) {
@@ -816,13 +806,6 @@ public class a extends FrameLayout implements ICyberVideoView {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setPlayJson(String str) {
-        if (this.h != null) {
-            this.h.setPlayJson(str);
-        }
-    }
-
     public void setPlayerType(int i2) {
         this.i = i2;
     }
@@ -833,7 +816,7 @@ public class a extends FrameLayout implements ICyberVideoView {
     }
 
     public void setScaleType(int i2) {
-        this.f1361a = i2;
+        this.f1364a = i2;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
@@ -917,10 +900,6 @@ public class a extends FrameLayout implements ICyberVideoView {
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void stopPlayback() {
         stop();
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void switchMediaSource(int i2) {
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView

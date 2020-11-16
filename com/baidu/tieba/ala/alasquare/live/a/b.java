@@ -11,54 +11,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private final List<com.baidu.adp.widget.ListView.a> bky = new ArrayList();
-    private e eIz;
-    private BdTypeListView gih;
-    private a gii;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.a gij;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.b gik;
+    private final List<com.baidu.adp.widget.ListView.a> biN = new ArrayList();
+    private e eGT;
+    private BdTypeListView ghN;
+    private a ghO;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.a ghP;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.b ghQ;
 
     public b(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.eIz = tbPageContext;
-        this.gih = bdTypeListView;
-        LY();
+        this.eGT = tbPageContext;
+        this.ghN = bdTypeListView;
+        Lp();
     }
 
-    private void LY() {
-        this.gik = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.eIz);
-        this.gik.setFrom(1);
-        this.gij = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.eIz);
-        this.gij.setFrom(1);
-        this.gii = new a((TbPageContext) this.eIz, com.baidu.tieba.ala.alasquare.live.b.b.gio);
-        this.bky.add(this.gik);
-        this.bky.add(this.gij);
-        this.bky.add(this.gii);
-        this.gih.addAdapters(this.bky);
+    private void Lp() {
+        this.ghQ = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.eGT);
+        this.ghQ.setFrom(1);
+        this.ghP = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.eGT);
+        this.ghP.setFrom(1);
+        this.ghO = new a((TbPageContext) this.eGT, com.baidu.tieba.ala.alasquare.live.b.b.ghU);
+        this.biN.add(this.ghQ);
+        this.biN.add(this.ghP);
+        this.biN.add(this.ghO);
+        this.ghN.addAdapters(this.biN);
     }
 
     public void setDatas(List<q> list) {
-        if (this.gih != null) {
-            this.gih.setData(list);
+        if (this.ghN != null) {
+            this.ghN.setData(list);
         }
     }
 
-    public void tS(int i) {
-        this.gik.tS(i);
-        this.gij.tS(i);
+    public void uq(int i) {
+        this.ghQ.uq(i);
+        this.ghP.uq(i);
     }
 
     public void notifyDataSetChanged() {
-        if (this.gih != null && (this.gih.getAdapter() instanceof BaseAdapter)) {
-            this.gih.getAdapter().notifyDataSetChanged();
+        if (this.ghN != null && (this.ghN.getAdapter() instanceof BaseAdapter)) {
+            this.ghN.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.gii.a(iAlaSquareTabController);
+        this.ghO.a(iAlaSquareTabController);
     }
 
     public void a(i iVar) {
-        this.gik.b(iVar);
-        this.gij.b(iVar);
+        this.ghQ.b(iVar);
+        this.ghP.b(iVar);
     }
 }

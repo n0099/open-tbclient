@@ -8,7 +8,7 @@ import kotlin.h;
 import kotlin.jvm.internal.q;
 import org.json.JSONObject;
 @h
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class WebSocketManager {
     public static final WebSocketManager INSTANCE = new WebSocketManager();
     private static HashMap<String, WebSocketTask> mTasks = new HashMap<>();

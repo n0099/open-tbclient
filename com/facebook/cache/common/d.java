@@ -2,16 +2,16 @@ package com.facebook.cache.common;
 
 import android.net.Uri;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class d implements b {
-    final List<b> oJO;
+    final List<b> oLs;
 
-    public List<b> ejp() {
-        return this.oJO;
+    public List<b> ejn() {
+        return this.oLs;
     }
 
     public String toString() {
-        return "MultiCacheKey:" + this.oJO.toString();
+        return "MultiCacheKey:" + this.oLs.toString();
     }
 
     public boolean equals(Object obj) {
@@ -19,20 +19,20 @@ public class d implements b {
             return true;
         }
         if (obj instanceof d) {
-            return this.oJO.equals(((d) obj).oJO);
+            return this.oLs.equals(((d) obj).oLs);
         }
         return false;
     }
 
     @Override // com.facebook.cache.common.b
     public int hashCode() {
-        return this.oJO.hashCode();
+        return this.oLs.hashCode();
     }
 
     @Override // com.facebook.cache.common.b
-    public boolean I(Uri uri) {
-        for (int i = 0; i < this.oJO.size(); i++) {
-            if (this.oJO.get(i).I(uri)) {
+    public boolean J(Uri uri) {
+        for (int i = 0; i < this.oLs.size(); i++) {
+            if (this.oLs.get(i).J(uri)) {
                 return true;
             }
         }
@@ -40,7 +40,7 @@ public class d implements b {
     }
 
     @Override // com.facebook.cache.common.b
-    public String ejo() {
-        return this.oJO.get(0).ejo();
+    public String ejm() {
+        return this.oLs.get(0).ejm();
     }
 }

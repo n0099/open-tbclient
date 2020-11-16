@@ -3,17 +3,17 @@ package com.baidu.appsearch.update.patchupdate;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 public class a implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    private ByteBuffer f1185a;
+    private ByteBuffer f1188a;
 
     public a(ByteBuffer byteBuffer) {
         if (byteBuffer == null) {
             throw new NullPointerException("input parameter bb is null");
         }
-        this.f1185a = byteBuffer;
+        this.f1188a = byteBuffer;
         byteBuffer.rewind();
         try {
             a(0L);
@@ -28,10 +28,10 @@ public class a implements d {
 
     @Override // com.baidu.appsearch.update.patchupdate.d
     public int a(ByteBuffer byteBuffer) {
-        if (this.f1185a.hasRemaining()) {
+        if (this.f1188a.hasRemaining()) {
             int i = 0;
-            while (this.f1185a.hasRemaining() && byteBuffer.hasRemaining()) {
-                byteBuffer.put(this.f1185a.get());
+            while (this.f1188a.hasRemaining() && byteBuffer.hasRemaining()) {
+                byteBuffer.put(this.f1188a.get());
                 i++;
             }
             return i;
@@ -41,18 +41,18 @@ public class a implements d {
 
     @Override // com.baidu.appsearch.update.patchupdate.d
     public void a(long j) {
-        if (j > this.f1185a.limit()) {
-            throw new IOException("pos " + j + " cannot seek " + this.f1185a.limit());
+        if (j > this.f1188a.limit()) {
+            throw new IOException("pos " + j + " cannot seek " + this.f1188a.limit());
         }
-        this.f1185a.position((int) j);
+        this.f1188a.position((int) j);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f1185a = null;
+        this.f1188a = null;
     }
 
     public String toString() {
-        return "BBSeekable bb=" + this.f1185a.position() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.f1185a.limit();
+        return "BBSeekable bb=" + this.f1188a.position() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.f1188a.limit();
     }
 }

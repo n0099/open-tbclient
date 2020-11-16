@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class IMGetUsersStatusRequest extends Message {
     private Context mContext;
     private int mReSendCount = 0;

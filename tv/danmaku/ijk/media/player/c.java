@@ -1,7 +1,7 @@
 package tv.danmaku.ijk.media.player;
 
 import android.graphics.Rect;
-/* loaded from: classes16.dex */
+/* loaded from: classes18.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */

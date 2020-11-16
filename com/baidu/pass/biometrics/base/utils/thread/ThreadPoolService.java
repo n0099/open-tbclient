@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class ThreadPoolService {
 
     /* renamed from: a  reason: collision with root package name */
@@ -30,7 +30,7 @@ public class ThreadPoolService {
     private ThreadPoolExecutor e;
     private Handler f;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     private static class SingletonContainer {
         public static ThreadPoolService mSingleInstance = new ThreadPoolService();
 

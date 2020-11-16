@@ -92,13 +92,13 @@ public class AlaNetRefreshView extends a {
 
     public void onChangeSkinType() {
         if (this.mNetFailTipView != null) {
-            ap.setViewTextColor(this.mNetFailTipView, R.color.cp_cont_f);
+            ap.setViewTextColor(this.mNetFailTipView, R.color.CAM_X0106);
         }
         if (this.mNetRefreshContainer != null) {
-            ap.setBackgroundResource(this.mNetRefreshContainer, R.color.cp_bg_line_d);
+            ap.setBackgroundResource(this.mNetRefreshContainer, R.color.CAM_X0201);
         }
         if (this.mNetRefreshBtn != null) {
-            ap.setViewTextColor(this.mNetRefreshBtn, R.color.cp_cont_f);
+            ap.setViewTextColor(this.mNetRefreshBtn, R.color.CAM_X0106);
             ap.setBackgroundResource(this.mNetRefreshBtn, R.drawable.ala_net_refresh_btn_bg);
         }
         boolean z = TbadkApplication.getInst().getSkinType() == 1;

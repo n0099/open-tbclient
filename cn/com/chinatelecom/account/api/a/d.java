@@ -1,11 +1,11 @@
 package cn.com.chinatelecom.account.api.a;
 
 import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f972a = d.class.getSimpleName();
+    private static final String f975a = d.class.getSimpleName();
     private static final Charset b = Charset.forName("UTF-8");
     private static byte[] c = "D@^12S".getBytes(b);
 

@@ -19,10 +19,10 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
     private final String DIR_PATH;
-    private List<com.baidu.live.entereffect.a.a> aTL;
+    private List<com.baidu.live.entereffect.a.a> aSa;
 
-    public static c Fk() {
-        return a.aTO;
+    public static c EB() {
+        return a.aSd;
     }
 
     public void B(final List<com.baidu.live.entereffect.a.a> list) {
@@ -33,22 +33,22 @@ public class c {
             /* renamed from: c */
             public List<com.baidu.live.entereffect.a.a> doInBackground(Void... voidArr) {
                 if (list == null || list.isEmpty()) {
-                    c.this.Fl();
+                    c.this.EC();
                     return null;
                 }
                 c.this.D(list);
-                List<com.baidu.live.entereffect.a.a> gB = c.this.gB("enter_effect_dynamic_available");
-                if (gB == null || gB.isEmpty()) {
-                    c.this.Fl();
+                List<com.baidu.live.entereffect.a.a> gv = c.this.gv("enter_effect_dynamic_available");
+                if (gv == null || gv.isEmpty()) {
+                    c.this.EC();
                     return null;
                 }
-                String[] c = c.this.c(list, gB);
-                if (gB.isEmpty()) {
-                    c.this.Fl();
+                String[] c = c.this.c(list, gv);
+                if (gv.isEmpty()) {
+                    c.this.EC();
                     return null;
                 }
                 c.this.k(c);
-                return gB;
+                return gv;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -57,14 +57,14 @@ public class c {
             /* renamed from: A */
             public void onPostExecute(List<com.baidu.live.entereffect.a.a> list2) {
                 super.onPostExecute(list2);
-                if (c.this.aTL == null) {
-                    c.this.aTL = Collections.synchronizedList(new ArrayList());
+                if (c.this.aSa == null) {
+                    c.this.aSa = Collections.synchronizedList(new ArrayList());
                 }
-                c.this.aTL.clear();
+                c.this.aSa.clear();
                 if (list2 != null) {
-                    Collections.addAll(c.this.aTL, list2.toArray(new com.baidu.live.entereffect.a.a[list2.size()]));
+                    Collections.addAll(c.this.aSa, list2.toArray(new com.baidu.live.entereffect.a.a[list2.size()]));
                 }
-                c.this.Fm();
+                c.this.ED();
                 c.this.C(list);
             }
         }.execute(new Void[0]);
@@ -74,45 +74,45 @@ public class c {
         if (list == null || list.isEmpty()) {
             return;
         }
-        a(d(new ArrayList(list), this.aTL != null ? new ArrayList(this.aTL) : null));
+        a(d(new ArrayList(list), this.aSa != null ? new ArrayList(this.aSa) : null));
     }
 
     public void a(com.baidu.live.entereffect.a.a... aVarArr) {
         String str;
         boolean z;
-        String ih;
+        String ib;
         if (aVarArr != null && aVarArr.length > 0) {
             for (com.baidu.live.entereffect.a.a aVar : aVarArr) {
-                if (com.baidu.live.alphavideo.a.Cl().Cm() && !TextUtils.isEmpty(aVar.videoUrl)) {
+                if (com.baidu.live.alphavideo.a.BC().BD() && !TextUtils.isEmpty(aVar.videoUrl)) {
                     z = true;
                     str = aVar.videoUrl;
                 } else {
-                    str = aVar.aTm;
+                    str = aVar.aRB;
                     z = false;
                 }
-                if (!TextUtils.isEmpty(aVar.id) && !TextUtils.isEmpty(str) && !aq(aVar.id, str)) {
+                if (!TextUtils.isEmpty(aVar.id) && !TextUtils.isEmpty(str) && !ap(aVar.id, str)) {
                     b bVar = new b();
-                    String m22if = com.baidu.live.ac.b.m22if(aVar.id);
+                    String hZ = com.baidu.live.ac.b.hZ(aVar.id);
                     if (z) {
-                        ih = com.baidu.live.ac.b.ig(aVar.id);
+                        ib = com.baidu.live.ac.b.ia(aVar.id);
                     } else {
-                        ih = com.baidu.live.ac.b.ih(aVar.id);
+                        ib = com.baidu.live.ac.b.ib(aVar.id);
                     }
-                    bVar.a(z, aVar, str, m22if, ih, aVar.aTp);
+                    bVar.a(z, aVar, str, hZ, ib, aVar.aRE);
                 }
             }
         }
     }
 
-    public List<com.baidu.live.entereffect.a.a> Fh() {
-        return this.aTL;
+    public List<com.baidu.live.entereffect.a.a> Ey() {
+        return this.aSa;
     }
 
-    public com.baidu.live.entereffect.a.a gv(String str) {
-        if (this.aTL == null || this.aTL.isEmpty()) {
+    public com.baidu.live.entereffect.a.a go(String str) {
+        if (this.aSa == null || this.aSa.isEmpty()) {
             return null;
         }
-        for (com.baidu.live.entereffect.a.a aVar : this.aTL) {
+        for (com.baidu.live.entereffect.a.a aVar : this.aSa) {
             if (aVar.id.equals(str)) {
                 return aVar;
             }
@@ -120,13 +120,13 @@ public class c {
         return null;
     }
 
-    public void gA(String str) {
-        if (!TextUtils.isEmpty(str) && this.aTL != null && !this.aTL.isEmpty()) {
-            for (com.baidu.live.entereffect.a.a aVar : this.aTL) {
+    public void gu(String str) {
+        if (!TextUtils.isEmpty(str) && this.aSa != null && !this.aSa.isEmpty()) {
+            for (com.baidu.live.entereffect.a.a aVar : this.aSa) {
                 if (str.equals(aVar.id)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    aVar.aTn = currentTimeMillis;
-                    String string = com.baidu.live.d.AZ().getString("enter_effect_dynamic_available", "");
+                    aVar.aRC = currentTimeMillis;
+                    String string = com.baidu.live.d.Aq().getString("enter_effect_dynamic_available", "");
                     if (!TextUtils.isEmpty(string)) {
                         try {
                             JSONArray jSONArray = new JSONArray(string);
@@ -134,7 +134,7 @@ public class c {
                                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                                 if (optJSONObject != null && str.equals(optJSONObject.optString("id"))) {
                                     optJSONObject.put("last_accessed", currentTimeMillis);
-                                    com.baidu.live.d.AZ().putString("enter_effect_dynamic_available", jSONArray.toString());
+                                    com.baidu.live.d.Aq().putString("enter_effect_dynamic_available", jSONArray.toString());
                                     return;
                                 }
                             }
@@ -151,9 +151,9 @@ public class c {
     }
 
     public void release() {
-        com.baidu.live.f.b.dT(20);
-        if (this.aTL != null) {
-            this.aTL.clear();
+        com.baidu.live.f.b.dP(20);
+        if (this.aSa != null) {
+            this.aSa.clear();
         }
     }
 
@@ -178,8 +178,8 @@ public class c {
         boolean z2;
         String string;
         JSONArray jSONArray;
-        if (this.aTL != null && !this.aTL.isEmpty()) {
-            for (com.baidu.live.entereffect.a.a aVar2 : this.aTL) {
+        if (this.aSa != null && !this.aSa.isEmpty()) {
+            for (com.baidu.live.entereffect.a.a aVar2 : this.aSa) {
                 if (aVar.id.equals(aVar2.id)) {
                     if (z) {
                         if (list != null && !list.isEmpty() && list.get(0) != null) {
@@ -190,9 +190,9 @@ public class c {
                         for (com.baidu.live.entereffect.a.b bVar : list) {
                             arrayList.add(bVar.path);
                         }
-                        aVar2.b(aVar.aTm, str, arrayList);
+                        aVar2.b(aVar.aRB, str, arrayList);
                     }
-                    aVar2.aTn = System.currentTimeMillis();
+                    aVar2.aRC = System.currentTimeMillis();
                     z2 = true;
                     if (!z2) {
                         if (z) {
@@ -204,23 +204,23 @@ public class c {
                             for (com.baidu.live.entereffect.a.b bVar2 : list) {
                                 arrayList2.add(bVar2.path);
                             }
-                            aVar.b(aVar.aTm, str, arrayList2);
+                            aVar.b(aVar.aRB, str, arrayList2);
                         }
-                        aVar.aTn = System.currentTimeMillis();
-                        if (this.aTL == null) {
-                            this.aTL = Collections.synchronizedList(new ArrayList());
+                        aVar.aRC = System.currentTimeMillis();
+                        if (this.aSa == null) {
+                            this.aSa = Collections.synchronizedList(new ArrayList());
                         }
-                        this.aTL.add(aVar);
+                        this.aSa.add(aVar);
                     }
-                    string = com.baidu.live.d.AZ().getString("enter_effect_dynamic_available", "");
+                    string = com.baidu.live.d.Aq().getString("enter_effect_dynamic_available", "");
                     if (TextUtils.isEmpty(string)) {
                         jSONArray = new JSONArray(string);
                     } else {
                         jSONArray = new JSONArray();
                     }
                     if (jSONArray == null) {
-                        jSONArray.put(aVar.Fj());
-                        com.baidu.live.d.AZ().putString("enter_effect_dynamic_available", jSONArray.toString());
+                        jSONArray.put(aVar.EA());
+                        com.baidu.live.d.Aq().putString("enter_effect_dynamic_available", jSONArray.toString());
                         return;
                     }
                     return;
@@ -230,7 +230,7 @@ public class c {
         z2 = false;
         if (!z2) {
         }
-        string = com.baidu.live.d.AZ().getString("enter_effect_dynamic_available", "");
+        string = com.baidu.live.d.Aq().getString("enter_effect_dynamic_available", "");
         if (TextUtils.isEmpty(string)) {
         }
         if (jSONArray == null) {
@@ -238,26 +238,26 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Fl() {
-        if (this.aTL != null) {
-            this.aTL.clear();
+    public void EC() {
+        if (this.aSa != null) {
+            this.aSa.clear();
         }
-        com.baidu.live.d.AZ().putString("enter_effect_dynamic_available", "");
-        com.baidu.live.f.a.cleanDir(new File(com.baidu.live.ac.b.Qs()));
-        com.baidu.live.d.AZ().putString("enter_effect_res_last_accessed", "");
-        Fo();
+        com.baidu.live.d.Aq().putString("enter_effect_dynamic_available", "");
+        com.baidu.live.f.a.cleanDir(new File(com.baidu.live.ac.b.PJ()));
+        com.baidu.live.d.Aq().putString("enter_effect_res_last_accessed", "");
+        EF();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.live.entereffect.a.a> gB(String str) {
-        String string = com.baidu.live.d.AZ().getString(str, "");
+    public List<com.baidu.live.entereffect.a.a> gv(String str) {
+        String string = com.baidu.live.d.Aq().getString(str, "");
         if (TextUtils.isEmpty(string)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(string);
             if (jSONArray.length() != 0) {
-                return com.baidu.live.entereffect.a.Fg().i(jSONArray);
+                return com.baidu.live.entereffect.a.Ex().i(jSONArray);
             }
             return null;
         } catch (JSONException e) {
@@ -283,35 +283,35 @@ public class c {
                 com.baidu.live.entereffect.a.a next2 = it2.next();
                 if (!TextUtils.isEmpty(next2.id) && next2.id.equals(next.id)) {
                     next.priority = next2.priority;
-                    if (next2.aTo != null && next2.aTo.aUe != null) {
-                        if (next.aTo == null) {
-                            next.aTo = new com.baidu.live.gift.c();
+                    if (next2.aRD != null && next2.aRD.aSt != null) {
+                        if (next.aRD == null) {
+                            next.aRD = new com.baidu.live.gift.c();
                         }
-                        next.aTo.aUe = next2.aTo.aUe;
+                        next.aRD.aSt = next2.aRD.aSt;
                     }
-                    if (com.baidu.live.alphavideo.a.Cl().Cm() && !TextUtils.isEmpty(next2.videoUrl) && !TextUtils.isEmpty(next.videoUrl) && next2.videoUrl.equals(next.videoUrl)) {
+                    if (com.baidu.live.alphavideo.a.BC().BD() && !TextUtils.isEmpty(next2.videoUrl) && !TextUtils.isEmpty(next.videoUrl) && next2.videoUrl.equals(next.videoUrl)) {
                         if (!TextUtils.isEmpty(next.videoMd5)) {
-                            next.aTo.aUf = com.baidu.live.ac.b.ig(next.id);
-                            String FC = next.aTo.FC();
-                            if (TextUtils.isEmpty(FC) || !next.videoMd5.equals(com.baidu.live.f.a.getFileMd5(new File(FC)))) {
+                            next.aRD.aSu = com.baidu.live.ac.b.ia(next.id);
+                            String ET = next.aRD.ET();
+                            if (TextUtils.isEmpty(ET) || !next.videoMd5.equals(com.baidu.live.f.a.getFileMd5(new File(ET)))) {
                                 z = true;
                             } else {
-                                next.k(next.videoUrl, next.aTo.aUf, FC, next.videoMd5);
-                                if (next.aTn <= 0) {
-                                    next.aTn = new File(next.aTo.aUf).lastModified();
+                                next.k(next.videoUrl, next.aRD.aSu, ET, next.videoMd5);
+                                if (next.aRC <= 0) {
+                                    next.aRC = new File(next.aRD.aSu).lastModified();
                                 }
-                                com.baidu.live.f.a.cleanDir(new File(com.baidu.live.ac.b.ih(next.id)));
+                                com.baidu.live.f.a.cleanDir(new File(com.baidu.live.ac.b.ib(next.id)));
                                 z = false;
                             }
                             z2 = z;
                         }
-                    } else if (!TextUtils.isEmpty(next2.aTm) && !TextUtils.isEmpty(next.aTm) && next2.aTm.equals(next.aTm) && next.frameCount > 0) {
-                        next.aTo.upZipDirPath = com.baidu.live.ac.b.ih(next.id);
-                        ArrayList<String> dynamicGiftPicPathList = next.aTo.getDynamicGiftPicPathList();
+                    } else if (!TextUtils.isEmpty(next2.aRB) && !TextUtils.isEmpty(next.aRB) && next2.aRB.equals(next.aRB) && next.frameCount > 0) {
+                        next.aRD.upZipDirPath = com.baidu.live.ac.b.ib(next.id);
+                        ArrayList<String> dynamicGiftPicPathList = next.aRD.getDynamicGiftPicPathList();
                         if (dynamicGiftPicPathList != null && dynamicGiftPicPathList.size() == next.frameCount) {
-                            next.b(next.aTm, next.aTo.upZipDirPath, dynamicGiftPicPathList);
-                            if (next.aTn <= 0) {
-                                next.aTn = new File(next.aTo.upZipDirPath).lastModified();
+                            next.b(next.aRB, next.aRD.upZipDirPath, dynamicGiftPicPathList);
+                            if (next.aRC <= 0) {
+                                next.aRC = new File(next.aRD.upZipDirPath).lastModified();
                             }
                             z2 = false;
                         }
@@ -337,18 +337,18 @@ public class c {
     public void k(String... strArr) {
         if (Looper.myLooper() != Looper.getMainLooper() && strArr != null && strArr.length != 0) {
             for (String str : strArr) {
-                com.baidu.live.f.a.cleanDir(new File(com.baidu.live.ac.b.ie(str)));
-                com.baidu.live.f.a.cleanDir(new File(gC(str)));
-                com.baidu.live.f.a.cleanDir(new File(gD(str)));
-                com.baidu.live.f.a.cleanDir(new File(gE(str)));
-                com.baidu.live.f.a.cleanDir(new File(gF(str)));
+                com.baidu.live.f.a.cleanDir(new File(com.baidu.live.ac.b.hY(str)));
+                com.baidu.live.f.a.cleanDir(new File(gw(str)));
+                com.baidu.live.f.a.cleanDir(new File(gx(str)));
+                com.baidu.live.f.a.cleanDir(new File(gy(str)));
+                com.baidu.live.f.a.cleanDir(new File(gz(str)));
             }
         }
     }
 
-    public void gx(String str) {
-        if (this.aTL != null) {
-            Iterator<com.baidu.live.entereffect.a.a> it = this.aTL.iterator();
+    public void gq(String str) {
+        if (this.aSa != null) {
+            Iterator<com.baidu.live.entereffect.a.a> it = this.aSa.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -375,11 +375,11 @@ public class c {
                     if (it2.hasNext()) {
                         com.baidu.live.entereffect.a.a next2 = it2.next();
                         if (next2.id.equals(next.id)) {
-                            if (com.baidu.live.alphavideo.a.Cl().Cm() && !TextUtils.isEmpty(next.videoUrl)) {
-                                if (next2.aTo != null && !TextUtils.isEmpty(next2.aTo.FC())) {
+                            if (com.baidu.live.alphavideo.a.BC().BD() && !TextUtils.isEmpty(next.videoUrl)) {
+                                if (next2.aRD != null && !TextUtils.isEmpty(next2.aRD.ET())) {
                                     it.remove();
                                 }
-                            } else if (!TextUtils.isEmpty(next.aTm) && next2.aTo != null && next2.frameCount > 0 && (dynamicGiftPicPathList = next2.aTo.getDynamicGiftPicPathList()) != null && dynamicGiftPicPathList.size() == next2.frameCount) {
+                            } else if (!TextUtils.isEmpty(next.aRB) && next2.aRD != null && next2.frameCount > 0 && (dynamicGiftPicPathList = next2.aRD.getDynamicGiftPicPathList()) != null && dynamicGiftPicPathList.size() == next2.frameCount) {
                                 it.remove();
                             }
                         }
@@ -391,21 +391,21 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Fm() {
-        if (this.aTL == null || this.aTL.isEmpty()) {
-            com.baidu.live.d.AZ().putString("enter_effect_dynamic_available", "");
+    public void ED() {
+        if (this.aSa == null || this.aSa.isEmpty()) {
+            com.baidu.live.d.Aq().putString("enter_effect_dynamic_available", "");
             return;
         }
         JSONArray jSONArray = new JSONArray();
-        for (com.baidu.live.entereffect.a.a aVar : this.aTL) {
-            if (aVar.Fj() != null) {
-                jSONArray.put(aVar.Fj());
+        for (com.baidu.live.entereffect.a.a aVar : this.aSa) {
+            if (aVar.EA() != null) {
+                jSONArray.put(aVar.EA());
             }
         }
-        com.baidu.live.d.AZ().putString("enter_effect_dynamic_available", jSONArray.toString());
+        com.baidu.live.d.Aq().putString("enter_effect_dynamic_available", jSONArray.toString());
     }
 
-    private boolean aq(String str, String str2) {
+    private boolean ap(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return false;
         }
@@ -423,35 +423,35 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void D(List<com.baidu.live.entereffect.a.a> list) {
-        List<com.baidu.live.entereffect.a.a> gB = gB("enter_effect_dynamic_available_list");
-        if (gB == null || gB.isEmpty()) {
-            Fo();
+        List<com.baidu.live.entereffect.a.a> gv = gv("enter_effect_dynamic_available_list");
+        if (gv == null || gv.isEmpty()) {
+            EF();
             return;
         }
-        List<com.baidu.live.entereffect.a.a> e = e(list, gB);
-        if (gB.isEmpty()) {
-            Fo();
+        List<com.baidu.live.entereffect.a.a> e = e(list, gv);
+        if (gv.isEmpty()) {
+            EF();
             return;
         }
         if (e != null && !e.isEmpty()) {
             for (com.baidu.live.entereffect.a.a aVar : e) {
-                com.baidu.live.f.a.cleanDir(new File(gC(aVar.id)));
-                com.baidu.live.f.a.cleanDir(new File(gD(aVar.id)));
-                com.baidu.live.f.a.cleanDir(new File(gE(aVar.id)));
-                com.baidu.live.f.a.cleanDir(new File(gF(aVar.id)));
+                com.baidu.live.f.a.cleanDir(new File(gw(aVar.id)));
+                com.baidu.live.f.a.cleanDir(new File(gx(aVar.id)));
+                com.baidu.live.f.a.cleanDir(new File(gy(aVar.id)));
+                com.baidu.live.f.a.cleanDir(new File(gz(aVar.id)));
             }
         }
-        E(gB);
-        Fn();
-        if (TextUtils.isEmpty(com.baidu.live.d.AZ().getString("enter_effect_dynamic_available", "")) && !gB.isEmpty()) {
+        E(gv);
+        EE();
+        if (TextUtils.isEmpty(com.baidu.live.d.Aq().getString("enter_effect_dynamic_available", "")) && !gv.isEmpty()) {
             JSONArray jSONArray = new JSONArray();
-            for (com.baidu.live.entereffect.a.a aVar2 : gB) {
-                if (aVar2.Fj() != null) {
-                    jSONArray.put(aVar2.Fj());
+            for (com.baidu.live.entereffect.a.a aVar2 : gv) {
+                if (aVar2.EA() != null) {
+                    jSONArray.put(aVar2.EA());
                 }
             }
-            com.baidu.live.d.AZ().putString("enter_effect_dynamic_available", jSONArray.toString());
-            Fo();
+            com.baidu.live.d.Aq().putString("enter_effect_dynamic_available", jSONArray.toString());
+            EF();
         }
     }
 
@@ -488,20 +488,20 @@ public class c {
 
     private void E(List<com.baidu.live.entereffect.a.a> list) {
         File[] listFiles;
-        if (com.baidu.live.alphavideo.a.Cl().Cm() && list != null && !list.isEmpty()) {
+        if (com.baidu.live.alphavideo.a.BC().BD() && list != null && !list.isEmpty()) {
             for (com.baidu.live.entereffect.a.a aVar : list) {
                 if (!TextUtils.isEmpty(aVar.id) && !TextUtils.isEmpty(aVar.videoMd5)) {
-                    File file = new File(gD(aVar.id));
+                    File file = new File(gx(aVar.id));
                     if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0 && aVar.videoMd5.equals(com.baidu.live.f.a.getFileMd5(listFiles[0]))) {
-                        com.baidu.live.f.a.cleanDir(new File(gF(aVar.id)));
+                        com.baidu.live.f.a.cleanDir(new File(gz(aVar.id)));
                     }
                 }
             }
         }
     }
 
-    private void Fn() {
-        String ih;
+    private void EE() {
+        String ib;
         File file = new File(this.DIR_PATH);
         if (file.exists()) {
             if (!file.isDirectory()) {
@@ -529,16 +529,16 @@ public class c {
                             file2.delete();
                         } else {
                             if (name.startsWith("video_")) {
-                                ih = com.baidu.live.ac.b.ig(name.substring("video_".length()));
+                                ib = com.baidu.live.ac.b.ia(name.substring("video_".length()));
                             } else {
-                                ih = com.baidu.live.ac.b.ih(name);
+                                ib = com.baidu.live.ac.b.ib(name);
                             }
-                            File file3 = new File(ih);
+                            File file3 = new File(ib);
                             if (file3.exists() || file3.mkdirs()) {
                                 for (File file4 : listFiles2) {
                                     String name2 = file4.getName();
                                     if (!TextUtils.isEmpty(name2) && !"zip".equals(name2.substring(name2.lastIndexOf(".") + 1))) {
-                                        file4.renameTo(new File(ih + "/" + name2));
+                                        file4.renameTo(new File(ib + "/" + name2));
                                     }
                                 }
                             }
@@ -549,8 +549,8 @@ public class c {
         }
     }
 
-    private void Fo() {
-        com.baidu.live.d.AZ().putString("enter_effect_dynamic_available_list", "");
+    private void EF() {
+        com.baidu.live.d.Aq().putString("enter_effect_dynamic_available_list", "");
         File file = new File(this.DIR_PATH);
         com.baidu.live.f.a.cleanDir(file);
         if (file.exists()) {
@@ -558,20 +558,20 @@ public class c {
         }
     }
 
-    private String gC(String str) {
+    private String gw(String str) {
         return this.DIR_PATH + "video_zip_" + str + "/";
     }
 
-    private String gD(String str) {
+    private String gx(String str) {
         return this.DIR_PATH + "video_" + str + "/";
     }
 
-    private String gE(String str) {
+    private String gy(String str) {
         return this.DIR_PATH + str + "/";
     }
 
-    private String gF(String str) {
-        return gE(str);
+    private String gz(String str) {
+        return gy(str);
     }
 
     private c() {
@@ -581,6 +581,6 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a {
-        private static c aTO = new c();
+        private static c aSd = new c();
     }
 }

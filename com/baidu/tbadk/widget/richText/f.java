@@ -12,12 +12,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f extends ClickableSpan {
-    private String fIT;
-    private int fIU;
+    private String fIw;
+    private int fIx;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -42,8 +42,8 @@ public class f extends ClickableSpan {
         this.mType = i;
     }
 
-    public void sB(int i) {
-        this.fIU = i;
+    public void sZ(int i) {
+        this.fIx = i;
     }
 
     public void setColor(int i) {
@@ -54,12 +54,12 @@ public class f extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void sC(int i) {
+    public void ta(int i) {
         this.urlType = i;
     }
 
-    public void EI(String str) {
-        this.fIT = str;
+    public void Ej(String str) {
+        this.fIw = str;
     }
 
     public String getLink() {
@@ -70,26 +70,26 @@ public class f extends ClickableSpan {
     public void updateDrawState(TextPaint textPaint) {
         if (this.textColor != -1) {
             textPaint.setColor(ap.getColor(this.textColor));
-        } else if (bGk()) {
-            textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.cp_link_tip_c));
+        } else if (bFD()) {
+            textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0304));
         } else {
             textPaint.setColor(textPaint.linkColor);
         }
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.fIU == 1 && bGl()) {
+        } else if (this.fIx == 1 && bFE()) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textPaint.bgColor = ap.getColor(R.color.cp_bg_line_c);
+                textPaint.bgColor = ap.getColor(R.color.CAM_X0204);
             } else {
                 textPaint.bgColor = ap.getColor(R.color.cp_bg_line_z);
             }
-        } else if (this.fIU == 2) {
+        } else if (this.fIx == 2) {
             textPaint.bgColor = ap.getColor(R.color.transparent);
         }
     }
 
-    private boolean bGk() {
+    private boolean bFD() {
         switch (this.mType) {
             case 2:
             case 16:
@@ -100,7 +100,7 @@ public class f extends ClickableSpan {
         }
     }
 
-    public boolean bGl() {
+    public boolean bFE() {
         switch (this.mType) {
             case 16:
             case 18:
@@ -115,7 +115,7 @@ public class f extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.fIT));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.fIw));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -125,37 +125,37 @@ public class f extends ClickableSpan {
                     i = 1;
                 }
             }
-            TiebaStatic.log(new aq(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).al("obj_source", i2).al("obj_type", i));
+            TiebaStatic.log(new ar(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).ak("obj_source", i2).ak("obj_type", i));
         }
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
 
-    public static void a(Context context, i iVar, int i, String str, String str2) {
-        if (iVar != null) {
+    public static void a(Context context, h hVar, int i, String str, String str2) {
+        if (hVar != null) {
             switch (i) {
                 case 2:
-                    iVar.f(context, str, false);
+                    hVar.f(context, str, false);
                     return;
                 case 16:
-                    iVar.ax(context, str);
+                    hVar.au(context, str);
                     return;
                 case 18:
-                    iVar.f(context, str, true);
+                    hVar.f(context, str, true);
                     return;
                 case 32:
-                    iVar.ay(context, str);
+                    hVar.av(context, str);
                     return;
                 case 64:
-                    iVar.az(context, str);
+                    hVar.aw(context, str);
                     return;
                 case 128:
-                    iVar.aA(context, str);
+                    hVar.ax(context, str);
                     return;
                 case 256:
-                    iVar.u(context, str, str2);
+                    hVar.u(context, str, str2);
                     return;
                 case 1024:
-                    iVar.aB(context, str);
+                    hVar.ay(context, str);
                     return;
                 default:
                     return;
@@ -164,14 +164,14 @@ public class f extends ClickableSpan {
     }
 
     public static void a(TbPageContext<?> tbPageContext, int i, String str, String str2) {
-        if (tbPageContext != null && (tbPageContext.getOrignalPage() instanceof i)) {
-            a(tbPageContext.getPageActivity(), (i) tbPageContext.getOrignalPage(), i, str, str2);
+        if (tbPageContext != null && (tbPageContext.getOrignalPage() instanceof h)) {
+            a(tbPageContext.getPageActivity(), (h) tbPageContext.getOrignalPage(), i, str, str2);
         }
     }
 
-    public static void a(TbPageContext<?> tbPageContext, i iVar, int i, String str, String str2) {
-        if (tbPageContext != null && iVar != null) {
-            a(tbPageContext.getPageActivity(), iVar, i, str, str2);
+    public static void a(TbPageContext<?> tbPageContext, h hVar, int i, String str, String str2) {
+        if (tbPageContext != null && hVar != null) {
+            a(tbPageContext.getPageActivity(), hVar, i, str, str2);
         }
     }
 }

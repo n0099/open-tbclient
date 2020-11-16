@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.IDN;
 import java.net.URLEncoder;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class HttpUrlHelperUtil {
     static final byte[] DIGITS = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, com.baidu.android.imsdk.internal.Constants.SHORT_PING_CMD_TYPE, 102};
 

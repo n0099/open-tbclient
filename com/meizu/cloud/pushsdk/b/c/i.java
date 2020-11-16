@@ -5,7 +5,7 @@ import com.meizu.cloud.pushsdk.b.c.c;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
@@ -15,7 +15,7 @@ public class i {
     private final j d;
     private final Object e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */

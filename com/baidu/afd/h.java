@@ -1,5 +1,16 @@
 package com.baidu.afd;
+
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
 public interface h {
-    void setAdFacadeData(d dVar);
+    int rl();
+
+    int rm();
+
+    int rn();
+
+    Map<String, String> ro();
+
+    void u(HashMap hashMap);
 }

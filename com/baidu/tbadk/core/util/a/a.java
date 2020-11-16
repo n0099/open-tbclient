@@ -3,24 +3,24 @@ package com.baidu.tbadk.core.util.a;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private b eOl = new b();
-    private c eOm = new c();
-    private d eOn = new d();
-    private HashMap<String, String> eOo = new HashMap<>();
+    private b eNp = new b();
+    private c eNq = new c();
+    private d eNr = new d();
+    private HashMap<String, String> eNs = new HashMap<>();
 
-    public b brt() {
-        return this.eOl;
+    public b bqH() {
+        return this.eNp;
     }
 
-    public c bru() {
-        return this.eOm;
+    public c bqI() {
+        return this.eNq;
     }
 
-    public d brv() {
-        return this.eOn;
+    public d bqJ() {
+        return this.eNr;
     }
 
-    public HashMap<String, String> brw() {
-        return this.eOo;
+    public HashMap<String, String> bqK() {
+        return this.eNs;
     }
 }

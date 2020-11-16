@@ -11,12 +11,12 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class TabTextView extends TextView {
-    private int bDC;
-    private int bDD;
-    private float bDM;
-    private boolean bDN;
-    private LinearGradient bDO;
-    private boolean bDP;
+    private int bBR;
+    private int bBS;
+    private float bCb;
+    private boolean bCc;
+    private LinearGradient bCd;
+    private boolean bCe;
     private float mSelectedTextSize;
 
     public TabTextView(Context context) {
@@ -29,52 +29,52 @@ public class TabTextView extends TextView {
 
     public TabTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bDP = true;
+        this.bCe = true;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.sdk_TabTextView);
-        this.bDC = obtainStyledAttributes.getColor(a.j.sdk_TabTextView_startTextColor, -1);
-        this.bDD = obtainStyledAttributes.getColor(a.j.sdk_TabTextView_endTextColor, -1);
-        this.bDM = obtainStyledAttributes.getDimension(a.j.sdk_TabTextView_defaultTextSize, -1.0f);
+        this.bBR = obtainStyledAttributes.getColor(a.j.sdk_TabTextView_startTextColor, -1);
+        this.bBS = obtainStyledAttributes.getColor(a.j.sdk_TabTextView_endTextColor, -1);
+        this.bCb = obtainStyledAttributes.getDimension(a.j.sdk_TabTextView_defaultTextSize, -1.0f);
         this.mSelectedTextSize = obtainStyledAttributes.getDimension(a.j.sdk_TabTextView_selectedTextSize, -1.0f);
-        this.bDN = obtainStyledAttributes.getBoolean(a.j.sdk_TabTextView_selectedBold, false);
+        this.bCc = obtainStyledAttributes.getBoolean(a.j.sdk_TabTextView_selectedBold, false);
         obtainStyledAttributes.recycle();
-        cM(false);
+        cO(false);
     }
 
     @Override // android.view.View
     protected void dispatchSetSelected(boolean z) {
         super.dispatchSetSelected(z);
-        cM(z);
-        cN(z);
         cO(z);
+        cP(z);
+        cQ(z);
     }
 
     public void setGradientAttrs(int i, int i2, float f, float f2, boolean z) {
-        this.bDC = i;
-        this.bDD = i2;
-        this.bDM = f;
+        this.bBR = i;
+        this.bBS = i2;
+        this.bCb = f;
         this.mSelectedTextSize = f2;
-        this.bDN = z;
+        this.bCc = z;
         invalidate();
     }
 
-    private boolean Ty() {
-        return (this.bDC == -1 || this.bDD == -1) ? false : true;
+    private boolean SP() {
+        return (this.bBR == -1 || this.bBS == -1) ? false : true;
     }
 
-    private void cM(boolean z) {
-        if (this.bDP) {
+    private void cO(boolean z) {
+        if (this.bCe) {
             if (z) {
                 if (this.mSelectedTextSize != -1.0f) {
                     setTextSize(0, this.mSelectedTextSize);
                 }
-            } else if (this.bDM != -1.0f) {
-                setTextSize(0, this.bDM);
+            } else if (this.bCb != -1.0f) {
+                setTextSize(0, this.bCb);
             }
         }
     }
 
-    public TabTextView cN(boolean z) {
-        if (this.bDN) {
+    public TabTextView cP(boolean z) {
+        if (this.bCc) {
             if (z) {
                 setTypeface(Typeface.DEFAULT_BOLD);
             } else {
@@ -84,16 +84,16 @@ public class TabTextView extends TextView {
         return this;
     }
 
-    private void cO(boolean z) {
-        if (z && Ty()) {
-            if (this.bDO == null) {
+    private void cQ(boolean z) {
+        if (z && SP()) {
+            if (this.bCd == null) {
                 if (getMeasuredWidth() == 0) {
                     int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                     measure(makeMeasureSpec, makeMeasureSpec);
                 }
-                this.bDO = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.bDC, this.bDD}, (float[]) null, Shader.TileMode.CLAMP);
+                this.bCd = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.bBR, this.bBS}, (float[]) null, Shader.TileMode.CLAMP);
             }
-            getPaint().setShader(this.bDO);
+            getPaint().setShader(this.bCd);
             return;
         }
         getPaint().setShader(null);

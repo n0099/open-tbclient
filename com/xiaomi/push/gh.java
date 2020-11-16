@@ -4,16 +4,16 @@ import android.os.Bundle;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class gh extends gj {
 
     /* renamed from: a  reason: collision with root package name */
     private a f4922a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Map<String, String> f390a;
+    private final Map<String, String> f393a;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes18.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
@@ -24,10 +24,10 @@ public class gh extends gj {
         public static final a e = new a("command");
 
         /* renamed from: a  reason: collision with other field name */
-        private String f391a;
+        private String f394a;
 
         private a(String str) {
-            this.f391a = str;
+            this.f394a = str;
         }
 
         public static a a(String str) {
@@ -54,19 +54,19 @@ public class gh extends gj {
         }
 
         public String toString() {
-            return this.f391a;
+            return this.f394a;
         }
     }
 
     public gh() {
         this.f4922a = a.f4923a;
-        this.f390a = new HashMap();
+        this.f393a = new HashMap();
     }
 
     public gh(Bundle bundle) {
         super(bundle);
         this.f4922a = a.f4923a;
-        this.f390a = new HashMap();
+        this.f393a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
             this.f4922a = a.a(bundle.getString("ext_iq_type"));
         }
@@ -102,7 +102,7 @@ public class gh extends gj {
         if (k() != null) {
             sb.append("chid=\"").append(gu.a(k())).append("\" ");
         }
-        for (Map.Entry<String, String> entry : this.f390a.entrySet()) {
+        for (Map.Entry<String, String> entry : this.f393a.entrySet()) {
             sb.append(gu.a(entry.getKey())).append("=\"");
             sb.append(gu.a(entry.getValue())).append("\" ");
         }
@@ -118,7 +118,7 @@ public class gh extends gj {
         sb.append(o());
         gn a2 = a();
         if (a2 != null) {
-            sb.append(a2.m318a());
+            sb.append(a2.m321a());
         }
         sb.append("</iq>");
         return sb.toString();
@@ -133,7 +133,7 @@ public class gh extends gj {
     }
 
     public synchronized void a(Map<String, String> map) {
-        this.f390a.putAll(map);
+        this.f393a.putAll(map);
     }
 
     @Override // com.xiaomi.push.gj

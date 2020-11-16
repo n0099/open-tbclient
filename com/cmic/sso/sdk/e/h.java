@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.cmic.sso.sdk.e.k;
 import com.cmic.sso.sdk.e.o;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class h {
     private static String b;
     private static String c;
@@ -14,14 +14,14 @@ public class h {
     private static long d = 0;
 
     public static void a(boolean z, boolean z2) {
-        k.a eiU = k.eiU();
-        eiU.a("phonescripstarttime");
-        eiU.a("phonescripcache");
-        eiU.a("pre_sim_key");
+        k.a eiS = k.eiS();
+        eiS.a("phonescripstarttime");
+        eiS.a("phonescripcache");
+        eiS.a("pre_sim_key");
         if (z2) {
-            eiU.a();
+            eiS.a();
         } else {
-            eiU.b();
+            eiS.b();
         }
         if (z) {
             b = null;
@@ -55,11 +55,11 @@ public class h {
     public static void b(Context context, String str, long j, String str2) {
         String a2 = b.a(context, str);
         if (!TextUtils.isEmpty(a2)) {
-            k.a eiU = k.eiU();
-            eiU.a("phonescripcache", a2);
-            eiU.a("phonescripstarttime", j);
-            eiU.a("pre_sim_key", str2);
-            eiU.b();
+            k.a eiS = k.eiS();
+            eiS.a("phonescripcache", a2);
+            eiS.a("phonescripstarttime", j);
+            eiS.a("pre_sim_key", str2);
+            eiS.b();
         }
     }
 

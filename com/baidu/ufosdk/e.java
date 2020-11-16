@@ -2,7 +2,7 @@ package com.baidu.ufosdk;
 
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class e implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {

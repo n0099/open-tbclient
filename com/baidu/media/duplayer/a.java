@@ -2,7 +2,7 @@ package com.baidu.media.duplayer;
 
 import android.content.Context;
 import java.lang.reflect.Method;
-/* loaded from: classes16.dex */
+/* loaded from: classes18.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

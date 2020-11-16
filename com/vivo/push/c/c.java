@@ -1,7 +1,7 @@
 package com.vivo.push.c;
 
 import com.vivo.push.cache.ClientConfigManagerImpl;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 final class c extends com.vivo.push.v {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.vivo.push.y yVar) {

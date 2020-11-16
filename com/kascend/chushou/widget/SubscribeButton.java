@@ -21,8 +21,8 @@ public class SubscribeButton extends LinearLayout {
     private LinearLayout d;
     private LinearLayout e;
     private Context h;
-    private AnimatorSet pwH;
-    private AnimatorSet pzW;
+    private AnimatorSet pBz;
+    private AnimatorSet pyk;
 
     public SubscribeButton(Context context) {
         this(context, null, 0);
@@ -46,16 +46,16 @@ public class SubscribeButton extends LinearLayout {
         f4256a = this.h.getResources().getDisplayMetrics().density;
         if (f4256a >= 2.0f) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.subscribe_btn_height);
-            this.pzW = new AnimatorSet();
+            this.pBz = new AnimatorSet();
             ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofFloat("alpha", 1.0f, 0.0f));
             ofPropertyValuesHolder.setDuration(20L);
             ObjectAnimator ofPropertyValuesHolder2 = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofFloat("translationY", 0.0f, dimensionPixelOffset));
             ofPropertyValuesHolder2.setDuration(10L);
-            this.pzW.play(ofPropertyValuesHolder2).after(ofPropertyValuesHolder);
-            this.pwH = new AnimatorSet();
+            this.pBz.play(ofPropertyValuesHolder2).after(ofPropertyValuesHolder);
+            this.pyk = new AnimatorSet();
             ObjectAnimator ofPropertyValuesHolder3 = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofFloat("translationY", dimensionPixelOffset, 0.0f));
             ofPropertyValuesHolder3.setDuration(250L);
-            this.pwH.play(ofPropertyValuesHolder3);
+            this.pyk.play(ofPropertyValuesHolder3);
         }
     }
 }

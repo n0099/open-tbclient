@@ -3,7 +3,7 @@ package com.baidu.ufosdk.ui;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class ep extends ClickableSpan {
 
     /* renamed from: a  reason: collision with root package name */

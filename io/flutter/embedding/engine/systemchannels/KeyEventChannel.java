@@ -10,7 +10,7 @@ import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.JSONMessageCodec;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class KeyEventChannel {
     @NonNull
     public final BasicMessageChannel<Object> channel;
@@ -52,7 +52,7 @@ public class KeyEventChannel {
         map.put("repeatCount", Integer.valueOf(flutterKeyEvent.repeatCount));
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FlutterKeyEvent {
         public final int codePoint;
         @Nullable

@@ -23,7 +23,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private static CustomMessageListener OQ = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.j.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
-                a.mMethodChannel.invokeMethod("setNetInfo", a.aaH());
+                a.mMethodChannel.invokeMethod("setNetInfo", a.ZY());
             }
         }
     };
@@ -56,7 +56,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         MessageManager.getInstance().registerListener(OQ);
     }
 
-    static HashMap aaH() {
+    static HashMap ZY() {
         HashMap hashMap = new HashMap();
         hashMap.put("isNetWorkAvailable", Boolean.valueOf(j.isNetWorkAvailable()));
         hashMap.put("netType", Integer.valueOf(j.netType()));
@@ -75,18 +75,18 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         } else if (methodCall.method.equals("isNetworkAvailableForImmediately")) {
             result.success(Boolean.valueOf(j.isNetworkAvailableForImmediately()));
         } else if (methodCall.method.equals("getNetInfo")) {
-            result.success(aaH());
+            result.success(ZY());
         } else if (methodCall.method.equals("getDnsIp")) {
             String str = (String) methodCall.argument("url");
             HashMap hashMap2 = new HashMap();
             try {
-                hashMap = jt(str);
+                hashMap = jn(str);
             } catch (Exception e) {
                 hashMap = hashMap2;
             }
             result.success(hashMap);
         } else if (methodCall.method.equals("jumpRealNameAuthWebActivity")) {
-            aaI();
+            ZZ();
         }
     }
 
@@ -128,7 +128,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         return "";
     }
 
-    private HashMap jt(String str) throws Exception {
+    private HashMap jn(String str) throws Exception {
         String host;
         HashMap hashMap = new HashMap();
         URL url = new URL(str);
@@ -164,7 +164,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         return hashMap;
     }
 
-    private void aaI() {
+    private void ZZ() {
         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
         StringBuilder sb = new StringBuilder(UrlSchemaHelper.REAL_NAME_AUTH_URL);
         sb.append("&u=").append(URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW));

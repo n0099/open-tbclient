@@ -53,7 +53,7 @@ public class b {
         com.baidu.adp.lib.network.http.a.a aVar = this.mCache.get(str);
         if (aVar != null && !aVar.F(System.currentTimeMillis()) && aVar.mH() != null && aVar.mH().size() > 0) {
             for (int i = 0; i < aVar.mH().size(); i++) {
-                if (!k.A(str2, aVar.mH().get(i))) {
+                if (!k.z(str2, aVar.mH().get(i))) {
                     cVar.ao(i);
                     cVar.bN(aVar.mH().get(i));
                     return cVar;
@@ -74,7 +74,7 @@ public class b {
                 a2.E(300L);
                 this.mCache.put(str, a2);
                 for (int i3 = 0; i3 < a2.mH().size(); i3++) {
-                    if (!k.A(str2, a2.mH().get(i2))) {
+                    if (!k.z(str2, a2.mH().get(i2))) {
                         cVar.ao(i3);
                         cVar.bN(a2.mH().get(i3));
                         return cVar;

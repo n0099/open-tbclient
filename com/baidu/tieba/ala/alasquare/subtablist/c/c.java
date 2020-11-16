@@ -15,21 +15,21 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
-import com.baidu.tbadk.util.af;
+import com.baidu.tbadk.util.ae;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c> {
-    private bw ghO;
-    private String gmd;
-    private i gpC;
-    private a grZ;
-    private boolean gsa;
-    View.OnClickListener gsb;
+    private bx ghv;
+    private String glK;
+    private i gpj;
+    private a grG;
+    private boolean grH;
+    View.OnClickListener grI;
     private View.OnClickListener mOnClickListener;
     public int mSkinType;
     private TbPageContext<?> mTbPageContext;
@@ -38,13 +38,13 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c>
     public c(TbPageContext<?> tbPageContext, boolean z) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.gsa = false;
+        this.grH = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.subtablist.c.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (j.isNetWorkAvailable()) {
-                    if (c.this.ghO != null && c.this.ghO.bmU() != null && c.this.gpC != null) {
-                        c.this.gpC.a(c.this.tabId, c.this.gmd, c.this.ghO);
+                    if (c.this.ghv != null && c.this.ghv.blW() != null && c.this.gpj != null) {
+                        c.this.gpj.a(c.this.tabId, c.this.glK, c.this.ghv);
                         return;
                     }
                     return;
@@ -52,32 +52,32 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c>
                 l.showLongToast(c.this.mTbPageContext.getPageActivity(), c.this.mTbPageContext.getPageActivity().getString(R.string.no_network_guide));
             }
         };
-        this.gsb = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.subtablist.c.c.2
+        this.grI = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.subtablist.c.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.ghO != null && c.this.ghO.bmA() != null && !StringUtils.isNull(c.this.ghO.bmA().getUserId())) {
-                    long j = com.baidu.adp.lib.f.b.toLong(c.this.ghO.bmA().getUserId(), 0L);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(c.this.mTbPageContext.getPageActivity()).createNormalConfig(j, j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), c.this.ghO.bmA().isBigV())));
+                if (c.this.ghv != null && c.this.ghv.blC() != null && !StringUtils.isNull(c.this.ghv.blC().getUserId())) {
+                    long j = com.baidu.adp.lib.f.b.toLong(c.this.ghv.blC().getUserId(), 0L);
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(c.this.mTbPageContext.getPageActivity()).createNormalConfig(j, j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), c.this.ghv.blC().isBigV())));
                 }
             }
         };
         this.mTbPageContext = tbPageContext;
-        this.grZ = new a(getView());
-        this.gsa = z;
+        this.grG = new a(getView());
+        this.grH = z;
     }
 
     public void c(i iVar) {
-        this.gpC = iVar;
+        this.gpj = iVar;
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundResource(this.grZ.gsg, R.drawable.addresslist_item_bg);
-            ap.setViewTextColor(this.grZ.gsf, (int) R.color.cp_cont_a);
-            ap.setViewTextColor(this.grZ.aWW, (int) R.color.cp_cont_a);
-            ap.setViewTextColor(this.grZ.gsi, (int) R.color.cp_cont_b);
-            ap.setViewTextColor(this.grZ.gsj, (int) R.color.cp_cont_d);
+            ap.setBackgroundResource(this.grG.grN, R.drawable.addresslist_item_bg);
+            ap.setViewTextColor(this.grG.grM, R.color.CAM_X0101);
+            ap.setViewTextColor(this.grG.aVl, R.color.CAM_X0101);
+            ap.setViewTextColor(this.grG.grP, R.color.CAM_X0105);
+            ap.setViewTextColor(this.grG.grQ, R.color.CAM_X0109);
             this.mSkinType = i;
         }
     }
@@ -91,39 +91,39 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c>
     @Override // com.baidu.tieba.card.b
     /* renamed from: b */
     public void a(com.baidu.tieba.ala.alasquare.a.c cVar) {
-        if (cVar == null || cVar.ghO == null || cVar.ghO.bmU() == null) {
+        if (cVar == null || cVar.ghv == null || cVar.ghv.blW() == null) {
             getView().setVisibility(4);
             return;
         }
         getView().setVisibility(0);
-        this.ghO = cVar.ghO;
+        this.ghv = cVar.ghv;
         this.tabId = cVar.tabId;
-        this.gmd = !TextUtils.isEmpty(cVar.labelName) ? cVar.labelName : cVar.entryName;
-        this.grZ.gsd.startLoad(this.ghO.bmU().cover, 10, false);
-        this.grZ.gsf.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_label, at.numberUniformFormatExtra(this.ghO.bmU().audience_count)));
-        this.grZ.gsh.setData(this.ghO, false);
-        this.grZ.gsi.setText(this.ghO.getTitle());
-        if (this.ghO.bmA() != null) {
-            String name_show = this.ghO.bmA().getName_show();
-            if (af.getTextLengthWithEmoji(name_show) > 10) {
-                name_show = af.subStringWithEmoji(name_show, 10) + StringHelper.STRING_MORE;
+        this.glK = !TextUtils.isEmpty(cVar.labelName) ? cVar.labelName : cVar.entryName;
+        this.grG.grK.startLoad(this.ghv.blW().cover, 10, false);
+        this.grG.grM.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_label, au.numberUniformFormatExtra(this.ghv.blW().audience_count)));
+        this.grG.grO.setData(this.ghv, false);
+        this.grG.grP.setText(this.ghv.getTitle());
+        if (this.ghv.blC() != null) {
+            String name_show = this.ghv.blC().getName_show();
+            if (ae.getTextLengthWithEmoji(name_show) > 10) {
+                name_show = ae.subStringWithEmoji(name_show, 10) + StringHelper.STRING_MORE;
             }
-            this.grZ.aWW.setText(name_show);
+            this.grG.aVl.setText(name_show);
         }
-        String str = this.ghO.bmU().label_name;
-        if (this.gsa && !StringUtils.isNull(str)) {
-            this.grZ.gse.setText(str);
-            this.grZ.gse.setVisibility(0);
+        String str = this.ghv.blW().label_name;
+        if (this.grH && !StringUtils.isNull(str)) {
+            this.grG.grL.setText(str);
+            this.grG.grL.setVisibility(0);
         } else {
-            this.grZ.gse.setVisibility(8);
+            this.grG.grL.setVisibility(8);
         }
-        if (cVar.ghP) {
-            this.grZ.gsj.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_distance, at.numberUniformFormatExtra((long) (this.ghO.bmU().distance / 1000.0d))));
-            this.grZ.gsj.setVisibility(0);
+        if (cVar.ghw) {
+            this.grG.grQ.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_distance, au.numberUniformFormatExtra((long) (this.ghv.blW().distance / 1000.0d))));
+            this.grG.grQ.setVisibility(0);
         } else {
-            this.grZ.gsj.setVisibility(8);
+            this.grG.grQ.setVisibility(8);
         }
-        this.grZ.aWW.setOnClickListener(this.gsb);
+        this.grG.aVl.setOnClickListener(this.grI);
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -133,41 +133,41 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c>
 
     /* loaded from: classes4.dex */
     public class a {
-        public TextView aWW;
-        public TbImageView gsd;
-        public TextView gse;
-        public TextView gsf;
-        public RelativeLayout gsg;
-        public ClickableHeaderImageView gsh;
-        public TextView gsi;
-        public TextView gsj;
+        public TextView aVl;
+        public TbImageView grK;
+        public TextView grL;
+        public TextView grM;
+        public RelativeLayout grN;
+        public ClickableHeaderImageView grO;
+        public TextView grP;
+        public TextView grQ;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.gsd = (TbImageView) view.findViewById(R.id.imgSquareView);
-            this.gse = (TextView) view.findViewById(R.id.tvLiveFrom);
-            this.gsf = (TextView) view.findViewById(R.id.tvLiveCount);
-            this.gsg = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
-            this.gsh = (ClickableHeaderImageView) view.findViewById(R.id.imgUserCover);
-            this.aWW = (TextView) view.findViewById(R.id.tvUserName);
-            this.gsi = (TextView) view.findViewById(R.id.tvSquareTitle);
-            this.gsj = (TextView) view.findViewById(R.id.tvSquareDistance);
+            this.grK = (TbImageView) view.findViewById(R.id.imgSquareView);
+            this.grL = (TextView) view.findViewById(R.id.tvLiveFrom);
+            this.grM = (TextView) view.findViewById(R.id.tvLiveCount);
+            this.grN = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
+            this.grO = (ClickableHeaderImageView) view.findViewById(R.id.imgUserCover);
+            this.aVl = (TextView) view.findViewById(R.id.tvUserName);
+            this.grP = (TextView) view.findViewById(R.id.tvSquareTitle);
+            this.grQ = (TextView) view.findViewById(R.id.tvSquareDistance);
             view.setOnClickListener(c.this.mOnClickListener);
-            this.gsd.setDefaultErrorResource(0);
-            this.gsd.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-            this.gsd.setDrawerType(0);
-            this.gsh.setIsRound(true);
-            this.gsh.setDrawBorder(true);
-            this.gsh.setBorderColor(c.this.mTbPageContext.getPageActivity().getResources().getColor(R.color.white_alpha100));
-            this.gsh.setBorderWidth(c.this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(R.dimen.ds1));
-            this.gsh.setIsGod(false);
-            this.gsh.setIsBigV(false);
-            this.gsh.setShowV(false);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gsg.getLayoutParams();
+            this.grK.setDefaultErrorResource(0);
+            this.grK.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+            this.grK.setDrawerType(0);
+            this.grO.setIsRound(true);
+            this.grO.setDrawBorder(true);
+            this.grO.setBorderColor(c.this.mTbPageContext.getPageActivity().getResources().getColor(R.color.white_alpha100));
+            this.grO.setBorderWidth(c.this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(R.dimen.ds1));
+            this.grO.setIsGod(false);
+            this.grO.setIsBigV(false);
+            this.grO.setShowV(false);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.grN.getLayoutParams();
             layoutParams.width = (l.getEquipmentWidth(view.getContext()) - view.getContext().getResources().getDimensionPixelSize(R.dimen.ds4)) / 2;
             layoutParams.height = (layoutParams.width * 9) / 16;
-            this.gsg.setLayoutParams(layoutParams);
+            this.grN.setLayoutParams(layoutParams);
         }
     }
 }

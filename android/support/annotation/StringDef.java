@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes18.dex */
+/* loaded from: classes14.dex */
 public @interface StringDef {
     String[] value() default {};
 }

@@ -4,14 +4,14 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import tbclient.TopicList.MediaTopic;
 import tbclient.VideoInfo;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class o implements q {
-    public static final BdUniqueId jQe = BdUniqueId.gen();
-    public int cwt;
-    public String eCJ;
-    public int jPw;
-    public int jPx;
-    public int jPy;
+    public static final BdUniqueId jQO = BdUniqueId.gen();
+    public int cuJ;
+    public String eBa;
+    public int jQg;
+    public int jQh;
+    public int jQi;
     public String picUrl;
     public String thumbnailUrl;
     public long topicId;
@@ -23,13 +23,13 @@ public class o implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jQe;
+        return jQO;
     }
 
     public void a(MediaTopic mediaTopic) {
         if (mediaTopic != null) {
             this.topicId = mediaTopic.topic_id.longValue();
-            this.eCJ = mediaTopic.topic_name;
+            this.eBa = mediaTopic.topic_name;
             this.picUrl = mediaTopic.pic_url;
             if (mediaTopic.video_info != null && mediaTopic.video_info.video_duration.intValue() > 0) {
                 e(mediaTopic.video_info);
@@ -44,9 +44,9 @@ public class o implements q {
         this.videoWidth = videoInfo.video_width.intValue();
         this.videoHeight = videoInfo.video_height.intValue();
         this.thumbnailUrl = videoInfo.thumbnail_url;
-        this.jPw = videoInfo.thumbnail_width.intValue();
-        this.jPx = videoInfo.thumbnail_height.intValue();
-        this.jPy = videoInfo.video_length.intValue();
-        this.cwt = videoInfo.play_count.intValue();
+        this.jQg = videoInfo.thumbnail_width.intValue();
+        this.jQh = videoInfo.thumbnail_height.intValue();
+        this.jQi = videoInfo.video_length.intValue();
+        this.cuJ = videoInfo.play_count.intValue();
     }
 }

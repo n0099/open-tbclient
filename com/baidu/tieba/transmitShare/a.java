@@ -1,7 +1,7 @@
 package com.baidu.tieba.transmitShare;
 
 import android.view.View;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public interface a {
-    void dL(View view);
+    void dS(View view);
 }

@@ -9,23 +9,23 @@ import java.io.UnsupportedEncodingException;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes10.dex */
 public abstract class a {
-    protected a.C0153a ayo;
-    protected C0154a ayp;
+    protected a.C0151a awD;
+    protected C0152a awE;
     private String b;
 
     /* renamed from: com.baidu.helios.ids.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0154a {
+    public static class C0152a {
         public Context applicationContext;
-        public ExecutorService aww;
-        public ExecutorService awx;
-        public com.baidu.helios.common.c.a axd;
-        public TrustSubjectManager.d ays;
+        public ExecutorService auL;
+        public ExecutorService auM;
+        public com.baidu.helios.common.c.a avs;
+        public TrustSubjectManager.d awH;
     }
 
     /* loaded from: classes10.dex */
     public static class b {
-        public boolean ayt = false;
+        public boolean awI = false;
     }
 
     /* loaded from: classes10.dex */
@@ -39,7 +39,7 @@ public abstract class a {
         this.b = str;
     }
 
-    public static String ag(String str, String str2) {
+    public static String af(String str, String str2) {
         String format = String.format("%s-%s-", str, str2);
         String str3 = null;
         try {
@@ -52,25 +52,23 @@ public abstract class a {
         return format + str3;
     }
 
-    public abstract String AI();
-
-    public byte[] AJ() {
+    public byte[] Aa() {
         return null;
     }
 
-    public final void a(C0154a c0154a) {
-        this.ayp = c0154a;
-        this.ayo = c0154a.axd.AD().fD("ids");
+    public final void a(C0152a c0152a) {
+        this.awE = c0152a;
+        this.awD = c0152a.avs.zU().fx("ids");
     }
 
     public abstract void a(b bVar);
 
     public void a(final c<String> cVar) {
-        final String AI = AI();
-        this.ayp.aww.submit(new Runnable() { // from class: com.baidu.helios.ids.a.1
+        final String zZ = zZ();
+        this.awE.auL.submit(new Runnable() { // from class: com.baidu.helios.ids.a.1
             @Override // java.lang.Runnable
             public void run() {
-                cVar.a(AI, null);
+                cVar.a(zZ, null);
             }
         });
     }
@@ -78,4 +76,6 @@ public abstract class a {
     public String getName() {
         return this.b;
     }
+
+    public abstract String zZ();
 }

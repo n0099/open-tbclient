@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class m<T> {
     public static Executor Ct = Executors.newCachedThreadPool();
     @Nullable
@@ -23,7 +23,7 @@ public class m<T> {
     private final FutureTask<l<T>> Cx;
     private final Handler handler;
     @Nullable
-    private volatile l<T> pIe;
+    private volatile l<T> pJH;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public m(Callable<l<T>> callable) {
@@ -35,7 +35,7 @@ public class m<T> {
         this.Cv = new LinkedHashSet(1);
         this.Cw = new LinkedHashSet(1);
         this.handler = new Handler(Looper.getMainLooper());
-        this.pIe = null;
+        this.pJH = null;
         this.Cx = new FutureTask<>(callable);
         if (z) {
             try {
@@ -52,16 +52,16 @@ public class m<T> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@Nullable l<T> lVar) {
-        if (this.pIe != null) {
+        if (this.pJH != null) {
             throw new IllegalStateException("A task may only be set once.");
         }
-        this.pIe = lVar;
+        this.pJH = lVar;
         iP();
     }
 
     public synchronized m<T> a(i<T> iVar) {
-        if (this.pIe != null && this.pIe.getValue() != null) {
-            iVar.onResult(this.pIe.getValue());
+        if (this.pJH != null && this.pJH.getValue() != null) {
+            iVar.onResult(this.pJH.getValue());
         }
         this.Cv.add(iVar);
         iQ();
@@ -75,8 +75,8 @@ public class m<T> {
     }
 
     public synchronized m<T> c(i<Throwable> iVar) {
-        if (this.pIe != null && this.pIe.iO() != null) {
-            iVar.onResult(this.pIe.iO());
+        if (this.pJH != null && this.pJH.iO() != null) {
+            iVar.onResult(this.pJH.iO());
         }
         this.Cw.add(iVar);
         iQ();
@@ -93,8 +93,8 @@ public class m<T> {
         this.handler.post(new Runnable() { // from class: com.tb.airbnb.lottie.m.1
             @Override // java.lang.Runnable
             public void run() {
-                if (m.this.pIe != null && !m.this.Cx.isCancelled()) {
-                    l lVar = m.this.pIe;
+                if (m.this.pJH != null && !m.this.Cx.isCancelled()) {
+                    l lVar = m.this.pJH;
                     if (lVar.getValue() != null) {
                         m.this.o(lVar.getValue());
                     } else {
@@ -125,7 +125,7 @@ public class m<T> {
     }
 
     private synchronized void iQ() {
-        if (!iS() && this.pIe == null) {
+        if (!iS() && this.pJH == null) {
             this.Cu = new Thread("LottieTaskObserver") { // from class: com.tb.airbnb.lottie.m.2
                 private boolean CB = false;
 
@@ -151,7 +151,7 @@ public class m<T> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void iR() {
-        if (iS() && (this.Cv.isEmpty() || this.pIe != null)) {
+        if (iS() && (this.Cv.isEmpty() || this.pJH != null)) {
             this.Cu.interrupt();
             this.Cu = null;
             d.debug("Stopping TaskObserver thread");

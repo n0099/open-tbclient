@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ugc.upload;
 
 import com.baidu.searchbox.ugc.model.UploadCacheBean;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class ProcessCacheManager {
     private static volatile ProcessCacheManager instance;
     public String mediaIdResponseStr;

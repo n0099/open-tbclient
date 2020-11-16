@@ -21,7 +21,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LottieAnimationView extends ImageView {
     private static final String TAG = LottieAnimationView.class.getSimpleName();
     private String animationName;
@@ -296,7 +296,7 @@ public class LottieAnimationView extends ImageView {
     public void setAnimation(String str) {
         this.animationName = str;
         this.animationResId = 0;
-        setCompositionTask(f.bv(getContext(), str));
+        setCompositionTask(f.bs(getContext(), str));
     }
 
     @Deprecated
@@ -313,7 +313,7 @@ public class LottieAnimationView extends ImageView {
     }
 
     public void setAnimationFromUrl(String str) {
-        setCompositionTask(f.bu(getContext(), str));
+        setCompositionTask(f.br(getContext(), str));
     }
 
     private void setCompositionTask(m<e> mVar) {
@@ -579,7 +579,7 @@ public class LottieAnimationView extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.tb.airbnb.lottie.LottieAnimationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -591,7 +591,7 @@ public class LottieAnimationView extends ImageView {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: Rh */
+            /* renamed from: RK */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.Toast;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class bx implements eq {
 
     /* renamed from: a  reason: collision with root package name */

@@ -14,26 +14,26 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import java.util.HashMap;
 import java.util.List;
 import tbclient.SimpleThreadInfo;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class ItemHotThreadView extends LinearLayout {
-    private HashMap<String, View> keq;
-    private List<SimpleThreadInfo> ker;
+    private HashMap<String, View> kfb;
+    private List<SimpleThreadInfo> kfc;
     private Context mContext;
 
     public ItemHotThreadView(Context context) {
         super(context);
-        this.keq = new HashMap<>();
+        this.kfb = new HashMap<>();
         init(context);
     }
 
     public ItemHotThreadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.keq = new HashMap<>();
+        this.kfb = new HashMap<>();
         init(context);
     }
 
@@ -44,7 +44,7 @@ public class ItemHotThreadView extends LinearLayout {
     }
 
     public void setData(List<SimpleThreadInfo> list) {
-        this.ker = list;
+        this.kfc = list;
         if (list != null && list.size() != 0) {
             setVisibility(0);
             int i = 0;
@@ -56,30 +56,30 @@ public class ItemHotThreadView extends LinearLayout {
     }
 
     private void refresh() {
-        setData(this.ker);
+        setData(this.kfc);
     }
 
     private void a(SimpleThreadInfo simpleThreadInfo, boolean z) {
         a aVar;
         View view;
         if (simpleThreadInfo != null) {
-            if (!this.keq.containsKey(String.valueOf(simpleThreadInfo.tid))) {
+            if (!this.kfb.containsKey(String.valueOf(simpleThreadInfo.tid))) {
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.forum_detail_hot_thread_item, (ViewGroup) this, false);
                 aVar = new a();
-                aVar.ket = (LinearLayout) view.findViewById(R.id.thread_item_ll);
-                aVar.keu = (TextView) view.findViewById(R.id.ht_item_title);
-                aVar.kev = (TextView) view.findViewById(R.id.ht_item_content);
-                aVar.kew = (TextView) view.findViewById(R.id.ht_item_reply);
-                aVar.kex = (TextView) view.findViewById(R.id.ht_divider_line);
+                aVar.kfe = (LinearLayout) view.findViewById(R.id.thread_item_ll);
+                aVar.kff = (TextView) view.findViewById(R.id.ht_item_title);
+                aVar.kfg = (TextView) view.findViewById(R.id.ht_item_content);
+                aVar.kfh = (TextView) view.findViewById(R.id.ht_item_reply);
+                aVar.kfi = (TextView) view.findViewById(R.id.ht_divider_line);
                 view.setTag(aVar);
-                this.keq.put(String.valueOf(simpleThreadInfo.tid), view);
+                this.kfb.put(String.valueOf(simpleThreadInfo.tid), view);
                 addView(view);
             } else {
-                View view2 = this.keq.get(String.valueOf(simpleThreadInfo.tid));
+                View view2 = this.kfb.get(String.valueOf(simpleThreadInfo.tid));
                 aVar = (a) view2.getTag();
                 view = view2;
             }
-            aVar.keu.setText(simpleThreadInfo.title);
+            aVar.kff.setText(simpleThreadInfo.title);
             StringBuilder sb = new StringBuilder();
             if (simpleThreadInfo._abstract != null && simpleThreadInfo._abstract.size() != 0) {
                 int size = simpleThreadInfo._abstract.size();
@@ -89,25 +89,25 @@ public class ItemHotThreadView extends LinearLayout {
                     }
                 }
             }
-            if (!at.isEmpty(sb.toString().trim())) {
-                aVar.kev.setText(sb.toString());
-                aVar.kev.setVisibility(0);
+            if (!au.isEmpty(sb.toString().trim())) {
+                aVar.kfg.setText(sb.toString());
+                aVar.kfg.setVisibility(0);
             } else {
-                aVar.kev.setVisibility(8);
+                aVar.kfg.setVisibility(8);
             }
-            aVar.kew.setText(String.valueOf(simpleThreadInfo.reply_num));
-            ap.setBackgroundResource(aVar.ket, R.drawable.live_frs_list_item_bg);
-            ap.setViewTextColor(aVar.keu, R.color.cp_cont_b, 1);
-            ap.setViewTextColor(aVar.kev, R.color.cp_cont_c, 1);
-            ap.setViewTextColor(aVar.kew, R.color.cp_link_tip_c, 1);
+            aVar.kfh.setText(String.valueOf(simpleThreadInfo.reply_num));
+            ap.setBackgroundResource(aVar.kfe, R.drawable.live_frs_list_item_bg);
+            ap.setViewTextColor(aVar.kff, R.color.CAM_X0105, 1);
+            ap.setViewTextColor(aVar.kfg, R.color.CAM_X0108, 1);
+            ap.setViewTextColor(aVar.kfh, R.color.CAM_X0304, 1);
             BitmapDrawable bitmapDrawable = (BitmapDrawable) ap.getDrawable(R.drawable.icon_ba_comment);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            aVar.kew.setCompoundDrawables(bitmapDrawable, null, null, null);
-            ap.setBackgroundResource(aVar.kex, R.color.cp_bg_line_c);
+            aVar.kfh.setCompoundDrawables(bitmapDrawable, null, null, null);
+            ap.setBackgroundResource(aVar.kfi, R.color.CAM_X0204);
             if (z) {
-                aVar.kex.setVisibility(0);
+                aVar.kfi.setVisibility(0);
             } else {
-                aVar.kex.setVisibility(8);
+                aVar.kfi.setVisibility(8);
             }
             final String valueOf = String.valueOf(simpleThreadInfo.tid);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.detail.ItemHotThreadView.1
@@ -127,13 +127,13 @@ public class ItemHotThreadView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes25.dex */
     public static class a {
-        LinearLayout ket;
-        TextView keu;
-        TextView kev;
-        TextView kew;
-        TextView kex;
+        LinearLayout kfe;
+        TextView kff;
+        TextView kfg;
+        TextView kfh;
+        TextView kfi;
 
         private a() {
         }

@@ -3,29 +3,29 @@ package com.baidu.tieba.ala.data;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    private String bGg;
-    private int bGh = 1;
+    private String bEv;
+    private int bEw = 1;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bGg = jSONObject.optString("content");
-            this.bGh = jSONObject.optInt("type", 1);
+            this.bEv = jSONObject.optString("content");
+            this.bEw = jSONObject.optInt("type", 1);
         }
     }
 
-    public String Ut() {
-        return this.bGg;
+    public String TK() {
+        return this.bEv;
     }
 
-    public int Uu() {
-        return this.bGh;
+    public int TL() {
+        return this.bEw;
     }
 
-    public void iy(String str) {
-        this.bGg = str;
+    public void is(String str) {
+        this.bEv = str;
     }
 
-    public void gf(int i) {
-        this.bGh = i;
+    public void gb(int i) {
+        this.bEw = i;
     }
 }

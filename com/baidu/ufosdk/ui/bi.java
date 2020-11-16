@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Handler;
 import com.baidu.ufosdk.UfoSDK;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class bi extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */

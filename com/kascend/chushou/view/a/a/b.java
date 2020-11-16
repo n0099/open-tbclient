@@ -19,8 +19,8 @@ import tv.chushou.zues.utils.h;
 public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private String f;
     private boolean j;
-    private com.kascend.chushou.view.a.a<ListItem> pjs;
-    private com.kascend.chushou.view.a.a<PannelItem> pxC;
+    private com.kascend.chushou.view.a.a<ListItem> pkW;
+    private com.kascend.chushou.view.a.a<PannelItem> pzf;
     private final List<Object> c = new ArrayList();
     private boolean g = true;
     private boolean h = false;
@@ -42,8 +42,8 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public b(String str, com.kascend.chushou.view.a.a<PannelItem> aVar, com.kascend.chushou.view.a.a<ListItem> aVar2, boolean z) {
         this.j = false;
         this.f = str;
-        this.pxC = new com.kascend.chushou.view.a.b(aVar);
-        this.pjs = new com.kascend.chushou.view.a.b(aVar2);
+        this.pzf = new com.kascend.chushou.view.a.b(aVar);
+        this.pkW = new com.kascend.chushou.view.a.b(aVar2);
         this.j = z;
     }
 
@@ -120,7 +120,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case 6:
                 return new e(from.inflate(a.h.item_listitem_sliding_small_poster, viewGroup, false), this.f, "10");
             case 22:
-                return new a(from.inflate(a.h.item_listitem_double_room_home, viewGroup, false), this.pjs, this.j ? false : true, this.f);
+                return new a(from.inflate(a.h.item_listitem_double_room_home, viewGroup, false), this.pkW, this.j ? false : true, this.f);
             case 34:
                 return new e(from.inflate(a.h.item_listitem_sliding_small_poster, viewGroup, false), this.f, "32");
             default:
@@ -151,7 +151,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         return;
                     case 6:
                     case 34:
-                        ((e) viewHolder).a(pannelItem, QM(i));
+                        ((e) viewHolder).a(pannelItem, Rp(i));
                         return;
                     default:
                         return;
@@ -181,14 +181,14 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.h = z;
     }
 
-    public int bG(Object obj) {
+    public int bH(Object obj) {
         if (this.c != null) {
             return this.c.indexOf(obj);
         }
         return -1;
     }
 
-    private int[] QM(int i) {
+    private int[] Rp(int i) {
         int i2;
         if (i - 1 >= 0) {
             i2 = 0;

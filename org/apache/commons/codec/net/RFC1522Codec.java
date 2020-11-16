@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 abstract class RFC1522Codec {
     protected abstract byte[] doDecoding(byte[] bArr) throws DecoderException;
 

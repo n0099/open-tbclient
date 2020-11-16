@@ -2,22 +2,22 @@ package com.baidu.swan.apps.performance.a;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class f implements e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile f djD;
-    private volatile d djE;
-    private volatile com.baidu.swan.apps.performance.d.a djF;
+    private static volatile f dhT;
+    private volatile d dhU;
+    private volatile com.baidu.swan.apps.performance.d.a dhV;
 
-    public static f aDP() {
-        if (djD == null) {
+    public static f aDh() {
+        if (dhT == null) {
             synchronized (f.class) {
-                if (djD == null) {
-                    djD = new f();
+                if (dhT == null) {
+                    dhT = new f();
                 }
             }
         }
-        return djD;
+        return dhT;
     }
 
     private f() {
@@ -25,16 +25,16 @@ public class f implements e {
     }
 
     private void init() {
-        if (this.djE == null) {
-            this.djE = new b();
+        if (this.dhU == null) {
+            this.dhU = new b();
         }
-        if (this.djF == null) {
-            this.djF = new com.baidu.swan.apps.performance.d.c();
+        if (this.dhV == null) {
+            this.dhV = new com.baidu.swan.apps.performance.d.c();
         }
     }
 
-    public com.baidu.swan.apps.performance.d.a aDQ() {
-        return this.djF;
+    public com.baidu.swan.apps.performance.d.a aDi() {
+        return this.dhV;
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
@@ -43,8 +43,8 @@ public class f implements e {
             if (DEBUG) {
                 Log.d("StartUpInfoMarker", "aiapp start at - " + j);
             }
-            this.djE.start(j);
-            this.djF.start(j);
+            this.dhU.start(j);
+            this.dhV.start(j);
         }
     }
 
@@ -54,29 +54,29 @@ public class f implements e {
             if (DEBUG) {
                 Log.d("StartUpInfoMarker", "aiapp start cost at - " + j);
             }
-            this.djE.bX(j);
-            this.djF.bX(j);
+            this.dhU.bX(j);
+            this.dhV.bX(j);
             ca(j);
         }
     }
 
     private void ca(long j) {
-        com.baidu.swan.apps.am.e.dCR.aa(Long.valueOf(j));
+        com.baidu.swan.apps.am.e.dBk.aa(Long.valueOf(j));
     }
 
     public boolean isOn() {
-        return aDR();
+        return aDj();
     }
 
-    private boolean aDR() {
+    private boolean aDj() {
         if (DEBUG) {
             return true;
         }
-        com.baidu.swan.apps.runtime.e aHv = com.baidu.swan.apps.runtime.e.aHv();
-        if (aHv == null) {
+        com.baidu.swan.apps.runtime.e aGN = com.baidu.swan.apps.runtime.e.aGN();
+        if (aGN == null) {
             return false;
         }
-        String appId = aHv.getAppId();
-        return (TextUtils.isEmpty(appId) || com.baidu.swan.apps.f.a.ma(appId) == 0) ? false : true;
+        String appId = aGN.getAppId();
+        return (TextUtils.isEmpty(appId) || com.baidu.swan.apps.f.a.lU(appId) == 0) ? false : true;
     }
 }

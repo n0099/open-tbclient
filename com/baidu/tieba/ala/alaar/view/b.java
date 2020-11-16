@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 /* loaded from: classes4.dex */
 public abstract class b<T> {
-    protected a ggc;
+    protected a gfJ;
     public T item;
     @NonNull
     public final View itemView;
@@ -19,7 +19,7 @@ public abstract class b<T> {
     public b(View view, a aVar) {
         this.itemView = view;
         view.setTag(this);
-        this.ggc = aVar;
+        this.gfJ = aVar;
     }
 
     public void h(int i, T t) {
@@ -34,7 +34,7 @@ public abstract class b<T> {
     public void i(int i, T t) {
     }
 
-    public boolean tJ(int i) {
+    public boolean uh(int i) {
         return false;
     }
 }

@@ -3,7 +3,7 @@ package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.logging.Logger;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UnknownDescriptor extends BaseDescriptor {
     private static Logger log = Logger.getLogger(UnknownDescriptor.class.getName());
     private ByteBuffer data;

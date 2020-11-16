@@ -1,7 +1,7 @@
 package com.baidu.pass.biometrics.base.http;
 
 import android.os.Looper;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class HttpHandlerWrap {
     protected boolean executCallbackInChildThread;
 

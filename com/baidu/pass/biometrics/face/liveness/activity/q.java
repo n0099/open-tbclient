@@ -2,7 +2,7 @@ package com.baidu.pass.biometrics.face.liveness.activity;
 
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class q implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

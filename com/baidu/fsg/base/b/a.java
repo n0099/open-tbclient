@@ -15,7 +15,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
@@ -33,7 +33,7 @@ public final class a {
     private long m = e;
     private Timer n = new Timer();
     private BlockingQueue<Runnable> o = new LinkedBlockingQueue(10);
-    private C0126a p = new C0126a(5, 128, 1, TimeUnit.SECONDS, this.o, this.l);
+    private C0117a p = new C0117a(5, 128, 1, TimeUnit.SECONDS, this.o, this.l);
     private b q = new b(this, null);
     private final HashMap<String, ArrayList<c>> j = new HashMap<>();
 
@@ -242,9 +242,9 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.fsg.base.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes16.dex */
-    public class C0126a extends ThreadPoolExecutor {
-        public C0126a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
+    /* loaded from: classes15.dex */
+    public class C0117a extends ThreadPoolExecutor {
+        public C0117a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
             super(i, i2, j, timeUnit, blockingQueue, threadFactory);
         }
 
@@ -256,7 +256,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public class b implements Executor {
 
         /* renamed from: a  reason: collision with root package name */
@@ -293,7 +293,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public class c {
 
         /* renamed from: a  reason: collision with root package name */

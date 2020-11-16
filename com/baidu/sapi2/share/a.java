@@ -2,7 +2,7 @@ package com.baidu.sapi2.share;
 
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */

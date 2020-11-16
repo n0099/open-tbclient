@@ -8,7 +8,7 @@ import com.baidu.tieba.frs.game.strategy.tab.e;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage {
     private boolean mHasMore;
     private List<e> mTabList;

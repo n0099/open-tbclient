@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class SapiDeviceInfo implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
@@ -173,7 +173,7 @@ public class SapiDeviceInfo implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */

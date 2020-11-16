@@ -2,7 +2,7 @@ package bolts;
 
 import bolts.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes19.dex */
+/* loaded from: classes6.dex */
 public class i {
     private g<?> AW;
 

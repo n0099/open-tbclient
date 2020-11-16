@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private final C0603a fEC;
+    private final C0602a fEf;
     private Bitmap mBitmap;
     private int mBlockSize;
     private Canvas mCanvas;
@@ -17,7 +17,7 @@ public class a {
     private final Rect mSrc;
 
     public a(int i) {
-        this.fEC = new C0603a();
+        this.fEf = new C0602a();
         this.mSrc = new Rect();
         this.mDst = new Rect();
         this.mPositionInOriginBitmap = new Rect();
@@ -27,7 +27,7 @@ public class a {
     }
 
     public a(Bitmap bitmap) {
-        this.fEC = new C0603a();
+        this.fEf = new C0602a();
         this.mSrc = new Rect();
         this.mDst = new Rect();
         this.mPositionInOriginBitmap = new Rect();
@@ -74,33 +74,33 @@ public class a {
     }
 
     public void setPosition(int i, int i2, int i3) {
-        this.fEC.row = i;
-        this.fEC.column = i2;
-        this.fEC.sampleScale = i3;
+        this.fEf.row = i;
+        this.fEf.column = i2;
+        this.fEf.sampleScale = i3;
     }
 
-    public C0603a bFg() {
-        return this.fEC;
+    public C0602a bEz() {
+        return this.fEf;
     }
 
     public Rect getPositionInOriginBitmap() {
-        int i = this.mBlockSize * this.fEC.column * this.fEC.sampleScale;
-        int i2 = this.mBlockSize * this.fEC.row * this.fEC.sampleScale;
-        this.mPositionInOriginBitmap.set(i, i2, (this.mBlockSize * this.fEC.sampleScale) + i, (this.mBlockSize * this.fEC.sampleScale) + i2);
+        int i = this.mBlockSize * this.fEf.column * this.fEf.sampleScale;
+        int i2 = this.mBlockSize * this.fEf.row * this.fEf.sampleScale;
+        this.mPositionInOriginBitmap.set(i, i2, (this.mBlockSize * this.fEf.sampleScale) + i, (this.mBlockSize * this.fEf.sampleScale) + i2);
         return this.mPositionInOriginBitmap;
     }
 
     /* renamed from: com.baidu.tbadk.widget.largeImage.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0603a {
+    public static class C0602a {
         int column;
         int row;
         int sampleScale;
 
-        public C0603a() {
+        public C0602a() {
         }
 
-        public C0603a(int i, int i2, int i3) {
+        public C0602a(int i, int i2, int i3) {
             this.row = i;
             this.column = i2;
             this.sampleScale = i3;
@@ -111,9 +111,9 @@ public class a {
         }
 
         public boolean equals(Object obj) {
-            if (obj instanceof C0603a) {
-                C0603a c0603a = (C0603a) obj;
-                return this.row == c0603a.getRow() && this.column == c0603a.getColumn() && this.sampleScale == c0603a.getSampleScale();
+            if (obj instanceof C0602a) {
+                C0602a c0602a = (C0602a) obj;
+                return this.row == c0602a.getRow() && this.column == c0602a.getColumn() && this.sampleScale == c0602a.getSampleScale();
             }
             return false;
         }

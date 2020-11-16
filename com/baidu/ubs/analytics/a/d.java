@@ -3,7 +3,7 @@ package com.baidu.ubs.analytics.a;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 final class d extends SQLiteOpenHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Context context) {
@@ -12,8 +12,8 @@ final class d extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public final void onCreate(SQLiteDatabase sQLiteDatabase) {
-        for (int i = 0; i < e.orf.length; i++) {
-            sQLiteDatabase.execSQL(e.orf[i]);
+        for (int i = 0; i < e.osJ.length; i++) {
+            sQLiteDatabase.execSQL(e.osJ[i]);
         }
     }
 

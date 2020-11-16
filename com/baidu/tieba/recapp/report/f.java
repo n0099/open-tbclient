@@ -3,33 +3,33 @@ package com.baidu.tieba.recapp.report;
 import android.support.v4.util.ArrayMap;
 /* loaded from: classes.dex */
 public class f {
-    public static final ArrayMap<Integer, String> myJ = new ArrayMap<>();
+    public static final ArrayMap<Integer, String> mzo = new ArrayMap<>();
 
     static {
-        myJ.put(0, "未被抛弃");
-        myJ.put(1, "间隔楼层不足");
-        myJ.put(2, "当页楼层不足， 不足以插入广告");
-        myJ.put(3, "app 下载安装过， 被抛弃");
-        myJ.put(10, "内容校验错误");
-        myJ.put(11, "非lego广告， 8.6开始被抛弃");
-        myJ.put(12, "card_type=12广告， 8.6开始被抛弃");
-        myJ.put(21, "给Android返回IOS广告或者不识别的类型");
-        myJ.put(22, "给IOS返回了Android广告或者不识别的类型");
-        myJ.put(23, "数据格式错误_adposition为空");
-        myJ.put(24, "数据格式错误_广告id为空");
-        myJ.put(25, "数据格式错误_goodsInfo为空");
-        myJ.put(26, "返回APP广告数据有问题");
-        myJ.put(27, "返回URL广告数据有问题");
-        myJ.put(28, "lego的开关没打开");
-        myJ.put(29, "广告数据位置重复被丢弃");
-        myJ.put(30, "广告ID重复被丢弃");
-        myJ.put(31, "广告插件未加载成功被丢弃");
-        myJ.put(32, "lego数据异常：包括json格式不合法、cardtype不识别、各种子类型数据不合法比如视频类型没有视频url等");
-        myJ.put(33, "客户端最后计算出的positon不合法");
-        myJ.put(34, "无图模式下需要丢弃有图广告");
-        myJ.put(35, "返回lego广告type有问题,客户端不识别");
-        myJ.put(36, "拉回了广告却没有拉回帖子");
-        myJ.put(37, "返回lego广告数据在该版本不支持");
-        myJ.put(100, "其他原因");
+        mzo.put(0, "未被抛弃");
+        mzo.put(1, "间隔楼层不足");
+        mzo.put(2, "当页楼层不足， 不足以插入广告");
+        mzo.put(3, "app 下载安装过， 被抛弃");
+        mzo.put(10, "内容校验错误");
+        mzo.put(11, "非lego广告， 8.6开始被抛弃");
+        mzo.put(12, "card_type=12广告， 8.6开始被抛弃");
+        mzo.put(21, "给Android返回IOS广告或者不识别的类型");
+        mzo.put(22, "给IOS返回了Android广告或者不识别的类型");
+        mzo.put(23, "数据格式错误_adposition为空");
+        mzo.put(24, "数据格式错误_广告id为空");
+        mzo.put(25, "数据格式错误_goodsInfo为空");
+        mzo.put(26, "返回APP广告数据有问题");
+        mzo.put(27, "返回URL广告数据有问题");
+        mzo.put(28, "lego的开关没打开");
+        mzo.put(29, "广告数据位置重复被丢弃");
+        mzo.put(30, "广告ID重复被丢弃");
+        mzo.put(31, "广告插件未加载成功被丢弃");
+        mzo.put(32, "lego数据异常：包括json格式不合法、cardtype不识别、各种子类型数据不合法比如视频类型没有视频url等");
+        mzo.put(33, "客户端最后计算出的positon不合法");
+        mzo.put(34, "无图模式下需要丢弃有图广告");
+        mzo.put(35, "返回lego广告type有问题,客户端不识别");
+        mzo.put(36, "拉回了广告却没有拉回帖子");
+        mzo.put(37, "返回lego广告数据在该版本不支持");
+        mzo.put(100, "其他原因");
     }
 }

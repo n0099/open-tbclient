@@ -13,18 +13,18 @@ public class c extends RecyclerView.ItemDecoration {
     private int d;
     private int e;
     private Paint f;
-    private GridLayoutManager pxD;
-    private GridLayoutManager.SpanSizeLookup pxE;
+    private GridLayoutManager pzg;
+    private GridLayoutManager.SpanSizeLookup pzh;
 
     public c(GridLayoutManager gridLayoutManager, int i) {
         this(gridLayoutManager, i, -1);
     }
 
     public c(GridLayoutManager gridLayoutManager, int i, @ColorInt int i2) {
-        this.pxD = gridLayoutManager;
-        this.pxE = this.pxD.getSpanSizeLookup();
-        this.pxE.setSpanIndexCacheEnabled(true);
-        this.c = this.pxD.getSpanCount();
+        this.pzg = gridLayoutManager;
+        this.pzh = this.pzg.getSpanSizeLookup();
+        this.pzh.setSpanIndexCacheEnabled(true);
+        this.c = this.pzg.getSpanCount();
         this.d = i;
         this.e = this.d / 2;
         this.f = new Paint();
@@ -34,10 +34,10 @@ public class c extends RecyclerView.ItemDecoration {
     @Override // android.support.v7.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
         int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
-        int spanSize = this.pxE.getSpanSize(childAdapterPosition);
+        int spanSize = this.pzh.getSpanSize(childAdapterPosition);
         if (spanSize != this.c) {
             int i = this.d;
-            int spanIndex = this.pxE.getSpanIndex(childAdapterPosition, this.c);
+            int spanIndex = this.pzh.getSpanIndex(childAdapterPosition, this.c);
             int i2 = (this.c - spanIndex) - spanSize;
             int i3 = this.c / spanSize;
             int i4 = (int) (((i3 - 1) * (i * 1.0f)) / i3);
@@ -66,9 +66,9 @@ public class c extends RecyclerView.ItemDecoration {
             if (childAt != null) {
                 int i3 = this.d;
                 int childAdapterPosition = recyclerView.getChildAdapterPosition(childAt);
-                int spanSize = this.pxE.getSpanSize(childAdapterPosition);
+                int spanSize = this.pzh.getSpanSize(childAdapterPosition);
                 if (spanSize != this.c) {
-                    int spanIndex = this.pxE.getSpanIndex(childAdapterPosition, this.c);
+                    int spanIndex = this.pzh.getSpanIndex(childAdapterPosition, this.c);
                     int i4 = (this.c - spanIndex) - spanSize;
                     int i5 = this.c / spanSize;
                     int i6 = (int) (((i5 - 1) * (i3 * 1.0f)) / i5);

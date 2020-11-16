@@ -2,16 +2,16 @@ package com.baidu.swan.apps.inlinewidget.e;
 
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.runtime.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public static String oI(@NonNull String str) {
+    public static String oC(@NonNull String str) {
         if (str.startsWith("file:///")) {
             str = str.substring("file:///".length());
         }
-        e aHu = e.aHu();
-        if (!com.baidu.swan.apps.storage.b.to(str) || aHu == null) {
+        e aGM = e.aGM();
+        if (!com.baidu.swan.apps.storage.b.tj(str) || aGM == null) {
             return str;
         }
-        return com.baidu.swan.apps.storage.b.d(str, aHu);
+        return com.baidu.swan.apps.storage.b.d(str, aGM);
     }
 }

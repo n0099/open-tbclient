@@ -16,23 +16,23 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class CoverFlowLocalAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
     private Context context;
-    private View.OnClickListener eJd;
-    private a eJg;
-    private boolean eJh;
-    private ArrayList<ImageView> eJc = new ArrayList<>();
+    private View.OnClickListener eId;
+    private a eIg;
+    private boolean eIh;
+    private ArrayList<ImageView> eIc = new ArrayList<>();
     private ArrayList<T> dataList = new ArrayList<>();
-    private ArrayList<TbImageView> eJe = new ArrayList<>();
-    private ArrayList<RelativeLayout> eJf = new ArrayList<>();
+    private ArrayList<TbImageView> eIe = new ArrayList<>();
+    private ArrayList<RelativeLayout> eIf = new ArrayList<>();
 
     public CoverFlowLocalAdapter(Context context) {
         this.context = context;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.eJd = onClickListener;
+        this.eId = onClickListener;
     }
 
-    public T oK(int i) {
+    public T pf(int i) {
         if (this.dataList == null || this.dataList.isEmpty() || i < 0 || i >= this.dataList.size()) {
             return null;
         }
@@ -42,37 +42,37 @@ public class CoverFlowLocalAdapter<T extends com.baidu.tbadk.core.flow.a.a> exte
     public void a(List<T> list, a aVar) {
         ImageView imageView;
         if (list != null && !list.isEmpty()) {
-            this.eJg = aVar;
+            this.eIg = aVar;
             this.dataList.clear();
             this.dataList.addAll(list);
             I(this.dataList);
-            int size = this.eJc.size();
+            int size = this.eIc.size();
             int size2 = this.dataList.size();
             for (int i = 0; i < size2; i++) {
                 if (i >= size) {
                     ImageView imageView2 = new ImageView(this.context);
-                    this.eJc.add(imageView2);
-                    this.eJf.add(new RelativeLayout(this.context));
+                    this.eIc.add(imageView2);
+                    this.eIf.add(new RelativeLayout(this.context));
                     imageView = imageView2;
                 } else {
-                    this.eJf.get(i);
-                    imageView = this.eJc.get(i);
+                    this.eIf.get(i);
+                    imageView = this.eIc.get(i);
                 }
                 if (this.dataList.get(i) != null && imageView != null) {
                     if (this.dataList.get(i) instanceof h) {
                         imageView.setImageDrawable(ap.getDrawable(imageView.getResources(), Integer.valueOf(this.dataList.get(i).getPicUrl()).intValue()));
                     }
-                    imageView.setOnClickListener(this.eJd);
+                    imageView.setOnClickListener(this.eId);
                 }
             }
             int count = y.getCount(this.dataList);
-            int count2 = y.getCount(this.eJc);
+            int count2 = y.getCount(this.eIc);
             if (count2 > count) {
-                y.removeSubList(this.eJc, count, count2);
+                y.removeSubList(this.eIc, count, count2);
             }
-            int count3 = y.getCount(this.eJf);
+            int count3 = y.getCount(this.eIf);
             if (count3 > count) {
-                y.removeSubList(this.eJf, count, count3);
+                y.removeSubList(this.eIf, count, count3);
             }
             notifyDataSetChanged();
         }
@@ -80,7 +80,7 @@ public class CoverFlowLocalAdapter<T extends com.baidu.tbadk.core.flow.a.a> exte
 
     private void I(ArrayList<T> arrayList) {
         int size;
-        if (arrayList != null && (size = arrayList.size()) > 1 && this.eJh) {
+        if (arrayList != null && (size = arrayList.size()) > 1 && this.eIh) {
             arrayList.add(0, arrayList.get(size - 1));
             arrayList.add(arrayList.get(0));
         }
@@ -88,18 +88,18 @@ public class CoverFlowLocalAdapter<T extends com.baidu.tbadk.core.flow.a.a> exte
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.eJc != null && this.eJc.size() > 0) {
-            return this.eJc.size();
+        if (this.eIc != null && this.eIc.size() > 0) {
+            return this.eIc.size();
         }
         return 0;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.eJc == null) {
+        if (this.eIc == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        ImageView imageView = (ImageView) y.getItem(this.eJc, i);
+        ImageView imageView = (ImageView) y.getItem(this.eIc, i);
         if (imageView.getParent() != null) {
             ((ViewGroup) imageView.getParent()).removeView(imageView);
         }
@@ -128,6 +128,6 @@ public class CoverFlowLocalAdapter<T extends com.baidu.tbadk.core.flow.a.a> exte
     }
 
     public void setCanRepeat(boolean z) {
-        this.eJh = z;
+        this.eIh = z;
     }
 }

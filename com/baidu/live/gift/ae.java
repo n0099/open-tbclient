@@ -3,11 +3,11 @@ package com.baidu.live.gift;
 import android.view.View;
 /* loaded from: classes4.dex */
 public interface ae {
-    View Hu();
+    View GL();
 
-    void bs(boolean z);
+    void bu(boolean z);
 
-    void bt(boolean z);
+    void bv(boolean z);
 
     void onDestroy();
 

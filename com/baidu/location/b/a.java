@@ -42,7 +42,7 @@ public class a {
     private SharedPreferences p;
     private long q;
     private String r;
-    private C0244a s;
+    private C0242a s;
     private boolean t;
     private String u;
     private String v;
@@ -51,13 +51,13 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.location.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0244a extends com.baidu.location.e.f {
+    public class C0242a extends com.baidu.location.e.f {
 
         /* renamed from: a  reason: collision with root package name */
         String f1864a = null;
         boolean b = false;
 
-        public C0244a() {
+        public C0242a() {
             this.k = new HashMap();
         }
 
@@ -173,7 +173,7 @@ public class a {
             }
         }
         if (this.s == null) {
-            this.s = new C0244a();
+            this.s = new C0242a();
         }
         this.s.a(str3);
     }

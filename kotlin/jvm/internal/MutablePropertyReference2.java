@@ -2,7 +2,7 @@ package kotlin.jvm.internal;
 
 import kotlin.reflect.i;
 import kotlin.reflect.m;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class MutablePropertyReference2 extends MutablePropertyReference implements kotlin.reflect.i {
     @Override // kotlin.jvm.internal.CallableReference
     protected kotlin.reflect.b computeReflected() {

@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.push.service.ap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public final class z implements ap.b.a {
 
     /* renamed from: a  reason: collision with root package name */

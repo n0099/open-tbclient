@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 /* loaded from: classes6.dex */
 public class a {
-    public static ClassLoader qkV = b.class.getClassLoader();
+    public static ClassLoader qmy = b.class.getClassLoader();
 
     @TargetApi(11)
     public static void i(Context context, String str, long j) {
@@ -12,7 +12,7 @@ public class a {
     }
 
     @TargetApi(11)
-    public static long bA(Context context, String str) {
+    public static long bx(Context context, String str) {
         return context.getSharedPreferences("dynamic_load_configs", 4).getLong(str, 0L);
     }
 }

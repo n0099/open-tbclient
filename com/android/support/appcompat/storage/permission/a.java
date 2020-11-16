@@ -2,7 +2,7 @@ package com.android.support.appcompat.storage.permission;
 
 import com.android.support.appcompat.storage.b;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class a {
     private static volatile a HF;
     private HashMap<String, b> HG = new HashMap<>();

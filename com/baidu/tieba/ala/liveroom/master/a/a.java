@@ -7,92 +7,92 @@ import com.baidu.live.data.ap;
 import com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator;
 /* loaded from: classes4.dex */
 public abstract class a {
-    protected int ciY;
-    protected com.baidu.tieba.ala.liveroom.m.b gXc;
-    private CustomMessageListener gYd = new CustomMessageListener(2913227) { // from class: com.baidu.tieba.ala.liveroom.master.a.a.1
+    protected int chm;
+    protected com.baidu.tieba.ala.liveroom.m.b gWJ;
+    private CustomMessageListener gXK = new CustomMessageListener(2913227) { // from class: com.baidu.tieba.ala.liveroom.master.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof com.baidu.live.data.b) {
                 com.baidu.live.data.b bVar = (com.baidu.live.data.b) customResponsedMessage.getData();
-                if (a.this.gXc != null) {
-                    a.this.gXc.ev(bVar.url, bVar.aHH);
+                if (a.this.gWJ != null) {
+                    a.this.gWJ.ev(bVar.url, bVar.aFW);
                 }
             }
         }
     };
-    protected com.baidu.tieba.ala.liveroom.data.e gZK;
-    protected com.baidu.tieba.ala.liveroom.data.d hmQ;
-    protected AlaMasterLiveRoomOpearator hoh;
-    protected b hoi;
+    protected com.baidu.tieba.ala.liveroom.data.e gZr;
+    protected com.baidu.tieba.ala.liveroom.data.d hmx;
+    protected AlaMasterLiveRoomOpearator hnO;
+    protected b hnP;
 
-    public abstract void bk(int i, String str);
+    public abstract void bi(int i, String str);
 
-    public abstract void cfy();
+    public abstract void ceR();
 
     public a(com.baidu.tieba.ala.liveroom.data.e eVar) {
-        this.gZK = eVar;
+        this.gZr = eVar;
         initListener();
-        HY();
+        Hp();
     }
 
     private void initListener() {
-        MessageManager.getInstance().registerListener(this.gYd);
+        MessageManager.getInstance().registerListener(this.gXK);
     }
 
-    private void HY() {
-        this.gXc = new com.baidu.tieba.ala.liveroom.m.b(this.gZK.pageContext.getPageActivity());
+    private void Hp() {
+        this.gWJ = new com.baidu.tieba.ala.liveroom.m.b(this.gZr.pageContext.getPageActivity());
     }
 
     public void ak(AlaMasterLiveRoomOpearator alaMasterLiveRoomOpearator) {
-        this.hoh = alaMasterLiveRoomOpearator;
+        this.hnO = alaMasterLiveRoomOpearator;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(short s, Object obj) {
-        this.ciY = s;
+        this.chm = s;
         switch (s) {
             case 2:
-                if (this.hoh != null) {
-                    this.hoh.cej();
+                if (this.hnO != null) {
+                    this.hnO.cdC();
                     return;
                 }
                 return;
             case 3:
-                if (this.hoh != null) {
-                    this.hoh.cek();
+                if (this.hnO != null) {
+                    this.hnO.cdD();
                     return;
                 }
                 return;
             case 4:
-                if (this.hoh != null) {
+                if (this.hnO != null) {
                     com.baidu.tieba.ala.liveroom.data.d dVar = obj instanceof com.baidu.tieba.ala.liveroom.data.d ? (com.baidu.tieba.ala.liveroom.data.d) obj : null;
-                    this.hoh.d(dVar);
-                    if (this.hoi != null) {
-                        this.hoi.b(dVar);
+                    this.hnO.d(dVar);
+                    if (this.hnP != null) {
+                        this.hnP.b(dVar);
                     }
-                    if (dVar != null && dVar.hgO) {
-                        this.gZK.hgY.a((short) 5, null);
+                    if (dVar != null && dVar.hgv) {
+                        this.gZr.hgF.a((short) 5, null);
                         return;
                     }
                     return;
                 }
                 return;
             case 5:
-                if (this.hoh != null) {
-                    this.hoh.b(obj instanceof ap ? (ap) obj : null);
+                if (this.hnO != null) {
+                    this.hnO.b(obj instanceof ap ? (ap) obj : null);
                     return;
                 }
                 return;
             case 6:
-                if (this.hoh != null) {
-                    this.hoh.ces();
+                if (this.hnO != null) {
+                    this.hnO.cdL();
                     return;
                 }
                 return;
             case 7:
-                if (this.hoh != null) {
-                    this.hoh.cet();
+                if (this.hnO != null) {
+                    this.hnO.cdM();
                     return;
                 }
                 return;
@@ -101,8 +101,8 @@ public abstract class a {
                 if (obj instanceof Short) {
                     s2 = ((Short) obj).shortValue();
                 }
-                if (this.hoh != null) {
-                    this.hoh.h(s2);
+                if (this.hnO != null) {
+                    this.hnO.h(s2);
                     return;
                 }
                 return;
@@ -112,71 +112,71 @@ public abstract class a {
     }
 
     public void c(com.baidu.tieba.ala.liveroom.data.d dVar) {
-        this.hmQ = dVar;
-        cfy();
+        this.hmx = dVar;
+        ceR();
     }
 
     public void c(ap apVar) {
-        if (this.gZK != null && this.gZK.hgY != null) {
-            this.gZK.hgY.a((short) 5, apVar);
+        if (this.gZr != null && this.gZr.hgF != null) {
+            this.gZr.hgF.a((short) 5, apVar);
         }
     }
 
-    public void bl(int i, String str) {
-        if (this.hoh != null) {
-            this.hoh.onError(i, str);
+    public void bj(int i, String str) {
+        if (this.hnO != null) {
+            this.hnO.onError(i, str);
         }
     }
 
     public void j(short s) {
-        if (this.gZK != null && this.gZK.hgY != null) {
-            this.gZK.hgY.a((short) 8, Short.valueOf(s));
+        if (this.gZr != null && this.gZr.hgF != null) {
+            this.gZr.hgF.a((short) 8, Short.valueOf(s));
         }
     }
 
-    public void cfz() {
-        if (this.hoh != null) {
-            this.hoh.cew();
+    public void ceS() {
+        if (this.hnO != null) {
+            this.hnO.cdP();
         }
     }
 
-    public void cfA() {
-        if (this.hoh != null) {
-            this.hoh.cex();
+    public void ceT() {
+        if (this.hnO != null) {
+            this.hnO.cdQ();
         }
     }
 
     public void onPause() {
-        if (this.hoh != null) {
-            this.hoh.onPause();
+        if (this.hnO != null) {
+            this.hnO.onPause();
         }
     }
 
-    public boolean cfB() {
-        if (this.hoh != null) {
-            return this.hoh.ceu();
+    public boolean ceU() {
+        if (this.hnO != null) {
+            return this.hnO.cdN();
         }
         return false;
     }
 
-    public void cfC() {
-        if (this.hoh != null) {
-            this.hoh.cev();
+    public void ceV() {
+        if (this.hnO != null) {
+            this.hnO.cdO();
         }
     }
 
     public void onDestroy() {
-        if (this.gXc != null) {
-            this.gXc.release();
+        if (this.gWJ != null) {
+            this.gWJ.release();
         }
-        MessageManager.getInstance().unRegisterListener(this.gYd);
+        MessageManager.getInstance().unRegisterListener(this.gXK);
     }
 
-    public boolean cfD() {
-        return this.ciY == 5;
+    public boolean ceW() {
+        return this.chm == 5;
     }
 
     public void a(b bVar) {
-        this.hoi = bVar;
+        this.hnP = bVar;
     }
 }

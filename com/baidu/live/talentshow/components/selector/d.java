@@ -8,89 +8,89 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d implements View.OnClickListener {
-    private LiveBCMasterChatSelectorLayer bwW;
-    private List<com.baidu.live.talentshow.b.d> bwX;
+    private LiveBCMasterChatSelectorLayer bvl;
+    private List<com.baidu.live.talentshow.b.d> bvm;
     private Context mContext;
 
     public d(Context context) {
         this.mContext = context;
-        if (this.bwW == null) {
-            this.bwW = new LiveBCMasterChatSelectorLayer(context);
-            this.bwW.setNeedHideAnim(true);
-            this.bwW.setNeedShowAnim(true);
-            this.bwW.setCanceledOnTouchOutside(true);
-            this.bwW.c(this);
+        if (this.bvl == null) {
+            this.bvl = new LiveBCMasterChatSelectorLayer(context);
+            this.bvl.setNeedHideAnim(true);
+            this.bvl.setNeedShowAnim(true);
+            this.bvl.setCanceledOnTouchOutside(true);
+            this.bvl.c(this);
         }
     }
 
     public void a(LiveBCMasterChatSelectorLayer.b bVar) {
         if (bVar != null) {
-            this.bwW.setOnConfirmListener(bVar);
+            this.bvl.setOnConfirmListener(bVar);
         }
     }
 
     public void a(LiveBCMasterChatSelectorLayer.a aVar) {
         if (aVar != null) {
-            this.bwW.setOnPanelStateChangeListener(aVar);
+            this.bvl.setOnPanelStateChangeListener(aVar);
         }
     }
 
-    private void cA(boolean z) {
-        if (UtilHelper.getRealScreenOrientation(this.mContext) != 2 && this.bwW != null) {
+    private void cC(boolean z) {
+        if (UtilHelper.getRealScreenOrientation(this.mContext) != 2 && this.bvl != null) {
             if (z) {
-                this.bwW.Ry();
+                this.bvl.QP();
             } else {
-                this.bwW.showLoading();
+                this.bvl.showLoading();
             }
-            if (!this.bwW.RA()) {
-                com.baidu.live.core.layer.b.DX().d(this.bwW);
+            if (!this.bvl.QR()) {
+                com.baidu.live.core.layer.b.Do().d(this.bvl);
             }
         }
     }
 
-    public void QH() {
-        cA(false);
+    public void PY() {
+        cC(false);
     }
 
-    public void RG() {
-        cA(true);
+    public void QX() {
+        cC(true);
     }
 
     public void ac(List<com.baidu.live.talentshow.b.d> list) {
-        this.bwX = list;
-        if (this.bwW != null && list != null) {
-            this.bwW.setData(list);
+        this.bvm = list;
+        if (this.bvl != null && list != null) {
+            this.bvl.setData(list);
         }
     }
 
-    public List<com.baidu.live.talentshow.b.d> RH() {
-        return this.bwX;
+    public List<com.baidu.live.talentshow.b.d> QY() {
+        return this.bvm;
     }
 
     public String aI(long j) {
-        return (this.bwX == null || ListUtils.isEmpty(this.bwX)) ? "" : a(this.bwX, j);
+        return (this.bvm == null || ListUtils.isEmpty(this.bvm)) ? "" : a(this.bvm, j);
     }
 
     private String a(List<com.baidu.live.talentshow.b.d> list, long j) {
         String str = j + "";
         for (com.baidu.live.talentshow.b.d dVar : list) {
-            if (dVar.bye.equals(str)) {
+            if (dVar.bwt.equals(str)) {
                 return dVar.nickName;
             }
         }
         return "";
     }
 
-    public void RI() {
-        if (this.bwW != null && this.bwW.RA()) {
-            com.baidu.live.core.layer.b.DX().e(this.bwW);
+    public void QZ() {
+        if (this.bvl != null && this.bvl.QR()) {
+            com.baidu.live.core.layer.b.Do().e(this.bvl);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bwW.getParentLayout()) {
-            RI();
+        if (view == this.bvl.getParentLayout()) {
+            QZ();
         }
     }
 }

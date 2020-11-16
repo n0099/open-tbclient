@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ugc.provider.listener;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface OnVideoShareListener {
     void onShareCancel();
 

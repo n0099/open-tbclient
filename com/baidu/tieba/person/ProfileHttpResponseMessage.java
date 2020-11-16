@@ -47,7 +47,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     private boolean isSelf;
     private AlaLiveInfoCoreData liveInfoData;
     private List<AlaLiveInfoCoreData> liveReplayData;
-    private com.baidu.tieba.i.b mLiveGoodsWindowData;
+    private com.baidu.tieba.j.b mLiveGoodsWindowData;
     private int maskType;
     private ModuleInfo moduleInfo;
     private List<ThreadInfo> newest_dynamic_list;
@@ -205,7 +205,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
                     this.liveInfoData.parserProtoBuf(profileResIdl.data.ala_live_info);
                 }
                 if (profileResIdl.data.goods_win != null) {
-                    this.mLiveGoodsWindowData = new com.baidu.tieba.i.b();
+                    this.mLiveGoodsWindowData = new com.baidu.tieba.j.b();
                     this.mLiveGoodsWindowData.a(profileResIdl.data.goods_win);
                 }
                 if (!y.isEmpty(profileResIdl.data.ala_live_record)) {
@@ -234,26 +234,26 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> dH = com.baidu.tbadk.core.c.a.boX().dH("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        l<byte[]> dF = com.baidu.tbadk.core.c.a.bob().dF("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
-            dH.setForever(PROFILE_CACHE_KEY, bArr);
+            dF.setForever(PROFILE_CACHE_KEY, bArr);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        l<String> dI;
+        l<String> dG;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (dI = com.baidu.tbadk.core.c.a.boX().dI("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<g.a> list = this.ucCardData.lTZ;
+        if (this.ucCardData != null && (dG = com.baidu.tbadk.core.c.a.bob().dG("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<g.a> list = this.ucCardData.lUr;
             if (y.getCount(list) > 4) {
                 list.get(4).timeStamp = 8L;
                 for (g.a aVar : list) {
-                    if (aVar.timeStamp > com.baidu.adp.lib.f.b.toLong(dI.get(aVar.title), 0L)) {
-                        aVar.lUa = true;
+                    if (aVar.timeStamp > com.baidu.adp.lib.f.b.toLong(dG.get(aVar.title), 0L)) {
+                        aVar.lUs = true;
                     } else {
-                        aVar.lUa = false;
+                        aVar.lUs = false;
                     }
                 }
             }
@@ -289,7 +289,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     }
 
     @Override // com.baidu.tieba.person.c
-    public com.baidu.tieba.i.b getGoodsWindowInfo() {
+    public com.baidu.tieba.j.b getGoodsWindowInfo() {
         return this.mLiveGoodsWindowData;
     }
 

@@ -6,25 +6,25 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class j {
-    private static final Set<Integer> dDB = new HashSet();
-    private static final Set<Integer> dDC = new HashSet();
-    private static final Set<Integer> dDD = new HashSet();
+    private static final Set<Integer> dBU = new HashSet();
+    private static final Set<Integer> dBV = new HashSet();
+    private static final Set<Integer> dBW = new HashSet();
 
     static {
-        dDB.add(2);
-        dDB.add(3);
-        dDB.add(4);
-        dDB.add(5);
-        dDB.add(6);
-        dDC.add(7);
-        dDC.add(1);
-        dDD.addAll(dDB);
-        dDD.addAll(dDC);
+        dBU.add(2);
+        dBU.add(3);
+        dBU.add(4);
+        dBU.add(5);
+        dBU.add(6);
+        dBV.add(7);
+        dBV.add(1);
+        dBW.addAll(dBU);
+        dBW.addAll(dBV);
     }
 
-    public static Date aMv() {
+    public static Date aLN() {
         return new Date();
     }
 
@@ -44,7 +44,7 @@ public final class j {
         }
     }
 
-    public static Date cG(String str, String str2) {
+    public static Date cF(String str, String str2) {
         if (str == null) {
             return null;
         }

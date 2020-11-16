@@ -10,7 +10,7 @@ import com.baidu.swan.apps.ap.u;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.runtime.d;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class SwanAppLauncherActivity extends Activity {
     private static final boolean DEBUG = b.DEBUG;
 
@@ -20,12 +20,12 @@ public class SwanAppLauncherActivity extends Activity {
         int releaseFixedOrientation = ak.releaseFixedOrientation(this);
         super.onCreate(bundle);
         ak.fixedOrientation(this, releaseFixedOrientation);
-        ah.T(this);
+        ah.S(this);
         if (DEBUG) {
             Log.d("SwanAppLauncherActivity", MissionEvent.MESSAGE_CREATE);
         }
         if (!u.checkActivityRefuseServiceAndFinish(this)) {
-            SwanLauncher.atl().t(getIntent().getExtras());
+            SwanLauncher.asD().t(getIntent().getExtras());
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.SwanAppLauncherActivity.1
                 @Override // java.lang.Runnable
                 public void run() {

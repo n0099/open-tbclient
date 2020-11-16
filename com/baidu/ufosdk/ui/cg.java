@@ -35,7 +35,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class cg extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */

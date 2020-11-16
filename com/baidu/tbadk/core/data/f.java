@@ -2,33 +2,45 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.AppCode;
+import tbclient.ActivityInfo;
 /* loaded from: classes.dex */
 public class f {
-    private String button_text;
-    private String game_icon;
-    private String post_url;
-
-    public String getPostUrl() {
-        return this.post_url;
-    }
-
-    public void a(AppCode appCode) {
-        if (appCode != null) {
-            this.game_icon = appCode.game_icon;
-            this.post_url = appCode.post_url;
-            this.button_text = appCode.button_text;
-        }
-    }
+    public long exQ;
+    public int exR;
+    public int exS;
+    public String exT;
+    public String main_title;
+    public String sub_title;
+    public String subpage_link;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.game_icon = jSONObject.optString("game_icon");
-                this.post_url = jSONObject.optString("post_url");
-                this.button_text = jSONObject.optString("button_text");
+                this.exQ = jSONObject.optLong("activity_id");
+                this.main_title = jSONObject.optString("main_title");
+                this.sub_title = jSONObject.optString("sub_title");
+                this.exR = jSONObject.optInt("back_pic_width");
+                this.exS = jSONObject.optInt("back_pic_height");
+                this.exT = jSONObject.optString("back_pic");
+                this.subpage_link = jSONObject.optString("subpage_link");
             } catch (Exception e) {
-                BdLog.e(e.toString());
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void a(ActivityInfo activityInfo) {
+        if (activityInfo != null) {
+            try {
+                this.exQ = activityInfo.activity_id.longValue();
+                this.main_title = activityInfo.main_title;
+                this.sub_title = activityInfo.sub_title;
+                this.exR = activityInfo.back_pic_width.intValue();
+                this.exS = activityInfo.back_pic_height.intValue();
+                this.exT = activityInfo.back_pic;
+                this.subpage_link = activityInfo.subpage_link;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }

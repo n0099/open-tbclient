@@ -10,19 +10,19 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class SingleUsing<T, U> extends w<T> {
     final g<? super U> disposer;
     final boolean eager;
-    final Callable<U> pMI;
-    final h<? super U, ? extends aa<? extends T>> pPa;
+    final Callable<U> pOl;
+    final h<? super U, ? extends aa<? extends T>> pQD;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         try {
-            U call = this.pMI.call();
+            U call = this.pOl.call();
             try {
-                ((aa) io.reactivex.internal.functions.a.l(this.pPa.apply(call), "The singleFunction returned a null SingleSource")).a(new UsingSingleObserver(yVar, call, this.eager, this.disposer));
+                ((aa) io.reactivex.internal.functions.a.l(this.pQD.apply(call), "The singleFunction returned a null SingleSource")).a(new UsingSingleObserver(yVar, call, this.eager, this.disposer));
             } catch (Throwable th) {
                 th = th;
                 io.reactivex.exceptions.a.J(th);
@@ -50,7 +50,7 @@ public final class SingleUsing<T, U> extends w<T> {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class UsingSingleObserver<T, U> extends AtomicReference<Object> implements io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = -5331524057054083935L;
         final y<? super T> actual;

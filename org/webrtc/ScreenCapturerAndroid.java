@@ -9,7 +9,7 @@ import android.media.projection.MediaProjectionManager;
 import android.support.annotation.Nullable;
 import android.view.Surface;
 @TargetApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
     private static final int DISPLAY_FLAGS = 3;
     private static final int VIRTUAL_DISPLAY_DPI = 400;

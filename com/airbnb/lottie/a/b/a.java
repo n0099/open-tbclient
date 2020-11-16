@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import com.baidu.mapapi.map.WeightedLatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public abstract class a<K, A> {
     private final List<? extends com.airbnb.lottie.e.a<K>> DO;
     @Nullable
@@ -17,7 +17,7 @@ public abstract class a<K, A> {
     private float progress = 0.0f;
 
     /* renamed from: com.airbnb.lottie.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes16.dex */
     public interface InterfaceC0011a {
         void iT();
     }

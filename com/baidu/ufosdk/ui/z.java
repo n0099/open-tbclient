@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.EditText;
 import com.baidu.android.imsdk.internal.IMConnection;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class z implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

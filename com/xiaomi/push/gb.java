@@ -1,14 +1,14 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 class gb extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ fz f4918a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Exception f383a;
+    final /* synthetic */ Exception f386a;
     final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,16 +17,16 @@ class gb extends XMPushService.i {
         super(i);
         this.f4918a = fzVar;
         this.b = i2;
-        this.f383a = exc;
+        this.f386a = exc;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public String a() {
-        return "shutdown the connection. " + this.b + ", " + this.f383a;
+        return "shutdown the connection. " + this.b + ", " + this.f386a;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        this.f4918a.b.a(this.b, this.f383a);
+        this.f4918a.b.a(this.b, this.f386a);
     }
 }

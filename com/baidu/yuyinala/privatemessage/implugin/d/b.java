@@ -28,7 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    private static volatile b oxy;
+    private static volatile b ozc;
 
     /* loaded from: classes4.dex */
     public interface a<T> extends BIMValueCallBack<T> {
@@ -36,7 +36,7 @@ public class b {
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0945b extends IGetUserStatusListener {
+    public interface InterfaceC0948b extends IGetUserStatusListener {
     }
 
     /* loaded from: classes4.dex */
@@ -59,13 +59,13 @@ public class b {
     public interface g extends IGetUsersProfileBatchListener {
     }
 
-    public static synchronized b efv() {
+    public static synchronized b eft() {
         b bVar;
         synchronized (b.class) {
-            if (oxy == null) {
-                oxy = new b();
+            if (ozc == null) {
+                ozc = new b();
             }
-            bVar = oxy;
+            bVar = ozc;
         }
         return bVar;
     }
@@ -83,7 +83,7 @@ public class b {
         }
     }
 
-    public Long gA(Context context) {
+    public Long gx(Context context) {
         return Long.valueOf(AccountManager.getUK(context));
     }
 
@@ -127,7 +127,7 @@ public class b {
         return BIMManager.getCuid(context);
     }
 
-    public int gB(Context context) {
+    public int gy(Context context) {
         return Utility.readIntData(context, Constants.KEY_ENV, 0);
     }
 
@@ -145,7 +145,7 @@ public class b {
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("PluginHostFactory", "sendAPSBroadcast: action=" + str + ", data=" + str2);
     }
 
-    public String gC(Context context) {
+    public String gA(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("displayName", com.baidu.yuyinala.privatemessage.implugin.d.a.getDisplayName());
@@ -180,14 +180,14 @@ public class b {
         }
     }
 
-    public void a(Context context, ArrayList<Long> arrayList, InterfaceC0945b interfaceC0945b) {
-        ChatUserManagerImpl.getInstance(context).getUsersStatus(arrayList, interfaceC0945b);
+    public void a(Context context, ArrayList<Long> arrayList, InterfaceC0948b interfaceC0948b) {
+        ChatUserManagerImpl.getInstance(context).getUsersStatus(arrayList, interfaceC0948b);
     }
 
     public void a(boolean z, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
     }
 
-    public void gD(Context context) {
+    public void gB(Context context) {
     }
 
     public int getLoginState(Context context) {
@@ -202,7 +202,7 @@ public class b {
         return AccountManager.isCuidLogin(context);
     }
 
-    public boolean efw() {
+    public boolean efu() {
         return false;
     }
 
@@ -210,10 +210,10 @@ public class b {
         AccountManager.retryLogin(context, cVar);
     }
 
-    public void zJ(boolean z) {
+    public void zQ(boolean z) {
     }
 
-    public void bV(String str, int i) {
+    public void bU(String str, int i) {
     }
 
     public void onEvent(String str, String str2) {

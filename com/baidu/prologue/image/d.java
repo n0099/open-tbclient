@@ -5,23 +5,23 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class d implements b<ImageView> {
     private d() {
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes14.dex */
     private static class a {
-        private static final d ciU = new d();
+        private static final d chi = new d();
     }
 
-    public static b<ImageView> acR() {
-        return a.ciU;
+    public static b<ImageView> aci() {
+        return a.chi;
     }
 
     @Override // com.baidu.prologue.image.b
     public void a(String str, ImageView imageView) {
-        c.aT(com.baidu.prologue.a.b.a.che.get().abJ()).asBitmap().load(str).apply(new RequestOptions().placeholder(aU(imageView.getContext())).error(aV(imageView.getContext())).centerCrop()).transition(new BitmapTransitionOptions().crossFade(300)).into(imageView);
+        c.aT(com.baidu.prologue.a.b.a.cft.get().aba()).asBitmap().load(str).apply(new RequestOptions().placeholder(aU(imageView.getContext())).error(aV(imageView.getContext())).centerCrop()).transition(new BitmapTransitionOptions().crossFade(300)).into(imageView);
     }
 
     private Drawable aU(Context context) {

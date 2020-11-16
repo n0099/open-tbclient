@@ -5,10 +5,10 @@ import android.support.annotation.StringRes;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.core.f;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private static long cHM;
-    private static volatile int cHN = 0;
+    private static long cGc;
+    private static volatile int cGd = 0;
 
     public static void showToast(@StringRes int i) {
         showToast(i, 0);
@@ -16,16 +16,16 @@ public class c {
 
     private static synchronized void showToast(@StringRes int i, int i2) {
         synchronized (c.class) {
-            if (f.a.cHU) {
-                switch (cHN) {
+            if (f.a.cGk) {
+                switch (cGd) {
                     case 0:
-                        cHN = 1;
-                        cHM = System.currentTimeMillis();
+                        cGd = 1;
+                        cGc = System.currentTimeMillis();
                         ai(i, i2);
                         break;
                     case 1:
-                        if ((cHM + 5000) - System.currentTimeMillis() < 0) {
-                            cHN = 2;
+                        if ((cGc + 5000) - System.currentTimeMillis() < 0) {
+                            cGd = 2;
                             ai(i, i2);
                             f.log("toast提示个数已达2个");
                             break;
@@ -51,25 +51,25 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void aj(@StringRes int i, int i2) {
-        SwanAppActivity azy = com.baidu.swan.apps.v.f.azO().azy();
-        if (azy != null && !azy.isFinishing()) {
+        SwanAppActivity ayQ = com.baidu.swan.apps.v.f.azg().ayQ();
+        if (ayQ != null && !ayQ.isFinishing()) {
             switch (i2) {
                 case 1:
-                    com.baidu.swan.apps.res.widget.b.d.k(azy, i).showToastBottom();
+                    com.baidu.swan.apps.res.widget.b.d.k(ayQ, i).showToastBottom();
                     return;
                 default:
-                    com.baidu.swan.apps.res.widget.b.d.k(azy, i).showToast();
+                    com.baidu.swan.apps.res.widget.b.d.k(ayQ, i).showToast();
                     return;
             }
         }
     }
 
-    public static boolean amS() {
-        return cHN < 2;
+    public static boolean amk() {
+        return cGd < 2;
     }
 
     public static void reset() {
-        cHN = 0;
-        cHM = 0L;
+        cGd = 0;
+        cGc = 0L;
     }
 }

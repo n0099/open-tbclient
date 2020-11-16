@@ -1,43 +1,43 @@
 package com.baidu.tieba.a;
 
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class a {
-    private ArrayList<Integer> fQD;
-    private c fQE;
+    private ArrayList<Integer> fQm;
+    private c fQn;
     private HashMap<String, b> mData = new HashMap<>();
 
     public a(c cVar, ArrayList<Integer> arrayList) {
-        this.fQD = arrayList;
-        this.fQE = cVar;
+        this.fQm = arrayList;
+        this.fQn = cVar;
     }
 
-    public int ax(String str, int i) {
-        if (this.mData == null || at.isEmpty(str) || this.fQD == null || !this.fQD.contains(Integer.valueOf(i))) {
+    public int aw(String str, int i) {
+        if (this.mData == null || au.isEmpty(str) || this.fQm == null || !this.fQm.contains(Integer.valueOf(i))) {
             return 0;
         }
         if (!this.mData.containsKey(str)) {
-            EX(str);
+            Ey(str);
         }
         b bVar = this.mData.get(str);
         if (bVar == null) {
             return 0;
         }
-        return bVar.tj(i);
+        return bVar.tH(i);
     }
 
-    public void EX(String str) {
-        if (this.mData != null && !at.isEmpty(str) && this.fQE != null) {
+    public void Ey(String str) {
+        if (this.mData != null && !au.isEmpty(str) && this.fQn != null) {
             if (this.mData.containsKey(str)) {
                 b bVar = this.mData.get(str);
-                this.fQE.a(this.fQD, bVar);
+                this.fQn.a(this.fQm, bVar);
                 this.mData.put(str, bVar);
                 return;
             }
             b bVar2 = new b();
-            this.fQE.a(this.fQD, bVar2);
+            this.fQn.a(this.fQm, bVar2);
             this.mData.put(str, bVar2);
         }
     }

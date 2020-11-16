@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class r implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

@@ -7,7 +7,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.aw;
 /* loaded from: classes.dex */
 public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a> {
     @Override // com.baidu.adp.lib.e.e
@@ -19,7 +19,7 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        return com.baidu.tbadk.imageManager.c.bBd().Eb(str);
+        return com.baidu.tbadk.imageManager.c.bAt().DA(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, com.baidu.adp.lib.e.a aVar, Object... objArr) {
         com.baidu.adp.widget.ImageView.a aVar2;
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, av.getNameMd5FromUrl(str2), DiskFileOperate.Action.READ);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, aw.getNameMd5FromUrl(str2), DiskFileOperate.Action.READ);
         if (cVar == null) {
             return null;
         }
@@ -78,9 +78,9 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
                 aVar.MS = iVar;
             }
             byte[] aw = iVar.aw(str, false);
-            boolean brC = iVar.brC();
-            if ((aw != null || iVar.my().Mo) && brC && !iVar.eOW) {
-                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, av.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
+            boolean bqQ = iVar.bqQ();
+            if ((aw != null || iVar.my().Mo) && bqQ && !iVar.eOa) {
+                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, aw.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setData(aw);
                 cVar.setSdCard(false);
@@ -100,13 +100,13 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a) && ((com.baidu.adp.widget.ImageView.a) obj).isNeedCache()) {
-            com.baidu.tbadk.imageManager.c.bBd().c(str, (com.baidu.adp.widget.ImageView.a) obj);
+            com.baidu.tbadk.imageManager.c.bAt().c(str, (com.baidu.adp.widget.ImageView.a) obj);
         }
     }
 
     @Override // com.baidu.adp.lib.e.e
     public BdAsyncTaskParallel mW() {
-        return k.brK().mW();
+        return k.bqY().mW();
     }
 
     @Override // com.baidu.adp.lib.e.e
@@ -114,9 +114,9 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         return 1;
     }
 
-    public static boolean Ck(String str) {
+    public static boolean BK(String str) {
         com.baidu.adp.lib.Disk.ops.c cVar;
-        if (TextUtils.isEmpty(str) || (cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, av.getNameMd5FromUrl(com.baidu.adp.lib.e.c.mS().genCacheKey(str, 41)), DiskFileOperate.Action.INFO)) == null) {
+        if (TextUtils.isEmpty(str) || (cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, aw.getNameMd5FromUrl(com.baidu.adp.lib.e.c.mS().genCacheKey(str, 41)), DiskFileOperate.Action.INFO)) == null) {
             return false;
         }
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);

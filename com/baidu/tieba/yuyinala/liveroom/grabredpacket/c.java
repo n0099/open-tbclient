@@ -8,8 +8,8 @@ public class c {
     public Bitmap bitmap;
     public int height;
     public int money;
-    public float nVW;
-    public boolean nVX;
+    public boolean nXA;
+    public float nXz;
     public float rotation;
     public float speed;
     public int width;
@@ -28,15 +28,15 @@ public class c {
         this.y = -this.height;
         this.speed = i + (((float) Math.random()) * 1000.0f);
         this.rotation = (((float) Math.random()) * 180.0f) - 90.0f;
-        this.nVW = (((float) Math.random()) * 90.0f) - 45.0f;
-        this.nVX = dXS();
+        this.nXz = (((float) Math.random()) * 90.0f) - 45.0f;
+        this.nXA = dXR();
     }
 
     public boolean G(float f, float f2) {
         return this.x - 50.0f < f && (this.x + 50.0f) + ((float) this.width) > f && this.y - 50.0f < f2 && (this.y + 50.0f) + ((float) this.height) > f2;
     }
 
-    public boolean dXS() {
+    public boolean dXR() {
         int nextInt = new Random().nextInt(10) + 1;
         if (nextInt % 2 == 0) {
             this.money = nextInt * 2;

@@ -18,7 +18,7 @@ import com.baidu.mobstat.av;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class StatService {
     public static final int EXCEPTION_LOG = 1;
     public static final int JAVA_EXCEPTION_LOG = 16;
@@ -27,7 +27,7 @@ public class StatService {
     private static boolean f2516a = false;
     private static boolean b;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public interface WearListener {
         boolean onSendLogData(String str);
     }

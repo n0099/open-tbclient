@@ -12,23 +12,23 @@ import android.view.inputmethod.InputMethodManager;
 import tv.chushou.zues.b;
 /* loaded from: classes6.dex */
 public class d {
-    private static int qpH = 0;
-    private static int qpI = 0;
-    private static int qpJ = 0;
+    private static int qrk = 0;
+    private static int qrl = 0;
+    private static int qrm = 0;
 
     /* loaded from: classes6.dex */
     public interface a {
-        void kg(boolean z);
+        void kh(boolean z);
     }
 
-    public static void bD(View view) {
+    public static void bG(View view) {
         if (view != null) {
             view.requestFocus();
             ((InputMethodManager) view.getContext().getSystemService("input_method")).showSoftInput(view, 0);
         }
     }
 
-    public static void ep(View view) {
+    public static void ew(View view) {
         if (view != null) {
             if (view.isFocused()) {
                 view.clearFocus();
@@ -50,16 +50,16 @@ public class d {
         if (i < 0) {
             return false;
         }
-        qpH = i;
+        qrk = i;
         tv.chushou.zues.utils.e.l("KeyBordUtil", "%s%s", "save keyboard:", Integer.valueOf(i));
         return b.P(context, i);
     }
 
     public static int ek(Context context) {
-        if (qpH == 0) {
-            qpH = b.Q(context, c(context.getResources()));
+        if (qrk == 0) {
+            qrk = b.Q(context, c(context.getResources()));
         }
-        return qpH;
+        return qrk;
     }
 
     public static int el(Context context) {
@@ -67,22 +67,22 @@ public class d {
     }
 
     public static int b(Resources resources) {
-        if (qpI == 0) {
-            qpI = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_max_height);
+        if (qrl == 0) {
+            qrl = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_max_height);
         }
-        return qpI;
+        return qrl;
     }
 
     public static int c(Resources resources) {
-        if (qpJ == 0) {
-            qpJ = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_min_height);
+        if (qrm == 0) {
+            qrm = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_min_height);
         }
-        return qpJ;
+        return qrm;
     }
 
     public static c a(Activity activity, tv.chushou.zues.widget.kpswitch.b bVar, a aVar, boolean z) {
         ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
-        c cVar = new c(e.af(activity), z, e.ag(activity), viewGroup, bVar, aVar);
+        c cVar = new c(e.ae(activity), z, e.af(activity), viewGroup, bVar, aVar);
         viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(cVar);
         return cVar;
     }
@@ -95,6 +95,6 @@ public class d {
         } else {
             viewGroup.getViewTreeObserver().removeGlobalOnLayoutListener(onGlobalLayoutListener);
         }
-        tv.chushou.zues.widget.kpswitch.b.a.qpy = null;
+        tv.chushou.zues.widget.kpswitch.b.a.qrb = null;
     }
 }

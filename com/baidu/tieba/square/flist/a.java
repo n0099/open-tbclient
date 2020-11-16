@@ -10,21 +10,21 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.square.square.e;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class a extends BaseAdapter {
     Context mActivity;
-    private e mQb;
-    private int mQc = 0;
-    C0847a mQd;
+    private e mQU;
+    private int mQV = 0;
+    C0850a mQW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.square.flist.a$a  reason: collision with other inner class name */
-    /* loaded from: classes23.dex */
-    public class C0847a {
-        ImageView mQe;
-        TextView mQf;
+    /* loaded from: classes22.dex */
+    public class C0850a {
+        ImageView mQX;
+        TextView mQY;
 
-        C0847a() {
+        C0850a() {
         }
     }
 
@@ -34,18 +34,18 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.mQb == null || this.mQb.mSr == null) {
+        if (this.mQU == null || this.mQU.mTn == null) {
             return 0;
         }
-        return this.mQb.mSr.size();
+        return this.mQU.mTn.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.mQb == null || this.mQb.mSr == null) {
+        if (this.mQU == null || this.mQU.mTn == null) {
             return null;
         }
-        return this.mQb.mSr.get(i);
+        return this.mQU.mTn.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,55 +56,55 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = dIq();
+            view = dIh();
         }
-        if (this.mQb != null) {
-            e eVar = this.mQb.mSr.get(i);
-            this.mQd = (C0847a) view.getTag();
+        if (this.mQU != null) {
+            e eVar = this.mQU.mTn.get(i);
+            this.mQW = (C0850a) view.getTag();
             if (eVar != null) {
-                a(this.mQd, eVar, view, i);
+                a(this.mQW, eVar, view, i);
             }
         }
         return view;
     }
 
-    public void Jo(int i) {
-        this.mQc = i;
+    public void JQ(int i) {
+        this.mQV = i;
         notifyDataSetChanged();
     }
 
     public void a(e eVar) {
-        this.mQb = eVar;
+        this.mQU = eVar;
     }
 
-    public e dIp() {
-        return this.mQb;
+    public e dIg() {
+        return this.mQU;
     }
 
-    private View dIq() {
+    private View dIh() {
         View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
-        this.mQd = new C0847a();
-        this.mQd.mQe = (ImageView) inflate.findViewById(R.id.menu_choose);
-        this.mQd.mQf = (TextView) inflate.findViewById(R.id.menu_name);
-        inflate.setTag(this.mQd);
+        this.mQW = new C0850a();
+        this.mQW.mQX = (ImageView) inflate.findViewById(R.id.menu_choose);
+        this.mQW.mQY = (TextView) inflate.findViewById(R.id.menu_name);
+        inflate.setTag(this.mQW);
         return inflate;
     }
 
-    private void a(C0847a c0847a, e eVar, View view, int i) {
-        if (c0847a != null && eVar != null) {
-            c0847a.mQf.setText("");
+    private void a(C0850a c0850a, e eVar, View view, int i) {
+        if (c0850a != null && eVar != null) {
+            c0850a.mQY.setText("");
             if (i == 0) {
-                c0847a.mQf.setText(this.mActivity.getString(R.string.all) + eVar.mQj);
+                c0850a.mQY.setText(this.mActivity.getString(R.string.all) + eVar.mRd);
             } else {
-                c0847a.mQf.setText(eVar.mQj);
+                c0850a.mQY.setText(eVar.mRd);
             }
-            if (i != this.mQc) {
-                c0847a.mQe.setVisibility(4);
-                ap.setViewTextColor(c0847a.mQf, R.color.common_color_10200, 1);
+            if (i != this.mQV) {
+                c0850a.mQX.setVisibility(4);
+                ap.setViewTextColor(c0850a.mQY, R.color.common_color_10200, 1);
                 return;
             }
-            c0847a.mQe.setVisibility(0);
-            ap.setViewTextColor(c0847a.mQf, R.color.common_color_10013, 1);
+            c0850a.mQX.setVisibility(0);
+            ap.setViewTextColor(c0850a.mQY, R.color.common_color_10013, 1);
         }
     }
 }

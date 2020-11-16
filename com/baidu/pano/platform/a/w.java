@@ -59,20 +59,20 @@ public class w {
 
         /* renamed from: a  reason: collision with root package name */
         public static final boolean f2665a = w.b;
-        private final List<C0270a> b = new ArrayList();
+        private final List<C0268a> b = new ArrayList();
         private boolean c = false;
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.pano.platform.a.w$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0270a {
+        public static class C0268a {
 
             /* renamed from: a  reason: collision with root package name */
             public final String f2666a;
             public final long b;
             public final long c;
 
-            public C0270a(String str, long j, long j2) {
+            public C0268a(String str, long j, long j2) {
                 this.f2666a = str;
                 this.b = j;
                 this.c = j2;
@@ -83,7 +83,7 @@ public class w {
             if (this.c) {
                 throw new IllegalStateException("Marker added to finished log");
             }
-            this.b.add(new C0270a(str, j, SystemClock.elapsedRealtime()));
+            this.b.add(new C0268a(str, j, SystemClock.elapsedRealtime()));
         }
 
         public synchronized void a(String str) {
@@ -93,9 +93,9 @@ public class w {
                 long j = this.b.get(0).c;
                 w.b("(%-4d ms) %s", Long.valueOf(a2), str);
                 long j2 = j;
-                for (C0270a c0270a : this.b) {
-                    long j3 = c0270a.c;
-                    w.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0270a.b), c0270a.f2666a);
+                for (C0268a c0268a : this.b) {
+                    long j3 = c0268a.c;
+                    w.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0268a.b), c0268a.f2666a);
                     j2 = j3;
                 }
             }

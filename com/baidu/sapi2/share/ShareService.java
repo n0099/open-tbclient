@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class ShareService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
@@ -34,7 +34,7 @@ public final class ShareService extends Service {
     private boolean d = false;
     private Handler e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
@@ -56,10 +56,10 @@ public final class ShareService extends Service {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private class b extends Binder {
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes15.dex */
         class a implements Runnable {
             a() {
             }

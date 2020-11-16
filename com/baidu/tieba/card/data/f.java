@@ -1,26 +1,29 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bw;
-/* loaded from: classes21.dex */
-public class f extends l {
-    public static final BdUniqueId iaZ = BdUniqueId.gen();
+import com.baidu.tbadk.core.data.bx;
+/* loaded from: classes20.dex */
+public class f extends k {
+    public static final BdUniqueId ibS = BdUniqueId.gen();
 
-    public f(bw bwVar) {
-        this.exA = bwVar;
+    public f(bx bxVar) {
+        this.evQ = bxVar;
     }
 
-    @Override // com.baidu.tieba.card.data.l, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iaZ;
+        return ibS;
     }
 
-    public static boolean ab(bw bwVar) {
-        return bwVar != null && bwVar.getType() == bw.eDO;
+    @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.b, com.baidu.tbadk.core.data.a
+    public bx bjd() {
+        return this.evQ;
     }
 
-    @Override // com.baidu.tieba.card.data.l, com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bjZ() {
-        return this.exA;
+    public static boolean ae(bx bxVar) {
+        if (bxVar == null) {
+            return false;
+        }
+        return bxVar.bnz();
     }
 }

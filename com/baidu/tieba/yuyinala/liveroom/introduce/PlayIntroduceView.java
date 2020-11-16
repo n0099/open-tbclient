@@ -10,8 +10,8 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class PlayIntroduceView extends LinearLayout {
-    private TextView ajS;
-    private ImageView nKB;
+    private TextView ajV;
+    private ImageView nMc;
 
     public PlayIntroduceView(Context context) {
         super(context);
@@ -25,8 +25,8 @@ public class PlayIntroduceView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_ala_liveroom_play_introduce_layout, this);
-        this.nKB = (ImageView) findViewById(a.f.iv_icon);
-        this.ajS = (TextView) findViewById(a.f.tv_text);
+        this.nMc = (ImageView) findViewById(a.f.iv_icon);
+        this.ajV = (TextView) findViewById(a.f.tv_text);
     }
 
     public void destory() {

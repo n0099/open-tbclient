@@ -4,7 +4,7 @@ import io.reactivex.exceptions.ProtocolViolationException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class d {
     public static boolean a(AtomicReference<io.reactivex.disposables.b> atomicReference, io.reactivex.disposables.b bVar, Class<?> cls) {
         io.reactivex.internal.functions.a.l(bVar, "next is null");
@@ -30,11 +30,11 @@ public final class d {
         return false;
     }
 
-    public static String ZJ(String str) {
+    public static String Zu(String str) {
         return "It is not allowed to subscribe with a(n) " + str + " multiple times. Please create a fresh instance of " + str + " and subscribe that to the target source instead.";
     }
 
     public static void L(Class<?> cls) {
-        io.reactivex.e.a.onError(new ProtocolViolationException(ZJ(cls.getName())));
+        io.reactivex.e.a.onError(new ProtocolViolationException(Zu(cls.getName())));
     }
 }

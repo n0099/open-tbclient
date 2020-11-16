@@ -3,7 +3,7 @@ package com.baidu.swan.apps.component.components.a;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class b extends com.baidu.swan.apps.component.a.d.b {
     public String action;
     public boolean autoPlay;
@@ -30,10 +30,10 @@ public final class b extends com.baidu.swan.apps.component.a.d.b {
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.cDL) || TextUtils.isEmpty(this.cDK)) ? false : true;
+        return (TextUtils.isEmpty(this.cCb) || TextUtils.isEmpty(this.cCa)) ? false : true;
     }
 
-    public boolean afC() {
+    public boolean aeU() {
         return isValid() && !TextUtils.isEmpty(this.path);
     }
 }

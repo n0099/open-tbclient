@@ -18,70 +18,70 @@ public class b {
         r rVar = new r();
         rVar.userId = cVar.userId;
         rVar.giftId = cVar.giftId;
-        rVar.bku = cVar.bku;
-        List<r.a> iH = com.baidu.live.utils.r.iH(cVar.bku);
-        rVar.bkv = new ArrayList();
-        if (iH != null && iH.size() > 0) {
+        rVar.biJ = cVar.biJ;
+        List<r.a> iB = com.baidu.live.utils.r.iB(cVar.biJ);
+        rVar.biK = new ArrayList();
+        if (iB != null && iB.size() > 0) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= iH.size()) {
+                if (i2 >= iB.size()) {
                     break;
                 }
                 r.a aVar = new r.a();
-                aVar.count = cVar.bbi;
+                aVar.count = cVar.aZw;
                 aVar.giftId = cVar.giftId;
-                if (cVar.bbc != null) {
-                    aVar.aVz = cVar.bbc.getThumbnail_url();
+                if (cVar.aZq != null) {
+                    aVar.aTO = cVar.aZq.getThumbnail_url();
                 }
-                aVar.bkw = iH.get(i2).name;
-                if (cVar.bbc.Ga()) {
+                aVar.biL = iB.get(i2).name;
+                if (cVar.aZq.Fr()) {
                     aVar.giftName = TbadkCoreApplication.getInst().getString(a.h.text_gift_graffiti);
                 } else {
-                    aVar.giftName = cVar.bbc.FU();
+                    aVar.giftName = cVar.aZq.Fl();
                 }
-                aVar.bjV = cVar.bbc.Gd();
-                rVar.bkv.add(aVar);
+                aVar.bij = cVar.aZq.Fu();
+                rVar.biK.add(aVar);
                 i = i2 + 1;
             }
         }
-        rVar.aVA = cVar.aVA;
-        rVar.bjY.add(Long.valueOf(rVar.aVA));
+        rVar.aTP = cVar.aTP;
+        rVar.bim.add(Long.valueOf(rVar.aTP));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913185, rVar));
     }
 
     public static void g(c cVar) {
         s sVar = new s();
-        List<r.a> iH = com.baidu.live.utils.r.iH(cVar.bku);
-        sVar.bkx = new ArrayList();
-        sVar.bbd = cVar.bbd;
-        sVar.bka = cVar.msgId;
-        sVar.bkc = cVar.aVA;
-        if (iH != null && iH.size() > 0) {
-            for (int i = 0; i < iH.size(); i++) {
+        List<r.a> iB = com.baidu.live.utils.r.iB(cVar.biJ);
+        sVar.biM = new ArrayList();
+        sVar.aZr = cVar.aZr;
+        sVar.bip = cVar.msgId;
+        sVar.bir = cVar.aTP;
+        if (iB != null && iB.size() > 0) {
+            for (int i = 0; i < iB.size(); i++) {
                 s.a aVar = new s.a();
-                aVar.bkb = cVar.bbi;
-                sVar.bkx.add(aVar);
+                aVar.biq = cVar.aZw;
+                sVar.biM.add(aVar);
             }
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913184, sVar));
     }
 
     public static void a(c cVar, c cVar2) {
-        if (cVar != null && cVar2 != null && TextUtils.equals(cVar.IC(), cVar2.IC())) {
+        if (cVar != null && cVar2 != null && TextUtils.equals(cVar.HT(), cVar2.HT())) {
             s sVar = new s();
-            List<r.a> iH = com.baidu.live.utils.r.iH(cVar.bku);
-            sVar.bkx = new ArrayList();
-            sVar.bbd = cVar.bbd;
-            sVar.bka = cVar.msgId;
-            sVar.bkc = cVar.aVA;
-            sVar.bkd = cVar2.msgId;
-            sVar.bkf = cVar2.aVA;
-            if (iH != null && iH.size() > 0) {
+            List<r.a> iB = com.baidu.live.utils.r.iB(cVar.biJ);
+            sVar.biM = new ArrayList();
+            sVar.aZr = cVar.aZr;
+            sVar.bip = cVar.msgId;
+            sVar.bir = cVar.aTP;
+            sVar.bis = cVar2.msgId;
+            sVar.biu = cVar2.aTP;
+            if (iB != null && iB.size() > 0) {
                 s.a aVar = new s.a();
-                aVar.bkb = cVar.bbi;
-                aVar.bke = cVar2.bbi;
-                sVar.bkx.add(aVar);
+                aVar.biq = cVar.aZw;
+                aVar.bit = cVar2.aZw;
+                sVar.biM.add(aVar);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913183, sVar));
         }
@@ -89,15 +89,15 @@ public class b {
 
     public static void a(long j, String str, String str2, String str3, long j2, long j3, String str4) {
         s sVar = new s();
-        List<r.a> iH = com.baidu.live.utils.r.iH(str4);
-        sVar.bkx = new ArrayList();
-        sVar.bbd = str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
-        sVar.bka = j;
-        if (iH != null && iH.size() > 0) {
+        List<r.a> iB = com.baidu.live.utils.r.iB(str4);
+        sVar.biM = new ArrayList();
+        sVar.aZr = str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
+        sVar.bip = j;
+        if (iB != null && iB.size() > 0) {
             s.a aVar = new s.a();
-            aVar.bkg = j2;
-            aVar.bkh = j3;
-            sVar.bkx.add(aVar);
+            aVar.biv = j2;
+            aVar.biw = j3;
+            sVar.biM.add(aVar);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913195, sVar));
     }

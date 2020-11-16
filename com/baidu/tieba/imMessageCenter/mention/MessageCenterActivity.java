@@ -5,24 +5,24 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.core.voice.VoiceManager;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class MessageCenterActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private MessageCenterFragment kuP;
+    private MessageCenterFragment kvz;
     private int mSkinType = 3;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!bg.checkUpIsLogin(this)) {
+        if (!bh.checkUpIsLogin(this)) {
             finish();
             return;
         }
-        this.kuP = new MessageCenterFragment();
+        this.kvz = new MessageCenterFragment();
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(16908290, this.kuP);
+        beginTransaction.add(16908290, this.kvz);
         beginTransaction.commitAllowingStateLoss();
     }
 
@@ -37,8 +37,8 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.kuP != null) {
-            this.kuP.onActivityResult(i, i2, intent);
+        if (this.kvz != null) {
+            this.kvz.onActivityResult(i, i2, intent);
         }
     }
 
@@ -46,8 +46,8 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.kuP != null) {
-            this.kuP.onNewIntent(intent);
+        if (this.kvz != null) {
+            this.kvz.onNewIntent(intent);
         }
     }
 
@@ -55,13 +55,13 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     protected void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            this.kuP.onChangeSkinType(i);
+            this.kvz.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        return this.kuP.getVoiceManager();
+        return this.kvz.getVoiceManager();
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c

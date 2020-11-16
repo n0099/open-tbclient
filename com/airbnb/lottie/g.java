@@ -26,7 +26,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class g extends Drawable implements Animatable, Drawable.Callback {
     private static final String TAG = g.class.getSimpleName();
     @Nullable
@@ -54,7 +54,7 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
     private int alpha = 255;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes16.dex */
     public interface a {
         void b(e eVar);
     }

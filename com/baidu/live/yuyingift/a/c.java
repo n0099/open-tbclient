@@ -8,14 +8,14 @@ import java.util.Comparator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c implements Cloneable {
-    public long aVA;
+    public long aTP;
+    public g aZq;
+    public int aZs;
+    public long aZw;
+    public boolean aZy;
+    public String aZz;
     public String appId;
-    public g bbc;
-    public int bbe;
-    public long bbi;
-    public boolean bbk;
-    public String bbl;
-    public String bku;
+    public String biJ;
     public String chatMCastId;
     public String description;
     public String ensureMCastId;
@@ -29,75 +29,75 @@ public class c implements Cloneable {
     public String userId;
     public String userName;
     public int userStatus;
-    public boolean bbb = false;
-    public String bbd = "";
-    public long bbf = 0;
+    public boolean aZp = false;
+    public String aZr = "";
+    public long aZt = 0;
     public long fansCount = 0;
     public String location = "";
     public int priority = 1;
-    public long bbj = 0;
-    private boolean bbm = true;
-    public boolean bbn = false;
-    public boolean bbo = false;
-    public boolean bbr = false;
-    public List<l> aVY = new ArrayList();
+    public long aZx = 0;
+    private boolean aZA = true;
+    public boolean aZB = false;
+    public boolean aZC = false;
+    public boolean aZF = false;
+    public List<l> aUn = new ArrayList();
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, long j2, String str9) {
         this.giftId = str;
-        this.bbi = j;
-        this.bbc = gVar;
+        this.aZw = j;
+        this.aZq = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
         this.liveId = str5;
         this.groupId = str6;
-        this.bbk = z;
-        this.bbl = str7;
+        this.aZy = z;
+        this.aZz = str7;
         this.appId = str8;
         this.msgId = j2;
-        this.bku = str9;
-        IB();
+        this.biJ = str9;
+        HS();
     }
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, int i, int i2, String str5, int i3, String str6, String str7, boolean z, String str8, String str9, long j2, String str10) {
         this.giftId = str;
-        this.bbi = j;
-        this.bbc = gVar;
+        this.aZw = j;
+        this.aZq = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
-        this.bbe = i;
+        this.aZs = i;
         this.sex = i2;
         this.description = str5;
         this.userStatus = i3;
         this.liveId = str6;
         this.groupId = str7;
-        this.bbk = z;
-        this.bbl = str8;
+        this.aZy = z;
+        this.aZz = str8;
         this.appId = str9;
         this.msgId = j2;
-        this.bku = str10;
-        IB();
+        this.biJ = str10;
+        HS();
     }
 
     public void as(long j) {
         this.sendTime = j;
     }
 
-    public long IA() {
+    public long HR() {
         return this.sendTime;
     }
 
-    private void IB() {
-        this.bbd = r.A(this.giftId, this.userId, this.bku);
+    private void HS() {
+        this.aZr = r.A(this.giftId, this.userId, this.biJ);
     }
 
-    public String IC() {
-        return this.bbd;
+    public String HT() {
+        return this.aZr;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: XD */
+    /* renamed from: WU */
     public c clone() {
         try {
             return (c) super.clone();
@@ -107,12 +107,12 @@ public class c implements Cloneable {
         }
     }
 
-    public boolean IE() {
-        return this.bbm;
+    public boolean HV() {
+        return this.aZA;
     }
 
-    public void bN(boolean z) {
-        this.bbm = z;
+    public void bP(boolean z) {
+        this.aZA = z;
     }
 
     /* loaded from: classes4.dex */
@@ -128,10 +128,10 @@ public class c implements Cloneable {
                 if (cVar.priority < cVar2.priority) {
                     return -1;
                 }
-                if (cVar.bbc != null && cVar2.bbc != null) {
+                if (cVar.aZq != null && cVar2.aZq != null) {
                     try {
-                        long parseLong = Long.parseLong(cVar.bbc.getPrice());
-                        long parseLong2 = Long.parseLong(cVar2.bbc.getPrice());
+                        long parseLong = Long.parseLong(cVar.aZq.getPrice());
+                        long parseLong2 = Long.parseLong(cVar2.aZq.getPrice());
                         if (parseLong <= parseLong2) {
                             return parseLong < parseLong2 ? -1 : 0;
                         }

@@ -12,7 +12,7 @@ import com.vivo.push.model.UnvarnishedMessage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public class LocalAliasTagsManager {
     public static final String DEFAULT_LOCAL_REQUEST_ID = "push_cache_sp";
     private static volatile LocalAliasTagsManager mLocalAliasTagsManager;
@@ -24,7 +24,7 @@ public class LocalAliasTagsManager {
     public static final ExecutorService WORK_POOL = com.vivo.push.util.e.a(TAG);
     private static final Object SLOCK = new Object();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes11.dex */
     public interface LocalMessageCallback {
         boolean onNotificationMessageArrived(Context context, UPSNotificationMessage uPSNotificationMessage);
 

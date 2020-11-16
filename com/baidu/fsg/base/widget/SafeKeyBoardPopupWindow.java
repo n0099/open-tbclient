@@ -19,7 +19,7 @@ import com.baidu.fsg.base.utils.ResUtils;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Random;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
@@ -192,7 +192,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */

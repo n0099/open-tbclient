@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class RecordVideoTipDialog extends Dialog implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
     private a f1772a;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public interface a {
         void a();
 

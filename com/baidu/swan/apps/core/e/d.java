@@ -8,52 +8,52 @@ import android.widget.FrameLayout;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.b;
 import com.baidu.swan.apps.res.widget.dialog.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class d extends com.baidu.swan.apps.res.widget.dialog.b {
-    private FrameLayout bJO;
-    private a cMe;
+    private FrameLayout bId;
+    private a cKu;
 
     protected d(Context context) {
         super(context);
     }
 
     public void a(a aVar) {
-        this.cMe = aVar;
+        this.cKu = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b
     protected View createContentView(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_ssl_certificate_dialog, viewGroup, false);
-        this.bJO = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
-        apO();
+        this.bId = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
+        apf();
         return inflate;
     }
 
-    private void apO() {
-        if (this.cMe == null) {
+    private void apf() {
+        if (this.cKu == null) {
             return;
         }
-        this.bJO.addView(this.cMe.contentView);
+        this.bId.addView(this.cKu.contentView);
     }
 
-    /* loaded from: classes10.dex */
-    public static class a extends b.C0469b {
+    /* loaded from: classes7.dex */
+    public static class a extends b.C0467b {
         private View contentView;
 
         public a(Context context) {
             super(context);
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0469b, com.baidu.swan.apps.res.widget.dialog.g.a
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0467b, com.baidu.swan.apps.res.widget.dialog.g.a
         protected g bX(Context context) {
             return new d(context);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: ig */
-        public a mo33if(int i) {
-            super.mo33if(i);
+        /* renamed from: ic */
+        public a ib(int i) {
+            super.ib(i);
             return this;
         }
 
@@ -62,9 +62,9 @@ public class d extends com.baidu.swan.apps.res.widget.dialog.b {
             return this;
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0469b, com.baidu.swan.apps.res.widget.dialog.g.a
-        public g apP() {
-            d dVar = (d) super.apP();
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0467b, com.baidu.swan.apps.res.widget.dialog.g.a
+        public g apg() {
+            d dVar = (d) super.apg();
             dVar.a(this);
             return dVar;
         }

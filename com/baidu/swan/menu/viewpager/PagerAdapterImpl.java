@@ -5,19 +5,19 @@ import android.support.v4.view.PagerAdapter;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
-    private c<View> egT = new c<>(5);
-    private SparseArray<View> dcS = new SparseArray<>();
+    private c<View> efl = new c<>(5);
+    private SparseArray<View> dbj = new SparseArray<>();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void recycle();
     }
 
     protected abstract View f(ViewGroup viewGroup, int i);
 
-    protected abstract void f(View view, int i);
+    protected abstract void h(View view, int i);
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
@@ -36,19 +36,19 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
             ((a) view).recycle();
         }
         viewGroup.removeView(view);
-        this.egT.recycle(view);
-        this.dcS.remove(i);
+        this.efl.recycle(view);
+        this.dbj.remove(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View view = this.egT.get();
+        View view = this.efl.get();
         if (view == null) {
             view = f(viewGroup, i);
         }
-        this.dcS.put(i, view);
+        this.dbj.put(i, view);
         viewGroup.addView(view);
-        f(view, i);
+        h(view, i);
         return view;
     }
 

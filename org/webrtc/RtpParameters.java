@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class RtpParameters {
     public final List<Codec> codecs;
     public final List<Encoding> encodings;
@@ -12,7 +12,7 @@ public class RtpParameters {
     private final Rtcp rtcp;
     public final String transactionId;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class Codec {
         public Integer clockRate;
         MediaStreamTrack.MediaType kind;
@@ -62,7 +62,7 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class Encoding {
         public boolean active;
         @Nullable
@@ -121,7 +121,7 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class HeaderExtension {
         private final boolean encrypted;
         private final int id;
@@ -150,7 +150,7 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class Rtcp {
         private final String cname;
         private final boolean reducedSize;

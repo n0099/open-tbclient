@@ -9,7 +9,7 @@ import com.xiaomi.push.ij;
 import com.xiaomi.push.ik;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class al {
     public static int a(ak akVar, hs hsVar) {
         int i = 0;
@@ -19,7 +19,7 @@ public class al {
                 i = 1;
                 break;
         }
-        return akVar.f846a.getInt(a2, i);
+        return akVar.f849a.getInt(a2, i);
     }
 
     private static String a(hs hsVar) {
@@ -36,7 +36,7 @@ public class al {
             int a2 = hxVar.a();
             ht a3 = ht.a(hxVar.b());
             if (a3 != null) {
-                if (z && hxVar.f482a) {
+                if (z && hxVar.f485a) {
                     arrayList.add(new Pair(Integer.valueOf(a2), null));
                 } else {
                     switch (a3) {
@@ -44,10 +44,10 @@ public class al {
                             pair = new Pair(Integer.valueOf(a2), Integer.valueOf(hxVar.c()));
                             break;
                         case LONG:
-                            pair = new Pair(Integer.valueOf(a2), Long.valueOf(hxVar.m362a()));
+                            pair = new Pair(Integer.valueOf(a2), Long.valueOf(hxVar.m365a()));
                             break;
                         case STRING:
-                            pair = new Pair(Integer.valueOf(a2), hxVar.m363a());
+                            pair = new Pair(Integer.valueOf(a2), hxVar.m366a());
                             break;
                         case BOOLEAN:
                             pair = new Pair(Integer.valueOf(a2), Boolean.valueOf(hxVar.g()));
@@ -64,7 +64,7 @@ public class al {
     }
 
     public static void a(ak akVar, hs hsVar, int i) {
-        akVar.f846a.edit().putInt(a(hsVar), i).commit();
+        akVar.f849a.edit().putInt(a(hsVar), i).commit();
     }
 
     public static void a(ak akVar, ij ijVar) {
@@ -74,9 +74,9 @@ public class al {
 
     public static void a(ak akVar, ik ikVar) {
         for (hv hvVar : ikVar.a()) {
-            if (hvVar.a() > a(akVar, hvVar.m358a())) {
-                a(akVar, hvVar.m358a(), hvVar.a());
-                akVar.a(a(hvVar.f474a, false));
+            if (hvVar.a() > a(akVar, hvVar.m361a())) {
+                a(akVar, hvVar.m361a(), hvVar.a());
+                akVar.a(a(hvVar.f477a, false));
             }
         }
         akVar.b();

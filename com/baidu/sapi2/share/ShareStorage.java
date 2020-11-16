@@ -31,7 +31,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class ShareStorage {
     public static final int SHARE_ACCOUNT_BACKGROUND_TO_FOREGROUND = 1;
     public static final int SHARE_ACCOUNT_GET_TPL_STOKEN = 5;
@@ -52,7 +52,7 @@ public class ShareStorage {
     /* renamed from: a  reason: collision with root package name */
     private Context f3508a = SapiAccountManager.getInstance().getConfignation().context;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class StorageModel {
 
         /* renamed from: a  reason: collision with root package name */
@@ -67,7 +67,7 @@ public class ShareStorage {
         public String url;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes15.dex */
         public static class a extends GetUserInfoCallback {
 
             /* renamed from: a  reason: collision with root package name */
@@ -219,20 +219,20 @@ public class ShareStorage {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class a implements b {
 
         /* renamed from: a  reason: collision with root package name */
         final /* synthetic */ int f3511a;
 
         /* renamed from: com.baidu.sapi2.share.ShareStorage$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        class RunnableC0342a implements Runnable {
+        /* loaded from: classes15.dex */
+        class RunnableC0340a implements Runnable {
 
             /* renamed from: a  reason: collision with root package name */
             final /* synthetic */ StorageModel f3512a;
 
-            RunnableC0342a(StorageModel storageModel) {
+            RunnableC0340a(StorageModel storageModel) {
                 this.f3512a = storageModel;
             }
 
@@ -268,11 +268,11 @@ public class ShareStorage {
 
         @Override // com.baidu.sapi2.share.ShareStorage.b
         public void a(StorageModel storageModel) {
-            ThreadPoolService.getInstance().run(new TPRunnable(new RunnableC0342a(storageModel)));
+            ThreadPoolService.getInstance().run(new TPRunnable(new RunnableC0340a(storageModel)));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface b {
         void a(StorageModel storageModel);
     }

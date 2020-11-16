@@ -6,14 +6,14 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.frs.gamesubpb.model.d;
 import com.baidu.tieba.frs.gamesubpb.view.b;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
-    private TbPageContext iZb;
-    private InterfaceC0730a iZc;
+    private TbPageContext iZN;
+    private InterfaceC0731a iZO;
 
     /* renamed from: com.baidu.tieba.frs.gamesubpb.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    public interface InterfaceC0730a {
+    /* loaded from: classes21.dex */
+    public interface InterfaceC0731a {
         void a(d dVar);
 
         void b(d dVar);
@@ -24,16 +24,16 @@ public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.iZb = tbPageContext;
+        this.iZN = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bz */
+    /* renamed from: bv */
     public b.a c(ViewGroup viewGroup) {
-        com.baidu.tieba.frs.gamesubpb.view.b bVar = new com.baidu.tieba.frs.gamesubpb.view.b(this.iZb);
-        bVar.setClickListener(this.iZc);
+        com.baidu.tieba.frs.gamesubpb.view.b bVar = new com.baidu.tieba.frs.gamesubpb.view.b(this.iZN);
+        bVar.setClickListener(this.iZO);
         return new b.a(bVar);
     }
 
@@ -47,7 +47,7 @@ public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
         return aVar.getView();
     }
 
-    public void setClickListener(InterfaceC0730a interfaceC0730a) {
-        this.iZc = interfaceC0730a;
+    public void setClickListener(InterfaceC0731a interfaceC0731a) {
+        this.iZO = interfaceC0731a;
     }
 }

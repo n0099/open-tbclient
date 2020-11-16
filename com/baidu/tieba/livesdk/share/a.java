@@ -18,7 +18,7 @@ import com.baidu.tieba.tbadkCore.y;
 /* loaded from: classes4.dex */
 public class a implements IShareChannel, e {
     @Override // com.baidu.tieba.sdk.b.e
-    public boolean daV() {
+    public boolean das() {
         return true;
     }
 
@@ -58,7 +58,7 @@ public class a implements IShareChannel, e {
 
     private void a(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
         if (shareEntity != null) {
-            if (!Eq(i)) {
+            if (!EO(i)) {
                 if (iShareCallback != null) {
                     iShareCallback.onShare(0, 0, "");
                     return;
@@ -72,7 +72,7 @@ public class a implements IShareChannel, e {
         }
     }
 
-    private boolean Eq(int i) {
+    private boolean EO(int i) {
         boolean z = false;
         switch (i) {
             case 2:

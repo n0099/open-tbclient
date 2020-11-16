@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TargetApi(16)
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class CameraUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final String TAG;

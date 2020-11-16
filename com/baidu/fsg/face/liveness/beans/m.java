@@ -16,7 +16,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class m extends UploadBean {
 
     /* renamed from: a  reason: collision with root package name */

@@ -3,7 +3,7 @@ package com.airbnb.lottie.a.b;
 import android.graphics.Path;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class h extends com.airbnb.lottie.e.a<PointF> {
     @Nullable
     private Path path;

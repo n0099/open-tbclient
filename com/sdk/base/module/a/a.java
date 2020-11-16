@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.sdk.base.framework.a.a.c;
 import com.sdk.base.framework.c.f;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

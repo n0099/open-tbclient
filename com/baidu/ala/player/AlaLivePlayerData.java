@@ -3,7 +3,7 @@ package com.baidu.ala.player;
 import com.baidu.ala.helper.AlaLiveBaseInfo;
 import com.baidu.ala.helper.AlaLiveDebugInfo;
 import com.baidu.ala.helper.AlaLiveStreamCmdInfo;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class AlaLivePlayerData {
     public static final int INIT_STATUS = 0;
     public static final int MAX_VIDEO_BUFF_SIZE = 1048576;

@@ -10,9 +10,9 @@ import java.util.Comparator;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public abstract class a {
-    public static Comparator<a> acV = new com.baidu.b.b.b();
-    protected C0090a acT;
-    protected a.C0092a acU;
+    public static Comparator<a> ada = new com.baidu.b.b.b();
+    protected C0090a acY;
+    protected a.C0092a acZ;
     private final String d;
     private long e;
 
@@ -21,19 +21,19 @@ public abstract class a {
     public static class C0090a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f1246a;
-        public com.baidu.b.e.a acW;
+        public Context f1249a;
+        public com.baidu.b.e.a adb;
     }
 
     /* loaded from: classes7.dex */
     public static abstract class b {
-        private a.C0092a acX;
+        private a.C0092a adc;
         private String b;
         private String c;
         private boolean d = true;
 
         public b(a.C0092a c0092a, String str) {
-            this.acX = c0092a;
+            this.adc = c0092a;
             this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
@@ -45,7 +45,7 @@ public abstract class a {
         }
 
         public boolean a() {
-            String a2 = this.acX.a(this.c, true);
+            String a2 = this.adc.a(this.c, true);
             if (!TextUtils.isEmpty(a2)) {
                 try {
                     a(new JSONObject(a2));
@@ -64,7 +64,7 @@ public abstract class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     b(jSONObject);
-                    this.acX.c(this.c, jSONObject.toString(), true);
+                    this.adc.c(this.c, jSONObject.toString(), true);
                     a(false);
                     return true;
                 } catch (Exception e) {
@@ -82,19 +82,19 @@ public abstract class a {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1247a;
+        public boolean f1250a;
     }
 
     /* loaded from: classes7.dex */
     public static class e {
-        public h.a acY;
-        public Exception acZ;
+        public h.a ade;
+        public Exception adf;
         public int b;
 
         public e(int i, h.a aVar, Exception exc) {
             this.b = i;
-            this.acY = aVar;
-            this.acZ = exc;
+            this.ade = aVar;
+            this.adf = exc;
         }
 
         public static e a(h.a aVar) {
@@ -126,8 +126,8 @@ public abstract class a {
     }
 
     public final void a(C0090a c0090a) {
-        this.acT = c0090a;
-        this.acU = c0090a.acW.sO().cX(IXAdRequestInfo.CS);
+        this.acY = c0090a;
+        this.acZ = c0090a.adb.sO().cZ(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

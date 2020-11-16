@@ -15,11 +15,11 @@ public class a {
     /* renamed from: a  reason: collision with root package name */
     private final List<e> f4181a = new ArrayList();
     private io.reactivex.disposables.a c = new io.reactivex.disposables.a();
-    private InterfaceC1004a pvq;
+    private InterfaceC1007a pwU;
 
     /* renamed from: com.kascend.chushou.player.ui.h5.redpacket.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1004a {
+    public interface InterfaceC1007a {
         void D();
 
         void a(int i);
@@ -27,9 +27,9 @@ public class a {
 
     public a(Context context) {
         try {
-            this.pvq = (InterfaceC1004a) context;
+            this.pwU = (InterfaceC1007a) context;
         } catch (Exception e) {
-            this.pvq = null;
+            this.pwU = null;
         }
     }
 
@@ -50,7 +50,7 @@ public class a {
         if (!h.isEmpty(str)) {
             for (e eVar : this.f4181a) {
                 if (str.equals(eVar.a())) {
-                    eVar.QJ(2);
+                    eVar.Rm(2);
                     return;
                 }
             }
@@ -65,8 +65,8 @@ public class a {
                 it.remove();
             }
         }
-        if (this.pvq != null) {
-            this.pvq.a(this.f4181a.size());
+        if (this.pwU != null) {
+            this.pwU.a(this.f4181a.size());
         }
     }
 
@@ -92,17 +92,17 @@ public class a {
         RxExecutor.post(this.c, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.redpacket.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.pvq != null) {
-                    a.this.pvq.a(a.this.f4181a.size());
+                if (a.this.pwU != null) {
+                    a.this.pwU.a(a.this.f4181a.size());
                 }
             }
         });
-        if (com.kascend.chushou.d.h.etY().q() && this.f4181a.size() > 0 && this.pvq != null) {
-            this.pvq.D();
+        if (com.kascend.chushou.d.h.etY().q() && this.f4181a.size() > 0 && this.pwU != null) {
+            this.pwU.D();
         }
     }
 
-    public H5Positon QI(int i) {
+    public H5Positon Rl(int i) {
         if (this.f4181a.size() == 0) {
             return null;
         }

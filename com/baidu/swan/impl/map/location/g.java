@@ -3,19 +3,19 @@ package com.baidu.swan.impl.map.location;
 import com.baidu.mapapi.search.core.PoiInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class g {
-    public PoiInfo eet;
-    public boolean eeu;
+    public PoiInfo ecM;
+    public boolean ecN;
     public boolean isSelected;
 
     public g(PoiInfo poiInfo, boolean z, boolean z2) {
         if (poiInfo == null) {
-            this.eet = new PoiInfo();
+            this.ecM = new PoiInfo();
         }
-        this.eet = poiInfo;
+        this.ecM = poiInfo;
         this.isSelected = z;
-        this.eeu = z2;
+        this.ecN = z2;
     }
 
     public g(PoiInfo poiInfo) {

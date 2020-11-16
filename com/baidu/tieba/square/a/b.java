@@ -6,33 +6,33 @@ import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> bky = new LinkedList();
-    private BdTypeRecyclerView mPT;
-    private c mPU;
-    private y mPV;
+    private List<com.baidu.adp.widget.ListView.a> biN = new LinkedList();
     private TbPageContext<?> mPageContext;
+    private BdTypeRecyclerView mQM;
+    private c mQN;
+    private y mQO;
 
     public b(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.mPT = bdTypeRecyclerView;
-        LY();
+        this.mQM = bdTypeRecyclerView;
+        Lp();
     }
 
-    private void LY() {
-        this.mPU = new c(this.mPageContext);
-        this.bky.add(this.mPU);
-        this.mPV = new y(this.mPageContext);
-        this.bky.add(this.mPV);
-        this.mPT.addAdapters(this.bky);
+    private void Lp() {
+        this.mQN = new c(this.mPageContext);
+        this.biN.add(this.mQN);
+        this.mQO = new y(this.mPageContext);
+        this.biN.add(this.mQO);
+        this.mQM.addAdapters(this.biN);
     }
 
     public void notifyDataSetChanged() {
-        this.mPT.getAdapter().notifyDataSetChanged();
+        this.mQM.getAdapter().notifyDataSetChanged();
     }
 
     public void setData(List<q> list) {
-        this.mPT.setData(list);
+        this.mQM.setData(list);
     }
 }

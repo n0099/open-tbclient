@@ -8,7 +8,7 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.io.FileDescriptor;
 import java.util.Map;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public abstract class PlayerProvider {
     public abstract void changeProxyDynamic(String str, boolean z);
 
@@ -49,9 +49,6 @@ public abstract class PlayerProvider {
     public void sendCommand(int i, int i2, long j, String str) {
     }
 
-    public void setClarityInfo(String str) {
-    }
-
     public abstract void setDataSource(Context context, Uri uri);
 
     public abstract void setDataSource(Context context, Uri uri, Map<String, String> map);
@@ -77,9 +74,6 @@ public abstract class PlayerProvider {
 
     public abstract void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener);
 
-    public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
-    }
-
     public abstract void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener);
 
     public abstract void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener);
@@ -90,9 +84,6 @@ public abstract class PlayerProvider {
     }
 
     public void setOption(String str, String str2) {
-    }
-
-    public void setPlayJson(String str) {
     }
 
     public abstract void setScreenOnWhilePlaying(boolean z);
@@ -108,7 +99,4 @@ public abstract class PlayerProvider {
     public abstract void start();
 
     public abstract void stop();
-
-    public void switchMediaSource(int i) {
-    }
 }

@@ -4,53 +4,53 @@ import android.text.TextUtils;
 import com.baidu.swan.pms.c.c.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static f<com.baidu.swan.pms.model.d> a(com.baidu.swan.pms.model.d dVar, com.baidu.swan.pms.a.g gVar) {
-        if (gVar != null && a(dVar, gVar.aqs())) {
-            return new f<>(new e(dVar), dVar, new c(gVar.aqs()));
+        if (gVar != null && a(dVar, gVar.apK())) {
+            return new f<>(new e(dVar), dVar, new c(gVar.apK()));
         }
         return null;
     }
 
     public static f<com.baidu.swan.pms.model.f> a(com.baidu.swan.pms.model.f fVar, com.baidu.swan.pms.a.g gVar) {
-        if (gVar != null && a(fVar, gVar.aqr())) {
-            return new f<>(new e(fVar), fVar, new c(gVar.aqr()));
+        if (gVar != null && a(fVar, gVar.apJ())) {
+            return new f<>(new e(fVar), fVar, new c(gVar.apJ()));
         }
         return null;
     }
 
     public static f<com.baidu.swan.pms.model.b> a(com.baidu.swan.pms.model.b bVar, com.baidu.swan.pms.a.g gVar) {
-        if (gVar != null && a(bVar, gVar.aqt())) {
-            return new f<>(new e(bVar), bVar, new c(gVar.aqt()));
+        if (gVar != null && a(bVar, gVar.apL())) {
+            return new f<>(new e(bVar), bVar, new c(gVar.apL()));
         }
         return null;
     }
 
     public static f<com.baidu.swan.pms.model.h> a(com.baidu.swan.pms.model.h hVar, com.baidu.swan.pms.a.g gVar) {
-        if (gVar != null && a(hVar, gVar.aEr())) {
-            return new f<>(new e(hVar), hVar, new c(gVar.aEr()));
+        if (gVar != null && a(hVar, gVar.aDJ())) {
+            return new f<>(new e(hVar), hVar, new c(gVar.aDJ()));
         }
         return null;
     }
 
     public static f<com.baidu.swan.pms.model.i> a(com.baidu.swan.pms.model.i iVar, com.baidu.swan.pms.a.g gVar) {
-        if (gVar != null && a(iVar, gVar.atJ())) {
-            return new f<>(new e(iVar), iVar, new c(gVar.atJ()));
+        if (gVar != null && a(iVar, gVar.atb())) {
+            return new f<>(new e(iVar), iVar, new c(gVar.atb()));
         }
         return null;
     }
 
-    public static List<f<a.C0558a>> a(List<a.C0558a> list, com.baidu.swan.pms.a.g gVar) {
+    public static List<f<a.C0556a>> a(List<a.C0556a> list, com.baidu.swan.pms.a.g gVar) {
         ArrayList arrayList = new ArrayList();
         if (gVar == null) {
             return arrayList;
         }
         if (list != null && list.size() > 0) {
-            for (a.C0558a c0558a : list) {
-                com.baidu.swan.pms.model.f fVar = c0558a.eiy;
-                if (fVar != null && a(c0558a, gVar.aqn())) {
-                    arrayList.add(new f(new e(fVar), c0558a, new c(gVar.aqn())));
+            for (a.C0556a c0556a : list) {
+                com.baidu.swan.pms.model.f fVar = c0556a.egR;
+                if (fVar != null && a(c0556a, gVar.apF())) {
+                    arrayList.add(new f(new e(fVar), c0556a, new c(gVar.apF())));
                 }
             }
         }
@@ -64,8 +64,8 @@ public class h {
         }
         if (list != null && list.size() > 0) {
             for (com.baidu.swan.pms.model.g gVar2 : list) {
-                if (a(gVar2, gVar.aqo())) {
-                    arrayList.add(new f(new e(gVar2), gVar2, new c(gVar.aqo())));
+                if (a(gVar2, gVar.apG())) {
+                    arrayList.add(new f(new e(gVar2), gVar2, new c(gVar.apG())));
                 }
             }
         }
@@ -79,8 +79,8 @@ public class h {
         if (t instanceof com.baidu.swan.pms.model.e) {
             com.baidu.swan.pms.model.e eVar = (com.baidu.swan.pms.model.e) t;
             return a(cVar, t, eVar.md5, eVar.downloadUrl);
-        } else if (t instanceof a.C0558a) {
-            com.baidu.swan.pms.model.f fVar = ((a.C0558a) t).eiy;
+        } else if (t instanceof a.C0556a) {
+            com.baidu.swan.pms.model.f fVar = ((a.C0556a) t).egR;
             return a(cVar, t, fVar.md5, fVar.downloadUrl);
         } else {
             return false;

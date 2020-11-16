@@ -3,10 +3,10 @@ package android.net.http;
 import android.os.Bundle;
 import java.security.cert.X509Certificate;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class SslCertificate {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     public class DName {
         public DName(String str) {
             throw new RuntimeException("Stub!");

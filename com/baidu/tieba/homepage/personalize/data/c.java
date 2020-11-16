@@ -1,20 +1,20 @@
 package com.baidu.tieba.homepage.personalize.data;
 
-import com.baidu.tieba.card.data.p;
+import com.baidu.tieba.card.data.o;
 import tbclient.Personalized.Resource;
-/* loaded from: classes22.dex */
-public class c extends p {
+/* loaded from: classes21.dex */
+public class c extends o {
     public void a(Resource resource) {
         if (resource != null) {
-            this.icr = resource.res_id.longValue();
+            this.idg = resource.res_id.longValue();
             this.userName = resource.user_name;
-            this.ics = resource.user_image;
-            this.ict = resource.user_link;
-            this.icu = resource.res_title;
-            this.icv = resource.res_image;
-            this.icw = resource.res_link;
-            this.icx = resource.position.longValue();
-            this.icy = resource.icon_text;
+            this.idh = resource.user_image;
+            this.idi = resource.user_link;
+            this.idj = resource.res_title;
+            this.idk = resource.res_image;
+            this.idm = resource.res_link;
+            this.idn = resource.position.longValue();
+            this.ido = resource.icon_text;
         }
     }
 }

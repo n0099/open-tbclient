@@ -12,7 +12,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class c implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */

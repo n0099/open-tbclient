@@ -5,7 +5,7 @@ import com.baidu.adp.base.i;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.browser.WebViewBroadcastReceiver;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.sdk.b.f;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes4.dex */
@@ -24,13 +24,13 @@ public class a implements f {
             sb.append("&page_from=live");
             Activity currentActivity = com.baidu.adp.base.a.lg().currentActivity();
             if (currentActivity != null) {
-                be.brr().a((TbPageContext) i.I(currentActivity), new String[]{sb.toString()}, true);
+                bf.bqF().a((TbPageContext) i.I(currentActivity), new String[]{sb.toString()}, true);
             }
         }
     }
 
     @Override // com.baidu.tieba.sdk.b.f
-    public void NU(String str) {
+    public void Ns(String str) {
         openScheme(str);
     }
 }

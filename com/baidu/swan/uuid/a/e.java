@@ -3,10 +3,9 @@ package com.baidu.swan.uuid.a;
 import android.content.Context;
 import android.os.Build;
 import android.system.Os;
-import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import java.io.File;
 import java.io.FileOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class e implements b<String> {
     private Context mContext;
 
@@ -20,18 +19,18 @@ public class e implements b<String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
     public void put(String str) {
-        zm(str);
+        zh(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: aMx */
+    /* renamed from: aLP */
     public String get() {
-        return beq();
+        return bdJ();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean ben() {
+    public boolean bdG() {
         return !new File(this.mContext.getFilesDir(), "libuuid.so").exists();
     }
 
@@ -40,7 +39,7 @@ public class e implements b<String> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void zm(String str) {
+    private void zh(String str) {
         FileOutputStream fileOutputStream;
         File file = new File(this.mContext.getFilesDir(), "libuuid.so");
         boolean z = Build.VERSION.SDK_INT >= 24;
@@ -74,13 +73,13 @@ public class e implements b<String> {
         }
         if (!z) {
             try {
-                Os.chmod(file.getAbsolutePath(), RTCConst.RTC_ROOM_USERID_ALREADY_EXIST_ERROR);
+                Os.chmod(file.getAbsolutePath(), 436);
             } catch (Exception e3) {
             }
         }
     }
 
-    private String beq() {
+    private String bdJ() {
         File file = new File(this.mContext.getFilesDir(), "libuuid.so");
         if (!file.exists()) {
             return null;

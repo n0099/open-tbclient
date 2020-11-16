@@ -4,26 +4,26 @@ import android.graphics.Bitmap;
 import com.facebook.common.internal.g;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private final b oSK;
-    private final int oSL;
+    private final b oUn;
+    private final int oUo;
     @Nullable
-    private com.facebook.common.references.a<Bitmap> oSM;
+    private com.facebook.common.references.a<Bitmap> oUp;
     @Nullable
-    private List<com.facebook.common.references.a<Bitmap>> oSN;
+    private List<com.facebook.common.references.a<Bitmap>> oUq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(e eVar) {
-        this.oSK = (b) g.checkNotNull(eVar.ene());
-        this.oSL = eVar.eng();
-        this.oSM = eVar.enf();
-        this.oSN = eVar.enh();
+        this.oUn = (b) g.checkNotNull(eVar.enb());
+        this.oUo = eVar.ene();
+        this.oUp = eVar.enc();
+        this.oUq = eVar.enf();
     }
 
     private d(b bVar) {
-        this.oSK = (b) g.checkNotNull(bVar);
-        this.oSL = 0;
+        this.oUn = (b) g.checkNotNull(bVar);
+        this.oUo = 0;
     }
 
     public static d a(b bVar) {
@@ -34,14 +34,14 @@ public class d {
         return new e(bVar);
     }
 
-    public b ene() {
-        return this.oSK;
+    public b enb() {
+        return this.oUn;
     }
 
     public synchronized void dispose() {
-        com.facebook.common.references.a.c(this.oSM);
-        this.oSM = null;
-        com.facebook.common.references.a.b(this.oSN);
-        this.oSN = null;
+        com.facebook.common.references.a.c(this.oUp);
+        this.oUp = null;
+        com.facebook.common.references.a.b(this.oUq);
+        this.oUq = null;
     }
 }

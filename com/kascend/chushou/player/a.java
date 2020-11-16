@@ -10,7 +10,7 @@ import java.util.List;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class a {
-    private C0990a piJ = new C0990a();
+    private C0993a pkn = new C0993a();
 
     /* renamed from: a  reason: collision with root package name */
     private LinkedList<ChatInfo> f4108a = new LinkedList<>();
@@ -40,7 +40,7 @@ public class a {
             synchronized (this.f4108a) {
                 c(arrayList);
                 this.f4108a.addAll(arrayList);
-                Collections.sort(this.f4108a, this.piJ);
+                Collections.sort(this.f4108a, this.pkn);
             }
         }
     }
@@ -150,8 +150,8 @@ public class a {
 
     /* renamed from: com.kascend.chushou.player.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C0990a implements Comparator<ChatInfo> {
-        private C0990a() {
+    private class C0993a implements Comparator<ChatInfo> {
+        private C0993a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

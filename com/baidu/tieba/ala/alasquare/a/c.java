@@ -1,35 +1,36 @@
 package com.baidu.tieba.ala.alasquare.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
-public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId ghN = BdUniqueId.gen();
+public class c extends BaseCardInfo {
+    public static final BdUniqueId ghu = BdUniqueId.gen();
     public String entryName;
-    public bw ghO;
-    public boolean ghP;
-    public boolean ghQ;
+    public bx ghv;
+    public boolean ghw;
+    public boolean ghx;
     public String labelName;
     public int tabId;
     public boolean isLeft = false;
     public boolean isRight = false;
-    public boolean ghM = false;
+    public boolean ght = false;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return ghN;
+        return ghu;
     }
 
     @Deprecated
     public void a(ThreadInfo threadInfo) {
-        if (this.ghO == null) {
-            this.ghO = new bw();
+        if (this.ghv == null) {
+            this.ghv = new bx();
         }
-        this.ghO.a(threadInfo);
+        this.ghv.a(threadInfo);
     }
 
-    public bw bjZ() {
-        return this.ghO;
+    public bx bjd() {
+        return this.ghv;
     }
 }

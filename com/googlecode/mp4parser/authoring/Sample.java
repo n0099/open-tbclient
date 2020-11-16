@@ -3,7 +3,7 @@ package com.googlecode.mp4parser.authoring;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface Sample {
     ByteBuffer asByteBuffer();
 

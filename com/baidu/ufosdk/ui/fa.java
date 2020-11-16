@@ -9,7 +9,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import com.baidu.ufosdk.R;
 import org.json.JSONArray;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class fa extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */

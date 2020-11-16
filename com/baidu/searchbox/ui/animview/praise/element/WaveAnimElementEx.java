@@ -6,7 +6,7 @@ import com.airbnb.lottie.g;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public class WaveAnimElementEx extends WaveAnimElement {
     private static final boolean DEBUG = false;
 

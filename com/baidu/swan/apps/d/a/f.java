@@ -5,16 +5,16 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class f {
     private static final String TAG;
-    private static com.baidu.swan.apps.a.a cwH;
-    private static com.baidu.swan.apps.a.c cwI;
-    private static boolean cwJ;
-    public static final f cwK = new f();
+    private static com.baidu.swan.apps.a.a cuX;
+    private static com.baidu.swan.apps.a.c cuY;
+    private static boolean cuZ;
+    public static final f cva = new f();
 
     static {
-        String simpleName = cwK.getClass().getSimpleName();
+        String simpleName = cva.getClass().getSimpleName();
         q.m(simpleName, "SwanAppAllianceLoginHelper.javaClass.simpleName");
         TAG = simpleName;
     }
@@ -22,46 +22,46 @@ public final class f {
     private f() {
     }
 
-    public final com.baidu.swan.apps.a.a ajl() {
-        return cwH;
+    public final com.baidu.swan.apps.a.a aiD() {
+        return cuX;
     }
 
-    public final com.baidu.swan.apps.a.c ajm() {
-        return cwI;
+    public final com.baidu.swan.apps.a.c aiE() {
+        return cuY;
     }
 
-    public final boolean ajn() {
-        return cwJ;
+    public final boolean aiF() {
+        return cuZ;
     }
 
-    public final void er(boolean z) {
-        cwJ = z;
+    public final void eu(boolean z) {
+        cuZ = z;
     }
 
-    public final void ajo() {
-        d.cwF.ajh();
-        h.cwN.ajs();
-        ei(false);
+    public final void aiG() {
+        d.cuV.aiz();
+        h.cvd.aiK();
+        el(false);
     }
 
-    public final boolean ajp() {
-        if (g.ajr() == null) {
-            ajq();
+    public final boolean aiH() {
+        if (g.aiJ() == null) {
+            aiI();
         }
-        Boolean ajr = g.ajr();
-        if (ajr == null) {
-            q.eBP();
+        Boolean aiJ = g.aiJ();
+        if (aiJ == null) {
+            q.eBQ();
         }
-        return ajr.booleanValue();
+        return aiJ.booleanValue();
     }
 
-    public final void ei(boolean z) {
+    public final void el(boolean z) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("status", z);
         DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, bundle);
     }
 
-    private final void ajq() {
+    private final void aiI() {
         boolean z;
         try {
             Class.forName("com.baidu.sapi2.SapiAccountManager");

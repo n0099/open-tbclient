@@ -13,11 +13,11 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile g f1410a;
+    private static volatile g f1413a;
     private c b;
     private String c;
     private int d;
@@ -66,20 +66,20 @@ public class g {
         }
     };
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public static class a extends c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        RemotePlayerService f1413a;
+        RemotePlayerService f1416a;
 
         public a(RemotePlayerService remotePlayerService) {
-            this.f1413a = remotePlayerService;
+            this.f1416a = remotePlayerService;
         }
 
         @Override // com.baidu.cyberplayer.sdk.remote.c
         public IBinder a() {
             if (CyberPlayerManager.isCoreLoaded(1)) {
-                return new com.baidu.cyberplayer.sdk.extractor.c(this.f1413a);
+                return new com.baidu.cyberplayer.sdk.extractor.c(this.f1416a);
             }
             CyberLog.w("RemotePlayer", "RemoteExtractor has not load kernel, create failed!");
             return null;
@@ -88,7 +88,7 @@ public class g {
         @Override // com.baidu.cyberplayer.sdk.remote.c
         public IBinder a(int i) {
             if (CyberPlayerManager.isCoreLoaded(1)) {
-                return new f(i, this.f1413a);
+                return new f(i, this.f1416a);
             }
             CyberLog.w("RemotePlayer", "RemotePlayer has not load kernel, create failed!");
             return null;
@@ -111,7 +111,7 @@ public class g {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public interface b {
         void a();
     }
@@ -120,10 +120,10 @@ public class g {
     }
 
     public static g a() {
-        if (f1410a == null) {
-            f1410a = new g();
+        if (f1413a == null) {
+            f1413a = new g();
         }
-        return f1410a;
+        return f1413a;
     }
 
     public int a(String str) {

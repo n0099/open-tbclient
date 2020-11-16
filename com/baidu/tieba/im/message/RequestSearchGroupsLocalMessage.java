@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import protobuf.SearchGroup.DataReq;
 import protobuf.SearchGroup.SearchGroupReqIdl;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class RequestSearchGroupsLocalMessage extends CustomMessage<Object> {
     private long groupId;
 

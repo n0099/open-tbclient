@@ -7,22 +7,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
-public class t extends b<AbsThreadDataSupport> {
-    private AbsThreadDataSupport afI;
-    private ThreadLinkView ago;
-    private TextView agp;
+/* loaded from: classes20.dex */
+public class t extends b<com.baidu.tbadk.core.data.a> {
+    private com.baidu.tbadk.core.data.a afN;
+    private ThreadLinkView agt;
+    private TextView agu;
     private View mRootView;
 
     public t(Context context) {
         super(context);
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
-        this.ago = (ThreadLinkView) this.mRootView.findViewById(R.id.link_thread_root);
-        this.agp = (TextView) this.mRootView.findViewById(R.id.link_seg_title);
+        this.agt = (ThreadLinkView) this.mRootView.findViewById(R.id.link_thread_root);
+        this.agu = (TextView) this.mRootView.findViewById(R.id.link_seg_title);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,28 +33,28 @@ public class t extends b<AbsThreadDataSupport> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport == null || absThreadDataSupport.bjZ() == null) {
+    public void H(com.baidu.tbadk.core.data.a aVar) {
+        if (aVar == null || aVar.bjd() == null) {
             getView().setVisibility(8);
             return;
         }
-        this.afI = absThreadDataSupport;
-        bw bjZ = absThreadDataSupport.bjZ();
-        com.baidu.tieba.card.n.a(bjZ, this.agp);
-        this.ago.setData(bjZ);
+        this.afN = aVar;
+        bx bjd = aVar.bjd();
+        com.baidu.tieba.card.n.a(bjd, this.agu);
+        this.agt.setData(bjd);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.ago.onChangeSkinType();
-        if (this.afI != null && this.afI.bjZ() != null) {
-            com.baidu.tieba.card.n.a(this.agp, this.afI.bjZ().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+        this.agt.onChangeSkinType();
+        if (this.afN != null && this.afN.bjd() != null) {
+            com.baidu.tieba.card.n.a(this.agu, this.afN.bjd().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
     @Override // com.baidu.card.b
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         super.setPageUniqueId(bdUniqueId);
-        this.ago.setTag(bdUniqueId);
+        this.agt.setTag(bdUniqueId);
     }
 }

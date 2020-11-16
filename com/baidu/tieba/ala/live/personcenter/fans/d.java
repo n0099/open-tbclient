@@ -4,38 +4,38 @@ import com.baidu.live.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    private int eBT = 0;
+    private int eAk = 0;
     private int total_num = 0;
     private int current_page = 0;
-    private int eBV = 0;
+    private int eAm = 0;
     private int has_more = 0;
-    private int eBW = 0;
+    private int eAn = 0;
     private int total_count = 0;
-    private int eBU = 0;
+    private int eAl = 0;
 
-    public int blm() {
+    public int bko() {
         return this.total_count;
     }
 
-    public int blo() {
+    public int bkq() {
         return this.current_page;
     }
 
-    public int blq() {
+    public int bks() {
         return this.has_more;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.eBT = jSONObject.optInt("total_page", 0);
+                this.eAk = jSONObject.optInt("total_page", 0);
                 this.total_num = jSONObject.optInt("total_num", 0);
                 this.total_count = jSONObject.optInt("total_count", 0);
                 this.current_page = jSONObject.optInt("current_page", 0);
-                this.eBV = jSONObject.optInt("page_size", 0);
+                this.eAm = jSONObject.optInt("page_size", 0);
                 this.has_more = jSONObject.optInt("has_more", 0);
-                this.eBW = jSONObject.optInt("has_prev", 0);
-                this.eBU = jSONObject.optInt("lz_total_floor", 0);
+                this.eAn = jSONObject.optInt("has_prev", 0);
+                this.eAl = jSONObject.optInt("lz_total_floor", 0);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

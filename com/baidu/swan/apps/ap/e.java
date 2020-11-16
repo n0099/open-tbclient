@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.Window;
 import android.widget.Toast;
 import com.baidu.swan.apps.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -51,7 +51,7 @@ public final class e {
         return startActivitySafely(context, intent, false);
     }
 
-    public static void N(Activity activity) {
+    public static void M(Activity activity) {
         if (DEBUG) {
             Log.i("ActivityUtils", "tryFinishAndRemoveTask: " + activity);
         }
@@ -70,19 +70,19 @@ public final class e {
         }
     }
 
-    public static void O(Activity activity) {
+    public static void N(Activity activity) {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.setFlags(1024, 1024);
-            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | aMm());
+            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | aLE());
         }
     }
 
-    public static void P(Activity activity) {
+    public static void O(Activity activity) {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.clearFlags(1024);
-            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (aMm() ^ (-1));
+            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (aLE() ^ (-1));
             if (com.baidu.swan.apps.res.widget.a.SUPPORT_IMMERSION) {
                 systemUiVisibility |= 5120;
             }
@@ -90,7 +90,7 @@ public final class e {
         }
     }
 
-    public static int aMm() {
+    public static int aLE() {
         return 5894;
     }
 }

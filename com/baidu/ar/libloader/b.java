@@ -3,7 +3,7 @@ package com.baidu.ar.libloader;
 import android.content.Context;
 import com.baidu.ar.ARType;
 import com.baidu.ar.libloader.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class b {
     private static volatile a ss;
     private static Object sLock = new Object();

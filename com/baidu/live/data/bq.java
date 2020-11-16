@@ -4,10 +4,10 @@ import com.coremedia.iso.boxes.TrackReferenceTypeBox;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class bq {
-    public int aQd;
-    public int aQe;
-    public int aQf;
-    public int aQg;
+    public int aOs;
+    public int aOt;
+    public int aOu;
+    public int aOv;
     public int app_size;
     public String app_version;
     public String appendix_link;
@@ -21,16 +21,16 @@ public class bq {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aQd = jSONObject.optInt("popup_id");
-            this.aQe = jSONObject.optInt("popup_times");
-            this.aQf = jSONObject.optInt("popup_type");
+            this.aOs = jSONObject.optInt("popup_id");
+            this.aOt = jSONObject.optInt("popup_times");
+            this.aOu = jSONObject.optInt("popup_type");
             this.hint = jSONObject.optString(TrackReferenceTypeBox.TYPE1);
             this.app_version = jSONObject.optString("app_version");
             this.app_size = jSONObject.optInt("app_size");
             this.changelogs = jSONObject.optString("changelogs");
             this.appendix_text = jSONObject.optString("appendix_text");
             this.appendix_link = jSONObject.optString("appendix_link");
-            this.aQg = jSONObject.optInt("appendix_optional");
+            this.aOv = jSONObject.optInt("appendix_optional");
             this.y_btn_text = jSONObject.optString("y_btn_text");
             this.y_btn_link = jSONObject.optString("y_btn_link");
             this.n_btn_text = jSONObject.optString("n_btn_text");

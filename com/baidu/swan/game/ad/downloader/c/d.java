@@ -2,7 +2,7 @@ package com.baidu.swan.game.ad.downloader.c;
 
 import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public interface d {
     void b(DownloadException downloadException);
 

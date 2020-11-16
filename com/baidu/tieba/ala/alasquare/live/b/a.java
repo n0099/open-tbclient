@@ -8,19 +8,19 @@ import tbclient.ThreadInfo;
 public class a {
     public String bitmap_wh_ratio;
     public String entry_name;
-    public int gil;
-    public int gim;
-    public List<String> gin;
+    public int ghR;
+    public int ghS;
+    public List<String> ghT;
     public String label_name;
     public List<ThreadInfo> live;
 
     public a(HotLiveWithCategory hotLiveWithCategory) {
-        this.gil = hotLiveWithCategory.tab_id.intValue();
+        this.ghR = hotLiveWithCategory.tab_id.intValue();
         this.entry_name = hotLiveWithCategory.entry_name;
         this.label_name = hotLiveWithCategory.label_name;
         this.bitmap_wh_ratio = hotLiveWithCategory.bitmap_wh_ratio;
         this.live = new ArrayList(hotLiveWithCategory.live);
-        this.gim = hotLiveWithCategory.live_tab_type.intValue();
-        this.gin = hotLiveWithCategory.sub_type_list;
+        this.ghS = hotLiveWithCategory.live_tab_type.intValue();
+        this.ghT = hotLiveWithCategory.sub_type_list;
     }
 }

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewTreeObserver;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
@@ -12,7 +12,7 @@ public class i {
     int b;
     private b c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     class a implements ViewTreeObserver.OnGlobalLayoutListener {
         a() {
         }
@@ -43,7 +43,7 @@ public class i {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface b {
         void keyBoardHide(int i);
 

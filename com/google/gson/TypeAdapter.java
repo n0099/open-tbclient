@@ -8,7 +8,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public abstract class TypeAdapter<T> {
     public abstract T read(a aVar) throws IOException;
 

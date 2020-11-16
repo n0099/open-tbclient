@@ -3,7 +3,7 @@ package com.vivo.push;
 import com.vivo.push.cache.ISubscribeAppAliasManager;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

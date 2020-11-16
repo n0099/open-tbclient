@@ -1,7 +1,7 @@
 package com.baidu.ufosdk.b;
 
 import java.io.IOException;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

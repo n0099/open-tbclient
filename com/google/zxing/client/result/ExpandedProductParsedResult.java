@@ -1,7 +1,7 @@
 package com.google.zxing.client.result;
 
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public final class ExpandedProductParsedResult extends ParsedResult {
     public static final String KILOGRAM = "KG";
     public static final String POUND = "LB";

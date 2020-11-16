@@ -11,7 +11,7 @@ public interface b {
 
     void a(a aVar);
 
-    void aB(String str, String str2);
+    void aA(String str, String str2);
 
     void release();
 }

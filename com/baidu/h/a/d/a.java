@@ -2,21 +2,21 @@ package com.baidu.h.a.d;
 
 import android.app.Activity;
 import android.view.View;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public interface a {
 
     /* renamed from: com.baidu.h.a.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public interface InterfaceC0137a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0135a {
         void b(int i, View view);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void R(int i, int i2);
     }
 
-    void a(Activity activity, InterfaceC0137a interfaceC0137a);
+    void a(Activity activity, InterfaceC0135a interfaceC0135a);
 
-    void e(View view, int i);
+    void g(View view, int i);
 }

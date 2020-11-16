@@ -10,8 +10,8 @@ import com.baidu.live.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.ala.live.personcenter.forbidden.c.a;
 /* loaded from: classes4.dex */
 public class AlaForbiddenListActivity extends BaseFragmentActivity {
-    private NoNetworkView gPz;
-    private a gQT;
+    private NoNetworkView gPg;
+    private a gQA;
     private NavigationBar mNavigationBar;
     private View rootView;
 
@@ -23,9 +23,9 @@ public class AlaForbiddenListActivity extends BaseFragmentActivity {
             setContentView(a.g.sdk_prc_person_forbiddenlist_layout);
             this.rootView = findViewById(a.f.ala_person_forbiddenlist_rootview);
             this.mNavigationBar = (NavigationBar) findViewById(a.f.ala_person_forbiddenlist_navigation_bar);
-            this.gPz = (NoNetworkView) findViewById(a.f.ala_person_forbiddenlist_no_network_view);
-            this.gQT = new com.baidu.tieba.ala.live.personcenter.forbidden.c.a(getPageContext(), this.rootView);
-            this.gQT.onCreate(bundle);
+            this.gPg = (NoNetworkView) findViewById(a.f.ala_person_forbiddenlist_no_network_view);
+            this.gQA = new com.baidu.tieba.ala.live.personcenter.forbidden.c.a(getPageContext(), this.rootView);
+            this.gQA.onCreate(bundle);
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setCenterTextTitle(getString(a.h.sdk_prc_person_forbiddenlist_title));
         }
@@ -35,8 +35,8 @@ public class AlaForbiddenListActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.gQT != null) {
-            this.gQT.onPause();
+        if (this.gQA != null) {
+            this.gQA.onPause();
         }
     }
 
@@ -44,8 +44,8 @@ public class AlaForbiddenListActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.gQT != null) {
-            this.gQT.onStop();
+        if (this.gQA != null) {
+            this.gQA.onStop();
         }
     }
 
@@ -53,8 +53,8 @@ public class AlaForbiddenListActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.gQT != null) {
-            this.gQT.onResume();
+        if (this.gQA != null) {
+            this.gQA.onResume();
         }
     }
 
@@ -62,8 +62,8 @@ public class AlaForbiddenListActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (this.gQT != null) {
-            this.gQT.onStart();
+        if (this.gQA != null) {
+            this.gQA.onStart();
         }
     }
 
@@ -71,8 +71,8 @@ public class AlaForbiddenListActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gQT != null) {
-            this.gQT.onDestroy();
+        if (this.gQA != null) {
+            this.gQA.onDestroy();
         }
     }
 
@@ -84,11 +84,11 @@ public class AlaForbiddenListActivity extends BaseFragmentActivity {
         }
         SkinManager.setBackgroundResource(this.mNavigationBar, a.c.sdk_cp_bg_line_d);
         SkinManager.setBackgroundResource(this.rootView, a.c.sdk_cp_bg_line_d);
-        if (this.gPz != null) {
-            this.gPz.onChangeSkinType(getPageContext(), i);
+        if (this.gPg != null) {
+            this.gPg.onChangeSkinType(getPageContext(), i);
         }
-        if (this.gQT != null) {
-            this.gQT.onChangeSkinType(i);
+        if (this.gQA != null) {
+            this.gQA.onChangeSkinType(i);
         }
     }
 }

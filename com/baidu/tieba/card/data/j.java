@@ -1,41 +1,42 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes21.dex */
-public class j extends a {
-    public static final BdUniqueId ibd = BdUniqueId.gen();
-    private String hXx;
-    private List<com.baidu.tieba.horizonalList.widget.c> mList = new ArrayList();
-    private String stType;
+import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.util.ar;
+/* loaded from: classes20.dex */
+public class j extends k {
+    public static final BdUniqueId TYPE = BdUniqueId.gen();
+    public static final BdUniqueId ibW = BdUniqueId.gen();
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return ibd;
+        return (this.evQ == null || this.evQ.getThreadType() != 67) ? TYPE : ibW;
     }
 
-    public void b(com.baidu.tieba.horizonalList.widget.c cVar) {
-        this.mList.add(cVar);
+    public j(bx bxVar) {
+        this.evQ = bxVar;
     }
 
-    public List<com.baidu.tieba.horizonalList.widget.c> getDataList() {
-        return this.mList;
+    public static boolean ad(bx bxVar) {
+        if (bxVar == null) {
+            return false;
+        }
+        if (bxVar.getThreadType() == 49) {
+            return true;
+        }
+        return bxVar.getThreadType() == 67 && bxVar.blW() != null && bxVar.blW().friendRoomStatus == 2;
     }
 
-    public String getStType() {
-        return this.stType;
+    public ar IG(String str) {
+        ar IF = IF(str);
+        IF.delete("obj_type");
+        IF.delete("obj_type");
+        IF.ak("obj_type", 3);
+        return IF;
     }
 
-    public void setStType(String str) {
-        this.stType = str;
-    }
-
-    public String coM() {
-        return this.hXx;
-    }
-
-    public void setYuelaouLocate(String str) {
-        this.hXx = str;
+    @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.b, com.baidu.tbadk.core.data.a
+    public bx bjd() {
+        return this.evQ;
     }
 }

@@ -17,15 +17,15 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i extends aa {
-    private final int dIr;
-    private final String dIs;
+    private final int dGJ;
+    private final String dGK;
 
     public i(j jVar) {
         super(jVar, "/swanAPI/thirdPartyLogin");
-        this.dIr = 10008;
-        this.dIs = "app not installed";
+        this.dGJ = 10008;
+        this.dGK = "app not installed";
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -45,17 +45,17 @@ public class i extends aa {
             return false;
         }
         final String optString2 = optParamsAsJo.optString("type", "");
-        int uU = uU(optString2);
+        int uP = uP(optString2);
         final b.a aVar = new b.a(optParamsAsJo);
         final Bundle bundle = new Bundle();
-        bundle.putInt("key_login_mode", uU);
-        eVar.aHG().b(context, "mapp_i_login", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.i.1
+        bundle.putInt("key_login_mode", uP);
+        eVar.aGY().b(context, "mapp_i_login", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
             public void M(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                    if (i.this.al(context, optString2)) {
+                    if (i.this.ai(context, optString2)) {
                         i.this.a(eVar, (Activity) context, aVar, callbackHandler, optString, bundle);
                         return;
                     } else {
@@ -72,16 +72,16 @@ public class i extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.runtime.e eVar, Activity activity, final b.a aVar, final CallbackHandler callbackHandler, final String str, Bundle bundle) {
-        eVar.aHG().a(activity, aVar, bundle, new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<f.c>>() { // from class: com.baidu.swan.bdprivate.extensions.a.i.2
+        eVar.aGY().a(activity, aVar, bundle, new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<f.c>>() { // from class: com.baidu.swan.bdprivate.extensions.a.i.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
             public void M(com.baidu.swan.apps.setting.oauth.h<f.c> hVar) {
                 if (!hVar.isOk()) {
                     com.baidu.swan.apps.console.c.w("ThirdPartyLoginAction", hVar.getErrorCode() + " " + aVar.toString());
-                    String hD = com.baidu.swan.apps.setting.oauth.c.hD(hVar.getErrorCode());
-                    if (!TextUtils.isEmpty(hD)) {
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode(), hD).toString());
+                    String hz = com.baidu.swan.apps.setting.oauth.c.hz(hVar.getErrorCode());
+                    if (!TextUtils.isEmpty(hz)) {
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode(), hz).toString());
                     } else {
                         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode()).toString());
                     }
@@ -103,7 +103,7 @@ public class i extends aa {
         });
     }
 
-    private int uU(String str) {
+    private int uP(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -791575966:
@@ -154,7 +154,7 @@ public class i extends aa {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean al(Context context, String str) {
+    public boolean ai(Context context, String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -791575966:

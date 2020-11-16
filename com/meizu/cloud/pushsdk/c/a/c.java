@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.c.a;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class c implements a {
 
     /* renamed from: a  reason: collision with root package name */

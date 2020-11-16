@@ -2,7 +2,7 @@ package com.baidu.searchbox.player.event;
 
 import android.support.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public class ControlEvent extends VideoEvent {
     public static final String ACTION_CONTINUE_PLAY = "control_event_continue_play";
     public static final String ACTION_CONTINUE_TIPS_SHOW = "control_event_continue_tips_show";

@@ -5,7 +5,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class ObservableWithLatestFrom<T, U, R> extends io.reactivex.internal.operators.observable.a<T, R> {
     final c<? super T, ? super U, ? extends R> combiner;
     final t<? extends U> other;
@@ -19,7 +19,7 @@ public final class ObservableWithLatestFrom<T, U, R> extends io.reactivex.intern
         this.source.subscribe(withLatestFromObserver);
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class WithLatestFromObserver<T, U, R> extends AtomicReference<U> implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -312246233408980075L;
         final u<? super R> actual;
@@ -84,27 +84,27 @@ public final class ObservableWithLatestFrom<T, U, R> extends io.reactivex.intern
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     final class a implements u<U> {
-        private final WithLatestFromObserver<T, U, R> pOJ;
+        private final WithLatestFromObserver<T, U, R> pQm;
 
         a(WithLatestFromObserver<T, U, R> withLatestFromObserver) {
-            this.pOJ = withLatestFromObserver;
+            this.pQm = withLatestFromObserver;
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.pOJ.setOther(bVar);
+            this.pQm.setOther(bVar);
         }
 
         @Override // io.reactivex.u
         public void onNext(U u) {
-            this.pOJ.lazySet(u);
+            this.pQm.lazySet(u);
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
-            this.pOJ.otherError(th);
+            this.pQm.otherError(th);
         }
 
         @Override // io.reactivex.u

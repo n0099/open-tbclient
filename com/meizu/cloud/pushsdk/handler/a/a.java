@@ -13,7 +13,7 @@ import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
 
     /* renamed from: a  reason: collision with root package name */

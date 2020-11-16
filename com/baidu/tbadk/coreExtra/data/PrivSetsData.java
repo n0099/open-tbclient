@@ -7,7 +7,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PrivSets;
 /* loaded from: classes.dex */
-public class PrivSetsData extends com.baidu.tbadk.core.data.m implements Serializable {
+public class PrivSetsData extends com.baidu.tbadk.core.data.n implements Serializable {
     private int bazhuShowInside;
     private int bazhuShowOutside;
     private int friend;
@@ -18,7 +18,7 @@ public class PrivSetsData extends com.baidu.tbadk.core.data.m implements Seriali
     private int post;
     private int reply;
 
-    @Override // com.baidu.tbadk.core.data.m
+    @Override // com.baidu.tbadk.core.data.n
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {

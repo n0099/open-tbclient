@@ -9,7 +9,7 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.adaptation.a.p;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class c implements p {
     @Override // com.baidu.swan.apps.adaptation.a.p
     public void a(Activity activity, Bundle bundle, final com.baidu.swan.apps.media.chooser.c.d dVar) {

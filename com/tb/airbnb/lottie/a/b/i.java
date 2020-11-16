@@ -4,12 +4,12 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class i extends f<PointF> {
     private final PointF DW;
     private final float[] DX;
     private PathMeasure DZ;
-    private h pIQ;
+    private h pKt;
 
     public i(List<? extends com.tb.airbnb.lottie.e.a<PointF>> list) {
         super(list);
@@ -30,10 +30,10 @@ public class i extends f<PointF> {
         if (iW == null) {
             return aVar.Hn;
         }
-        if (this.pIN == null || (pointF = (PointF) this.pIN.b(hVar.Bo, hVar.Hq.floatValue(), hVar.Hn, hVar.Ho, jj(), f, getProgress())) == null) {
-            if (this.pIQ != hVar) {
+        if (this.pKq == null || (pointF = (PointF) this.pKq.b(hVar.Bo, hVar.Hq.floatValue(), hVar.Hn, hVar.Ho, jj(), f, getProgress())) == null) {
+            if (this.pKt != hVar) {
                 this.DZ = new PathMeasure(iW, false);
-                this.pIQ = hVar;
+                this.pKt = hVar;
             }
             this.DZ.getPosTan(this.DZ.getLength() * f, this.DX, null);
             this.DW.set(this.DX[0], this.DX[1]);

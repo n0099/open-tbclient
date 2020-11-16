@@ -9,7 +9,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.recapp.activity.AdDebugActivity;
 import com.baidu.tieba.recapp.activity.AdDebugActivityConfig;
@@ -17,17 +17,17 @@ import com.baidu.tieba.recapp.activity.WebVideoActivity;
 import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
 import com.baidu.tieba.recapp.activity.newstyle.NewWebVideoActivity;
 import com.baidu.tieba.recapp.activity.newstyle.NewWebVideoActivityConfig;
-import com.baidu.tieba.recapp.g;
+import com.baidu.tieba.recapp.h;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class RecAppStatic {
     static {
-        r.mtc.set(new t());
+        q.mts.set(new s());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        com.baidu.tieba.ad.a.bJk().a(new g.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
-            @Override // com.baidu.tieba.recapp.g.a
+        com.baidu.tieba.ad.a.bIE().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
+            @Override // com.baidu.tieba.recapp.h.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
                     return 3;
@@ -75,9 +75,9 @@ public class RecAppStatic {
                 return 3;
             }
         });
-        com.baidu.tieba.InjectPlugin.a.e.bHI().a(1, new e());
-        com.baidu.tieba.InjectPlugin.a.e.bHI().a(2, new c());
-        bw.eEm.set(true);
+        com.baidu.tieba.InjectPlugin.a.e.bHb().a(1, new e());
+        com.baidu.tieba.InjectPlugin.a.e.bHb().a(2, new c());
+        bx.eCE.set(true);
         final TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(WebVideoActivityConfig.class, WebVideoActivity.class);
         inst.RegisterIntent(NewWebVideoActivityConfig.class, NewWebVideoActivity.class);
@@ -91,13 +91,10 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        a.dzZ().dAc();
-        a.dzZ().dAa();
-        com.baidu.g.a.a.init(TbadkCoreApplication.getInst());
-        com.baidu.g.a.a.a(new p());
-        com.baidu.g.a.a.a(new q());
+        a.dzz().dzC();
+        a.dzz().dzA();
         if (BdLog.isDebugMode()) {
         }
-        com.baidu.tieba.ad.download.b.a.che.set(new com.baidu.tieba.recapp.download.b());
+        com.baidu.tieba.ad.download.b.a.cft.set(new com.baidu.tieba.recapp.download.b());
     }
 }

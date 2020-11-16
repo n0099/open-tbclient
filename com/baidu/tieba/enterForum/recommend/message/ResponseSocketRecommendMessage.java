@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.enterForum.recommend.b.a;
 import com.squareup.wire.Wire;
 import tbclient.Recommforum.RecommforumResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class ResponseSocketRecommendMessage extends SocketResponsedMessage {
     private a mRecommendData;
 

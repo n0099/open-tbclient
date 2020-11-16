@@ -4,10 +4,10 @@ import android.os.Handler;
 import android.os.Looper;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class a {
     private static Executor b = Executors.newSingleThreadExecutor();
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f973a = new Handler(Looper.getMainLooper());
+    public Handler f976a = new Handler(Looper.getMainLooper());
 }

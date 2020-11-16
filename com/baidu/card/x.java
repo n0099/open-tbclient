@@ -4,18 +4,17 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.card.view.MutiImgSingleHorizontalLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-/* loaded from: classes21.dex */
-public class x extends b<AbsThreadDataSupport> {
-    private AbsThreadDataSupport afI;
-    private MutiImgSingleHorizontalLayout agH;
+/* loaded from: classes20.dex */
+public class x extends b<com.baidu.tbadk.core.data.a> {
+    private com.baidu.tbadk.core.data.a afN;
+    private MutiImgSingleHorizontalLayout agJ;
     private String mFrom;
     private int mSkinType;
 
     public x(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.agH = new MutiImgSingleHorizontalLayout(context);
+        this.agJ = new MutiImgSingleHorizontalLayout(context);
     }
 
     public void setFrom(String str) {
@@ -25,20 +24,20 @@ public class x extends b<AbsThreadDataSupport> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.agH;
+        return this.agJ;
     }
 
     @Override // com.baidu.card.b
-    public void setOnCardSubClickListener(com.baidu.tieba.card.ab<AbsThreadDataSupport> abVar) {
-        this.agH.setSubClickListener(abVar);
+    public void setOnCardSubClickListener(com.baidu.tieba.card.ab<com.baidu.tbadk.core.data.a> abVar) {
+        this.agJ.setSubClickListener(abVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void H(AbsThreadDataSupport absThreadDataSupport) {
-        this.afI = absThreadDataSupport;
-        this.agH.H(absThreadDataSupport);
+    public void H(com.baidu.tbadk.core.data.a aVar) {
+        this.afN = aVar;
+        this.agJ.H(aVar);
     }
 
     @Override // com.baidu.card.q
@@ -54,6 +53,6 @@ public class x extends b<AbsThreadDataSupport> {
     }
 
     public void setFromCDN(boolean z) {
-        this.agH.setFromCDN(z);
+        this.agJ.setFromCDN(z);
     }
 }

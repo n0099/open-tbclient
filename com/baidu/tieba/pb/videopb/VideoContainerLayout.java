@@ -6,26 +6,26 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class VideoContainerLayout extends FrameLayout {
-    private int iJE;
-    private int lLM;
+    private int iKr;
+    private int lMe;
     private int mMaxHeight;
     private int mMinHeight;
 
     public VideoContainerLayout(Context context) {
         super(context);
-        this.lLM = l.getEquipmentWidth(context) / 10;
+        this.lMe = l.getEquipmentWidth(context) / 10;
     }
 
     public VideoContainerLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.lLM = l.getEquipmentWidth(context) / 10;
+        this.lMe = l.getEquipmentWidth(context) / 10;
     }
 
     public VideoContainerLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.lLM = l.getEquipmentWidth(context) / 10;
+        this.lMe = l.getEquipmentWidth(context) / 10;
     }
 
     public void setMinHeight(int i) {
@@ -45,16 +45,16 @@ public class VideoContainerLayout extends FrameLayout {
     }
 
     public void setOriginHeight(int i) {
-        this.iJE = i;
+        this.iKr = i;
     }
 
     public int getOriginHeight() {
-        return this.iJE;
+        return this.iKr;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.lLM && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+        if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.lMe && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
             ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
         }
         return super.onInterceptTouchEvent(motionEvent);

@@ -14,22 +14,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class i {
-    private final j<?> ejX;
+    private final j<?> eiq;
 
     public static final i a(j<?> jVar) {
         return new i(jVar);
     }
 
     private i(j<?> jVar) {
-        this.ejX = jVar;
+        this.eiq = jVar;
     }
 
-    public k bcJ() {
-        return this.ejX.bcL();
+    public k bcc() {
+        return this.eiq.bce();
     }
 
     public int getActiveFragmentsCount() {
-        ArrayList<Fragment> arrayList = this.ejX.ejW.eko;
+        ArrayList<Fragment> arrayList = this.eiq.eip.eiH;
         if (arrayList == null) {
             return 0;
         }
@@ -37,129 +37,129 @@ public class i {
     }
 
     public List<Fragment> getActiveFragments(List<Fragment> list) {
-        if (this.ejX.ejW.eko == null) {
+        if (this.eiq.eip.eiH == null) {
             return null;
         }
         if (list == null) {
             list = new ArrayList<>(getActiveFragmentsCount());
         }
-        list.addAll(this.ejX.ejW.eko);
+        list.addAll(this.eiq.eip.eiH);
         return list;
     }
 
     public void h(Fragment fragment) {
-        this.ejX.ejW.a(this.ejX, this.ejX, fragment);
+        this.eiq.eip.a(this.eiq, this.eiq, fragment);
     }
 
     public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.ejX.ejW.onCreateView(view, str, context, attributeSet);
+        return this.eiq.eip.onCreateView(view, str, context, attributeSet);
     }
 
     public void noteStateNotSaved() {
-        this.ejX.ejW.noteStateNotSaved();
+        this.eiq.eip.noteStateNotSaved();
     }
 
     public Parcelable saveAllState() {
-        return this.ejX.ejW.saveAllState();
+        return this.eiq.eip.saveAllState();
     }
 
     public void restoreAllState(Parcelable parcelable, List<Fragment> list) {
-        this.ejX.ejW.restoreAllState(parcelable, list);
+        this.eiq.eip.restoreAllState(parcelable, list);
     }
 
     public List<Fragment> retainNonConfig() {
-        return this.ejX.ejW.bcN();
+        return this.eiq.eip.bcg();
     }
 
     public void dispatchCreate() {
-        this.ejX.ejW.dispatchCreate();
+        this.eiq.eip.dispatchCreate();
     }
 
     public void dispatchActivityCreated() {
-        this.ejX.ejW.dispatchActivityCreated();
+        this.eiq.eip.dispatchActivityCreated();
     }
 
     public void dispatchStart() {
-        this.ejX.ejW.dispatchStart();
+        this.eiq.eip.dispatchStart();
     }
 
     public void dispatchResume() {
-        this.ejX.ejW.dispatchResume();
+        this.eiq.eip.dispatchResume();
     }
 
     public void dispatchPause() {
-        this.ejX.ejW.dispatchPause();
+        this.eiq.eip.dispatchPause();
     }
 
     public void dispatchStop() {
-        this.ejX.ejW.dispatchStop();
+        this.eiq.eip.dispatchStop();
     }
 
     public void dispatchReallyStop() {
-        this.ejX.ejW.dispatchReallyStop();
+        this.eiq.eip.dispatchReallyStop();
     }
 
     public void dispatchDestroy() {
-        this.ejX.ejW.dispatchDestroy();
+        this.eiq.eip.dispatchDestroy();
     }
 
     public void dispatchConfigurationChanged(Configuration configuration) {
-        this.ejX.ejW.dispatchConfigurationChanged(configuration);
+        this.eiq.eip.dispatchConfigurationChanged(configuration);
     }
 
     public void dispatchLowMemory() {
-        this.ejX.ejW.dispatchLowMemory();
+        this.eiq.eip.dispatchLowMemory();
     }
 
     public boolean dispatchCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        return this.ejX.ejW.dispatchCreateOptionsMenu(menu, menuInflater);
+        return this.eiq.eip.dispatchCreateOptionsMenu(menu, menuInflater);
     }
 
     public boolean dispatchPrepareOptionsMenu(Menu menu) {
-        return this.ejX.ejW.dispatchPrepareOptionsMenu(menu);
+        return this.eiq.eip.dispatchPrepareOptionsMenu(menu);
     }
 
     public boolean dispatchOptionsItemSelected(MenuItem menuItem) {
-        return this.ejX.ejW.dispatchOptionsItemSelected(menuItem);
+        return this.eiq.eip.dispatchOptionsItemSelected(menuItem);
     }
 
     public boolean dispatchContextItemSelected(MenuItem menuItem) {
-        return this.ejX.ejW.dispatchContextItemSelected(menuItem);
+        return this.eiq.eip.dispatchContextItemSelected(menuItem);
     }
 
     public void dispatchOptionsMenuClosed(Menu menu) {
-        this.ejX.ejW.dispatchOptionsMenuClosed(menu);
+        this.eiq.eip.dispatchOptionsMenuClosed(menu);
     }
 
     public boolean execPendingActions() {
-        return this.ejX.ejW.execPendingActions();
+        return this.eiq.eip.execPendingActions();
     }
 
     public void doLoaderStart() {
-        this.ejX.doLoaderStart();
+        this.eiq.doLoaderStart();
     }
 
     public void doLoaderStop(boolean z) {
-        this.ejX.doLoaderStop(z);
+        this.eiq.doLoaderStop(z);
     }
 
     public void doLoaderDestroy() {
-        this.ejX.doLoaderDestroy();
+        this.eiq.doLoaderDestroy();
     }
 
     public void reportLoaderStart() {
-        this.ejX.reportLoaderStart();
+        this.eiq.reportLoaderStart();
     }
 
-    public com.baidu.swan.support.v4.b.f<String, o> bcK() {
-        return this.ejX.bcK();
+    public com.baidu.swan.support.v4.b.f<String, o> bcd() {
+        return this.eiq.bcd();
     }
 
     public void a(com.baidu.swan.support.v4.b.f<String, o> fVar) {
-        this.ejX.a(fVar);
+        this.eiq.a(fVar);
     }
 
     public void dumpLoaders(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        this.ejX.dumpLoaders(str, fileDescriptor, printWriter, strArr);
+        this.eiq.dumpLoaders(str, fileDescriptor, printWriter, strArr);
     }
 }

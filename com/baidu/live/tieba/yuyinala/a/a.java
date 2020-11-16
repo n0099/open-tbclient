@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private int bFT = -1;
+    private int bEi = -1;
     private List<com.baidu.live.tieba.yuyinala.c.a> mDataList;
     private TbPageContext mTbPageContext;
 
@@ -27,7 +27,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: gd */
+    /* renamed from: fZ */
     public com.baidu.live.tieba.yuyinala.c.a getItem(int i) {
         return (com.baidu.live.tieba.yuyinala.c.a) ListUtils.getItem(this.mDataList, i);
     }
@@ -39,24 +39,24 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0221a c0221a;
+        C0219a c0219a;
         if (view == null) {
-            C0221a c0221a2 = new C0221a();
+            C0219a c0219a2 = new C0219a();
             view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.yuyin_ala_choose_feedback_reason_item_layout, viewGroup, false);
-            c0221a2.bFU = (TextView) view.findViewById(a.f.id_feedback_content);
-            view.setTag(c0221a2);
-            c0221a = c0221a2;
+            c0219a2.bEj = (TextView) view.findViewById(a.f.id_feedback_content);
+            view.setTag(c0219a2);
+            c0219a = c0219a2;
         } else {
-            c0221a = (C0221a) view.getTag();
+            c0219a = (C0219a) view.getTag();
         }
         com.baidu.live.tieba.yuyinala.c.a item = getItem(i);
         if (item != null) {
-            c0221a.bFU.setText(item.Ut());
+            c0219a.bEj.setText(item.TK());
         }
-        if (i == this.bFT) {
-            c0221a.bFU.setSelected(true);
+        if (i == this.bEi) {
+            c0219a.bEj.setSelected(true);
         } else {
-            c0221a.bFU.setSelected(false);
+            c0219a.bEj.setSelected(false);
         }
         return view;
     }
@@ -73,20 +73,20 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public int Us() {
-        return this.bFT;
+    public int TJ() {
+        return this.bEi;
     }
 
-    public void ge(int i) {
-        this.bFT = i;
+    public void ga(int i) {
+        this.bEi = i;
     }
 
     /* renamed from: com.baidu.live.tieba.yuyinala.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0221a {
-        public TextView bFU;
+    private class C0219a {
+        public TextView bEj;
 
-        private C0221a() {
+        private C0219a() {
         }
     }
 }

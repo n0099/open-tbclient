@@ -4,7 +4,7 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends g {
 
     /* renamed from: a  reason: collision with root package name */
@@ -21,10 +21,10 @@ public class a extends g {
     private String k;
     private long l;
     private String m;
-    private JSONObject oJa;
+    private JSONObject oKE;
 
     public void a(JSONObject jSONObject) {
-        this.oJa = jSONObject;
+        this.oKE = jSONObject;
     }
 
     public void a(long j) {
@@ -103,20 +103,20 @@ public class a extends g {
             jSONObject.put(UgcConstant.SOURCE_ID, this.i);
             jSONObject.put("authenticated_appid", this.j);
             jSONObject.put("genTokenByAppid", this.k);
-            jSONObject.put("rcData", this.oJa);
+            jSONObject.put("rcData", this.oKE);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return jSONObject;
     }
 
-    public String XL(String str) {
-        return dN(this.f4007a + this.c + str + this.d);
+    public String Xw(String str) {
+        return dP(this.f4007a + this.c + str + this.d);
     }
 
     /* renamed from: com.cmic.sso.sdk.c.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0965a {
+    /* loaded from: classes10.dex */
+    public static class C0968a {
 
         /* renamed from: a  reason: collision with root package name */
         private String f4008a;

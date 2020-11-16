@@ -22,7 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class JsonUtils {
 
     /* renamed from: a  reason: collision with root package name */
@@ -48,7 +48,7 @@ public final class JsonUtils {
         return (T) Decoder.deserialize(new JSONObject(str), cls);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     private static class Encoder {
         private Encoder() {
         }
@@ -173,7 +173,7 @@ public final class JsonUtils {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     private static class Decoder {
         private Decoder() {
         }
@@ -415,7 +415,7 @@ public final class JsonUtils {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public static class DataType {
         public static boolean isNull(Object obj) {
             if (obj instanceof JSONObject) {

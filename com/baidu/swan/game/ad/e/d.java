@@ -1,14 +1,14 @@
 package com.baidu.swan.game.ad.e;
 
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class d {
-    public static JSONObject vN(String str) {
+    public static JSONObject vI(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("errCode", str);
             jSONObject.put("errMsg", "fail");
-            jSONObject.put("errDes", com.baidu.swan.game.ad.d.b.vL(str));
+            jSONObject.put("errDes", com.baidu.swan.game.ad.d.b.vG(str));
         } catch (Exception e) {
             e.printStackTrace();
         }

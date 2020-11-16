@@ -88,7 +88,7 @@ public class AlaLiveMarkData implements Serializable {
                     this.width = this.levelWidth;
                     this.height = this.levelHeight;
                 }
-            } else if (com.baidu.live.aa.a.PQ().bod != null && (str = com.baidu.live.aa.a.PQ().bod.aNC.get(Integer.valueOf(this.userLevel))) != null) {
+            } else if (com.baidu.live.aa.a.Ph().bms != null && (str = com.baidu.live.aa.a.Ph().bms.aLR.get(Integer.valueOf(this.userLevel))) != null) {
                 this.mark_pic = str;
                 this.height = 48;
                 if (this.userLevel <= 9) {

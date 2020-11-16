@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.alaar.sticker.view;
 import android.view.View;
 /* loaded from: classes4.dex */
 public interface e {
-    void bNT();
+    void bNm();
 
-    boolean bNU();
+    boolean bNn();
 
     void e(View view, int i, int i2, int i3, int i4);
 
@@ -13,5 +13,5 @@ public interface e {
 
     void onLongPress();
 
-    void w(int i, int i2, int i3, int i4);
+    void x(int i, int i2, int i3, int i4);
 }

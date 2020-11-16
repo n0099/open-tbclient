@@ -14,7 +14,7 @@ import com.baidu.ar.libloader.b;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class PoseAR extends c {
     public static final String MDL_MAGIC_FILTER_CUTOFFSLOPE = "cutoffSlope";
     public static final String MDL_MAGIC_FILTER_MIN_CUTOFFFREQ = "min_cutofffreq";

@@ -5,33 +5,33 @@ import android.os.Bundle;
 import com.baidu.helios.channels.b;
 import com.baidu.helios.ids.b;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes18.dex */
+/* loaded from: classes17.dex */
 public abstract class a {
-    protected C0141a aws;
-    protected b awt;
+    protected C0139a auH;
+    protected b auI;
 
     /* renamed from: com.baidu.helios.bridge.a$a  reason: collision with other inner class name */
-    /* loaded from: classes18.dex */
-    public static class C0141a {
+    /* loaded from: classes17.dex */
+    public static class C0139a {
         public Context applicationContext;
-        public b.a awu;
-        public b.a awv;
-        public ExecutorService aww;
-        public ExecutorService awx;
+        public b.a auJ;
+        public b.a auK;
+        public ExecutorService auL;
+        public ExecutorService auM;
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes17.dex */
     public static class b {
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes17.dex */
     public interface c<T> {
         void a(int i, Exception exc, Bundle bundle);
 
         void a(T t, Bundle bundle);
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes17.dex */
     public static class d {
         public int errCode;
         public Exception exception;
@@ -53,7 +53,7 @@ public abstract class a {
             return dVar;
         }
 
-        public static d fy(String str) {
+        public static d fs(String str) {
             d dVar = new d();
             dVar.errCode = 0;
             dVar.id = str;
@@ -65,12 +65,12 @@ public abstract class a {
         }
     }
 
-    public void a(C0141a c0141a) {
-        this.aws = c0141a;
+    public void a(C0139a c0139a) {
+        this.auH = c0139a;
     }
 
     public void a(b bVar) {
-        this.awt = bVar;
+        this.auI = bVar;
         b(bVar);
     }
 
@@ -80,5 +80,5 @@ public abstract class a {
 
     public abstract d c(String str, Bundle bundle);
 
-    public abstract boolean fx(String str);
+    public abstract boolean fr(String str);
 }

@@ -12,7 +12,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.idlefish.flutterboost.Debuger;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.XFlutterView;
@@ -21,7 +21,7 @@ import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class FlutterSplashView extends FrameLayout {
     private static String TAG = "FlutterSplashView";
     @NonNull
@@ -76,6 +76,7 @@ public class FlutterSplashView extends FrameLayout {
         this.onFirstFrameRenderedListener = new FlutterUiDisplayListener() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.2
             @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
             public void onFlutterUiDisplayed() {
+                FlutterSplashView.this.isFirstFrameRendered = true;
                 if (FlutterSplashView.this.splashScreen != null) {
                     FlutterSplashView.this.transitionToFlutter();
                 }
@@ -97,7 +98,7 @@ public class FlutterSplashView extends FrameLayout {
             public void run() {
                 if (!FlutterBoost.instance().isReady) {
                     FlutterBoost.instance().isReady = true;
-                    TiebaStatic.log(new aq("flutter_loading_timeout"));
+                    TiebaStatic.log(new ar("flutter_loading_timeout"));
                     FlutterSplashView.this.transitionToFlutter();
                 }
             }
@@ -152,9 +153,10 @@ public class FlutterSplashView extends FrameLayout {
             addView(this.splashScreenView);
             if (FlutterBoost.instance().isReady) {
                 xFlutterView.addOnFirstFrameRenderedListener(this.onFirstFrameRenderedListener);
-            } else {
-                this.handler.postDelayed(this.loadingShowTimeOut, 5000L);
+                return;
             }
+            this.handler.postDelayed(this.loadingShowTimeOut, 5000L);
+            this.isFirstFrameRendered = true;
         }
     }
 
@@ -189,6 +191,8 @@ public class FlutterSplashView extends FrameLayout {
         this.flutterView.attachToFlutterEngine(this.mFlutterEngine);
         if (this.splashScreenView != null && this.splashScreenView.isAttachedToWindow()) {
             this.flutterView.addOnFirstFrameRenderedListener(this.removeSplashListener);
+        } else {
+            this.isFirstFrameRendered = true;
         }
     }
 

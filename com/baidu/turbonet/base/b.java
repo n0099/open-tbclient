@@ -6,19 +6,19 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes17.dex */
+/* loaded from: classes12.dex */
 public class b<E> implements Iterable<E> {
     static final /* synthetic */ boolean $assertionsDisabled;
     public final List<E> mObservers = new ArrayList();
-    private int okJ = 0;
+    private int omm = 0;
     private int mCount = 0;
-    private boolean okK = false;
+    private boolean omn = false;
 
     static {
         $assertionsDisabled = !b.class.desiredAssertionStatus();
     }
 
-    public boolean aS(E e) {
+    public boolean aT(E e) {
         if (e == null || this.mObservers.contains(e)) {
             return false;
         }
@@ -36,7 +36,7 @@ public class b<E> implements Iterable<E> {
     }
 
     private void compact() {
-        if (!$assertionsDisabled && this.okJ != 0) {
+        if (!$assertionsDisabled && this.omm != 0) {
             throw new AssertionError();
         }
         for (int size = this.mObservers.size() - 1; size >= 0; size--) {
@@ -47,18 +47,18 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ebi() {
-        this.okJ++;
+    public void ebh() {
+        this.omm++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ebj() {
-        this.okJ--;
-        if (!$assertionsDisabled && this.okJ < 0) {
+    public void ebi() {
+        this.omm--;
+        if (!$assertionsDisabled && this.omm < 0) {
             throw new AssertionError();
         }
-        if (this.okJ <= 0 && this.okK) {
-            this.okK = false;
+        if (this.omm <= 0 && this.omn) {
+            this.omn = false;
             compact();
         }
     }
@@ -69,48 +69,48 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public E MF(int i) {
+    public E Ni(int i) {
         return this.mObservers.get(i);
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes12.dex */
     private class a implements c<E> {
         private int mIndex;
-        private int okL;
-        private boolean okM;
+        private int omo;
+        private boolean omp;
 
         private a() {
             this.mIndex = 0;
-            this.okM = false;
-            b.this.ebi();
-            this.okL = b.this.capacity();
+            this.omp = false;
+            b.this.ebh();
+            this.omo = b.this.capacity();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             int i = this.mIndex;
-            while (i < this.okL && b.this.MF(i) == null) {
+            while (i < this.omo && b.this.Ni(i) == null) {
                 i++;
             }
-            if (i < this.okL) {
+            if (i < this.omo) {
                 return true;
             }
-            ebk();
+            ebj();
             return false;
         }
 
         @Override // java.util.Iterator
         public E next() {
-            while (this.mIndex < this.okL && b.this.MF(this.mIndex) == null) {
+            while (this.mIndex < this.omo && b.this.Ni(this.mIndex) == null) {
                 this.mIndex++;
             }
-            if (this.mIndex < this.okL) {
+            if (this.mIndex < this.omo) {
                 b bVar = b.this;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
-                return (E) bVar.MF(i);
+                return (E) bVar.Ni(i);
             }
-            ebk();
+            ebj();
             throw new NoSuchElementException();
         }
 
@@ -119,10 +119,10 @@ public class b<E> implements Iterable<E> {
             throw new UnsupportedOperationException();
         }
 
-        private void ebk() {
-            if (!this.okM) {
-                this.okM = true;
-                b.this.ebj();
+        private void ebj() {
+            if (!this.omp) {
+                this.omp = true;
+                b.this.ebi();
             }
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.swan.uuid.a;
 import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class g implements b<String> {
     private Context mContext;
 
@@ -17,22 +17,22 @@ public class g implements b<String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
     public void put(String str) {
-        zn(str);
+        zi(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: aMx */
+    /* renamed from: aLP */
     public String get() {
-        return bet();
+        return bdM();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean ben() {
+    public boolean bdG() {
         return TextUtils.isEmpty(get());
     }
 
-    private void zn(String str) {
+    private void zi(String str) {
         if (com.baidu.swan.uuid.b.c.hasPermission(this.mContext, "android.permission.WRITE_SETTINGS")) {
             try {
                 Settings.System.putString(this.mContext.getContentResolver(), "com.baidu.uuid", str);
@@ -41,7 +41,7 @@ public class g implements b<String> {
         }
     }
 
-    private String bet() {
+    private String bdM() {
         if (com.baidu.swan.uuid.b.c.hasPermission(this.mContext, "android.permission.WRITE_SETTINGS")) {
             try {
                 return Settings.System.getString(this.mContext.getContentResolver(), "com.baidu.uuid");

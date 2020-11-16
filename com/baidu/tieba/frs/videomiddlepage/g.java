@@ -1,20 +1,21 @@
 package com.baidu.tieba.frs.videomiddlepage;
 
+import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public interface g {
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public interface a {
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public interface b {
         void a(a aVar);
 
-        void auw();
+        void atO();
 
-        void d(List<com.baidu.tieba.card.data.b> list, boolean z, boolean z2);
+        void d(List<BaseCardInfo> list, boolean z, boolean z2);
 
         void hideLoadingView();
 

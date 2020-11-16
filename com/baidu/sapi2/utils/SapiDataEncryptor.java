@@ -17,7 +17,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.security.cert.CertificateException;
 import javax.security.cert.X509Certificate;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class SapiDataEncryptor implements NoProguard {
     private static final String c = "0123456789ABCDEF";
 
@@ -25,7 +25,7 @@ public class SapiDataEncryptor implements NoProguard {
     private String f3527a = a();
     private AES b = new AES();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */

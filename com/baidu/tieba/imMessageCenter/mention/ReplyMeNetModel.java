@@ -6,29 +6,29 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class ReplyMeNetModel extends NetAutoModel<k, l, ReplyMessageFragment> {
     public ReplyMeNetModel(TbPageContext tbPageContext, k kVar) {
         super(tbPageContext, kVar);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> aaB() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> ZS() {
         return ReplyMeHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> aaD() {
+    protected Class<? extends MvcSocketResponsedMessage> ZU() {
         return ReplyMeSocketResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int aay() {
+    protected int ZP() {
         return 1002200;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String aar() {
+    protected String ZI() {
         return Config.REPLYME_ADDRESS;
     }
 
@@ -38,7 +38,7 @@ public class ReplyMeNetModel extends NetAutoModel<k, l, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int aax() {
+    protected int ZO() {
         return CmdConfigSocket.CMD_REPLY_ME;
     }
 }

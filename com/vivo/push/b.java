@@ -14,7 +14,7 @@ import com.vivo.vms.IPCInvoke;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class b implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */

@@ -1,33 +1,37 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import org.json.JSONObject;
+import tbclient.FrsPage.Classify;
 /* loaded from: classes.dex */
-public class ak extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private ICardInfo YY;
-    private String card;
-    private boolean eBt;
+public class ak {
+    private String class_name = null;
+    private int ezJ = 0;
 
-    public void AQ(String str) {
-        this.card = str;
+    public String bjQ() {
+        return this.class_name;
     }
 
-    public void bkQ() {
-        this.YY = com.baidu.tieba.lego.card.b.NJ(this.card);
-        this.eBt = this.YY != null;
+    public int bjR() {
+        return this.ezJ;
     }
 
-    public ICardInfo bkR() {
-        return this.YY;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.ezJ = jSONObject.optInt("class_id", 0);
+                this.class_name = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 
-    public boolean isValid() {
-        return this.eBt;
-    }
-
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return TYPE;
+    public void a(Classify classify) {
+        if (classify != null) {
+            this.ezJ = classify.class_id.intValue();
+            this.class_name = classify.class_name;
+        }
     }
 }

@@ -26,45 +26,45 @@ public class m {
     }
 
     public static boolean a(TbPageContext tbPageContext, com.baidu.live.data.w wVar, g gVar, String str) {
-        if (tbPageContext == null || tbPageContext.getPageActivity() == null || gVar == null || wVar == null || wVar.mLiveInfo == null || wVar.aJr == null) {
+        if (tbPageContext == null || tbPageContext.getPageActivity() == null || gVar == null || wVar == null || wVar.mLiveInfo == null || wVar.aHG == null) {
             return false;
         }
-        if (gVar.Gt()) {
-            if (gVar.Gp() == 6 && wVar.aJr.levelId < 3) {
+        if (gVar.FK()) {
+            if (gVar.FG() == 6 && wVar.aHG.levelId < 3) {
                 return false;
             }
-            if (gVar.Gp() == 7 && wVar.aJr.levelId < 7) {
+            if (gVar.FG() == 7 && wVar.aHG.levelId < 7) {
                 return false;
             }
-            if (gVar.Gp() == 8 && wVar.aJr.levelId < 13) {
+            if (gVar.FG() == 8 && wVar.aHG.levelId < 13) {
                 return false;
             }
-            if (gVar.Gp() == 9 && wVar.aJr.levelId < 22) {
+            if (gVar.FG() == 9 && wVar.aHG.levelId < 22) {
                 return false;
             }
-            if (gVar.Gp() == 10 && wVar.aJr.levelId < 29) {
+            if (gVar.FG() == 10 && wVar.aHG.levelId < 29) {
                 return false;
             }
-            if (gVar.Gp() == 11 && wVar.aJr.levelId < 39) {
+            if (gVar.FG() == 11 && wVar.aHG.levelId < 39) {
                 return false;
             }
-            if (gVar.Gp() == 12 && wVar.aJr.levelId < 47) {
+            if (gVar.FG() == 12 && wVar.aHG.levelId < 47) {
                 return false;
             }
         }
         if (a(tbPageContext.getPageActivity(), gVar, 1, wVar)) {
-            if (gVar.Gd()) {
+            if (gVar.Fu()) {
                 if (TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || TbadkCoreApplication.getInst().currentAccountFlowerNum < JavaTypesHelper.toLong(gVar.getPrice(), 0L) * 1) {
                     BdUtilHelper.showToast(tbPageContext.getPageActivity(), tbPageContext.getPageActivity().getResources().getString(a.h.ala_free_gift_flower_no_enough), 1000);
                     return false;
                 }
-                aa.b(gVar, 1, wVar.aIV.userId + "", wVar.aIV.userName, wVar.mLiveInfo.live_id + "", wVar.mLiveInfo.room_id + "", wVar.mLiveInfo.appId + "", wVar.mLiveInfo.feed_id + "", str, 0L);
+                aa.b(gVar, 1, wVar.aHk.userId + "", wVar.aHk.userName, wVar.mLiveInfo.live_id + "", wVar.mLiveInfo.room_id + "", wVar.mLiveInfo.appId + "", wVar.mLiveInfo.feed_id + "", str, 0L);
                 a(gVar, wVar.mLiveInfo.feed_id, wVar.mLiveInfo.live_id + "", str);
             } else if (TbadkCoreApplication.getInst().currentAccountTdouNum <= 0 || TbadkCoreApplication.getInst().currentAccountTdouNum < JavaTypesHelper.toLong(gVar.getPrice(), 0L) * 1) {
                 a(tbPageContext, str);
                 return false;
             } else {
-                aa.b(gVar, 1, wVar.aIV.userId + "", wVar.aIV.userName, wVar.mLiveInfo.live_id + "", wVar.mLiveInfo.room_id + "", wVar.mLiveInfo.appId + "", wVar.mLiveInfo.feed_id + "", str, 0L);
+                aa.b(gVar, 1, wVar.aHk.userId + "", wVar.aHk.userName, wVar.mLiveInfo.live_id + "", wVar.mLiveInfo.room_id + "", wVar.mLiveInfo.appId + "", wVar.mLiveInfo.feed_id + "", str, 0L);
                 a(gVar, wVar.mLiveInfo.feed_id, wVar.mLiveInfo.live_id + "", str);
             }
         }
@@ -88,8 +88,8 @@ public class m {
             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
                 AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.QUICK_GIFT_SUCCESS);
                 alaStaticItem.addParams("gifts_value", gVar.getPrice());
-                alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, gVar.FT());
-                alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, gVar.FU());
+                alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, gVar.Fk());
+                alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, gVar.Fl());
                 alaStaticItem.addParams("other_params", str3);
                 alaStaticItem.addParams("feed_id", str);
                 alaStaticItem.addParams("live_id", str2);

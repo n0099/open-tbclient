@@ -12,70 +12,70 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.person.b.a;
 /* loaded from: classes4.dex */
 public class d implements com.baidu.live.liveroom.d.d {
-    private CustomMessageListener gUt = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
+    private CustomMessageListener gUa = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.hBD != null && d.this.hBD.isEmpty() && !d.this.hBD.isLoading()) {
-                d.this.hBD.refreshData();
+            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.hBk != null && d.this.hBk.isEmpty() && !d.this.hBk.isLoading()) {
+                d.this.hBk.refreshData();
             }
         }
     };
-    private BdUniqueId gwz;
-    private b hBD;
-    private int hBz;
+    private BdUniqueId gwg;
+    private int hBg;
+    private b hBk;
     private TbPageContext mPageContext;
     private String mUserId;
 
     public d(TbPageContext tbPageContext, int i, String str, BdUniqueId bdUniqueId) {
-        this.gwz = null;
+        this.gwg = null;
         this.mPageContext = tbPageContext;
-        this.hBz = i;
+        this.hBg = i;
         this.mUserId = str;
-        this.gwz = bdUniqueId;
-        this.hBD = new b(this.mPageContext, this.hBz, this.mUserId, this.gwz);
-        if (this.hBD != null && this.hBD.isEmpty() && !this.hBD.isLoading()) {
-            this.hBD.refreshData();
+        this.gwg = bdUniqueId;
+        this.hBk = new b(this.mPageContext, this.hBg, this.mUserId, this.gwg);
+        if (this.hBk != null && this.hBk.isEmpty() && !this.hBk.isLoading()) {
+            this.hBk.refreshData();
         }
-        MessageManager.getInstance().registerListener(this.gUt);
+        MessageManager.getInstance().registerListener(this.gUa);
     }
 
     public void aC(String str, boolean z) {
-        if (this.hBD != null) {
-            this.hBD.aC(str, z);
+        if (this.hBk != null) {
+            this.hBk.aC(str, z);
         }
     }
 
     public int getTabType() {
-        return this.hBz;
+        return this.hBg;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.hBD == null) {
+        if (this.hBk == null) {
             return null;
         }
-        return this.hBD.bta();
+        return this.hBk.bsq();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        return this.hBz == 0 ? this.mPageContext.getString(a.h.ala_person_fans) : this.mPageContext.getString(a.h.ala_person_attentions);
+        return this.hBg == 0 ? this.mPageContext.getString(a.h.ala_person_fans) : this.mPageContext.getString(a.h.ala_person_attentions);
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String Lr() {
+    public String KI() {
         return null;
     }
 
     public void a(a.InterfaceC0694a interfaceC0694a) {
-        if (this.hBD != null) {
-            this.hBD.a(interfaceC0694a);
+        if (this.hBk != null) {
+            this.hBk.a(interfaceC0694a);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short Ls() {
+    public short KJ() {
         return (short) 0;
     }
 
@@ -89,16 +89,16 @@ public class d implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gUt);
-        if (this.hBD != null) {
-            this.hBD.onDestory();
+        MessageManager.getInstance().unRegisterListener(this.gUa);
+        if (this.hBk != null) {
+            this.hBk.onDestory();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onChangeSkinType(int i) {
-        if (this.hBD != null) {
-            this.hBD.onChangeSkinType(i);
+        if (this.hBk != null) {
+            this.hBk.onChangeSkinType(i);
         }
     }
 }

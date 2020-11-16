@@ -8,7 +8,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

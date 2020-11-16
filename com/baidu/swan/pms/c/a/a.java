@@ -9,7 +9,7 @@ import com.baidu.swan.pms.c.a.d.h;
 import com.baidu.swan.pms.c.a.d.i;
 import com.baidu.swan.pms.c.c.c;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static void a(com.baidu.swan.pms.c.c.b bVar, g gVar) {
         com.baidu.swan.pms.c.a.a.a.a(bVar, gVar);
@@ -19,10 +19,10 @@ public class a {
         i a2 = com.baidu.swan.pms.c.a.a.a.a(aVar, gVar);
         if (list != null && !list.isEmpty()) {
             for (f<com.baidu.swan.pms.model.g> fVar : h.b(list, gVar)) {
-                a2.a(d.bbI().i(fVar));
+                a2.a(d.bbb().i(fVar));
             }
         }
-        a2.bbU();
+        a2.bbn();
     }
 
     public static void a(com.baidu.swan.pms.node.d.a aVar, g gVar) {

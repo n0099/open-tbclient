@@ -1,7 +1,7 @@
 package io.reactivex.internal.util;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class h {
-    public static int Ro(int i) {
+    public static int RR(int i) {
         return 1 << (32 - Integer.numberOfLeadingZeros(i - 1));
     }
 }

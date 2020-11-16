@@ -33,7 +33,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FlatManifestWriterImpl extends AbstractManifestWriter {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final Logger LOG;
@@ -102,7 +102,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 createElement3.setAttribute("MaxWidth", Long.toString(aVar.width));
                 createElement3.setAttribute("MaxHeight", Long.toString(aVar.height));
                 createElement3.setAttribute("CodecPrivateData", aVar.codecPrivateData);
-                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.pgo));
+                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.phR));
                 createElement2.appendChild(createElement3);
             }
             for (int i2 = 0; i2 < this.videoFragmentsDurations.length; i2++) {
@@ -464,7 +464,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             aVar.fourCC = "AVC1";
             aVar.width = visualSampleEntry.getWidth();
             aVar.height = visualSampleEntry.getHeight();
-            aVar.pgo = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+            aVar.phR = avcConfigurationBox.getLengthSizeMinusOne() + 1;
             return aVar;
         }
         throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
@@ -494,45 +494,45 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a {
-        private byte pgk;
-        private byte pgl;
-        private EC3SpecificBox.Entry pgm;
+        private byte phN;
+        private byte phO;
+        private EC3SpecificBox.Entry phP;
 
         public a(byte b, byte b2, EC3SpecificBox.Entry entry) {
-            this.pgk = b;
-            this.pgl = b2;
-            this.pgm = entry;
+            this.phN = b;
+            this.phO = b2;
+            this.phP = entry;
         }
 
         public byte etC() {
-            return this.pgk;
+            return this.phN;
         }
 
         public byte etD() {
-            return this.pgl;
+            return this.phO;
         }
 
         public a etE() {
-            switch (this.pgm.chan_loc) {
+            switch (this.phP.chan_loc) {
                 case 0:
-                    this.pgk = (byte) (this.pgk | 3);
+                    this.phN = (byte) (this.phN | 3);
                     break;
                 case 1:
-                    this.pgk = (byte) (this.pgk | 12);
+                    this.phN = (byte) (this.phN | 12);
                     break;
                 case 2:
-                    this.pgl = (byte) (this.pgl | 128);
+                    this.phO = (byte) (this.phO | 128);
                     break;
                 case 3:
-                    this.pgl = (byte) (this.pgl | 8);
+                    this.phO = (byte) (this.phO | 8);
                     break;
                 case 6:
-                    this.pgl = (byte) (this.pgl | 5);
+                    this.phO = (byte) (this.phO | 5);
                     break;
                 case 7:
-                    this.pgl = (byte) (this.pgl | 2);
+                    this.phO = (byte) (this.phO | 2);
                     break;
             }
             return this;

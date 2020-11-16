@@ -1,7 +1,7 @@
 package com.cmic.sso.sdk.c.b;
 
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c extends g {
 
     /* renamed from: a  reason: collision with root package name */

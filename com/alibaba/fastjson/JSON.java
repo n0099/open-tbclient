@@ -38,7 +38,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.TreeMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public abstract class JSON implements JSONAware, JSONStreamAware {
     public static int DEFAULT_GENERATE_FEATURE = 0;
     public static final String VERSION = "1.2.41";

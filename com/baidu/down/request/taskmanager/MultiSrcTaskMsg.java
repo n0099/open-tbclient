@@ -3,7 +3,7 @@ package com.baidu.down.request.taskmanager;
 import com.baidu.down.loopj.android.http.MultiSrcAsyncHttpRequest;
 import com.baidu.down.request.task.MultiSrcBinaryReqTask;
 import com.baidu.down.request.task.ProgressInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class MultiSrcTaskMsg {
     public ProgressInfo.Segment mSegment;
     public MultiSrcBinaryReqTask mTask;

@@ -14,11 +14,11 @@ public class CyberRemotePlayerService extends RemotePlayerService {
 
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService
     public long getPCDNNetHandle() {
-        long dxA = c.dxA();
-        if (dxA == 0) {
+        long dxa = c.dxa();
+        if (dxa == 0) {
             c.init();
-            return c.dxA();
+            return c.dxa();
         }
-        return dxA;
+        return dxa;
     }
 }

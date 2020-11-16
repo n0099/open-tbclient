@@ -3,7 +3,7 @@ package com.baidu.ufosdk.ui;
 import android.content.Context;
 import android.os.Handler;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class ap implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

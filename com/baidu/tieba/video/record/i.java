@@ -7,30 +7,30 @@ import com.faceunity.a.d;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class i {
-    private long aaK;
-    private boolean cnU;
+    private long aaP;
+    private boolean cmj;
     private int mProgress;
     private int mStatus = 1;
     protected List<a> mStatusListeners;
-    private RecordVideoActivity nsJ;
-    private int ntr;
-    private ProgressView nts;
+    private RecordVideoActivity ntQ;
+    private ProgressView nuA;
+    private int nuz;
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes22.dex */
     public interface a {
-        void KR(int i);
+        void Lu(int i);
     }
 
     public i(RecordVideoActivity recordVideoActivity) {
-        this.nsJ = recordVideoActivity;
-        if (this.nsJ != null) {
-            ImageView imageView = (ImageView) this.nsJ.findViewById(R.id.camera_switch);
-            ImageView imageView2 = (ImageView) this.nsJ.findViewById(R.id.flash_switch);
-            this.nts = (ProgressView) this.nsJ.findViewById(R.id.video_progress_view);
-            this.nts.setListener(new AnonymousClass1());
-            if (!com.baidu.tieba.video.record.a.ya(true)) {
+        this.ntQ = recordVideoActivity;
+        if (this.ntQ != null) {
+            ImageView imageView = (ImageView) this.ntQ.findViewById(R.id.camera_switch);
+            ImageView imageView2 = (ImageView) this.ntQ.findViewById(R.id.flash_switch);
+            this.nuA = (ProgressView) this.ntQ.findViewById(R.id.video_progress_view);
+            this.nuA.setListener(new AnonymousClass1());
+            if (!com.baidu.tieba.video.record.a.yh(true)) {
                 imageView2.setVisibility(4);
             }
             if (!com.baidu.tieba.video.record.a.b(recordVideoActivity.getPackageManager())) {
@@ -40,111 +40,111 @@ public class i {
     }
 
     /* renamed from: com.baidu.tieba.video.record.i$1  reason: invalid class name */
-    /* loaded from: classes23.dex */
+    /* loaded from: classes22.dex */
     class AnonymousClass1 implements ProgressView.a {
         AnonymousClass1() {
         }
 
         @Override // com.baidu.tieba.video.record.ProgressView.a
-        public void KQ(int i) {
+        public void Lt(int i) {
             h hVar;
-            final g dQw;
+            final g dQv;
             i.this.mProgress = i;
-            if (i == 100 && i.this.nsJ != null && (hVar = i.this.nsJ.nsl) != null && (dQw = hVar.dQw()) != null) {
-                if (dQw instanceof GLVideoPreviewView) {
-                    dQw.setOnEncoderStatusUpdateListener(new d.c() { // from class: com.baidu.tieba.video.record.i.1.1
+            if (i == 100 && i.this.ntQ != null && (hVar = i.this.ntQ.nts) != null && (dQv = hVar.dQv()) != null) {
+                if (dQv instanceof GLVideoPreviewView) {
+                    dQv.setOnEncoderStatusUpdateListener(new d.c() { // from class: com.baidu.tieba.video.record.i.1.1
                         @Override // com.faceunity.a.d.c
-                        public void UV() {
+                        public void Um() {
                         }
 
                         @Override // com.faceunity.a.d.c
-                        public void dQS() {
+                        public void dQR() {
                             com.baidu.adp.lib.f.e.mY().post(new Runnable() { // from class: com.baidu.tieba.video.record.i.1.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    if (i.this.nsJ != null) {
-                                        i.this.nsJ.dRm();
+                                    if (i.this.ntQ != null) {
+                                        i.this.ntQ.dRl();
                                     }
                                 }
                             });
-                            dQw.setOnEncoderStatusUpdateListener(null);
+                            dQv.setOnEncoderStatusUpdateListener(null);
                         }
                     });
                     i.this.stopRecord();
                     return;
                 }
                 i.this.stopRecord();
-                if (i.this.nsJ != null) {
-                    i.this.nsJ.dRm();
+                if (i.this.ntQ != null) {
+                    i.this.ntQ.dRl();
                 }
             }
         }
     }
 
     public int getVideoDuration() {
-        return this.ntr;
+        return this.nuz;
     }
 
     public void startRecord() {
-        if (!this.cnU) {
-            if (this.nts != null) {
-                this.nts.setVisibility(0);
-                this.nts.setCurrentState(ProgressView.State.START);
+        if (!this.cmj) {
+            if (this.nuA != null) {
+                this.nuA.setVisibility(0);
+                this.nuA.setCurrentState(ProgressView.State.START);
             }
-            if (!this.cnU) {
-                this.cnU = true;
-                this.aaK = System.currentTimeMillis();
+            if (!this.cmj) {
+                this.cmj = true;
+                this.aaP = System.currentTimeMillis();
             }
-            if (this.nsJ != null && this.nsJ.nsl != null) {
-                this.nsJ.nsl.startRecord();
-                if (this.nsJ.nue != null) {
-                    this.nsJ.nue.KS(this.ntr);
+            if (this.ntQ != null && this.ntQ.nts != null) {
+                this.ntQ.nts.startRecord();
+                if (this.ntQ.nvm != null) {
+                    this.ntQ.nvm.Lv(this.nuz);
                 }
             }
         }
     }
 
-    public boolean dQP() {
-        if (this.nsJ.nue != null) {
-            return this.nsJ.nue.dQP();
+    public boolean dQO() {
+        if (this.ntQ.nvm != null) {
+            return this.ntQ.nvm.dQO();
         }
         return false;
     }
 
     public void stopRecord() {
-        if (this.cnU) {
-            if (this.nts != null) {
-                this.nts.setCurrentState(ProgressView.State.PAUSE);
+        if (this.cmj) {
+            if (this.nuA != null) {
+                this.nuA.setCurrentState(ProgressView.State.PAUSE);
             }
-            this.cnU = false;
-            this.ntr = (int) (this.ntr + (System.currentTimeMillis() - this.aaK));
-            if (this.nts != null && this.nts.getLastProgress() != this.ntr) {
-                this.nts.KP(this.ntr);
+            this.cmj = false;
+            this.nuz = (int) (this.nuz + (System.currentTimeMillis() - this.aaP));
+            if (this.nuA != null && this.nuA.getLastProgress() != this.nuz) {
+                this.nuA.Ls(this.nuz);
             }
-            if (this.nsJ != null && this.nsJ.nsl != null) {
-                this.nsJ.nsl.stopRecord();
+            if (this.ntQ != null && this.ntQ.nts != null) {
+                this.ntQ.nts.stopRecord();
             }
+        }
+    }
+
+    public void dQP() {
+        if (!this.cmj && this.nuA != null) {
+            this.nuA.setCurrentState(ProgressView.State.ROLLBACK);
         }
     }
 
     public void dQQ() {
-        if (!this.cnU && this.nts != null) {
-            this.nts.setCurrentState(ProgressView.State.ROLLBACK);
+        if (this.nuA != null) {
+            this.nuA.setCurrentState(ProgressView.State.DELETE);
         }
-    }
-
-    public void dQR() {
-        if (this.nts != null) {
-            this.nts.setCurrentState(ProgressView.State.DELETE);
-        }
-        this.ntr = this.nts.getLastProgress();
-        if (this.nsJ.nsl != null) {
-            this.nsJ.nsl.dQy();
+        this.nuz = this.nuA.getLastProgress();
+        if (this.ntQ.nts != null) {
+            this.ntQ.nts.dQx();
         }
     }
 
     public boolean onBackPressed() {
-        return this.nts.dQO();
+        return this.nuA.dQN();
     }
 
     public int getStatus() {
@@ -155,10 +155,10 @@ public class i {
         File[] listFiles;
         this.mStatus = i;
         if (i == 1) {
-            this.nts.setVisibility(4);
-            this.nts.reset();
-            this.ntr = 0;
-            File file = new File(com.baidu.tieba.video.c.nlN);
+            this.nuA.setVisibility(4);
+            this.nuA.reset();
+            this.nuz = 0;
+            File file = new File(com.baidu.tieba.video.c.nmU);
             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                 for (File file2 : listFiles) {
                     if (file2.getPath().startsWith("rec_tmp_")) {
@@ -169,17 +169,17 @@ public class i {
         }
         if (this.mStatusListeners != null) {
             for (a aVar : this.mStatusListeners) {
-                aVar.KR(this.mStatus);
+                aVar.Lu(this.mStatus);
             }
         }
     }
 
-    public boolean btZ() {
+    public boolean btp() {
         int status = getStatus();
         return status == 2 || status == 7;
     }
 
-    public boolean bRH() {
+    public boolean bRa() {
         return this.mStatus == 6;
     }
 

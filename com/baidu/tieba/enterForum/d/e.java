@@ -7,16 +7,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class e {
-    private boolean aiL;
-    private ImageView isx;
+    private boolean aiQ;
+    private ImageView itl;
     private TbPageContext<?> mPageContext;
     private TextView mTitleView;
     private View mView;
@@ -25,17 +25,17 @@ public class e {
         this.mPageContext = tbPageContext;
         this.mView = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.recommend_forum_title_item_view, (ViewGroup) null);
         this.mTitleView = (TextView) this.mView.findViewById(R.id.text_title);
-        this.isx = (ImageView) this.mView.findViewById(R.id.icon_into);
-        this.isx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.d.e.1
+        this.itl = (ImageView) this.mView.findViewById(R.id.icon_into);
+        this.itl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.d.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tieba.enterForum.b.d(e.this.mPageContext, null);
-                aq aqVar = new aq("c13645");
-                aqVar.w("uid", TbadkApplication.getCurrentAccountId());
-                aqVar.al("obj_locate", 1);
-                aqVar.al("obj_type", e.this.aiL ? 5 : 1);
-                aqVar.al("obj_source", 2);
-                TiebaStatic.log(aqVar);
+                ar arVar = new ar("c13645");
+                arVar.w("uid", TbadkApplication.getCurrentAccountId());
+                arVar.ak("obj_locate", 1);
+                arVar.ak("obj_type", e.this.aiQ ? 5 : 1);
+                arVar.ak("obj_source", 2);
+                TiebaStatic.log(arVar);
             }
         });
     }
@@ -44,16 +44,16 @@ public class e {
         return this.mView;
     }
 
-    public void a(bk bkVar) {
-        String title = bkVar.getTitle();
+    public void a(bl blVar) {
+        String title = blVar.getTitle();
         if (!TextUtils.isEmpty(title)) {
             this.mTitleView.setText(title);
         }
-        ap.setViewTextColor(this.mTitleView, R.color.cp_cont_b);
-        SvgManager.brn().a(this.isx, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
+        ap.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
+        SvgManager.bqB().a(this.itl, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public void setHasLikeForum(boolean z) {
-        this.aiL = z;
+        this.aiQ = z;
     }
 }

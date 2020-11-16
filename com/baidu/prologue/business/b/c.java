@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import com.baidu.prologue.business.c.d;
 import com.baidu.prologue.business.data.e;
 import java.io.File;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class c extends a<d> {
     public c(@NonNull Context context, @NonNull e eVar) {
         super(context, eVar);
@@ -16,12 +16,12 @@ public class c extends a<d> {
     @Override // com.baidu.prologue.business.b.a
     public void a(d dVar) {
         super.a((c) dVar);
-        dVar.jL(this.cif.md5).b(new com.baidu.prologue.business.a.a((Activity) this.mContext)).dK(true).dL(true).jM("-1");
-        File ba = com.baidu.prologue.business.data.d.ba(this.cif.url, this.cif.md5);
-        if (ba.exists()) {
-            dVar.v(ba);
+        dVar.jF(this.cgt.md5).b(new com.baidu.prologue.business.a.a((Activity) this.mContext)).dM(true).dN(true).jG("-1");
+        File aZ = com.baidu.prologue.business.data.d.aZ(this.cgt.url, this.cgt.md5);
+        if (aZ.exists()) {
+            dVar.v(aZ);
         } else {
-            dVar.jK(this.cif.url);
+            dVar.jE(this.cgt.url);
         }
     }
 }

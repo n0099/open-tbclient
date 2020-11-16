@@ -1,9 +1,9 @@
 package com.baidu.swan.pms.c.d;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public abstract class g {
     private int mCategory;
     private String mFrom = "-1";
-    private String dOa = "-1";
+    private String dMs = "-1";
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(int i) {
@@ -14,13 +14,13 @@ public abstract class g {
         return this.mCategory;
     }
 
-    public g yA(String str) {
+    public g yv(String str) {
         this.mFrom = str;
         return this;
     }
 
-    public g yB(String str) {
-        this.dOa = str;
+    public g yw(String str) {
+        this.dMs = str;
         return this;
     }
 
@@ -28,7 +28,7 @@ public abstract class g {
         return this.mFrom;
     }
 
-    public String bci() {
-        return this.dOa;
+    public String bbB() {
+        return this.dMs;
     }
 }

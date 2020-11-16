@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.c.b;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */

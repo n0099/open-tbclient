@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class ConnectionLineView extends FrameLayout {
-    private ImageView ohK;
+    private ImageView ojn;
 
     public ConnectionLineView(@NonNull Context context) {
         this(context, null, 0);
@@ -29,13 +29,13 @@ public class ConnectionLineView extends FrameLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyinala_liveroom_connection_anim_view_layout, this);
-        this.ohK = (ImageView) findViewById(a.f.connection_anim_view);
+        this.ojn = (ImageView) findViewById(a.f.connection_anim_view);
     }
 
-    public void eax() {
-        eay();
-        this.ohK.setVisibility(0);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.ohK, "alpha", 0.0f, 1.0f, 0.0f, 1.0f);
+    public void eaw() {
+        eax();
+        this.ojn.setVisibility(0);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.ojn, "alpha", 0.0f, 1.0f, 0.0f, 1.0f);
         ofFloat.setDuration(900L);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionLineView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -45,9 +45,9 @@ public class ConnectionLineView extends FrameLayout {
         ofFloat.start();
     }
 
-    public void eay() {
-        if (this.ohK != null) {
-            this.ohK.clearAnimation();
+    public void eax() {
+        if (this.ojn != null) {
+            this.ojn.clearAnimation();
         }
     }
 }

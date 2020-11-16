@@ -20,7 +20,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class HttpClientWrap {
 
     /* renamed from: a  reason: collision with root package name */

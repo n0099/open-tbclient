@@ -16,7 +16,7 @@ import com.baidu.swan.apps.scheme.j;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
     private static final boolean DEBUG = b.DEBUG;
 
@@ -26,19 +26,19 @@ public class a extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        com.baidu.swan.apps.adaptation.a.e awF = com.baidu.swan.apps.t.a.awF();
+        com.baidu.swan.apps.adaptation.a.e avX = com.baidu.swan.apps.t.a.avX();
         JSONObject jSONObject = new JSONObject();
         if (context == null) {
             try {
-                context = com.baidu.swan.apps.t.a.awA();
+                context = com.baidu.swan.apps.t.a.avS();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        jSONObject.put(DpStatConstants.KEY_USER_ID, awF == null ? "" : awF.bp(context));
-        jSONObject.put("zid", awF == null ? "" : com.baidu.swan.apps.t.a.axs().cg(context));
+        jSONObject.put(DpStatConstants.KEY_USER_ID, avX == null ? "" : avX.bp(context));
+        jSONObject.put("zid", avX == null ? "" : com.baidu.swan.apps.t.a.awK().cg(context));
         jSONObject.put("idfa", "");
-        jSONObject.put("imei", ak.aMZ());
+        jSONObject.put("imei", ak.aMr());
         jSONObject.put("appkey", eVar == null ? "" : eVar.getAppKey());
         jSONObject.put("os", "android");
         jSONObject.put("osVersion", Build.VERSION.RELEASE);
@@ -47,7 +47,7 @@ public class a extends aa {
         jSONObject.put("model", Build.MODEL);
         jSONObject.put("uuid", com.baidu.swan.uuid.b.dO(context).getUUID());
         jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        jSONObject.put("cuid", awF == null ? "" : awF.bq(context));
+        jSONObject.put("cuid", avX == null ? "" : avX.bq(context));
         if (DEBUG) {
             Log.d("GetSystemRiskInfoAction", jSONObject.toString());
         }

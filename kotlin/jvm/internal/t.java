@@ -1,8 +1,8 @@
 package kotlin.jvm.internal;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class t {
-    private static final u pSH;
-    private static final kotlin.reflect.c[] pSI;
+    private static final u pUk;
+    private static final kotlin.reflect.c[] pUl;
 
     static {
         u uVar;
@@ -20,51 +20,51 @@ public class t {
         if (uVar == null) {
             uVar = new u();
         }
-        pSH = uVar;
-        pSI = new kotlin.reflect.c[0];
+        pUk = uVar;
+        pUl = new kotlin.reflect.c[0];
     }
 
     public static kotlin.reflect.d j(Class cls, String str) {
-        return pSH.j(cls, str);
+        return pUk.j(cls, str);
     }
 
     public static kotlin.reflect.c M(Class cls) {
-        return pSH.M(cls);
+        return pUk.M(cls);
     }
 
     public static String a(Lambda lambda) {
-        return pSH.a(lambda);
+        return pUk.a(lambda);
     }
 
     public static String a(p pVar) {
-        return pSH.a(pVar);
+        return pUk.a(pVar);
     }
 
     public static kotlin.reflect.e a(FunctionReference functionReference) {
-        return pSH.a(functionReference);
+        return pUk.a(functionReference);
     }
 
     public static kotlin.reflect.k a(PropertyReference0 propertyReference0) {
-        return pSH.a(propertyReference0);
+        return pUk.a(propertyReference0);
     }
 
     public static kotlin.reflect.g a(MutablePropertyReference0 mutablePropertyReference0) {
-        return pSH.a(mutablePropertyReference0);
+        return pUk.a(mutablePropertyReference0);
     }
 
     public static kotlin.reflect.l a(PropertyReference1 propertyReference1) {
-        return pSH.a(propertyReference1);
+        return pUk.a(propertyReference1);
     }
 
     public static kotlin.reflect.h a(MutablePropertyReference1 mutablePropertyReference1) {
-        return pSH.a(mutablePropertyReference1);
+        return pUk.a(mutablePropertyReference1);
     }
 
     public static kotlin.reflect.m a(PropertyReference2 propertyReference2) {
-        return pSH.a(propertyReference2);
+        return pUk.a(propertyReference2);
     }
 
     public static kotlin.reflect.i a(MutablePropertyReference2 mutablePropertyReference2) {
-        return pSH.a(mutablePropertyReference2);
+        return pUk.a(mutablePropertyReference2);
     }
 }

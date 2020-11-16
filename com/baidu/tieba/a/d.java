@@ -1,83 +1,83 @@
 package com.baidu.tieba.a;
 
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class d {
-    private static volatile d fQH;
-    private ArrayList<Integer> fQD = new ArrayList<>();
-    private c fQE;
-    private a fQI;
-    private List<aq> fQJ;
+    private static volatile d fQq;
+    private ArrayList<Integer> fQm = new ArrayList<>();
+    private c fQn;
+    private a fQr;
+    private List<ar> fQs;
 
-    public static d bIR() {
-        if (fQH == null) {
+    public static d bIl() {
+        if (fQq == null) {
             synchronized (c.class) {
-                if (fQH == null) {
-                    fQH = new d();
+                if (fQq == null) {
+                    fQq = new d();
                 }
             }
         }
-        return fQH;
+        return fQq;
     }
 
     private d() {
-        this.fQD.add(1);
-        this.fQD.add(2);
-        this.fQE = new c();
-        this.fQI = new a(this.fQE, this.fQD);
-        to(com.baidu.tbadk.core.sharedPref.b.bqh().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
+        this.fQm.add(1);
+        this.fQm.add(2);
+        this.fQn = new c();
+        this.fQr = new a(this.fQn, this.fQm);
+        tM(com.baidu.tbadk.core.sharedPref.b.bpu().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
     }
 
-    public int ax(String str, int i) {
-        if (this.fQI == null) {
+    public int aw(String str, int i) {
+        if (this.fQr == null) {
             return 0;
         }
-        return this.fQI.ax(str, i);
+        return this.fQr.aw(str, i);
     }
 
-    public void EY(String str) {
-        if (this.fQI != null) {
-            this.fQI.EX(str);
+    public void Ez(String str) {
+        if (this.fQr != null) {
+            this.fQr.Ey(str);
         }
     }
 
-    public void e(aq aqVar) {
-        if (aqVar != null) {
-            if (this.fQJ == null) {
-                this.fQJ = new ArrayList();
+    public void e(ar arVar) {
+        if (arVar != null) {
+            if (this.fQs == null) {
+                this.fQs = new ArrayList();
             }
-            this.fQJ.add(aqVar);
+            this.fQs.add(arVar);
         }
     }
 
-    public void dM(String str, String str2) {
-        if (!y.isEmpty(this.fQJ) && this.fQE != null && this.fQE.bIP()) {
+    public void dL(String str, String str2) {
+        if (!y.isEmpty(this.fQs) && this.fQn != null && this.fQn.bIj()) {
             int i = -1;
-            for (aq aqVar : this.fQJ) {
-                if (aqVar != null) {
-                    if (aqVar.getPosition() == 0) {
-                        a(str, str2, aqVar);
-                    } else if (i != aqVar.getPosition()) {
-                        i = aqVar.getPosition();
-                        a(str, str2, aqVar);
+            for (ar arVar : this.fQs) {
+                if (arVar != null) {
+                    if (arVar.getPosition() == 0) {
+                        a(str, str2, arVar);
+                    } else if (i != arVar.getPosition()) {
+                        i = arVar.getPosition();
+                        a(str, str2, arVar);
                     }
                     i = i;
                 }
             }
-            this.fQJ.clear();
+            this.fQs.clear();
         }
     }
 
-    public void a(String str, String str2, aq aqVar) {
-        if (aqVar != null && this.fQE != null && this.fQE.bIP()) {
+    public void a(String str, String str2, ar arVar) {
+        if (arVar != null && this.fQn != null && this.fQn.bIj()) {
             HashMap hashMap = new HashMap();
-            List<Object> params = aqVar.getParams();
+            List<Object> params = arVar.getParams();
             if (params != null) {
                 int size = params.size();
                 for (int i = 0; i < size; i += 2) {
@@ -94,25 +94,25 @@ public class d {
                     hashMap.put(str3, str4);
                 }
             }
-            com.baidu.ubs.analytics.a.a(str2 + aqVar.getKey(), str, "", hashMap);
+            com.baidu.ubs.analytics.a.a(str2 + arVar.getKey(), str, "", hashMap);
         }
     }
 
     public void onPageStart(String str) {
-        if (at.isEmpty(str) || this.fQE == null || !this.fQE.bIP()) {
-            com.baidu.ubs.analytics.a.WS(str);
+        if (au.isEmpty(str) || this.fQn == null || !this.fQn.bIj()) {
+            com.baidu.ubs.analytics.a.WD(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (at.isEmpty(str) || this.fQE == null || !this.fQE.bIP()) {
-            com.baidu.ubs.analytics.a.WT(str);
+        if (au.isEmpty(str) || this.fQn == null || !this.fQn.bIj()) {
+            com.baidu.ubs.analytics.a.WE(str);
         }
     }
 
-    public void to(int i) {
-        if (this.fQE != null) {
-            this.fQE.to(i);
+    public void tM(int i) {
+        if (this.fQn != null) {
+            this.fQn.tM(i);
         }
     }
 }

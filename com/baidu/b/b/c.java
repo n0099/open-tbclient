@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class c {
-    private a ada;
+    private a adg;
     private Map<String, com.baidu.b.b.a> b = new HashMap();
 
     /* loaded from: classes7.dex */
@@ -15,7 +15,7 @@ public class c {
     }
 
     public c(a aVar) {
-        this.ada = aVar;
+        this.adg = aVar;
         for (com.baidu.b.b.a aVar2 : aVar.a()) {
             this.b.put(aVar2.a(), aVar2);
         }

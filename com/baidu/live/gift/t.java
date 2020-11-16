@@ -4,13 +4,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class t {
-    public long aTn;
+    public long aRC;
     public String name;
 
-    public t J(JSONObject jSONObject) {
+    public t D(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.name = jSONObject.optString("name");
-            this.aTn = jSONObject.optLong("last_accessed");
+            this.aRC = jSONObject.optLong("last_accessed");
         }
         return this;
     }
@@ -19,7 +19,7 @@ public class t {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("name", this.name);
-            jSONObject.put("last_accessed", this.aTn);
+            jSONObject.put("last_accessed", this.aRC);
             return jSONObject;
         } catch (JSONException e) {
             e.printStackTrace();

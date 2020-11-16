@@ -11,87 +11,87 @@ import master.flame.danmaku.danmaku.model.m;
 import master.flame.danmaku.danmaku.model.n;
 /* loaded from: classes6.dex */
 public class a extends master.flame.danmaku.danmaku.b.b {
-    private final DanmakuContext pUJ;
-    private f pYY;
-    private b.f pYZ;
-    private final b pZb;
-    private k pZc;
-    private a.InterfaceC1084a pZd;
-    private final b.f pZa = new b.f() { // from class: master.flame.danmaku.danmaku.b.a.a.1
+    private final DanmakuContext pWm;
+    private f qaB;
+    private b.f qaC;
+    private final b qaE;
+    private k qaF;
+    private a.InterfaceC1087a qaG;
+    private final b.f qaD = new b.f() { // from class: master.flame.danmaku.danmaku.b.a.a.1
         @Override // master.flame.danmaku.danmaku.b.a.b.f
         public boolean a(d dVar, float f, int i, boolean z) {
-            if (dVar.pVQ == 0 && a.this.pUJ.pXS.b(dVar, i, 0, a.this.pYY, z, a.this.pUJ)) {
+            if (dVar.pXt == 0 && a.this.pWm.pZv.b(dVar, i, 0, a.this.qaB, z, a.this.pWm)) {
                 dVar.setVisibility(false);
                 return true;
             }
             return false;
         }
     };
-    private C1085a pZe = new C1085a();
+    private C1088a qaH = new C1088a();
 
     /* renamed from: master.flame.danmaku.danmaku.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C1085a extends l.c<d> {
-        private d pZg;
-        public m pZh;
-        public a.b pZi;
-        public long pZj;
+    private class C1088a extends l.c<d> {
+        private d qaJ;
+        public m qaK;
+        public a.b qaL;
+        public long qaM;
 
-        private C1085a() {
+        private C1088a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // master.flame.danmaku.danmaku.model.l.b
         /* renamed from: e */
-        public int bX(d dVar) {
-            this.pZg = dVar;
-            if (dVar.eDe()) {
-                this.pZh.o(dVar);
+        public int bY(d dVar) {
+            this.qaJ = dVar;
+            if (dVar.eDf()) {
+                this.qaK.o(dVar);
                 return 0;
-            } else if (this.pZi.pYH || !dVar.eDp()) {
-                if (!dVar.eDh()) {
-                    a.this.pUJ.pXS.a(dVar, this.pZi.pYI, this.pZi.pYJ, this.pZi.pUO, false, a.this.pUJ);
+            } else if (this.qaL.qak || !dVar.eDq()) {
+                if (!dVar.eDi()) {
+                    a.this.pWm.pZv.a(dVar, this.qaL.qal, this.qaL.qam, this.qaL.pWr, false, a.this.pWm);
                 }
-                if (dVar.eDo() >= this.pZj) {
-                    if (dVar.pVQ == 0 && dVar.eDi()) {
+                if (dVar.eDp() >= this.qaM) {
+                    if (dVar.pXt == 0 && dVar.eDj()) {
                         return 0;
                     }
-                    if (dVar.eDg()) {
-                        n<?> eDd = dVar.eDd();
-                        if (a.this.pZc != null && (eDd == null || eDd.get() == null)) {
-                            a.this.pZc.a(dVar);
+                    if (dVar.eDh()) {
+                        n<?> eDe = dVar.eDe();
+                        if (a.this.qaF != null && (eDe == null || eDe.get() == null)) {
+                            a.this.qaF.a(dVar);
                         }
                         return 1;
                     }
                     if (dVar.getType() == 1) {
-                        this.pZi.pYI++;
+                        this.qaL.qal++;
                     }
-                    if (!dVar.eDc()) {
-                        dVar.a(this.pZh, false);
+                    if (!dVar.eDd()) {
+                        dVar.a(this.qaK, false);
                     }
                     if (!dVar.isPrepared()) {
-                        dVar.b(this.pZh, false);
+                        dVar.b(this.qaK, false);
                     }
-                    a.this.pZb.a(dVar, this.pZh, a.this.pYZ);
+                    a.this.qaE.a(dVar, this.qaK, a.this.qaC);
                     if (dVar.isShown()) {
-                        if (dVar.pVN != null || dVar.eDm() <= this.pZh.getHeight()) {
-                            int a2 = dVar.a(this.pZh);
+                        if (dVar.pXq != null || dVar.eDn() <= this.qaK.getHeight()) {
+                            int a2 = dVar.a(this.qaK);
                             if (a2 == 1) {
-                                this.pZi.pYU++;
+                                this.qaL.qax++;
                             } else if (a2 == 2) {
-                                this.pZi.pYV++;
-                                if (a.this.pZc != null) {
-                                    a.this.pZc.a(dVar);
+                                this.qaL.qay++;
+                                if (a.this.qaF != null) {
+                                    a.this.qaF.a(dVar);
                                 }
                             }
-                            this.pZi.eA(dVar.getType(), 1);
-                            this.pZi.RB(1);
-                            this.pZi.v(dVar);
-                            if (a.this.pZd == null || dVar.pWg == a.this.pUJ.pXR.pWt) {
+                            this.qaL.eB(dVar.getType(), 1);
+                            this.qaL.Se(1);
+                            this.qaL.v(dVar);
+                            if (a.this.qaG == null || dVar.pXJ == a.this.pWm.pZu.pXW) {
                                 return 0;
                             }
-                            dVar.pWg = a.this.pUJ.pXR.pWt;
-                            a.this.pZd.i(dVar);
+                            dVar.pXJ = a.this.pWm.pZu.pXW;
+                            a.this.qaG.i(dVar);
                             return 0;
                         }
                         return 0;
@@ -105,62 +105,62 @@ public class a extends master.flame.danmaku.danmaku.b.b {
         }
 
         @Override // master.flame.danmaku.danmaku.model.l.b
-        public void eDz() {
-            this.pZi.pYK = this.pZg;
-            super.eDz();
+        public void eDA() {
+            this.qaL.qan = this.qaJ;
+            super.eDA();
         }
     }
 
     public a(DanmakuContext danmakuContext) {
-        this.pUJ = danmakuContext;
-        this.pZb = new b(danmakuContext.eDO());
+        this.pWm = danmakuContext;
+        this.qaE = new b(danmakuContext.eDP());
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void clear() {
-        eEi();
-        this.pUJ.pXS.clear();
+        eEj();
+        this.pWm.pZv.clear();
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
-    public void eEi() {
-        this.pZb.clear();
+    public void eEj() {
+        this.qaE.clear();
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void release() {
-        this.pZb.release();
-        this.pUJ.pXS.clear();
+        this.qaE.release();
+        this.pWm.pZv.clear();
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
-    public void Bf(boolean z) {
-        this.pYZ = z ? this.pZa : null;
+    public void Bm(boolean z) {
+        this.qaC = z ? this.qaD : null;
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void a(m mVar, l lVar, long j, a.b bVar) {
-        this.pYY = bVar.pUO;
-        this.pZe.pZh = mVar;
-        this.pZe.pZi = bVar;
-        this.pZe.pZj = j;
-        lVar.a(this.pZe);
+        this.qaB = bVar.pWr;
+        this.qaH.qaK = mVar;
+        this.qaH.qaL = bVar;
+        this.qaH.qaM = j;
+        lVar.a(this.qaH);
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void a(k kVar) {
-        this.pZc = kVar;
+        this.qaF = kVar;
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
-    public void a(a.InterfaceC1084a interfaceC1084a) {
-        this.pZd = interfaceC1084a;
+    public void a(a.InterfaceC1087a interfaceC1087a) {
+        this.qaG = interfaceC1087a;
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
-    public void Bg(boolean z) {
-        if (this.pZb != null) {
-            this.pZb.Bg(z);
+    public void Bn(boolean z) {
+        if (this.qaE != null) {
+            this.qaE.Bn(z);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.swan.bdprivate.extensions.quicklogin;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.swan.apps.process.a.a.a {
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(@NonNull Bundle bundle) {
@@ -12,7 +12,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
             /* renamed from: B */
             public void M(Bundle bundle2) {
                 if (bundle2 != null) {
-                    b.this.dlj.putParcelable("quick_login_info", bundle2.getParcelable("quick_login_info_result"));
+                    b.this.djC.putParcelable("quick_login_info", bundle2.getParcelable("quick_login_info_result"));
                 }
                 b.this.finish();
             }
@@ -27,8 +27,8 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
                     bVar.M(null);
                     return;
                 }
-                b.this.dlj.putParcelable("quick_login_info_result", quickLoginInfo);
-                bVar.M(b.this.dlj);
+                b.this.djC.putParcelable("quick_login_info_result", quickLoginInfo);
+                bVar.M(b.this.djC);
             }
         });
     }

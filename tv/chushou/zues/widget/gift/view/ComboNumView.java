@@ -11,11 +11,11 @@ import tv.chushou.zues.b;
 import tv.chushou.zues.toolkit.a.b.c;
 /* loaded from: classes6.dex */
 public class ComboNumView extends LinearLayout {
-    private static int qoM = 0;
-    private static c<Drawable> qoN;
+    private static int qqp = 0;
+    private static c<Drawable> qqq;
     protected Context mContext;
     private int mType;
-    private ImageView qoL;
+    private ImageView qqo;
 
     public ComboNumView(Context context) {
         this(context, null);
@@ -27,29 +27,29 @@ public class ComboNumView extends LinearLayout {
     }
 
     private void init(Context context) {
-        qoM++;
+        qqp++;
         this.mContext = context;
         setOrientation(0);
-        this.qoL = new ImageView(this.mContext);
-        this.qoL.setBackgroundResource(b.d.zues_icon_x_n);
-        this.qoL.setTag("x");
-        addView(this.qoL);
+        this.qqo = new ImageView(this.mContext);
+        this.qqo.setBackgroundResource(b.d.zues_icon_x_n);
+        this.qqo.setTag("x");
+        addView(this.qqo);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        qoM--;
-        if (qoM <= 0) {
-            qoM = 0;
+        qqp--;
+        if (qqp <= 0) {
+            qqp = 0;
             release();
         }
         super.onDetachedFromWindow();
     }
 
     public void release() {
-        if (qoN != null) {
-            qoN.clear();
-            qoN = null;
+        if (qqq != null) {
+            qqq.clear();
+            qqq = null;
         }
     }
 
@@ -85,20 +85,20 @@ public class ComboNumView extends LinearLayout {
         }
     }
 
-    private String aaJ(String str) {
+    private String aau(String str) {
         return "game_" + str;
     }
 
     private Drawable getDrawable(String str) {
         Drawable drawable;
-        if (qoN == null) {
-            qoN = new c<>(20);
+        if (qqq == null) {
+            qqq = new c<>(20);
         }
-        Drawable drawable2 = qoN.get(aaJ(str));
+        Drawable drawable2 = qqq.get(aau(str));
         if (drawable2 == null) {
             int identifier = this.mContext.getResources().getIdentifier("zues_icon_" + str, "drawable", this.mContext.getPackageName());
             if (identifier > 0 && (drawable = ContextCompat.getDrawable(this.mContext, identifier)) != null) {
-                qoN.put(aaJ(str), drawable);
+                qqq.put(aau(str), drawable);
                 return drawable;
             }
             return null;
@@ -107,7 +107,7 @@ public class ComboNumView extends LinearLayout {
     }
 
     public void setType(int i) {
-        this.qoL.setBackgroundResource(b.d.zues_icon_x_n);
+        this.qqo.setBackgroundResource(b.d.zues_icon_x_n);
         this.mType = i;
     }
 }

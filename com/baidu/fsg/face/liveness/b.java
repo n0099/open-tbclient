@@ -6,7 +6,7 @@ import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.idl.facesdk.FaceTracker;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */

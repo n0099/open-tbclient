@@ -11,7 +11,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c extends aa {
     public c(j jVar) {
         super(jVar, "/swanAPI/openAdLandingPage");
@@ -28,12 +28,12 @@ public class c extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        final f afM = com.baidu.swan.apps.v.f.azO().afM();
-        if (afM == null) {
+        final f afe = com.baidu.swan.apps.v.f.azg().afe();
+        if (afe == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        eVar.aHG().b(context, "mapp_i_open_adlanding", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.adlanding.c.1
+        eVar.aGY().b(context, "mapp_i_open_adlanding", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.adlanding.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
@@ -42,7 +42,7 @@ public class c extends aa {
                     com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, unitedSchemeEntity);
                     return;
                 }
-                c.this.a(com.baidu.swan.apps.model.b.cb(a2, a2), afM);
+                c.this.a(com.baidu.swan.apps.model.b.ca(a2, a2), afe);
                 com.baidu.swan.apps.console.c.i("AdLanding", "open adLanding page success");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             }
@@ -53,6 +53,6 @@ public class c extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.model.b bVar, f fVar) {
         com.baidu.swan.apps.console.c.i("AdLanding", "openAdLanding: page url=" + bVar.mBaseUrl);
-        fVar.nb("adLanding").al(f.cKS, f.cKU).a("adLanding", bVar).apn();
+        fVar.mV("adLanding").al(f.cJi, f.cJk).a("adLanding", bVar).aoE();
     }
 }

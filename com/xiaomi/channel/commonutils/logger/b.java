@@ -2,24 +2,24 @@ package com.xiaomi.channel.commonutils.logger;
 
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
     private static int f4719a = 2;
 
     /* renamed from: a  reason: collision with other field name */
-    private static LoggerInterface f6a = new a();
+    private static LoggerInterface f9a = new a();
 
     /* renamed from: a  reason: collision with other field name */
-    private static final HashMap<Integer, Long> f8a = new HashMap<>();
+    private static final HashMap<Integer, Long> f11a = new HashMap<>();
     private static final HashMap<Integer, String> b = new HashMap<>();
 
     /* renamed from: a  reason: collision with other field name */
-    private static final Integer f7a = -1;
+    private static final Integer f10a = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    private static AtomicInteger f9a = new AtomicInteger(1);
+    private static AtomicInteger f12a = new AtomicInteger(1);
 
     public static int a() {
         return f4719a;
@@ -27,13 +27,13 @@ public abstract class b {
 
     public static Integer a(String str) {
         if (f4719a <= 1) {
-            Integer valueOf = Integer.valueOf(f9a.incrementAndGet());
-            f8a.put(valueOf, Long.valueOf(System.currentTimeMillis()));
+            Integer valueOf = Integer.valueOf(f12a.incrementAndGet());
+            f11a.put(valueOf, Long.valueOf(System.currentTimeMillis()));
             b.put(valueOf, str);
-            f6a.log(str + " starts");
+            f9a.log(str + " starts");
             return valueOf;
         }
-        return f7a;
+        return f10a;
     }
 
     public static void a(int i) {
@@ -45,36 +45,36 @@ public abstract class b {
 
     public static void a(int i, String str) {
         if (i >= f4719a) {
-            f6a.log(str);
+            f9a.log(str);
         }
     }
 
     public static void a(int i, String str, Throwable th) {
         if (i >= f4719a) {
-            f6a.log(str, th);
+            f9a.log(str, th);
         }
     }
 
     public static void a(int i, Throwable th) {
         if (i >= f4719a) {
-            f6a.log("", th);
+            f9a.log("", th);
         }
     }
 
     public static void a(LoggerInterface loggerInterface) {
-        f6a = loggerInterface;
+        f9a = loggerInterface;
     }
 
     public static void a(Integer num) {
-        if (f4719a > 1 || !f8a.containsKey(num)) {
+        if (f4719a > 1 || !f11a.containsKey(num)) {
             return;
         }
-        long currentTimeMillis = System.currentTimeMillis() - f8a.remove(num).longValue();
-        f6a.log(b.remove(num) + " ends in " + currentTimeMillis + " ms");
+        long currentTimeMillis = System.currentTimeMillis() - f11a.remove(num).longValue();
+        f9a.log(b.remove(num) + " ends in " + currentTimeMillis + " ms");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m54a(String str) {
+    public static void m57a(String str) {
         a(2, "[Thread:" + Thread.currentThread().getId() + "] " + str);
     }
 

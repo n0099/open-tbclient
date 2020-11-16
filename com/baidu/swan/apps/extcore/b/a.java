@@ -3,22 +3,22 @@ package com.baidu.swan.apps.extcore.b;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.extcore.model.b.a;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public abstract class a<T extends com.baidu.swan.apps.extcore.model.b.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    protected T cTC;
+    protected T cRS;
 
     public a(@NonNull T t) {
-        this.cTC = t;
+        this.cRS = t;
     }
 
-    public File atX() {
-        return this.cTC.auj();
+    public File atp() {
+        return this.cRS.atB();
     }
 
     @NonNull
     public File bD(long j) {
-        return new File(atX(), String.valueOf(j));
+        return new File(atp(), String.valueOf(j));
     }
 }

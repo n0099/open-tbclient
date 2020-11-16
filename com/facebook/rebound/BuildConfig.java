@@ -1,5 +1,5 @@
 package com.facebook.rebound;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.facebook.rebound";
     public static final String BUILD_TYPE = "release";

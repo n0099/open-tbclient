@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.hl;
 import com.xiaomi.push.hq;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class i implements hl {
 
     /* renamed from: a  reason: collision with root package name */

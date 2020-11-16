@@ -18,33 +18,33 @@ import java.util.Locale;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     private a() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.swancore.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0486a {
-        private static final a dAZ = new a();
+    /* loaded from: classes7.dex */
+    public static class C0484a {
+        private static final a dzs = new a();
     }
 
-    public static a aKT() {
-        return C0486a.dAZ;
+    public static a aKl() {
+        return C0484a.dzs;
     }
 
-    public static String kA(int i) {
+    public static String kw(int i) {
         return i == 1 ? "installed_game_swan_js_md5" : "installed_swan_js_md5";
     }
 
     public void k(long j, int i) {
         boolean z;
-        List<b> kC = kC(i);
-        if (kC.size() >= 10) {
-            kC.remove(0);
+        List<b> ky = ky(i);
+        if (ky.size() >= 10) {
+            ky.remove(0);
         }
-        Iterator<b> it = kC.iterator();
+        Iterator<b> it = ky.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -57,14 +57,14 @@ public class a {
             }
         }
         if (!z) {
-            kC.add(new b(Calendar.getInstance().getTimeInMillis(), j));
+            ky.add(new b(Calendar.getInstance().getTimeInMillis(), j));
             HashSet hashSet = new HashSet();
-            for (b bVar : kC) {
+            for (b bVar : ky) {
                 if (bVar != null) {
                     hashSet.add(bVar.toJson());
                 }
             }
-            h.aKS().putStringSet(kD(i), hashSet);
+            h.aKk().putStringSet(kz(i), hashSet);
         }
     }
 
@@ -80,23 +80,23 @@ public class a {
                 if (bVar2 == null) {
                     return 1;
                 }
-                return String.valueOf(bVar.dBa).compareTo(String.valueOf(bVar2.dBa));
+                return String.valueOf(bVar.dzt).compareTo(String.valueOf(bVar2.dzt));
             }
         });
     }
 
-    public String kB(int i) {
+    public String kx(int i) {
         StringBuilder sb = new StringBuilder();
-        String string = h.aKS().getString(kA(i), "");
+        String string = h.aKk().getString(kw(i), "");
         if (!TextUtils.isEmpty(string)) {
             sb.append("md5: ").append(string).append("\n").append("\n");
         }
-        List<b> kC = kC(i);
-        int size = kC.size();
+        List<b> ky = ky(i);
+        int size = ky.size();
         int i2 = 0;
         boolean z = false;
         while (i2 < size) {
-            b bVar = kC.get(i2);
+            b bVar = ky.get(i2);
             if (bVar != null) {
                 z = true;
                 sb.append(bVar.toString());
@@ -108,35 +108,35 @@ public class a {
             z = z;
         }
         if (!z) {
-            sb.append(new b(System.currentTimeMillis(), com.baidu.swan.apps.swancore.c.a.kN(i)).toString());
+            sb.append(new b(System.currentTimeMillis(), com.baidu.swan.apps.swancore.c.a.kJ(i)).toString());
         } else {
-            SwanCoreVersion azq = f.azO().azq();
-            b bVar2 = kC.get(size - 1);
-            if (bVar2 != null && azq != null && azq.swanCoreVersion > bVar2.swanCoreVersion) {
+            SwanCoreVersion ayI = f.azg().ayI();
+            b bVar2 = ky.get(size - 1);
+            if (bVar2 != null && ayI != null && ayI.swanCoreVersion > bVar2.swanCoreVersion) {
                 sb.append("\n");
-                sb.append(new b(System.currentTimeMillis(), azq.swanCoreVersion).toString());
+                sb.append(new b(System.currentTimeMillis(), ayI.swanCoreVersion).toString());
             }
         }
         return sb.toString();
     }
 
-    private List<b> kC(int i) {
+    private List<b> ky(int i) {
         ArrayList arrayList = new ArrayList();
-        Set<String> stringSet = h.aKS().getStringSet(kD(i), null);
+        Set<String> stringSet = h.aKk().getStringSet(kz(i), null);
         if (stringSet == null || stringSet.size() == 0) {
             return arrayList;
         }
         for (String str : stringSet) {
-            b tO = tO(str);
-            if (tO != null) {
-                arrayList.add(tO);
+            b tJ = tJ(str);
+            if (tJ != null) {
+                arrayList.add(tJ);
             }
         }
         aS(arrayList);
         return arrayList;
     }
 
-    private b tO(String str) {
+    private b tJ(String str) {
         b bVar;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -153,13 +153,13 @@ public class a {
         return bVar;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class b {
-        long dBa;
+        long dzt;
         long swanCoreVersion;
 
         b(long j, long j2) {
-            this.dBa = j;
+            this.dzt = j;
             this.swanCoreVersion = j2;
         }
 
@@ -169,7 +169,7 @@ public class a {
             String str;
             String str2 = null;
             try {
-                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.dBa));
+                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.dzt));
             } catch (Exception e2) {
                 e = e2;
                 str = null;
@@ -189,7 +189,7 @@ public class a {
         public String toJson() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("time", this.dBa);
+                jSONObject.put("time", this.dzt);
                 jSONObject.put("version", this.swanCoreVersion);
                 return jSONObject.toString();
             } catch (JSONException e) {
@@ -202,7 +202,7 @@ public class a {
         }
     }
 
-    private static String kD(int i) {
+    private static String kz(int i) {
         return i == 1 ? "aigames_core_ver_list_key" : "aiapps_core_ver_list_key";
     }
 }

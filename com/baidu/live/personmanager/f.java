@@ -39,10 +39,10 @@ public class f {
     }
 
     public static String aE(long j) {
-        return j / 10000 > 0 ? p(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
+        return j / 10000 > 0 ? o(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
     }
 
-    public static String p(double d) {
+    public static String o(double d) {
         String valueOf = String.valueOf(d);
         int indexOf = valueOf.indexOf(".");
         String substring = valueOf.substring(indexOf + 1, valueOf.length());

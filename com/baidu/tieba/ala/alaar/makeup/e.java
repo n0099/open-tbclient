@@ -5,13 +5,13 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class e {
-    private static File gbC = null;
+    private static File gbj = null;
 
-    public static File bMS() {
-        if (gbC == null) {
-            gbC = getPrivateCaptureRootChildDir("duMakeup");
+    public static File bMl() {
+        if (gbj == null) {
+            gbj = getPrivateCaptureRootChildDir("duMakeup");
         }
-        return gbC;
+        return gbj;
     }
 
     public static File getPrivateCaptureRootChildDir(String str) {

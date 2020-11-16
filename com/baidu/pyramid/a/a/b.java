@@ -1,7 +1,7 @@
 package com.baidu.pyramid.a.a;
 
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes18.dex */
 public interface b<T> {
     void a(com.baidu.pyramid.a.a<List<T>> aVar);
 

@@ -2,44 +2,44 @@ package com.baidu.swan.games.r;
 
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class f {
-    private static volatile f dXY;
-    private boolean dXZ;
-    private String dYa;
-    private String dYb;
+    private static volatile f dWq;
+    private boolean dWr;
+    private String dWs;
+    private String dWt;
 
-    public static f aWA() {
-        if (dXY == null) {
+    public static f aVS() {
+        if (dWq == null) {
             synchronized (f.class) {
-                if (dXY == null) {
-                    dXY = new f();
+                if (dWq == null) {
+                    dWq = new f();
                 }
             }
         }
-        return dXY;
+        return dWq;
     }
 
     private f() {
     }
 
-    public boolean aWB() {
-        return this.dXZ;
+    public boolean aVT() {
+        return this.dWr;
     }
 
-    public void hx(boolean z) {
-        this.dXZ = z;
+    public void hA(boolean z) {
+        this.dWr = z;
     }
 
-    public String aWC() {
-        return TextUtils.isEmpty(this.dYb) ? "" : this.dYb + File.separator + "index.js";
+    public String aVU() {
+        return TextUtils.isEmpty(this.dWt) ? "" : this.dWt + File.separator + "index.js";
     }
 
-    public void xs(String str) {
-        this.dYa = str;
+    public void xn(String str) {
+        this.dWs = str;
     }
 
-    public void xt(String str) {
-        this.dYb = str;
+    public void xo(String str) {
+        this.dWt = str;
     }
 }

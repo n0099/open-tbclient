@@ -3,41 +3,41 @@ package com.facebook.imagepipeline.producers;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.concurrent.Executor;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class at {
     private final Executor mExecutor;
-    private boolean oZR = false;
-    private final Deque<Runnable> oZS = new ArrayDeque();
+    private boolean pbw = false;
+    private final Deque<Runnable> pbx = new ArrayDeque();
 
     public at(Executor executor) {
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
     }
 
     public synchronized void E(Runnable runnable) {
-        if (this.oZR) {
-            this.oZS.add(runnable);
+        if (this.pbw) {
+            this.pbx.add(runnable);
         } else {
             this.mExecutor.execute(runnable);
         }
     }
 
-    public synchronized void erJ() {
-        this.oZR = true;
+    public synchronized void erH() {
+        this.pbw = true;
     }
 
-    public synchronized void erK() {
-        this.oZR = false;
-        erL();
+    public synchronized void erI() {
+        this.pbw = false;
+        erJ();
     }
 
-    private void erL() {
-        while (!this.oZS.isEmpty()) {
-            this.mExecutor.execute(this.oZS.pop());
+    private void erJ() {
+        while (!this.pbx.isEmpty()) {
+            this.mExecutor.execute(this.pbx.pop());
         }
-        this.oZS.clear();
+        this.pbx.clear();
     }
 
     public synchronized void F(Runnable runnable) {
-        this.oZS.remove(runnable);
+        this.pbx.remove(runnable);
     }
 }

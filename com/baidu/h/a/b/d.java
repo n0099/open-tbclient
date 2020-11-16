@@ -1,9 +1,9 @@
 package com.baidu.h.a.b;
 
 import android.content.Context;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public interface d {
-    void Yg();
+    void Xx();
 
     void a(a aVar);
 

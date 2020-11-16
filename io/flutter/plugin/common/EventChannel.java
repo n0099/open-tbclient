@@ -7,14 +7,14 @@ import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class EventChannel {
     private static final String TAG = "EventChannel#";
     private final MethodCodec codec;
     private final BinaryMessenger messenger;
     private final String name;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface EventSink {
         void endOfStream();
 
@@ -23,7 +23,7 @@ public final class EventChannel {
         void success(Object obj);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface StreamHandler {
         void onCancel(Object obj);
 
@@ -46,7 +46,7 @@ public final class EventChannel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class IncomingStreamRequestHandler implements BinaryMessenger.BinaryMessageHandler {
         private final AtomicReference<EventSink> activeSink = new AtomicReference<>(null);
         private final StreamHandler handler;
@@ -101,7 +101,7 @@ public final class EventChannel {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public final class EventSinkImplementation implements EventSink {
             final AtomicBoolean hasEnded;
 

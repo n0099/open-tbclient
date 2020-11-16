@@ -9,41 +9,41 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.support.v4.util.LongSparseArray;
 import com.tb.airbnb.lottie.model.content.GradientType;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class h extends a {
     private final LongSparseArray<LinearGradient> Dg;
     private final LongSparseArray<RadialGradient> Dh;
     private final RectF Dj;
     private final int Dn;
     private final String name;
-    private final com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> pIr;
-    private final GradientType pIs;
-    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> pIt;
-    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> pIu;
+    private final com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> pJU;
+    private final GradientType pJV;
+    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> pJW;
+    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> pJX;
 
     public h(com.tb.airbnb.lottie.g gVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.e eVar) {
-        super(gVar, aVar, eVar.ezb().toPaintCap(), eVar.ezc().toPaintJoin(), eVar.jZ(), eVar.eyR(), eVar.eza(), eVar.jX(), eVar.ezd());
+        super(gVar, aVar, eVar.ezc().toPaintCap(), eVar.ezd().toPaintJoin(), eVar.jZ(), eVar.eyS(), eVar.ezb(), eVar.jX(), eVar.eze());
         this.Dg = new LongSparseArray<>();
         this.Dh = new LongSparseArray<>();
         this.Dj = new RectF();
         this.name = eVar.getName();
-        this.pIs = eVar.eyW();
+        this.pJV = eVar.eyX();
         this.Dn = (int) (gVar.getComposition().iv() / 32.0f);
-        this.pIr = eVar.eyX().eyL();
-        this.pIr.b(this);
-        aVar.a(this.pIr);
-        this.pIt = eVar.eyY().eyL();
-        this.pIt.b(this);
-        aVar.a(this.pIt);
-        this.pIu = eVar.eyZ().eyL();
-        this.pIu.b(this);
-        aVar.a(this.pIu);
+        this.pJU = eVar.eyY().eyM();
+        this.pJU.b(this);
+        aVar.a(this.pJU);
+        this.pJW = eVar.eyZ().eyM();
+        this.pJW.b(this);
+        aVar.a(this.pJW);
+        this.pJX = eVar.eza().eyM();
+        this.pJX.b(this);
+        aVar.a(this.pJX);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.a, com.tb.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         a(this.Dj, matrix);
-        if (this.pIs == GradientType.Linear) {
+        if (this.pJV == GradientType.Linear) {
             this.paint.setShader(iX());
         } else {
             this.paint.setShader(iY());
@@ -60,9 +60,9 @@ public class h extends a {
         int iZ = iZ();
         LinearGradient linearGradient = this.Dg.get(iZ);
         if (linearGradient == null) {
-            PointF value = this.pIt.getValue();
-            PointF value2 = this.pIu.getValue();
-            com.tb.airbnb.lottie.model.content.c value3 = this.pIr.getValue();
+            PointF value = this.pJW.getValue();
+            PointF value2 = this.pJX.getValue();
+            com.tb.airbnb.lottie.model.content.c value3 = this.pJU.getValue();
             LinearGradient linearGradient2 = new LinearGradient((int) (this.Dj.left + (this.Dj.width() / 2.0f) + value.x), (int) (value.y + this.Dj.top + (this.Dj.height() / 2.0f)), (int) (this.Dj.left + (this.Dj.width() / 2.0f) + value2.x), (int) (this.Dj.top + (this.Dj.height() / 2.0f) + value2.y), value3.getColors(), value3.jO(), Shader.TileMode.CLAMP);
             this.Dg.put(iZ, linearGradient2);
             return linearGradient2;
@@ -74,9 +74,9 @@ public class h extends a {
         int iZ = iZ();
         RadialGradient radialGradient = this.Dh.get(iZ);
         if (radialGradient == null) {
-            PointF value = this.pIt.getValue();
-            PointF value2 = this.pIu.getValue();
-            com.tb.airbnb.lottie.model.content.c value3 = this.pIr.getValue();
+            PointF value = this.pJW.getValue();
+            PointF value2 = this.pJX.getValue();
+            com.tb.airbnb.lottie.model.content.c value3 = this.pJU.getValue();
             int[] colors = value3.getColors();
             float[] jO = value3.jO();
             int width = (int) (this.Dj.left + (this.Dj.width() / 2.0f) + value.x);
@@ -90,9 +90,9 @@ public class h extends a {
     }
 
     private int iZ() {
-        int round = Math.round(this.pIt.getProgress() * this.Dn);
-        int round2 = Math.round(this.pIu.getProgress() * this.Dn);
-        int round3 = Math.round(this.pIr.getProgress() * this.Dn);
+        int round = Math.round(this.pJW.getProgress() * this.Dn);
+        int round2 = Math.round(this.pJX.getProgress() * this.Dn);
+        int round3 = Math.round(this.pJU.getProgress() * this.Dn);
         int i = 17;
         if (round != 0) {
             i = round * 527;

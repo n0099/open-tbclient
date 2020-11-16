@@ -11,13 +11,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class u {
-    private static com.baidu.crabsdk.c.b<List> aoP = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
+    private static com.baidu.crabsdk.c.b<List> aoV = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
     private static String bv = "";
     private static String bc = "";
-    private static int aoQ = 0;
-    private static int aoR = 0;
+    private static int aoW = 0;
+    private static int aoX = 0;
 
     private static WebView J(View view) {
         if (view instanceof ViewGroup) {
@@ -25,7 +25,7 @@ public final class u {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, aoQ, aoR)))) {
+                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, aoW, aoX)))) {
                         continue;
                     } else if (childAt instanceof WebView) {
                         return (WebView) childAt;
@@ -42,7 +42,7 @@ public final class u {
     }
 
     public static String U() {
-        return aoP.size() > 0 ? new JSONArray((Collection) aoP).toString() : "";
+        return aoV.size() > 0 ? new JSONArray((Collection) aoV).toString() : "";
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x005a A[Catch: Exception -> 0x00d0, TryCatch #0 {Exception -> 0x00d0, blocks: (B:16:0x004a, B:18:0x0054, B:20:0x005a, B:22:0x0066), top: B:27:0x004a }] */
@@ -55,11 +55,11 @@ public final class u {
         if (activity == null) {
             return;
         }
-        if (aoQ == 0 || aoR == 0) {
+        if (aoW == 0 || aoX == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            aoR = displayMetrics.heightPixels;
-            aoQ = displayMetrics.widthPixels;
+            aoX = displayMetrics.heightPixels;
+            aoW = displayMetrics.widthPixels;
         }
         switch (motionEvent.getAction()) {
             case 0:
@@ -67,7 +67,7 @@ public final class u {
                 if (!name.equals(bc)) {
                     com.baidu.crabsdk.c.a.v("***** !tempName.equals(activityName) *****");
                     bc = name;
-                    aoP.clear();
+                    aoV.clear();
                 }
                 if (activity != null) {
                     try {
@@ -86,7 +86,7 @@ public final class u {
                                 arrayList.add(J.getTitle());
                                 arrayList.add(bv);
                                 com.baidu.crabsdk.c.a.v("title:" + J.getTitle() + "; url:" + bv);
-                                aoP.add(arrayList);
+                                aoV.add(arrayList);
                                 com.baidu.crabsdk.c.a.v("###### jsonArray.toString() : " + U());
                                 return;
                             }
@@ -105,7 +105,7 @@ public final class u {
         }
     }
 
-    public static boolean vr() {
+    public static boolean vq() {
         return U().length() > 0;
     }
 }

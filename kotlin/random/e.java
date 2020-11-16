@@ -3,13 +3,13 @@ package kotlin.random;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class e {
-    public static final int et(int i, int i2) {
+    public static final int eu(int i, int i2) {
         return (i >>> (32 - i2)) & ((-i2) >> 31);
     }
 
-    public static final void eu(int i, int i2) {
+    public static final void ev(int i, int i2) {
         if (!(i2 > i)) {
             throw new IllegalArgumentException(m(Integer.valueOf(i), Integer.valueOf(i2)).toString());
         }

@@ -1,7 +1,7 @@
 package com.xiaomi.mipush.sdk;
 
 import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class Constants {
     public static final String ACCEPT_TIME_SEPARATOR_SERVER = "-";
     public static final String ACCEPT_TIME_SEPARATOR_SP = ",";

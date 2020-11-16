@@ -18,47 +18,47 @@ import com.baidu.prologue.a.c.g;
 import com.baidu.prologue.b;
 import com.baidu.prologue.business.b.a;
 import com.baidu.prologue.business.data.SplashStyleRecorder;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public abstract class b<T extends com.baidu.prologue.business.b.a> implements View.OnClickListener, View.OnTouchListener, a {
     public static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
-    private ImageView cij;
-    private ImageView cik;
-    private RelativeLayout cil;
-    private TextView cim;
-    private View cin;
-    private TextView cio;
-    private TextView cip;
-    private long ciq;
-    private LinearLayout cir;
-    private long civ;
-    private String ciy;
+    private TextView cgA;
+    private View cgB;
+    private TextView cgC;
+    private TextView cgD;
+    private long cgE;
+    private LinearLayout cgF;
+    private long cgJ;
+    private String cgM;
+    private ImageView cgx;
+    private ImageView cgy;
+    private RelativeLayout cgz;
     private Context mContext;
     private LayoutInflater mInflater;
     ViewGroup mRootView = null;
-    private View chY = null;
-    private T cii = null;
+    private View cgn = null;
+    private T cgw = null;
     private String labelName = "广告";
-    private String cis = "";
-    boolean cia = false;
-    private boolean cit = true;
-    private boolean ciu = true;
-    private long ciw = 0;
-    boolean cix = false;
+    private String cgG = "";
+    boolean cgp = false;
+    private boolean cgH = true;
+    private boolean cgI = true;
+    private long cgK = 0;
+    boolean cgL = false;
     protected Handler mUiHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.prologue.business.c.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 0:
                     if (b.DEBUG) {
-                        g.chg.d("SplashAbsBaseViewBuilder", "quit count");
+                        g.cfv.d("SplashAbsBaseViewBuilder", "quit count");
                     }
-                    b.this.cii.rD();
-                    b.this.acK();
+                    b.this.cgw.rD();
+                    b.this.acb();
                     return;
                 case 1:
-                    b.this.acN();
+                    b.this.ace();
                     if (b.DEBUG) {
-                        g.chg.d("SplashAbsBaseViewBuilder", "update countdown");
+                        g.cfv.d("SplashAbsBaseViewBuilder", "update countdown");
                         return;
                     }
                     return;
@@ -77,89 +77,89 @@ public abstract class b<T extends com.baidu.prologue.business.b.a> implements Vi
     }
 
     public b<T> a(T t) {
-        this.cii = t;
-        if (this.cii != null) {
-            this.cii.a(this);
+        this.cgw = t;
+        if (this.cgw != null) {
+            this.cgw.a(this);
         }
         return this;
     }
 
-    public b<T> dI(boolean z) {
-        this.cia = z;
+    public b<T> dK(boolean z) {
+        this.cgp = z;
         return this;
     }
 
-    public b<T> jH(String str) {
-        this.cis = str;
+    public b<T> jB(String str) {
+        this.cgG = str;
         return this;
     }
 
-    public b<T> gZ(int i) {
-        this.civ = i;
+    public b<T> gV(int i) {
+        this.cgJ = i;
         return this;
     }
 
-    public b<T> jI(String str) {
+    public b<T> jC(String str) {
         this.labelName = str;
         return this;
     }
 
-    public b<T> jJ(String str) {
-        this.ciy = str;
+    public b<T> jD(String str) {
+        this.cgM = str;
         return this;
     }
 
-    public b<T> dJ(boolean z) {
-        this.cix = z;
+    public b<T> dL(boolean z) {
+        this.cgL = z;
         return this;
     }
 
-    public long acG() {
-        return System.currentTimeMillis() - this.ciw;
+    public long abX() {
+        return System.currentTimeMillis() - this.cgK;
     }
 
-    public long acH() {
-        return this.ciq;
+    public long abY() {
+        return this.cgE;
     }
 
-    public T acI() {
-        return this.cii;
+    public T abZ() {
+        return this.cgw;
     }
 
     @SuppressLint({"ResourceType"})
     public void build() {
-        int acb;
+        int abs;
         ViewGroup.LayoutParams layoutParams;
         this.mRootView = (ViewGroup) this.mInflater.inflate(getLayoutId(), (ViewGroup) null, false);
-        XQ();
-        this.chY = acD();
-        if (this.chY != null) {
-            this.chY.setOnTouchListener(this);
+        Xh();
+        this.cgn = abU();
+        if (this.cgn != null) {
+            this.cgn.setOnTouchListener(this);
         } else {
-            g.chg.e("SplashAbsBaseViewBuilder", "Splash Ad didn't set up clickable view!");
+            g.cfv.e("SplashAbsBaseViewBuilder", "Splash Ad didn't set up clickable view!");
         }
-        this.cil = (RelativeLayout) this.mRootView.findViewById(b.C0318b.image_logo_view);
-        this.cik = (ImageView) this.mRootView.findViewById(b.C0318b.image_logo_img);
-        if (this.cia) {
-            if (this.cil != null && (layoutParams = this.cil.getLayoutParams()) != null) {
+        this.cgz = (RelativeLayout) this.mRootView.findViewById(b.C0316b.image_logo_view);
+        this.cgy = (ImageView) this.mRootView.findViewById(b.C0316b.image_logo_img);
+        if (this.cgp) {
+            if (this.cgz != null && (layoutParams = this.cgz.getLayoutParams()) != null) {
                 layoutParams.height = 0;
             }
-            this.cij = (ImageView) this.mRootView.findViewById(b.C0318b.image_small_logo_img);
-            if (this.cij != null && (TextUtils.equals(this.cis, "0") || TextUtils.equals(this.cis, "1"))) {
-                this.cij.setVisibility(0);
-                ImageView imageView = this.cij;
-                if (TextUtils.equals(this.cis, "0")) {
-                    acb = com.baidu.prologue.a.b.a.che.get().acc();
+            this.cgx = (ImageView) this.mRootView.findViewById(b.C0316b.image_small_logo_img);
+            if (this.cgx != null && (TextUtils.equals(this.cgG, "0") || TextUtils.equals(this.cgG, "1"))) {
+                this.cgx.setVisibility(0);
+                ImageView imageView = this.cgx;
+                if (TextUtils.equals(this.cgG, "0")) {
+                    abs = com.baidu.prologue.a.b.a.cft.get().abt();
                 } else {
-                    acb = com.baidu.prologue.a.b.a.che.get().acb();
+                    abs = com.baidu.prologue.a.b.a.cft.get().abs();
                 }
-                imageView.setImageResource(acb);
-                e.a(this.cij, SplashStyleRecorder.SplashElements.LOGO, this.cia);
+                imageView.setImageResource(abs);
+                e.a(this.cgx, SplashStyleRecorder.SplashElements.LOGO, this.cgp);
             }
         } else {
-            this.cik.setImageResource(com.baidu.prologue.a.b.a.che.get().acd());
+            this.cgy.setImageResource(com.baidu.prologue.a.b.a.cft.get().abu());
         }
-        acJ();
+        aca();
         onAdShow();
     }
 
@@ -169,65 +169,65 @@ public abstract class b<T extends com.baidu.prologue.business.b.a> implements Vi
             int[] iArr = {0, 0};
             iArr[1] = (int) motionEvent.getRawY();
             iArr[0] = (int) motionEvent.getRawX();
-            this.cii.jF(com.baidu.prologue.business.b.aci().a(this.mRootView, iArr));
-            acK();
+            this.cgw.jz(com.baidu.prologue.business.b.abz().a(this.mRootView, iArr));
+            acb();
         }
         return true;
     }
 
-    protected void acJ() {
-        acM();
+    protected void aca() {
+        acd();
         if (!TextUtils.isEmpty(this.labelName)) {
-            this.cim = (TextView) this.mRootView.findViewById(b.C0318b.splash_ad_label);
-            e.a(this.cim, SplashStyleRecorder.SplashElements.LABEL, this.cia);
-            this.cim.setText(this.labelName);
-            this.cim.setVisibility(0);
+            this.cgA = (TextView) this.mRootView.findViewById(b.C0316b.splash_ad_label);
+            e.a(this.cgA, SplashStyleRecorder.SplashElements.LABEL, this.cgp);
+            this.cgA.setText(this.labelName);
+            this.cgA.setVisibility(0);
         }
     }
 
     protected void onAdShow() {
-        this.cii.onAdShow();
+        this.cgw.onAdShow();
     }
 
-    public void acK() {
-        acL();
+    public void acb() {
+        acc();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void acL() {
+    public void acc() {
         if (this.mUiHandler != null) {
             this.mUiHandler.removeCallbacksAndMessages(null);
         }
     }
 
-    protected void acM() {
-        this.cio = (TextView) this.mRootView.findViewById(b.C0318b.splash_ad_btn_skip);
-        this.cip = (TextView) this.mRootView.findViewById(b.C0318b.splash_ad_countdown);
-        this.cir = (LinearLayout) this.mRootView.findViewById(b.C0318b.splash_countdown_skip);
-        this.cin = this.mRootView.findViewById(b.C0318b.splash_countdown_skip_click);
-        e.a(this.cin, SplashStyleRecorder.SplashElements.SKIP, this.cia);
-        if (this.civ <= 0) {
-            if ("splash_image".equals(this.ciy)) {
-                this.civ = 3L;
+    protected void acd() {
+        this.cgC = (TextView) this.mRootView.findViewById(b.C0316b.splash_ad_btn_skip);
+        this.cgD = (TextView) this.mRootView.findViewById(b.C0316b.splash_ad_countdown);
+        this.cgF = (LinearLayout) this.mRootView.findViewById(b.C0316b.splash_countdown_skip);
+        this.cgB = this.mRootView.findViewById(b.C0316b.splash_countdown_skip_click);
+        e.a(this.cgB, SplashStyleRecorder.SplashElements.SKIP, this.cgp);
+        if (this.cgJ <= 0) {
+            if ("splash_image".equals(this.cgM)) {
+                this.cgJ = 3L;
             } else {
-                this.civ = 5L;
+                this.cgJ = 5L;
             }
         }
-        this.ciq = this.civ * 1000;
-        if (this.cit) {
-            this.cir.setVisibility(0);
-            this.cip.setVisibility(0);
-            this.cir.setOnClickListener(this);
-            this.ciw = System.currentTimeMillis();
-            this.cip.setText(String.format("%02d", Long.valueOf(this.ciq / 1000)));
+        this.cgE = this.cgJ * 1000;
+        if (this.cgH) {
+            this.cgF.setVisibility(0);
+            this.cgD.setVisibility(0);
+            this.cgF.setOnClickListener(this);
+            this.cgK = System.currentTimeMillis();
+            this.cgD.setText(String.format("%02d", Long.valueOf(this.cgE / 1000)));
             this.mUiHandler.sendEmptyMessageDelayed(1, 250L);
         } else {
-            this.mUiHandler.sendEmptyMessageDelayed(0, this.ciq);
+            this.mUiHandler.sendEmptyMessageDelayed(0, this.cgE);
         }
-        if (this.ciu) {
-            this.cir.setVisibility(0);
-            this.cio.setVisibility(0);
-            this.cir.setOnClickListener(this);
+        if (this.cgI) {
+            this.cgF.setVisibility(0);
+            this.cgC.setVisibility(0);
+            this.cgF.setOnClickListener(this);
         }
     }
 
@@ -239,24 +239,24 @@ public abstract class b<T extends com.baidu.prologue.business.b.a> implements Vi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void acN() {
-        if (this.cip != null) {
-            long currentTimeMillis = this.ciq - (System.currentTimeMillis() - this.ciw);
+    public void ace() {
+        if (this.cgD != null) {
+            long currentTimeMillis = this.cgE - (System.currentTimeMillis() - this.cgK);
             if (currentTimeMillis > 0) {
-                this.cip.setText(String.format("%02d", Long.valueOf((currentTimeMillis / 1000) + 1)));
+                this.cgD.setText(String.format("%02d", Long.valueOf((currentTimeMillis / 1000) + 1)));
                 this.mUiHandler.sendEmptyMessageDelayed(1, 250L);
             } else {
                 this.mUiHandler.sendEmptyMessage(0);
             }
-            this.cip.invalidate();
+            this.cgD.invalidate();
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cir) {
-            this.cii.acm();
-            acK();
+        if (view == this.cgF) {
+            this.cgw.abD();
+            acb();
         }
     }
 }

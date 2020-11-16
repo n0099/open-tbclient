@@ -14,18 +14,18 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public class d {
-    private DownloadData aTb;
+    private DownloadData aRq;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void z(String str, String str2, final String str3, final String str4) {
-        this.aTb = new DownloadData();
-        this.aTb.setId("pk_rank_start");
-        this.aTb.setName("pk_rank_start");
-        this.aTb.setUrl(str);
-        this.aTb.setCheck(str2);
-        this.aTb.setType(21);
-        this.aTb.setPath(str3);
-        this.aTb.setCallback(new FileDownloadCallBack() { // from class: com.baidu.tieba.ala.h.d.1
+        this.aRq = new DownloadData();
+        this.aRq.setId("pk_rank_start");
+        this.aRq.setName("pk_rank_start");
+        this.aRq.setUrl(str);
+        this.aRq.setCheck(str2);
+        this.aRq.setType(21);
+        this.aRq.setPath(str3);
+        this.aRq.setCallback(new FileDownloadCallBack() { // from class: com.baidu.tieba.ala.h.d.1
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public void onFileUpdateProgress(DownloadData downloadData) {
             }
@@ -49,13 +49,13 @@ public class d {
             public void onFileDownloadFailed(DownloadData downloadData, int i, String str5) {
             }
         });
-        FileSerialDownLoader.getInstance().startDownLoadWithoutMax(this.aTb);
+        FileSerialDownLoader.getInstance().startDownLoadWithoutMax(this.aRq);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void release() {
-        if (this.aTb != null) {
-            this.aTb.setCallback(null);
+        if (this.aRq != null) {
+            this.aRq.setCallback(null);
         }
     }
 
@@ -70,8 +70,8 @@ public class d {
                 public List<bt> doInBackground(Void... voidArr) {
                     List<bt> B = d.this.B(str, str2, str3, str4);
                     if (B == null || B.isEmpty()) {
-                        d.this.gz(str3);
-                        d.this.gz(str4);
+                        d.this.gt(str3);
+                        d.this.gt(str4);
                     }
                     return B;
                 }
@@ -83,7 +83,7 @@ public class d {
                 public void onPostExecute(List<bt> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.cla().cF(list);
+                        c.ckt().cF(list);
                     }
                 }
             }.execute(new Void[0]);
@@ -128,7 +128,7 @@ public class d {
             com.baidu.live.data.bt r5 = new com.baidu.live.data.bt     // Catch: java.lang.Throwable -> L51
             r5.<init>()     // Catch: java.lang.Throwable -> L51
             r5.downloadUrl = r8     // Catch: java.lang.Throwable -> L51
-            r5.aQq = r9     // Catch: java.lang.Throwable -> L51
+            r5.aOF = r9     // Catch: java.lang.Throwable -> L51
             java.lang.String r6 = r4.getAbsolutePath()     // Catch: java.lang.Throwable -> L51
             r5.videoPath = r6     // Catch: java.lang.Throwable -> L51
             java.lang.String r4 = com.baidu.live.f.a.getFileMd5(r4)     // Catch: java.lang.Throwable -> L51
@@ -321,7 +321,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gz(String str) {
+    public void gt(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.live.f.a.cleanDir(new File(str));
         }

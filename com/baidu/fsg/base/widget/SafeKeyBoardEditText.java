@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
@@ -30,17 +30,17 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     private View.OnClickListener q;
     private CheckFunc r;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public interface CheckFunc {
         boolean check(String str);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public interface OnMyFocusChangeListener {
         void onMyFocusChange(View view, boolean z);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public enum SafeKeyBoardState {
         NORMAL_STATE,
         CONFRIM_STATE

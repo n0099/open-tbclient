@@ -22,7 +22,7 @@ import org.apache.http.HttpHost;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class ej extends Handler {
 
     /* renamed from: a  reason: collision with root package name */

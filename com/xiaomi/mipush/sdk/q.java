@@ -5,7 +5,7 @@ import com.xiaomi.push.dp;
 import com.xiaomi.push.hm;
 import com.xiaomi.push.hz;
 import com.xiaomi.push.il;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class q implements dp {
 
     /* renamed from: a  reason: collision with root package name */
@@ -17,7 +17,7 @@ public class q implements dp {
 
     @Override // com.xiaomi.push.dp
     public String a() {
-        return b.m94a(this.f4777a).d();
+        return b.m97a(this.f4777a).d();
     }
 
     @Override // com.xiaomi.push.dp

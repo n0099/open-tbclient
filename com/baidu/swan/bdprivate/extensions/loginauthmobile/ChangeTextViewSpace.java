@@ -5,69 +5,69 @@ import android.text.SpannableString;
 import android.text.style.ScaleXSpan;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ChangeTextViewSpace extends TextView {
-    private CharSequence dIA;
-    private float dIz;
+    private float dGR;
+    private CharSequence dGS;
 
     public ChangeTextViewSpace(Context context) {
         super(context);
-        this.dIz = 0.0f;
-        this.dIA = "";
+        this.dGR = 0.0f;
+        this.dGS = "";
     }
 
     public ChangeTextViewSpace(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dIz = 0.0f;
-        this.dIA = "";
+        this.dGR = 0.0f;
+        this.dGS = "";
     }
 
     public ChangeTextViewSpace(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dIz = 0.0f;
-        this.dIA = "";
+        this.dGR = 0.0f;
+        this.dGS = "";
     }
 
     public float getSpacing() {
-        return this.dIz;
+        return this.dGR;
     }
 
     public void setSpacing(float f) {
-        this.dIz = f;
-        aOl();
+        this.dGR = f;
+        aND();
     }
 
     @Override // android.widget.TextView
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
-        this.dIA = charSequence;
-        aOl();
+        this.dGS = charSequence;
+        aND();
     }
 
     @Override // android.widget.TextView
     public CharSequence getText() {
-        return this.dIA;
+        return this.dGS;
     }
 
-    private void aOl() {
-        if (this != null && this.dIA != null) {
+    private void aND() {
+        if (this != null && this.dGS != null) {
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < this.dIA.length(); i++) {
-                sb.append(this.dIA.charAt(i));
-                if (i + 1 < this.dIA.length() && (!uW(this.dIA.charAt(i) + "") || !uW(this.dIA.charAt(i + 1) + ""))) {
+            for (int i = 0; i < this.dGS.length(); i++) {
+                sb.append(this.dGS.charAt(i));
+                if (i + 1 < this.dGS.length() && (!uR(this.dGS.charAt(i) + "") || !uR(this.dGS.charAt(i + 1) + ""))) {
                     sb.append(" ");
                 }
             }
             SpannableString spannableString = new SpannableString(sb.toString());
             if (sb.toString().length() > 1) {
                 for (int i2 = 1; i2 < sb.toString().length(); i2 += 2) {
-                    spannableString.setSpan(new ScaleXSpan((this.dIz + 1.0f) / 10.0f), i2, i2 + 1, 33);
+                    spannableString.setSpan(new ScaleXSpan((this.dGR + 1.0f) / 10.0f), i2, i2 + 1, 33);
                 }
             }
             super.setText(spannableString, TextView.BufferType.SPANNABLE);
         }
     }
 
-    public static boolean uW(String str) {
+    public static boolean uR(String str) {
         return str.matches("^[a-zA-Z]*");
     }
 }

@@ -3,7 +3,7 @@ package kotlin.text;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.jvm.internal.Lambda;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 final class StringsKt___StringsKt$chunkedSequence$1 extends Lambda implements kotlin.jvm.a.b<CharSequence, String> {
     public static final StringsKt___StringsKt$chunkedSequence$1 INSTANCE = new StringsKt___StringsKt$chunkedSequence$1();
 

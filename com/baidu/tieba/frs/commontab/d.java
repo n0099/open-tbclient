@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.commontab;
 
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.mvc.b.j;
 import com.squareup.wire.Message;
@@ -14,14 +14,14 @@ import tbclient.ItemInfo;
 import tbclient.SportScheduleInfo;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class d implements j {
     public boolean hasMore;
-    public int iQF;
-    public String iQG;
-    public String iQH;
-    public boolean iQI;
-    public SportScheduleInfo iQJ;
+    public int iRs;
+    public String iRt;
+    public String iRu;
+    public boolean iRv;
+    public SportScheduleInfo iRw;
     public ItemInfo itemInfo;
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public ArrayList<q> threadList = new ArrayList<>();
@@ -45,24 +45,24 @@ public class d implements j {
             if (!y.isEmpty(dataRes.general_list)) {
                 for (ThreadInfo threadInfo : dataRes.general_list) {
                     if (threadInfo != null) {
-                        bw bwVar = new bw();
-                        bwVar.setUserMap(this.userMap);
-                        bwVar.eHm = true;
-                        bwVar.a(threadInfo);
-                        bwVar.bny();
-                        bwVar.bmc();
-                        this.threadList.add(bwVar);
+                        bx bxVar = new bx();
+                        bxVar.setUserMap(this.userMap);
+                        bxVar.eFE = true;
+                        bxVar.a(threadInfo);
+                        bxVar.bmC();
+                        bxVar.ble();
+                        this.threadList.add(bxVar);
                     }
                 }
             }
             com.baidu.tbadk.a.a.a.be(this.threadList);
-            this.iQF = dataRes.new_thread_num.intValue();
+            this.iRs = dataRes.new_thread_num.intValue();
             if (dataRes.sport_head_info != null) {
-                this.iQG = dataRes.sport_head_info.head_url;
-                this.iQH = dataRes.sport_head_info.jump_url;
-                this.iQI = dataRes.sport_head_info.is_ad.intValue() == 1;
+                this.iRt = dataRes.sport_head_info.head_url;
+                this.iRu = dataRes.sport_head_info.jump_url;
+                this.iRv = dataRes.sport_head_info.is_ad.intValue() == 1;
             }
-            this.iQJ = dataRes.sport_schedule_info;
+            this.iRw = dataRes.sport_schedule_info;
             this.sortType = dataRes.sort_type.intValue();
             this.itemInfo = dataRes.item_info;
         }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class hj {
     private static HashMap<String, ArrayList<hq>> a(Context context, List<hq> list) {
         if (list == null || list.size() == 0) {
@@ -40,14 +40,14 @@ public class hj {
     public static void a(Context context, hl hlVar, List<hq> list) {
         HashMap<String, ArrayList<hq>> a2 = a(context, list);
         if (a2 == null || a2.size() == 0) {
-            com.xiaomi.channel.commonutils.logger.b.m54a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
+            com.xiaomi.channel.commonutils.logger.b.m57a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
         } else {
             a(context, hlVar, a2);
         }
     }
 
     private static void a(Context context, hq hqVar) {
-        if (hqVar.f451a) {
+        if (hqVar.f454a) {
             hqVar.a("push_sdk_channel");
         }
         if (TextUtils.isEmpty(hqVar.d())) {

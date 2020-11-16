@@ -24,66 +24,66 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.a {
-    private ReplyMeModelController kvN;
-    private m kvO;
-    private boolean kvP;
+    private ReplyMeModelController kwx;
+    private m kwy;
+    private boolean kwz;
     private ViewGroup mRootView;
     private int mSkinType = 3;
-    private CustomMessageListener ktV = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.1
+    private CustomMessageListener kuF = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (ReplyMessageFragment.this.kvN != null) {
+                if (ReplyMessageFragment.this.kwx != null) {
                     ReplyMessageFragment.this.showLoadingView(ReplyMessageFragment.this.mRootView, true);
-                    ReplyMessageFragment.this.kvN.cpb();
+                    ReplyMessageFragment.this.kwx.coC();
                 }
             }
         }
     };
-    private CustomMessageListener ijH = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_REFRESH_REPLY) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.2
+    private CustomMessageListener ikv = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_REFRESH_REPLY) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             BdUniqueId bdUniqueId;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && (bdUniqueId = (BdUniqueId) customResponsedMessage.getData()) != null && bdUniqueId.getId() == ReplyMessageFragment.this.getPageContext().getUniqueId().getId()) {
                 if (ReplyMessageFragment.this.isVisible() && TbadkCoreApplication.getInst().getCurrentActivity() == ReplyMessageFragment.this.getActivity()) {
-                    if (!TbadkCoreApplication.getInst().checkInterrupt() || ReplyMessageFragment.this.kvP) {
-                        if (ReplyMessageFragment.this.kvO != null) {
-                            ReplyMessageFragment.this.kvO.sy(true);
+                    if (!TbadkCoreApplication.getInst().checkInterrupt() || ReplyMessageFragment.this.kwz) {
+                        if (ReplyMessageFragment.this.kwy != null) {
+                            ReplyMessageFragment.this.kwy.sB(true);
                             return;
                         }
                         return;
                     }
-                    ReplyMessageFragment.this.kvP = true;
-                    ReplyMessageFragment.this.kvO.sy(true);
+                    ReplyMessageFragment.this.kwz = true;
+                    ReplyMessageFragment.this.kwy.sB(true);
                     ReplyMessageFragment.this.showLoadingView(ReplyMessageFragment.this.mRootView);
-                    ReplyMessageFragment.this.kvN.cpb();
+                    ReplyMessageFragment.this.kwx.coC();
                     return;
                 }
-                ReplyMessageFragment.this.cBt();
+                ReplyMessageFragment.this.cAW();
             }
         }
     };
-    private final CustomMessageListener iIO = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.3
+    private final CustomMessageListener iJC = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ReplyMessageFragment.this.kvO != null) {
-                ReplyMessageFragment.this.kvO.b((NewsNotifyMessage) customResponsedMessage);
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ReplyMessageFragment.this.kwy != null) {
+                ReplyMessageFragment.this.kwy.b((NewsNotifyMessage) customResponsedMessage);
             }
         }
     };
-    private final CustomMessageListener kvQ = new CustomMessageListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.4
+    private final CustomMessageListener kwA = new CustomMessageListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -91,52 +91,52 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
             }
         }
     };
-    private ab kvR = new ab() { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.5
+    private ab kwB = new ab() { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.5
         @Override // com.baidu.adp.widget.ListView.ab
         public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             if (qVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
                 com.baidu.tieba.imMessageCenter.mention.base.a aVar = (com.baidu.tieba.imMessageCenter.mention.base.a) qVar;
                 if (aVar.isNew()) {
-                    aVar.sE(false);
-                    if (ReplyMessageFragment.this.kvO != null) {
-                        ReplyMessageFragment.this.kvO.notifyDataSetChanged();
+                    aVar.sH(false);
+                    if (ReplyMessageFragment.this.kwy != null) {
+                        ReplyMessageFragment.this.kwy.notifyDataSetChanged();
                     }
                 }
                 if (aVar.isBjh()) {
-                    if (aVar.cWV()) {
+                    if (aVar.cWC()) {
                         ReplyMessageFragment.this.d(aVar);
                     } else {
                         ReplyMessageFragment.this.c(aVar);
                     }
-                } else if (aVar.cWV()) {
+                } else if (aVar.cWC()) {
                     ReplyMessageFragment.this.b(aVar);
                 } else {
                     ReplyMessageFragment.this.a(aVar);
                 }
-                if (aVar.cWX() != null) {
-                    aq al = new aq(aVar.cWX()).al("obj_locate", 1);
-                    if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.kwm) {
-                        al.al("obj_type", 1);
+                if (aVar.cWE() != null) {
+                    ar ak = new ar(aVar.cWE()).ak("obj_locate", 1);
+                    if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.kwW) {
+                        ak.ak("obj_type", 1);
                     } else {
-                        al.al("obj_type", 2);
+                        ak.ak("obj_type", 2);
                     }
-                    TiebaStatic.log(al);
+                    TiebaStatic.log(ak);
                 }
                 if (aVar != null) {
-                    aq aqVar = new aq("c13720");
-                    aqVar.w("uid", TbadkApplication.getCurrentAccountId());
-                    aqVar.dR("tid", aVar.getThread_id());
-                    aqVar.dR("fname", aVar.getFname());
-                    aqVar.al("obj_type", 3);
-                    TiebaStatic.log(aqVar);
+                    ar arVar = new ar("c13720");
+                    arVar.w("uid", TbadkApplication.getCurrentAccountId());
+                    arVar.dR("tid", aVar.getThread_id());
+                    arVar.dR("fname", aVar.getFname());
+                    arVar.ak("obj_type", 3);
+                    TiebaStatic.log(arVar);
                 }
-                aq aqVar2 = new aq("c13784");
-                aqVar2.w("uid", TbadkApplication.getCurrentAccountId());
-                TiebaStatic.log(aqVar2);
+                ar arVar2 = new ar("c13784");
+                arVar2.w("uid", TbadkApplication.getCurrentAccountId());
+                TiebaStatic.log(arVar2);
             }
         }
     };
-    private ac kvS = new ac() { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.7
+    private ac kwC = new ac() { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.7
         @Override // com.baidu.adp.widget.ListView.ac
         public boolean b(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, final int i, long j) {
             if (!(qVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a)) {
@@ -152,9 +152,9 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
             bVar.a(aVar2);
             bVar.a(new b.a() { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.7.1
                 @Override // com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.a
-                public void cWA() {
-                    ReplyMessageFragment.this.kvO.DL(i);
-                    ReplyMessageFragment.this.kvN.DK(i);
+                public void cWg() {
+                    ReplyMessageFragment.this.kwy.Ej(i);
+                    ReplyMessageFragment.this.kwx.Ei(i);
                 }
             });
             bVar.show();
@@ -165,38 +165,38 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        registerListener(this.ktV);
-        registerListener(this.ijH);
-        cKR();
-        this.kvN = new ReplyMeModelController(this);
-        this.kvN.aj(bundle);
-        this.kvN.setUniqueId(getUniqueId());
+        registerListener(this.kuF);
+        registerListener(this.ikv);
+        cKx();
+        this.kwx = new ReplyMeModelController(this);
+        this.kwx.aj(bundle);
+        this.kwx.setUniqueId(getUniqueId());
         this.mRootView = (ViewGroup) layoutInflater.inflate(R.layout.reply_me_activity, viewGroup, false);
-        this.kvO = new m(this);
-        this.kvO.bY(this.mRootView);
-        this.kvO.e(this.kvR);
-        this.kvO.b(this.kvS);
+        this.kwy = new m(this);
+        this.kwy.bU(this.mRootView);
+        this.kwy.e(this.kwB);
+        this.kwy.b(this.kwC);
         if (TbadkCoreApplication.getInst().checkInterrupt()) {
             if (getActivity() instanceof MessageCenterActivity) {
-                this.kvO.sy(true);
+                this.kwy.sB(true);
                 showLoadingView(this.mRootView);
-                this.kvN.cpb();
-                this.kvP = true;
+                this.kwx.coC();
+                this.kwz = true;
             }
         } else {
-            this.kvO.sy(true);
+            this.kwy.sB(true);
             showLoadingView(this.mRootView);
-            this.kvN.cpb();
+            this.kwx.coC();
         }
-        registerListener(this.iIO);
-        registerListener(this.kvQ);
+        registerListener(this.iJC);
+        registerListener(this.kwA);
         return this.mRootView;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.kvO.onActivityResult(i, i2, intent);
+        this.kwy.onActivityResult(i, i2, intent);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -204,8 +204,8 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         super.onChangeSkinType(i);
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            if (this.kvO != null) {
-                this.kvO.onChangeSkinType(i);
+            if (this.kwy != null) {
+                this.kwy.onChangeSkinType(i);
             }
         }
     }
@@ -218,27 +218,27 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     public void onDestroy() {
         super.onDestroy();
         MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT);
-        MessageManager.getInstance().unRegisterListener(this.ktV);
-        MessageManager.getInstance().unRegisterListener(this.ijH);
-        MessageManager.getInstance().unRegisterListener(this.iIO);
-        MessageManager.getInstance().unRegisterListener(this.kvQ);
-        if (this.kvO != null) {
-            this.kvO.destroy();
+        MessageManager.getInstance().unRegisterListener(this.kuF);
+        MessageManager.getInstance().unRegisterListener(this.ikv);
+        MessageManager.getInstance().unRegisterListener(this.iJC);
+        MessageManager.getInstance().unRegisterListener(this.kwA);
+        if (this.kwy != null) {
+            this.kwy.destroy();
         }
-        if (this.kvN != null) {
-            this.kvN.onDestroy();
-        }
-    }
-
-    public void cBt() {
-        if (this.kvN != null) {
-            this.kvN.cDM();
+        if (this.kwx != null) {
+            this.kwx.onDestroy();
         }
     }
 
-    public void cmL() {
-        if (this.kvN != null) {
-            this.kvN.cpc();
+    public void cAW() {
+        if (this.kwx != null) {
+            this.kwx.cDq();
+        }
+    }
+
+    public void cmn() {
+        if (this.kwx != null) {
+            this.kwx.coD();
         }
     }
 
@@ -251,8 +251,11 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                 showToast(R.string.im_error_default);
             }
         }
-        if (this.kvO != null) {
-            this.kvO.a(errorData);
+        if (this.kwy != null) {
+            this.kwy.a(errorData);
+        }
+        if (this.kwy != null && this.kwy.cWA() != null) {
+            this.kwy.cWA().setVisibility(8);
         }
         showNetRefreshView(this.mRootView, null, false);
     }
@@ -261,29 +264,29 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         super.onNetRefreshButtonClicked();
-        if (com.baidu.adp.lib.util.l.isNetOk() && this.kvO != null) {
-            this.kvO.sy(true);
-            cBt();
+        if (com.baidu.adp.lib.util.l.isNetOk() && this.kwy != null) {
+            this.kwy.sB(true);
+            cAW();
         }
     }
 
     public void b(boolean z, ArrayList<q> arrayList) {
-        if (this.kvO != null) {
+        if (this.kwy != null) {
             hideLoadingView(this.mRootView);
             hideNetRefreshView(this.mRootView);
-            this.kvO.a(z, arrayList);
+            this.kwy.a(z, arrayList);
         }
     }
 
-    public void cWU() {
-        this.kvO.sy(false);
+    public void cWB() {
+        this.kwy.sB(false);
     }
 
-    private void cKR() {
+    private void cKx() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, new CustomMessageTask.CustomRunnable<Boolean>() { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
-                return ReplyMessageFragment.this.kvO != null ? new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, Boolean.valueOf(ReplyMessageFragment.this.kvO.onBackPressed())) : new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, false);
+                return ReplyMessageFragment.this.kwy != null ? new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, Boolean.valueOf(ReplyMessageFragment.this.kwy.onBackPressed())) : new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, false);
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -326,7 +329,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.tieba.imMessageCenter.mention.base.a aVar) {
         if (aVar != null) {
-            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(aVar.getThread_id(), aVar.cWW(), "mention", false, aVar.getReplyer() == null ? "" : aVar.getReplyer().getUserName(), false, aVar.cWW(), 0);
+            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(aVar.getThread_id(), aVar.cWD(), "mention", false, aVar.getReplyer() == null ? "" : aVar.getReplyer().getUserName(), false, aVar.cWD(), 0);
             createSubPbActivityConfig.setKeyPageStartFrom(12);
             createSubPbActivityConfig.setBjhData(aVar.getBaijiahaoData());
             createSubPbActivityConfig.setHighLightPostId(aVar.getPost_id());
@@ -338,16 +341,16 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.kvO != null) {
-            this.kvO.onBackPressed();
+        if (this.kwy != null) {
+            this.kwy.onBackPressed();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.kvO != null) {
-            this.kvO.onPrimary();
+        if (this.kwy != null) {
+            this.kwy.onPrimary();
         }
     }
 }

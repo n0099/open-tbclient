@@ -2,7 +2,7 @@ package android.support.v4.widget;
 
 import android.support.annotation.NonNull;
 import android.widget.ListView;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class ListViewAutoScrollHelper extends AutoScrollHelper {
     private final ListView mTarget;
 

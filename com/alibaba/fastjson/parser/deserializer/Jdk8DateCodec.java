@@ -24,7 +24,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectDeserializer, ContextObjectSerializer, ObjectSerializer {
     public static final Jdk8DateCodec instance = new Jdk8DateCodec();
     private static final String defaultPatttern = "yyyy-MM-dd HH:mm:ss";

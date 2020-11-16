@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public interface f {
     void E(String str, int i);
 
-    void QL();
+    void Qc();
 
     void a(com.baidu.live.talentshow.b.c cVar);
 
@@ -21,11 +21,12 @@ public interface f {
 
     void f(long j, int i);
 
-    void fg(int i);
+    void fc(int i);
 
     void g(long j, int i);
 
     void h(long j, int i);
 
-    void il(String str);
+    /* renamed from: if */
+    void mo22if(String str);
 }

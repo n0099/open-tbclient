@@ -7,17 +7,15 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.bw;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.view.commonBtn.b;
 import com.baidu.tbadk.core.view.userLike.c;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class FollowUserDecorView extends FollowUserButton {
-    private c ajW;
-    private boolean ajX;
+    private c ajZ;
+    private boolean aka;
     private BdUniqueId mBdUniqueId;
 
     public FollowUserDecorView(Context context) {
@@ -32,23 +30,23 @@ public class FollowUserDecorView extends FollowUserButton {
         super(context, attributeSet, i);
     }
 
-    public void setData(bw bwVar) {
-        if (bwVar == null || bwVar.bmA() == null) {
+    public void setData(bx bxVar) {
+        if (bxVar == null || bxVar.blC() == null) {
             setVisibility(8);
             return;
         }
-        if (this.ajW == null) {
-            this.ajW = new c(W(getContext()), this);
-            this.ajW.l(this.mBdUniqueId);
+        if (this.ajZ == null) {
+            this.ajZ = new c(W(getContext()), this);
+            this.ajZ.l(this.mBdUniqueId);
         }
         setVisibility(0);
-        this.ajW.a(bwVar.bmA());
+        this.ajZ.a(bxVar.blC());
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        if (this.ajW != null) {
-            this.ajW.l(this.mBdUniqueId);
+        if (this.ajZ != null) {
+            this.ajZ.l(this.mBdUniqueId);
         }
     }
 
@@ -63,18 +61,16 @@ public class FollowUserDecorView extends FollowUserButton {
     }
 
     @Override // com.baidu.tieba.view.FollowUserButton
-    public void aN(boolean z) {
-        super.aN(z);
-        if (this.ajX && !z) {
+    public void aP(boolean z) {
+        super.aP(z);
+        if (this.aka && !z) {
             b bVar = new b();
-            bVar.qi(R.color.cp_link_tip_a);
-            bVar.qd(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
-            bVar.a(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+            bVar.qG(R.color.CAM_X0304);
             setConfig(bVar);
         }
     }
 
     public void setUseNewStyle(boolean z) {
-        this.ajX = z;
+        this.aka = z;
     }
 }

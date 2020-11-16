@@ -10,8 +10,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class u {
-    public static List<t> GY() {
-        String string = com.baidu.live.d.AZ().getString("gift_dynamic_res_last_accessed", "");
+    public static List<t> Gp() {
+        String string = com.baidu.live.d.Aq().getString("gift_dynamic_res_last_accessed", "");
         if (TextUtils.isEmpty(string)) {
             return null;
         }
@@ -22,7 +22,7 @@ public class u {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
-                        arrayList.add(new t().J(optJSONObject));
+                        arrayList.add(new t().D(optJSONObject));
                     }
                 }
                 return arrayList;
@@ -30,12 +30,12 @@ public class u {
             return null;
         } catch (JSONException e) {
             e.printStackTrace();
-            com.baidu.live.d.AZ().putString("gift_dynamic_res_last_accessed", "");
+            com.baidu.live.d.Aq().putString("gift_dynamic_res_last_accessed", "");
             return null;
         }
     }
 
-    public static void gA(String str) {
+    public static void gu(String str) {
         e(str, System.currentTimeMillis());
     }
 
@@ -43,7 +43,7 @@ public class u {
         JSONArray jSONArray;
         boolean z = false;
         if (!TextUtils.isEmpty(str)) {
-            String string = com.baidu.live.d.AZ().getString("gift_dynamic_res_last_accessed", "");
+            String string = com.baidu.live.d.Aq().getString("gift_dynamic_res_last_accessed", "");
             try {
                 if (!TextUtils.isEmpty(string)) {
                     jSONArray = new JSONArray(string);
@@ -75,22 +75,22 @@ public class u {
             if (!z) {
                 t tVar = new t();
                 tVar.name = str;
-                tVar.aTn = j;
+                tVar.aRC = j;
                 JSONObject jsonObject = tVar.toJsonObject();
                 if (jsonObject != null) {
                     jSONArray.put(jsonObject);
                 }
             }
-            com.baidu.live.d.AZ().putString("gift_dynamic_res_last_accessed", jSONArray.toString());
+            com.baidu.live.d.Aq().putString("gift_dynamic_res_last_accessed", jSONArray.toString());
         }
     }
 
-    public static void gP(String str) {
+    public static void gJ(String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.live.d.AZ().putString("gift_dynamic_res_last_accessed", "");
+            com.baidu.live.d.Aq().putString("gift_dynamic_res_last_accessed", "");
             return;
         }
-        String string = com.baidu.live.d.AZ().getString("gift_dynamic_res_last_accessed", "");
+        String string = com.baidu.live.d.Aq().getString("gift_dynamic_res_last_accessed", "");
         if (!TextUtils.isEmpty(string)) {
             try {
                 JSONArray jSONArray = new JSONArray(string);
@@ -104,7 +104,7 @@ public class u {
                             declaredField.setAccessible(true);
                             ((List) declaredField.get(jSONArray)).remove(i);
                         }
-                        com.baidu.live.d.AZ().putString("gift_dynamic_res_last_accessed", jSONArray.toString());
+                        com.baidu.live.d.Aq().putString("gift_dynamic_res_last_accessed", jSONArray.toString());
                         return;
                     }
                 }

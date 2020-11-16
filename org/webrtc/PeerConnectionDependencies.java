@@ -2,12 +2,12 @@ package org.webrtc;
 
 import android.support.annotation.Nullable;
 import org.webrtc.PeerConnection;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public final class PeerConnectionDependencies {
     private final PeerConnection.Observer observer;
     private final SSLCertificateVerifier sslCertificateVerifier;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class Builder {
         private PeerConnection.Observer observer;
         private SSLCertificateVerifier sslCertificateVerifier;

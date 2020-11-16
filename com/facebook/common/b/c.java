@@ -2,7 +2,7 @@ package com.facebook.common.b;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes6.dex */
+/* loaded from: classes12.dex */
 public class c extends b implements g {
     public c(Executor executor) {
         super("SerialExecutor", 1, executor, new LinkedBlockingQueue());

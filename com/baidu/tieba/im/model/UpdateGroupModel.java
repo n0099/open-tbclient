@@ -10,7 +10,7 @@ import com.baidu.tieba.im.message.RequestUpdateGroupMessage;
 import com.baidu.tieba.im.message.RequestUpdateGroupNameMessage;
 import com.baidu.tieba.im.message.RequestUpdateGroupPortraitMessage;
 import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class UpdateGroupModel extends BdBaseModel {
     public static final int TYPE_UPDATE_ALBUM = 3;
     public static final int TYPE_UPDATE_FLAG = 5;

@@ -24,11 +24,11 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
     private View f;
     private TextView g;
     private TextView h;
-    private InterfaceC1012a pxN;
+    private InterfaceC1015a pzq;
 
     /* renamed from: com.kascend.chushou.view.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1012a {
+    public interface InterfaceC1015a {
         void a(int i);
     }
 
@@ -85,8 +85,8 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.pxN != null) {
-            this.pxN.a(view.getId());
+        if (this.pzq != null) {
+            this.pzq.a(view.getId());
         }
     }
 
@@ -96,7 +96,7 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
         this.f4226a--;
     }
 
-    public void a(InterfaceC1012a interfaceC1012a) {
-        this.pxN = interfaceC1012a;
+    public void a(InterfaceC1015a interfaceC1015a) {
+        this.pzq = interfaceC1015a;
     }
 }

@@ -12,17 +12,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.util.Random;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class RecordingAnimView extends View {
-    private int abA;
-    private boolean abB;
-    private boolean abC;
-    private RectF[] abD;
-    private int[] abE;
+    private int abE;
     private int abF;
-    private int abG;
-    private final Runnable abH;
-    private int abz;
+    private boolean abG;
+    private boolean abH;
+    private RectF[] abI;
+    private int[] abJ;
+    private int abK;
+    private int abL;
+    private final Runnable abM;
     private int mCanvasHeight;
     private int mCanvasWidth;
     private Paint mPaint;
@@ -33,13 +33,13 @@ public class RecordingAnimView extends View {
         super(context);
         this.mSkinType = 3;
         this.random = new Random();
-        this.abz = 0;
-        this.abA = 8;
-        this.abB = false;
-        this.abC = true;
-        this.abE = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.abF = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds4);
-        this.abH = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
+        this.abE = 0;
+        this.abF = 8;
+        this.abG = false;
+        this.abH = true;
+        this.abJ = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.abK = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds4);
+        this.abM = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
             @Override // java.lang.Runnable
             public void run() {
                 RecordingAnimView.this.sv();
@@ -53,13 +53,13 @@ public class RecordingAnimView extends View {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.random = new Random();
-        this.abz = 0;
-        this.abA = 8;
-        this.abB = false;
-        this.abC = true;
-        this.abE = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.abF = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds4);
-        this.abH = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
+        this.abE = 0;
+        this.abF = 8;
+        this.abG = false;
+        this.abH = true;
+        this.abJ = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.abK = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds4);
+        this.abM = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
             @Override // java.lang.Runnable
             public void run() {
                 RecordingAnimView.this.sv();
@@ -71,58 +71,58 @@ public class RecordingAnimView extends View {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sv() {
-        if (this.abB) {
+        if (this.abG) {
             invalidate();
         }
-        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.abH);
-        if (!this.abC) {
-            com.baidu.adp.lib.f.e.mY().postDelayed(this.abH, 250L);
+        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.abM);
+        if (!this.abH) {
+            com.baidu.adp.lib.f.e.mY().postDelayed(this.abM, 250L);
         }
     }
 
     @Override // android.view.View
     @SuppressLint({"DrawAllocation"})
     protected void onMeasure(int i, int i2) {
-        if (this.abz > 0) {
+        if (this.abE > 0) {
             int mode = View.MeasureSpec.getMode(i);
-            this.mCanvasWidth = this.abF * ((this.abz * 2) - 1);
-            this.abA = this.abz;
+            this.mCanvasWidth = this.abK * ((this.abE * 2) - 1);
+            this.abF = this.abE;
             i = View.MeasureSpec.makeMeasureSpec(this.mCanvasWidth, mode);
         }
         super.onMeasure(i, i2);
         this.mCanvasHeight = getMeasuredHeight();
         this.mCanvasWidth = getMeasuredWidth();
-        if (this.abz <= 0) {
-            this.abA = (this.mCanvasWidth / this.abF) / 2;
+        if (this.abE <= 0) {
+            this.abF = (this.mCanvasWidth / this.abK) / 2;
         }
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.abB) {
-            for (int i = 0; i < this.abA; i++) {
+        if (this.abG) {
+            for (int i = 0; i < this.abF; i++) {
                 sx();
-                if (i < this.abD.length) {
-                    canvas.drawRoundRect(this.abD[i], 10.0f, 10.0f, this.mPaint);
+                if (i < this.abI.length) {
+                    canvas.drawRoundRect(this.abI[i], 10.0f, 10.0f, this.mPaint);
                 }
             }
         }
     }
 
     private void sw() {
-        this.abG = bi(TbadkCoreApplication.getInst().getSkinType());
+        this.abL = bi(TbadkCoreApplication.getInst().getSkinType());
         this.mPaint = new Paint();
         this.mPaint.setDither(true);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(ap.getColor(this.abG));
+        this.mPaint.setColor(ap.getColor(this.abL));
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType && this.mPaint != null) {
-            this.abG = bi(i);
-            this.mPaint.setColor(ap.getColor(i, this.abG));
+            this.abL = bi(i);
+            this.mPaint.setColor(ap.getColor(i, this.abL));
             invalidate();
             this.mSkinType = i;
         }
@@ -134,29 +134,29 @@ public class RecordingAnimView extends View {
 
     private void sx() {
         int nextInt;
-        if (this.abD == null || this.abD.length != this.abA) {
-            this.abD = new RectF[this.abA];
+        if (this.abI == null || this.abI.length != this.abF) {
+            this.abI = new RectF[this.abF];
         }
-        for (int i = 0; i < this.abA; i++) {
-            int i2 = this.abF * i * 2;
-            if (this.abC) {
-                nextInt = (int) ((1.0d - (this.abE[i % 22] / 10.0d)) * this.mCanvasHeight);
+        for (int i = 0; i < this.abF; i++) {
+            int i2 = this.abK * i * 2;
+            if (this.abH) {
+                nextInt = (int) ((1.0d - (this.abJ[i % 22] / 10.0d)) * this.mCanvasHeight);
             } else {
                 nextInt = this.mCanvasHeight > 0 ? this.random.nextInt(this.mCanvasHeight) : 0;
             }
-            int i3 = this.abF + i2;
+            int i3 = this.abK + i2;
             int i4 = this.mCanvasHeight;
-            if (this.abD[i] == null) {
-                this.abD[i] = new RectF(i2, nextInt, i3, i4);
+            if (this.abI[i] == null) {
+                this.abI[i] = new RectF(i2, nextInt, i3, i4);
             } else {
-                this.abD[i].set(i2, nextInt, i3, i4);
+                this.abI[i].set(i2, nextInt, i3, i4);
             }
         }
     }
 
     public void setColumnWidth(int i) {
         if (i > 0) {
-            this.abF = i;
+            this.abK = i;
         }
     }
 
@@ -164,30 +164,30 @@ public class RecordingAnimView extends View {
         if (this.mPaint != null) {
             this.mPaint.setColor(ap.getColor(i));
         }
-        this.abG = i;
+        this.abL = i;
     }
 
     public void start() {
-        this.abB = true;
-        this.abC = false;
+        this.abG = true;
+        this.abH = false;
         sv();
     }
 
     public void setCertainColumnCount(int i) {
         if (i != 0) {
-            this.abz = i;
+            this.abE = i;
         }
     }
 
     public void sy() {
-        this.abB = true;
-        this.abC = true;
+        this.abG = true;
+        this.abH = true;
         sv();
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.abH);
+        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.abM);
     }
 }

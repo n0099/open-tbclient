@@ -1,7 +1,7 @@
 package com.tencent.mm.opensdk.utils;
 
 import android.os.Bundle;
-/* loaded from: classes11.dex */
+/* loaded from: classes17.dex */
 public final class a {
     public static int a(Bundle bundle, String str) {
         if (bundle == null) {

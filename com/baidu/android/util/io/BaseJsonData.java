@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class BaseJsonData {
     private static final boolean DEBUG = false;
     public static final int ERROR_CODE_OK = 0;

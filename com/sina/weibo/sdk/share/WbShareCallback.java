@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.share;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public interface WbShareCallback {
     void onWbShareCancel();
 

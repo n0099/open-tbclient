@@ -5,11 +5,11 @@ import android.content.Context;
 public interface g {
     void clear();
 
-    boolean eCT();
+    boolean eCU();
 
-    long eCU();
+    long eCV();
 
-    boolean eCV();
+    boolean eCW();
 
     Context getContext();
 

@@ -5,23 +5,23 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.swan.apps.ap.v;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class d extends com.baidu.swan.apps.process.a.a.a {
-    private JSONObject dPA;
-    private String dPG;
+    private JSONObject dNS;
+    private String dNY;
     private String mPackageName;
 
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(@NonNull Bundle bundle) {
-        this.dPG = bundle.getString("operation", "");
-        this.dPA = v.parseString(bundle.getString("ubc_params", ""));
+        this.dNY = bundle.getString("operation", "");
+        this.dNS = v.parseString(bundle.getString("ubc_params", ""));
         final JSONObject parseString = v.parseString(bundle.getString("data", ""));
         this.mPackageName = parseString.optString("packageName");
         com.baidu.swan.gamecenter.appmanager.a.b.sExecutorService.execute(new Runnable() { // from class: com.baidu.swan.gamecenter.appmanager.download.d.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.gamecenter.appmanager.a.aRP().cl(d.this.dPA);
-                String str = d.this.dPG;
+                com.baidu.swan.gamecenter.appmanager.a.aRh().cf(d.this.dNS);
+                String str = d.this.dNY;
                 char c = 65535;
                 switch (str.hashCode()) {
                     case -1261560102:
@@ -75,28 +75,28 @@ public class d extends com.baidu.swan.apps.process.a.a.a {
                 }
                 switch (c) {
                     case 0:
-                        d.this.cm(parseString);
+                        d.this.cg(parseString);
                         return;
                     case 1:
-                        d.this.cn(parseString);
+                        d.this.ch(parseString);
                         return;
                     case 2:
-                        d.this.aSf();
+                        d.this.aRx();
                         return;
                     case 3:
-                        d.this.co(parseString);
+                        d.this.ci(parseString);
                         return;
                     case 4:
-                        d.this.cq(parseString);
+                        d.this.ck(parseString);
                         return;
                     case 5:
-                        d.this.cp(parseString);
+                        d.this.cj(parseString);
                         return;
                     case 6:
-                        d.this.aSg();
+                        d.this.aRy();
                         return;
                     case 7:
-                        d.this.aSh();
+                        d.this.aRz();
                         return;
                     default:
                         d.this.b(new com.baidu.swan.gamecenter.appmanager.c.a(31009, "invalid operation"));
@@ -107,68 +107,68 @@ public class d extends com.baidu.swan.apps.process.a.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cm(@NonNull JSONObject jSONObject) {
-        com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.dPG, null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dPA));
-        com.baidu.swan.gamecenter.appmanager.a.aRP().a(jSONObject.optString("url"), jSONObject.optString("packageName"), jSONObject.optString("apkId"), new a());
+    public void cg(@NonNull JSONObject jSONObject) {
+        com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.dNY, null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dNS));
+        com.baidu.swan.gamecenter.appmanager.a.aRh().a(jSONObject.optString("url"), jSONObject.optString("packageName"), jSONObject.optString("apkId"), new a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cn(@NonNull JSONObject jSONObject) {
-        com.baidu.swan.gamecenter.appmanager.a.aRP().a(jSONObject.optString("url"), new a());
+    public void ch(@NonNull JSONObject jSONObject) {
+        com.baidu.swan.gamecenter.appmanager.a.aRh().a(jSONObject.optString("url"), new a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aSf() {
-        com.baidu.swan.gamecenter.appmanager.a.aRP().a(new a());
+    public void aRx() {
+        com.baidu.swan.gamecenter.appmanager.a.aRh().a(new a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void co(@NonNull JSONObject jSONObject) {
-        com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.dPG, null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dPA));
-        com.baidu.swan.gamecenter.appmanager.a.aRP().c(jSONObject.optString("url"), new a());
+    public void ci(@NonNull JSONObject jSONObject) {
+        com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.dNY, null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dNS));
+        com.baidu.swan.gamecenter.appmanager.a.aRh().c(jSONObject.optString("url"), new a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cp(@NonNull JSONObject jSONObject) {
-        com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.dPG, null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dPA));
-        com.baidu.swan.gamecenter.appmanager.a.aRP().d(jSONObject.optString("url"), new a());
+    public void cj(@NonNull JSONObject jSONObject) {
+        com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.dNY, null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dNS));
+        com.baidu.swan.gamecenter.appmanager.a.aRh().d(jSONObject.optString("url"), new a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cq(@NonNull JSONObject jSONObject) {
-        com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.dPG, null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dPA));
-        com.baidu.swan.gamecenter.appmanager.a.aRP().b(jSONObject.optString("url"), new a());
+    public void ck(@NonNull JSONObject jSONObject) {
+        com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.dNY, null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dNS));
+        com.baidu.swan.gamecenter.appmanager.a.aRh().b(jSONObject.optString("url"), new a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aSg() {
-        com.baidu.swan.gamecenter.appmanager.a.aRP().aRR();
+    public void aRy() {
+        com.baidu.swan.gamecenter.appmanager.a.aRh().aRj();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aSh() {
-        com.baidu.swan.gamecenter.appmanager.a.aRP().aRS();
+    public void aRz() {
+        com.baidu.swan.gamecenter.appmanager.a.aRh().aRk();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.swan.gamecenter.appmanager.c.b bVar) {
-        this.dlj.clear();
+        this.djC.clear();
         if (bVar != null) {
-            this.dlj.putString("functionType", bVar.aSr());
-            this.dlj.putString("resultData", bVar.getResult());
-            this.dlj.putInt("resultStatus", bVar.getStatus());
-            if (bVar.aSq()) {
-                if (!TextUtils.equals(this.dPG, "startDownload")) {
-                    com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.dPG, "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dPA));
+            this.djC.putString("functionType", bVar.aRJ());
+            this.djC.putString("resultData", bVar.getResult());
+            this.djC.putInt("resultStatus", bVar.getStatus());
+            if (bVar.aRI()) {
+                if (!TextUtils.equals(this.dNY, "startDownload")) {
+                    com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.dNY, "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dNS));
                 }
             } else {
-                com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.dPG, "fail", String.valueOf(bVar.getStatus()), new com.baidu.swan.gamecenter.appmanager.d.a(this.dPA));
+                com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.dNY, "fail", String.valueOf(bVar.getStatus()), new com.baidu.swan.gamecenter.appmanager.d.a(this.dNS));
             }
         }
         finish();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes16.dex */
     public class a implements com.baidu.swan.gamecenter.appmanager.b.b {
         public a() {
         }

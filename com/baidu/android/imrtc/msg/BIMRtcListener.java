@@ -4,7 +4,7 @@ import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.notify.BIMKickReqSyncRtcInfo;
 import com.baidu.android.imrtc.notify.BIMKickResSyncRtcInfo;
 import com.baidu.android.imrtc.utils.RtcConstants;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public interface BIMRtcListener {
     void fetchRoomSignal(boolean z, BIMRtcInfo bIMRtcInfo);
 

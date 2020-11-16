@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class SecurityUtils {
     public static boolean isRoot() {
         if (new File("/system/bin/su").exists() && isExecutable("/system/bin/su")) {

@@ -4,21 +4,21 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.samsung.android.deviceidservice.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static abstract class AbstractBinderC1035a extends Binder implements a {
+    /* loaded from: classes5.dex */
+    public static abstract class AbstractBinderC1038a extends Binder implements a {
 
         /* renamed from: com.samsung.android.deviceidservice.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        private static class C1036a implements a {
+        /* loaded from: classes5.dex */
+        private static class C1039a implements a {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f4455a;
 
-            C1036a(IBinder iBinder) {
+            C1039a(IBinder iBinder) {
                 this.f4455a = iBinder;
             }
 
@@ -75,7 +75,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC1035a() {
+        public AbstractBinderC1038a() {
             attachInterface(this, "com.samsung.android.deviceidservice.IDeviceIdService");
         }
 
@@ -84,7 +84,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.samsung.android.deviceidservice.IDeviceIdService");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1036a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1039a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder

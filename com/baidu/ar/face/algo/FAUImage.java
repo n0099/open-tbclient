@@ -1,7 +1,7 @@
 package com.baidu.ar.face.algo;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class FAUImage {
     public ByteBuffer data;
     public int format;

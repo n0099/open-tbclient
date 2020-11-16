@@ -9,7 +9,7 @@ import java.io.Serializable;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+/* loaded from: classes17.dex */
 public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implements Serializable {
     private static final long serialVersionUID = 0;
     private final transient ProtoAdapter<M> adapter;
@@ -64,7 +64,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
         this.adapter.encode(outputStream, (OutputStream) this);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes17.dex */
     public static abstract class a<T extends Message<T, B>, B extends a<T, B>> {
         Buffer unknownFieldsBuffer;
         d unknownFieldsWriter;

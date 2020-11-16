@@ -8,22 +8,22 @@ public class h {
     private JSONObject mData;
     private long mPaId;
     private String mType;
-    private String oxI;
-    private int oxJ;
-    public int oxK;
-    public int oxL = -1;
+    private String ozm;
+    private int ozn;
+    public int ozo;
+    public int ozp = -1;
 
-    public void Xv(String str) {
+    public void Xg(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.oxL = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
-            if (this.oxL == 0) {
+            this.ozp = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
+            if (this.ozp == 0) {
                 this.mData = jSONObject.optJSONObject("data");
                 if (this.mData != null) {
                     this.mType = this.mData.optString("type");
-                    this.oxI = this.mData.optString("third_id");
-                    this.oxJ = this.mData.optInt("has_sub");
-                    this.oxK = this.mData.optInt("notify");
+                    this.ozm = this.mData.optString("third_id");
+                    this.ozn = this.mData.optInt("has_sub");
+                    this.ozo = this.mData.optInt("notify");
                 }
             }
         } catch (JSONException e) {
@@ -40,30 +40,30 @@ public class h {
     }
 
     public String getThirdId() {
-        return this.oxI;
+        return this.ozm;
     }
 
-    public int efy() {
-        return this.oxK;
+    public int efw() {
+        return this.ozo;
     }
 
-    public void Ny(int i) {
-        this.oxK = i;
+    public void Ob(int i) {
+        this.ozo = i;
     }
 
     public String getType() {
-        return Xw("type") ? this.mType : "";
+        return Xh("type") ? this.mType : "";
     }
 
-    public String efz() {
-        return Xw("third_id") ? this.oxI : "";
+    public String efx() {
+        return Xh("third_id") ? this.ozm : "";
     }
 
     public boolean isDataValid() {
-        return this.oxL == 0;
+        return this.ozp == 0;
     }
 
-    private boolean Xw(String str) {
+    private boolean Xh(String str) {
         return isDataValid() && this.mData != null && this.mData.has(str);
     }
 }

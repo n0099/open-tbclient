@@ -1,29 +1,29 @@
 package org.aspectj.a.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 abstract class a extends d implements org.aspectj.lang.reflect.a {
-    String[] pZZ;
     Class[] parameterTypes;
-    Class[] qaa;
+    String[] qbC;
+    Class[] qbD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(int i, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2) {
         super(i, str, cls);
         this.parameterTypes = clsArr;
-        this.pZZ = strArr;
-        this.qaa = clsArr2;
+        this.qbC = strArr;
+        this.qbD = clsArr2;
     }
 
-    public Class[] eEt() {
+    public Class[] eEu() {
         if (this.parameterTypes == null) {
-            this.parameterTypes = RH(3);
+            this.parameterTypes = Sk(3);
         }
         return this.parameterTypes;
     }
 
-    public Class[] eEu() {
-        if (this.qaa == null) {
-            this.qaa = RH(5);
+    public Class[] eEv() {
+        if (this.qbD == null) {
+            this.qbD = Sk(5);
         }
-        return this.qaa;
+        return this.qbD;
     }
 }

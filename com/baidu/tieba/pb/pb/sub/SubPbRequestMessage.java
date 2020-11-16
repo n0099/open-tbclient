@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.u;
 import tbclient.PbFloor.DataReq;
 import tbclient.PbFloor.PbFloorReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class SubPbRequestMessage extends NetMessage {
     private long forumId;
     private int is_comm_reverse;

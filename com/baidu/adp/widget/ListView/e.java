@@ -8,9 +8,10 @@ import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.widget.ListView.af;
 import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e {
-    public a VG = null;
+    public a VH = null;
     public ArrayList<c> mFooterViewInfos;
     public ArrayList<c> mHeaderViewInfos;
 
@@ -27,7 +28,7 @@ public class e {
     }
 
     public void a(a aVar) {
-        this.VG = aVar;
+        this.VH = aVar;
     }
 
     public int z(View view) {
@@ -36,7 +37,7 @@ public class e {
             int i2 = i;
             if (i2 < this.mHeaderViewInfos.size()) {
                 c cVar = this.mHeaderViewInfos.get(i2);
-                if (cVar == null || cVar.VI == null || cVar.VI.itemView != view) {
+                if (cVar == null || cVar.VJ == null || cVar.VJ.itemView != view) {
                     i = i2 + 1;
                 } else {
                     return i2;
@@ -53,7 +54,7 @@ public class e {
             int i2 = i;
             if (i2 < this.mFooterViewInfos.size()) {
                 c cVar = this.mFooterViewInfos.get(i2);
-                if (cVar == null || cVar.VI == null || cVar.VI.itemView != view) {
+                if (cVar == null || cVar.VJ == null || cVar.VJ.itemView != view) {
                     i = i2 + 1;
                 } else {
                     return i2;
@@ -72,12 +73,13 @@ public class e {
         return this.mFooterViewInfos.size();
     }
 
-    public void addHeaderView(View view, Object obj, boolean z, int i) {
+    public void a(View view, Object obj, boolean z, boolean z2, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.VI = new af.a(view);
+            cVar.VJ = new af.a(view);
             cVar.data = obj;
             cVar.isSelectable = z;
+            cVar.VK = z2;
             cVar.type = BdUniqueId.gen().getId();
             cVar.id = cVar.type;
             view.setTag("HEADER");
@@ -89,12 +91,13 @@ public class e {
         }
     }
 
-    public void addFooterView(View view, Object obj, boolean z, int i) {
+    public void b(View view, Object obj, boolean z, boolean z2, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.VI = new af.a(view);
+            cVar.VJ = new af.a(view);
             cVar.data = obj;
             cVar.isSelectable = z;
+            cVar.VK = z2;
             cVar.type = BdUniqueId.gen().getId();
             cVar.id = cVar.type;
             view.setTag("FOOTER");
@@ -112,7 +115,7 @@ public class e {
         }
         for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
             c cVar = this.mHeaderViewInfos.get(i);
-            if (cVar != null && cVar.VI != null && cVar.VI.itemView == view) {
+            if (cVar != null && cVar.VJ != null && cVar.VJ.itemView == view) {
                 this.mHeaderViewInfos.remove(i);
                 return true;
             }
@@ -126,7 +129,7 @@ public class e {
         }
         for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
             c cVar = this.mFooterViewInfos.get(i);
-            if (cVar != null && cVar.VI != null && cVar.VI.itemView == view) {
+            if (cVar != null && cVar.VJ != null && cVar.VJ.itemView == view) {
                 this.mFooterViewInfos.remove(i);
                 return true;
             }
@@ -134,36 +137,26 @@ public class e {
         return false;
     }
 
-    public af.a aM(int i) {
-        int i2 = 0;
-        while (true) {
-            int i3 = i2;
-            if (i3 < this.mHeaderViewInfos.size()) {
-                if (this.mHeaderViewInfos.get(i3) == null || i != this.mHeaderViewInfos.get(i3).type) {
-                    i2 = i3 + 1;
-                } else {
-                    return this.mHeaderViewInfos.get(i3).VI;
-                }
-            } else {
-                return null;
+    public c aN(int i) {
+        Iterator<c> it = this.mHeaderViewInfos.iterator();
+        while (it.hasNext()) {
+            c next = it.next();
+            if (next != null && i == next.type) {
+                return next;
             }
         }
+        return null;
     }
 
-    public af.a aN(int i) {
-        int i2 = 0;
-        while (true) {
-            int i3 = i2;
-            if (i3 < this.mFooterViewInfos.size()) {
-                if (this.mFooterViewInfos.get(i3) == null || i != this.mFooterViewInfos.get(i3).type) {
-                    i2 = i3 + 1;
-                } else {
-                    return this.mFooterViewInfos.get(i3).VI;
-                }
-            } else {
-                return null;
+    public c aO(int i) {
+        Iterator<c> it = this.mFooterViewInfos.iterator();
+        while (it.hasNext()) {
+            c next = it.next();
+            if (next != null && i == next.type) {
+                return next;
             }
         }
+        return null;
     }
 
     public af.a K(Context context) {
@@ -184,7 +177,8 @@ public class e {
 
     /* loaded from: classes.dex */
     public class c {
-        public af.a VI;
+        public af.a VJ;
+        public boolean VK;
         public Object data;
         public long id;
         public boolean isSelectable;

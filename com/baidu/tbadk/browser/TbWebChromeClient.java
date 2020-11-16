@@ -15,7 +15,9 @@ import android.widget.FrameLayout;
 import com.baidu.adp.lib.f.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.coreExtra.data.y;
+import com.baidu.tieba.tbadkCore.e.a.f;
 /* loaded from: classes.dex */
 public class TbWebChromeClient extends WebChromeClient {
     private com.baidu.tieba.tbadkCore.e.c callback;
@@ -92,7 +94,13 @@ public class TbWebChromeClient extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (!y.CL(str) || this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) {
+        if (!y.Ck(str) && str2.startsWith("tiebaapp")) {
+            com.baidu.tieba.tbadkCore.e.a.b bVar = new com.baidu.tieba.tbadkCore.e.a.b();
+            bVar.Su(f.SA(str2));
+            bVar.setStatus(301);
+            callJsMethod(webView, bVar.getMethodName(), bVar.dKx());
+        }
+        if (!y.Ck(str) || this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) {
             jsPromptResult.cancel();
         }
         return true;
@@ -107,6 +115,16 @@ public class TbWebChromeClient extends WebChromeClient {
         if (Build.VERSION.SDK_INT < 23 && !StringUtils.isNull(str)) {
             if ((str.contains("404") || str.contains("500") || str.contains(V8ExceptionInfo.V8_EXCEPTION_ERROR)) && this.mActivity != null) {
                 this.mActivity.onReceivedTitle();
+            }
+        }
+    }
+
+    private void callJsMethod(WebView webView, String str, String str2) {
+        if (webView != null && !au.isEmpty(str) && !au.isEmpty(str2)) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
+            } else {
+                webView.loadUrl("javascript:" + str + "('" + str2 + "')");
             }
         }
     }

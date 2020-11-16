@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.baidu.pass.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlignPartTextView extends AppCompatTextView {
 
     /* renamed from: a  reason: collision with root package name */
@@ -34,7 +34,7 @@ public class AlignPartTextView extends AppCompatTextView {
     private int[] p;
     private int[] q;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum Align {
         ALIGN_LEFT,
         ALIGN_CENTER,

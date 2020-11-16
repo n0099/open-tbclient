@@ -1,14 +1,14 @@
 package com.baidu.h.b;
 
 import android.content.Context;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private static volatile a bVy;
-    private com.baidu.h.a.a.a bVA;
-    private com.baidu.h.a.c.a bVB;
-    private com.baidu.h.a.d.a bVC;
-    private b bVD;
-    private com.baidu.h.a.b.a.b bVz;
+    private static volatile a bTO;
+    private com.baidu.h.a.b.a.b bTP;
+    private com.baidu.h.a.a.a bTQ;
+    private com.baidu.h.a.c.a bTR;
+    private com.baidu.h.a.d.a bTS;
+    private b bTT;
     private Context mContext;
 
     private a(Context context) {
@@ -16,53 +16,53 @@ public class a {
     }
 
     public static a aJ(Context context) {
-        if (bVy == null) {
+        if (bTO == null) {
             synchronized (a.class) {
-                if (bVy == null) {
-                    bVy = new a(context);
+                if (bTO == null) {
+                    bTO = new a(context);
                 }
             }
         }
-        return bVy;
+        return bTO;
     }
 
-    public com.baidu.h.a.b.a.b Yl() {
-        return this.bVz;
+    public com.baidu.h.a.b.a.b XC() {
+        return this.bTP;
     }
 
     public void a(com.baidu.h.a.b.a.b bVar) {
-        this.bVz = bVar;
+        this.bTP = bVar;
     }
 
-    public com.baidu.h.a.a.a Ym() {
-        return this.bVA;
+    public com.baidu.h.a.a.a XD() {
+        return this.bTQ;
     }
 
     public void a(com.baidu.h.a.a.a aVar) {
-        this.bVA = aVar;
+        this.bTQ = aVar;
     }
 
-    public com.baidu.h.a.c.a Yn() {
-        return this.bVB;
+    public com.baidu.h.a.c.a XE() {
+        return this.bTR;
     }
 
     public void a(com.baidu.h.a.c.a aVar) {
-        this.bVB = aVar;
+        this.bTR = aVar;
     }
 
-    public com.baidu.h.a.d.a Yo() {
-        return this.bVC;
+    public com.baidu.h.a.d.a XF() {
+        return this.bTS;
     }
 
     public void a(com.baidu.h.a.d.a aVar) {
-        this.bVC = aVar;
+        this.bTS = aVar;
     }
 
-    public b Yp() {
-        return this.bVD;
+    public b XG() {
+        return this.bTT;
     }
 
     public void a(b bVar) {
-        this.bVD = bVar;
+        this.bTT = bVar;
     }
 }

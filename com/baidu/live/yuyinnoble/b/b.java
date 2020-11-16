@@ -10,29 +10,29 @@ import com.baidu.live.yuyinnoble.d.e;
 import com.baidu.live.yuyinnoble.e.b;
 /* loaded from: classes4.dex */
 public class b implements com.baidu.live.h.b {
-    private String aNj;
-    private boolean bUd;
-    private e bUe;
-    private com.baidu.live.yuyinnoble.e.b bUf;
-    private com.baidu.live.yuyinnoble.c.a bUg;
-    private String bnP;
+    private String aLy;
+    private boolean bSt;
+    private e bSu;
+    private com.baidu.live.yuyinnoble.e.b bSv;
+    private com.baidu.live.yuyinnoble.c.a bSw;
+    private String bme;
     private boolean mIsHost;
     private String mLiveId;
     private int mTabId;
     private TbPageContext mTbPageContext;
     private Handler mHandler = new Handler();
-    private final b.a bUh = new b.a() { // from class: com.baidu.live.yuyinnoble.b.b.1
+    private final b.a bSx = new b.a() { // from class: com.baidu.live.yuyinnoble.b.b.1
         @Override // com.baidu.live.yuyinnoble.e.b.a
-        public void Oy() {
-            b.this.KM();
+        public void NP() {
+            b.this.Kd();
         }
     };
-    private final e.a bUi = new e.a() { // from class: com.baidu.live.yuyinnoble.b.b.2
+    private final e.a bSy = new e.a() { // from class: com.baidu.live.yuyinnoble.b.b.2
         @Override // com.baidu.live.yuyinnoble.d.e.a
         public void a(com.baidu.live.yuyinnoble.c.a aVar) {
-            b.this.bUg = aVar;
-            if (b.this.bUf != null) {
-                b.this.bUf.b(aVar);
+            b.this.bSw = aVar;
+            if (b.this.bSv != null) {
+                b.this.bSv.b(aVar);
             }
         }
 
@@ -41,8 +41,8 @@ public class b implements com.baidu.live.h.b {
             if (b.this.mTbPageContext != null) {
                 BdUtilHelper.showToast(b.this.mTbPageContext.getPageActivity(), str);
             }
-            if (b.this.bUf != null && b.this.bUg == null) {
-                b.this.bUf.cm(true);
+            if (b.this.bSv != null && b.this.bSw == null) {
+                b.this.bSv.co(true);
             }
         }
     };
@@ -51,18 +51,18 @@ public class b implements com.baidu.live.h.b {
     public void a(TbPageContext tbPageContext, String str, String str2, String str3, int i, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.bnP = str2;
-        this.aNj = str3;
+        this.bme = str2;
+        this.aLy = str3;
         this.mTabId = i;
         this.mIsHost = z;
-        this.bUe = new e(this.mTbPageContext, this.bUi);
-        this.bUf = new com.baidu.live.yuyinnoble.e.b(this.mTbPageContext, this.mLiveId, this.bnP, this.mIsHost, this.bUd);
-        this.bUf.a(this.bUh);
-        KM();
+        this.bSu = new e(this.mTbPageContext, this.bSy);
+        this.bSv = new com.baidu.live.yuyinnoble.e.b(this.mTbPageContext, this.mLiveId, this.bme, this.mIsHost, this.bSt);
+        this.bSv.a(this.bSx);
+        Kd();
     }
 
     @Override // com.baidu.live.h.b
-    public void bQ(boolean z) {
+    public void bS(boolean z) {
     }
 
     @Override // com.baidu.live.h.b
@@ -72,34 +72,34 @@ public class b implements com.baidu.live.h.b {
 
     @Override // com.baidu.live.h.b
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.bUf != null) {
-            this.bUf.a(configuration);
+        if (this.bSv != null) {
+            this.bSv.a(configuration);
         }
     }
 
     @Override // com.baidu.live.h.b
-    public void KM() {
-        if (this.bUe != null) {
-            this.bUe.jc(this.mLiveId);
+    public void Kd() {
+        if (this.bSu != null) {
+            this.bSu.iW(this.mLiveId);
         }
     }
 
     @Override // com.baidu.live.h.b
-    public void bR(boolean z) {
-        this.bUd = z;
+    public void bT(boolean z) {
+        this.bSt = z;
     }
 
     @Override // com.baidu.live.h.b
     public void onDestroy() {
-        if (this.bUe != null) {
-            this.bUe.onDestroy();
+        if (this.bSu != null) {
+            this.bSu.onDestroy();
         }
     }
 
     @Override // com.baidu.live.h.b
     public View getView() {
-        if (this.bUf != null) {
-            return this.bUf.getRootView();
+        if (this.bSv != null) {
+            return this.bSv.getRootView();
         }
         return null;
     }

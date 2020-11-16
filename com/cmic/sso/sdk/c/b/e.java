@@ -5,13 +5,13 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e extends g {
     private byte[] b;
     private String c;
     private String d;
     private boolean e = false;
-    private a oJb;
+    private a oKF;
 
     public void a(boolean z) {
         this.e = z;
@@ -30,16 +30,16 @@ public class e extends g {
     }
 
     public void a(a aVar) {
-        this.oJb = aVar;
+        this.oKF = aVar;
     }
 
-    public a eiN() {
-        return this.oJb;
+    public a eiL() {
+        return this.oKF;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.oJb.a();
+        return this.oKF.a();
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -48,7 +48,7 @@ public class e extends g {
         if (this.e) {
             try {
                 jSONObject.put("encrypted", this.c);
-                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.b, this.oJb.toString()));
+                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.b, this.oKF.toString()));
                 jSONObject.put("securityreinforce", this.d);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -57,7 +57,7 @@ public class e extends g {
         return jSONObject;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         private String E;
         private long q;
@@ -114,11 +114,11 @@ public class e extends g {
         }
 
         public void e(String str) {
-            this.f4012a = XN(str);
+            this.f4012a = Xy(str);
         }
 
         public void f(String str) {
-            this.b = XN(str);
+            this.b = Xy(str);
         }
 
         public String a() {
@@ -126,82 +126,82 @@ public class e extends g {
         }
 
         public void g(String str) {
-            this.c = XN(str);
+            this.c = Xy(str);
         }
 
         public void h(String str) {
-            this.d = XN(str);
+            this.d = Xy(str);
         }
 
         public void i(String str) {
-            this.e = XN(str);
+            this.e = Xy(str);
         }
 
         public void j(String str) {
-            this.f = XN(str);
+            this.f = Xy(str);
         }
 
         public void k(String str) {
-            this.g = XN(str);
+            this.g = Xy(str);
         }
 
         public void l(String str) {
-            this.h = XN(str);
+            this.h = Xy(str);
         }
 
         public void m(String str) {
-            this.i = XN(str);
+            this.i = Xy(str);
         }
 
         public void n(String str) {
-            String XN = XN(str);
+            String Xy = Xy(str);
             try {
-                this.j = URLEncoder.encode(XN, "utf-8");
+                this.j = URLEncoder.encode(Xy, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-                this.j = XN;
+                this.j = Xy;
             }
         }
 
         public void o(String str) {
-            String XN = XN(str);
+            String Xy = Xy(str);
             try {
-                this.k = URLEncoder.encode(XN, "utf-8");
+                this.k = URLEncoder.encode(Xy, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-                this.k = XN;
+                this.k = Xy;
             }
         }
 
         public void p(String str) {
-            this.l = XN(str);
+            this.l = Xy(str);
         }
 
         public void q(String str) {
-            this.m = XN(str);
+            this.m = Xy(str);
         }
 
         public void r(String str) {
-            this.o = XN(str);
+            this.o = Xy(str);
         }
 
         public void s(String str) {
-            this.p = XN(str);
+            this.p = Xy(str);
         }
 
         public void t(String str) {
-            this.A = XN(str);
+            this.A = Xy(str);
         }
 
         public void u(String str) {
-            this.B = XN(str);
+            this.B = Xy(str);
         }
 
         public void v(String str) {
-            this.E = XN(str);
+            this.E = Xy(str);
         }
 
-        public String XM(String str) {
+        public String Xx(String str) {
             return com.cmic.sso.sdk.e.d.a(this.b + this.c + this.d + this.e + this.f + this.g + this.h + this.i + this.j + this.k + this.l + this.m + this.o + this.p + str + this.r + this.s + this.t + this.u + this.v + this.w + this.x + this.y + this.z + this.A + this.B + this.C + this.D);
         }
 
@@ -209,7 +209,7 @@ public class e extends g {
             return this.f4012a + ETAG.ITEM_SEPARATOR + this.b + ETAG.ITEM_SEPARATOR + this.c + ETAG.ITEM_SEPARATOR + this.d + ETAG.ITEM_SEPARATOR + this.e + ETAG.ITEM_SEPARATOR + this.f + ETAG.ITEM_SEPARATOR + this.g + ETAG.ITEM_SEPARATOR + this.h + ETAG.ITEM_SEPARATOR + this.i + ETAG.ITEM_SEPARATOR + this.j + ETAG.ITEM_SEPARATOR + this.k + ETAG.ITEM_SEPARATOR + this.l + ETAG.ITEM_SEPARATOR + this.m + ETAG.ITEM_SEPARATOR + "6.0" + ETAG.ITEM_SEPARATOR + this.n + ETAG.ITEM_SEPARATOR + this.o + ETAG.ITEM_SEPARATOR + this.p + ETAG.ITEM_SEPARATOR + this.r + ETAG.ITEM_SEPARATOR + this.s + ETAG.ITEM_SEPARATOR + this.t + ETAG.ITEM_SEPARATOR + this.u + ETAG.ITEM_SEPARATOR + this.v + ETAG.ITEM_SEPARATOR + this.w + ETAG.ITEM_SEPARATOR + this.x + ETAG.ITEM_SEPARATOR + this.y + ETAG.ITEM_SEPARATOR + this.z + ETAG.ITEM_SEPARATOR + this.A + ETAG.ITEM_SEPARATOR + this.B + ETAG.ITEM_SEPARATOR + this.E + "&&" + this.C + ETAG.ITEM_SEPARATOR + this.D;
         }
 
-        private String XN(String str) {
+        private String Xy(String str) {
             return str == null ? "" : str;
         }
     }

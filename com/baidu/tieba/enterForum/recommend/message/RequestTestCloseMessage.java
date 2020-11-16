@@ -6,7 +6,7 @@ import com.baidu.tbadk.util.u;
 import tbclient.CommonReq;
 import tbclient.TestClose.DataReq;
 import tbclient.TestClose.TestCloseReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class RequestTestCloseMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */

@@ -4,8 +4,8 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class e {
-    public a grx;
-    private int gry = -1;
+    public a gre;
+    private int grf = -1;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -14,95 +14,95 @@ public class e {
 
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar, boolean z) {
         if (aVar == null) {
-            this.gry = -1;
-            this.grx = new b(this.mTbPageContext);
+            this.grf = -1;
+            this.gre = new b(this.mTbPageContext);
         } else if (z) {
-            this.gry = aVar.gpG;
-            switch (aVar.gpG) {
+            this.grf = aVar.gpn;
+            switch (aVar.gpn) {
                 case 1:
-                    this.grx = new d(this.mTbPageContext);
+                    this.gre = new d(this.mTbPageContext);
                     break;
                 case 2:
-                    this.grx = new f(this.mTbPageContext);
+                    this.gre = new f(this.mTbPageContext);
                     break;
                 case 3:
-                    this.grx = new c(this.mTbPageContext);
+                    this.gre = new c(this.mTbPageContext);
                     break;
                 default:
-                    this.grx = new b(this.mTbPageContext);
+                    this.gre = new b(this.mTbPageContext);
                     break;
             }
         }
-        if (this.grx.b(aVar)) {
+        if (this.gre.b(aVar)) {
             if (z) {
-                this.grx.init();
+                this.gre.init();
             }
-            this.grx.a(aVar);
+            this.gre.a(aVar);
             return;
         }
-        this.gry = -1;
-        this.grx = new b(this.mTbPageContext);
+        this.grf = -1;
+        this.gre = new b(this.mTbPageContext);
         if (z) {
-            this.grx.init();
+            this.gre.init();
         }
-        this.grx.a(aVar);
+        this.gre.a(aVar);
     }
 
     public boolean c(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        return aVar == null || this.gry != aVar.gpG;
+        return aVar == null || this.grf != aVar.gpn;
     }
 
     public void pause() {
-        if (this.grx != null) {
-            this.grx.pause();
+        if (this.gre != null) {
+            this.gre.pause();
         }
     }
 
     public void resume() {
-        if (this.grx != null) {
-            this.grx.resume();
+        if (this.gre != null) {
+            this.gre.resume();
         }
     }
 
-    public void lB(boolean z) {
-        if (this.grx != null) {
-            this.grx.lB(z);
+    public void lC(boolean z) {
+        if (this.gre != null) {
+            this.gre.lC(z);
         }
     }
 
-    public void ad(ViewGroup viewGroup) {
-        if (this.grx != null) {
-            this.grx.ad(viewGroup);
+    public void Z(ViewGroup viewGroup) {
+        if (this.gre != null) {
+            this.gre.Z(viewGroup);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.grx != null) {
-            this.grx.onChangeSkinType(i);
+        if (this.gre != null) {
+            this.gre.onChangeSkinType(i);
         }
     }
 
     public void startPlay() {
-        if (this.grx != null) {
-            this.grx.startPlay();
+        if (this.gre != null) {
+            this.gre.startPlay();
         }
     }
 
     public void stopPlay() {
-        if (this.grx != null) {
-            this.grx.stopPlay();
+        if (this.gre != null) {
+            this.gre.stopPlay();
         }
     }
 
-    public void bPY() {
-        if (this.grx != null) {
-            this.grx.bPY();
+    public void bPr() {
+        if (this.gre != null) {
+            this.gre.bPr();
         }
     }
 
     public void onDestroy() {
-        if (this.grx != null) {
-            this.grx.onDestroy();
+        if (this.gre != null) {
+            this.gre.onDestroy();
         }
     }
 }

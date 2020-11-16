@@ -1,11 +1,11 @@
 package org.webrtc;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 class NativeLibrary {
     private static String TAG = "NativeLibrary";
     private static boolean libraryLoaded;
     private static Object lock = new Object();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     static class DefaultLoader implements NativeLibraryLoader {
         @Override // org.webrtc.NativeLibraryLoader
         public boolean load(String str) {

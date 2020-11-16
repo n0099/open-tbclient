@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.service.ap;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 /* synthetic */ class hb {
 
     /* renamed from: a  reason: collision with root package name */

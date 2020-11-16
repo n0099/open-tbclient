@@ -25,53 +25,53 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
-    private View evh;
-    private BdTypeListView gih;
-    private View irQ;
-    private TextView lfX;
+    private View ety;
+    private BdTypeListView ghN;
+    private View isE;
+    private TextView lgo;
     private ImageView mBackImageView;
     private List<q> mDataList;
-    private TextView nIA;
-    private TextView nIB;
-    private TextView nIC;
-    private c nIx;
-    private d nIy;
-    private View nIz;
-    private List<com.baidu.adp.widget.ListView.a> bky = new ArrayList();
+    private c nJY;
+    private d nJZ;
+    private View nKa;
+    private TextView nKb;
+    private TextView nKc;
+    private TextView nKd;
+    private List<com.baidu.adp.widget.ListView.a> biN = new ArrayList();
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.transmit.TransmitForumActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null) {
-                if (view.getId() != TransmitForumActivity.this.lfX.getId()) {
-                    if (view.getId() == TransmitForumActivity.this.evh.getId() || view.getId() == TransmitForumActivity.this.irQ.getId()) {
+                if (view.getId() != TransmitForumActivity.this.lgo.getId()) {
+                    if (view.getId() == TransmitForumActivity.this.ety.getId() || view.getId() == TransmitForumActivity.this.isE.getId()) {
                         TransmitForumActivity.this.setResult(0);
                         TransmitForumActivity.this.startExitAnimation();
                         return;
                     }
                     return;
                 }
-                ArrayList<TransmitForumData> dUa = TransmitForumActivity.this.dUa();
+                ArrayList<TransmitForumData> dTZ = TransmitForumActivity.this.dTZ();
                 Intent intent = new Intent();
-                intent.putExtra(TransmitForumActivityConfig.KEY_FORUM_LIST_SELECTED, TransmitForumActivity.this.gb(dUa));
+                intent.putExtra(TransmitForumActivityConfig.KEY_FORUM_LIST_SELECTED, TransmitForumActivity.this.gb(dTZ));
                 TransmitForumActivity.this.setResult(-1, intent);
                 TransmitForumActivity.this.startExitAnimation();
             }
         }
     };
-    private a nID = new a() { // from class: com.baidu.tieba.write.transmit.TransmitForumActivity.2
+    private a nKe = new a() { // from class: com.baidu.tieba.write.transmit.TransmitForumActivity.2
         @Override // com.baidu.tieba.write.transmit.a
-        public boolean dTX() {
-            return y.getCount(TransmitForumActivity.this.dUa()) >= 3;
+        public boolean dTW() {
+            return y.getCount(TransmitForumActivity.this.dTZ()) >= 3;
         }
 
         @Override // com.baidu.tieba.write.transmit.a
-        public void dTY() {
+        public void dTX() {
             TransmitForumActivity.this.showToast(R.string.transmit_max_commit);
         }
 
         @Override // com.baidu.tieba.write.transmit.a
-        public void dTZ() {
-            TransmitForumActivity.this.dgk();
+        public void dTY() {
+            TransmitForumActivity.this.dfH();
         }
     };
 
@@ -81,17 +81,17 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.transmit_forum_activity);
-        this.evh = findViewById(R.id.trasmit_back);
-        this.evh.setOnClickListener(this.mOnClickListener);
-        this.lfX = (TextView) findViewById(R.id.transmit_cofirm);
-        this.nIA = (TextView) findViewById(R.id.transmit_title);
-        this.nIB = (TextView) findViewById(R.id.transmit_subtitle);
+        this.ety = findViewById(R.id.trasmit_back);
+        this.ety.setOnClickListener(this.mOnClickListener);
+        this.lgo = (TextView) findViewById(R.id.transmit_cofirm);
+        this.nKb = (TextView) findViewById(R.id.transmit_title);
+        this.nKc = (TextView) findViewById(R.id.transmit_subtitle);
         this.mBackImageView = (ImageView) findViewById(R.id.trasmit_back);
-        this.lfX.setOnClickListener(this.mOnClickListener);
-        this.gih = (BdTypeListView) findViewById(R.id.trasmit_grid_view);
-        this.gih.setMaxHeight(l.getEquipmentHeight(getPageContext().getPageActivity()) - getResources().getDimensionPixelSize(R.dimen.ds568));
-        this.gih.setOverScrollMode(2);
-        this.nIC = (TextView) findViewById(R.id.transmit_subtitle);
+        this.lgo.setOnClickListener(this.mOnClickListener);
+        this.ghN = (BdTypeListView) findViewById(R.id.trasmit_grid_view);
+        this.ghN.setMaxHeight(l.getEquipmentHeight(getPageContext().getPageActivity()) - getResources().getDimensionPixelSize(R.dimen.ds568));
+        this.ghN.setOverScrollMode(2);
+        this.nKd = (TextView) findViewById(R.id.transmit_subtitle);
         this.mDataList = new ArrayList();
         ArrayList arrayList = null;
         if (getIntent() != null) {
@@ -100,9 +100,9 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
                 TransmitForumData transmitForumData = (TransmitForumData) parcelableArrayListExtra.get(0);
                 if (transmitForumData != null) {
                     if (transmitForumData.checked) {
-                        this.nIC.setText(R.string.transmit_forum_publish_more_forum);
+                        this.nKd.setText(R.string.transmit_forum_publish_more_forum);
                     } else {
-                        this.nIC.setText(R.string.transmit_forum_select_more_forum);
+                        this.nKd.setText(R.string.transmit_forum_select_more_forum);
                     }
                 }
                 this.mDataList.addAll(parcelableArrayListExtra);
@@ -110,24 +110,24 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             arrayList = parcelableArrayListExtra;
         }
         this.mDataList.add(new e());
-        this.nIx = new c(getPageContext().getPageActivity(), TransmitForumData.ID_TRANSMIT_SELECT_DATA);
-        this.nIy = new d(getPageContext().getPageActivity(), e.ID_TRANSMIT_SELECT_DATA, getUniqueId(), arrayList);
-        this.nIx.a(this.nID);
-        this.bky.add(this.nIx);
-        this.bky.add(this.nIy);
-        this.gih.addAdapters(this.bky);
-        this.gih.setData(this.mDataList);
-        dgk();
-        this.irQ = findViewById(R.id.view_top);
-        this.irQ.setOnClickListener(this.mOnClickListener);
-        this.nIz = findViewById(R.id.layout_operate);
-        this.nIz.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.in_from_bottom));
-        ap.setBackgroundColor(this.nIz, R.color.cp_bg_line_d);
-        ap.setBackgroundResource(this.lfX, R.drawable.btn_all_blue);
-        ap.setViewTextColor(this.lfX, R.color.cp_cont_g, 1);
+        this.nJY = new c(getPageContext().getPageActivity(), TransmitForumData.ID_TRANSMIT_SELECT_DATA);
+        this.nJZ = new d(getPageContext().getPageActivity(), e.ID_TRANSMIT_SELECT_DATA, getUniqueId(), arrayList);
+        this.nJY.a(this.nKe);
+        this.biN.add(this.nJY);
+        this.biN.add(this.nJZ);
+        this.ghN.addAdapters(this.biN);
+        this.ghN.setData(this.mDataList);
+        dfH();
+        this.isE = findViewById(R.id.view_top);
+        this.isE.setOnClickListener(this.mOnClickListener);
+        this.nKa = findViewById(R.id.layout_operate);
+        this.nKa.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.in_from_bottom));
+        ap.setBackgroundColor(this.nKa, R.color.CAM_X0201);
+        ap.setBackgroundResource(this.lgo, R.drawable.btn_all_blue);
+        ap.setViewTextColor(this.lgo, R.color.CAM_X0111, 1);
         ap.setImageResource(this.mBackImageView, R.drawable.icon_pb_post_close_n);
-        ap.setViewTextColor(this.nIA, R.color.cp_cont_f, 1);
-        ap.setViewTextColor(this.nIB, R.color.cp_cont_d, 1);
+        ap.setViewTextColor(this.nKb, R.color.CAM_X0106, 1);
+        ap.setViewTextColor(this.nKc, R.color.CAM_X0109, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -152,37 +152,37 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 25005) {
-            HotTopicBussinessData Lv = this.nIy.Lv(intent.getIntExtra("hot_topic_change_fourm", 0));
-            if (Lv != null) {
+            HotTopicBussinessData LY = this.nJZ.LY(intent.getIntExtra("hot_topic_change_fourm", 0));
+            if (LY != null) {
                 for (q qVar : this.mDataList) {
-                    if ((qVar instanceof TransmitForumData) && TextUtils.equals(Lv.mForumName, ((TransmitForumData) qVar).forumName)) {
+                    if ((qVar instanceof TransmitForumData) && TextUtils.equals(LY.mForumName, ((TransmitForumData) qVar).forumName)) {
                         return;
                     }
                 }
-                if (this.nID.dTX()) {
-                    this.mDataList.add(this.mDataList.size() - 1, new TransmitForumData(Lv.mForumId, Lv.mForumName, false, 0));
+                if (this.nKe.dTW()) {
+                    this.mDataList.add(this.mDataList.size() - 1, new TransmitForumData(LY.mForumId, LY.mForumName, false, 0));
                     showToast(R.string.transmit_max_commit);
                 } else {
-                    this.mDataList.add(this.mDataList.size() - 1, new TransmitForumData(Lv.mForumId, Lv.mForumName, true, 0));
+                    this.mDataList.add(this.mDataList.size() - 1, new TransmitForumData(LY.mForumId, LY.mForumName, true, 0));
                 }
-                dgk();
-                this.gih.setData(this.mDataList);
-                this.gih.setSelection(this.mDataList.size() - 1);
+                dfH();
+                this.ghN.setData(this.mDataList);
+                this.ghN.setSelection(this.mDataList.size() - 1);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dgk() {
-        int count = y.getCount(dUa());
+    public void dfH() {
+        int count = y.getCount(dTZ());
         if (count > 0) {
-            this.lfX.setText(getResources().getString(R.string.transmit_confirm, Integer.valueOf(count), 3));
+            this.lgo.setText(getResources().getString(R.string.transmit_confirm, Integer.valueOf(count), 3));
         } else {
-            this.lfX.setText(getResources().getString(R.string.confirm));
+            this.lgo.setText(getResources().getString(R.string.confirm));
         }
     }
 
-    public ArrayList<TransmitForumData> dUa() {
+    public ArrayList<TransmitForumData> dTZ() {
         ArrayList<TransmitForumData> arrayList = new ArrayList<>();
         for (q qVar : this.mDataList) {
             if (qVar instanceof TransmitForumData) {
@@ -222,15 +222,15 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.nIz.startAnimation(loadAnimation);
+        this.nKa.startAnimation(loadAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.nIy != null) {
-            this.nIy.destroy();
+        if (this.nJZ != null) {
+            this.nJZ.destroy();
         }
     }
 

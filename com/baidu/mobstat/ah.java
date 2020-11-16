@@ -1,7 +1,7 @@
 package com.baidu.mobstat;
 
 import android.content.Context;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class ah {
     public static int a(Context context, float f) {
         if (context == null) {

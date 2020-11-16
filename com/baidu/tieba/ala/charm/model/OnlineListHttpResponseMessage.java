@@ -6,9 +6,9 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private AlaLiveUserInfoData aIV;
-    private q gwE;
-    private long gwF;
+    private AlaLiveUserInfoData aHk;
+    private q gwl;
+    private long gwm;
     private long mAudienceCount;
 
     public OnlineListHttpResponseMessage() {
@@ -22,31 +22,31 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.mAudienceCount = optJSONObject.optLong("audience_count");
             if (optJSONObject.optJSONArray("initmacy_rank") != null) {
-                this.gwE = new q();
-                this.gwE.parserJson(optJSONObject);
+                this.gwl = new q();
+                this.gwl.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("current_user_info");
             if (optJSONObject2 != null) {
-                this.aIV = new AlaLiveUserInfoData();
-                this.aIV.parserJson(optJSONObject2);
+                this.aHk = new AlaLiveUserInfoData();
+                this.aHk.parserJson(optJSONObject2);
             }
-            this.gwF = optJSONObject.optLong("live_total_price");
+            this.gwm = optJSONObject.optLong("live_total_price");
         }
     }
 
-    public long bRp() {
+    public long bQI() {
         return this.mAudienceCount;
     }
 
-    public q bRq() {
-        return this.gwE;
+    public q bQJ() {
+        return this.gwl;
     }
 
-    public AlaLiveUserInfoData bRr() {
-        return this.aIV;
+    public AlaLiveUserInfoData bQK() {
+        return this.aHk;
     }
 
-    public long bRs() {
-        return this.gwF;
+    public long bQL() {
+        return this.gwm;
     }
 }

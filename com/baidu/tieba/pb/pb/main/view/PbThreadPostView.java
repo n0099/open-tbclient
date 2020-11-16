@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.f;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class PbThreadPostView extends LinearLayout {
-    public View lHB;
-    public TextView lHC;
-    public TextView lHD;
-    private f lqP;
+    public View lHT;
+    public TextView lHU;
+    public TextView lHV;
+    private f lre;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -40,26 +40,26 @@ public class PbThreadPostView extends LinearLayout {
     }
 
     private void ul() {
-        this.lHB = findViewById(R.id.pb_thread_post_container);
-        this.lHC = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.lHD = (TextView) findViewById(R.id.pb_thread_post_button);
+        this.lHT = findViewById(R.id.pb_thread_post_container);
+        this.lHU = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.lHV = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public void setData(f fVar) {
-        this.lqP = fVar;
-        uE(TbadkCoreApplication.getInst().getSkinType());
+        this.lre = fVar;
+        vc(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.lHD.setOnClickListener(this.mOnClickListener);
+            this.lHV.setOnClickListener(this.mOnClickListener);
         }
     }
 
-    public void uE(int i) {
-        ap.setBackgroundColor(this.lHB, R.color.cp_bg_line_e, i);
-        ap.setViewTextColor(this.lHC, R.color.cp_cont_j);
-        ap.setViewTextColor(this.lHD, R.color.cp_link_tip_a);
+    public void vc(int i) {
+        ap.setBackgroundColor(this.lHT, R.color.CAM_X0205, i);
+        ap.setViewTextColor(this.lHU, R.color.CAM_X0107);
+        ap.setViewTextColor(this.lHV, R.color.CAM_X0302);
     }
 }

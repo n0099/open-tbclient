@@ -17,7 +17,7 @@ public class b {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void zm(boolean z);
+        void zt(boolean z);
     }
 
     public static void a(String str, final String str2, final a aVar) {
@@ -26,8 +26,8 @@ public class b {
         } else if (TextUtils.isEmpty(str)) {
             BdLog.w("warning!! download illegal name");
         } else {
-            final String str3 = com.baidu.live.ac.b.ii(str2) + "/" + str2 + ".zip";
-            final String ij = com.baidu.live.ac.b.ij(str2);
+            final String str3 = com.baidu.live.ac.b.ic(str2) + "/" + str2 + ".zip";
+            final String id = com.baidu.live.ac.b.id(str2);
             if (!str3.startsWith(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath())) {
                 BdLog.w("warning!! download illegal dir=" + str3 + " name=" + str2);
                 return;
@@ -46,7 +46,7 @@ public class b {
 
                 @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                 public boolean onPreDownload(DownloadData downloadData2) {
-                    return com.baidu.live.ac.a.b.Qx().K(downloadData2);
+                    return com.baidu.live.ac.a.b.PO().K(downloadData2);
                 }
 
                 @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -56,13 +56,13 @@ public class b {
 
                 @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
-                    b.a(str3, ij, str2, aVar);
+                    b.a(str3, id, str2, aVar);
                 }
 
                 @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                 public void onFileDownloadFailed(DownloadData downloadData2, int i, String str4) {
                     if (aVar != null) {
-                        aVar.zm(false);
+                        aVar.zt(false);
                     }
                 }
             });
@@ -71,7 +71,7 @@ public class b {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 public Boolean doInBackground(Void... voidArr) {
-                    FileHelper.deleteFileOrDir(new File(com.baidu.live.ac.b.ii(str2)));
+                    FileHelper.deleteFileOrDir(new File(com.baidu.live.ac.b.ic(str2)));
                     return true;
                 }
 
@@ -106,7 +106,7 @@ public class b {
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass3) bool);
                     if (aVar != null) {
-                        aVar.zm(bool.booleanValue());
+                        aVar.zt(bool.booleanValue());
                     }
                 }
             }.execute(new Void[0]);

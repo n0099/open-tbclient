@@ -19,26 +19,26 @@ import java.util.List;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class a extends com.baidu.helios.ids.a {
-    private b ayN;
-    private C0160a ayO;
-    private a.C0153a ayz;
+    private a.C0151a awO;
+    private b axc;
+    private C0158a axd;
     private List<a.c<String>> i;
 
     /* renamed from: com.baidu.helios.ids.c.a$2  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     class AnonymousClass2 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
         final /* synthetic */ Handler f1809a;
-        final /* synthetic */ C0160a ayS;
+        final /* synthetic */ C0158a axh;
         final /* synthetic */ Context b;
 
-        AnonymousClass2(Handler handler, Context context, C0160a c0160a) {
+        AnonymousClass2(Handler handler, Context context, C0158a c0158a) {
             this.f1809a = handler;
             this.b = context;
-            this.ayS = c0160a;
+            this.axh = c0158a;
         }
 
         @Override // java.lang.Runnable
@@ -52,58 +52,58 @@ public class a extends com.baidu.helios.ids.a {
                         final String oaid = idSupplier.getOAID();
                         AnonymousClass2.this.f1809a.removeMessages(0);
                         final long elapsedRealtime2 = SystemClock.elapsedRealtime();
-                        AnonymousClass2.this.ayS.ayX = a.this.ayp.aww.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.2.1.1
+                        AnonymousClass2.this.axh.axm = a.this.awE.auL.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.2.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                a.this.ayN.c(elapsedRealtime2 - elapsedRealtime);
-                                a.this.ayN.a(z ? 1L : 2L, 3L);
-                                a.this.ayN.a(16L, 124L);
-                                a.this.ayN.b(oaid);
+                                a.this.axc.c(elapsedRealtime2 - elapsedRealtime);
+                                a.this.axc.a(z ? 1L : 2L, 3L);
+                                a.this.axc.a(16L, 124L);
+                                a.this.axc.b(oaid);
                                 if (!TextUtils.isEmpty(oaid)) {
                                     try {
-                                        String ag = com.baidu.helios.ids.a.ag("A10", new com.baidu.helios.common.b.a.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(oaid.getBytes("UTF-8")));
-                                        a.this.ayN.a(ag);
-                                        a.this.ayN.d(ag);
-                                        a.this.ayN.a(32L, 124L);
+                                        String af = com.baidu.helios.ids.a.af("A10", new com.baidu.helios.common.b.a.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(oaid.getBytes("UTF-8")));
+                                        a.this.axc.a(af);
+                                        a.this.axc.d(af);
+                                        a.this.axc.a(32L, 124L);
                                     } catch (Exception e) {
                                     }
                                 }
-                                a.this.ayN.d();
-                                if (AnonymousClass2.this.ayS.d.get()) {
+                                a.this.axc.d();
+                                if (AnonymousClass2.this.axh.d.get()) {
                                     return;
                                 }
                                 a.this.a();
-                                AnonymousClass2.this.ayS.d.set(true);
+                                AnonymousClass2.this.axh.d.set(true);
                             }
                         });
                     }
                 });
-                this.ayS.ayW = a.this.ayp.aww.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.2.2
+                this.axh.axl = a.this.awE.auL.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.2.2
                     @Override // java.lang.Runnable
                     public void run() {
                         if (InitSdk == 1008612 || InitSdk == 1008611 || InitSdk == 1008615) {
-                            if (!AnonymousClass2.this.ayS.d.get()) {
-                                AnonymousClass2.this.ayS.d.set(true);
+                            if (!AnonymousClass2.this.axh.d.get()) {
+                                AnonymousClass2.this.axh.d.set(true);
                                 a.this.a();
                             }
                             AnonymousClass2.this.f1809a.removeMessages(0);
                         }
-                        a.this.ayN.a(InitSdk);
-                        a.this.ayN.a(8L, 124L);
-                        a.this.ayN.d();
+                        a.this.axc.a(InitSdk);
+                        a.this.axc.a(8L, 124L);
+                        a.this.axc.d();
                     }
                 });
             } catch (Throwable th) {
-                a.this.ayp.aww.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.2.3
+                a.this.awE.auL.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.2.3
                     @Override // java.lang.Runnable
                     public void run() {
                         AnonymousClass2.this.f1809a.removeMessages(0);
-                        a.this.ayN.c(Log.getStackTraceString(th));
-                        a.this.ayN.d();
-                        if (AnonymousClass2.this.ayS.d.get()) {
+                        a.this.axc.c(Log.getStackTraceString(th));
+                        a.this.axc.d();
+                        if (AnonymousClass2.this.axh.d.get()) {
                             return;
                         }
-                        AnonymousClass2.this.ayS.d.set(true);
+                        AnonymousClass2.this.axh.d.set(true);
                         a.this.a();
                     }
                 });
@@ -112,21 +112,21 @@ public class a extends com.baidu.helios.ids.a {
     }
 
     /* renamed from: com.baidu.helios.ids.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public class C0160a {
+    /* loaded from: classes5.dex */
+    public class C0158a {
 
         /* renamed from: a  reason: collision with root package name */
         Future<?> f1814a;
-        Future<?> ayW;
-        Future<?> ayX;
+        Future<?> axl;
+        Future<?> axm;
         AtomicBoolean d = new AtomicBoolean(false);
 
-        public C0160a() {
+        public C0158a() {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b {
         public String l;
         private long o;
@@ -136,8 +136,8 @@ public class a extends com.baidu.helios.ids.a {
         private long w;
         private String x;
         private boolean p = true;
-        private e ayZ = new e();
-        private ArrayList<String> aza = new ArrayList<>();
+        private e axo = new e();
+        private ArrayList<String> axp = new ArrayList<>();
 
         b() {
         }
@@ -148,18 +148,18 @@ public class a extends com.baidu.helios.ids.a {
                 jSONObject.put("form_id", this.r);
                 jSONObject.put("lst_fe_ts", this.o);
                 jSONObject.put("c_form_ver", 1);
-                jSONObject.put("flags", this.ayZ.AA());
+                jSONObject.put("flags", this.axo.zR());
                 jSONObject.put("init_res", this.s);
                 jSONObject.put("acquire_ts_cost", this.w);
                 jSONObject.put("oid", this.x);
-                int size = this.aza.size();
+                int size = this.axp.size();
                 if (size > 0) {
                     int min = Math.min(size, 5);
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject.put("his_form_ids", jSONObject2);
                     jSONObject2.put("count", min);
                     for (int i = 0; i < min; i++) {
-                        jSONObject2.put("id_" + i, this.aza.get((size - min) + i));
+                        jSONObject2.put("id_" + i, this.axp.get((size - min) + i));
                     }
                 }
             } catch (Exception e) {
@@ -179,7 +179,7 @@ public class a extends com.baidu.helios.ids.a {
         }
 
         public void a(long j, long j2) {
-            if (this.ayZ.d(j, j2)) {
+            if (this.axo.d(j, j2)) {
                 this.p = true;
             }
         }
@@ -233,7 +233,7 @@ public class a extends com.baidu.helios.ids.a {
         }
 
         public boolean c() {
-            String q = a.this.ayz.q("cache.dat", true);
+            String q = a.this.awO.q("cache.dat", true);
             if (TextUtils.isEmpty(q)) {
                 return false;
             }
@@ -242,21 +242,21 @@ public class a extends com.baidu.helios.ids.a {
                 this.r = jSONObject.optString("form_id");
                 this.o = jSONObject.getLong("lst_fe_ts");
                 this.v = jSONObject.getInt("c_form_ver");
-                this.ayZ.R(jSONObject.getLong("flags"));
+                this.axo.R(jSONObject.getLong("flags"));
                 this.s = jSONObject.optInt("init_res");
                 this.w = jSONObject.optLong("acquire_ts_cost");
                 this.x = jSONObject.optString("oid");
-                this.aza.clear();
+                this.axp.clear();
                 JSONObject optJSONObject = jSONObject.optJSONObject("his_form_ids");
                 if (optJSONObject != null) {
                     int i = optJSONObject.getInt("count");
                     for (int i2 = 0; i2 < i; i2++) {
                         String string = optJSONObject.getString("id_" + i2);
                         if (TextUtils.isEmpty(string)) {
-                            this.aza.clear();
+                            this.axp.clear();
                             return false;
                         }
-                        this.aza.add(string);
+                        this.axp.add(string);
                     }
                 }
                 return true;
@@ -266,17 +266,17 @@ public class a extends com.baidu.helios.ids.a {
         }
 
         public void d(String str) {
-            if (this.aza.contains(str)) {
+            if (this.axp.contains(str)) {
                 return;
             }
-            this.aza.add(str);
+            this.axp.add(str);
             this.p = true;
         }
 
         public boolean d() {
             if (this.p) {
                 try {
-                    a.this.ayz.d("cache.dat", e().toString(), true);
+                    a.this.awO.d("cache.dat", e().toString(), true);
                     this.p = false;
                     return true;
                 } catch (Exception e) {
@@ -287,7 +287,7 @@ public class a extends com.baidu.helios.ids.a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     static abstract class c implements IIdentifierListener {
         c() {
         }
@@ -302,7 +302,7 @@ public class a extends com.baidu.helios.ids.a {
 
     public a() {
         super("oid");
-        this.ayN = new b();
+        this.axc = new b();
         this.i = new ArrayList();
     }
 
@@ -317,66 +317,66 @@ public class a extends com.baidu.helios.ids.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(a.c<String> cVar) {
         Bundle bundle = new Bundle();
-        if (TextUtils.isEmpty(this.ayN.a())) {
-            cVar.a(this.ayN.s, null, bundle);
+        if (TextUtils.isEmpty(this.axc.a())) {
+            cVar.a(this.axc.s, null, bundle);
         } else {
-            cVar.a(this.ayN.a(), bundle);
+            cVar.a(this.axc.a(), bundle);
         }
-    }
-
-    @Override // com.baidu.helios.ids.a
-    public String AI() {
-        return this.ayN.a();
     }
 
     @Override // com.baidu.helios.ids.a
     public void a(a.b bVar) {
-        this.ayz = this.ayo.fD(getName());
-        Context context = this.ayp.applicationContext;
-        final C0160a c0160a = new C0160a();
-        this.ayO = c0160a;
-        this.ayN.c();
+        this.awO = this.awD.fx(getName());
+        Context context = this.awE.applicationContext;
+        final C0158a c0158a = new C0158a();
+        this.axd = c0158a;
+        this.axc.c();
         long currentTimeMillis = System.currentTimeMillis();
-        if (!bVar.ayt && Math.abs(currentTimeMillis - this.ayN.b()) <= 604800000) {
-            c0160a.d.set(true);
+        if (!bVar.awI && Math.abs(currentTimeMillis - this.axc.b()) <= 604800000) {
+            c0158a.d.set(true);
             return;
         }
-        this.ayN.b(currentTimeMillis);
-        this.ayN.a(4L, 124L);
-        this.ayN.c(0L);
-        this.ayN.d();
-        c0160a.f1814a = this.ayp.awx.submit(new AnonymousClass2(new Handler(Looper.getMainLooper()) { // from class: com.baidu.helios.ids.c.a.1
+        this.axc.b(currentTimeMillis);
+        this.axc.a(4L, 124L);
+        this.axc.c(0L);
+        this.axc.d();
+        c0158a.f1814a = this.awE.auM.submit(new AnonymousClass2(new Handler(Looper.getMainLooper()) { // from class: com.baidu.helios.ids.c.a.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.what == 0) {
-                    a.this.ayp.aww.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.1.1
+                    a.this.awE.auL.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (c0160a.d.get()) {
+                            if (c0158a.d.get()) {
                                 return;
                             }
-                            a.this.ayN.a(64L, 124L);
-                            a.this.ayN.d();
+                            a.this.axc.a(64L, 124L);
+                            a.this.axc.d();
                             a.this.a();
-                            c0160a.d.set(true);
+                            c0158a.d.set(true);
                         }
                     });
                 }
             }
-        }, context, c0160a));
+        }, context, c0158a));
     }
 
     @Override // com.baidu.helios.ids.a
     public void a(final a.c<String> cVar) {
-        this.ayp.aww.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.3
+        this.awE.auL.submit(new Runnable() { // from class: com.baidu.helios.ids.c.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.ayO.d.get()) {
+                if (a.this.axd.d.get()) {
                     a.this.b(cVar);
                 } else {
                     a.this.i.add(cVar);
                 }
             }
         });
+    }
+
+    @Override // com.baidu.helios.ids.a
+    public String zZ() {
+        return this.axc.a();
     }
 }

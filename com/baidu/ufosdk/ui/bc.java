@@ -14,7 +14,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.baidu.ufosdk.UfoSDK;
 import java.util.Timer;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class bc extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */

@@ -30,13 +30,13 @@ public abstract class a {
     protected Context l;
     protected e m;
     protected IXAdSystemUtils n;
-    private C0265a o;
+    private C0263a o;
 
     protected abstract HashMap<String, String> b();
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0265a {
+    public static class C0263a {
 
         /* renamed from: a  reason: collision with root package name */
         String f2453a;
@@ -45,7 +45,7 @@ public abstract class a {
         String d;
         String e;
 
-        public C0265a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+        public C0263a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
             this.f2453a = "";
             this.b = "";
             this.c = "";
@@ -63,9 +63,9 @@ public abstract class a {
         }
     }
 
-    public a(C0265a c0265a) {
-        this(c0265a.f2453a, c0265a.b, c0265a.c);
-        this.o = c0265a;
+    public a(C0263a c0263a) {
+        this(c0263a.f2453a, c0263a.b, c0263a.c);
+        this.o = c0263a;
     }
 
     @Deprecated

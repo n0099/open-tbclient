@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 final class ThreadedInputConnectionProxyAdapterView extends View {
     private InputConnection cachedConnection;
     final View containerView;

@@ -8,7 +8,7 @@ import io.reactivex.m;
 import io.reactivex.o;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class MaybeFlatMapSingleElement<T, R> extends k<R> {
     final h<? super T, ? extends aa<? extends R>> mapper;
     final o<T> source;
@@ -18,7 +18,7 @@ public final class MaybeFlatMapSingleElement<T, R> extends k<R> {
         this.source.a(new FlatMapMaybeObserver(mVar, this.mapper));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class FlatMapMaybeObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = 4827726964688405508L;
         final m<? super R> actual;
@@ -67,19 +67,19 @@ public final class MaybeFlatMapSingleElement<T, R> extends k<R> {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class a<R> implements y<R> {
         final m<? super R> actual;
-        final AtomicReference<io.reactivex.disposables.b> pMC;
+        final AtomicReference<io.reactivex.disposables.b> pOf;
 
         a(AtomicReference<io.reactivex.disposables.b> atomicReference, m<? super R> mVar) {
-            this.pMC = atomicReference;
+            this.pOf = atomicReference;
             this.actual = mVar;
         }
 
         @Override // io.reactivex.y
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.pMC, bVar);
+            DisposableHelper.replace(this.pOf, bVar);
         }
 
         @Override // io.reactivex.y

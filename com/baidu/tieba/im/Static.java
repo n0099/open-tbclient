@@ -15,7 +15,7 @@ import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class Static {
     static {
         MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_DISSMISS_GROUP, new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.Static.1
@@ -40,12 +40,12 @@ public class Static {
                     RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.a.a.Dn(requestAddGroupMessage.getGroupType()));
+                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.a.a.DL(requestAddGroupMessage.getGroupType()));
                     AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
                     if (addGroupInfo != null) {
                         imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                         imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                        imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.d.gt(1L));
+                        imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.d.gw(1L));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_UPDATE_ITEM_CREATE_GROUP, imMessageCenterPojo));
                     }
                 }

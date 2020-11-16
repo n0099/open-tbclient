@@ -14,9 +14,9 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class l implements ILoginListener {
-    private static volatile l bkk;
-    private boolean bki = false;
-    private a bkj;
+    private static volatile l biz;
+    private boolean bix = false;
+    private a biy;
     private boolean mIsDestroy;
     private boolean mIsLogin;
 
@@ -28,15 +28,15 @@ public class l implements ILoginListener {
     private l() {
     }
 
-    public static l LS() {
-        if (bkk == null) {
+    public static l Lj() {
+        if (biz == null) {
             synchronized (l.class) {
-                if (bkk == null) {
-                    bkk = new l();
+                if (biz == null) {
+                    biz = new l();
                 }
             }
         }
-        return bkk;
+        return biz;
     }
 
     public void init(Context context) {
@@ -54,12 +54,12 @@ public class l implements ILoginListener {
             BIMRtcClient.setRtcDebugAndLogEnable(context, false, false);
         }
         LogUtils.d("imlog", "BIMManager init env:" + i);
-        this.bki = true;
+        this.bix = true;
     }
 
     public void a(a aVar) {
         this.mIsLogin = true;
-        this.bkj = aVar;
+        this.biy = aVar;
         String fromHost = TbConfig.getFromHost();
         String currentFromHost = TbConfig.getCurrentFromHost();
         if (TbadkCoreApplication.isLogin()) {
@@ -74,15 +74,15 @@ public class l implements ILoginListener {
         LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + cuid + ", from = " + fromHost + ", cfrom = " + currentFromHost);
     }
 
-    public void LT() {
+    public void Lk() {
         AccountManager.disconnect(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.android.imsdk.account.ILoginListener
     public void onLoginResult(int i, String str) {
-        if (this.bkj != null) {
-            this.bkj.r(i, str);
-            this.bkj = null;
+        if (this.biy != null) {
+            this.biy.r(i, str);
+            this.biy = null;
         }
     }
 
@@ -95,7 +95,7 @@ public class l implements ILoginListener {
 
     public void destroy() {
         this.mIsDestroy = true;
-        LT();
+        Lk();
     }
 
     public static boolean isDebug() {

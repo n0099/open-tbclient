@@ -8,7 +8,7 @@ import org.webrtc.MediaStreamTrack;
 /* loaded from: classes4.dex */
 public class a {
     @SuppressLint({"MissingPermission"})
-    public static boolean gh(Context context) {
+    public static boolean gg(Context context) {
         if (context == null) {
             return false;
         }

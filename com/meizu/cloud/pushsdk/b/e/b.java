@@ -5,7 +5,7 @@ import com.meizu.cloud.pushsdk.b.c.j;
 import com.meizu.cloud.pushsdk.b.g.f;
 import com.meizu.cloud.pushsdk.b.g.l;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class b extends j {
 
     /* renamed from: a  reason: collision with root package name */

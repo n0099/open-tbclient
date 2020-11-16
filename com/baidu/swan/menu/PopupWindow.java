@@ -15,10 +15,10 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import com.baidu.swan.menu.g;
 import java.lang.ref.WeakReference;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class PopupWindow {
     private static final int[] ABOVE_ANCHOR_STATE_SET = {16842922};
-    private a egg;
+    private a eez;
     private boolean mAboveAnchor;
     private Drawable mAboveAnchorBackgroundDrawable;
     private boolean mAllowScrollingAnchorParent;
@@ -61,7 +61,7 @@ public class PopupWindow {
     private int mWindowLayoutType;
     private WindowManager mWindowManager;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void onDismiss();
     }
@@ -392,7 +392,7 @@ public class PopupWindow {
     private int computeAnimationResource() {
         if (this.mAnimationStyle == -1) {
             if (this.mIsDropdown) {
-                return this.mAboveAnchor ? g.C0557g.PopupWindow_DropDownUp : g.C0557g.PopupWindow_DropDownDown;
+                return this.mAboveAnchor ? g.C0555g.PopupWindow_DropDownUp : g.C0555g.PopupWindow_DropDownDown;
             }
             return 0;
         }
@@ -462,24 +462,24 @@ public class PopupWindow {
                     ((ViewGroup) this.mPopupView).removeView(this.mContentView);
                 }
                 this.mPopupView = null;
-                if (this.egg != null) {
-                    this.egg.onDismiss();
+                if (this.eez != null) {
+                    this.eez.onDismiss();
                 }
             } catch (IllegalArgumentException e) {
                 if (this.mPopupView != this.mContentView && (this.mPopupView instanceof ViewGroup)) {
                     ((ViewGroup) this.mPopupView).removeView(this.mContentView);
                 }
                 this.mPopupView = null;
-                if (this.egg != null) {
-                    this.egg.onDismiss();
+                if (this.eez != null) {
+                    this.eez.onDismiss();
                 }
             } catch (Throwable th) {
                 if (this.mPopupView != this.mContentView && (this.mPopupView instanceof ViewGroup)) {
                     ((ViewGroup) this.mPopupView).removeView(this.mContentView);
                 }
                 this.mPopupView = null;
-                if (this.egg != null) {
-                    this.egg.onDismiss();
+                if (this.eez != null) {
+                    this.eez.onDismiss();
                 }
                 throw th;
             }
@@ -487,7 +487,7 @@ public class PopupWindow {
     }
 
     public void a(a aVar) {
-        this.egg = aVar;
+        this.eez = aVar;
     }
 
     public void update() {
@@ -582,7 +582,7 @@ public class PopupWindow {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class b extends FrameLayout {
         public b(Context context) {
             super(context);

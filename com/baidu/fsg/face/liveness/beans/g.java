@@ -9,7 +9,7 @@ import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class g extends b {
 
     /* renamed from: a  reason: collision with root package name */

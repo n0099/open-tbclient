@@ -15,37 +15,37 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a SX = null;
-    private HashMap<String, Integer> SW = new HashMap<>();
+    private static volatile a SY = null;
+    private HashMap<String, Integer> SX = new HashMap<>();
 
     public static synchronized a pD() {
         a aVar;
         synchronized (a.class) {
-            if (SX == null) {
+            if (SY == null) {
                 synchronized (a.class) {
-                    if (SX == null) {
-                        SX = new a();
+                    if (SY == null) {
+                        SY = new a();
                     }
                 }
             }
-            aVar = SX;
+            aVar = SY;
         }
         return aVar;
     }
 
-    public void ct(String str) {
+    public void cv(String str) {
         if (str != null) {
-            Integer num = this.SW.get(str);
+            Integer num = this.SX.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.SW.put(str, Integer.valueOf(num.intValue() + 1));
+            this.SX.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
-    public void D(String str, String str2) {
+    public void C(String str, String str2) {
         if (str != null && str2 != null) {
-            ct(str);
+            cv(str);
         }
     }
 
@@ -158,7 +158,7 @@ public class a {
     }
 
     public void pE() {
-        if (this.SW.size() != 0) {
+        if (this.SX.size() != 0) {
             com.baidu.adp.lib.stats.a mT = mT();
             d(mT);
             mT.append("appver", BdStatisticsManager.getInstance().getAppVersion());
@@ -174,7 +174,7 @@ public class a {
         g(str, null, null, "count_" + i);
     }
 
-    public void E(String str, String str2) {
+    public void D(String str, String str2) {
         g(str, null, str2, null);
     }
 
@@ -206,10 +206,10 @@ public class a {
 
     private void d(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
-            for (Map.Entry<String, Integer> entry : this.SW.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.SX.entrySet()) {
                 aVar.append(entry.getKey() + "_count", String.valueOf(entry.getValue()));
             }
-            this.SW.clear();
+            this.SX.clear();
         }
     }
 

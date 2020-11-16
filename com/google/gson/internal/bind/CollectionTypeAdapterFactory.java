@@ -9,7 +9,7 @@ import com.google.gson.stream.JsonToken;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Collection;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
     private final com.google.gson.internal.b constructorConstructor;
 
@@ -28,14 +28,14 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
         return new Adapter(gson, a2, gson.getAdapter(com.google.gson.b.a.k(a2)), this.constructorConstructor.a(aVar));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     private static final class Adapter<E> extends TypeAdapter<Collection<E>> {
-        private final TypeAdapter<E> pdT;
-        private final e<? extends Collection<E>> pdU;
+        private final TypeAdapter<E> pfw;
+        private final e<? extends Collection<E>> pfx;
 
         public Adapter(Gson gson, Type type, TypeAdapter<E> typeAdapter, e<? extends Collection<E>> eVar) {
-            this.pdT = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
-            this.pdU = eVar;
+            this.pfw = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
+            this.pfx = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -46,10 +46,10 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
                 aVar.etb();
                 return null;
             }
-            Collection<E> construct = this.pdU.construct();
+            Collection<E> construct = this.pfx.construct();
             aVar.esU();
             while (aVar.hasNext()) {
-                construct.add(this.pdT.read(aVar));
+                construct.add(this.pfw.read(aVar));
             }
             aVar.endArray();
             return construct;
@@ -65,7 +65,7 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
             }
             bVar.eth();
             for (E e : collection) {
-                this.pdT.write(bVar, e);
+                this.pfw.write(bVar, e);
             }
             bVar.eti();
         }

@@ -14,13 +14,13 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseWheatLayout;
 import com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatDatingLayout;
 /* loaded from: classes4.dex */
 public class c extends a {
-    private WheatDatingLayout ogV;
+    private WheatDatingLayout oiy;
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    View eap() {
-        this.ogV = new WheatDatingLayout(this.mActivity);
-        this.ogV.setTbPageContext(this.ocV);
-        return this.ogV;
+    View eao() {
+        this.oiy = new WheatDatingLayout(this.mActivity);
+        this.oiy.setTbPageContext(this.oey);
+        return this.oiy;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
@@ -32,14 +32,14 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    public ViewGroup dZC() {
-        return this.ogV;
+    public ViewGroup dZB() {
+        return this.oiy;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    public AlaWheatInfoData VX(String str) {
-        if (this.ogV != null) {
-            return this.ogV.iY(str);
+    public AlaWheatInfoData VI(String str) {
+        if (this.oiy != null) {
+            return this.oiy.iS(str);
         }
         return null;
     }
@@ -52,13 +52,13 @@ public class c extends a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    public void eaq() {
-        super.eaq();
-        this.ogV.setOnItemClickListener(new BaseWheatLayout.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.c.1
+    public void eap() {
+        super.eap();
+        this.oiy.setOnItemClickListener(new BaseWheatLayout.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.c.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseWheatLayout.a
             public void a(AlaWheatInfoData alaWheatInfoData, boolean z, int i) {
-                c.this.ogL = i;
-                c.this.a(alaWheatInfoData, z ? 0 : i + 1, z ? g.odZ : g.oea);
+                c.this.oio = i;
+                c.this.a(alaWheatInfoData, z ? 0 : i + 1, z ? g.ofD : g.ofE);
             }
         });
     }
@@ -66,39 +66,39 @@ public class c extends a {
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void aM(String str, String str2, String str3) {
         super.aM(str, str2, str3);
-        if (this.ogV != null && !dZH()) {
-            this.ogV.aM(str, str2, str3);
+        if (this.oiy != null && !dZG()) {
+            this.oiy.aM(str, str2, str3);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    public void VY(String str) {
-        super.VY(str);
-        if (this.ogV != null) {
-            this.ogV.VY(str);
+    public void VJ(String str) {
+        super.VJ(str);
+        if (this.oiy != null) {
+            this.oiy.VJ(str);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    public void VZ(String str) {
-        super.VZ(str);
-        if (this.ogV != null) {
-            this.ogV.VZ(str);
+    public void VK(String str) {
+        super.VK(str);
+        if (this.oiy != null) {
+            this.oiy.VK(str);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    public void ear() {
-        super.ear();
+    public void eaq() {
+        super.eaq();
         try {
-            if (this.ogV != null) {
+            if (this.oiy != null) {
                 if (BdUtilHelper.isMainThread()) {
-                    this.ogV.a(this.ogF, this.ogG, this.ogH, this.bqS);
+                    this.oiy.a(this.oii, this.oij, this.oik, this.bph);
                 } else {
-                    this.ogV.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.c.2
+                    this.oiy.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.c.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            c.this.ogV.a(c.this.ogF, c.this.ogG, c.this.ogH, c.this.bqS);
+                            c.this.oiy.a(c.this.oii, c.this.oij, c.this.oik, c.this.bph);
                         }
                     });
                 }
@@ -112,8 +112,8 @@ public class c extends a {
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void ai(w wVar) {
         super.ai(wVar);
-        if (wVar != null && wVar.aJP != null) {
-            AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = wVar.aJP;
+        if (wVar != null && wVar.aIe != null) {
+            AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = wVar.aIe;
             b(alaWheatInfoDataWrapper.getHostWheatLists(), alaWheatInfoDataWrapper.getAnchorWheatLists(), alaWheatInfoDataWrapper.getXiangqinLists());
         }
     }
@@ -121,37 +121,37 @@ public class c extends a {
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void l(w wVar) {
         super.l(wVar);
-        if ((wVar == null || wVar.mLiveInfo == null || wVar.mLiveInfo.live_status != 2) && this.ogV != null && this.ogV.getVisibility() != 0) {
+        if ((wVar == null || wVar.mLiveInfo == null || wVar.mLiveInfo.live_status != 2) && this.oiy != null && this.oiy.getVisibility() != 0) {
             setVisible(true);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    public void Dm() {
-        super.Dm();
+    public void CD() {
+        super.CD();
         setVisible(false);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void setMaskBg(boolean z) {
         super.setMaskBg(z);
-        if (this.ogV != null) {
-            this.ogV.setMaskBg(z);
+        if (this.oiy != null) {
+            this.oiy.setMaskBg(z);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void setVisible(boolean z) {
         super.setVisible(z);
-        if (this.ogV != null) {
-            this.ogV.setVisibility(z ? 0 : 8);
+        if (this.oiy != null) {
+            this.oiy.setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public int getWheatHeight() {
-        if (this.ogV != null) {
-            return this.ogV.getWheatHeight();
+        if (this.oiy != null) {
+            return this.oiy.getWheatHeight();
         }
         return 0;
     }

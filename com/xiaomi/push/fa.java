@@ -9,16 +9,16 @@ import com.xiaomi.clientreport.manager.ClientReportClient;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class fa {
 
     /* renamed from: a  reason: collision with root package name */
     private static a f4895a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, hw> f310a = null;
+    private static Map<String, hw> f313a = null;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes18.dex */
     public interface a {
         void uploader(Context context, hq hqVar);
     }
@@ -105,29 +105,29 @@ public class fa {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hw m270a(String str) {
+    public static hw m273a(String str) {
         hw[] values;
-        if (f310a == null) {
+        if (f313a == null) {
             synchronized (hw.class) {
-                if (f310a == null) {
-                    f310a = new HashMap();
+                if (f313a == null) {
+                    f313a = new HashMap();
                     for (hw hwVar : hw.values()) {
-                        f310a.put(hwVar.f476a.toLowerCase(), hwVar);
+                        f313a.put(hwVar.f479a.toLowerCase(), hwVar);
                     }
                 }
             }
         }
-        hw hwVar2 = f310a.get(str.toLowerCase());
+        hw hwVar2 = f313a.get(str.toLowerCase());
         return hwVar2 != null ? hwVar2 : hw.Invalid;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m271a(int i) {
+    public static String m274a(int i) {
         return i == 1000 ? "E100000" : i == 3000 ? "E100002" : i == 2000 ? "E100001" : i == 6000 ? "E100003" : "";
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m272a(Context context) {
+    public static void m275a(Context context) {
         ClientReportClient.updateConfig(context, a(context));
     }
 
@@ -136,7 +136,7 @@ public class fa {
     }
 
     private static void a(Context context, hq hqVar) {
-        if (m273a(context.getApplicationContext())) {
+        if (m276a(context.getApplicationContext())) {
             com.xiaomi.push.service.bj.a(context.getApplicationContext(), hqVar);
         } else if (f4895a != null) {
             f4895a.uploader(context, hqVar);
@@ -164,7 +164,7 @@ public class fa {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m273a(Context context) {
+    public static boolean m276a(Context context) {
         return (context == null || TextUtils.isEmpty(context.getPackageName()) || !"com.xiaomi.xmsf".equals(context.getPackageName())) ? false : true;
     }
 }

@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class d {
     public static final StackTraceElement a(BaseContinuationImpl baseContinuationImpl) {
         q.n(baseContinuationImpl, "receiver$0");
@@ -12,10 +12,10 @@ public final class d {
         if (b == null) {
             return null;
         }
-        ep(1, b.v());
+        eq(1, b.v());
         int c = c(baseContinuationImpl);
-        int i = c < 0 ? -1 : b.eBK()[c];
-        String d = f.pSq.d(baseContinuationImpl);
+        int i = c < 0 ? -1 : b.eBL()[c];
+        String d = f.pTT.d(baseContinuationImpl);
         return new StackTraceElement(d == null ? b.c() : d + '/' + b.c(), b.m(), b.f(), i);
     }
 
@@ -39,7 +39,7 @@ public final class d {
         }
     }
 
-    private static final void ep(int i, int i2) {
+    private static final void eq(int i, int i2) {
         if (i2 > i) {
             throw new IllegalStateException(("Debug metadata version mismatch. Expected: " + i + ", got " + i2 + ". Please update the Kotlin standard library.").toString());
         }

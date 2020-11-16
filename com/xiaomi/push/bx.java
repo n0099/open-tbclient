@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.cb;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class bx extends cb.d {
 
     /* renamed from: a  reason: collision with root package name */

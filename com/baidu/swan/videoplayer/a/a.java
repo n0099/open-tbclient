@@ -1,11 +1,12 @@
 package com.baidu.swan.videoplayer.a;
 
 import com.baidu.swan.videoplayer.SwanVideoView;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public interface a {
     void h(SwanVideoView swanVideoView);
 
-    void ic(boolean z);
+    /* renamed from: if  reason: not valid java name */
+    void mo36if(boolean z);
 
     void onBufferingUpdate(int i);
 

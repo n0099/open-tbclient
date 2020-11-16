@@ -7,7 +7,7 @@ import android.support.annotation.RestrictTo;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class SimpleCursorAdapter extends ResourceCursorAdapter {
     private CursorToStringConverter mCursorToStringConverter;
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -18,12 +18,12 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
     protected int[] mTo;
     private ViewBinder mViewBinder;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface CursorToStringConverter {
         CharSequence convertToString(Cursor cursor);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface ViewBinder {
         boolean setViewValue(View view, Cursor cursor, int i);
     }

@@ -17,9 +17,9 @@ public class BottomShadowLinearLayout extends LinearLayout {
     private float mRadius;
     private RectF mRectF;
     private int mWidth;
-    private float nyD;
-    private Paint nyE;
-    private RectF nyF;
+    private float nzK;
+    private Paint nzL;
+    private RectF nzM;
 
     public BottomShadowLinearLayout(Context context) {
         this(context, null);
@@ -40,13 +40,13 @@ public class BottomShadowLinearLayout extends LinearLayout {
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setDither(true);
-        this.nyE = new Paint();
-        this.nyE.reset();
-        this.nyE.setAntiAlias(true);
-        this.nyE.setStyle(Paint.Style.FILL);
-        this.nyE.setDither(true);
+        this.nzL = new Paint();
+        this.nzL.reset();
+        this.nzL.setAntiAlias(true);
+        this.nzL.setStyle(Paint.Style.FILL);
+        this.nzL.setDither(true);
         this.mRadius = l.getDimens(context, R.dimen.ds20);
-        this.nyD = l.getDimens(context, R.dimen.ds25);
+        this.nzK = l.getDimens(context, R.dimen.ds25);
         setLayerType(1, this.mPaint);
         onChangeSkinType();
     }
@@ -62,20 +62,20 @@ public class BottomShadowLinearLayout extends LinearLayout {
     protected void dispatchDraw(Canvas canvas) {
         if (this.mWidth > 0 && this.mHeight > 0) {
             if (this.mRectF == null) {
-                this.mRectF = new RectF(0.0f, 0.0f, this.mWidth, this.mHeight - this.nyD);
+                this.mRectF = new RectF(0.0f, 0.0f, this.mWidth, this.mHeight - this.nzK);
             }
             canvas.drawRoundRect(this.mRectF, this.mRadius, this.mRadius, this.mPaint);
-            if (this.nyF == null) {
-                this.nyF = new RectF(0.0f, 0.0f, this.mWidth, this.mHeight / 2);
+            if (this.nzM == null) {
+                this.nzM = new RectF(0.0f, 0.0f, this.mWidth, this.mHeight / 2);
             }
-            canvas.drawRect(this.nyF, this.nyE);
+            canvas.drawRect(this.nzM, this.nzL);
             super.dispatchDraw(canvas);
         }
     }
 
     public void onChangeSkinType() {
-        this.mPaint.setColor(ap.getColor(R.color.cp_bg_line_h));
-        this.nyE.setColor(ap.getColor(R.color.cp_bg_line_h));
-        this.mPaint.setShadowLayer(25.0f, 0.0f, 0.0f, ap.getColor(R.color.cp_shadow_a_alpha25));
+        this.mPaint.setColor(ap.getColor(R.color.CAM_X0207));
+        this.nzL.setColor(ap.getColor(R.color.CAM_X0207));
+        this.mPaint.setShadowLayer(25.0f, 0.0f, 0.0f, ap.getColor(R.color.CAM_X0805));
     }
 }

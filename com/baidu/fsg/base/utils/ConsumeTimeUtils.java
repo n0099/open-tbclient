@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.utils;
 
 import android.os.SystemClock;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class ConsumeTimeUtils {
 
     /* renamed from: a  reason: collision with root package name */
@@ -28,7 +28,7 @@ public class ConsumeTimeUtils {
         this.c = str;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public final class TimeResult {
 
         /* renamed from: a  reason: collision with root package name */

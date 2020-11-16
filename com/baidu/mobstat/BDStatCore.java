@@ -13,7 +13,7 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class BDStatCore {
     public static final int INVOKE_ACT = 1;
     public static final int INVOKE_API = 0;

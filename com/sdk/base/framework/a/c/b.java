@@ -1,5 +1,5 @@
 package com.sdk.base.framework.a.c;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class b extends Enum<b> {
     private static int b = 1;
     private static int c = 2;

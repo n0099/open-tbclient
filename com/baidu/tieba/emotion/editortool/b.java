@@ -3,35 +3,35 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes13.dex */
 public class b {
-    private int bGx;
-    private int bGy;
+    private int bEM;
+    private int bEN;
     private int column;
-    private com.baidu.tbadk.editortools.emotiontool.c ihA;
-    private int ihB;
-    private int ihC;
-    private EmotionGroupType ihx;
-    private int ihy;
-    private int ihz;
+    private EmotionGroupType iil;
+    private int iim;
+    private int iin;
+    private com.baidu.tbadk.editortools.emotiontool.c iio;
+    private int iip;
+    private int iiq;
     private int index;
     private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.ihA = cVar;
+        this.iio = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c cqz() {
-        return this.ihA;
+    public com.baidu.tbadk.editortools.emotiontool.c cqc() {
+        return this.iio;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.ihx = emotionGroupType;
+        this.iil = emotionGroupType;
     }
 
-    public EmotionGroupType cqA() {
-        return this.ihx;
+    public EmotionGroupType cqd() {
+        return this.iil;
     }
 
-    public void rx(int i) {
+    public void rV(int i) {
         this.row = i;
     }
 
@@ -43,44 +43,44 @@ public class b {
         this.column = i;
     }
 
-    public int cqB() {
+    public int cqe() {
         return this.column;
     }
 
-    public void xx(int i) {
-        this.ihC = i;
+    public void xV(int i) {
+        this.iiq = i;
     }
 
-    public int cqC() {
-        return this.ihC;
+    public int cqf() {
+        return this.iiq;
     }
 
-    public void xy(int i) {
-        this.ihB = i;
+    public void xW(int i) {
+        this.iip = i;
     }
 
-    public int cqD() {
-        return this.ihB;
+    public int cqg() {
+        return this.iip;
     }
 
-    public void xz(int i) {
-        this.ihy = i;
+    public void xX(int i) {
+        this.iim = i;
     }
 
-    public int cqE() {
-        return this.ihy;
+    public int cqh() {
+        return this.iim;
     }
 
-    public void xA(int i) {
-        this.bGx = i;
+    public void xY(int i) {
+        this.bEM = i;
     }
 
-    public int cqF() {
-        return this.bGx;
+    public int cqi() {
+        return this.bEM;
     }
 
-    public void xB(int i) {
-        this.bGy = i;
+    public void xZ(int i) {
+        this.bEN = i;
     }
 
     public void setIndex(int i) {
@@ -91,11 +91,11 @@ public class b {
         return this.index;
     }
 
-    public void xC(int i) {
-        this.ihz = i;
+    public void ya(int i) {
+        this.iin = i;
     }
 
-    public int cqG() {
-        return this.ihz;
+    public int cqj() {
+        return this.iin;
     }
 }

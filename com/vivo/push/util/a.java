@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Looper;
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

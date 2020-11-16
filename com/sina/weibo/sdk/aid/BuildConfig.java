@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.aid;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.sina.weibo.sdk.aid";
     public static final String BUILD_TYPE = "release";

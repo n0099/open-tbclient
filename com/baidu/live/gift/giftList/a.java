@@ -16,7 +16,7 @@ public class a extends HttpMessage {
         return this.isHost;
     }
 
-    public String IZ() {
+    public String Iq() {
         return this.giftId;
     }
 }

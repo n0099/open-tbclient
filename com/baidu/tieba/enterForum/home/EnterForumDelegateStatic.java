@@ -33,11 +33,11 @@ import com.baidu.tbadk.core.message.RequestEnterForumDataMessage;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tbadk.util.ac;
 import com.baidu.tbadk.util.ad;
-import com.baidu.tbadk.util.ae;
 import com.baidu.tbadk.util.m;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.data.f;
@@ -59,11 +59,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private static com.baidu.adp.lib.guide.c gpq;
-    private static EnterForumModel ijw;
-    public static EnterForumAdModel ijx;
+    private static com.baidu.adp.lib.guide.c goX;
+    private static EnterForumModel ikk;
+    public static EnterForumAdModel ikl;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -90,7 +90,7 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
                     if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-                        EnterForumDelegateStatic.ijx.loadAd();
+                        EnterForumDelegateStatic.ikl.loadAd();
                     }
                     ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
                     if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (fragmentTabStructure = enterForumDelegateStatic.getFragmentTabStructure()) != null && !fragmentTabStructure.frag.isAdded()) {
@@ -106,11 +106,11 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(final CustomResponsedMessage<?> customResponsedMessage) {
-                    if (TbadkCoreApplication.isLogin() && !com.baidu.tbadk.core.sharedPref.b.bqh().getBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_TIP_SHOW + TbadkCoreApplication.getCurrentAccount(), false) && com.baidu.tbadk.core.sharedPref.b.bqh().getInt(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_ATTENTION_CHECK_COUNT + TbadkCoreApplication.getCurrentAccount(), 0) <= 5 && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Activity)) {
+                    if (TbadkCoreApplication.isLogin() && !com.baidu.tbadk.core.sharedPref.b.bpu().getBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_TIP_SHOW + TbadkCoreApplication.getCurrentAccount(), false) && com.baidu.tbadk.core.sharedPref.b.bpu().getInt(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_ATTENTION_CHECK_COUNT + TbadkCoreApplication.getCurrentAccount(), 0) <= 5 && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Activity)) {
                         com.baidu.adp.lib.f.e.mY().post(new Runnable() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.8.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                EnterForumDelegateStatic.aq((Activity) customResponsedMessage.getData());
+                                EnterForumDelegateStatic.ap((Activity) customResponsedMessage.getData());
                             }
                         });
                     }
@@ -118,25 +118,25 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
             });
         }
         TbadkCoreApplication.getInst().RegisterIntent(ForumTestActivityConfig.class, ForumTestActivity.class);
-        crG();
-        crH();
-        crI();
-        crJ();
-        crK();
-        crM();
+        crj();
+        crk();
+        crl();
+        crm();
+        crn();
+        crp();
         TbadkCoreApplication.getInst().RegisterIntent(HotUserRankActivityConfig.class, HotUserRankActivity.class);
-        crL();
-        crO();
-        crE();
-        crF();
-        crN();
+        cro();
+        crr();
+        crh();
+        cri();
+        crq();
     }
 
-    private static void crE() {
+    private static void crh() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921479, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.9
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
-                com.baidu.tieba.enterForum.c.a.crw().crx();
+                com.baidu.tieba.enterForum.c.a.cqZ().cra();
                 return null;
             }
         });
@@ -144,25 +144,25 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void crF() {
+    private static void cri() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921483, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.10
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
-                return new CustomResponsedMessage<>(2921483, com.baidu.tieba.enterForum.c.a.crw().cry());
+                return new CustomResponsedMessage<>(2921483, com.baidu.tieba.enterForum.c.a.cqZ().crb());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        com.baidu.tieba.enterForum.c.a.crw();
+        com.baidu.tieba.enterForum.c.a.cqZ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void aq(final Activity activity) {
-        com.baidu.tbadk.core.sharedPref.b.bqh().getInt(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_ATTENTION_CHECK_COUNT + TbadkCoreApplication.getCurrentAccount(), com.baidu.tbadk.core.sharedPref.b.bqh().getInt(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_ATTENTION_CHECK_COUNT + TbadkCoreApplication.getCurrentAccount(), 0) + 1);
-        ae.a(new ad<Boolean>() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.11
+    public static void ap(final Activity activity) {
+        com.baidu.tbadk.core.sharedPref.b.bpu().getInt(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_ATTENTION_CHECK_COUNT + TbadkCoreApplication.getCurrentAccount(), com.baidu.tbadk.core.sharedPref.b.bpu().getInt(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_ATTENTION_CHECK_COUNT + TbadkCoreApplication.getCurrentAccount(), 0) + 1);
+        ad.a(new ac<Boolean>() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.11
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tbadk.util.ad
+            @Override // com.baidu.tbadk.util.ac
             public Boolean doInBackground() {
                 aa aaVar = new aa();
                 aaVar.setUrl(TbConfig.SERVER_ADDRESS + "/ala/sys/liveBarConcerned");
@@ -182,23 +182,23 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
             @Override // com.baidu.tbadk.util.m
             public void onReturnDataInUI(Boolean bool) {
                 if (bool.booleanValue()) {
-                    EnterForumDelegateStatic.ar(activity);
+                    EnterForumDelegateStatic.aq(activity);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void ar(final Activity activity) {
-        if (gpq != null) {
-            gpq.dismiss();
+    public static void aq(final Activity activity) {
+        if (goX != null) {
+            goX.dismiss();
         }
         final Handler handler = new Handler();
         final Runnable runnable = new Runnable() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.13
             @Override // java.lang.Runnable
             public void run() {
-                if (EnterForumDelegateStatic.gpq != null) {
-                    EnterForumDelegateStatic.gpq.dismiss();
+                if (EnterForumDelegateStatic.goX != null) {
+                    EnterForumDelegateStatic.goX.dismiss();
                 }
             }
         };
@@ -211,8 +211,8 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
             @Override // com.baidu.adp.lib.guide.d.a
             public void onDismiss() {
-                com.baidu.tbadk.core.sharedPref.b.bqh().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_TIP_SHOW + TbadkCoreApplication.getCurrentAccount(), true);
-                com.baidu.adp.lib.guide.c unused = EnterForumDelegateStatic.gpq = null;
+                com.baidu.tbadk.core.sharedPref.b.bpu().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_TIP_SHOW + TbadkCoreApplication.getCurrentAccount(), true);
+                com.baidu.adp.lib.guide.c unused = EnterForumDelegateStatic.goX = null;
                 handler.removeCallbacks(runnable);
             }
         });
@@ -225,11 +225,11 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
                 textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.15.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        EnterForumDelegateStatic.gpq.dismiss();
+                        EnterForumDelegateStatic.goX.dismiss();
                     }
                 });
-                ap.setViewTextColor(textView, R.color.cp_cont_a);
-                bubbleLayout.Lf(ap.getColor(R.color.cp_link_tip_a_alpha95));
+                ap.setViewTextColor(textView, R.color.CAM_X0101);
+                bubbleLayout.LI(ap.getColor(R.color.cp_link_tip_a_alpha95));
                 return bubbleLayout;
             }
 
@@ -260,8 +260,8 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
                 return dimensionPixelSize;
             }
         });
-        gpq = dVar.mi();
-        gpq.show(activity);
+        goX = dVar.mi();
+        goX.show(activity);
         handler.postDelayed(runnable, 5000L);
     }
 
@@ -271,16 +271,16 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
         return this.mIndicator;
     }
 
-    private static void crG() {
-        com.baidu.tieba.tbadkCore.d.c.dKs();
-        if (ijw == null) {
-            ijw = new EnterForumModel(null);
-            ijw.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.2
+    private static void crj() {
+        com.baidu.tieba.tbadkCore.d.c.dKj();
+        if (ikk == null) {
+            ikk = new EnterForumModel(null);
+            ikk.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.2
                 @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
                 public void a(EnterForumModel.a aVar) {
-                    g cqQ = aVar.imI.cqQ();
+                    g cqt = aVar.inx.cqt();
                     ArrayList arrayList = new ArrayList();
-                    Iterator<f> it = cqQ.crm().iterator();
+                    Iterator<f> it = cqt.cqP().iterator();
                     while (it.hasNext()) {
                         arrayList.add(it.next().getName());
                     }
@@ -288,9 +288,9 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
                 }
             });
         }
-        if (ijx == null) {
-            ijx = new EnterForumAdModel();
-            ijx.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.3
+        if (ikl == null) {
+            ikl = new EnterForumAdModel();
+            ikl.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.3
                 @Override // com.baidu.adp.base.d
                 public void callback(Object obj) {
                     if (obj instanceof com.baidu.tieba.enterForum.data.b) {
@@ -301,12 +301,12 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
         MessageManager.getInstance().registerListener(new com.baidu.adp.framework.listener.a(1002400, CmdConfigSocket.CMD_FORUM_RECOMMEND) { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.4
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && EnterForumDelegateStatic.ijw.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+                if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && EnterForumDelegateStatic.ikk.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                     if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                        EnterForumDelegateStatic.ijw.a((forumRecommendSocketResponseMessage) responsedMessage);
+                        EnterForumDelegateStatic.ikk.a((forumRecommendSocketResponseMessage) responsedMessage);
                     }
                     if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                        EnterForumDelegateStatic.ijw.a((forumRecommendHttpResponseMessage) responsedMessage);
+                        EnterForumDelegateStatic.ikk.a((forumRecommendHttpResponseMessage) responsedMessage);
                     }
                 }
             }
@@ -317,19 +317,19 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
                     if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                        EnterForumDelegateStatic.ijw.oS(true);
+                        EnterForumDelegateStatic.ikk.oV(true);
                     } else {
-                        EnterForumDelegateStatic.ijw.oR(true);
+                        EnterForumDelegateStatic.ikk.oU(true);
                     }
                 }
             }
         });
     }
 
-    private static void crH() {
+    private static void crk() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_ENTERFORUM_DATA, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.tieba.c.c> run(CustomMessage<Object> customMessage) {
+            public CustomResponsedMessage<com.baidu.tieba.d.c> run(CustomMessage<Object> customMessage) {
                 return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_ENTERFORUM_DATA, new d());
             }
         });
@@ -337,39 +337,39 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void crI() {
+    private static void crl() {
         com.baidu.tieba.tbadkCore.a.a.a(309630, ResponseSocketRecommendMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309630, CmdConfigHttp.CMD_RECOMMEND_FORUM, TbConfig.URL_ENTER_RECOMMEND_FORUM, ResponseHttpRecommendMessage.class, false, false, true, false);
     }
 
-    private static void crJ() {
+    private static void crm() {
         com.baidu.tieba.tbadkCore.a.a.a(309633, ResponseSocketTestCloseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309633, CmdConfigHttp.CMD_RECOMMEND_TEST_CLOSE, TbConfig.URL_RECOMMEND_FORUM_TEST_CLOSE, ResponseHttpTestCloseMessage.class, false, false, true, false);
     }
 
-    private static void crK() {
+    private static void crn() {
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST, TbConfig.URL_ENTER_FORUM_AD, EnterForumAdResponsedMessage.class, false, false, true, false);
     }
 
-    private static void crL() {
+    private static void cro() {
         com.baidu.tieba.tbadkCore.a.a.a(309651, TabFeedListSocketResponsedMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309651, CmdConfigHttp.CMD_TAB_FEED_LIST, TbConfig.URL_TAB_FEED_LIST, TabFeedListHttpResponsedMessage.class, false, false, true, false);
     }
 
-    private static void crM() {
+    private static void crp() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_FORUM_RECOMMEND, forumRecommendSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_FORUM_RECOMMEND, 1002400, Config.FORUM_RECOMMEND, forumRecommendHttpResponseMessage.class, false, false, false, false);
     }
 
-    private static void crN() {
+    private static void crq() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_HISTORY_FORUM, RecentlyVisitedForumSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_HISTORY_FORUM, 1003394, Config.GET_HISTORY_FORUM, RecentlyVisitedForumHttpResponseMessage.class, false, false, false, false);
         com.baidu.tieba.tbadkCore.a.a.c(1003395, Config.DELETE_HISTORY_FORUM, null, false, false, false, false);
     }
 
-    private static void crO() {
-        be.brr().a(new be.a() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.7
-            @Override // com.baidu.tbadk.core.util.be.a
+    private static void crr() {
+        bf.bqF().a(new bf.a() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.7
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null) {
                     return 3;

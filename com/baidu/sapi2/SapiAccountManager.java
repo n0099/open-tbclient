@@ -37,7 +37,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class SapiAccountManager implements ISAccountManager {
     public static final String SESSION_BDUSS = "bduss";
     public static final String SESSION_DISPLAYNAME = "displayname";
@@ -59,25 +59,25 @@ public final class SapiAccountManager implements ISAccountManager {
     /* renamed from: a  reason: collision with root package name */
     private char f3224a = 0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface CheckUrlIsAvailableListener {
         void handleWebPageUrl(String str);
 
         boolean onCheckUrlIsAvailable(String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static abstract class GlobalAuthorizationListener {
         public void onLogoutSuccess(SapiAccount sapiAccount) {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface ReceiveShareListener {
         void onReceiveShare();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface SilentShareListener {
         void onSilentShare();
     }

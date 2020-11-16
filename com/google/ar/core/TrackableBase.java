@@ -1,13 +1,13 @@
 package com.google.ar.core;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 class TrackableBase implements k {
-    final Session pcl;
-    final long pcm;
+    final Session pdO;
+    final long pdP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public TrackableBase(long j, Session session) {
-        this.pcl = session;
-        this.pcm = j;
+        this.pdO = session;
+        this.pdP = j;
     }
 
     private native long nativeCreateAnchor(long j, long j2, h hVar);
@@ -21,16 +21,16 @@ class TrackableBase implements k {
     private static native void nativeReleaseTrackable(long j);
 
     public boolean equals(Object obj) {
-        return obj != null && obj.getClass() == getClass() && ((TrackableBase) obj).pcm == this.pcm;
+        return obj != null && obj.getClass() == getClass() && ((TrackableBase) obj).pdP == this.pdP;
     }
 
     public int hashCode() {
-        return Long.valueOf(this.pcm).hashCode();
+        return Long.valueOf(this.pdP).hashCode();
     }
 
     protected void finalize() throws Throwable {
-        if (this.pcm != 0) {
-            nativeReleaseTrackable(this.pcm);
+        if (this.pdP != 0) {
+            nativeReleaseTrackable(this.pdP);
         }
         super.finalize();
     }

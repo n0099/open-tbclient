@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.b.g;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 final class i implements d {
 
     /* renamed from: a  reason: collision with root package name */

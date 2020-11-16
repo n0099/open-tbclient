@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.imageManager.c;
 import com.squareup.wire.Wire;
@@ -47,9 +47,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                         int optInt2 = jSONObject.optInt("video_channel_id", 0);
                         intent.putExtra("video_channel_id", optInt2);
                         intent.putExtra("id", jSONObject.optString("tid"));
-                        TiebaStatic.log(new aq("c11917").al("obj_id", optInt2));
+                        TiebaStatic.log(new ar("c11917").ak("obj_id", optInt2));
                     } else if (optInt == 126) {
-                        TiebaStatic.log(new aq("c12100"));
+                        TiebaStatic.log(new ar("c12100"));
                         intent.putExtra("is_live", 1);
                         intent.putExtra("is_live_lcs", 1);
                     }
@@ -64,9 +64,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                             optString2 = "";
                         }
                         if (!StringUtils.isNull(optString3)) {
-                            a Eb = c.bBd().Eb(optString4 + 10);
-                            if (Eb != null && Eb.getRawBitmap() != null) {
-                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, Eb.getRawBitmap(), false);
+                            a DA = c.bAt().DA(optString4 + 10);
+                            if (DA != null && DA.getRawBitmap() != null) {
+                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, DA.getRawBitmap(), false);
                                 return;
                             } else if (!StringUtils.isNull(optString4)) {
                                 final String str = optString2;

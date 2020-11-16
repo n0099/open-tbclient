@@ -91,12 +91,13 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Removed duplicated region for block: B:17:0x0127  */
-        /* JADX WARN: Removed duplicated region for block: B:21:0x0145  */
-        /* JADX WARN: Removed duplicated region for block: B:26:0x0165  */
-        /* JADX WARN: Removed duplicated region for block: B:35:0x021e A[Catch: Exception -> 0x03b6, TRY_LEAVE, TryCatch #3 {Exception -> 0x03b6, blocks: (B:33:0x0217, B:35:0x021e), top: B:75:0x0217 }] */
-        /* JADX WARN: Removed duplicated region for block: B:56:0x02e0  */
-        /* JADX WARN: Removed duplicated region for block: B:68:0x03c4  */
+        /* JADX WARN: Removed duplicated region for block: B:17:0x00ec  */
+        /* JADX WARN: Removed duplicated region for block: B:20:0x013b  */
+        /* JADX WARN: Removed duplicated region for block: B:24:0x0167  */
+        /* JADX WARN: Removed duplicated region for block: B:29:0x018d  */
+        /* JADX WARN: Removed duplicated region for block: B:39:0x0282 A[Catch: Exception -> 0x0483, TRY_LEAVE, TryCatch #3 {Exception -> 0x0483, blocks: (B:37:0x027c, B:39:0x0282), top: B:95:0x027c }] */
+        /* JADX WARN: Removed duplicated region for block: B:51:0x02d7  */
+        /* JADX WARN: Removed duplicated region for block: B:78:0x0397  */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         /*
@@ -105,8 +106,13 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
         public HttpResponsedMessage doInBackground(HttpMessage... httpMessageArr) {
             boolean z;
             Exception e;
-            HttpResponsedMessage newInstance;
             boolean z2;
+            boolean z3;
+            int cmd;
+            long mv;
+            HttpResponsedMessage newInstance;
+            boolean z4;
+            boolean z5;
             if (HttpClient.this.Ip.getController().b(this.It, this.Iu) == null) {
                 return null;
             }
@@ -119,12 +125,11 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
             int timeOut = this.Iu.getTimeOut().getTimeOut();
             int timeOut2 = this.Iu.getConnectTimeOut().getTimeOut();
             int retry = this.Iu.getRetry();
-            boolean z3 = false;
             try {
                 this.Iw = new c(this.Iv);
                 if (this.Iu.getDownloadTask() != null && this.Iu.getDownloadTask().getDownloadPath() != null) {
                     try {
-                        z2 = this.Iw.a(this.Iu.getDownloadTask().getDownloadPath(), new h() { // from class: com.baidu.adp.framework.client.HttpClient.a.1
+                        z5 = this.Iw.a(this.Iu.getDownloadTask().getDownloadPath(), new h() { // from class: com.baidu.adp.framework.client.HttpClient.a.1
                             @Override // com.baidu.adp.lib.network.http.h
                             public void onProgress(int i, int i2) {
                                 HttpMessageTask.a downloadTask = a.this.Iu.getDownloadTask();
@@ -135,17 +140,23 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                                 }
                             }
                         }, retry, timeOut, timeOut2, this.Iu.getDownloadTask().getIsOverWrite());
-                        z = true;
+                        z4 = true;
                     } catch (Exception e2) {
                         e = e2;
                         z = true;
                         BdLog.detailException(e);
+                        z2 = false;
+                        z3 = z;
+                        cmd = this.Iu.getCmd();
+                        String str = "other";
+                        if (cmd != 1001703) {
+                        }
                         long startTime = this.It.getStartTime();
                         long ms = this.Iw.ms();
                         long mt = this.Iw.mt();
                         long mq = this.Iw.mq();
                         long mu = this.Iw.mu();
-                        long mv = this.Iw.mv();
+                        mv = this.Iw.mv();
                         long j = currentTimeMillis - startTime;
                         long j2 = ms - currentTimeMillis;
                         long j3 = mt - ms;
@@ -153,13 +164,14 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                         long j4 = mu - mt;
                         long j5 = mq - mt;
                         long j6 = mu - mq;
-                        if (mv > 0) {
+                        long j7 = mv - mu;
+                        if (mv <= 0) {
                         }
                         newInstance = this.Iu.getResponsedClass().getConstructor(new Class[0]).newInstance(new Object[0]);
-                        if (!z) {
+                        if (!z3) {
                         }
                         newInstance.setOrginalMessage(this.It);
-                        if (!z) {
+                        if (!z3) {
                         }
                         newInstance.logStatInBackground(this.It.getCmd(), this.Iv);
                         newInstance.setStartTime(System.currentTimeMillis());
@@ -170,34 +182,55 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                     }
                 } else if (this.Iu.getMethod() == HttpMessageTask.HTTP_METHOD.GET) {
                     this.Iw.d(retry, timeOut, timeOut2);
-                    z = false;
-                    z2 = false;
+                    z4 = false;
+                    z5 = false;
                 } else {
                     if (this.Iu.getMethod() == HttpMessageTask.HTTP_METHOD.POST) {
                         this.Iw.f(retry, timeOut, timeOut2);
                     }
-                    z = false;
-                    z2 = false;
+                    z4 = false;
+                    z5 = false;
                 }
-                z3 = z2;
+                z2 = z5;
+                z3 = z4;
             } catch (Exception e3) {
                 z = false;
                 e = e3;
+            }
+            cmd = this.Iu.getCmd();
+            String str2 = "other";
+            if (cmd != 1001703) {
+                str2 = "frs";
+            } else if (cmd == 1001801) {
+                str2 = "pb";
+            } else if (cmd == 1003070) {
+                str2 = "home_page";
+            } else if (cmd == 1002400) {
+                str2 = "enter_forum";
+            } else if (cmd == 1002700) {
+                str2 = "user_center";
+            } else if (cmd == 1001503) {
+                str2 = "person_center_post";
+            } else if (cmd == 1003446) {
+                str2 = "person_center_dynamic";
             }
             long startTime2 = this.It.getStartTime();
             long ms2 = this.Iw.ms();
             long mt2 = this.Iw.mt();
             long mq2 = this.Iw.mq();
             long mu2 = this.Iw.mu();
-            long mv2 = this.Iw.mv();
-            long j7 = currentTimeMillis - startTime2;
+            mv = this.Iw.mv();
+            long j8 = currentTimeMillis - startTime2;
             long j22 = ms2 - currentTimeMillis;
             long j32 = mt2 - ms2;
             int mw2 = this.Iw.mw();
             long j42 = mu2 - mt2;
             long j52 = mq2 - mt2;
             long j62 = mu2 - mq2;
-            long j8 = mv2 > 0 ? 0L : mv2 - mu2;
+            long j72 = mv - mu2;
+            if (mv <= 0) {
+                j72 = 0;
+            }
             try {
                 newInstance = this.Iu.getResponsedClass().getConstructor(new Class[0]).newInstance(new Object[0]);
             } catch (Exception e4) {
@@ -210,21 +243,21 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                     return new ErrorHttpResponsedMessage(this.It.getCmd(), this.It);
                 }
             }
-            if (!z) {
-                if (z3) {
+            if (!z3) {
+                if (z2) {
                     newInstance.setStatusCode(200, "");
                 } else {
                     newInstance.setStatusCode(400, "");
                 }
                 newInstance.setContentLength(this.Iv.my().contentLength);
             } else {
-                String str = "";
+                String str3 = "";
                 if (this.Iv.mz().size() > 0) {
-                    String str2 = this.Iv.mz().get(this.Iv.mz().size() - 1).exception;
+                    String str4 = this.Iv.mz().get(this.Iv.mz().size() - 1).exception;
                     this.It.setEncodedBinarySize(this.Iv.mz().get(this.Iv.mz().size() - 1).LI);
-                    str = str2;
+                    str3 = str4;
                 }
-                newInstance.setStatusCode(this.Iv.my().responseCode, str);
+                newInstance.setStatusCode(this.Iv.my().responseCode, str3);
                 newInstance.setHeader(this.Iv.my().Mp);
                 newInstance.setContentEncoding(this.Iv.my().contentEncoding);
                 newInstance.setContentLength(this.Iv.my().contentLength);
@@ -235,20 +268,20 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                 }
             }
             newInstance.setOrginalMessage(this.It);
-            if (!z) {
+            if (!z3) {
                 if (newInstance.isSuccess()) {
                     try {
                         newInstance.decodeInBackGround(this.It.getCmd(), this.Iv.my().retBytes);
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        newInstance.performanceData.mQueneTime = j7;
+                        newInstance.performanceData.mQueneTime = j8;
                         newInstance.performanceData.mHttpRetryCostTime = j32;
                         newInstance.performanceData.mHttpRetryNum = mw2;
                         newInstance.performanceData.mNetConTime = j22;
                         newInstance.performanceData.mNetRWTime = j42;
                         newInstance.performanceData.mFirstByteReachTime = j52;
                         newInstance.performanceData.mAllDataReadTime = j62;
-                        newInstance.performanceData.mCompressTime = j8;
-                        newInstance.performanceData.mAnalysisTime = currentTimeMillis2 - mv2;
+                        newInstance.performanceData.mCompressTime = j72;
+                        newInstance.performanceData.mAnalysisTime = currentTimeMillis2 - mv;
                         newInstance.setCostTime(currentTimeMillis2 - currentTimeMillis);
                         newInstance.beforeDispatchInBackGround(this.It.getCmd(), this.Iv.my().retBytes);
                     } catch (Exception e6) {
@@ -262,6 +295,7 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                     newInstance.performanceData.mSocketErrNo = netMessage.getSocketErrNo();
                     newInstance.performanceData.mSocketCostTime = netMessage.getSocketCostTime();
                 }
+                com.baidu.adp.lib.stats.b.a.a(str2, cmd, this.Iu.getUrl(), newInstance.isSuccess(), true, j22, j42, newInstance.performanceData.mAnalysisTime, j52, j62, newInstance.performanceData.mSocketErrNo);
             }
             newInstance.logStatInBackground(this.It.getCmd(), this.Iv);
             newInstance.setStartTime(System.currentTimeMillis());

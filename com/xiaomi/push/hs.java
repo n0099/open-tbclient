@@ -1,15 +1,15 @@
 package com.xiaomi.push;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public enum hs {
     MISC_CONFIG(1),
     PLUGIN_CONFIG(2);
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f462a;
+    private final int f465a;
 
     hs(int i) {
-        this.f462a = i;
+        this.f465a = i;
     }
 
     public static hs a(int i) {
@@ -24,6 +24,6 @@ public enum hs {
     }
 
     public int a() {
-        return this.f462a;
+        return this.f465a;
     }
 }

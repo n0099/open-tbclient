@@ -10,17 +10,17 @@ import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.youngster.YoungsterPasswordView;
 import com.baidu.tieba.R;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class YoungsterPasswordActivity extends BaseActivity {
     private View mBack;
     private int mFrom;
-    private Runnable mJA = new Runnable() { // from class: com.baidu.tieba.setting.more.youngster.YoungsterPasswordActivity.1
+    private YoungsterPasswordView mKi;
+    private Runnable mKj = new Runnable() { // from class: com.baidu.tieba.setting.more.youngster.YoungsterPasswordActivity.1
         @Override // java.lang.Runnable
         public void run() {
             YoungsterPasswordActivity.this.finish();
         }
     };
-    private YoungsterPasswordView mJz;
     private NavigationBar mNavigationBar;
     private int mPageType;
     private String mPassword;
@@ -33,20 +33,20 @@ public class YoungsterPasswordActivity extends BaseActivity {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mBack.setOnClickListener(this);
-        this.mJz = new YoungsterPasswordView(getPageContext());
-        ((FrameLayout) findViewById(R.id.youngster_content)).addView(this.mJz);
+        this.mKi = new YoungsterPasswordView(getPageContext());
+        ((FrameLayout) findViewById(R.id.youngster_content)).addView(this.mKi);
         Intent intent = getIntent();
         if (intent != null) {
             this.mPageType = intent.getIntExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_PAGE_TYPE, 0);
-            sY(this.mPageType);
+            tw(this.mPageType);
             this.mPassword = intent.getStringExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_INPUT);
-            this.mJz.setPrePassword(this.mPassword);
+            this.mKi.setPrePassword(this.mPassword);
             this.mFrom = intent.getIntExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_FROM, 0);
-            this.mJz.setFrom(this.mFrom);
+            this.mKi.setFrom(this.mFrom);
         }
     }
 
-    private void sY(int i) {
+    private void tw(int i) {
         switch (i) {
             case 1:
             case 2:
@@ -60,7 +60,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
                 this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_setting));
                 break;
         }
-        this.mJz.sY(i);
+        this.mKi.tw(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -68,15 +68,15 @@ public class YoungsterPasswordActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.mJz.onChangeSkinType();
+        this.mKi.onChangeSkinType();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.mBack) {
-            this.mJz.bHj();
-            e.mY().postDelayed(this.mJA, 200L);
+            this.mKi.bGC();
+            e.mY().postDelayed(this.mKj, 200L);
         }
     }
 
@@ -84,8 +84,8 @@ public class YoungsterPasswordActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.mJz != null) {
-            this.mJz.bHi();
+        if (this.mKi != null) {
+            this.mKi.bGB();
         }
     }
 
@@ -93,6 +93,6 @@ public class YoungsterPasswordActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        e.mY().removeCallbacks(this.mJA);
+        e.mY().removeCallbacks(this.mKj);
     }
 }

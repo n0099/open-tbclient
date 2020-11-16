@@ -3,64 +3,64 @@ package com.baidu.live.liveroom.e;
 import android.content.Context;
 /* loaded from: classes4.dex */
 public class i {
-    private static volatile i bnB = null;
-    private e bnC;
-    private e bnD;
-    private c bnE;
-    private com.baidu.live.s.d bnF;
+    private static volatile i blQ = null;
+    private e blR;
+    private e blS;
+    private c blT;
+    private com.baidu.live.s.d blU;
 
     private i() {
     }
 
-    public static i NS() {
-        if (bnB == null) {
+    public static i Nj() {
+        if (blQ == null) {
             synchronized (i.class) {
-                if (bnB == null) {
-                    bnB = new i();
+                if (blQ == null) {
+                    blQ = new i();
                 }
             }
         }
-        return bnB;
+        return blQ;
     }
 
     public void a(e eVar) {
-        this.bnC = eVar;
+        this.blR = eVar;
     }
 
     public void b(e eVar) {
-        this.bnD = eVar;
+        this.blS = eVar;
     }
 
-    public boolean NT() {
-        return this.bnC != null;
+    public boolean Nk() {
+        return this.blR != null;
     }
 
     public d ay(Context context) {
-        if (this.bnC != null) {
-            return this.bnC.ax(context);
+        if (this.blR != null) {
+            return this.blR.ax(context);
         }
         return null;
     }
 
     public d az(Context context) {
-        if (this.bnD != null) {
-            return this.bnD.ax(context);
+        if (this.blS != null) {
+            return this.blS.ax(context);
         }
         return null;
     }
 
     public void a(c cVar) {
-        this.bnE = cVar;
+        this.blT = cVar;
     }
 
-    public b NU() {
-        if (this.bnE != null) {
-            return this.bnE.NR();
+    public b Nl() {
+        if (this.blT != null) {
+            return this.blT.Ni();
         }
         return null;
     }
 
-    public com.baidu.live.s.d NV() {
-        return this.bnF;
+    public com.baidu.live.s.d Nm() {
+        return this.blU;
     }
 }

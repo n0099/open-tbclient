@@ -16,13 +16,13 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class CouponEntranceView extends FrameLayout {
-    private ImageView ceZ;
-    private TextView cfa;
-    private TextView cfb;
-    private TextView cfc;
-    private View cfd;
-    private a cfe;
-    private a.C0316a cff;
+    private ImageView cdo;
+    private TextView cdp;
+    private TextView cdq;
+    private TextView cdr;
+    private View cds;
+    private a cdt;
+    private a.C0314a cdu;
 
     public CouponEntranceView(Context context) {
         this(context, null);
@@ -30,67 +30,67 @@ public class CouponEntranceView extends FrameLayout {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.coupon_entrance, (ViewGroup) this, true);
-        this.ceZ = (ImageView) findViewById(b.e.coupon_icon);
-        this.cfc = (TextView) findViewById(b.e.coupon_text);
-        this.cfa = (TextView) findViewById(b.e.coupon_title);
-        this.cfb = (TextView) findViewById(b.e.coupon_subtitle);
-        this.cfd = findViewById(b.e.icon_more);
+        this.cdo = (ImageView) findViewById(b.e.coupon_icon);
+        this.cdr = (TextView) findViewById(b.e.coupon_text);
+        this.cdp = (TextView) findViewById(b.e.coupon_title);
+        this.cdq = (TextView) findViewById(b.e.coupon_subtitle);
+        this.cds = findViewById(b.e.icon_more);
     }
 
     public void a(a aVar) {
-        this.cfe = aVar;
+        this.cdt = aVar;
         h();
     }
 
-    public a.C0316a getSelectedItem() {
-        return this.cff;
+    public a.C0314a getSelectedItem() {
+        return this.cdu;
     }
 
     public void h() {
         String str;
-        List<a.C0316a> list;
-        this.cff = null;
-        a aVar = this.cfe;
-        if (!((aVar == null || (list = aVar.cfh) == null || list.size() <= 0) ? false : true)) {
+        List<a.C0314a> list;
+        this.cdu = null;
+        a aVar = this.cdt;
+        if (!((aVar == null || (list = aVar.cdw) == null || list.size() <= 0) ? false : true)) {
             setVisibility(8);
             return;
         }
-        Iterator<a.C0316a> it = this.cfe.cfh.iterator();
+        Iterator<a.C0314a> it = this.cdt.cdw.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            a.C0316a next = it.next();
+            a.C0314a next = it.next();
             if (next.cf == 1) {
-                this.cff = next;
+                this.cdu = next;
                 break;
             }
         }
-        if (this.cff == null) {
+        if (this.cdu == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        com.baidu.poly.a.d.b.aaY().b(this.ceZ, this.cff.icon);
-        this.cfa.setText(this.cff.cfi);
-        a.C0316a c0316a = this.cff;
-        if (c0316a.type == -1) {
-            str = c0316a.cfj;
-            this.cfb.setVisibility(8);
+        com.baidu.poly.a.d.b.aap().b(this.cdo, this.cdu.icon);
+        this.cdp.setText(this.cdu.cdx);
+        a.C0314a c0314a = this.cdu;
+        if (c0314a.type == -1) {
+            str = c0314a.cdy;
+            this.cdq.setVisibility(8);
         } else {
-            str = Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(this.cff.cfk.longValue()) + "元";
-            this.cfb.setVisibility(0);
-            this.cfb.setText(this.cff.cfj);
+            str = Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(this.cdu.cdz.longValue()) + "元";
+            this.cdq.setVisibility(0);
+            this.cdq.setText(this.cdu.cdy);
         }
-        this.cfc.setText(str);
-        if (this.cfe.cfg) {
-            this.cfc.setTextColor(getResources().getColor(b.C0311b.coupon_description));
-            this.cfd.setVisibility(0);
+        this.cdr.setText(str);
+        if (this.cdt.cdv) {
+            this.cdr.setTextColor(getResources().getColor(b.C0309b.coupon_description));
+            this.cds.setVisibility(0);
             setEnabled(true);
             return;
         }
-        this.cfc.setTextColor(getResources().getColor(b.C0311b.black));
-        this.cfd.setVisibility(8);
+        this.cdr.setTextColor(getResources().getColor(b.C0309b.black));
+        this.cds.setVisibility(8);
         setEnabled(false);
     }
 

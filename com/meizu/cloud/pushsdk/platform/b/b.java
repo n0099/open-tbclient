@@ -11,7 +11,7 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class b extends c<RegisterStatus> {
 
     /* renamed from: a  reason: collision with root package name */

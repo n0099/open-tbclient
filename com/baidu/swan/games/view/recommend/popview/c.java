@@ -3,14 +3,14 @@ package com.baidu.swan.games.view.recommend.popview;
 import com.baidu.swan.apps.storage.c.h;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static void putString(String str, String str2) {
-        h.aKS().putString(str, str2);
+        h.aKk().putString(str, str2);
     }
 
     public static String getString(String str) {
-        return h.aKS().getString(str, null);
+        return h.aKk().getString(str, null);
     }
 
     public static String getCurrentDate() {

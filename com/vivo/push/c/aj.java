@@ -10,7 +10,7 @@ import com.baidu.mapapi.UIMsg;
 import com.vivo.push.cache.ClientConfigManagerImpl;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class aj extends com.vivo.push.v {
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(com.vivo.push.y yVar) {

@@ -24,7 +24,7 @@ import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public final class IMSDK {
     private static final String TAG = "IMSDK";
     public static Handler mHandler;

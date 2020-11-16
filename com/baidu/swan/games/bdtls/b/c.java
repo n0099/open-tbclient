@@ -18,30 +18,30 @@ import okhttp3.ResponseBody;
 import okio.Buffer;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e czM;
-    private String czN;
-    private Callback dSv;
-    private JSONObject dSw;
-    private String dSx;
+    private e cyc;
+    private String cyd;
+    private Callback dQN;
+    private JSONObject dQO;
+    private String dQP;
     private String mHost;
     private String mUrl;
     private int retryCount;
 
     public c(e eVar, JSONObject jSONObject, String str, Callback callback) {
-        this.czM = eVar;
-        this.dSv = callback;
-        this.czN = str;
-        ct(jSONObject);
-        ww(this.dSw.optString("method"));
+        this.cyc = eVar;
+        this.dQN = callback;
+        this.cyd = str;
+        cn(jSONObject);
+        wr(this.dQO.optString("method"));
     }
 
-    private void ct(JSONObject jSONObject) {
-        this.dSw = jSONObject;
-        this.mUrl = this.dSw.optString("url");
-        JSONObject optJSONObject = this.dSw.optJSONObject("ext");
+    private void cn(JSONObject jSONObject) {
+        this.dQO = jSONObject;
+        this.mUrl = this.dQO.optString("url");
+        JSONObject optJSONObject = this.dQO.optJSONObject("ext");
         if (optJSONObject != null) {
             this.mHost = optJSONObject.optString("customHost");
         }
@@ -49,16 +49,16 @@ public class c extends b {
 
     private void retry() {
         this.retryCount++;
-        request(this.dSx);
+        request(this.dQP);
     }
 
     public void request(String str) {
-        this.dSx = str;
+        this.dQP = str;
         String str2 = "";
-        if (this.dSw != null) {
-            str2 = this.dSw.optString("data");
+        if (this.dQO != null) {
+            str2 = this.dQO.optString("data");
         }
-        wv(str2);
+        wq(str2);
     }
 
     @Override // com.baidu.swan.games.bdtls.b.b
@@ -69,7 +69,7 @@ public class c extends b {
         String str;
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject = new JSONObject(this.dSw.toString());
+            jSONObject = new JSONObject(this.dQO.toString());
         } catch (JSONException e2) {
             jSONObject = jSONObject2;
             e = e2;
@@ -78,7 +78,7 @@ public class c extends b {
             Uri parse = Uri.parse(this.mUrl);
             String path = parse.getPath();
             String query = parse.getQuery();
-            StringBuilder sb = new StringBuilder((TextUtils.isEmpty(this.mHost) ? "https://mbd.baidu.com/bdtls" : this.mHost + "/bdtls") + "/" + this.dSx);
+            StringBuilder sb = new StringBuilder((TextUtils.isEmpty(this.mHost) ? "https://mbd.baidu.com/bdtls" : this.mHost + "/bdtls") + "/" + this.dQP);
             if (TextUtils.isEmpty(path)) {
                 path = "";
             }
@@ -87,7 +87,7 @@ public class c extends b {
                 Log.d("BdtlsRequestApi", "bdtls url is : " + sb.toString());
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER);
-            if (this.dSs) {
+            if (this.dQK) {
                 if (TextUtils.equals(getMethod(), "GET")) {
                     str = Base64.encodeToString(bArr, 2);
                 } else {
@@ -103,15 +103,15 @@ public class c extends b {
             if (DEBUG) {
                 Log.e("BdtlsRequestApi", "Bdtls request data is invalid", e);
             }
-            httpRequest = (HttpRequest) com.baidu.swan.apps.api.module.network.b.q(jSONObject, this.czN).first;
+            httpRequest = (HttpRequest) com.baidu.swan.apps.api.module.network.b.n(jSONObject, this.cyd).first;
             if (httpRequest == null) {
-                this.dSv.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
+                this.dQN.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
             }
             a(httpRequest);
         }
-        httpRequest = (HttpRequest) com.baidu.swan.apps.api.module.network.b.q(jSONObject, this.czN).first;
-        if (httpRequest == null && this.dSv != null) {
-            this.dSv.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
+        httpRequest = (HttpRequest) com.baidu.swan.apps.api.module.network.b.n(jSONObject, this.cyd).first;
+        if (httpRequest == null && this.dQN != null) {
+            this.dQN.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
         }
         a(httpRequest);
     }
@@ -134,11 +134,11 @@ public class c extends b {
                     if (com.baidu.swan.games.bdtls.a.DEBUG) {
                         Log.d("BDTLS", "Bdtls Request API onFailure = " + exc.getMessage());
                     }
-                    if (c.this.dSv != null) {
+                    if (c.this.dQN != null) {
                         if (exc instanceof IOException) {
-                            c.this.dSv.onFailure(null, (IOException) exc);
+                            c.this.dQN.onFailure(null, (IOException) exc);
                         } else {
-                            c.this.dSv.onFailure(null, new IOException(exc));
+                            c.this.dQN.onFailure(null, new IOException(exc));
                         }
                     }
                 }
@@ -150,56 +150,56 @@ public class c extends b {
     public void a(Call call, Response response) throws IOException {
         Headers headers = response.headers();
         if (headers != null && TextUtils.equals(headers.get("Bdtls"), "recovery")) {
-            com.baidu.swan.games.bdtls.e.aTb().aTc().mb(0);
-            if (com.baidu.swan.games.bdtls.e.aTb().aTc().aUd()) {
-                com.baidu.swan.games.bdtls.e.aTb().aTc().aUb();
-                hs(true);
+            com.baidu.swan.games.bdtls.e.aSt().aSu().lX(0);
+            if (com.baidu.swan.games.bdtls.e.aSt().aSu().aTv()) {
+                com.baidu.swan.games.bdtls.e.aSt().aSu().aTt();
+                hv(true);
                 retry();
                 return;
             }
-            this.dSv.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
+            this.dQN.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
             return;
         }
-        com.baidu.swan.games.bdtls.e.aTb().aTc().aUe();
-        if (this.dSs) {
+        com.baidu.swan.games.bdtls.e.aSt().aSu().aTw();
+        if (this.dQK) {
             ResponseBody body = response.body();
             String Z = Z(body.bytes());
             if (com.baidu.swan.games.bdtls.a.DEBUG) {
                 Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + Z);
             }
-            if (this.dSt == 1) {
+            if (this.dQL == 1) {
                 Buffer buffer = new Buffer();
                 buffer.writeString(Z, Charset.forName("utf-8"));
                 Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                if (this.dSv != null) {
-                    this.dSv.onResponse(call, build);
+                if (this.dQN != null) {
+                    this.dQN.onResponse(call, build);
                 }
                 this.retryCount = 0;
             } else if (this.retryCount < 3) {
                 retry();
             } else {
-                this.dSv.onFailure(call, new IOException("Url or serviceId is invalid"));
+                this.dQN.onFailure(call, new IOException("Url or serviceId is invalid"));
                 this.retryCount = 0;
             }
-        } else if (this.dSv != null) {
-            this.dSv.onResponse(call, response);
+        } else if (this.dQN != null) {
+            this.dQN.onResponse(call, response);
         }
     }
 
     @Override // com.baidu.swan.games.bdtls.b.b
-    public void mc(int i) {
+    public void lY(int i) {
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BdtlsRequestApi", "onRequestError=" + i);
         }
-        if (this.dSv != null) {
-            this.dSv.onFailure(null, new IOException("request error  code : " + i));
+        if (this.dQN != null) {
+            this.dQN.onFailure(null, new IOException("request error  code : " + i));
         }
     }
 
     @Override // com.baidu.swan.games.bdtls.b.b
     public void b(IOException iOException) {
-        if (this.dSv != null) {
-            this.dSv.onFailure(null, iOException);
+        if (this.dQN != null) {
+            this.dQN.onFailure(null, iOException);
         }
     }
 }

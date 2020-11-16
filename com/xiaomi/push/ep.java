@@ -1,12 +1,12 @@
 package com.xiaomi.push;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class ep {
 
     /* renamed from: a  reason: collision with root package name */
     private int f4890a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f300a;
+    private String f303a;
     private String b;
     private String c;
     private String d;
@@ -16,8 +16,8 @@ public class ep {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m266a() {
-        return this.f300a;
+    public String m269a() {
+        return this.f303a;
     }
 
     public void a(int i) {
@@ -25,7 +25,7 @@ public class ep {
     }
 
     public void a(String str) {
-        this.f300a = str;
+        this.f303a = str;
     }
 
     public String b() {

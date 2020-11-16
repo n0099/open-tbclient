@@ -1,5 +1,5 @@
 package com.baidu.android.util.concurrent;
-/* loaded from: classes8.dex */
+/* loaded from: classes16.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.util.concurrent";
     public static final String BUILD_TYPE = "release";

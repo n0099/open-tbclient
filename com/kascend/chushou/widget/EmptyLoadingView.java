@@ -11,14 +11,14 @@ import android.widget.TextView;
 import tv.chushou.widget.a.b;
 /* loaded from: classes6.dex */
 public class EmptyLoadingView extends RelativeLayout implements View.OnClickListener {
-    private static View.OnClickListener pzB;
+    private static View.OnClickListener pBe;
     private View.OnClickListener mLoginListener;
     private int mType;
-    private ImageView pzC;
-    private TextView pzD;
-    private AnimationImageView pzE;
-    private TextView pzF;
-    private View.OnClickListener pzG;
+    private ImageView pBf;
+    private TextView pBg;
+    private AnimationImageView pBh;
+    private TextView pBi;
+    private View.OnClickListener pBj;
 
     public EmptyLoadingView(Context context) {
         this(context, null, 0);
@@ -32,18 +32,18 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
         super(context, attributeSet, i);
         this.mType = 4;
         LayoutInflater.from(context.getApplicationContext()).inflate(b.e.commonres_empty_loading_view, (ViewGroup) this, true);
-        this.pzC = (ImageView) findViewById(b.d.iv_empty);
-        this.pzD = (TextView) findViewById(b.d.tv_desc);
-        this.pzE = (AnimationImageView) findViewById(b.d.iv_loading);
-        this.pzF = (TextView) findViewById(b.d.tv_button);
-        this.pzC.setOnClickListener(this);
-        this.pzD.setOnClickListener(this);
-        this.pzF.setOnClickListener(this);
+        this.pBf = (ImageView) findViewById(b.d.iv_empty);
+        this.pBg = (TextView) findViewById(b.d.tv_desc);
+        this.pBh = (AnimationImageView) findViewById(b.d.iv_loading);
+        this.pBi = (TextView) findViewById(b.d.tv_button);
+        this.pBf.setOnClickListener(this);
+        this.pBg.setOnClickListener(this);
+        this.pBi.setOnClickListener(this);
         setOnClickListener(this);
     }
 
     public static void aq(View.OnClickListener onClickListener) {
-        pzB = onClickListener;
+        pBe = onClickListener;
     }
 
     @Override // android.view.View.OnClickListener
@@ -53,15 +53,15 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
                 if (this.mLoginListener != null) {
                     this.mLoginListener.onClick(view);
                     return;
-                } else if (pzB != null) {
-                    pzB.onClick(view);
+                } else if (pBe != null) {
+                    pBe.onClick(view);
                     return;
                 } else {
                     return;
                 }
             default:
-                if (this.pzG != null) {
-                    this.pzG.onClick(view);
+                if (this.pBj != null) {
+                    this.pBj.onClick(view);
                     return;
                 }
                 return;
@@ -69,23 +69,23 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
     }
 
     public void setReloadListener(View.OnClickListener onClickListener) {
-        this.pzG = onClickListener;
+        this.pBj = onClickListener;
     }
 
     public void setLoginListener(View.OnClickListener onClickListener) {
         this.mLoginListener = onClickListener;
     }
 
-    public void QP(int i) {
-        if (this.pzE != null) {
+    public void Rs(int i) {
+        if (this.pBh != null) {
             switch (i) {
                 case 1:
                     this.mType = 1;
                     setVisibility(0);
-                    this.pzE.setVisibility(0);
-                    this.pzC.setVisibility(8);
-                    this.pzD.setVisibility(8);
-                    this.pzF.setVisibility(8);
+                    this.pBh.setVisibility(0);
+                    this.pBf.setVisibility(8);
+                    this.pBg.setVisibility(8);
+                    this.pBi.setVisibility(8);
                     return;
                 case 2:
                     this.mType = 2;
@@ -94,48 +94,48 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
                 case 3:
                     this.mType = 3;
                     setVisibility(0);
-                    this.pzE.setVisibility(8);
-                    this.pzC.setVisibility(0);
-                    this.pzC.setImageResource(b.c.commonres_pagestatus_net_error);
-                    this.pzC.setClickable(true);
-                    this.pzD.setVisibility(0);
-                    this.pzD.setText(b.f.commonres_pagestatus_net_error);
-                    this.pzF.setVisibility(0);
-                    this.pzF.setText(b.f.commonres_pagestatus_action_refresh);
+                    this.pBh.setVisibility(8);
+                    this.pBf.setVisibility(0);
+                    this.pBf.setImageResource(b.c.commonres_pagestatus_net_error);
+                    this.pBf.setClickable(true);
+                    this.pBg.setVisibility(0);
+                    this.pBg.setText(b.f.commonres_pagestatus_net_error);
+                    this.pBi.setVisibility(0);
+                    this.pBi.setText(b.f.commonres_pagestatus_action_refresh);
                     return;
                 case 4:
                     this.mType = 4;
                     setVisibility(0);
-                    this.pzE.setVisibility(8);
-                    this.pzC.setVisibility(0);
-                    this.pzC.setImageResource(b.c.commonres_pagestatus_unknown_error);
-                    this.pzC.setClickable(true);
-                    this.pzD.setVisibility(0);
-                    this.pzD.setText(b.f.commonres_pagestatus_unknown);
-                    this.pzF.setVisibility(0);
-                    this.pzF.setText(b.f.commonres_pagestatus_action_refresh);
+                    this.pBh.setVisibility(8);
+                    this.pBf.setVisibility(0);
+                    this.pBf.setImageResource(b.c.commonres_pagestatus_unknown_error);
+                    this.pBf.setClickable(true);
+                    this.pBg.setVisibility(0);
+                    this.pBg.setText(b.f.commonres_pagestatus_unknown);
+                    this.pBi.setVisibility(0);
+                    this.pBi.setText(b.f.commonres_pagestatus_action_refresh);
                     return;
                 case 5:
                     this.mType = 5;
                     setVisibility(0);
-                    this.pzE.setVisibility(8);
-                    this.pzC.setVisibility(0);
-                    this.pzC.setImageResource(b.c.commonres_pagestatus_need_login);
-                    this.pzC.setClickable(true);
-                    this.pzD.setVisibility(8);
-                    this.pzF.setVisibility(0);
-                    this.pzF.setText(b.f.commonres_pagestatus_action_login);
+                    this.pBh.setVisibility(8);
+                    this.pBf.setVisibility(0);
+                    this.pBf.setImageResource(b.c.commonres_pagestatus_need_login);
+                    this.pBf.setClickable(true);
+                    this.pBg.setVisibility(8);
+                    this.pBi.setVisibility(0);
+                    this.pBi.setText(b.f.commonres_pagestatus_action_login);
                     return;
                 case 6:
                     this.mType = 6;
                     setVisibility(0);
-                    this.pzE.setVisibility(8);
-                    this.pzC.setVisibility(0);
-                    this.pzC.setImageResource(b.c.commonres_pagestatus_empty);
-                    this.pzC.setClickable(true);
-                    this.pzD.setVisibility(0);
-                    this.pzD.setText(b.f.commonres_pagestatus_empty);
-                    this.pzF.setVisibility(8);
+                    this.pBh.setVisibility(8);
+                    this.pBf.setVisibility(0);
+                    this.pBf.setImageResource(b.c.commonres_pagestatus_empty);
+                    this.pBf.setClickable(true);
+                    this.pBg.setVisibility(0);
+                    this.pBg.setText(b.f.commonres_pagestatus_empty);
+                    this.pBi.setVisibility(8);
                     return;
                 default:
                     this.mType = -1;

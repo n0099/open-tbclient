@@ -5,83 +5,83 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes17.dex */
+/* loaded from: classes12.dex */
 public final class UrlResponseInfo {
-    private final int ont;
-    private final List<String> ooL;
-    private final String ooM;
-    private final boolean ooN;
-    private final String ooO;
-    private final String ooP;
-    private final AtomicLong ooQ = new AtomicLong();
-    private final HeaderBlock ooR;
+    private final int ooW;
+    private final List<String> oqp;
+    private final String oqq;
+    private final boolean oqr;
+    private final String oqs;
+    private final String oqt;
+    private final AtomicLong oqu = new AtomicLong();
+    private final HeaderBlock oqv;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes12.dex */
     public static final class HeaderBlock {
-        private final List<Map.Entry<String, String>> ooS;
+        private final List<Map.Entry<String, String>> oqw;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public HeaderBlock(List<Map.Entry<String, String>> list) {
-            this.ooS = list;
+            this.oqw = list;
         }
 
-        public List<Map.Entry<String, String>> ecF() {
-            return this.ooS;
+        public List<Map.Entry<String, String>> ecE() {
+            return this.oqw;
         }
     }
 
     public UrlResponseInfo(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
-        this.ooL = Collections.unmodifiableList(list);
-        this.ont = i;
-        this.ooM = str;
-        this.ooR = new HeaderBlock(Collections.unmodifiableList(list2));
-        this.ooN = z;
-        this.ooO = str2;
-        this.ooP = str3;
+        this.oqp = Collections.unmodifiableList(list);
+        this.ooW = i;
+        this.oqq = str;
+        this.oqv = new HeaderBlock(Collections.unmodifiableList(list2));
+        this.oqr = z;
+        this.oqs = str2;
+        this.oqt = str3;
     }
 
     public String getUrl() {
-        return this.ooL.get(this.ooL.size() - 1);
+        return this.oqp.get(this.oqp.size() - 1);
     }
 
-    public List<String> ecz() {
-        return this.ooL;
+    public List<String> ecy() {
+        return this.oqp;
     }
 
     public int getHttpStatusCode() {
-        return this.ont;
+        return this.ooW;
     }
 
-    public String ecA() {
-        return this.ooM;
+    public String ecz() {
+        return this.oqq;
     }
 
-    public List<Map.Entry<String, String>> ecB() {
-        return this.ooR.ecF();
+    public List<Map.Entry<String, String>> ecA() {
+        return this.oqv.ecE();
     }
 
-    public boolean ecC() {
-        return this.ooN;
+    public boolean ecB() {
+        return this.oqr;
+    }
+
+    public String ecC() {
+        return this.oqs;
     }
 
     public String ecD() {
-        return this.ooO;
-    }
-
-    public String ecE() {
-        return this.ooP;
+        return this.oqt;
     }
 
     public long getReceivedBytesCount() {
-        return this.ooQ.get();
+        return this.oqu.get();
     }
 
     public String toString() {
-        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), ecz().toString(), Integer.valueOf(getHttpStatusCode()), ecA(), ecB().toString(), Boolean.valueOf(ecC()), ecD(), ecE(), Long.valueOf(getReceivedBytesCount()));
+        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), ecy().toString(), Integer.valueOf(getHttpStatusCode()), ecz(), ecA().toString(), Boolean.valueOf(ecB()), ecC(), ecD(), Long.valueOf(getReceivedBytesCount()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ho(long j) {
-        this.ooQ.set(j);
+    public void hr(long j) {
+        this.oqu.set(j);
     }
 }

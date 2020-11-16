@@ -4,28 +4,28 @@ import com.baidu.android.imsdk.pubaccount.PaInfo;
 /* loaded from: classes4.dex */
 public class ChatInfo {
     public static String displayname;
-    public static int kaU;
+    public static int kbE;
     public static long mAppid;
     public static long mContacter;
     public static long mPaid;
     public static PaInfo mPainfo;
     public static long mUid;
     public static String nickname;
-    public static String owO;
-    public static long owP;
-    public static String owQ;
-    public static String owR;
-    public static String owT;
-    public static String owU;
-    public static int owV;
-    public static int owW;
-    public static ChatCategory owN = ChatCategory.C2C;
-    public static int owS = -1;
+    public static int oyA;
+    public static String oys;
+    public static long oyt;
+    public static String oyu;
+    public static String oyv;
+    public static String oyx;
+    public static String oyy;
+    public static int oyz;
+    public static ChatCategory oyr = ChatCategory.C2C;
+    public static int oyw = -1;
     public static int vip = 0;
-    public static boolean owX = false;
-    public static boolean owY = true;
+    public static boolean oyB = false;
+    public static boolean oyC = true;
     public static int mStatus = 3;
-    public static String owZ = "ugc";
+    public static String oyD = "ugc";
 
     /* loaded from: classes4.dex */
     public enum ChatCategory {

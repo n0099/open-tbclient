@@ -2,7 +2,7 @@ package com.baidu.ar.arplay.core.engine;
 
 import com.baidu.ar.arplay.representation.Quaternion;
 import com.baidu.ar.arplay.representation.Vector3f;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class ARPNumber {
     public static Quaternion a(Vector3f vector3f, Vector3f vector3f2) {
         float[] nativeRotationBetweenVector = nativeRotationBetweenVector(vector3f.x(), vector3f.y(), vector3f.z(), vector3f2.x(), vector3f2.y(), vector3f2.z());

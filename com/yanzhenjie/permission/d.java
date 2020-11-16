@@ -7,103 +7,103 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @RequiresApi(api = 23)
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 class d implements PermissionActivity.a, h, i {
-    private static final com.yanzhenjie.permission.a.a pKL = new com.yanzhenjie.permission.a.b();
-    private String[] afe;
-    private com.yanzhenjie.permission.b.b pKM;
-    private a pKN;
-    private a pKO;
-    private g pKP;
-    private String[] pKQ;
+    private static final com.yanzhenjie.permission.a.a pMo = new com.yanzhenjie.permission.a.b();
+    private String[] afj;
+    private com.yanzhenjie.permission.b.b pMp;
+    private a pMq;
+    private a pMr;
+    private g pMs;
+    private String[] pMt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(com.yanzhenjie.permission.b.b bVar) {
-        this.pKM = bVar;
+        this.pMp = bVar;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
-    public h ab(String... strArr) {
-        this.afe = strArr;
+    public h ac(String... strArr) {
+        this.afj = strArr;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(g gVar) {
-        this.pKP = gVar;
+        this.pMs = gVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(a aVar) {
-        this.pKN = aVar;
+        this.pMq = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h b(a aVar) {
-        this.pKO = aVar;
+        this.pMr = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     public void start() {
-        List<String> a2 = a(pKL, this.pKM, this.afe);
-        this.pKQ = (String[]) a2.toArray(new String[a2.size()]);
-        if (this.pKQ.length > 0) {
-            List<String> b = b(this.pKM, this.pKQ);
-            if (b.size() > 0 && this.pKP != null) {
-                this.pKP.showRationale(this.pKM.getContext(), b, this);
+        List<String> a2 = a(pMo, this.pMp, this.afj);
+        this.pMt = (String[]) a2.toArray(new String[a2.size()]);
+        if (this.pMt.length > 0) {
+            List<String> b = b(this.pMp, this.pMt);
+            if (b.size() > 0 && this.pMs != null) {
+                this.pMs.showRationale(this.pMp.getContext(), b, this);
                 return;
             } else {
                 execute();
                 return;
             }
         }
-        ezS();
+        ezT();
     }
 
     @Override // com.yanzhenjie.permission.i
     @RequiresApi(api = 23)
     public void execute() {
-        PermissionActivity.a(this.pKM.getContext(), this.pKQ, this);
+        PermissionActivity.a(this.pMp.getContext(), this.pMt, this);
     }
 
     @Override // com.yanzhenjie.permission.i
     public void cancel() {
-        ac(this.pKQ);
+        ad(this.pMt);
     }
 
     @Override // com.yanzhenjie.permission.PermissionActivity.a
-    public void ac(@NonNull String[] strArr) {
-        List<String> a2 = a(pKL, this.pKM, strArr);
+    public void ad(@NonNull String[] strArr) {
+        List<String> a2 = a(pMo, this.pMp, strArr);
         if (a2.isEmpty()) {
-            ezS();
+            ezT();
         } else {
             gL(a2);
         }
     }
 
-    private void ezS() {
-        if (this.pKN != null) {
-            List<String> asList = Arrays.asList(this.afe);
+    private void ezT() {
+        if (this.pMq != null) {
+            List<String> asList = Arrays.asList(this.afj);
             try {
-                this.pKN.onAction(asList);
+                this.pMq.onAction(asList);
             } catch (Exception e) {
-                if (this.pKO != null) {
-                    this.pKO.onAction(asList);
+                if (this.pMr != null) {
+                    this.pMr.onAction(asList);
                 }
             }
         }
     }
 
     private void gL(@NonNull List<String> list) {
-        if (this.pKO != null) {
-            this.pKO.onAction(list);
+        if (this.pMr != null) {
+            this.pMr.onAction(list);
         }
     }
 
@@ -120,7 +120,7 @@ class d implements PermissionActivity.a, h, i {
     private static List<String> b(@NonNull com.yanzhenjie.permission.b.b bVar, @NonNull String... strArr) {
         ArrayList arrayList = new ArrayList(1);
         for (String str : strArr) {
-            if (bVar.Zs(str)) {
+            if (bVar.Zd(str)) {
                 arrayList.add(str);
             }
         }

@@ -5,7 +5,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.util.Log;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class a implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */

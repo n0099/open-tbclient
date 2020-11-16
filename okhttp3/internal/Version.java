@@ -1,5 +1,5 @@
 package okhttp3.internal;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class Version {
     public static String userAgent() {
         return "okhttp/3.11.0";

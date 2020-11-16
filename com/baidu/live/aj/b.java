@@ -9,13 +9,13 @@ import org.json.JSONObject;
 public interface b {
     void L(Object obj);
 
-    void QD();
+    void O(JSONObject jSONObject);
 
-    boolean QE();
+    void PU();
 
-    boolean QF();
+    boolean PV();
 
-    void U(JSONObject jSONObject);
+    boolean PW();
 
     void Y(View view);
 

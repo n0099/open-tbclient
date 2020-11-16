@@ -13,13 +13,15 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SelectForumConfig;
+import com.baidu.tbadk.core.elementsMaven.c;
 import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class ForumSelectedView extends RelativeLayout implements View.OnClickListener {
-    private ImageView eTM;
-    private TextView iPP;
+    private ImageView eSO;
+    private TextView iQC;
     private ImageView mIconView;
     private View mLineView;
     private int mSkinType;
@@ -42,9 +44,9 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.cell_forum_selected_layout, (ViewGroup) this, true);
         this.mIconView = (ImageView) findViewById(R.id.cell_forum_selected_icon);
-        this.iPP = (TextView) findViewById(R.id.cell_forum_selected_name);
+        this.iQC = (TextView) findViewById(R.id.cell_forum_selected_name);
         this.mTipView = (TextView) findViewById(R.id.cell_forum_selected_tip);
-        this.eTM = (ImageView) findViewById(R.id.cell_forum_selected_arrow);
+        this.eSO = (ImageView) findViewById(R.id.cell_forum_selected_arrow);
         this.mLineView = findViewById(R.id.cell_forum_selected_line);
         setOnClickListener(this);
         onChangeSkinType();
@@ -52,7 +54,7 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
 
     public void setSelectedForum(String str) {
         this.mTipView.setVisibility(8);
-        this.iPP.setText(str);
+        this.iQC.setText(str);
     }
 
     @Override // android.view.View.OnClickListener
@@ -65,12 +67,12 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             ap.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
-            SvgManager.brn().a(this.mIconView, R.drawable.icon_pure_card_ba16_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL);
-            ap.setViewTextColor(this.iPP, R.color.cp_cont_b);
-            ap.setBackgroundResource(this.mTipView, R.drawable.forum_selected_tip_bg);
-            ap.setViewTextColor(this.mTipView, R.color.cp_cont_d);
-            SvgManager.brn().a(this.eTM, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
-            ap.setBackgroundColor(this.mLineView, R.color.cp_bg_line_b);
+            this.mIconView.setImageDrawable(WebPManager.a(R.drawable.icon_pure_ba16, ap.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+            ap.setViewTextColor(this.iQC, R.color.CAM_X0105);
+            ap.setViewTextColor(this.mTipView, R.color.CAM_X0109);
+            c.bj(this.mTipView).pb(R.string.J_X06).setBackGroundColor(R.color.CAM_X0206);
+            SvgManager.bqB().a(this.eSO, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+            ap.setBackgroundColor(this.mLineView, R.color.CAM_X0210);
         }
     }
 }

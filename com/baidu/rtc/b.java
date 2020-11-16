@@ -1,12 +1,12 @@
 package com.baidu.rtc;
 
 import java.math.BigInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class b {
-    public String avb;
-    public BigInteger cke;
-    public BigInteger ckk;
-    public e ckl;
-    public e ckm;
-    public f ckn;
+    public BigInteger ciA;
+    public e ciB;
+    public e ciC;
+    public f ciD;
+    public BigInteger cit;
+    public String ciz;
 }

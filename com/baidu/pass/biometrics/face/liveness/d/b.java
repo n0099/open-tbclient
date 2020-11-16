@@ -6,7 +6,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import com.baidu.pass.biometrics.base.debug.Log;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
@@ -19,7 +19,7 @@ public class b {
     private long g = 0;
     private float h = 2.1474836E9f;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(float f);
     }

@@ -7,27 +7,27 @@ import android.widget.ImageView;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public final class b extends Drawable {
-    private boolean pDg;
-    private int pDh;
-    private final com.opensource.svgaplayer.a.b pDi;
-    private final f pDj;
-    private final c pDk;
+    private boolean pEJ;
+    private int pEK;
+    private final com.opensource.svgaplayer.a.b pEL;
+    private final f pEM;
+    private final c pEN;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         q.n(fVar, "videoItem");
         q.n(cVar, "dynamicItem");
-        this.pDj = fVar;
-        this.pDk = cVar;
-        this.pDg = true;
+        this.pEM = fVar;
+        this.pEN = cVar;
+        this.pEJ = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.pDi = new com.opensource.svgaplayer.a.b(this.pDj, this.pDk);
+        this.pEL = new com.opensource.svgaplayer.a.b(this.pEM, this.pEN);
     }
 
-    public final f ewC() {
-        return this.pDj;
+    public final f ewD() {
+        return this.pEM;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -36,20 +36,20 @@ public final class b extends Drawable {
         q.n(fVar, "videoItem");
     }
 
-    public final void AM(boolean z) {
-        if (this.pDg != z) {
-            this.pDg = z;
+    public final void AT(boolean z) {
+        if (this.pEJ != z) {
+            this.pEJ = z;
             invalidateSelf();
         }
     }
 
-    public final int ewB() {
-        return this.pDh;
+    public final int ewC() {
+        return this.pEK;
     }
 
-    public final void QW(int i) {
-        if (this.pDh != i) {
-            this.pDh = i;
+    public final void Rz(int i) {
+        if (this.pEK != i) {
+            this.pEK = i;
             invalidateSelf();
         }
     }
@@ -61,8 +61,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.pDg && canvas != null) {
-            this.pDi.a(canvas, this.pDh, this.scaleType);
+        if (!this.pEJ && canvas != null) {
+            this.pEL.a(canvas, this.pEK, this.scaleType);
         }
     }
 

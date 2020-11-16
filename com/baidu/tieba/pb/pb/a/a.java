@@ -3,13 +3,13 @@ package com.baidu.tieba.pb.pb.a;
 import android.view.View;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.pb.data.f;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public interface a {
     void B(View.OnClickListener onClickListener);
 
-    void T(View.OnClickListener onClickListener);
+    void S(View.OnClickListener onClickListener);
 
-    void hE(String str);
+    void hy(String str);
 
     void setData(f fVar);
 
@@ -21,9 +21,9 @@ public interface a {
 
     void setOnLongClickListener(View.OnLongClickListener onLongClickListener);
 
-    void tT(boolean z);
+    void tW(boolean z);
 
-    void tU(boolean z);
+    void tX(boolean z);
 
-    void tV(boolean z);
+    void tY(boolean z);
 }

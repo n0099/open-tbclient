@@ -8,8 +8,8 @@ public class i {
     private long id;
     private String img;
     private String img_popup;
-    private int mUL;
-    private List<j> mUM;
+    private int mVD;
+    private List<j> mVE;
     private String thread_id;
     private int thread_type;
     private String title;
@@ -24,10 +24,10 @@ public class i {
             this.type = businessPromot.type.intValue();
             this.thread_id = businessPromot.thread_id;
             this.url = businessPromot.url;
-            this.mUL = businessPromot.join_num.intValue();
+            this.mVD = businessPromot.join_num.intValue();
             this.id = businessPromot.id.longValue();
             if (businessPromot.comment_list != null) {
-                this.mUM = new LinkedList();
+                this.mVE = new LinkedList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -37,7 +37,7 @@ public class i {
                     if (businessPromot.comment_list.get(i2) != null) {
                         j jVar = new j();
                         jVar.a(businessPromot.comment_list.get(i2));
-                        this.mUM.add(jVar);
+                        this.mVE.add(jVar);
                     }
                     i = i2 + 1;
                 }
@@ -54,7 +54,7 @@ public class i {
         return this.img;
     }
 
-    public String dJa() {
+    public String dIR() {
         return this.img_popup;
     }
 
@@ -70,16 +70,16 @@ public class i {
         return this.url;
     }
 
-    public int dJb() {
-        return this.mUL;
+    public int dIS() {
+        return this.mVD;
     }
 
     public long getId() {
         return this.id;
     }
 
-    public List<j> dJc() {
-        return this.mUM;
+    public List<j> dIT() {
+        return this.mVE;
     }
 
     public int getThreadType() {

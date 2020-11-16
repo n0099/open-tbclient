@@ -27,14 +27,14 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     /* loaded from: classes.dex */
     public interface b {
-        void qa(int i);
+        void qy(int i);
     }
 
     /* loaded from: classes.dex */
     public interface d {
-        int btd();
+        int bst();
 
-        com.baidu.adp.lib.d.b<HeadImageView> bte();
+        com.baidu.adp.lib.d.b<HeadImageView> bsu();
 
         ListView getListView();
     }
@@ -76,9 +76,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mItemSize = (int) this.mContext.getResources().getDimension(R.dimen.ds60);
         if (this.mContext instanceof d) {
             d dVar = (d) this.mContext;
-            this.mUserPhotoPool = dVar.bte();
+            this.mUserPhotoPool = dVar.bsu();
             if (dVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new c(dVar.btd());
+                this.mTbRecyclerListener = new c(dVar.bst());
                 dVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }
@@ -196,7 +196,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (UserPhotoLayout.this.mChildClickListener != null) {
-                UserPhotoLayout.this.mChildClickListener.qa(this.mIndex);
+                UserPhotoLayout.this.mChildClickListener.qy(this.mIndex);
             }
         }
     }
@@ -218,7 +218,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         return new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<HeadImageView>() { // from class: com.baidu.tbadk.core.view.UserPhotoLayout.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: btc */
+            /* renamed from: bss */
             public HeadImageView makeObject() {
                 return new HeadImageView(context);
             }

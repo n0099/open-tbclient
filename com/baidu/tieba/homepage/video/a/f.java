@@ -12,35 +12,35 @@ import com.baidu.card.am;
 import com.baidu.card.e;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
-import com.baidu.tieba.card.data.l;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes22.dex */
-public class f extends com.baidu.adp.widget.ListView.a<l, am<l>> {
-    private ab<l> afF;
-    private v alD;
-    private NEGFeedBackView.a fPf;
-    private BdUniqueId fsQ;
+/* loaded from: classes21.dex */
+public class f extends com.baidu.adp.widget.ListView.a<k, am<k>> {
+    private ab<k> afK;
+    private v alH;
+    private NEGFeedBackView.a fOM;
+    private BdUniqueId fsa;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.afF = new ab<l>() { // from class: com.baidu.tieba.homepage.video.a.f.1
+        this.afK = new ab<k>() { // from class: com.baidu.tieba.homepage.video.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
-            public void a(View view, l lVar) {
-                if (view != null && lVar != null && lVar.bjZ() != null) {
+            public void a(View view, k kVar) {
+                if (view != null && kVar != null && kVar.bjd() != null) {
                     int id = view.getId();
                     if (id == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
-                        com.baidu.tieba.homepage.video.c.a.p(lVar);
+                        com.baidu.tieba.homepage.video.c.a.p(kVar);
                     } else if (id == R.id.user_avatar) {
-                        com.baidu.tieba.homepage.video.c.a.o(lVar);
+                        com.baidu.tieba.homepage.video.c.a.o(kVar);
                     } else if (id == R.id.user_name) {
-                        com.baidu.tieba.homepage.video.c.a.o(lVar);
+                        com.baidu.tieba.homepage.video.c.a.o(kVar);
                     }
                 }
             }
@@ -49,41 +49,41 @@ public class f extends com.baidu.adp.widget.ListView.a<l, am<l>> {
     }
 
     public void a(v vVar) {
-        this.alD = vVar;
+        this.alH = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aV */
-    public am<l> c(ViewGroup viewGroup) {
+    /* renamed from: aR */
+    public am<k> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity());
         com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.fsQ);
+        eVar.setPageUniqueId(this.fsa);
         eVar.bp(1024);
         eVar.a(new e.a() { // from class: com.baidu.tieba.homepage.video.a.f.2
             @Override // com.baidu.card.e.a
-            public void a(AbsThreadDataSupport absThreadDataSupport, View view) {
+            public void a(com.baidu.tbadk.core.data.a aVar2, View view) {
             }
         });
         eVar.b(this.mPageContext);
         aVar.a(eVar);
-        ak a2 = aVar.a(false, viewGroup, this.alD);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.TOP, viewGroup, this.alH);
         a2.setSourceForPb(19);
-        am<l> amVar = new am<>(a2);
-        amVar.setPageId(this.fsQ);
+        am<k> amVar = new am<>(a2);
+        amVar.setPageId(this.fsa);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.homepage.video.a.f.3
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                if ((qVar instanceof l) && (view.getTag() instanceof am)) {
+                if ((qVar instanceof k) && (view.getTag() instanceof am)) {
                     am amVar2 = (am) view.getTag();
-                    l lVar = (l) qVar;
-                    lVar.objType = 1;
-                    if (f.this.afF != null) {
-                        f.this.afF.a(amVar2.getView(), lVar);
+                    k kVar = (k) qVar;
+                    kVar.objType = 1;
+                    if (f.this.afK != null) {
+                        f.this.afK.a(amVar2.getView(), kVar);
                     }
-                    com.baidu.tieba.homepage.video.c.a.a(lVar, view.getContext(), 19, false, com.baidu.card.f.a((v) viewGroup2, view, i));
-                    amVar2.tW().b(new a.C0097a(1));
+                    com.baidu.tieba.homepage.video.c.a.a(kVar, view.getContext(), 19, false, com.baidu.card.f.a((v) viewGroup2, view, i));
+                    amVar2.tW().b(new a.C0096a(1));
                 }
             }
         });
@@ -93,25 +93,25 @@ public class f extends com.baidu.adp.widget.ListView.a<l, am<l>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, l lVar, am<l> amVar) {
-        if (lVar == null || amVar == null || amVar.getView() == null || lVar.exA == null) {
+    public View a(int i, View view, ViewGroup viewGroup, k kVar, am<k> amVar) {
+        if (kVar == null || amVar == null || amVar.getView() == null || kVar.evQ == null) {
             return null;
         }
-        lVar.xj(lVar.position + 1);
+        kVar.xH(kVar.position + 1);
         amVar.tW().setPosition(i);
-        amVar.a(lVar.exA.bkl(), (FollowUserButton.a) null);
-        amVar.a(true, Align.ALIGN_RIGHT_TOP, this.fPf);
-        amVar.b((am<l>) lVar);
+        amVar.a(kVar.evQ.bjn(), (FollowUserButton.a) null);
+        amVar.a(true, Align.ALIGN_RIGHT_TOP, this.fOM);
+        amVar.b((am<k>) kVar);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        amVar.tW().a(this.afF);
+        amVar.tW().a(this.afK);
         return amVar.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fsQ = bdUniqueId;
+        this.fsa = bdUniqueId;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.fPf = aVar;
+        this.fOM = aVar;
     }
 }

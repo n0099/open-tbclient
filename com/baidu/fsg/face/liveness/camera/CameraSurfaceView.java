@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
     /* renamed from: a  reason: collision with root package name */

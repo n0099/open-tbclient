@@ -15,7 +15,7 @@ public class f {
     }
 
     public static boolean a(com.baidu.adp.lib.stats.base.a aVar) {
-        return (aVar instanceof com.baidu.adp.lib.stats.b.c) || (aVar instanceof com.baidu.adp.lib.stats.b.b) || (aVar instanceof com.baidu.adp.lib.stats.b.a);
+        return (aVar instanceof com.baidu.adp.lib.stats.c.c) || (aVar instanceof com.baidu.adp.lib.stats.c.b) || (aVar instanceof com.baidu.adp.lib.stats.c.a);
     }
 
     public static String getClientIp() {

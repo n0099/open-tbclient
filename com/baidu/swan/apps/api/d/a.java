@@ -6,15 +6,15 @@ import android.util.Log;
 import android.util.Pair;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.swan.apps.adaptation.b.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String[] cBc = {"swan", "swanAPI", "utils"};
+    private static final String[] czs = {"swan", "swanAPI", "utils"};
 
     @NonNull
     public static Pair<Boolean, com.baidu.swan.apps.api.c.a> a(com.baidu.swan.apps.api.a.a aVar, String str) {
         com.baidu.swan.apps.api.c.b bVar = new com.baidu.swan.apps.api.c.b();
-        boolean a2 = a(str, aVar.ajy().ajw());
+        boolean a2 = a(str, aVar.aiQ().aiO());
         if (a2) {
             bVar.status = 402;
         }
@@ -32,14 +32,14 @@ public class a {
                 throw new RuntimeException("whitelistName is empty");
             }
         } else {
-            String aiI = ((e) callbackHandler).aiI();
-            if ("ai_apps_widget".equals(aiI)) {
-                z = lY(str);
-            } else if ("ai_apps_ad_landing".equals(aiI)) {
-                if (!com.baidu.swan.apps.ag.a.b.su(str)) {
+            String aia = ((e) callbackHandler).aia();
+            if ("ai_apps_widget".equals(aia)) {
+                z = lS(str);
+            } else if ("ai_apps_ad_landing".equals(aia)) {
+                if (!com.baidu.swan.apps.ag.a.b.so(str)) {
                     z = true;
                 }
-            } else if (!"swan_app_alliance_login_widget".equals(aiI) && !"swan_app_alliance_choose_address_widget".equals(aiI) && DEBUG) {
+            } else if (!"swan_app_alliance_login_widget".equals(aia) && !"swan_app_alliance_choose_address_widget".equals(aia) && DEBUG) {
                 Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
             }
             if (DEBUG) {
@@ -49,19 +49,19 @@ public class a {
         return z;
     }
 
-    private static boolean lY(@NonNull String str) {
+    private static boolean lS(@NonNull String str) {
         String[] strArr;
         int indexOf = str.indexOf("/");
         if (indexOf < 0) {
             return true;
         }
         if (!str.startsWith("swan")) {
-            return !com.baidu.swan.apps.ag.a.b.ss(str);
+            return !com.baidu.swan.apps.ag.a.b.sm(str);
         }
         String substring = str.substring(indexOf + 1);
-        int length = cBc.length;
+        int length = czs.length;
         for (int i = 0; i < length; i++) {
-            if (com.baidu.swan.apps.ag.a.b.ss(strArr[i] + "/" + substring)) {
+            if (com.baidu.swan.apps.ag.a.b.sm(strArr[i] + "/" + substring)) {
                 return false;
             }
         }

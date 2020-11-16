@@ -1,5 +1,5 @@
 package com.baidu.android.common.security;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class RC4 {
     private static final int STATE_LENGTH = 256;
     private byte[] workingKey;

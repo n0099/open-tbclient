@@ -3,9 +3,9 @@ package rx.internal.operators;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
-    static final rx.e qdT = new rx.e() { // from class: rx.internal.operators.BufferUntilSubscriber.1
+    static final rx.e qfw = new rx.e() { // from class: rx.internal.operators.BufferUntilSubscriber.1
         @Override // rx.e
         public void onCompleted() {
         }
@@ -18,15 +18,15 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
         public void onNext(Object obj) {
         }
     };
-    final State<T> qdR;
-    private boolean qdS;
+    final State<T> qfu;
+    private boolean qfv;
 
-    public static <T> BufferUntilSubscriber<T> eFE() {
+    public static <T> BufferUntilSubscriber<T> eFF() {
         return new BufferUntilSubscriber<>(new State());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public static final class State<T> extends AtomicReference<rx.e<? super T>> {
         private static final long serialVersionUID = 8026705089538090368L;
         boolean emitting;
@@ -41,9 +41,9 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     static final class a<T> implements d.a<T> {
-        final State<T> qdR;
+        final State<T> qfu;
 
         @Override // rx.functions.b
         public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -51,36 +51,36 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
         }
 
         public a(State<T> state) {
-            this.qdR = state;
+            this.qfu = state;
         }
 
         public void call(rx.j<? super T> jVar) {
             boolean z = true;
-            if (this.qdR.casObserverRef(null, jVar)) {
+            if (this.qfu.casObserverRef(null, jVar)) {
                 jVar.add(rx.subscriptions.e.l(new rx.functions.a() { // from class: rx.internal.operators.BufferUntilSubscriber.a.1
                     @Override // rx.functions.a
                     public void call() {
-                        a.this.qdR.set(BufferUntilSubscriber.qdT);
+                        a.this.qfu.set(BufferUntilSubscriber.qfw);
                     }
                 }));
-                synchronized (this.qdR.guard) {
-                    if (this.qdR.emitting) {
+                synchronized (this.qfu.guard) {
+                    if (this.qfu.emitting) {
                         z = false;
                     } else {
-                        this.qdR.emitting = true;
+                        this.qfu.emitting = true;
                     }
                 }
                 if (!z) {
                     return;
                 }
                 while (true) {
-                    Object poll = this.qdR.buffer.poll();
+                    Object poll = this.qfu.buffer.poll();
                     if (poll != null) {
-                        NotificationLite.a(this.qdR.get(), poll);
+                        NotificationLite.a(this.qfu.get(), poll);
                     } else {
-                        synchronized (this.qdR.guard) {
-                            if (this.qdR.buffer.isEmpty()) {
-                                this.qdR.emitting = false;
+                        synchronized (this.qfu.guard) {
+                            if (this.qfu.buffer.isEmpty()) {
+                                this.qfu.emitting = false;
                                 return;
                             }
                         }
@@ -94,24 +94,24 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
 
     private BufferUntilSubscriber(State<T> state) {
         super(new a(state));
-        this.qdR = state;
+        this.qfu = state;
     }
 
-    private void cf(Object obj) {
-        synchronized (this.qdR.guard) {
-            this.qdR.buffer.add(obj);
-            if (this.qdR.get() != null && !this.qdR.emitting) {
-                this.qdS = true;
-                this.qdR.emitting = true;
+    private void cg(Object obj) {
+        synchronized (this.qfu.guard) {
+            this.qfu.buffer.add(obj);
+            if (this.qfu.get() != null && !this.qfu.emitting) {
+                this.qfv = true;
+                this.qfu.emitting = true;
             }
         }
-        if (!this.qdS) {
+        if (!this.qfv) {
             return;
         }
         while (true) {
-            Object poll = this.qdR.buffer.poll();
+            Object poll = this.qfu.buffer.poll();
             if (poll != null) {
-                NotificationLite.a(this.qdR.get(), poll);
+                NotificationLite.a(this.qfu.get(), poll);
             } else {
                 return;
             }
@@ -120,28 +120,28 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.qdS) {
-            this.qdR.get().onCompleted();
+        if (this.qfv) {
+            this.qfu.get().onCompleted();
         } else {
-            cf(NotificationLite.eFF());
+            cg(NotificationLite.eFG());
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.qdS) {
-            this.qdR.get().onError(th);
+        if (this.qfv) {
+            this.qfu.get().onError(th);
         } else {
-            cf(NotificationLite.error(th));
+            cg(NotificationLite.error(th));
         }
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.qdS) {
-            this.qdR.get().onNext(t);
+        if (this.qfv) {
+            this.qfu.get().onNext(t);
         } else {
-            cf(NotificationLite.next(t));
+            cg(NotificationLite.next(t));
         }
     }
 }

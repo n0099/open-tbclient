@@ -8,8 +8,8 @@ public class a implements CustomMessageTask.CustomRunnable {
     @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<Boolean> run(CustomMessage customMessage) {
         boolean z = true;
-        if (com.baidu.tieba.sdk.d.a.dCw().dCE() != null) {
-            z = com.baidu.tieba.sdk.d.a.dCw().dCE().daV();
+        if (com.baidu.tieba.sdk.d.a.dCa().dCi() != null) {
+            z = com.baidu.tieba.sdk.d.a.dCa().dCi().das();
         }
         return new CustomResponsedMessage<>(2913260, Boolean.valueOf(z));
     }

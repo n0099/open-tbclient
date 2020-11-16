@@ -5,25 +5,25 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import rx.k;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class b implements k {
-    private volatile boolean qdO;
-    private Set<k> qky;
+    private volatile boolean qfr;
+    private Set<k> qmb;
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.qdO;
+        return this.qfr;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.qdO) {
+            if (!this.qfr) {
                 synchronized (this) {
-                    if (!this.qdO) {
-                        if (this.qky == null) {
-                            this.qky = new HashSet(4);
+                    if (!this.qfr) {
+                        if (this.qmb == null) {
+                            this.qmb = new HashSet(4);
                         }
-                        this.qky.add(kVar);
+                        this.qmb.add(kVar);
                         return;
                     }
                 }
@@ -33,10 +33,10 @@ public final class b implements k {
     }
 
     public void a(k kVar) {
-        if (!this.qdO) {
+        if (!this.qfr) {
             synchronized (this) {
-                if (!this.qdO && this.qky != null) {
-                    boolean remove = this.qky.remove(kVar);
+                if (!this.qfr && this.qmb != null) {
+                    boolean remove = this.qmb.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
                     }
@@ -47,12 +47,12 @@ public final class b implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.qdO) {
+        if (!this.qfr) {
             synchronized (this) {
-                if (!this.qdO) {
-                    this.qdO = true;
-                    Set<k> set = this.qky;
-                    this.qky = null;
+                if (!this.qfr) {
+                    this.qfr = true;
+                    Set<k> set = this.qmb;
+                    this.qmb = null;
                     v(set);
                 }
             }

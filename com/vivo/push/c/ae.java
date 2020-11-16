@@ -3,7 +3,7 @@ package com.vivo.push.c;
 import android.content.Context;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 final class ae implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

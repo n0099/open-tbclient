@@ -13,14 +13,14 @@ import com.facebook.drawee.controller.AbstractDraweeControllerBuilder;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class SimpleDraweeView extends GenericDraweeView {
-    private static j<? extends AbstractDraweeControllerBuilder> oQY;
-    private static j<j<? extends AbstractDraweeControllerBuilder>> oQZ;
-    private AbstractDraweeControllerBuilder oRa;
+    private static j<? extends AbstractDraweeControllerBuilder> oSB;
+    private static j<j<? extends AbstractDraweeControllerBuilder>> oSC;
+    private AbstractDraweeControllerBuilder oSD;
 
     public static void b(j<j<? extends AbstractDraweeControllerBuilder>> jVar) {
-        oQZ = jVar;
+        oSC = jVar;
     }
 
     public SimpleDraweeView(Context context) {
@@ -41,23 +41,23 @@ public class SimpleDraweeView extends GenericDraweeView {
     private void init(Context context, @Nullable AttributeSet attributeSet) {
         int resourceId;
         if (!isInEditMode()) {
-            if (oQY == null) {
-                oQY = oQZ.get();
+            if (oSB == null) {
+                oSB = oSC.get();
             }
-            g.checkNotNull(oQY, "SimpleDraweeView was not initialized!");
-            this.oRa = oQY.get();
+            g.checkNotNull(oSB, "SimpleDraweeView was not initialized!");
+            this.oSD = oSB.get();
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.C0970a.SimpleDraweeView);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.C0973a.SimpleDraweeView);
                 try {
-                    if (obtainStyledAttributes.hasValue(a.C0970a.SimpleDraweeView_actualImageUri)) {
-                        setImageURI(Uri.parse(obtainStyledAttributes.getString(a.C0970a.SimpleDraweeView_actualImageUri)), (Object) null);
-                    } else if (obtainStyledAttributes.hasValue(a.C0970a.SimpleDraweeView_actualImageResource)) {
-                        int resourceId2 = obtainStyledAttributes.getResourceId(a.C0970a.SimpleDraweeView_actualImageResource, -1);
+                    if (obtainStyledAttributes.hasValue(a.C0973a.SimpleDraweeView_actualImageUri)) {
+                        setImageURI(Uri.parse(obtainStyledAttributes.getString(a.C0973a.SimpleDraweeView_actualImageUri)), (Object) null);
+                    } else if (obtainStyledAttributes.hasValue(a.C0973a.SimpleDraweeView_actualImageResource)) {
+                        int resourceId2 = obtainStyledAttributes.getResourceId(a.C0973a.SimpleDraweeView_actualImageResource, -1);
                         if (resourceId2 != -1) {
                             setActualImageResource(resourceId2);
                         }
-                    } else if (obtainStyledAttributes.hasValue(a.C0970a.SimpleDraweeView_svgImage) && (resourceId = obtainStyledAttributes.getResourceId(a.C0970a.SimpleDraweeView_svgImage, -1)) != -1) {
-                        setImageURI(d.Ot(resourceId), (Object) null);
+                    } else if (obtainStyledAttributes.hasValue(a.C0973a.SimpleDraweeView_svgImage) && (resourceId = obtainStyledAttributes.getResourceId(a.C0973a.SimpleDraweeView_svgImage, -1)) != -1) {
+                        setImageURI(d.OW(resourceId), (Object) null);
                     }
                 } finally {
                     obtainStyledAttributes.recycle();
@@ -67,11 +67,11 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     protected AbstractDraweeControllerBuilder getControllerBuilder() {
-        return this.oRa;
+        return this.oSD;
     }
 
     public void setImageRequest(ImageRequest imageRequest) {
-        setController(this.oRa.bn(imageRequest).c(getController()).elJ());
+        setController(this.oSD.bo(imageRequest).c(getController()).elH());
     }
 
     @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView
@@ -84,7 +84,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setImageURI(Uri uri, @Nullable Object obj) {
-        setController(this.oRa.bp(obj).S(uri).c(getController()).elJ());
+        setController(this.oSD.bq(obj).T(uri).c(getController()).elH());
     }
 
     public void setImageURI(@Nullable String str, @Nullable Object obj) {
@@ -96,7 +96,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setActualImageResource(@DrawableRes int i, @Nullable Object obj) {
-        setImageURI(d.Ot(i), obj);
+        setImageURI(d.OW(i), obj);
     }
 
     @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView
@@ -105,7 +105,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setImageURIWithHeader(Uri uri, Map<String, String> map, @Nullable Object obj) {
-        setController(getControllerBuilder().c(uri, map).bp(obj).c(getController()).elJ());
+        setController(getControllerBuilder().c(uri, map).bq(obj).c(getController()).elH());
     }
 
     public void setImageURIWithHeader(Uri uri, Map<String, String> map) {

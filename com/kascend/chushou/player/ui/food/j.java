@@ -15,9 +15,9 @@ import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 /* loaded from: classes6.dex */
 public class j extends k {
     private ImageView c;
-    private FrameLayout pqc;
-    private FrescoThumbnailView ptI;
-    private ItemTagView ptM;
+    private FrameLayout prF;
+    private FrescoThumbnailView pvl;
+    private ItemTagView pvp;
 
     @Override // com.kascend.chushou.player.ui.food.k
     int a() {
@@ -29,17 +29,17 @@ public class j extends k {
     @SuppressLint({"ClickableViewAccessibility"})
     public void f(FoodView foodView) {
         super.f(foodView);
-        this.pqc = (FrameLayout) QH(a.f.fl_holder);
-        this.ptM = (ItemTagView) QH(a.f.iv_icon);
-        this.c = (ImageView) QH(a.f.iv_ad_close);
-        this.ptI = (FrescoThumbnailView) QH(a.f.iv_cover_ad);
+        this.prF = (FrameLayout) Rk(a.f.fl_holder);
+        this.pvp = (ItemTagView) Rk(a.f.iv_icon);
+        this.c = (ImageView) Rk(a.f.iv_ad_close);
+        this.pvl = (FrescoThumbnailView) Rk(a.f.iv_cover_ad);
         this.c.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                j.this.puc.c();
+                j.this.pvF.c();
             }
         });
-        this.ptI.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.j.2
+        this.pvl.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.j.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getActionMasked() == 0) {
@@ -63,28 +63,28 @@ public class j extends k {
     @Override // com.kascend.chushou.player.ui.food.k
     public void a(ListItem listItem, k.a aVar) {
         int a2;
-        a(listItem, (ViewGroup) this.pqc);
+        a(listItem, (ViewGroup) this.prF);
         if (b()) {
-            this.pqc.setVisibility(0);
-            this.ptI.setVisibility(8);
-            a2 = a(listItem, (View) this.pqc);
+            this.prF.setVisibility(0);
+            this.pvl.setVisibility(8);
+            a2 = a(listItem, (View) this.prF);
             c();
         } else {
-            this.pqc.setVisibility(8);
-            this.ptI.setVisibility(0);
-            a2 = a(listItem, this.ptI);
-            this.ptI.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.j.3
+            this.prF.setVisibility(8);
+            this.pvl.setVisibility(0);
+            a2 = a(listItem, this.pvl);
+            this.pvl.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.j.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    j.this.puc.b(j.this.m, j.this.n, j.this.o, j.this.p);
+                    j.this.pvF.b(j.this.m, j.this.n, j.this.o, j.this.p);
                 }
             });
         }
-        ViewGroup.LayoutParams layoutParams = this.puc.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.pvF.getLayoutParams();
         layoutParams.width = a2 + tv.chushou.zues.utils.a.dip2px(this.q, 20.0f);
         layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.q, 44.0f);
-        this.puc.setLayoutParams(layoutParams);
-        this.puc.setVisibility(0);
+        this.pvF.setLayoutParams(layoutParams);
+        this.pvF.setVisibility(0);
     }
 
     private int a(ListItem listItem, View view) {
@@ -107,10 +107,10 @@ public class j extends k {
                 evS().loadUrl(listItem.mCover);
             }
         } else {
-            this.ptI.setAnim(true);
-            this.ptI.i(listItem.mCover, tv.chushou.widget.a.c.eHE(), 0, 0);
+            this.pvl.setAnim(true);
+            this.pvl.i(listItem.mCover, tv.chushou.widget.a.c.eHF(), 0, 0);
         }
-        this.ptM.a(listItem);
+        this.pvp.a(listItem);
         this.c.setVisibility(listItem.mShowClose ? 0 : 4);
     }
 }

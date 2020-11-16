@@ -27,13 +27,13 @@ import com.heytap.mcssdk.mode.SubscribeResult;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static Handler i;
     private static ConnectivityManager.NetworkCallback m;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1077a = -1;
+    public static int f1080a = -1;
     public static String b = null;
     public static String c = null;
     public static String d = null;
@@ -46,7 +46,7 @@ public class f {
     private static long l = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class a extends Handler {
         public a(Context context) {
             super(context.getMainLooper());
@@ -62,44 +62,44 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f1083a;
+        private Context f1086a;
 
         public b(Context context) {
-            this.f1083a = context;
+            this.f1086a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             String str = null;
-            long currentTimeMillis = System.currentTimeMillis() - com.baidu.android.pushservice.i.j.a(this.f1083a);
-            if (com.baidu.android.pushservice.b.d.k(this.f1083a)) {
-                str = com.baidu.android.pushservice.i.j.c(this.f1083a);
+            long currentTimeMillis = System.currentTimeMillis() - com.baidu.android.pushservice.i.j.a(this.f1086a);
+            if (com.baidu.android.pushservice.b.d.k(this.f1086a)) {
+                str = com.baidu.android.pushservice.i.j.c(this.f1086a);
                 if (currentTimeMillis > -1702967296) {
                     str = "";
                 }
-            } else if (com.baidu.android.pushservice.b.d.l(this.f1083a)) {
-                str = com.baidu.android.pushservice.i.j.b(this.f1083a);
+            } else if (com.baidu.android.pushservice.b.d.l(this.f1086a)) {
+                str = com.baidu.android.pushservice.i.j.b(this.f1086a);
                 if (currentTimeMillis > 86400000) {
                     str = "";
                 }
-            } else if (com.baidu.android.pushservice.b.d.j(this.f1083a)) {
-                str = com.baidu.android.pushservice.i.j.d(this.f1083a);
+            } else if (com.baidu.android.pushservice.b.d.j(this.f1086a)) {
+                str = com.baidu.android.pushservice.i.j.d(this.f1086a);
                 if (currentTimeMillis > 172800000) {
                     str = "";
                 }
             }
             if (!TextUtils.isEmpty(str)) {
-                f.a(this.f1083a, str);
+                f.a(this.f1086a, str);
                 return;
             }
             if (!f.j.isEmpty()) {
                 f.j.poll();
             }
-            f.k(this.f1083a);
+            f.k(this.f1086a);
         }
     }
 
@@ -423,7 +423,7 @@ public class f {
         if (m(context)) {
             return null;
         }
-        int b2 = f1077a != -1 ? f1077a : com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
+        int b2 = f1080a != -1 ? f1080a : com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
         String q = q(context);
         if (TextUtils.isEmpty(q)) {
             com.baidu.android.pushservice.f.a.b("PushManagerHandler", "Can not acquire loginValue, please check if there is a right loginValue", context);
@@ -686,7 +686,7 @@ public class f {
             return false;
         }
         k++;
-        b(context, true, f1077a);
+        b(context, true, f1080a);
         return true;
     }
 

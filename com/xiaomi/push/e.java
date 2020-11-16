@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import java.io.IOException;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public abstract class e {
     public abstract int a();
 
@@ -15,7 +15,7 @@ public abstract class e {
         try {
             b a2 = b.a(bArr, i, i2);
             a(a2);
-            a2.m149a(0);
+            a2.m152a(0);
             return this;
         } catch (d e) {
             throw e;
@@ -27,7 +27,7 @@ public abstract class e {
     public abstract void a(c cVar);
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m235a(byte[] bArr, int i, int i2) {
+    public void m238a(byte[] bArr, int i, int i2) {
         try {
             c a2 = c.a(bArr, i, i2);
             a(a2);
@@ -39,13 +39,13 @@ public abstract class e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean a(b bVar, int i) {
-        return bVar.m151a(i);
+        return bVar.m154a(i);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m236a() {
+    public byte[] m239a() {
         byte[] bArr = new byte[b()];
-        m235a(bArr, 0, bArr.length);
+        m238a(bArr, 0, bArr.length);
         return bArr;
     }
 

@@ -2,32 +2,33 @@ package com.baidu.afd;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.lego.card.b.b;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.lego.card.b.b, com.baidu.tieba.lego.card.view.i {
-    private ICardInfo YL;
-    public g YM;
-    public boolean YN;
-    private AdvertAppInfo YP;
+public class d extends BaseCardInfo implements com.baidu.tieba.lego.card.b.b, com.baidu.tieba.lego.card.view.i {
+    private ICardInfo YQ;
+    public h YR;
+    public boolean YS;
+    private AdvertAppInfo YU;
     private e adModel;
-    private boolean YO = false;
+    private boolean YT = false;
     private BdUniqueId tag = BdUniqueId.gen();
 
-    public static d a(g gVar) {
+    public static d a(h hVar) {
         d dVar = new d();
-        dVar.YM = gVar;
+        dVar.YR = hVar;
         return dVar;
     }
 
     public ICardInfo rp() {
-        return this.YL;
+        return this.YQ;
     }
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return rp() != null ? b.YG : b.YF;
+        return rp() != null ? b.YL : b.YK;
     }
 
     public BdUniqueId getTag() {
@@ -50,31 +51,31 @@ public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
 
     public void a(e eVar) {
         this.adModel = eVar;
-        this.YL = eVar != null ? eVar.YR : null;
-        if (this.YL instanceof h) {
-            ((h) this.YL).setAdFacadeData(this);
+        this.YQ = eVar != null ? eVar.YW : null;
+        if (this.YQ instanceof i) {
+            ((i) this.YQ).setAdFacadeData(this);
         }
-        this.YO = true;
+        this.YT = true;
     }
 
     public AdvertAppInfo rq() {
-        if (this.YP == null) {
-            this.YP = new AdvertAppInfo();
-            if (this.YM != null) {
-                Map<String, String> ro = this.YM.ro();
-                this.YP.adPosition = String.valueOf(this.YM.rn());
-                this.YP.tid = ro != null ? ro.get("thread_id") : "";
-                this.YP.setFid(ro != null ? Long.valueOf(ro.get("forum_id")).longValue() : 0L);
+        if (this.YU == null) {
+            this.YU = new AdvertAppInfo();
+            if (this.YR != null) {
+                Map<String, String> ro = this.YR.ro();
+                this.YU.adPosition = String.valueOf(this.YR.rn());
+                this.YU.tid = ro != null ? ro.get("thread_id") : "";
+                this.YU.setFid(ro != null ? Long.valueOf(ro.get("forum_id")).longValue() : 0L);
             }
-            this.YP.extensionInfo = this.adModel != null ? this.adModel.ext : "";
-            this.YP.page = "VIDEO_LIST";
+            this.YU.extensionInfo = this.adModel != null ? this.adModel.ext : "";
+            this.YU.page = "VIDEO_LIST";
         }
-        return this.YP;
+        return this.YU;
     }
 
     public int getPageNum() {
-        if (this.YM != null) {
-            return this.YM.rm();
+        if (this.YR != null) {
+            return this.YR.rm();
         }
         return 0;
     }
@@ -84,18 +85,18 @@ public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
     }
 
     public void rs() {
-        if (!this.YO) {
-            com.baidu.tieba.recapp.report.d.dBp().a(com.baidu.tieba.recapp.report.g.a(this, ParseError.ERROR_SMOOTH_SCROLL));
+        if (!this.YT) {
+            com.baidu.tieba.recapp.report.d.dAT().a(com.baidu.tieba.recapp.report.g.a(this, ParseError.ERROR_SMOOTH_SCROLL));
             return;
         }
-        com.baidu.tbadk.core.data.b.a(this);
+        com.baidu.tbadk.core.data.c.a(this);
     }
 
     @Override // com.baidu.tieba.lego.card.b.b
     public b.a getParallelCharge() {
-        if (this.YL == null || !(this.YL instanceof com.baidu.tieba.lego.card.b.b)) {
+        if (this.YQ == null || !(this.YQ instanceof com.baidu.tieba.lego.card.b.b)) {
             return null;
         }
-        return ((com.baidu.tieba.lego.card.b.b) this.YL).getParallelCharge();
+        return ((com.baidu.tieba.lego.card.b.b) this.YQ).getParallelCharge();
     }
 }

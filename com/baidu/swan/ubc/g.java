@@ -1,36 +1,36 @@
 package com.baidu.swan.ubc;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 class g {
-    private String elT;
-    private String elU;
-    private String elV;
-    private String elW;
-    private int elX;
-    private String elY;
-    private int elZ;
-    private int ema;
-    private String emb;
-    private String emc;
+    private String ekm;
+    private String ekn;
+    private String eko;
+    private String ekp;
+    private int ekq;
+    private String ekr;
+    private int eks;
+    private int ekt;
+    private String eku;
+    private String ekv;
     private String mCategory;
     private String mId;
     private int mRate;
     private String mType;
 
     public g(String str, String str2, String str3, int i, String str4, String str5) {
-        this.elU = str;
+        this.ekn = str;
         this.mId = str;
-        this.elV = str2;
-        this.elW = str3;
-        this.elX = i;
+        this.eko = str2;
+        this.ekp = str3;
+        this.ekq = i;
         this.mType = str4;
-        this.elY = str5;
+        this.ekr = str5;
     }
 
-    public void yV(String str) {
-        this.elT = str;
+    public void yQ(String str) {
+        this.ekm = str;
     }
 
-    public void nj(int i) {
+    public void nf(int i) {
         this.mRate = i;
     }
 
@@ -38,39 +38,39 @@ class g {
         this.mCategory = str;
     }
 
-    public void nk(int i) {
-        this.elZ = i;
+    public void ng(int i) {
+        this.eks = i;
     }
 
-    public void nl(int i) {
-        this.ema = i;
+    public void nh(int i) {
+        this.ekt = i;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String bdu() {
-        return this.elV;
+    public String bcN() {
+        return this.eko;
     }
 
-    public String bdv() {
-        return this.elW;
+    public String bcO() {
+        return this.ekp;
     }
 
     public int getTimeout() {
-        return this.elX;
+        return this.ekq;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String bdw() {
-        return this.elY;
+    public String bcP() {
+        return this.ekr;
     }
 
-    public int bdx() {
+    public int bcQ() {
         return this.mRate;
     }
 
@@ -78,23 +78,23 @@ class g {
         return this.mCategory;
     }
 
-    public int bdy() {
-        return this.elZ;
+    public int bcR() {
+        return this.eks;
     }
 
-    public int bdz() {
-        return this.ema;
+    public int bcS() {
+        return this.ekt;
     }
 
-    public void yW(String str) {
-        this.emb = str;
+    public void yR(String str) {
+        this.eku = str;
     }
 
-    public String bdA() {
-        return this.emb;
+    public String bcT() {
+        return this.eku;
     }
 
-    public void yX(String str) {
-        this.emc = str;
+    public void yS(String str) {
+        this.ekv = str;
     }
 }

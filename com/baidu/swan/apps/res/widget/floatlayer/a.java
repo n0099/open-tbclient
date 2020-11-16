@@ -6,48 +6,48 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private final InterfaceC0470a dsd;
-    private final ViewGroup dse;
-    private boolean dsf;
+    private final InterfaceC0468a dqv;
+    private final ViewGroup dqw;
+    private boolean dqx;
     private int mMarginTop;
 
     /* renamed from: com.baidu.swan.apps.res.widget.floatlayer.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0470a {
-        a afH();
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0468a {
+        a aeZ();
     }
 
-    public a(@NonNull InterfaceC0470a interfaceC0470a, @NonNull ViewGroup viewGroup, int i) {
-        this.dsd = interfaceC0470a;
-        this.dse = viewGroup;
+    public a(@NonNull InterfaceC0468a interfaceC0468a, @NonNull ViewGroup viewGroup, int i) {
+        this.dqv = interfaceC0468a;
+        this.dqw = viewGroup;
         this.mMarginTop = i;
     }
 
     public void setMask(boolean z) {
-        Container aHf = aHf();
-        if (aHf != null) {
-            aHf.setClickable(z);
+        Container aGx = aGx();
+        if (aGx != null) {
+            aGx.setClickable(z);
         }
     }
 
-    public boolean aHe() {
-        return this.dsf;
+    public boolean aGw() {
+        return this.dqx;
     }
 
     private Context getContext() {
-        return this.dse.getContext();
+        return this.dqw.getContext();
     }
 
     @Nullable
-    private Container aHf() {
+    private Container aGx() {
         Container container;
-        synchronized (this.dse) {
+        synchronized (this.dqw) {
             int i = 0;
             while (true) {
-                if (i < this.dse.getChildCount()) {
-                    View childAt = this.dse.getChildAt(i);
+                if (i < this.dqw.getChildCount()) {
+                    View childAt = this.dqw.getChildAt(i);
                     if (!(childAt instanceof Container)) {
                         i++;
                     } else {
@@ -64,17 +64,17 @@ public class a {
     }
 
     @NonNull
-    private Container aHg() {
-        Container aHf;
+    private Container aGy() {
+        Container aGx;
         int i;
         int i2;
         int i3 = 0;
-        synchronized (this.dse) {
-            aHf = aHf();
-            if (aHf == null) {
-                aHf = new Container(getContext());
-                int height = this.dse.getHeight() - this.mMarginTop;
-                if (this.dse instanceof LinearLayout) {
+        synchronized (this.dqw) {
+            aGx = aGx();
+            if (aGx == null) {
+                aGx = new Container(getContext());
+                int height = this.dqw.getHeight() - this.mMarginTop;
+                if (this.dqw instanceof LinearLayout) {
                     i = -height;
                 } else {
                     i = this.mMarginTop;
@@ -83,10 +83,10 @@ public class a {
                     i = 0;
                     height = -1;
                 }
-                if (!(this.dse instanceof LinearLayout) && this.mMarginTop == 0) {
+                if (!(this.dqw instanceof LinearLayout) && this.mMarginTop == 0) {
                     height = -1;
                 }
-                if (this.dsf) {
+                if (this.dqx) {
                     i2 = -1;
                 } else {
                     i3 = i;
@@ -94,11 +94,11 @@ public class a {
                 }
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i2);
                 layoutParams.setMargins(0, i3, 0, 0);
-                aHf.setLayoutParams(layoutParams);
-                this.dse.addView(aHf);
+                aGx.setLayoutParams(layoutParams);
+                this.dqw.addView(aGx);
             }
         }
-        return aHf;
+        return aGx;
     }
 
     public void reset() {
@@ -106,11 +106,11 @@ public class a {
     }
 
     public void reset(boolean z) {
-        synchronized (this.dse) {
-            Container aHf = aHf();
-            if (!z || aHf == null || aHf.getChildCount() <= 0) {
-                if (aHf != null) {
-                    this.dse.removeView(aHf);
+        synchronized (this.dqw) {
+            Container aGx = aGx();
+            if (!z || aGx == null || aGx.getChildCount() <= 0) {
+                if (aGx != null) {
+                    this.dqw.removeView(aGx);
                 }
             }
         }
@@ -118,9 +118,9 @@ public class a {
 
     @Nullable
     public View getView() {
-        Container aHf = aHf();
-        if (aHf != null && aHf.getChildCount() > 0) {
-            return aHf.getChildAt(0);
+        Container aGx = aGx();
+        if (aGx != null && aGx.getChildCount() > 0) {
+            return aGx.getChildAt(0);
         }
         return null;
     }
@@ -128,25 +128,25 @@ public class a {
     public void aC(@NonNull View view) {
         if (view != getView()) {
             reset();
-            aHg().addView(view);
+            aGy().addView(view);
         }
     }
 
     public void a(@NonNull View view, ViewGroup.LayoutParams layoutParams) {
         if (view != getView()) {
             reset();
-            aHg().addView(view, layoutParams);
+            aGy().addView(view, layoutParams);
         }
     }
 
-    public boolean aHh() {
-        Container aHf = aHf();
-        if (aHf == null) {
+    public boolean aGz() {
+        Container aGx = aGx();
+        if (aGx == null) {
             return false;
         }
-        int childCount = aHf.getChildCount();
+        int childCount = aGx.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            View childAt = aHf.getChildAt(i);
+            View childAt = aGx.getChildAt(i);
             if (childAt != null && childAt.getVisibility() == 0) {
                 return true;
             }

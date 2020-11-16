@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.conscrypt.OpenSSLX509CertificateFactory;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public final class OpenSSLX509CRLEntry extends X509CRLEntry {
     private final long mContext;
     private final Date revocationDate;

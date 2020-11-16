@@ -1,5 +1,5 @@
 package com.facebook.rebound;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class BouncyConversion {
     static final /* synthetic */ boolean $assertionsDisabled;
     private final double mBounciness;

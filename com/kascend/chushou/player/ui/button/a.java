@@ -13,12 +13,12 @@ public class a {
         this.b = i2;
     }
 
-    public a YH(String str) {
+    public a Ys(String str) {
         this.d = str;
         return this;
     }
 
-    public a AI(boolean z) {
+    public a AP(boolean z) {
         this.c = z;
         return this;
     }

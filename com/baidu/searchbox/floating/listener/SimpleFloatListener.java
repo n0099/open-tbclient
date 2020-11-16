@@ -6,7 +6,7 @@ import com.baidu.searchbox.floating.config.ScaleMode;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class SimpleFloatListener implements FloatViewListener {
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onViewCreate(boolean z, View view, ScaleMode scaleMode, Point point) {

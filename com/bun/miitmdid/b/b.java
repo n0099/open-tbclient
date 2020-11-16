@@ -14,37 +14,37 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class b {
     private static boolean j = false;
     private Context b;
-    private AsyncTask oHY;
+    private AsyncTask oJC;
 
     /* renamed from: a  reason: collision with root package name */
     private String f3977a = null;
-    private a oHX = null;
+    private a oJB = null;
     private Object d = null;
     private Map<String, String> e = new HashMap();
     private Map<String, String> f = new HashMap();
     private Map<String, String> g = new HashMap();
     private String h = "GET";
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(Exception exc, int i, String str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bun.miitmdid.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public class C0960b {
+    /* loaded from: classes5.dex */
+    public class C0963b {
         private String b;
         private int c;
-        private Exception oIb;
+        private Exception oJF;
 
-        public C0960b(String str, Exception exc, int i) {
+        public C0963b(String str, Exception exc, int i) {
             this.b = str;
-            this.oIb = exc;
+            this.oJF = exc;
             this.c = i;
         }
     }
@@ -91,7 +91,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0960b eiD() {
+    public C0963b eiB() {
         try {
             String b = b();
             if (j) {
@@ -115,7 +115,7 @@ public class b {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
                     bufferedReader.close();
-                    return new C0960b(sb.toString(), null, responseCode);
+                    return new C0963b(sb.toString(), null, responseCode);
                 }
                 sb.append(readLine);
             }
@@ -123,12 +123,12 @@ public class b {
             if (j) {
                 e.printStackTrace();
             }
-            return new C0960b(null, e, -1);
+            return new C0963b(null, e, -1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0960b eiE() {
+    public C0963b eiC() {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(b()).openConnection();
             a(httpURLConnection);
@@ -175,7 +175,7 @@ public class b {
                     bufferedReader.close();
                     String sb4 = sb3.toString();
                     b("\nPOST RESPONSE : " + sb4);
-                    return new C0960b(sb4, null, responseCode);
+                    return new C0963b(sb4, null, responseCode);
                 }
                 sb3.append(readLine);
             }
@@ -183,11 +183,11 @@ public class b {
             if (j) {
                 e.printStackTrace();
             }
-            return new C0960b(null, e, -1);
+            return new C0963b(null, e, -1);
         }
     }
 
-    public static b gQ(@NonNull Context context) {
+    public static b gO(@NonNull Context context) {
         return new b(context);
     }
 
@@ -198,47 +198,47 @@ public class b {
         return this;
     }
 
-    public b XK(@NonNull String str) {
+    public b Xv(@NonNull String str) {
         this.f3977a = str;
         this.h = "POST";
         return this;
     }
 
     public b a(a aVar) {
-        this.oHX = aVar;
+        this.oJB = aVar;
         return this;
     }
 
-    public b aW(Object obj) {
+    public b aX(Object obj) {
         this.d = obj;
         return this;
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.bun.miitmdid.b.b$1] */
-    public b eiC() {
-        this.oHY = new AsyncTask<Void, Void, C0960b>() { // from class: com.bun.miitmdid.b.b.1
-            b oHZ;
+    public b eiA() {
+        this.oJC = new AsyncTask<Void, Void, C0963b>() { // from class: com.bun.miitmdid.b.b.1
+            b oJD;
 
             {
-                this.oHZ = b.this;
+                this.oJD = b.this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             /* renamed from: a */
-            public void onPostExecute(C0960b c0960b) {
-                super.onPostExecute(c0960b);
-                if (b.this.oHX != null) {
-                    if (c0960b == null) {
-                        b.this.oHX.a(new Exception("Unknown Error"), -1, null);
-                    } else if (c0960b.oIb != null) {
-                        b.this.oHX.a(c0960b.oIb, -1, null);
+            public void onPostExecute(C0963b c0963b) {
+                super.onPostExecute(c0963b);
+                if (b.this.oJB != null) {
+                    if (c0963b == null) {
+                        b.this.oJB.a(new Exception("Unknown Error"), -1, null);
+                    } else if (c0963b.oJF != null) {
+                        b.this.oJB.a(c0963b.oJF, -1, null);
                     } else {
                         try {
-                            b.this.oHX.a(null, c0960b.c, c0960b.b);
+                            b.this.oJB.a(null, c0963b.c, c0963b.b);
                         } catch (Exception e) {
-                            b.this.oHX.a(e, -1, null);
+                            b.this.oJB.a(e, -1, null);
                         }
                     }
                 }
@@ -248,8 +248,8 @@ public class b {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             /* renamed from: r */
-            public C0960b doInBackground(Void... voidArr) {
-                return this.oHZ.h.equalsIgnoreCase("GET") ? b.this.eiD() : b.this.eiE();
+            public C0963b doInBackground(Void... voidArr) {
+                return this.oJD.h.equalsIgnoreCase("GET") ? b.this.eiB() : b.this.eiC();
             }
         }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         return this;

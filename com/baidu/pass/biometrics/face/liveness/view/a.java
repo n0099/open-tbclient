@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.ViewSwitcher;
 import com.baidu.pass.biometrics.face.R;
 import com.baidu.pass.utils.CommonViewUtility;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class a extends AppCompatDialog {
 
     /* renamed from: a  reason: collision with root package name */

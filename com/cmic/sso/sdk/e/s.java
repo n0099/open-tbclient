@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class s {
 
     /* renamed from: a  reason: collision with root package name */

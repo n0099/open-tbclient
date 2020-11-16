@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class h {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [54=4] */
     public static String t(File file) {
@@ -31,7 +31,7 @@ public class h {
                     } catch (Exception e) {
                         fileInputStream = fileInputStream2;
                         exc = e;
-                        if (com.baidu.prologue.a.b.a.che.get().abT()) {
+                        if (com.baidu.prologue.a.b.a.cft.get().abk()) {
                             throw new RuntimeException(exc);
                         }
                         if (fileInputStream != null) {

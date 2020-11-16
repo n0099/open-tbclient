@@ -12,7 +12,7 @@ import com.baidu.down.statistic.MultiSrcStatData;
 import com.baidu.down.utils.Utils;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
     private static final boolean DEBUG = false;
     public static final int MAX_STATICTIS_PAUSE = 3;

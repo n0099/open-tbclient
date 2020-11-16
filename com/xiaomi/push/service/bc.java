@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 class bc extends Handler {
 
     /* renamed from: a  reason: collision with root package name */

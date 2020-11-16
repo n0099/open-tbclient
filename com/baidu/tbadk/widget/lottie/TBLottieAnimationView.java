@@ -12,16 +12,16 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.widget.lottie.b;
 import java.io.File;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class TBLottieAnimationView extends LottieAnimationView {
     public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private b fGn;
-    private boolean fGo;
-    private b.a fGp;
+    private b fFP;
+    private boolean fFQ;
+    private b.a fFR;
     private boolean isFirstLoadInternal;
     private boolean isSettingForPlay;
     private String mUrl;
@@ -30,11 +30,11 @@ public class TBLottieAnimationView extends LottieAnimationView {
         super(context);
         this.isSettingForPlay = false;
         this.isFirstLoadInternal = false;
-        this.fGo = false;
-        this.fGp = new b.a() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.1
+        this.fFQ = false;
+        this.fFR = new b.a() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.1
             @Override // com.baidu.tbadk.widget.lottie.b.a
             public void onLoaded(boolean z, String str) {
-                if (z && !at.isEmpty(str)) {
+                if (z && !au.isEmpty(str)) {
                     TBLottieAnimationView.this.setAnimationDir(str);
                 }
             }
@@ -45,11 +45,11 @@ public class TBLottieAnimationView extends LottieAnimationView {
         super(context, attributeSet);
         this.isSettingForPlay = false;
         this.isFirstLoadInternal = false;
-        this.fGo = false;
-        this.fGp = new b.a() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.1
+        this.fFQ = false;
+        this.fFR = new b.a() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.1
             @Override // com.baidu.tbadk.widget.lottie.b.a
             public void onLoaded(boolean z, String str) {
-                if (z && !at.isEmpty(str)) {
+                if (z && !au.isEmpty(str)) {
                     TBLottieAnimationView.this.setAnimationDir(str);
                 }
             }
@@ -60,11 +60,11 @@ public class TBLottieAnimationView extends LottieAnimationView {
         super(context, attributeSet, i);
         this.isSettingForPlay = false;
         this.isFirstLoadInternal = false;
-        this.fGo = false;
-        this.fGp = new b.a() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.1
+        this.fFQ = false;
+        this.fFR = new b.a() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.1
             @Override // com.baidu.tbadk.widget.lottie.b.a
             public void onLoaded(boolean z, String str) {
-                if (z && !at.isEmpty(str)) {
+                if (z && !au.isEmpty(str)) {
                     TBLottieAnimationView.this.setAnimationDir(str);
                 }
             }
@@ -105,22 +105,22 @@ public class TBLottieAnimationView extends LottieAnimationView {
     }
 
     public void setAnimationUrl(String str) {
-        if (!at.isEmpty(str) && !str.equals(this.mUrl)) {
+        if (!au.isEmpty(str) && !str.equals(this.mUrl)) {
             this.mUrl = str;
-            this.fGn = new b(getAnimationPath(), str, this.fGp);
-            this.fGn.execute(new Void[0]);
+            this.fFP = new b(getAnimationPath(), str, this.fFR);
+            this.fFP.execute(new Void[0]);
         }
     }
 
     public void setAnimationDir(String str) {
-        if (!at.isEmpty(str)) {
+        if (!au.isEmpty(str)) {
             dealImageAsset(str);
             dealJsonFile(str);
         }
     }
 
     private void dealImageAsset(String str) {
-        if (!at.isEmpty(str)) {
+        if (!au.isEmpty(str)) {
             a aVar = new a();
             aVar.setPath(str);
             aVar.setFirstLoadInternal(getFristLoadInternal());
@@ -129,7 +129,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
     }
 
     private void dealJsonFile(String str) {
-        if (!at.isEmpty(str)) {
+        if (!au.isEmpty(str)) {
             final boolean z = this.isSettingForPlay;
             cancelAnimation();
             InputStream animationInputStream = getAnimationInputStream(str, com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView.JSON_FILE);
@@ -193,13 +193,13 @@ public class TBLottieAnimationView extends LottieAnimationView {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.airbnb.lottie.LottieAnimationView, android.view.View
     public void onRestoreInstanceState(Parcelable parcelable) {
-        if (!this.fGo) {
+        if (!this.fFQ) {
             super.onRestoreInstanceState(parcelable);
         }
-        this.fGo = false;
+        this.fFQ = false;
     }
 
-    public void bFy() {
-        this.fGo = true;
+    public void bER() {
+        this.fFQ = true;
     }
 }

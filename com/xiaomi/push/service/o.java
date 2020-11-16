@@ -8,21 +8,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class o {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final Map<String, byte[]> f921a = new HashMap();
+    private static final Map<String, byte[]> f924a = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
     private static ArrayList<Pair<String, byte[]>> f5112a = new ArrayList<>();
 
     public static void a(Context context, int i, String str) {
-        synchronized (f921a) {
-            for (String str2 : f921a.keySet()) {
-                a(context, str2, f921a.get(str2), i, str);
+        synchronized (f924a) {
+            for (String str2 : f924a.keySet()) {
+                a(context, str2, f924a.get(str2), i, str);
             }
-            f921a.clear();
+            f924a.clear();
         }
     }
 
@@ -37,11 +37,11 @@ public class o {
 
     public static void a(XMPushService xMPushService) {
         try {
-            synchronized (f921a) {
-                for (String str : f921a.keySet()) {
-                    w.a(xMPushService, str, f921a.get(str));
+            synchronized (f924a) {
+                for (String str : f924a.keySet()) {
+                    w.a(xMPushService, str, f924a.get(str));
                 }
-                f921a.clear();
+                f924a.clear();
             }
         } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -50,8 +50,8 @@ public class o {
     }
 
     public static void a(String str, byte[] bArr) {
-        synchronized (f921a) {
-            f921a.put(str, bArr);
+        synchronized (f924a) {
+            f924a.put(str, bArr);
         }
     }
 

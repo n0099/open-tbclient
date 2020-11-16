@@ -6,7 +6,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import java.util.LinkedList;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class a implements SensorEventListener {
     private Context mContext;
     private SensorManager rq;
@@ -16,7 +16,7 @@ public class a implements SensorEventListener {
     private LinkedList<Double> vh = new LinkedList<>();
 
     /* renamed from: vi  reason: collision with root package name */
-    private LinkedList<Float> f1191vi = new LinkedList<>();
+    private LinkedList<Float> f1194vi = new LinkedList<>();
     private LinkedList<Float> vj = new LinkedList<>();
     private LinkedList<Float> vk = new LinkedList<>();
     private int vl = 10;
@@ -25,7 +25,7 @@ public class a implements SensorEventListener {
     private boolean vo = false;
 
     /* renamed from: com.baidu.ar.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public interface InterfaceC0083a {
         void b(float f, float f2, float f3, float f4);
 
@@ -65,7 +65,7 @@ public class a implements SensorEventListener {
         }
         com.baidu.ar.g.b.aN("max acc is : " + this.vm);
         a(this.vh, sqrt);
-        a((LinkedList) this.f1191vi, Math.abs(f));
+        a((LinkedList) this.f1194vi, Math.abs(f));
         a((LinkedList) this.vj, Math.abs(f2));
         a((LinkedList) this.vk, Math.abs(f3));
         if (this.vh.size() == this.vl) {
@@ -80,7 +80,7 @@ public class a implements SensorEventListener {
                     break;
                 }
                 d += this.vh.get(i2).doubleValue();
-                f4 += this.f1191vi.get(i2).floatValue();
+                f4 += this.f1194vi.get(i2).floatValue();
                 f5 += this.vj.get(i2).floatValue();
                 f6 += this.vk.get(i2).floatValue();
                 i = i2 + 1;

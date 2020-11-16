@@ -1,20 +1,20 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
 public class k {
-    private boolean fmm;
+    private boolean flu;
     private String method;
     private boolean open;
 
-    public boolean byU() {
-        return this.fmm;
+    public boolean byk() {
+        return this.flu;
     }
 
-    public void jS(boolean z) {
-        this.fmm = z;
+    public void jT(boolean z) {
+        this.flu = z;
     }
 
-    public void byV() {
-        this.fmm = false;
+    public void byl() {
+        this.flu = false;
     }
 
     public boolean isOpen() {

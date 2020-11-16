@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class c implements tv.chushou.basis.d.a.a.a {
-    private final tv.chushou.basis.c.a pxn = new tv.chushou.basis.c.b();
+    private final tv.chushou.basis.c.a pyQ = new tv.chushou.basis.c.b();
 
     @Override // tv.chushou.basis.d.a
     public void init(Application application) {
@@ -13,17 +13,17 @@ public class c implements tv.chushou.basis.d.a.a.a {
 
     @Override // tv.chushou.basis.d.a.a.a
     public Object remove(String str) {
-        return this.pxn.remove(str);
+        return this.pyQ.remove(str);
     }
 
     @Override // tv.chushou.basis.d.a.a.a
     public void putString(@NonNull String str, String str2) {
-        this.pxn.putString(str, str2);
+        this.pyQ.putString(str, str2);
     }
 
     @Override // tv.chushou.basis.d.a.a.a
     @Nullable
     public String getString(@NonNull String str, String str2) {
-        return this.pxn.getString(str, str2);
+        return this.pyQ.getString(str, str2);
     }
 }

@@ -7,10 +7,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class a {
-    public List<b> nbh;
-    public List<b> nbi;
+    public List<b> nci;
+    public List<b> ncj;
 
     public void parserJsonStr(String str) {
         JSONObject jSONObject;
@@ -32,20 +32,20 @@ public class a {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("splash_schedule")) != null) {
             JSONArray optJSONArray = optJSONObject.optJSONArray("current");
             if (optJSONArray != null) {
-                this.nbh = new ArrayList();
+                this.nci = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     b bVar = new b();
                     bVar.parserJson(optJSONArray.optJSONObject(i));
-                    this.nbh.add(bVar);
+                    this.nci.add(bVar);
                 }
             }
             JSONArray optJSONArray2 = optJSONObject.optJSONArray(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
             if (optJSONArray != null) {
-                this.nbi = new ArrayList();
+                this.ncj = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                     b bVar2 = new b();
                     bVar2.parserJson(optJSONArray2.optJSONObject(i2));
-                    this.nbi.add(bVar2);
+                    this.ncj.add(bVar2);
                 }
             }
         }

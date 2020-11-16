@@ -1,5 +1,5 @@
 package rx.internal.util.a;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class q<E> extends v<E> {
     public q(int i) {
         super(i);
@@ -10,13 +10,13 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.pSe;
+        E[] eArr = this.pTH;
         long j = this.producerIndex;
-        long iv = iv(j);
-        if (b(eArr, iv) != null) {
+        long iy = iy(j);
+        if (b(eArr, iy) != null) {
             return false;
         }
-        b(eArr, iv, e);
+        b(eArr, iy, e);
         soProducerIndex(1 + j);
         return true;
     }
@@ -24,53 +24,53 @@ public final class q<E> extends v<E> {
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long iv = iv(j);
-        E[] eArr = this.pSe;
-        E b = b(eArr, iv);
+        long iy = iy(j);
+        E[] eArr = this.pTH;
+        E b = b(eArr, iy);
         if (b == null) {
             return null;
         }
-        b(eArr, iv, null);
+        b(eArr, iy, null);
         soConsumerIndex(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return iw(iv(this.consumerIndex));
+        return iz(iy(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long eAQ = eAQ();
+        long eAR = eAR();
         while (true) {
-            long eAP = eAP();
-            long eAQ2 = eAQ();
-            if (eAQ == eAQ2) {
-                return (int) (eAP - eAQ2);
+            long eAQ = eAQ();
+            long eAR2 = eAR();
+            if (eAR == eAR2) {
+                return (int) (eAQ - eAR2);
             }
-            eAQ = eAQ2;
+            eAR = eAR2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return eAP() == eAQ();
+        return eAQ() == eAR();
     }
 
     private void soProducerIndex(long j) {
-        ae.qjj.a(this, qjd, j);
+        ae.qkM.a(this, qkG, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.qjj.a(this, qjc, j);
-    }
-
-    private long eAP() {
-        return ae.qjj.e(this, qjd);
+        ae.qkM.a(this, qkF, j);
     }
 
     private long eAQ() {
-        return ae.qjj.e(this, qjc);
+        return ae.qkM.e(this, qkG);
+    }
+
+    private long eAR() {
+        return ae.qkM.e(this, qkF);
     }
 }

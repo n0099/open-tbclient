@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.searchbox.NativeBds;
 import com.baidu.searchbox.config.AppConfig;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public final class SocialEncodeUtils {
     private static final boolean DEBUG = AppConfig.isDebug();
     private static final String TAG = "SocialEncodeUtils";

@@ -1,10 +1,10 @@
 package com.facebook.cache.disk;
 
 import com.facebook.cache.disk.c;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class a implements g {
     @Override // com.facebook.cache.disk.g
-    public f ejy() {
+    public f ejw() {
         return new f() { // from class: com.facebook.cache.disk.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator

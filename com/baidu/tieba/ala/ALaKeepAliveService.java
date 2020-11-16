@@ -44,7 +44,7 @@ public class ALaKeepAliveService extends BdBaseService {
             String stringExtra3 = intent.getStringExtra(KEY_TICKER);
             int intExtra = intent.getIntExtra(KEY_NOTIFICATION_ID, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
-            builder.setContentTitle(stringExtra).setContentText(stringExtra2).setSmallIcon(R.drawable.icon_notify).setTicker(stringExtra3);
+            builder.setContentTitle(stringExtra).setContentText(stringExtra2).setSmallIcon(R.drawable.ic_icon_foreground).setTicker(stringExtra3);
             startForeground(intExtra, builder.build());
         }
         return super.onStartCommand(intent, i, i2);

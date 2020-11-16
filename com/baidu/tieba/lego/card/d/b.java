@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes.dex */
 public class b {
-    public static int fv(String str) {
+    public static int sa(String str) {
         if (str == null || str.length() == 0) {
             return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }
@@ -18,7 +18,7 @@ public class b {
         }
     }
 
-    public static boolean Ea(int i) {
+    public static boolean Ey(int i) {
         if (i == Integer.MAX_VALUE) {
             return true;
         }

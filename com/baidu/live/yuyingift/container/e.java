@@ -8,21 +8,21 @@ import com.baidu.live.yuyingift.giftlist.b;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class e {
-    private ArrayList<h> aZo;
-    private ArrayList<com.baidu.live.data.h> aZp;
-    private ArrayList<j> aZq;
-    private com.baidu.live.yuyingift.giftlist.b bQk;
-    private a bQl;
-    private b.a bQm = new b.a() { // from class: com.baidu.live.yuyingift.container.e.1
+    private ArrayList<h> aXD;
+    private ArrayList<com.baidu.live.data.h> aXE;
+    private ArrayList<j> aXF;
+    private com.baidu.live.yuyingift.giftlist.b bOA;
+    private a bOB;
+    private b.a bOC = new b.a() { // from class: com.baidu.live.yuyingift.container.e.1
         @Override // com.baidu.live.yuyingift.giftlist.b.a
         public void a(int i, String str, boolean z, ArrayList<h> arrayList, ArrayList<com.baidu.live.data.h> arrayList2, ArrayList<j> arrayList3, y yVar) {
             if (i == 0) {
-                e.this.aZo = arrayList;
-                e.this.aZp = arrayList2;
-                e.this.aZq = arrayList3;
+                e.this.aXD = arrayList;
+                e.this.aXE = arrayList2;
+                e.this.aXF = arrayList3;
             }
-            if (e.this.bQl != null) {
-                e.this.bQl.b(i, str, true, e.this.aZo, e.this.aZp, e.this.aZq, yVar);
+            if (e.this.bOB != null) {
+                e.this.bOB.b(i, str, true, e.this.aXD, e.this.aXE, e.this.aXF, yVar);
             }
         }
     };
@@ -35,20 +35,20 @@ public class e {
 
     public e(BdPageContext bdPageContext, boolean z) {
         this.mContext = bdPageContext;
-        this.bQk = new com.baidu.live.yuyingift.giftlist.b(this.mContext);
-        this.bQk.a(this.bQm);
+        this.bOA = new com.baidu.live.yuyingift.giftlist.b(this.mContext);
+        this.bOA.a(this.bOC);
     }
 
-    public void ho(String str) {
+    public void hi(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        this.bQk.a(str, com.baidu.live.d.AZ().getLong("ala_sdk_get_gift_list_req_time", currentTimeMillis) - currentTimeMillis <= 0, "open", "gift_panel");
+        this.bOA.a(str, com.baidu.live.d.Aq().getLong("ala_sdk_get_gift_list_req_time", currentTimeMillis) - currentTimeMillis <= 0, "open", "gift_panel");
     }
 
-    public void hp(String str) {
-        this.bQk.o(str, "open", "gift_panel");
+    public void hj(String str) {
+        this.bOA.o(str, "open", "gift_panel");
     }
 
     public void a(a aVar) {
-        this.bQl = aVar;
+        this.bOB = aVar;
     }
 }

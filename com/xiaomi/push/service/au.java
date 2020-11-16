@@ -20,17 +20,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class au extends be.a implements cz.a {
 
     /* renamed from: a  reason: collision with root package name */
     private long f5067a;
 
     /* renamed from: a  reason: collision with other field name */
-    private XMPushService f868a;
+    private XMPushService f871a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes18.dex */
     public static class a implements cz.b {
         a() {
         }
@@ -48,7 +48,7 @@ public class au extends be.a implements cz.a {
             int port = url.getPort() == -1 ? 80 : url.getPort();
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                String a2 = com.xiaomi.push.az.a(com.xiaomi.push.t.m583a(), url);
+                String a2 = com.xiaomi.push.az.a(com.xiaomi.push.t.m586a(), url);
                 hg.a(url.getHost() + ":" + port, (int) (System.currentTimeMillis() - currentTimeMillis), null);
                 return a2;
             } catch (IOException e) {
@@ -58,7 +58,7 @@ public class au extends be.a implements cz.a {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes18.dex */
     static class b extends cz {
         protected b(Context context, cy cyVar, cz.b bVar, String str) {
             super(context, cyVar, bVar, str);
@@ -68,8 +68,8 @@ public class au extends be.a implements cz.a {
         @Override // com.xiaomi.push.cz
         public String a(ArrayList<String> arrayList, String str, String str2, boolean z) {
             try {
-                if (he.m334a().m339a()) {
-                    str2 = be.m559a();
+                if (he.m337a().m342a()) {
+                    str2 = be.m562a();
                 }
                 return super.a(arrayList, str, str2, z);
             } catch (IOException e) {
@@ -80,7 +80,7 @@ public class au extends be.a implements cz.a {
     }
 
     au(XMPushService xMPushService) {
-        this.f868a = xMPushService;
+        this.f871a = xMPushService;
     }
 
     public static void a(XMPushService xMPushService) {
@@ -106,32 +106,32 @@ public class au extends be.a implements cz.a {
         cv b2;
         boolean z;
         if (bVar.b() && bVar.a() && System.currentTimeMillis() - this.f5067a > BdKVCache.MILLS_1Hour) {
-            com.xiaomi.channel.commonutils.logger.b.m54a("fetch bucket :" + bVar.a());
+            com.xiaomi.channel.commonutils.logger.b.m57a("fetch bucket :" + bVar.a());
             this.f5067a = System.currentTimeMillis();
             cz a2 = cz.a();
-            a2.m218a();
-            a2.m221b();
-            fs m519a = this.f868a.m519a();
-            if (m519a == null || (b2 = a2.b(m519a.m293a().c())) == null) {
+            a2.m221a();
+            a2.m224b();
+            fs m522a = this.f871a.m522a();
+            if (m522a == null || (b2 = a2.b(m522a.m296a().c())) == null) {
                 return;
             }
-            ArrayList<String> m206a = b2.m206a();
-            Iterator<String> it = m206a.iterator();
+            ArrayList<String> m209a = b2.m209a();
+            Iterator<String> it = m209a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = true;
                     break;
-                } else if (it.next().equals(m519a.m294a())) {
+                } else if (it.next().equals(m522a.m297a())) {
                     z = false;
                     break;
                 }
             }
-            if (!z || m206a.isEmpty()) {
+            if (!z || m209a.isEmpty()) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m54a("bucket changed, force reconnect");
-            this.f868a.a(0, (Exception) null);
-            this.f868a.a(false);
+            com.xiaomi.channel.commonutils.logger.b.m57a("bucket changed, force reconnect");
+            this.f871a.a(0, (Exception) null);
+            this.f871a.a(false);
         }
     }
 }

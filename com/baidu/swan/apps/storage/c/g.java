@@ -6,13 +6,13 @@ import android.support.annotation.Nullable;
 import java.io.File;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class g implements com.baidu.swan.c.b {
     @NonNull
-    private final com.baidu.swan.c.b dAX;
+    private final com.baidu.swan.c.b dzq;
 
     public g(String str, boolean z) {
-        this.dAX = com.baidu.swan.apps.t.a.axz().e(com.baidu.swan.apps.t.a.awA(), str, z);
+        this.dzq = com.baidu.swan.apps.t.a.awR().e(com.baidu.swan.apps.t.a.avS(), str, z);
     }
 
     public g(String str) {
@@ -21,124 +21,124 @@ public class g implements com.baidu.swan.c.b {
 
     @Override // com.baidu.swan.c.b
     public long getContentSize() {
-        return this.dAX.getContentSize();
+        return this.dzq.getContentSize();
     }
 
     @Override // com.baidu.swan.c.b
     @NonNull
     public File getFile() {
-        return this.dAX.getFile();
+        return this.dzq.getFile();
     }
 
     @Override // com.baidu.swan.c.b
-    public boolean aKQ() {
-        return this.dAX.aKQ();
+    public boolean aKi() {
+        return this.dzq.aKi();
     }
 
     @Override // com.baidu.swan.c.b
-    public Set<String> aKR() {
-        return this.dAX.aKR();
+    public Set<String> aKj() {
+        return this.dzq.aKj();
     }
 
     @Override // com.baidu.swan.c.b, android.content.SharedPreferences
     @Deprecated
     public Map<String, ?> getAll() {
-        return this.dAX.getAll();
+        return this.dzq.getAll();
     }
 
     @Override // android.content.SharedPreferences
     @Nullable
     public String getString(String str, @Nullable String str2) {
-        return this.dAX.getString(str, str2);
+        return this.dzq.getString(str, str2);
     }
 
     @Override // android.content.SharedPreferences
     @Nullable
     public Set<String> getStringSet(String str, @Nullable Set<String> set) {
-        return this.dAX.getStringSet(str, set);
+        return this.dzq.getStringSet(str, set);
     }
 
     @Override // android.content.SharedPreferences
     public int getInt(String str, int i) {
-        return this.dAX.getInt(str, i);
+        return this.dzq.getInt(str, i);
     }
 
     @Override // android.content.SharedPreferences
     public long getLong(String str, long j) {
-        return this.dAX.getLong(str, j);
+        return this.dzq.getLong(str, j);
     }
 
     @Override // android.content.SharedPreferences
     public float getFloat(String str, float f) {
-        return this.dAX.getFloat(str, f);
+        return this.dzq.getFloat(str, f);
     }
 
     @Override // android.content.SharedPreferences
     public boolean getBoolean(String str, boolean z) {
-        return this.dAX.getBoolean(str, z);
+        return this.dzq.getBoolean(str, z);
     }
 
     @Override // android.content.SharedPreferences
     public boolean contains(String str) {
-        return this.dAX.contains(str);
+        return this.dzq.contains(str);
     }
 
     @Override // android.content.SharedPreferences
     public SharedPreferences.Editor edit() {
-        return this.dAX.edit();
+        return this.dzq.edit();
     }
 
     @Override // com.baidu.swan.c.b, android.content.SharedPreferences
     @Deprecated
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        this.dAX.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        this.dzq.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
     @Override // com.baidu.swan.c.b, android.content.SharedPreferences
     @Deprecated
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        this.dAX.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        this.dzq.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
     public SharedPreferences.Editor putString(String str, @Nullable String str2) {
-        return this.dAX.putString(str, str2);
+        return this.dzq.putString(str, str2);
     }
 
     public SharedPreferences.Editor putStringSet(String str, @Nullable Set<String> set) {
-        return this.dAX.putStringSet(str, set);
+        return this.dzq.putStringSet(str, set);
     }
 
     public SharedPreferences.Editor putInt(String str, int i) {
-        return this.dAX.putInt(str, i);
+        return this.dzq.putInt(str, i);
     }
 
     public SharedPreferences.Editor putLong(String str, long j) {
-        return this.dAX.putLong(str, j);
+        return this.dzq.putLong(str, j);
     }
 
     public SharedPreferences.Editor putFloat(String str, float f) {
-        return this.dAX.putFloat(str, f);
+        return this.dzq.putFloat(str, f);
     }
 
     public SharedPreferences.Editor putBoolean(String str, boolean z) {
-        return this.dAX.putBoolean(str, z);
+        return this.dzq.putBoolean(str, z);
     }
 
     public SharedPreferences.Editor remove(String str) {
-        return this.dAX.remove(str);
+        return this.dzq.remove(str);
     }
 
     public SharedPreferences.Editor clear() {
-        return this.dAX.clear();
+        return this.dzq.clear();
     }
 
     @Override // android.content.SharedPreferences.Editor
     public boolean commit() {
-        return this.dAX.commit();
+        return this.dzq.commit();
     }
 
     @Override // android.content.SharedPreferences.Editor
     public void apply() {
-        this.dAX.apply();
+        this.dzq.apply();
     }
 }

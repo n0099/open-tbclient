@@ -1,5 +1,5 @@
 package com.baidu.ala.recorder.video;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public enum VideoFormat {
     RGBA(1),
     NV21(2),

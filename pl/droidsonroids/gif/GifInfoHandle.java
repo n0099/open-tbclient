@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class GifInfoHandle {
     private volatile long gifInfoPtr;
 

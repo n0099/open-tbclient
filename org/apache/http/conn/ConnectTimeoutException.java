@@ -2,7 +2,7 @@ package org.apache.http.conn;
 
 import java.io.InterruptedIOException;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ConnectTimeoutException extends InterruptedIOException {
     public ConnectTimeoutException() {
         throw new RuntimeException("Stub!");

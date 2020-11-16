@@ -3,7 +3,7 @@ package com.baidu.swan.apps.t.b;
 import android.app.Activity;
 import android.content.Context;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface f {
     boolean aO(Context context);
 

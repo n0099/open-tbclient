@@ -8,39 +8,39 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a Ti;
-    private c Tj;
-    private ArrayList<b> Tk = new ArrayList<>();
-    private C0026a Tl;
+    private static a Tj;
+    private c Tk;
+    private ArrayList<b> Tl = new ArrayList<>();
+    private C0026a Tm;
 
     /* loaded from: classes.dex */
     public interface c {
-        void G(String str, String str2);
+        void F(String str, String str2);
     }
 
     private a() {
     }
 
     public static a pM() {
-        if (Ti == null) {
+        if (Tj == null) {
             synchronized (a.class) {
-                if (Ti == null) {
-                    Ti = new a();
+                if (Tj == null) {
+                    Tj = new a();
                 }
             }
         }
-        return Ti;
+        return Tj;
     }
 
     public void a(ArrayList<b> arrayList, c cVar) {
         boolean z;
         if (arrayList != null && arrayList.size() != 0) {
-            this.Tj = cVar;
+            this.Tk = cVar;
             Iterator<b> it = arrayList.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.apkPath) && !TextUtils.isEmpty(next.packageName)) {
-                    Iterator<b> it2 = this.Tk.iterator();
+                    Iterator<b> it2 = this.Tl.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             z = false;
@@ -51,7 +51,7 @@ public class a {
                         }
                     }
                     if (!z) {
-                        this.Tk.add(next);
+                        this.Tl.add(next);
                     }
                 }
             }
@@ -61,9 +61,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void pN() {
-        if (this.Tk.size() != 0 && this.Tl == null) {
-            this.Tl = new C0026a(this.Tk.get(0));
-            this.Tl.execute(new String[0]);
+        if (this.Tl.size() != 0 && this.Tm == null) {
+            this.Tm = new C0026a(this.Tl.get(0));
+            this.Tm.execute(new String[0]);
         }
     }
 
@@ -71,18 +71,18 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.packageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0026a extends BdAsyncTask<String, Integer, Boolean> {
-        private b Tm;
+        private b Tn;
 
         public C0026a(b bVar) {
-            this.Tm = bVar;
+            this.Tn = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.Tm != null) {
-                return Boolean.valueOf(cv(this.Tm.apkPath));
+            if (this.Tn != null) {
+                return Boolean.valueOf(cx(this.Tn.apkPath));
             }
             return false;
         }
@@ -92,27 +92,27 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((C0026a) bool);
-            a.this.Tl = null;
-            if (a.this.Tk.size() > 0) {
-                Iterator it = a.this.Tk.iterator();
+            a.this.Tm = null;
+            if (a.this.Tl.size() > 0) {
+                Iterator it = a.this.Tl.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     b bVar = (b) it.next();
-                    if (a.this.a(this.Tm, bVar)) {
-                        a.this.Tk.remove(bVar);
+                    if (a.this.a(this.Tn, bVar)) {
+                        a.this.Tl.remove(bVar);
                         break;
                     }
                 }
             }
-            if (bool != null && bool.booleanValue() && a.this.Tj != null) {
-                a.this.Tj.G(this.Tm.packageName, this.Tm.apkPath);
+            if (bool != null && bool.booleanValue() && a.this.Tk != null) {
+                a.this.Tk.F(this.Tn.packageName, this.Tn.apkPath);
             }
             a.this.pN();
         }
 
-        private boolean cv(String str) {
+        private boolean cx(String str) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }

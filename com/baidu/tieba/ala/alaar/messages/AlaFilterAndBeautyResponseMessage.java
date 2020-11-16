@@ -6,46 +6,46 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaFilterAndBeautyResponseMessage extends JsonHttpResponsedMessage {
-    private String gbX;
-    private AlaFilterAndBeautyData gbY;
+    private String gbE;
+    private AlaFilterAndBeautyData gbF;
 
     public AlaFilterAndBeautyResponseMessage() {
         super(1021163);
     }
 
-    public AlaFilterAndBeautyData bNi() {
-        return this.gbY;
+    public AlaFilterAndBeautyData bMB() {
+        return this.gbF;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject == null || hasError()) {
-            if (StringUtils.isNullObject(this.gbX)) {
-                this.gbX = com.baidu.live.d.AZ().getString("sp_ar_filter_and_beauty_result", "");
+            if (StringUtils.isNullObject(this.gbE)) {
+                this.gbE = com.baidu.live.d.Aq().getString("sp_ar_filter_and_beauty_result", "");
             }
-            jSONObject = new JSONObject(this.gbX);
+            jSONObject = new JSONObject(this.gbE);
         } else {
-            this.gbX = jSONObject.toString();
-            com.baidu.live.d.AZ().putString("sp_ar_filter_and_beauty_result", this.gbX);
+            this.gbE = jSONObject.toString();
+            com.baidu.live.d.Aq().putString("sp_ar_filter_and_beauty_result", this.gbE);
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
-            this.gbY = new AlaFilterAndBeautyData();
-            this.gbY.parse(optJSONObject);
+            this.gbF = new AlaFilterAndBeautyData();
+            this.gbF.parse(optJSONObject);
         }
     }
 
-    public AlaFilterAndBeautyData tE(int i) {
-        if (i == com.baidu.live.d.AZ().getInt("sp_ar_filter_and_beauty_version", -1)) {
+    public AlaFilterAndBeautyData uc(int i) {
+        if (i == com.baidu.live.d.Aq().getInt("sp_ar_filter_and_beauty_version", -1)) {
             try {
                 decodeLogicInBackGround(1021163, null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
-            com.baidu.live.d.AZ().putString("sp_ar_filter_and_beauty_result", "");
+            com.baidu.live.d.Aq().putString("sp_ar_filter_and_beauty_result", "");
         }
-        return this.gbY;
+        return this.gbF;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.ufosdk.ui;
 import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.EditText;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class eb implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

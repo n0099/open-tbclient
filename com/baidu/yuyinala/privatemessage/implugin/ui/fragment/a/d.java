@@ -4,67 +4,67 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes4.dex */
 public class d {
-    private static d oAN;
-    private b oAO;
-    private b oAP;
-    private a oAQ;
-    private String oAR = "";
-    private ConcurrentHashMap<String, c> oAS = new ConcurrentHashMap<>(4);
+    private static d oCr;
+    private b oCs;
+    private b oCt;
+    private a oCu;
+    private String oCv = "";
+    private ConcurrentHashMap<String, c> oCw = new ConcurrentHashMap<>(4);
     private AtomicInteger mOpenCounter = new AtomicInteger();
 
-    public static d egN() {
-        if (oAN == null) {
+    public static d egL() {
+        if (oCr == null) {
             synchronized (d.class) {
-                if (oAN == null) {
-                    oAN = new d();
+                if (oCr == null) {
+                    oCr = new d();
                 }
             }
         }
-        return oAN;
+        return oCr;
     }
 
-    public c XE(String str) {
-        return this.oAS.get(str);
+    public c Xp(String str) {
+        return this.oCw.get(str);
     }
 
-    public String egO() {
-        return this.oAR;
+    public String egM() {
+        return this.oCv;
     }
 
     public void a(String str, c cVar) {
-        this.oAR = str;
+        this.oCv = str;
         if (cVar != null) {
-            this.oAS.put(str, cVar);
+            this.oCw.put(str, cVar);
         }
     }
 
-    public void XF(String str) {
-        if (this.oAS.containsKey(str)) {
-            this.oAS.remove(str);
+    public void Xq(String str) {
+        if (this.oCw.containsKey(str)) {
+            this.oCw.remove(str);
         }
     }
 
-    public b egP() {
-        return this.oAO;
+    public b egN() {
+        return this.oCs;
     }
 
     public void a(b bVar) {
-        this.oAO = bVar;
+        this.oCs = bVar;
     }
 
-    public b egQ() {
-        return this.oAP;
+    public b egO() {
+        return this.oCt;
     }
 
     public void b(b bVar) {
-        this.oAP = bVar;
+        this.oCt = bVar;
     }
 
-    public static void egR() {
-        oAN = null;
+    public static void egP() {
+        oCr = null;
     }
 
-    public a egS() {
-        return this.oAQ;
+    public a egQ() {
+        return this.oCu;
     }
 }

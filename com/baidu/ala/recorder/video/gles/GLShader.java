@@ -5,7 +5,7 @@ import android.opengl.GLES20;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 @TargetApi(15)
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class GLShader {
     private int fragmentShader;
     private int program = GLES20.glCreateProgram();

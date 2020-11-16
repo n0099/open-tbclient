@@ -2,15 +2,15 @@ package com.baidu.cesium.a;
 
 import com.baidu.cesium.a.i;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 final class g extends f {
-    private a ama;
+    private a amg;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Class<?> f1293a;
+        private Class<?> f1296a;
         private Method b;
         private Method c;
 
@@ -29,9 +29,9 @@ final class g extends f {
 
         private void a() {
             try {
-                this.f1293a = Class.forName(i.a(d.a()), true, Object.class.getClassLoader());
-                this.b = i.a(this.f1293a, i.a(d.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                this.c = i.a(this.f1293a, i.a(d.c()), null);
+                this.f1296a = Class.forName(i.a(d.a()), true, Object.class.getClassLoader());
+                this.b = i.a(this.f1296a, i.a(d.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                this.c = i.a(this.f1296a, i.a(d.c()), null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -48,7 +48,7 @@ final class g extends f {
 
         /* JADX INFO: Access modifiers changed from: private */
         public Object b() {
-            return this.f1293a.newInstance();
+            return this.f1296a.newInstance();
         }
     }
 
@@ -58,16 +58,16 @@ final class g extends f {
         this.e = 32;
         this.f = i;
         this.g = i2;
-        this.ama = new a();
+        this.amg = new a();
     }
 
     @Override // com.baidu.cesium.a.f
     public b l(byte[] bArr, int i, int i2) {
         long j = 4294967295L;
         try {
-            Object b = this.ama.b();
-            this.ama.a(b, bArr, i, i2);
-            j = this.ama.G(b);
+            Object b = this.amg.b();
+            this.amg.a(b, bArr, i, i2);
+            j = this.amg.G(b);
         } catch (Exception e) {
         }
         return b.a(new long[]{j});

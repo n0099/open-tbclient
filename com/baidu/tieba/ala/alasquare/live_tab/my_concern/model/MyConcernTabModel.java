@@ -15,14 +15,15 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.b.b;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class MyConcernTabModel extends BdBaseModel {
-    private a glA;
-    private b glB;
+    private a glh;
+    private b gli;
     private TbPageContext mTbPageContext;
     private int pn = 1;
-    private HttpMessageListener glC = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST) { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel.1
+    private HttpMessageListener glj = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST) { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -30,15 +31,15 @@ public class MyConcernTabModel extends BdBaseModel {
                 AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse = (AlaLiveTabMyConcernResponse) httpResponsedMessage;
                 boolean z = y.isEmpty(alaLiveTabMyConcernResponse.followList) && y.isEmpty(alaLiveTabMyConcernResponse.recommendList) && y.isEmpty(alaLiveTabMyConcernResponse.followCloseList) && alaLiveTabMyConcernResponse.followStatus == 0;
                 if (alaLiveTabMyConcernResponse.getError() != 0 || !alaLiveTabMyConcernResponse.isSuccess() || z) {
-                    if (MyConcernTabModel.this.glA != null) {
-                        MyConcernTabModel.this.glA.lJ(MyConcernTabModel.this.pn == 1);
+                    if (MyConcernTabModel.this.glh != null) {
+                        MyConcernTabModel.this.glh.lK(MyConcernTabModel.this.pn == 1);
                         return;
                     }
                     return;
                 }
-                MyConcernTabModel.this.glB.c(alaLiveTabMyConcernResponse, MyConcernTabModel.this.pn == 1);
-                if (MyConcernTabModel.this.glA != null) {
-                    MyConcernTabModel.this.glA.b(MyConcernTabModel.this.glB.bPn(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.pn == 1);
+                MyConcernTabModel.this.gli.c(alaLiveTabMyConcernResponse, MyConcernTabModel.this.pn == 1);
+                if (MyConcernTabModel.this.glh != null) {
+                    MyConcernTabModel.this.glh.b(MyConcernTabModel.this.gli.bOG(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.pn == 1);
                 }
                 MyConcernTabModel.this.pn = alaLiveTabMyConcernResponse.pn + 1;
             }
@@ -49,17 +50,17 @@ public class MyConcernTabModel extends BdBaseModel {
     public interface a {
         void b(List<q> list, boolean z, boolean z2);
 
-        void lJ(boolean z);
+        void lK(boolean z);
     }
 
     public MyConcernTabModel(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.glB = new b(this.mTbPageContext);
-        bOB();
-        MessageManager.getInstance().registerListener(this.glC);
+        this.gli = new b(this.mTbPageContext);
+        bNU();
+        MessageManager.getInstance().registerListener(this.glj);
     }
 
-    private void bOB() {
+    private void bNU() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_TAB_SUB_MY_CONCERN_LIST);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -68,31 +69,31 @@ public class MyConcernTabModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void TL() {
+    public void Tc() {
         this.pn = 1;
-        this.glB.clearData();
-        tW(1);
+        this.gli.clearData();
+        uu(1);
     }
 
-    public void bPk() {
-        tW(this.pn);
+    public void bOD() {
+        uu(this.pn);
     }
 
-    private void tW(int i) {
+    private void uu(int i) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         httpMessage.addParam(Config.PACKAGE_NAME, i);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void onDestroy() {
-        this.glB.clearData();
-        if (this.glC != null) {
-            MessageManager.getInstance().unRegisterListener(this.glC);
+        this.gli.clearData();
+        if (this.glj != null) {
+            MessageManager.getInstance().unRegisterListener(this.glj);
         }
     }
 
     public void a(a aVar) {
-        this.glA = aVar;
+        this.glh = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -105,7 +106,7 @@ public class MyConcernTabModel extends BdBaseModel {
         return false;
     }
 
-    public void x(Class<? extends com.baidu.tieba.card.data.b> cls) {
-        this.glB.x(cls);
+    public void x(Class<? extends BaseCardInfo> cls) {
+        this.gli.x(cls);
     }
 }

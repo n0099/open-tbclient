@@ -13,16 +13,16 @@ import android.util.Pair;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static e f1024a = null;
+    private static e f1027a = null;
     private static final Object b = new Object();
     private static int c = 200;
 
     /* renamed from: com.baidu.android.pushservice.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     enum EnumC0044a {
         alarmMsgInfoId,
         msgId,
@@ -33,7 +33,7 @@ public class a {
         isAlarm
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     enum b {
         appInfoId,
         appid,
@@ -46,7 +46,7 @@ public class a {
         intergratedPushVersion
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     enum c {
         actionId,
         actionName,
@@ -66,7 +66,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class d implements DatabaseErrorHandler {
         private d() {
         }
@@ -136,11 +136,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class e extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f1034a = "CREATE TABLE StatisticsInfo (" + i.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + i.packageName.name() + " TEXT NOT NULL, " + i.open_type.name() + " TEXT NOT NULL, " + i.msgid.name() + " TEXT, " + i.app_open_time.name() + " TEXT NOT NULL, " + i.app_close_time.name() + " TEXT NOT NULL, " + i.use_duration.name() + " TEXT NOT NULL, " + i.extra.name() + " TEXT);";
+        private static final String f1037a = "CREATE TABLE StatisticsInfo (" + i.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + i.packageName.name() + " TEXT NOT NULL, " + i.open_type.name() + " TEXT NOT NULL, " + i.msgid.name() + " TEXT, " + i.app_open_time.name() + " TEXT NOT NULL, " + i.app_close_time.name() + " TEXT NOT NULL, " + i.use_duration.name() + " TEXT NOT NULL, " + i.extra.name() + " TEXT);";
         private static final String b = "CREATE TABLE PushBehavior (" + c.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.actionName.name() + " TEXT NOT NULL, " + c.timeStamp.name() + " LONG NOT NULL, " + c.networkStatus.name() + " TEXT, " + c.msgType.name() + " INTEGER, " + c.msgId.name() + " TEXT, " + c.msgLen.name() + " INTEGER, " + c.errorMsg.name() + " TEXT, " + c.requestId.name() + " TEXT, " + c.stableHeartInterval.name() + " INTEGER, " + c.errorCode.name() + " INTEGER, " + c.appid.name() + " TEXT, " + c.channel.name() + " TEXT, " + c.packageName.name() + " TEXT, " + c.openByPackageName.name() + " TEXT);";
         private static final String c = "CREATE TABLE MsgArriveApp (" + g.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + g.msgId.name() + " TEXT NOT NULL, " + g.timeStamp.name() + " LONG NOT NULL);";
         private static final String d = "CREATE TABLE AlarmMsgInfo (" + EnumC0044a.alarmMsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0044a.msgId.name() + " TEXT NOT NULL, " + EnumC0044a.sendtime.name() + " LONG NOT NULL, " + EnumC0044a.showtime.name() + " LONG NOT NULL, " + EnumC0044a.expiretime.name() + " LONG NOT NULL, " + EnumC0044a.msgEnable.name() + " INTEGER, " + EnumC0044a.isAlarm.name() + " INTEGER);";
@@ -172,7 +172,7 @@ public class a {
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL(f1034a);
+                sQLiteDatabase.execSQL(f1037a);
                 sQLiteDatabase.execSQL(b);
                 sQLiteDatabase.execSQL(c);
                 sQLiteDatabase.execSQL(d);
@@ -190,7 +190,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     enum f {
         belongTo,
         downloadUrl,
@@ -204,14 +204,14 @@ public class a {
         timeStamp
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     enum g {
         MsgInfoId,
         msgId,
         timeStamp
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     enum h {
         pkgName,
         startHour,
@@ -220,7 +220,7 @@ public class a {
         endMinute
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     enum i {
         info_id,
         packageName,
@@ -300,12 +300,12 @@ public class a {
     public static void a() {
         synchronized (b) {
             try {
-                if (f1024a != null) {
-                    f1024a.close();
-                    f1024a = null;
+                if (f1027a != null) {
+                    f1027a.close();
+                    f1027a = null;
                 }
             } catch (Exception e2) {
-                f1024a = null;
+                f1027a = null;
             }
         }
     }
@@ -394,17 +394,17 @@ public class a {
 
     private static e b(Context context) {
         synchronized (b) {
-            if (f1024a == null) {
+            if (f1027a == null) {
                 String path = context.getDatabasePath("pushstat_6.9.13.db").getPath();
                 a("pushstat_6.9.13.db", context);
                 if (Build.VERSION.SDK_INT >= 11) {
-                    f1024a = new e(context, path, 2, new d());
+                    f1027a = new e(context, path, 2, new d());
                 } else {
-                    f1024a = new e(context, path, 2);
+                    f1027a = new e(context, path, 2);
                 }
             }
         }
-        return f1024a;
+        return f1027a;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00cf */

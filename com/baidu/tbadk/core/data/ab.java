@@ -1,24 +1,32 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.live.tbadk.data.Config;
-import tbclient.MultiForumPerm;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
+import org.json.JSONObject;
+import tbclient.FrsPage.MemberShowIcon;
 /* loaded from: classes.dex */
 public class ab {
-    public boolean eAP;
-    public boolean eAQ;
-    public int type;
+    private String mIcon;
+    private String mName;
+    private String mUrl;
 
-    public void a(MultiForumPerm multiForumPerm) {
-        int i;
-        if (multiForumPerm != null) {
-            this.eAP = multiForumPerm.is_bawu.intValue() == 1;
-            if (Config.BAWU_TYPE_MANAGER.equals(multiForumPerm.bawu_type)) {
-                i = 1;
-            } else {
-                i = Config.BAWU_TYPE_ASSIST.equals(multiForumPerm.bawu_type) ? 2 : 0;
+    public void a(MemberShowIcon memberShowIcon) {
+        if (memberShowIcon != null) {
+            this.mIcon = memberShowIcon.icon;
+            this.mName = memberShowIcon.name;
+            this.mUrl = memberShowIcon.url;
+        }
+    }
+
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.mIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
+                this.mName = jSONObject.optString("name");
+                this.mUrl = jSONObject.optString("url");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            this.type = i;
-            this.eAQ = multiForumPerm.is_deleted.intValue() == 1;
         }
     }
 }

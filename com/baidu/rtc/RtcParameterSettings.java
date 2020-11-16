@@ -1,7 +1,7 @@
 package com.baidu.rtc;
 
 import com.baidu.ala.helper.StreamConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class RtcParameterSettings {
     public boolean HasVideo = true;
     public boolean HasAudio = true;
@@ -21,17 +21,17 @@ public class RtcParameterSettings {
     public boolean AutoPublish = true;
     public boolean AutoSubScribe = true;
     public int AudioContentType = 1;
-    public RtcVideoRenderMode cmh = RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_INTERNAL;
-    public boolean cmg = false;
-    public boolean clY = false;
-    public boolean cmb = false;
-    public boolean cme = false;
-    public boolean cma = false;
-    public boolean cmc = false;
-    public boolean clZ = false;
-    public int cmf = RtcVideoBitrateMode.RTC_VIDEO_CONTROLRATECONSTANT.ordinal();
+    public RtcVideoRenderMode ckw = RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_INTERNAL;
+    public boolean ckv = false;
+    public boolean cko = false;
+    public boolean ckr = false;
+    public boolean ckt = false;
+    public boolean ckq = false;
+    public boolean cks = false;
+    public boolean ckp = false;
+    public int cku = RtcVideoBitrateMode.RTC_VIDEO_CONTROLRATECONSTANT.ordinal();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public enum RtcParamSettingType {
         RTC_AUDIO_PARAM_SETTINGS_ONLY_AUDIO,
         RTC_AUDIO_PARAM_SETTINGS_AEC_DUMP,
@@ -51,20 +51,20 @@ public class RtcParameterSettings {
         RTC_PARAM_SETTINGS_OTHERS
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public enum RtcVideoBitrateMode {
         RTC_VIDEO_CONTROLRATEDISABLE,
         RTC_VIDEO_CONTROLRATEVARIABLE,
         RTC_VIDEO_CONTROLRATECONSTANT
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public enum RtcVideoRenderMode {
         RTC_VIDEO_RENDER_MODE_INTERNAL,
         RTC_VIDEO_RENDER_MODE_EXTERNAL
     }
 
-    public static RtcParameterSettings adT() {
+    public static RtcParameterSettings adl() {
         return new RtcParameterSettings();
     }
 }

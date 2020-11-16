@@ -21,9 +21,9 @@ public class a extends RelativeLayout {
     private int d;
     private boolean g;
     private String h;
-    private MyWebView pvC;
-    private ListItem pvD;
-    private d pvE;
+    private MyWebView pxg;
+    private ListItem pxh;
+    private d pxi;
 
     public a(Context context, ListItem listItem, d dVar) {
         super(context);
@@ -35,19 +35,19 @@ public class a extends RelativeLayout {
 
     private void a(Context context, ListItem listItem, d dVar) {
         this.f4186a = context;
-        this.pvD = listItem;
-        this.pvE = dVar;
+        this.pxh = listItem;
+        this.pxi = dVar;
         inflate(getContext(), a.h.popupwebview, this);
-        setLayoutParams(new RelativeLayout.LayoutParams(tv.chushou.zues.utils.a.hD(this.f4186a).x, tv.chushou.zues.utils.a.dip2px(this.f4186a, 80.0f)));
-        this.pvC = (MyWebView) findViewById(a.f.wv);
-        this.pvC.setBackgroundColor(0);
+        setLayoutParams(new RelativeLayout.LayoutParams(tv.chushou.zues.utils.a.hB(this.f4186a).x, tv.chushou.zues.utils.a.dip2px(this.f4186a, 80.0f)));
+        this.pxg = (MyWebView) findViewById(a.f.wv);
+        this.pxg.setBackgroundColor(0);
         com.kascend.chushou.widget.cswebview.a aVar = new com.kascend.chushou.widget.cswebview.a();
         aVar.a(new JSInterface(this.f4186a));
-        if (this.pvE != null) {
-            aVar.a(this.pvE);
+        if (this.pxi != null) {
+            aVar.a(this.pxi);
         }
-        aVar.bI(this);
-        CSWebView.a(this.pvC, this.f4186a, new c() { // from class: com.kascend.chushou.player.ui.miniview.a.1
+        aVar.bJ(this);
+        CSWebView.a(this.pxg, this.f4186a, new c() { // from class: com.kascend.chushou.player.ui.miniview.a.1
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
@@ -66,10 +66,10 @@ public class a extends RelativeLayout {
                 }
             }
         }, aVar);
-        this.pvC.onResume();
-        this.pvC.resumeTimers();
+        this.pxg.onResume();
+        this.pxg.resumeTimers();
         this.g = false;
-        this.pvC.loadUrl(this.pvD.mUrl);
+        this.pxg.loadUrl(this.pxh.mUrl);
         setVisibility(8);
     }
 
@@ -89,7 +89,7 @@ public class a extends RelativeLayout {
             public void onAnimationStart(Animation animation) {
                 super.onAnimationStart(animation);
                 com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(3, 0);
-                aVar.YH(str);
+                aVar.Ys(str);
                 tv.chushou.zues.a.a.post(aVar);
             }
 
@@ -106,14 +106,14 @@ public class a extends RelativeLayout {
 
     public boolean a() {
         if (!this.c) {
-            return this.pvD.mPackStyle != 1;
+            return this.pxh.mPackStyle != 1;
         }
         this.c = false;
-        if (this.pvD.mPackStyle != 1) {
+        if (this.pxh.mPackStyle != 1) {
             setVisibility(8);
             b();
             com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(3, 8);
-            aVar.YH(this.h);
+            aVar.Ys(this.h);
             tv.chushou.zues.a.a.post(aVar);
             return true;
         }
@@ -123,7 +123,7 @@ public class a extends RelativeLayout {
             public void onAnimationStart(Animation animation) {
                 super.onAnimationStart(animation);
                 com.kascend.chushou.player.ui.button.a aVar2 = new com.kascend.chushou.player.ui.button.a(3, 8);
-                aVar2.YH(a.this.h);
+                aVar2.Ys(a.this.h);
                 tv.chushou.zues.a.a.post(aVar2);
             }
 
@@ -140,18 +140,18 @@ public class a extends RelativeLayout {
     }
 
     public void a(String str) {
-        if (this.pvC != null) {
-            this.pvC.loadUrl("javascript:getRefreshData('" + str + "')");
+        if (this.pxg != null) {
+            this.pxg.loadUrl("javascript:getRefreshData('" + str + "')");
         }
     }
 
     public void b() {
         this.f4186a = null;
-        if (this.pvC != null) {
-            this.pvC.loadUrl("");
-            this.pvC.removeAllViews();
-            this.pvC.destroy();
-            this.pvC = null;
+        if (this.pxg != null) {
+            this.pxg.loadUrl("");
+            this.pxg.removeAllViews();
+            this.pxg.destroy();
+            this.pxg = null;
         }
     }
 }

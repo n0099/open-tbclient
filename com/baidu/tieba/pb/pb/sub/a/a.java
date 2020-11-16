@@ -7,10 +7,10 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.adp.widget.ListView.af.a;
 import com.baidu.adp.widget.ListView.s;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public abstract class a<T, V extends af.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected com.baidu.tieba.pb.pb.a lJZ;
-    protected s lso;
+    protected com.baidu.tieba.pb.pb.a lKr;
+    protected s lsE;
     protected boolean mIsFromCDN;
     protected int mSkinType;
 
@@ -23,14 +23,14 @@ public abstract class a<T, V extends af.a> extends com.baidu.adp.widget.ListView
         super(aVar.getPageContext().getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mSkinType = 3;
         this.mIsFromCDN = false;
-        this.lJZ = aVar;
+        this.lKr = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.lso = (s) viewGroup;
+        this.lsE = (s) viewGroup;
         return null;
     }
 

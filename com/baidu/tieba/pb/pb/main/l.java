@@ -5,9 +5,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class l extends af.a {
-    private ViewGroup lrk;
+    private ViewGroup lrz;
     private View mRootView;
     private TextView mTitle;
     private View mTopLine;
@@ -16,8 +16,9 @@ public class l extends af.a {
         super(view);
         this.mRootView = view;
         this.mTopLine = view.findViewById(R.id.pb_child_title_top_line);
-        this.lrk = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
+        this.lrz = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
         this.mTitle = (TextView) view.findViewById(R.id.tv_pb_child_title);
+        com.baidu.tbadk.core.elementsMaven.c.bj(this.mTitle).oV(R.string.F_X02);
     }
 
     public void a(com.baidu.tieba.pb.data.e eVar) {
@@ -25,16 +26,16 @@ public class l extends af.a {
     }
 
     public void onChangeSkinType() {
-        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_c);
-        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lrk, R.color.cp_bg_line_e);
-        com.baidu.tbadk.core.util.ap.setViewTextColor(this.mTitle, R.color.cp_cont_b);
+        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.mTopLine, R.color.CAM_X0204);
+        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lrz, R.color.CAM_X0205);
+        com.baidu.tbadk.core.util.ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public void FK(int i) {
+    public void Gi(int i) {
         if (this.mRootView != null) {
             this.mRootView.setVisibility(i);
         }

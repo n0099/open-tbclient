@@ -6,7 +6,7 @@ import com.baidu.swan.apps.a;
 import kotlin.h;
 import kotlin.jvm.internal.Lambda;
 @h
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 final class SwanLoadingTips$loadingTips$2 extends Lambda implements kotlin.jvm.a.a<String[]> {
     public static final SwanLoadingTips$loadingTips$2 INSTANCE = new SwanLoadingTips$loadingTips$2();
 
@@ -21,14 +21,14 @@ final class SwanLoadingTips$loadingTips$2 extends Lambda implements kotlin.jvm.a
         Resources resources2;
         switch ((int) (Math.random() * 2)) {
             case 0:
-                Application awA = com.baidu.swan.apps.t.a.awA();
-                if (awA == null || (resources = awA.getResources()) == null) {
+                Application avS = com.baidu.swan.apps.t.a.avS();
+                if (avS == null || (resources = avS.getResources()) == null) {
                     return null;
                 }
                 return resources.getStringArray(a.b.aiapps_loading_tips_skill);
             default:
-                Application awA2 = com.baidu.swan.apps.t.a.awA();
-                if (awA2 == null || (resources2 = awA2.getResources()) == null) {
+                Application avS2 = com.baidu.swan.apps.t.a.avS();
+                if (avS2 == null || (resources2 = avS2.getResources()) == null) {
                     return null;
                 }
                 return resources2.getStringArray(a.b.aiapps_loading_tips_prepare);

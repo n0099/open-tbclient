@@ -14,11 +14,11 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbClipImageView {
     private AlaInfoData alaInfo;
-    private int eSk;
-    private int eSl;
-    private int eSm;
-    private float eSn;
-    private float eSo;
+    private int eRm;
+    private int eRn;
+    private int eRo;
+    private float eRp;
+    private float eRq;
     private String fName;
     private String fid;
     private int floor;
@@ -58,9 +58,9 @@ public class HeadImageView extends TbClipImageView {
         this.mUrl = null;
         this.fName = null;
         this.mDefaultId = R.drawable.transparent_bg;
-        this.mDefaultBgId = R.color.cp_bg_line_j;
-        this.eSk = R.drawable.ic_icon_mask_shen20_n;
-        this.eSl = 0;
+        this.mDefaultBgId = R.color.CAM_X0209;
+        this.eRm = R.drawable.ic_icon_mask_shen20_n;
+        this.eRn = 0;
         this.liveStatus = -1;
         init();
     }
@@ -162,8 +162,8 @@ public class HeadImageView extends TbClipImageView {
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.fAP != null && this.fAP.fvf) {
-            this.fAP.bCp();
+        } else if (this.fAp != null && this.fAp.fup) {
+            this.fAp.bBF();
         }
     }
 
@@ -173,22 +173,22 @@ public class HeadImageView extends TbClipImageView {
         if (canvas != null) {
             if (this.mMaskColor != 0) {
                 this.mPaint.setColor(this.mMaskColor);
-                canvas.drawCircle(this.eSn, this.eSo, this.eSn, this.mPaint);
+                canvas.drawCircle(this.eRp, this.eRq, this.eRp, this.mPaint);
             }
             updateVIcon(canvas);
         }
     }
 
     public void setBjhAuthIconRes(int i) {
-        this.eSm = i;
+        this.eRo = i;
     }
 
     public void setBazhuIconRes(int i) {
-        this.eSl = i;
+        this.eRn = i;
     }
 
     public void setGodIconResId(int i) {
-        this.eSk = i;
+        this.eRm = i;
     }
 
     public void setGodIconWidth(int i) {
@@ -231,20 +231,20 @@ public class HeadImageView extends TbClipImageView {
 
     public void updateVIcon(Canvas canvas) {
         if (this.isShowV && this.mIconWidth > 0) {
-            if (this.eSm != 0) {
-                Drawable bjhBigVIconDrawable = UtilHelper.getBjhBigVIconDrawable(this.eSm);
+            if (this.eRo != 0) {
+                Drawable bjhBigVIconDrawable = UtilHelper.getBjhBigVIconDrawable(this.eRo);
                 if (bjhBigVIconDrawable != null) {
                     bjhBigVIconDrawable.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
                     bjhBigVIconDrawable.draw(canvas);
                 }
-            } else if (this.eSl != 0) {
-                Drawable drawable = ap.getDrawable(this.eSl);
+            } else if (this.eRn != 0) {
+                Drawable drawable = ap.getDrawable(this.eRn);
                 if (drawable != null) {
                     drawable.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
                     drawable.draw(canvas);
                 }
             } else {
-                Drawable bjhBigVIconDrawable2 = UtilHelper.getBjhBigVIconDrawable(this.eSk);
+                Drawable bjhBigVIconDrawable2 = UtilHelper.getBjhBigVIconDrawable(this.eRm);
                 if (bjhBigVIconDrawable2 != null) {
                     bjhBigVIconDrawable2.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
                     bjhBigVIconDrawable2.draw(canvas);
@@ -259,7 +259,7 @@ public class HeadImageView extends TbClipImageView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = getWidth();
         this.height = getHeight();
-        this.eSn = this.width / 2.0f;
-        this.eSo = this.height / 2.0f;
+        this.eRp = this.width / 2.0f;
+        this.eRq = this.height / 2.0f;
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.q.a;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 class c {
-    public com.baidu.q.a.a.c osA;
+    public com.baidu.q.a.a.c oud;
 
     public c(Context context) {
-        this.osA = new d(context).eei();
+        this.oud = new d(context).eef();
     }
 }

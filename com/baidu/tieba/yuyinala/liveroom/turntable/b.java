@@ -16,49 +16,49 @@ import com.baidu.tieba.yuyinala.liveroom.turntable.a;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes4.dex */
 public class b {
-    private Activity bNY;
-    private CustomMessageListener bOa;
-    private a.InterfaceC0915a oal;
-    private a oan;
+    private Activity bMo;
+    private CustomMessageListener bMq;
+    private a.InterfaceC0918a obP;
+    private a obR;
 
     public b(Activity activity) {
-        this.bNY = activity;
-        WY();
+        this.bMo = activity;
+        Wp();
     }
 
     public void a(String str, long j, long j2, long j3) {
-        this.oan = new a(this.bNY);
-        this.oan.a(this.oal);
-        this.oan.WZ().setBackgroundColor(hW(str));
+        this.obR = new a(this.bMo);
+        this.obR.a(this.obP);
+        this.obR.Wq().setBackgroundColor(hQ(str));
         g gVar = new g();
-        gVar.y(this.bNY).a(this.oan).a(this.oan.WZ().getSchemeCallback());
-        com.baidu.live.view.web.a[] WX = gVar.WX();
-        for (com.baidu.live.view.web.a aVar : WX) {
-            this.oan.WZ().addJavascriptInterface(aVar, aVar.getName());
+        gVar.x(this.bMo).a(this.obR).a(this.obR.Wq().getSchemeCallback());
+        com.baidu.live.view.web.a[] Wo = gVar.Wo();
+        for (com.baidu.live.view.web.a aVar : Wo) {
+            this.obR.Wq().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.oan.Gn(b(str, j, j2, j3));
+        this.obR.FO(b(str, j, j2, j3));
     }
 
     public void dismiss() {
-        if (this.oan != null) {
-            this.oan.Xa();
+        if (this.obR != null) {
+            this.obR.Wr();
         }
     }
 
-    private void WY() {
-        this.bOa = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.yuyinala.liveroom.turntable.b.1
+    private void Wp() {
+        this.bMq = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.yuyinala.liveroom.turntable.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.oan != null && b.this.oan.isShowing()) {
-                    b.this.oan.dismiss();
+                if (b.this.obR != null && b.this.obR.isShowing()) {
+                    b.this.obR.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bOa);
+        MessageManager.getInstance().registerListener(this.bMq);
     }
 
-    private int hW(String str) {
+    private int hQ(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -95,7 +95,7 @@ public class b {
         sb.append("&_sdk_version=");
         sb.append(TbConfig.SDK_VERSION);
         sb.append("&scene_from=");
-        sb.append(s.UK());
+        sb.append(s.Ub());
         return sb.toString();
     }
 }

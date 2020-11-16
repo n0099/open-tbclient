@@ -1,7 +1,7 @@
 package com.tb.airbnb.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class n extends f<com.tb.airbnb.lottie.model.b> {
     public n(List<com.tb.airbnb.lottie.e.a<com.tb.airbnb.lottie.model.b>> list) {
         super(list);

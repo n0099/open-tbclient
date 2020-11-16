@@ -3,7 +3,7 @@ package com.baidu.ufosdk.f;
 import android.annotation.SuppressLint;
 import android.util.Log;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */

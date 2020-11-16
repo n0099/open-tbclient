@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import java.io.IOException;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class MusicPlayer {
-    private static MusicPlayer nmM = null;
-    private MediaPlayer nmL;
-    private MusicPlayerState nmN = MusicPlayerState.WAIT;
+    private static MusicPlayer nnT = null;
+    private MediaPlayer nnS;
+    private MusicPlayerState nnU = MusicPlayerState.WAIT;
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes22.dex */
     public enum MusicPlayerState {
         WAIT,
         PAUSE,
@@ -22,78 +22,78 @@ public class MusicPlayer {
         ERROR
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes22.dex */
     public interface a {
-        void dOE();
+        void dOD();
     }
 
     private MusicPlayer() {
     }
 
-    public static synchronized MusicPlayer dOG() {
+    public static synchronized MusicPlayer dOF() {
         MusicPlayer musicPlayer;
         synchronized (MusicPlayer.class) {
-            if (nmM == null) {
-                nmM = new MusicPlayer();
+            if (nnT == null) {
+                nnT = new MusicPlayer();
             }
-            musicPlayer = nmM;
+            musicPlayer = nnT;
         }
         return musicPlayer;
     }
 
     public void a(String str, final CloudMusicData.MusicTagList.MusicList musicList, a aVar) {
-        if (this.nmN != MusicPlayerState.PAUSE) {
-            if (this.nmL == null) {
-                this.nmL = new MediaPlayer();
-                this.nmL.setAudioStreamType(3);
+        if (this.nnU != MusicPlayerState.PAUSE) {
+            if (this.nnS == null) {
+                this.nnS = new MediaPlayer();
+                this.nnS.setAudioStreamType(3);
             }
             try {
-                this.nmL.reset();
-                this.nmL.setDataSource(str);
-                this.nmL.prepare();
-                this.nmN = MusicPlayerState.WAIT;
-                this.nmL.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
+                this.nnS.reset();
+                this.nnS.setDataSource(str);
+                this.nnS.prepare();
+                this.nnU = MusicPlayerState.WAIT;
+                this.nnS.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
-                        com.baidu.tieba.video.cloudmusic.data.a.dOJ().a(musicList);
+                        com.baidu.tieba.video.cloudmusic.data.a.dOI().a(musicList);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ON_CLOUD_MUSIC_PLAY));
-                        MusicPlayer.this.nmL.setLooping(true);
-                        MusicPlayer.this.nmL.start();
-                        MusicPlayer.this.nmN = MusicPlayerState.PREPARED;
+                        MusicPlayer.this.nnS.setLooping(true);
+                        MusicPlayer.this.nnS.start();
+                        MusicPlayer.this.nnU = MusicPlayerState.PREPARED;
                     }
                 });
             } catch (IOException e) {
                 e.printStackTrace();
-                this.nmN = MusicPlayerState.ERROR;
+                this.nnU = MusicPlayerState.ERROR;
                 if (aVar != null) {
-                    aVar.dOE();
+                    aVar.dOD();
                 }
             }
         }
     }
 
+    public void dOG() {
+        if (this.nnS != null && this.nnS.isPlaying()) {
+            this.nnS.pause();
+        }
+        this.nnU = MusicPlayerState.PAUSE;
+    }
+
     public void dOH() {
-        if (this.nmL != null && this.nmL.isPlaying()) {
-            this.nmL.pause();
+        if (this.nnS != null) {
+            this.nnS.start();
+            this.nnS.seekTo(0);
         }
-        this.nmN = MusicPlayerState.PAUSE;
+        this.nnU = MusicPlayerState.RESUME;
     }
 
-    public void dOI() {
-        if (this.nmL != null) {
-            this.nmL.start();
-            this.nmL.seekTo(0);
-        }
-        this.nmN = MusicPlayerState.RESUME;
-    }
-
-    public void beE() {
-        if (this.nmL != null) {
-            if (this.nmL.isPlaying()) {
-                this.nmL.stop();
+    public void bdX() {
+        if (this.nnS != null) {
+            if (this.nnS.isPlaying()) {
+                this.nnS.stop();
             }
-            this.nmL.release();
-            this.nmL = null;
+            this.nnS.release();
+            this.nnS = null;
         }
     }
 }

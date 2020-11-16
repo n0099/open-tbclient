@@ -6,11 +6,11 @@ import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public interface a {
-    boolean Sc();
+    boolean Rt();
 
-    boolean Sd();
+    boolean Ru();
 
-    boolean Se();
+    boolean Rv();
 
     int a(com.baidu.live.talentshow.d.a.b bVar);
 
@@ -26,7 +26,7 @@ public interface a {
 
     String aM(long j);
 
-    long fo(int i);
+    long fk(int i);
 
     void init(Context context);
 

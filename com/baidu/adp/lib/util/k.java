@@ -193,7 +193,7 @@ public class k {
         return sb.toString();
     }
 
-    public static boolean A(String str, String str2) {
+    public static boolean z(String str, String str2) {
         if (str == null || str2 == null) {
             return false;
         }

@@ -6,8 +6,8 @@ import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.videochat.player.LivePlayer;
 /* loaded from: classes4.dex */
 public class b {
-    private LivePlayer bHK;
-    private com.baidu.live.s.b bHL;
+    private LivePlayer bFZ;
+    private com.baidu.live.s.b bGa;
     private Activity mActivity;
 
     public b(Activity activity) {
@@ -15,40 +15,40 @@ public class b {
     }
 
     public void a(com.baidu.live.s.b bVar) {
-        this.bHL = bVar;
+        this.bGa = bVar;
     }
 
     public void e(AlaLiveInfoData alaLiveInfoData) {
-        if (this.bHK == null) {
-            this.bHK = new LivePlayer(this.mActivity);
-            this.bHK.setIPlayerCallBack(new com.baidu.live.s.b() { // from class: com.baidu.live.videochat.a.b.1
+        if (this.bFZ == null) {
+            this.bFZ = new LivePlayer(this.mActivity);
+            this.bFZ.setIPlayerCallBack(new com.baidu.live.s.b() { // from class: com.baidu.live.videochat.a.b.1
                 @Override // com.baidu.live.s.b
-                public void dM(int i) {
-                    if (b.this.bHL != null) {
-                        b.this.bHL.dM(i);
+                public void dI(int i) {
+                    if (b.this.bGa != null) {
+                        b.this.bGa.dI(i);
                     }
                 }
             });
         }
-        this.bHK.c(alaLiveInfoData);
+        this.bFZ.c(alaLiveInfoData);
     }
 
-    public void VC() {
-        if (this.bHK != null) {
-            this.bHK.setIPlayerCallBack(null);
-            this.bHK.co(true);
-            this.bHK.destroy();
-            this.bHK = null;
+    public void UT() {
+        if (this.bFZ != null) {
+            this.bFZ.setIPlayerCallBack(null);
+            this.bFZ.cq(true);
+            this.bFZ.destroy();
+            this.bFZ = null;
         }
     }
 
     public boolean isStarted() {
-        return this.bHK != null;
+        return this.bFZ != null;
     }
 
-    public View Vy() {
-        if (this.bHK != null) {
-            return this.bHK.getLivePlayer();
+    public View UP() {
+        if (this.bFZ != null) {
+            return this.bFZ.getLivePlayer();
         }
         return null;
     }

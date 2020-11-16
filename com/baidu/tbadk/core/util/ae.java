@@ -10,14 +10,14 @@ import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes.dex */
 public class ae {
-    private static com.baidu.tbadk.mutiprocess.b eMV = new com.baidu.tbadk.mutiprocess.b<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.ae.1
+    private static com.baidu.tbadk.mutiprocess.b eLU = new com.baidu.tbadk.mutiprocess.b<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.ae.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.mutiprocess.b
         public boolean a(PrivacyPolicyEvent privacyPolicyEvent) {
             if (privacyPolicyEvent != null) {
                 boolean z = privacyPolicyEvent.isAgreePrivacyPolicy;
                 boolean unused = ae.isAgreePrivacyPolicy = z;
-                com.baidu.tbadk.core.sharedPref.b.bqh().putBoolean("key_secret_is_show", z);
+                com.baidu.tbadk.core.sharedPref.b.bpu().putBoolean("key_secret_is_show", z);
                 TbadkCoreApplication.getInst().registerPhoneListener();
                 TbadkCoreApplication.getInst().initCyberPlayer();
                 TbadkCoreApplication.getInst().initSapiTask();
@@ -27,28 +27,28 @@ public class ae {
     };
     private static boolean isAgreePrivacyPolicy;
 
-    public static void bqT() {
-        com.baidu.tbadk.mutiprocess.g.bBt().a(PrivacyPolicyEvent.class, eMV);
+    public static void bqg() {
+        com.baidu.tbadk.mutiprocess.g.bAJ().a(PrivacyPolicyEvent.class, eLU);
     }
 
-    public static void bqU() {
-        com.baidu.tbadk.mutiprocess.g.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(com.baidu.tbadk.core.sharedPref.b.bqh().getBoolean("key_secret_is_show", false))));
+    public static void bqh() {
+        com.baidu.tbadk.mutiprocess.g.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(com.baidu.tbadk.core.sharedPref.b.bpu().getBoolean("key_secret_is_show", false))));
     }
 
-    public static void jb(boolean z) {
+    public static void jc(boolean z) {
         isAgreePrivacyPolicy = z;
-        com.baidu.tbadk.core.sharedPref.b.bqh().putBoolean("key_secret_is_show", z);
+        com.baidu.tbadk.core.sharedPref.b.bpu().putBoolean("key_secret_is_show", z);
         com.baidu.tbadk.mutiprocess.g.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(z)));
     }
 
-    public static boolean bqV() {
-        return isAgreePrivacyPolicy || com.baidu.tbadk.core.sharedPref.b.bqh().getBoolean("key_secret_is_show", false);
+    public static boolean bqi() {
+        return isAgreePrivacyPolicy || com.baidu.tbadk.core.sharedPref.b.bpu().getBoolean("key_secret_is_show", false);
     }
 
     public static boolean checkLocationForBaiduLocation(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.m.a.aaQ()) {
+        if (com.baidu.m.a.aah()) {
             if (context == null) {
                 return false;
             }
@@ -73,7 +73,7 @@ public class ae {
     }
 
     public static boolean checkLocationForGoogle(Context context) {
-        if (com.baidu.m.a.aaQ()) {
+        if (com.baidu.m.a.aah()) {
             if (context != null) {
                 try {
                     if (!com.baidu.m.a.a.checkPermissionGranted(context, "android.permission.ACCESS_FINE_LOCATION")) {
@@ -93,7 +93,7 @@ public class ae {
     }
 
     public static boolean checkCamera(Context context) {
-        if (!com.baidu.m.a.aaQ()) {
+        if (!com.baidu.m.a.aah()) {
             return true;
         }
         if (context != null) {
@@ -108,7 +108,7 @@ public class ae {
     }
 
     public static boolean checkRecodeAudio(Context context) {
-        if (!com.baidu.m.a.aaQ()) {
+        if (!com.baidu.m.a.aah()) {
             return true;
         }
         if (context != null) {
@@ -123,7 +123,7 @@ public class ae {
     }
 
     public static boolean ed(Context context) {
-        if (!com.baidu.m.a.aaQ()) {
+        if (!com.baidu.m.a.aah()) {
             return true;
         }
         if (context != null) {
@@ -138,7 +138,7 @@ public class ae {
     }
 
     public static boolean checkReadPhoneState(Context context) {
-        if (!com.baidu.m.a.aaQ()) {
+        if (!com.baidu.m.a.aah()) {
             return true;
         }
         if (context != null) {
@@ -153,7 +153,7 @@ public class ae {
     }
 
     public static boolean checkWriteExternalStorage(Context context) {
-        if (!com.baidu.m.a.aaQ()) {
+        if (!com.baidu.m.a.aah()) {
             return true;
         }
         if (context != null) {
@@ -171,7 +171,7 @@ public class ae {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.appendRequestPermission(activity, "android.permission.ACCESS_COARSE_LOCATION");
         permissionJudgePolicy.appendRequestPermission(activity, "android.permission.ACCESS_FINE_LOCATION");
-        return permissionJudgePolicy.d(activity, i);
+        return permissionJudgePolicy.e(activity, i);
     }
 
     public static boolean a(Activity activity, int i, PermissionJudgePolicy.a aVar) {
@@ -211,8 +211,16 @@ public class ae {
         return permissionJudgePolicy.a(activity, i, PermissionJudgePolicy.EXTRA_DIALOG_REFUSE_POLICY.Refuse_one_by_one, null);
     }
 
-    public static boolean at(Context context, String str) {
-        if (!com.baidu.m.a.aaQ()) {
+    public static boolean d(Activity activity, int i) {
+        PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
+        if (!checkWriteExternalStorage(activity.getApplicationContext())) {
+            permissionJudgePolicy.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
+        }
+        return permissionJudgePolicy.a(activity, i, PermissionJudgePolicy.EXTRA_DIALOG_REFUSE_POLICY.Refuse_one_by_one, null);
+    }
+
+    public static boolean aq(Context context, String str) {
+        if (!com.baidu.m.a.aah()) {
             return true;
         }
         if (context != null) {

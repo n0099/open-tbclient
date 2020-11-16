@@ -9,17 +9,17 @@ import android.widget.FrameLayout;
 import com.baidu.live.tbadk.util.ScreenHelper;
 /* loaded from: classes4.dex */
 public class AlaDragContainerView extends FrameLayout {
-    private float bmg;
-    private float bmh;
-    private int dJG;
-    private int gSm;
-    private int gSn;
-    private boolean gSo;
-    private final int gSp;
-    private int gSq;
-    private int gSr;
-    private int gSs;
-    private int gSt;
+    private float bkv;
+    private float bkw;
+    private int dHY;
+    private int gRT;
+    private int gRU;
+    private boolean gRV;
+    private final int gRW;
+    private int gRX;
+    private int gRY;
+    private int gRZ;
+    private int gSa;
     private int height;
     private Context mContext;
     private int screenWidth;
@@ -27,9 +27,9 @@ public class AlaDragContainerView extends FrameLayout {
 
     public AlaDragContainerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gSo = false;
+        this.gRV = false;
         this.mContext = context;
-        this.gSp = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.gRW = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -46,10 +46,10 @@ public class AlaDragContainerView extends FrameLayout {
         super.onMeasure(i, i2);
         this.width = getMeasuredWidth();
         this.height = getMeasuredHeight();
-        this.gSm = this.width / 2;
-        this.gSn = this.height / 2;
+        this.gRT = this.width / 2;
+        this.gRU = this.height / 2;
         this.screenWidth = ScreenHelper.getScreenWidth(this.mContext);
-        this.dJG = ScreenHelper.getScreenHeight(this.mContext);
+        this.dHY = ScreenHelper.getScreenHeight(this.mContext);
     }
 
     @Nullable
@@ -57,47 +57,47 @@ public class AlaDragContainerView extends FrameLayout {
         if (isEnabled()) {
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.gSo = false;
-                    this.bmg = motionEvent.getX();
-                    this.bmh = motionEvent.getY();
+                    this.gRV = false;
+                    this.bkv = motionEvent.getX();
+                    this.bkw = motionEvent.getY();
                     break;
                 case 2:
-                    float x = motionEvent.getX() - this.bmg;
-                    float y = motionEvent.getY() - this.bmh;
-                    if (Math.abs(x) > this.gSp || Math.abs(y) > this.gSp) {
-                        this.gSo = true;
+                    float x = motionEvent.getX() - this.bkv;
+                    float y = motionEvent.getY() - this.bkw;
+                    if (Math.abs(x) > this.gRW || Math.abs(y) > this.gRW) {
+                        this.gRV = true;
                         int left = (int) (x + getLeft());
                         int i = this.width + left;
                         int top = (int) (y + getTop());
                         int i2 = this.height + top;
-                        if (left < (-this.gSm)) {
-                            left = -this.gSm;
+                        if (left < (-this.gRT)) {
+                            left = -this.gRT;
                             i = this.width + left;
-                        } else if (i > this.screenWidth + this.gSm) {
-                            i = this.screenWidth + this.gSm;
+                        } else if (i > this.screenWidth + this.gRT) {
+                            i = this.screenWidth + this.gRT;
                             left = i - this.width;
                         }
-                        if (top < (-this.gSn)) {
-                            top = -this.gSn;
+                        if (top < (-this.gRU)) {
+                            top = -this.gRU;
                             i2 = this.height + top;
-                        } else if (i2 > this.dJG + this.gSn) {
-                            i2 = this.dJG + this.gSn;
+                        } else if (i2 > this.dHY + this.gRU) {
+                            i2 = this.dHY + this.gRU;
                             top = i2 - this.height;
                         }
-                        this.gSq = left;
-                        this.gSr = top;
-                        this.gSs = i;
-                        this.gSt = i2;
+                        this.gRX = left;
+                        this.gRY = top;
+                        this.gRZ = i;
+                        this.gSa = i2;
                         layout(left, top, i, i2);
                         break;
                     }
                     break;
             }
         }
-        return Boolean.valueOf(this.gSo);
+        return Boolean.valueOf(this.gRV);
     }
 
-    public void bVT() {
-        layout(this.gSq, this.gSr, this.gSs, this.gSt);
+    public void bVm() {
+        layout(this.gRX, this.gRY, this.gRZ, this.gSa);
     }
 }

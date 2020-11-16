@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 class i extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */

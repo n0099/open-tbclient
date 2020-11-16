@@ -8,7 +8,7 @@ import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class o {
-    public HashMap<String, Object> eLS = new HashMap<>();
+    public HashMap<String, Object> eKR = new HashMap<>();
     private Context mContext;
 
     public o(Context context) {
@@ -16,34 +16,34 @@ public class o {
     }
 
     public void aj(String str, String str2, String str3) {
-        this.eLS.put("forumID", str);
-        this.eLS.put(TbTitleActivityConfig.FORUM_NAME, str2);
-        this.eLS.put("obj_source", str3);
+        this.eKR.put("forumID", str);
+        this.eKR.put(TbTitleActivityConfig.FORUM_NAME, str2);
+        this.eKR.put("obj_source", str3);
     }
 
     public void b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
-        this.eLS.put("broadcastID", str);
-        this.eLS.put(TbTitleActivityConfig.FORUM_NAME, str2);
-        this.eLS.put("forumID", str3);
-        this.eLS.put("threadID", str4);
-        this.eLS.put("title", str5);
-        this.eLS.put("content", str6);
-        this.eLS.put("image", str7);
-        this.eLS.put("from", str8);
-        this.eLS.put("obj_source", str9);
-        this.eLS.put("threadLink", "http://tieba.baidu.com/p/" + str4 + "?share=9105&fr=share");
+        this.eKR.put("broadcastID", str);
+        this.eKR.put(TbTitleActivityConfig.FORUM_NAME, str2);
+        this.eKR.put("forumID", str3);
+        this.eKR.put("threadID", str4);
+        this.eKR.put("title", str5);
+        this.eKR.put("content", str6);
+        this.eKR.put("image", str7);
+        this.eKR.put("from", str8);
+        this.eKR.put("obj_source", str9);
+        this.eKR.put("threadLink", "http://tieba.baidu.com/p/" + str4 + "?share=9105&fr=share");
     }
 
-    public void BK(String str) {
+    public void Bj(String str) {
         com.baidu.adp.lib.util.a.copyToClipboard("http://tieba.baidu.com/p/" + str + "?share=9105&fr=share");
     }
 
-    public void bqw() {
+    public void bpJ() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921472, UtilHelper.getClipBoardContent()));
     }
 
     public void start() {
-        this.eLS.put("swipeback", false);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new com.baidu.tieba.tbadkCore.data.m(this.mContext, "BarBroadcastEdit", this.eLS)));
+        this.eKR.put("swipeback", false);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new com.baidu.tieba.tbadkCore.data.m(this.mContext, "BarBroadcastEdit", this.eKR)));
     }
 }

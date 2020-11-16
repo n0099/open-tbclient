@@ -9,23 +9,23 @@ import java.util.HashSet;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class h {
-    private static h oGK = null;
-    private Map<String, String> oGL = new HashMap();
-    private HashSet<String> oGM = new HashSet<>();
+    private static h oIo = null;
+    private Map<String, String> oIp = new HashMap();
+    private HashSet<String> oIq = new HashSet<>();
 
-    public static h eix() {
-        if (oGK == null) {
+    public static h eiv() {
+        if (oIo == null) {
             synchronized (h.class) {
-                if (oGK == null) {
-                    oGK = new h();
+                if (oIo == null) {
+                    oIo = new h();
                 }
             }
         }
-        return oGK;
+        return oIo;
     }
 
-    public Map<String, String> eiy() {
-        return this.oGL;
+    public Map<String, String> eiw() {
+        return this.oIp;
     }
 
     public static String encode(String str) {
@@ -43,7 +43,7 @@ public class h {
         }
         if (!z) {
             if (gVar != null) {
-                gVar.aSR();
+                gVar.aSj();
                 return;
             }
             return;
@@ -55,7 +55,7 @@ public class h {
     private void a(Context context, HashMap<String, String> hashMap, g gVar) {
     }
 
-    public String XJ(String str) {
-        return this.oGL.get(str);
+    public String Xu(String str) {
+        return this.oIp.get(str);
     }
 }

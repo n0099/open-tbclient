@@ -10,7 +10,7 @@ import tbclient.GetForumDetail.ManagerElectionTab;
 import tbclient.PriManagerApplyInfo;
 import tbclient.RecommendForumInfo;
 import tbclient.SimpleThreadInfo;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class ForumDetailHttpResponse extends TbHttpResponsedMessage {
     private ManagerApplyInfo applyInfo;
     private BzApplySwitch bzApplySwitch;

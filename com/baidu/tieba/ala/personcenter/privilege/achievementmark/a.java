@@ -25,27 +25,27 @@ import com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.MarkLevel
 import com.baidu.tieba.ala.personcenter.privilege.b;
 /* loaded from: classes4.dex */
 public class a extends Dialog {
-    private static final int bhu = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds36);
-    private static final int hEQ = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
-    private TbImageView hER;
-    private FrameLayout hES;
-    private TextView hET;
-    private RelativeLayout hEU;
-    private TextView hEV;
-    private TextView hEW;
-    private MarkLevelGroup hEX;
-    private TextView hEY;
-    private com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b hEZ;
-    private d hFa;
-    private AlaUpdateMarkStatusModel hFb;
-    private InterfaceC0698a hFc;
-    private LinearLayout hFd;
-    private TextView hFe;
-    private TextView hFf;
-    private LinearLayout hFg;
-    private TextView hFh;
-    private com.baidu.tieba.ala.personcenter.privilege.b hFi;
-    private com.baidu.tieba.ala.personcenter.privilege.a hFj;
+    private static final int bfI = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds36);
+    private static final int hEx = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
+    private TextView hEA;
+    private RelativeLayout hEB;
+    private TextView hEC;
+    private TextView hED;
+    private MarkLevelGroup hEE;
+    private TextView hEF;
+    private com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b hEG;
+    private d hEH;
+    private AlaUpdateMarkStatusModel hEI;
+    private InterfaceC0698a hEJ;
+    private LinearLayout hEK;
+    private TextView hEL;
+    private TextView hEM;
+    private LinearLayout hEN;
+    private TextView hEO;
+    private com.baidu.tieba.ala.personcenter.privilege.b hEP;
+    private com.baidu.tieba.ala.personcenter.privilege.a hEQ;
+    private TbImageView hEy;
+    private FrameLayout hEz;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -58,7 +58,7 @@ public class a extends Dialog {
     public a(TbPageContext tbPageContext, InterfaceC0698a interfaceC0698a) {
         super(tbPageContext.getPageActivity());
         this.mPageContext = tbPageContext;
-        this.hFc = interfaceC0698a;
+        this.hEJ = interfaceC0698a;
     }
 
     @Override // android.app.Dialog
@@ -71,18 +71,18 @@ public class a extends Dialog {
         getWindow().requestFeature(1);
         initView();
         initDialog();
-        Jz();
+        IQ();
     }
 
-    private void Jz() {
-        this.hFb = new AlaUpdateMarkStatusModel(getContext());
-        this.hFb.a(new AlaUpdateMarkStatusModel.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.1
+    private void IQ() {
+        this.hEI = new AlaUpdateMarkStatusModel(getContext());
+        this.hEI.a(new AlaUpdateMarkStatusModel.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.1
             @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaUpdateMarkStatusModel.a
             public void onResult(boolean z, String str) {
-                a.this.hEY.setEnabled(true);
+                a.this.hEF.setEnabled(true);
                 if (z) {
-                    if (a.this.hFc != null) {
-                        a.this.hFc.a(true, a.this.hEZ);
+                    if (a.this.hEJ != null) {
+                        a.this.hEJ.a(true, a.this.hEG);
                     }
                     a.this.dismiss();
                     return;
@@ -93,30 +93,30 @@ public class a extends Dialog {
                 a.this.mPageContext.showToast(str);
             }
         });
-        this.hFi = new com.baidu.tieba.ala.personcenter.privilege.b(this.mPageContext);
-        this.hFi.a(new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.2
+        this.hEP = new com.baidu.tieba.ala.personcenter.privilege.b(this.mPageContext);
+        this.hEP.a(new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.2
             @Override // com.baidu.tieba.ala.personcenter.privilege.b.a
-            public void nY(boolean z) {
-                if (z && a.this.hEZ.price <= TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                    a.this.cjF();
-                    a.this.cjG();
-                    a.this.cjE();
+            public void nZ(boolean z) {
+                if (z && a.this.hEG.price <= TbadkCoreApplication.getInst().currentAccountTdouNum) {
+                    a.this.ciY();
+                    a.this.ciZ();
+                    a.this.ciX();
                 }
             }
         });
-        this.hFj = new com.baidu.tieba.ala.personcenter.privilege.a(this.mPageContext, new a.InterfaceC0697a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.3
+        this.hEQ = new com.baidu.tieba.ala.personcenter.privilege.a(this.mPageContext, new a.InterfaceC0697a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.3
             @Override // com.baidu.tieba.ala.personcenter.privilege.a.InterfaceC0697a
-            public void r(boolean z, String str) {
+            public void s(boolean z, String str) {
                 if (z) {
-                    if (a.this.hEZ != null) {
+                    if (a.this.hEG != null) {
                         a.this.mPageContext.showToast(R.string.ala_achievement_tdou_buy_success);
-                        if (a.this.hFc != null) {
-                            a.this.hFc.a(true, a.this.hEZ);
+                        if (a.this.hEJ != null) {
+                            a.this.hEJ.a(true, a.this.hEG);
                         }
-                        a.this.hEZ.wz(2);
-                        a.this.cjF();
-                        a.this.cjG();
-                        a.this.cjE();
+                        a.this.hEG.wX(2);
+                        a.this.ciY();
+                        a.this.ciZ();
+                        a.this.ciX();
                     }
                 } else if (!StringUtils.isNull(str)) {
                     a.this.mPageContext.showToast(str);
@@ -140,218 +140,218 @@ public class a extends Dialog {
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.hFc != null) {
-                    a.this.hFc.a(false, a.this.hEZ);
+                if (a.this.hEJ != null) {
+                    a.this.hEJ.a(false, a.this.hEG);
                 }
                 a.this.dismiss();
             }
         });
-        this.hER = (TbImageView) this.mRootView.findViewById(R.id.mark_img);
-        this.hER.setDefaultBgResource(R.color.transparent);
-        this.hER.setDefaultResource(R.drawable.pic_live_honor);
-        this.hER.setDefaultErrorResource(R.drawable.pic_live_honor);
-        this.hES = (FrameLayout) this.mRootView.findViewById(R.id.mark_img_layout);
-        this.hET = (TextView) this.mRootView.findViewById(R.id.mark_title);
-        this.hEU = (RelativeLayout) this.mRootView.findViewById(R.id.mark_desc_layout);
-        this.hEV = (TextView) this.mRootView.findViewById(R.id.mark_desc);
-        this.hEW = (TextView) this.mRootView.findViewById(R.id.mark_upgrade_desc);
-        this.hEX = (MarkLevelGroup) this.mRootView.findViewById(R.id.mark_level_view);
-        this.hEX.setCallback(new MarkLevelGroup.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.5
+        this.hEy = (TbImageView) this.mRootView.findViewById(R.id.mark_img);
+        this.hEy.setDefaultBgResource(R.color.transparent);
+        this.hEy.setDefaultResource(R.drawable.pic_live_honor);
+        this.hEy.setDefaultErrorResource(R.drawable.pic_live_honor);
+        this.hEz = (FrameLayout) this.mRootView.findViewById(R.id.mark_img_layout);
+        this.hEA = (TextView) this.mRootView.findViewById(R.id.mark_title);
+        this.hEB = (RelativeLayout) this.mRootView.findViewById(R.id.mark_desc_layout);
+        this.hEC = (TextView) this.mRootView.findViewById(R.id.mark_desc);
+        this.hED = (TextView) this.mRootView.findViewById(R.id.mark_upgrade_desc);
+        this.hEE = (MarkLevelGroup) this.mRootView.findViewById(R.id.mark_level_view);
+        this.hEE.setCallback(new MarkLevelGroup.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.5
             @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.MarkLevelGroup.a
             public void eA(String str, String str2) {
                 a.this.ez(str, str2);
             }
         });
-        this.hEY = (TextView) this.mRootView.findViewById(R.id.mark_ops_btn);
-        this.hFf = (TextView) this.mRootView.findViewById(R.id.mark_limit_time);
-        this.hFd = (LinearLayout) findViewById(R.id.mark_tdou_layout);
-        this.hFe = (TextView) findViewById(R.id.mark_tdou_price);
-        this.hFg = (LinearLayout) findViewById(R.id.user_tdou_layout);
-        this.hFh = (TextView) findViewById(R.id.user_tdou_price);
+        this.hEF = (TextView) this.mRootView.findViewById(R.id.mark_ops_btn);
+        this.hEM = (TextView) this.mRootView.findViewById(R.id.mark_limit_time);
+        this.hEK = (LinearLayout) findViewById(R.id.mark_tdou_layout);
+        this.hEL = (TextView) findViewById(R.id.mark_tdou_price);
+        this.hEN = (LinearLayout) findViewById(R.id.user_tdou_layout);
+        this.hEO = (TextView) findViewById(R.id.user_tdou_price);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjE() {
-        this.hEV.setVisibility(4);
-        this.hEW.setVisibility(4);
-        this.hFd.setVisibility(4);
-        this.hEX.setVisibility(4);
-        this.hFg.setVisibility(8);
-        if (this.hEZ.cjT()) {
-            this.hFd.setVisibility(0);
-            this.hFg.setVisibility(0);
-            this.hFe.setText(AlaStringHelper.formatLowercasekDou(this.hEZ.price));
+    public void ciX() {
+        this.hEC.setVisibility(4);
+        this.hED.setVisibility(4);
+        this.hEK.setVisibility(4);
+        this.hEE.setVisibility(4);
+        this.hEN.setVisibility(8);
+        if (this.hEG.cjm()) {
+            this.hEK.setVisibility(0);
+            this.hEN.setVisibility(0);
+            this.hEL.setText(AlaStringHelper.formatLowercasekDou(this.hEG.price));
             Drawable drawable = getContext().getResources().getDrawable(R.drawable.icon_huobi_tdou);
             int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.ds24);
             drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-            this.hFh.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.ds4));
-            this.hFh.setCompoundDrawables(drawable, null, null, null);
-            this.hFh.setText(AlaStringHelper.formatLowercasekDou(TbadkCoreApplication.getInst().currentAccountTdouNum));
-            if (this.hEZ.cjP() == 1) {
-                this.hFg.setVisibility(8);
+            this.hEO.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.ds4));
+            this.hEO.setCompoundDrawables(drawable, null, null, null);
+            this.hEO.setText(AlaStringHelper.formatLowercasekDou(TbadkCoreApplication.getInst().currentAccountTdouNum));
+            if (this.hEG.cji() == 1) {
+                this.hEN.setVisibility(8);
             }
-        } else if (this.hEZ.cjU()) {
-            this.hEV.setVisibility(0);
-            this.hEV.setText(this.hEZ.getDescription());
+        } else if (this.hEG.cjn()) {
+            this.hEC.setVisibility(0);
+            this.hEC.setText(this.hEG.getDescription());
         } else {
-            this.hEX.setVisibility(0);
-            this.hEV.setVisibility(0);
-            this.hEW.setVisibility(0);
-            this.hEV.setText(this.hEZ.getDescription());
-            this.hEW.setText(this.hEZ.cjQ());
-            this.hEX.c(this.hEZ);
+            this.hEE.setVisibility(0);
+            this.hEC.setVisibility(0);
+            this.hED.setVisibility(0);
+            this.hEC.setText(this.hEG.getDescription());
+            this.hED.setText(this.hEG.cjj());
+            this.hEE.c(this.hEG);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ez(String str, String str2) {
         if (StringUtils.isNull(str)) {
-            this.hER.startLoad(String.valueOf((int) R.drawable.pic_live_honor), 24, false);
+            this.hEy.startLoad(String.valueOf(R.drawable.pic_live_honor), 24, false);
         } else {
-            this.hER.startLoad(str, 10, false);
+            this.hEy.startLoad(str, 10, false);
         }
-        this.hET.setText(str2);
+        this.hEA.setText(str2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjF() {
-        switch (this.hEZ.cjP()) {
+    public void ciY() {
+        switch (this.hEG.cji()) {
             case 0:
-                if (this.hEZ.cjT()) {
-                    this.hEY.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
-                    this.hEY.setTextSize(0, hEQ);
-                    this.hEY.setText(R.string.ala_enter_effect_tdou_buy);
-                    this.hEY.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d));
-                    if (this.hEZ.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                        this.hEY.setText(R.string.ala_achievement_get_tdou_label);
+                if (this.hEG.cjm()) {
+                    this.hEF.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
+                    this.hEF.setTextSize(0, hEx);
+                    this.hEF.setText(R.string.ala_enter_effect_tdou_buy);
+                    this.hEF.setTextColor(getContext().getResources().getColor(R.color.CAM_X0201));
+                    if (this.hEG.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
+                        this.hEF.setText(R.string.ala_achievement_get_tdou_label);
                         break;
                     }
-                } else if (this.hEZ.cjU()) {
-                    this.hEY.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
-                    this.hEY.setTextSize(0, hEQ);
-                    this.hEY.setText(R.string.ala_nobility_open);
-                    this.hEY.setTextColor(getContext().getResources().getColor(R.color.ala_nobility_bottom_btn_color));
+                } else if (this.hEG.cjn()) {
+                    this.hEF.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
+                    this.hEF.setTextSize(0, hEx);
+                    this.hEF.setText(R.string.ala_nobility_open);
+                    this.hEF.setTextColor(getContext().getResources().getColor(R.color.ala_nobility_bottom_btn_color));
                     break;
                 } else {
-                    this.hEY.setBackgroundResource(R.drawable.transparent_bg);
-                    this.hEY.setTextSize(0, bhu);
-                    this.hEY.setText(R.string.ala_achievement_mark_status_unlock);
-                    this.hEY.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d_alpha60));
+                    this.hEF.setBackgroundResource(R.drawable.transparent_bg);
+                    this.hEF.setTextSize(0, bfI);
+                    this.hEF.setText(R.string.ala_achievement_mark_status_unlock);
+                    this.hEF.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d_alpha60));
                     break;
                 }
                 break;
             case 1:
-                if (this.hEZ.cjT()) {
-                    this.hEY.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
-                    this.hEY.setTextSize(0, hEQ);
-                    this.hEY.setText(R.string.ala_achievement_unwear_mark);
-                    this.hEY.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
+                if (this.hEG.cjm()) {
+                    this.hEF.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
+                    this.hEF.setTextSize(0, hEx);
+                    this.hEF.setText(R.string.ala_achievement_unwear_mark);
+                    this.hEF.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
                     break;
-                } else if (this.hEZ.cjU()) {
-                    this.hEY.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
-                    this.hEY.setTextSize(0, hEQ);
-                    this.hEY.setText(R.string.ala_achievement_unwear_mark);
-                    this.hEY.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
+                } else if (this.hEG.cjn()) {
+                    this.hEF.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
+                    this.hEF.setTextSize(0, hEx);
+                    this.hEF.setText(R.string.ala_achievement_unwear_mark);
+                    this.hEF.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
                     break;
                 } else {
-                    this.hEY.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
-                    this.hEY.setTextSize(0, hEQ);
-                    this.hEY.setText(R.string.ala_achievement_unwear_mark);
-                    this.hEY.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
+                    this.hEF.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
+                    this.hEF.setTextSize(0, hEx);
+                    this.hEF.setText(R.string.ala_achievement_unwear_mark);
+                    this.hEF.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
                     break;
                 }
             case 2:
-                if (this.hEZ.cjT()) {
-                    this.hEY.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
-                    this.hEY.setTextSize(0, hEQ);
-                    this.hEY.setText(R.string.ala_achievement_wear_mark);
-                    this.hEY.setTextColor(getContext().getResources().getColorStateList(R.color.cp_bg_line_d));
+                if (this.hEG.cjm()) {
+                    this.hEF.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
+                    this.hEF.setTextSize(0, hEx);
+                    this.hEF.setText(R.string.ala_achievement_wear_mark);
+                    this.hEF.setTextColor(getContext().getResources().getColorStateList(R.color.CAM_X0201));
                     break;
-                } else if (this.hEZ.cjU()) {
-                    this.hEY.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
-                    this.hEY.setTextSize(0, hEQ);
-                    this.hEY.setText(R.string.ala_achievement_wear_mark);
-                    this.hEY.setTextColor(getContext().getResources().getColorStateList(R.color.ala_nobility_bottom_btn_color));
+                } else if (this.hEG.cjn()) {
+                    this.hEF.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
+                    this.hEF.setTextSize(0, hEx);
+                    this.hEF.setText(R.string.ala_achievement_wear_mark);
+                    this.hEF.setTextColor(getContext().getResources().getColorStateList(R.color.ala_nobility_bottom_btn_color));
                     break;
                 } else {
-                    this.hEY.setBackgroundResource(R.drawable.mark_ops_btn_bg_wear_selector);
-                    this.hEY.setTextSize(0, hEQ);
-                    this.hEY.setText(R.string.ala_achievement_wear_mark);
-                    this.hEY.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_wear_color));
+                    this.hEF.setBackgroundResource(R.drawable.mark_ops_btn_bg_wear_selector);
+                    this.hEF.setTextSize(0, hEx);
+                    this.hEF.setText(R.string.ala_achievement_wear_mark);
+                    this.hEF.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_wear_color));
                     break;
                 }
             case 3:
-                if (this.hEZ.cjT()) {
-                    this.hEY.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
-                    this.hEY.setTextSize(0, hEQ);
-                    this.hEY.setText(R.string.ala_enter_effect_tdou_buy);
-                    this.hEY.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d));
-                    if (this.hEZ.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                        this.hEY.setText(R.string.ala_achievement_get_tdou_label);
+                if (this.hEG.cjm()) {
+                    this.hEF.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
+                    this.hEF.setTextSize(0, hEx);
+                    this.hEF.setText(R.string.ala_enter_effect_tdou_buy);
+                    this.hEF.setTextColor(getContext().getResources().getColor(R.color.CAM_X0201));
+                    if (this.hEG.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
+                        this.hEF.setText(R.string.ala_achievement_get_tdou_label);
                         break;
                     }
-                } else if (this.hEZ.cjU()) {
-                    this.hEY.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
-                    this.hEY.setTextSize(0, hEQ);
-                    this.hEY.setText(R.string.ala_nobility_open);
-                    this.hEY.setTextColor(getContext().getResources().getColor(R.color.ala_nobility_bottom_btn_color));
+                } else if (this.hEG.cjn()) {
+                    this.hEF.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
+                    this.hEF.setTextSize(0, hEx);
+                    this.hEF.setText(R.string.ala_nobility_open);
+                    this.hEF.setTextColor(getContext().getResources().getColor(R.color.ala_nobility_bottom_btn_color));
                     break;
                 } else {
-                    this.hEY.setBackgroundResource(R.drawable.transparent_bg);
-                    this.hEY.setTextSize(0, bhu);
-                    this.hEY.setText(R.string.ala_achievement_mark_status_expired);
-                    this.hEY.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d_alpha60));
+                    this.hEF.setBackgroundResource(R.drawable.transparent_bg);
+                    this.hEF.setTextSize(0, bfI);
+                    this.hEF.setText(R.string.ala_achievement_mark_status_expired);
+                    this.hEF.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d_alpha60));
                     break;
                 }
                 break;
         }
-        this.hEY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.6
+        this.hEF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.hEZ.cjP() == 0 || 3 == a.this.hEZ.cjP()) {
-                    if (a.this.hEZ.cjT()) {
-                        if (a.this.hEZ.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                            if (a.this.hFi != null) {
-                                a.this.hFi.fj(a.this.hEZ.price);
+                if (a.this.hEG.cji() == 0 || 3 == a.this.hEG.cji()) {
+                    if (a.this.hEG.cjm()) {
+                        if (a.this.hEG.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
+                            if (a.this.hEP != null) {
+                                a.this.hEP.fj(a.this.hEG.price);
                             }
-                        } else if (a.this.hFj != null) {
-                            a.this.hFj.k(a.this.hEZ.cjM(), a.this.hEZ.propId, false);
+                        } else if (a.this.hEQ != null) {
+                            a.this.hEQ.k(a.this.hEG.cjf(), a.this.hEG.propId, false);
                         }
-                    } else if (!a.this.hEZ.cjU()) {
+                    } else if (!a.this.hEG.cjn()) {
                         a.this.dismiss();
                     }
-                } else if (!a.this.hEZ.cjL() || 2 != a.this.hEZ.cjP()) {
-                    a.this.cjI();
+                } else if (!a.this.hEG.cje() || 2 != a.this.hEG.cji()) {
+                    a.this.cjb();
                 } else {
-                    a.this.cjH();
+                    a.this.cja();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjG() {
-        if (this.hEZ.cjP() == 1 || this.hEZ.cjP() == 2) {
-            this.hFf.setVisibility(0);
-            this.hFf.setText(this.hEZ.cjS());
+    public void ciZ() {
+        if (this.hEG.cji() == 1 || this.hEG.cji() == 2) {
+            this.hEM.setVisibility(0);
+            this.hEM.setText(this.hEG.cjl());
             return;
         }
-        this.hFf.setVisibility(8);
+        this.hEM.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjH() {
+    public void cja() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
         aVar.setMessageShowCenter(true);
-        aVar.iW(false);
-        aVar.ov(R.string.ala_achievement_ops_alert_title);
-        aVar.ow(R.string.ala_achievement_ops_alert_content);
+        aVar.iX(false);
+        aVar.or(R.string.ala_achievement_ops_alert_title);
+        aVar.os(R.string.ala_achievement_ops_alert_content);
         aVar.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.7
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                a.this.hEY.setEnabled(false);
-                a.this.cjI();
+                a.this.hEF.setEnabled(false);
+                a.this.cjb();
             }
         });
         aVar.b(R.string.dialog_cancel, new a.b() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.8
@@ -360,27 +360,27 @@ public class a extends Dialog {
                 aVar2.dismiss();
             }
         });
-        aVar.b(this.mPageContext).bpc();
+        aVar.b(this.mPageContext).bog();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjI() {
-        if (1 == this.hEZ.cjP()) {
-            this.hFb.z(false, this.hEZ.cjM());
-        } else if (2 == this.hEZ.cjP()) {
-            this.hFb.z(true, this.hEZ.cjM());
+    public void cjb() {
+        if (1 == this.hEG.cji()) {
+            this.hEI.z(false, this.hEG.cjf());
+        } else if (2 == this.hEG.cji()) {
+            this.hEI.z(true, this.hEG.cjf());
         }
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         super.dismiss();
-        this.hFa = null;
+        this.hEH = null;
     }
 
     public void onDestroy() {
-        if (this.hFb != null) {
-            this.hFb.onDestroy();
+        if (this.hEI != null) {
+            this.hEI.onDestroy();
         }
     }
 }

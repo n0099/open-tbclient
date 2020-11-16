@@ -1,7 +1,7 @@
 package org.java_websocket.framing;
 
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class c extends e {
     public c() {
         super(Framedata.Opcode.CONTINUOUS);

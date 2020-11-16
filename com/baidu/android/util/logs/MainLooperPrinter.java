@@ -5,7 +5,7 @@ import android.util.Printer;
 import com.baidu.android.util.concurrent.UiThreadUtil;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class MainLooperPrinter implements Printer {
     private static volatile MainLooperPrinter sInstance;
     private List<Printer> mPrinterList = new ArrayList(3);

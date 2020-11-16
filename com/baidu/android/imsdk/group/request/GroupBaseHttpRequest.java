@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public abstract class GroupBaseHttpRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {

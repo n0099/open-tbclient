@@ -8,10 +8,10 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class s {
-    public static final boolean bDK() {
+    public static final boolean bDd() {
         Message message;
         int i = 0;
         Object valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(Looper.myQueue(), "mMessages");
@@ -45,7 +45,7 @@ public class s {
         return (obj == null || (valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(obj, "intent")) == null || !(valueForField instanceof Intent) || (component = ((Intent) valueForField).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
     }
 
-    public static final boolean kK(boolean z) {
+    public static final boolean kL(boolean z) {
         Message message;
         Object valueForField;
         Intent intent;
@@ -61,7 +61,7 @@ public class s {
                     try {
                         Class.forName(component.getClassName());
                     } catch (Throwable th) {
-                        TiebaStatic.log(new aq("check_change_intent_tologo").dR("obj_param1", (i2 == 1) + "").dR(TiebaInitialize.Params.OBJ_PARAM2, component.getClassName()));
+                        TiebaStatic.log(new ar("check_change_intent_tologo").dR("obj_param1", (i2 == 1) + "").dR(TiebaInitialize.Params.OBJ_PARAM2, component.getClassName()));
                         if (z && i2 == 1) {
                             intent.setClassName(TbadkCoreApplication.getInst(), "com.baidu.tieba.LogoActivity");
                             return false;

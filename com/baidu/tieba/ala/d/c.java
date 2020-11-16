@@ -7,78 +7,78 @@ import com.baidu.live.data.w;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class c implements com.baidu.live.r.b {
-    private w bqS;
-    private com.baidu.tieba.ala.view.c gyq;
-    private boolean gyr;
+    private w bph;
+    private com.baidu.tieba.ala.view.c gxX;
+    private boolean gxY;
     private boolean isShowing = false;
     private Context mContext;
     private ViewGroup mParentView;
 
     public c(Context context) {
         this.mContext = context;
-        bRy();
-        ak akVar = com.baidu.live.aa.a.PQ().bod;
-        if (akVar != null && akVar.aNw != null) {
-            this.gyr = akVar.aNw.aQr;
+        bQR();
+        ak akVar = com.baidu.live.aa.a.Ph().bms;
+        if (akVar != null && akVar.aLL != null) {
+            this.gxY = akVar.aLL.aOG;
         }
     }
 
-    private void bRy() {
-        if (this.gyq == null) {
-            this.gyq = new com.baidu.tieba.ala.view.c(this.mContext);
-            this.gyq.setId(a.f.ala_rank_level_entry);
+    private void bQR() {
+        if (this.gxX == null) {
+            this.gxX = new com.baidu.tieba.ala.view.c(this.mContext);
+            this.gxX.setId(a.f.ala_rank_level_entry);
         }
     }
 
     @Override // com.baidu.live.r.b
     public void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, w wVar) {
         this.mParentView = viewGroup;
-        this.bqS = wVar;
+        this.bph = wVar;
         if (this.mParentView != null) {
-            if (this.mParentView.indexOfChild(this.gyq.getView()) == -1) {
-                this.mParentView.addView(this.gyq.getView(), layoutParams);
-                this.gyq.getView().setVisibility(8);
+            if (this.mParentView.indexOfChild(this.gxX.getView()) == -1) {
+                this.mParentView.addView(this.gxX.getView(), layoutParams);
+                this.gxX.getView().setVisibility(8);
             }
-            if (this.gyr && wVar != null && wVar.aJx != null && wVar.aJx.aKn != null) {
+            if (this.gxY && wVar != null && wVar.aHM != null && wVar.aHM.aIC != null) {
                 setVisible(0);
-                this.gyq.O(wVar);
+                this.gxX.O(wVar);
             }
         }
     }
 
     @Override // com.baidu.live.r.b
     public void a(w wVar) {
-        this.bqS = wVar;
-        if (this.gyr && wVar != null && wVar.aJx != null && wVar.aJx.aKn != null) {
+        this.bph = wVar;
+        if (this.gxY && wVar != null && wVar.aHM != null && wVar.aHM.aIC != null) {
             setVisible(0);
-            this.gyq.O(wVar);
+            this.gxX.O(wVar);
         }
     }
 
     @Override // com.baidu.live.r.b
     public void setVisible(int i) {
-        if (this.gyr && this.bqS != null && this.bqS.aJx != null && this.bqS.aJx.aKn != null && this.gyq != null && this.gyq.getView() != null && i != this.gyq.getView().getVisibility()) {
+        if (this.gxY && this.bph != null && this.bph.aHM != null && this.bph.aHM.aIC != null && this.gxX != null && this.gxX.getView() != null && i != this.gxX.getView().getVisibility()) {
             if (i == 0) {
                 this.isShowing = true;
             } else {
                 this.isShowing = false;
             }
-            this.gyq.getView().setVisibility(i);
+            this.gxX.getView().setVisibility(i);
         }
     }
 
     @Override // com.baidu.live.r.b
-    public void KJ() {
+    public void Ka() {
         this.isShowing = false;
-        if (this.gyq != null) {
-            this.gyq.KJ();
+        if (this.gxX != null) {
+            this.gxX.Ka();
         }
     }
 
     @Override // com.baidu.live.r.b
     public void onDestroy() {
-        if (this.gyq != null) {
-            this.gyq.onDestroy();
+        if (this.gxX != null) {
+            this.gxX.onDestroy();
         }
         this.isShowing = false;
     }

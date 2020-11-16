@@ -3,27 +3,27 @@ package com.baidu.swan.pms.node;
 import android.support.annotation.Nullable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public abstract class b implements e {
     @Override // com.baidu.swan.pms.node.e
     @Nullable
     public JSONArray a(@Nullable c<JSONArray> cVar) {
-        return (JSONArray) a(bcj(), cVar);
+        return (JSONArray) a(bbC(), cVar);
     }
 
     @Override // com.baidu.swan.pms.node.e
     @Nullable
     public JSONObject b(@Nullable c<JSONObject> cVar) {
-        return (JSONObject) a(bck(), cVar);
+        return (JSONObject) a(bbD(), cVar);
     }
 
     @Nullable
-    protected JSONArray bcj() {
+    protected JSONArray bbC() {
         return null;
     }
 
     @Nullable
-    protected JSONObject bck() {
+    protected JSONObject bbD() {
         return null;
     }
 

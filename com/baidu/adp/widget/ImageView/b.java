@@ -272,12 +272,12 @@ public class b extends Drawable {
         return this.mBitmapHeight;
     }
 
-    public b n(float f) {
+    public b o(float f) {
         this.mCornerRadius = f;
         return this;
     }
 
-    public b aL(int i) {
+    public b aM(int i) {
         this.mBorderWidth = i;
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
         return this;

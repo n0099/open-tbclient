@@ -4,7 +4,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T> {
     final long delay;
     final boolean delayError;
@@ -21,10 +21,10 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pMK.a((j) new a(this.delayError ? cVar : new io.reactivex.subscribers.b<>(cVar), this.delay, this.unit, this.scheduler.eAA(), this.delayError));
+        this.pOn.a((j) new a(this.delayError ? cVar : new io.reactivex.subscribers.b<>(cVar), this.delay, this.unit, this.scheduler.eAB(), this.delayError));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class a<T> implements j<T>, org.a.d {
         final org.a.c<? super T> actual;
         final long delay;
@@ -56,12 +56,12 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.w.c(new RunnableC1071b(th), this.delayError ? this.delay : 0L, this.unit);
+            this.w.c(new RunnableC1074b(th), this.delayError ? this.delay : 0L, this.unit);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.w.c(new RunnableC1070a(), this.delay, this.unit);
+            this.w.c(new RunnableC1073a(), this.delay, this.unit);
         }
 
         @Override // org.a.d
@@ -75,7 +75,7 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
             this.w.dispose();
         }
 
-        /* loaded from: classes17.dex */
+        /* loaded from: classes5.dex */
         final class c implements Runnable {
             private final T t;
 
@@ -91,18 +91,18 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
         }
 
         /* renamed from: io.reactivex.internal.operators.flowable.b$a$b  reason: collision with other inner class name */
-        /* loaded from: classes17.dex */
-        final class RunnableC1071b implements Runnable {
-            private final Throwable axH;
+        /* loaded from: classes5.dex */
+        final class RunnableC1074b implements Runnable {
+            private final Throwable avW;
 
-            RunnableC1071b(Throwable th) {
-                this.axH = th;
+            RunnableC1074b(Throwable th) {
+                this.avW = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    a.this.actual.onError(this.axH);
+                    a.this.actual.onError(this.avW);
                 } finally {
                     a.this.w.dispose();
                 }
@@ -110,9 +110,9 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
         }
 
         /* renamed from: io.reactivex.internal.operators.flowable.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes17.dex */
-        final class RunnableC1070a implements Runnable {
-            RunnableC1070a() {
+        /* loaded from: classes5.dex */
+        final class RunnableC1073a implements Runnable {
+            RunnableC1073a() {
             }
 
             @Override // java.lang.Runnable

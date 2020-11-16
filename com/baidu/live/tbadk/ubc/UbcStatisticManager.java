@@ -36,6 +36,7 @@ public class UbcStatisticManager {
     private String mVid;
     private HashMap<String, FlowData> mFlowInstanceMap = new HashMap<>();
     private HashMap<String, List<SlotData>> mSlotMap = new HashMap<>();
+    private boolean mIsMix = false;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private Runnable mFlowLoopRunnable = new Runnable() { // from class: com.baidu.live.tbadk.ubc.UbcStatisticManager.1
         @Override // java.lang.Runnable
@@ -80,10 +81,15 @@ public class UbcStatisticManager {
     }
 
     public void updateLiveRoom(String str, String str2, String str3, String str4) {
+        updateLiveRoom(str, str2, str3, str4, false);
+    }
+
+    public void updateLiveRoom(String str, String str2, String str3, String str4, boolean z) {
         this.mLiveId = str;
         this.mRoomId = str2;
         this.mVid = str3;
         this.mEntry = str4;
+        this.mIsMix = z;
         this.mHandler.removeCallbacks(this.mFlowLoopRunnable);
         this.mHandler.postDelayed(this.mFlowLoopRunnable, FLOW_LOOP_DURATION);
     }
@@ -92,6 +98,7 @@ public class UbcStatisticManager {
         this.mLiveId = null;
         this.mVid = null;
         this.mEntry = null;
+        this.mIsMix = false;
         this.mHandler.removeCallbacks(this.mFlowLoopRunnable);
     }
 
@@ -580,6 +587,9 @@ public class UbcStatisticManager {
                     }
                     if (!contentExt.has("vid") && !TextUtils.isEmpty(this.mVid)) {
                         contentExt.put("vid", this.mVid);
+                    }
+                    if (this.mIsMix) {
+                        contentExt.put(UbcStatConstant.KEY_CONTENT_EXT_IS_MIX, "1");
                     }
                 }
                 if (ubcStatisticItem.getLoc() != null) {

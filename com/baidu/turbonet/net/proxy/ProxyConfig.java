@@ -1,10 +1,10 @@
 package com.baidu.turbonet.net.proxy;
-/* loaded from: classes17.dex */
+/* loaded from: classes12.dex */
 public class ProxyConfig {
-    public static final ProxyConfig oph = new ProxyConfig();
-    private LibType opg = LibType.TURBONET;
+    public static final ProxyConfig oqL = new ProxyConfig();
+    private LibType oqK = LibType.TURBONET;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes12.dex */
     public enum LibType {
         NATIVE,
         TURBONET
@@ -13,15 +13,15 @@ public class ProxyConfig {
     private ProxyConfig() {
     }
 
-    public boolean ebO() {
-        return this.opg == LibType.NATIVE;
+    public boolean ebN() {
+        return this.oqK == LibType.NATIVE;
     }
 
     public String toString() {
-        return this.opg == LibType.NATIVE ? "NATIVE" : "TURBONET";
+        return this.oqK == LibType.NATIVE ? "NATIVE" : "TURBONET";
     }
 
     public void a(LibType libType) {
-        this.opg = libType;
+        this.oqK = libType;
     }
 }

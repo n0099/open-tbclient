@@ -7,7 +7,7 @@ import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.beans.business.BaseBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class a extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */

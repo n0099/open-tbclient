@@ -4,31 +4,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class j extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.b.e> {
-    private l gnR;
-    private l gnS;
+    private l gny;
+    private l gnz;
     private ViewGroup rootView;
 
     public j(TbPageContext<?> tbPageContext, ViewGroup viewGroup, int i) {
         super(tbPageContext, viewGroup);
-        this.gnR = new l(tbPageContext, i);
-        this.gnS = new l(tbPageContext, i);
+        this.gny = new l(tbPageContext, i);
+        this.gnz = new l(tbPageContext, i);
         this.rootView = (ViewGroup) getView();
         View view = new View(getContext());
         this.rootView.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-        this.rootView.addView(this.gnR.getView());
+        this.rootView.addView(this.gny.getView());
         this.rootView.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-        this.rootView.addView(this.gnS.getView());
+        this.rootView.addView(this.gnz.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-        this.gnR.onChangeSkinType(tbPageContext, i);
-        this.gnS.onChangeSkinType(tbPageContext, i);
+        this.gny.onChangeSkinType(tbPageContext, i);
+        this.gnz.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -40,8 +38,8 @@ public class j extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.e eVar) {
         if (eVar != null) {
-            this.gnR.a(eVar.gjS);
-            this.gnS.a(eVar.gjT);
+            this.gny.a(eVar.gjz);
+            this.gnz.a(eVar.gjA);
         }
     }
 

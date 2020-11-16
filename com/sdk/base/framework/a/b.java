@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class b extends ConnectivityManager.NetworkCallback {
 
     /* renamed from: a  reason: collision with root package name */

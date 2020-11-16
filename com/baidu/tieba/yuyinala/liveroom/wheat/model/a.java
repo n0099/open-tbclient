@@ -12,40 +12,40 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaAcceptConnectionWheatH
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
     private TbPageContext mPageContext;
-    private InterfaceC0924a ogX;
+    private InterfaceC0927a oiA;
     private HttpMessageListener messageListener = new HttpMessageListener(1031009) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAcceptConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.bou && a.this.ogX != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAcceptConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.bmJ && a.this.oiA != null) {
                 AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage = (AlaAcceptConnectionWheatHttpResponseMessage) httpResponsedMessage;
                 if (alaAcceptConnectionWheatHttpResponseMessage.getError() != 0 || !alaAcceptConnectionWheatHttpResponseMessage.isSuccess()) {
-                    a.this.ogX.b(alaAcceptConnectionWheatHttpResponseMessage);
+                    a.this.oiA.b(alaAcceptConnectionWheatHttpResponseMessage);
                 } else {
-                    a.this.ogX.a(alaAcceptConnectionWheatHttpResponseMessage);
+                    a.this.oiA.a(alaAcceptConnectionWheatHttpResponseMessage);
                 }
             }
         }
     };
-    private BdUniqueId bou = BdUniqueId.gen();
+    private BdUniqueId bmJ = BdUniqueId.gen();
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.wheat.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0924a {
+    public interface InterfaceC0927a {
         void a(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage);
 
         void b(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0924a interfaceC0924a) {
-        setUniqueId(this.bou);
+    public a(TbPageContext tbPageContext, InterfaceC0927a interfaceC0927a) {
+        setUniqueId(this.bmJ);
         this.mPageContext = tbPageContext;
-        this.ogX = interfaceC0924a;
-        bhs();
+        this.oiA = interfaceC0927a;
+        bgL();
         registerListener(this.messageListener);
     }
 
-    private void bhs() {
+    private void bgL() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031009, TbConfig.SERVER_ADDRESS + "ala/audio/link/accept");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);

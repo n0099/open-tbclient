@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.concurrent.atomic.DoubleAdder;
 import java.util.concurrent.atomic.LongAdder;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class AdderSerializer implements ObjectSerializer {
     public static final AdderSerializer instance = new AdderSerializer();
 

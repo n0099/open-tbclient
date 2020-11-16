@@ -5,9 +5,9 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.spswitch.a.a;
-/* loaded from: classes19.dex */
+/* loaded from: classes6.dex */
 public class SPSwitchFSPanelLinearLayout extends LinearLayout {
-    private a cub;
+    private a csp;
 
     public SPSwitchFSPanelLinearLayout(Context context) {
         this(context, null);
@@ -23,6 +23,6 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout {
     }
 
     private void init() {
-        this.cub = new a(this);
+        this.csp = new a(this);
     }
 }

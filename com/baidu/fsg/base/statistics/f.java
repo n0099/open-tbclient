@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
@@ -17,7 +17,7 @@ public class f {
     private byte[] e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
@@ -83,7 +83,7 @@ public class f {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     static class a {
 
         /* renamed from: a  reason: collision with root package name */

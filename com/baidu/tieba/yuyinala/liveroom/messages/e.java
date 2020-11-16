@@ -3,18 +3,18 @@ package com.baidu.tieba.yuyinala.liveroom.messages;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes4.dex */
 public class e extends HttpMessage {
-    private long bnV;
-    private String bnW;
+    private long bmk;
+    private String bml;
     private long mAlaId;
     private long mTime;
-    private long nXB;
+    private long nZe;
 
     public void setFrom(String str) {
-        this.bnW = str;
+        this.bml = str;
     }
 
     public void setLiveId(long j) {
-        this.bnV = j;
+        this.bmk = j;
     }
 
     public void aB(long j) {
@@ -22,23 +22,23 @@ public class e extends HttpMessage {
     }
 
     public void as(long j) {
-        this.nXB = j;
+        this.nZe = j;
     }
 
     public e() {
         super(1031024);
-        this.bnW = "";
-        this.bnV = 0L;
+        this.bml = "";
+        this.bmk = 0L;
         this.mAlaId = 0L;
         this.mTime = 0L;
     }
 
     public void setParams() {
-        addParam("from_type", this.bnW);
-        addParam("live_id", this.bnV);
+        addParam("from_type", this.bml);
+        addParam("live_id", this.bmk);
         addParam("enter_time", this.mTime);
-        if (this.nXB > 0) {
-            addParam("send_time", this.nXB);
+        if (this.nZe > 0) {
+            addParam("send_time", this.nZe);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.ar.arplay.a;
 
 import android.content.Context;
 import android.os.Vibrator;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class d {
 
     /* renamed from: do  reason: not valid java name */

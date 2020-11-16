@@ -9,7 +9,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.support.annotation.FloatRange;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class CornerRadiusTransform implements Transform {
     private float mCornerRadius;
     private final RectF mDstRectF = new RectF();

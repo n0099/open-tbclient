@@ -17,7 +17,7 @@ import com.baidu.live.tbadk.util.TextHelper;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.ala.data.a> gaK;
+    private ArrayList<com.baidu.tieba.ala.data.a> gar;
     private Context mContext;
 
     public a(Context context) {
@@ -25,26 +25,26 @@ public class a extends BaseAdapter {
     }
 
     public void setData(ArrayList<com.baidu.tieba.ala.data.a> arrayList) {
-        if (this.gaK == null) {
-            this.gaK = new ArrayList<>();
+        if (this.gar == null) {
+            this.gar = new ArrayList<>();
         } else {
-            this.gaK.clear();
+            this.gar.clear();
         }
-        this.gaK.addAll(arrayList);
+        this.gar.addAll(arrayList);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.gaK);
+        return ListUtils.getCount(this.gar);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.gaK == null || i < 0 || i >= this.gaK.size()) {
+        if (this.gar == null || i < 0 || i >= this.gar.size()) {
             return null;
         }
-        return this.gaK.get(i);
+        return this.gar.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -73,52 +73,52 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.ala.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     protected class C0623a {
-        private LinearLayout gaL;
-        private HeadImageView gaM;
-        private TextView gaN;
-        private RelativeLayout gaO;
-        private TextView gaP;
-        private ImageView gaQ;
-        private TextView gaR;
-        private LinearLayout gaS;
-        private HeadImageView gaT;
-        private TextView gaU;
+        private HeadImageView gaA;
+        private TextView gaB;
+        private LinearLayout gas;
+        private HeadImageView gat;
+        private TextView gau;
+        private RelativeLayout gav;
+        private TextView gaw;
+        private ImageView gax;
+        private TextView gay;
+        private LinearLayout gaz;
 
         public C0623a(View view) {
-            this.gaL = (LinearLayout) view.findViewById(a.f.item_challenge_history_left);
-            this.gaM = (HeadImageView) view.findViewById(a.f.img_challenge_history_left);
-            this.gaN = (TextView) view.findViewById(a.f.text_challenge_history_left);
-            this.gaO = (RelativeLayout) view.findViewById(a.f.challenge_center_layout);
-            this.gaP = (TextView) view.findViewById(a.f.pk_history_anchor_score);
-            this.gaQ = (ImageView) view.findViewById(a.f.pk_history_icon);
-            this.gaR = (TextView) view.findViewById(a.f.pk_history_rival_score);
-            this.gaS = (LinearLayout) view.findViewById(a.f.item_challenge_history_right);
-            this.gaT = (HeadImageView) view.findViewById(a.f.img_challenge_history_right);
-            this.gaU = (TextView) view.findViewById(a.f.text_challenge_history_right);
-            this.gaM.setIsRound(true);
-            this.gaM.setAutoChangeStyle(false);
-            this.gaT.setIsRound(true);
-            this.gaT.setAutoChangeStyle(false);
+            this.gas = (LinearLayout) view.findViewById(a.f.item_challenge_history_left);
+            this.gat = (HeadImageView) view.findViewById(a.f.img_challenge_history_left);
+            this.gau = (TextView) view.findViewById(a.f.text_challenge_history_left);
+            this.gav = (RelativeLayout) view.findViewById(a.f.challenge_center_layout);
+            this.gaw = (TextView) view.findViewById(a.f.pk_history_anchor_score);
+            this.gax = (ImageView) view.findViewById(a.f.pk_history_icon);
+            this.gay = (TextView) view.findViewById(a.f.pk_history_rival_score);
+            this.gaz = (LinearLayout) view.findViewById(a.f.item_challenge_history_right);
+            this.gaA = (HeadImageView) view.findViewById(a.f.img_challenge_history_right);
+            this.gaB = (TextView) view.findViewById(a.f.text_challenge_history_right);
+            this.gat.setIsRound(true);
+            this.gat.setAutoChangeStyle(false);
+            this.gaA.setIsRound(true);
+            this.gaA.setAutoChangeStyle(false);
         }
 
         public void a(com.baidu.tieba.ala.data.a aVar) {
             if (aVar != null) {
-                this.gaM.startLoad(aVar.gzy.portrait, 12, false);
-                String name_show = aVar.gzy.getName_show();
+                this.gat.startLoad(aVar.gzf.portrait, 12, false);
+                String name_show = aVar.gzf.getName_show();
                 if (TextHelper.getTextLengthWithEmoji(name_show) > 8) {
                     name_show = TextHelper.subStringWithEmoji(name_show, 8) + StringHelper.STRING_MORE;
                 }
-                this.gaN.setText(name_show);
-                this.gaT.startLoad(aVar.gzz.portrait, 12, false);
-                String name_show2 = aVar.gzz.getName_show();
+                this.gau.setText(name_show);
+                this.gaA.startLoad(aVar.gzg.portrait, 12, false);
+                String name_show2 = aVar.gzg.getName_show();
                 if (TextHelper.getTextLengthWithEmoji(name_show2) > 8) {
                     name_show2 = TextHelper.subStringWithEmoji(name_show2, 8) + StringHelper.STRING_MORE;
                 }
-                this.gaU.setText(name_show2);
-                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(aVar.gzx.gzD);
-                String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(aVar.gzx.gzE);
-                this.gaP.setText(numberUniformFormatExtra);
-                this.gaR.setText(numberUniformFormatExtra2);
+                this.gaB.setText(name_show2);
+                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(aVar.gze.gzk);
+                String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(aVar.gze.gzl);
+                this.gaw.setText(numberUniformFormatExtra);
+                this.gay.setText(numberUniformFormatExtra2);
             }
         }
     }

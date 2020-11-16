@@ -7,13 +7,13 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.message.RequestGroupInfoLocalMessage;
 import com.baidu.tieba.im.message.ResponseGroupInfoLocalMessage;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class h implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         byte[] bArr;
         if (customMessage == null || !(customMessage instanceof RequestGroupInfoLocalMessage)) {
-            return cVn();
+            return cUT();
         }
         RequestGroupInfoLocalMessage requestGroupInfoLocalMessage = (RequestGroupInfoLocalMessage) customMessage;
         String str = "";
@@ -21,8 +21,8 @@ public class h implements CustomMessageTask.CustomRunnable<Object> {
             str = TbadkApplication.getCurrentAccountObj().getID();
         }
         String str2 = "group_info" + str + requestGroupInfoLocalMessage.getGroupId();
-        com.baidu.adp.lib.cache.l<byte[]> Bl = com.baidu.tbadk.core.c.a.boX().Bl("tb.im_groupactivity");
-        if (Bl != null && (bArr = Bl.get(str2)) != null) {
+        com.baidu.adp.lib.cache.l<byte[]> AG = com.baidu.tbadk.core.c.a.bob().AG("tb.im_groupactivity");
+        if (AG != null && (bArr = AG.get(str2)) != null) {
             ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = new ResponseGroupInfoLocalMessage();
             try {
                 responseGroupInfoLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_REQUEST_GROUP_INFO_BY_ID_LOCAL, bArr);
@@ -31,10 +31,10 @@ public class h implements CustomMessageTask.CustomRunnable<Object> {
                 e.printStackTrace();
             }
         }
-        return cVn();
+        return cUT();
     }
 
-    private CustomResponsedMessage<?> cVn() {
+    private CustomResponsedMessage<?> cUT() {
         ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = new ResponseGroupInfoLocalMessage();
         responseGroupInfoLocalMessage.setError(-18);
         return responseGroupInfoLocalMessage;

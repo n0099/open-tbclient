@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private int faX;
-    private List<q> fbd;
-    private List<q> fbe;
-    private boolean fbf;
-    private boolean fbg;
-    private int fbh = 2;
-    private int fbi = 1;
+    private int faf;
+    private List<q> fal;
+    private List<q> fam;
+    private boolean fan;
+    private boolean fao;
+    private int fap = 2;
+    private int faq = 1;
 
     public d(List<q> list, boolean z, int i) {
-        this.faX = 2;
-        this.fbd = list;
-        this.fbg = z;
-        this.faX = i;
+        this.faf = 2;
+        this.fal = list;
+        this.fao = z;
+        this.faf = i;
         bv(list);
     }
 
     public void bv(List<q> list) {
-        if (list != null && list.size() >= this.fbh && list.size() <= this.faX) {
-            this.fbf = true;
-        } else if (list.size() > this.faX && this.fbg) {
-            this.fbf = true;
+        if (list != null && list.size() >= this.fap && list.size() <= this.faf) {
+            this.fan = true;
+        } else if (list.size() > this.faf && this.fao) {
+            this.fan = true;
         } else {
-            this.fbf = false;
+            this.fan = false;
         }
-        this.fbe = btO();
+        this.fam = bte();
     }
 
-    private List<q> btO() {
+    private List<q> bte() {
         ArrayList arrayList = new ArrayList();
-        if (this.fbd != null) {
-            if (this.fbf) {
-                if (this.fbd.size() > this.faX && this.fbd.size() >= this.fbi) {
-                    arrayList.addAll(this.fbd.subList(0, this.faX));
-                    arrayList.addAll(0, this.fbd.subList(this.faX - this.fbi, this.faX));
-                    arrayList.addAll(this.fbd.subList(0, this.fbi));
+        if (this.fal != null) {
+            if (this.fan) {
+                if (this.fal.size() > this.faf && this.fal.size() >= this.faq) {
+                    arrayList.addAll(this.fal.subList(0, this.faf));
+                    arrayList.addAll(0, this.fal.subList(this.faf - this.faq, this.faf));
+                    arrayList.addAll(this.fal.subList(0, this.faq));
                 } else {
-                    arrayList.addAll(this.fbd);
-                    arrayList.addAll(0, this.fbd.subList(this.fbd.size() - this.fbi, this.fbd.size()));
-                    arrayList.addAll(this.fbd.subList(0, this.fbi));
+                    arrayList.addAll(this.fal);
+                    arrayList.addAll(0, this.fal.subList(this.fal.size() - this.faq, this.fal.size()));
+                    arrayList.addAll(this.fal.subList(0, this.faq));
                 }
-            } else if (this.fbd != null && this.fbd.size() > 0 && this.fbd.size() >= this.fbi) {
-                arrayList.addAll(this.fbd.subList(0, this.fbi));
+            } else if (this.fal != null && this.fal.size() > 0 && this.fal.size() >= this.faq) {
+                arrayList.addAll(this.fal.subList(0, this.faq));
             }
         }
         return arrayList;
     }
 
-    public int qv(int i) {
-        if (this.fbf) {
-            int size = this.fbe.size();
+    public int qT(int i) {
+        if (this.fan) {
+            int size = this.fam.size();
             if (i == 0) {
-                return (size - 1) - this.fbi;
+                return (size - 1) - this.faq;
             }
-            if (i == size - this.fbi) {
-                return this.fbi;
+            if (i == size - this.faq) {
+                return this.faq;
             }
             return i;
         }
         return i;
     }
 
-    public int qw(int i) {
-        if (this.fbf) {
-            return i - this.fbi;
+    public int qU(int i) {
+        if (this.fan) {
+            return i - this.faq;
         }
         return i;
     }
 
-    public int btP() {
-        if (this.fbd == null) {
+    public int btf() {
+        if (this.fal == null) {
             return 0;
         }
-        return this.fbd.size();
+        return this.fal.size();
     }
 
-    public int btQ() {
-        if (this.fbf) {
-            return this.fbi;
+    public int btg() {
+        if (this.fan) {
+            return this.faq;
         }
         return 0;
     }
 
-    public void qx(int i) {
-        this.faX = i;
-        bv(this.fbd);
+    public void qV(int i) {
+        this.faf = i;
+        bv(this.fal);
     }
 
-    public void qy(int i) {
-        this.fbh = i;
-        bv(this.fbd);
+    public void qW(int i) {
+        this.fap = i;
+        bv(this.fal);
     }
 
-    public List<q> btR() {
-        return this.fbe;
+    public List<q> bth() {
+        return this.fam;
     }
 
-    public void qz(int i) {
-        this.fbi = i;
-        bv(this.fbd);
+    public void qX(int i) {
+        this.faq = i;
+        bv(this.fal);
     }
 }

@@ -1,19 +1,17 @@
 package com.baidu.tieba.j;
 
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import tbclient.GoodsWin;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.framework.b.c {
-    public b() {
-        super(0);
+public class b {
+    public String goods_url;
+    public Integer show;
+
+    public void a(GoodsWin goodsWin) {
+        this.show = goodsWin.show;
+        this.goods_url = goodsWin.goods_url;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.b.g
-    /* renamed from: b */
-    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        if (httpResponsedMessage != null && httpResponsedMessage.getError() == 1990055 && !a.Bk(httpResponsedMessage.getCmd())) {
-            a.cIf();
-        }
-        return httpResponsedMessage;
+    public boolean cHJ() {
+        return this.show.intValue() == 1;
     }
 }

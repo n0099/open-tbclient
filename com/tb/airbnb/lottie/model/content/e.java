@@ -3,71 +3,71 @@ package com.tb.airbnb.lottie.model.content;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.model.content.ShapeStroke;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class e implements b {
     private final float Fo;
     private final List<com.tb.airbnb.lottie.model.a.b> Fp;
     private final String name;
-    private final com.tb.airbnb.lottie.model.a.b pJB;
-    private final ShapeStroke.LineCapType pJC;
-    private final ShapeStroke.LineJoinType pJD;
+    private final com.tb.airbnb.lottie.model.a.d pKU;
+    private final GradientType pKY;
+    private final com.tb.airbnb.lottie.model.a.c pKZ;
+    private final com.tb.airbnb.lottie.model.a.f pLa;
+    private final com.tb.airbnb.lottie.model.a.f pLb;
+    private final com.tb.airbnb.lottie.model.a.b pLe;
+    private final ShapeStroke.LineCapType pLf;
+    private final ShapeStroke.LineJoinType pLg;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b pJE;
-    private final com.tb.airbnb.lottie.model.a.d pJr;
-    private final GradientType pJv;
-    private final com.tb.airbnb.lottie.model.a.c pJw;
-    private final com.tb.airbnb.lottie.model.a.f pJx;
-    private final com.tb.airbnb.lottie.model.a.f pJy;
+    private final com.tb.airbnb.lottie.model.a.b pLh;
 
     public e(String str, GradientType gradientType, com.tb.airbnb.lottie.model.a.c cVar, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.f fVar, com.tb.airbnb.lottie.model.a.f fVar2, com.tb.airbnb.lottie.model.a.b bVar, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f, List<com.tb.airbnb.lottie.model.a.b> list, @Nullable com.tb.airbnb.lottie.model.a.b bVar2) {
         this.name = str;
-        this.pJv = gradientType;
-        this.pJw = cVar;
-        this.pJr = dVar;
-        this.pJx = fVar;
-        this.pJy = fVar2;
-        this.pJB = bVar;
-        this.pJC = lineCapType;
-        this.pJD = lineJoinType;
+        this.pKY = gradientType;
+        this.pKZ = cVar;
+        this.pKU = dVar;
+        this.pLa = fVar;
+        this.pLb = fVar2;
+        this.pLe = bVar;
+        this.pLf = lineCapType;
+        this.pLg = lineJoinType;
         this.Fo = f;
         this.Fp = list;
-        this.pJE = bVar2;
+        this.pLh = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType eyW() {
-        return this.pJv;
+    public GradientType eyX() {
+        return this.pKY;
     }
 
-    public com.tb.airbnb.lottie.model.a.c eyX() {
-        return this.pJw;
+    public com.tb.airbnb.lottie.model.a.c eyY() {
+        return this.pKZ;
     }
 
-    public com.tb.airbnb.lottie.model.a.d eyR() {
-        return this.pJr;
-    }
-
-    public com.tb.airbnb.lottie.model.a.f eyY() {
-        return this.pJx;
+    public com.tb.airbnb.lottie.model.a.d eyS() {
+        return this.pKU;
     }
 
     public com.tb.airbnb.lottie.model.a.f eyZ() {
-        return this.pJy;
+        return this.pLa;
     }
 
-    public com.tb.airbnb.lottie.model.a.b eza() {
-        return this.pJB;
+    public com.tb.airbnb.lottie.model.a.f eza() {
+        return this.pLb;
     }
 
-    public ShapeStroke.LineCapType ezb() {
-        return this.pJC;
+    public com.tb.airbnb.lottie.model.a.b ezb() {
+        return this.pLe;
     }
 
-    public ShapeStroke.LineJoinType ezc() {
-        return this.pJD;
+    public ShapeStroke.LineCapType ezc() {
+        return this.pLf;
+    }
+
+    public ShapeStroke.LineJoinType ezd() {
+        return this.pLg;
     }
 
     public List<com.tb.airbnb.lottie.model.a.b> jX() {
@@ -75,8 +75,8 @@ public class e implements b {
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.b ezd() {
-        return this.pJE;
+    public com.tb.airbnb.lottie.model.a.b eze() {
+        return this.pLh;
     }
 
     public float jZ() {

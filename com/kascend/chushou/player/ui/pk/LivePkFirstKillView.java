@@ -27,10 +27,10 @@ public class LivePkFirstKillView extends RelativeLayout {
     private TextView f;
     private ObjectAnimator i;
     private boolean l;
-    private AnimatorSet pwH;
-    private ObjectAnimator pwI;
-    private ObjectAnimator pwJ;
-    private Set<Animator> pwK;
+    private AnimatorSet pyk;
+    private ObjectAnimator pyl;
+    private ObjectAnimator pym;
+    private Set<Animator> pyn;
 
     public LivePkFirstKillView(Context context) {
         this(context, null);
@@ -73,8 +73,8 @@ public class LivePkFirstKillView extends RelativeLayout {
             this.f4211a.setVisibility(0);
             this.c.setVisibility(4);
             this.d.setText(getContext().getResources().getString(a.i.str_live_pk_txt_first_blood_addition) + ((int) (100.0f * f)) + "%");
-            this.pwH = new AnimatorSet();
-            this.pwK = new HashSet();
+            this.pyk = new AnimatorSet();
+            this.pyn = new HashSet();
             post(new Runnable() { // from class: com.kascend.chushou.player.ui.pk.LivePkFirstKillView.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -82,10 +82,10 @@ public class LivePkFirstKillView extends RelativeLayout {
                     int i2;
                     PropertyValuesHolder ofKeyframe = PropertyValuesHolder.ofKeyframe("scaleX", Keyframe.ofFloat(0.0f, 0.3f), Keyframe.ofFloat(0.22222222f, 1.2f), Keyframe.ofFloat(0.31111112f, 1.0f), Keyframe.ofFloat(0.4f, 1.1f), Keyframe.ofFloat(0.4888889f, 1.0f), Keyframe.ofFloat(0.5777778f, 1.0f), Keyframe.ofFloat(1.0f, 0.3f));
                     PropertyValuesHolder ofKeyframe2 = PropertyValuesHolder.ofKeyframe("scaleY", Keyframe.ofFloat(0.0f, 0.3f), Keyframe.ofFloat(0.22222222f, 1.2f), Keyframe.ofFloat(0.31111112f, 1.0f), Keyframe.ofFloat(0.4f, 1.1f), Keyframe.ofFloat(0.4888889f, 1.0f), Keyframe.ofFloat(0.5777778f, 1.0f), Keyframe.ofFloat(1.0f, 0.3f));
-                    LivePkFirstKillView.this.pwI = ObjectAnimator.ofPropertyValuesHolder(LivePkFirstKillView.this.f4211a, PropertyValuesHolder.ofKeyframe("alpha", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.22222222f, 1.0f), Keyframe.ofFloat(0.5777778f, 1.0f), Keyframe.ofFloat(1.0f, 0.3f)), ofKeyframe, ofKeyframe2);
-                    LivePkFirstKillView.this.pwI.setDuration(1800L);
-                    LivePkFirstKillView.this.pwI.setInterpolator(new LinearInterpolator());
-                    LivePkFirstKillView.this.pwI.addListener(new g() { // from class: com.kascend.chushou.player.ui.pk.LivePkFirstKillView.1.1
+                    LivePkFirstKillView.this.pyl = ObjectAnimator.ofPropertyValuesHolder(LivePkFirstKillView.this.f4211a, PropertyValuesHolder.ofKeyframe("alpha", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.22222222f, 1.0f), Keyframe.ofFloat(0.5777778f, 1.0f), Keyframe.ofFloat(1.0f, 0.3f)), ofKeyframe, ofKeyframe2);
+                    LivePkFirstKillView.this.pyl.setDuration(1800L);
+                    LivePkFirstKillView.this.pyl.setInterpolator(new LinearInterpolator());
+                    LivePkFirstKillView.this.pyl.addListener(new g() { // from class: com.kascend.chushou.player.ui.pk.LivePkFirstKillView.1.1
                         @Override // com.kascend.chushou.player.ui.pk.g, android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
                             super.onAnimationEnd(animator);
@@ -93,13 +93,13 @@ public class LivePkFirstKillView extends RelativeLayout {
                             LivePkFirstKillView.this.c.setVisibility(0);
                         }
                     });
-                    LivePkFirstKillView.this.pwK.add(LivePkFirstKillView.this.pwI);
+                    LivePkFirstKillView.this.pyn.add(LivePkFirstKillView.this.pyl);
                     PropertyValuesHolder ofKeyframe3 = PropertyValuesHolder.ofKeyframe("scaleX", Keyframe.ofFloat(0.0f, 0.3f), Keyframe.ofFloat(1.0f, 1.0f));
                     PropertyValuesHolder ofKeyframe4 = PropertyValuesHolder.ofKeyframe("scaleY", Keyframe.ofFloat(0.0f, 0.3f), Keyframe.ofFloat(1.0f, 1.0f));
                     LivePkFirstKillView.this.i = ObjectAnimator.ofPropertyValuesHolder(LivePkFirstKillView.this.c, PropertyValuesHolder.ofKeyframe("alpha", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(1.0f, 1.0f)), ofKeyframe3, ofKeyframe4);
                     LivePkFirstKillView.this.i.setDuration(560L);
                     LivePkFirstKillView.this.i.setInterpolator(new LinearInterpolator());
-                    LivePkFirstKillView.this.pwK.add(LivePkFirstKillView.this.i);
+                    LivePkFirstKillView.this.pyn.add(LivePkFirstKillView.this.i);
                     int[] iArr = new int[2];
                     int[] iArr2 = new int[2];
                     int[] iArr3 = new int[2];
@@ -113,12 +113,12 @@ public class LivePkFirstKillView extends RelativeLayout {
                         i = iArr2[0] - iArr3[0];
                         i2 = iArr2[1] - iArr3[1];
                     }
-                    LivePkFirstKillView.this.pwJ = ObjectAnimator.ofPropertyValuesHolder(LivePkFirstKillView.this.c, PropertyValuesHolder.ofKeyframe("translationX", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.86206895f, i), Keyframe.ofFloat(1.0f, i)), PropertyValuesHolder.ofKeyframe("translationY", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.86206895f, i2), Keyframe.ofFloat(1.0f, i2)), PropertyValuesHolder.ofKeyframe("alpha", Keyframe.ofFloat(0.0f, 1.0f), Keyframe.ofFloat(0.86206895f, 1.0f), Keyframe.ofFloat(1.0f, 0.0f)), PropertyValuesHolder.ofKeyframe("scaleX", Keyframe.ofFloat(0.0f, 1.0f), Keyframe.ofFloat(0.86206895f, 0.4f), Keyframe.ofFloat(1.0f, 0.4f)), PropertyValuesHolder.ofKeyframe("scaleY", Keyframe.ofFloat(0.0f, 1.0f), Keyframe.ofFloat(0.86206895f, 0.4f), Keyframe.ofFloat(1.0f, 0.4f)));
-                    LivePkFirstKillView.this.pwJ.setDuration(1160L);
-                    LivePkFirstKillView.this.pwJ.setInterpolator(new LinearInterpolator());
-                    LivePkFirstKillView.this.pwK.add(LivePkFirstKillView.this.pwJ);
-                    LivePkFirstKillView.this.pwH.playSequentially(LivePkFirstKillView.this.pwI, LivePkFirstKillView.this.i, LivePkFirstKillView.this.pwJ);
-                    LivePkFirstKillView.this.pwH.addListener(new g() { // from class: com.kascend.chushou.player.ui.pk.LivePkFirstKillView.1.2
+                    LivePkFirstKillView.this.pym = ObjectAnimator.ofPropertyValuesHolder(LivePkFirstKillView.this.c, PropertyValuesHolder.ofKeyframe("translationX", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.86206895f, i), Keyframe.ofFloat(1.0f, i)), PropertyValuesHolder.ofKeyframe("translationY", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.86206895f, i2), Keyframe.ofFloat(1.0f, i2)), PropertyValuesHolder.ofKeyframe("alpha", Keyframe.ofFloat(0.0f, 1.0f), Keyframe.ofFloat(0.86206895f, 1.0f), Keyframe.ofFloat(1.0f, 0.0f)), PropertyValuesHolder.ofKeyframe("scaleX", Keyframe.ofFloat(0.0f, 1.0f), Keyframe.ofFloat(0.86206895f, 0.4f), Keyframe.ofFloat(1.0f, 0.4f)), PropertyValuesHolder.ofKeyframe("scaleY", Keyframe.ofFloat(0.0f, 1.0f), Keyframe.ofFloat(0.86206895f, 0.4f), Keyframe.ofFloat(1.0f, 0.4f)));
+                    LivePkFirstKillView.this.pym.setDuration(1160L);
+                    LivePkFirstKillView.this.pym.setInterpolator(new LinearInterpolator());
+                    LivePkFirstKillView.this.pyn.add(LivePkFirstKillView.this.pym);
+                    LivePkFirstKillView.this.pyk.playSequentially(LivePkFirstKillView.this.pyl, LivePkFirstKillView.this.i, LivePkFirstKillView.this.pym);
+                    LivePkFirstKillView.this.pyk.addListener(new g() { // from class: com.kascend.chushou.player.ui.pk.LivePkFirstKillView.1.2
                         @Override // com.kascend.chushou.player.ui.pk.g, android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
                             super.onAnimationEnd(animator);
@@ -127,7 +127,7 @@ public class LivePkFirstKillView extends RelativeLayout {
                             LivePkFirstKillView.this.l = false;
                         }
                     });
-                    LivePkFirstKillView.this.pwH.start();
+                    LivePkFirstKillView.this.pyk.start();
                 }
             });
         }
@@ -136,11 +136,11 @@ public class LivePkFirstKillView extends RelativeLayout {
     @Override // android.view.View
     public void clearAnimation() {
         super.clearAnimation();
-        if (this.pwH != null) {
-            this.pwH.cancel();
+        if (this.pyk != null) {
+            this.pyk.cancel();
         }
-        if (this.pwK != null) {
-            for (Animator animator : this.pwK) {
+        if (this.pyn != null) {
+            for (Animator animator : this.pyn) {
                 animator.cancel();
             }
         }

@@ -3,9 +3,9 @@ package io.reactivex.internal.util;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class i {
-    public static <T> io.reactivex.internal.a.g<T> Rp(int i) {
+    public static <T> io.reactivex.internal.a.g<T> RS(int i) {
         return i < 0 ? new io.reactivex.internal.queue.a(-i) : new SpscArrayQueue(i);
     }
 

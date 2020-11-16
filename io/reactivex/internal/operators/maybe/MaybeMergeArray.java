@@ -12,12 +12,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import org.a.c;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class MaybeMergeArray<T> extends g<T> {
     final o<? extends T>[] sources;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public interface a<T> extends io.reactivex.internal.a.g<T> {
         int consumerIndex();
 
@@ -36,7 +36,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         a clqSimpleQueue;
         o[] oVarArr = this.sources;
         int length = oVarArr.length;
-        if (length <= eAv()) {
+        if (length <= eAw()) {
             clqSimpleQueue = new MpscFillOnceSimpleQueue(length);
         } else {
             clqSimpleQueue = new ClqSimpleQueue();
@@ -53,7 +53,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class MergeMaybeObserver<T> extends BasicIntQueueSubscription<T> implements m<T> {
         private static final long serialVersionUID = -660395290758764731L;
         final c<? super T> actual;
@@ -243,7 +243,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class MpscFillOnceSimpleQueue<T> extends AtomicReferenceArray<T> implements a<T> {
         private static final long serialVersionUID = -7969063454040569579L;
         int consumerIndex;
@@ -325,7 +325,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class ClqSimpleQueue<T> extends ConcurrentLinkedQueue<T> implements a<T> {
         private static final long serialVersionUID = -4025173261791142821L;
         int consumerIndex;

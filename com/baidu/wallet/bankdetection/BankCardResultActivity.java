@@ -21,7 +21,7 @@ import com.baidu.wallet.core.SDKBaseActivity;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity;
 import java.util.regex.Pattern;
-/* loaded from: classes16.dex */
+/* loaded from: classes10.dex */
 public class BankCardResultActivity extends DxmPayBaseActivity implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
@@ -193,7 +193,7 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes10.dex */
     public class a implements InputFilter {
         a() {
         }

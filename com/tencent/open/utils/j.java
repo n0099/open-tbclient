@@ -35,7 +35,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class j {
     private static String f;
 
@@ -111,7 +111,7 @@ public class j {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */

@@ -3,7 +3,7 @@ package com.baidu.swan.ubc;
 import android.content.Context;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface l {
     void K(String str, int i);
 
@@ -13,23 +13,23 @@ public interface l {
 
     void a(String str, String str2, int i, String str3, long j, int i2);
 
-    String aCZ();
+    String aCr();
 
-    boolean aDa();
+    boolean aCs();
 
-    boolean aDb();
+    boolean aCt();
 
-    boolean aDc();
+    boolean aCu();
 
-    int afE();
+    int aeW();
 
-    ExecutorService ahR();
+    m ahI();
 
-    m aiq();
+    ExecutorService ahj();
 
-    String axM();
+    String axe();
 
-    String axN();
+    String axf();
 
     String cq(Context context);
 
@@ -45,5 +45,5 @@ public interface l {
 
     void i(String str, int i, String str2);
 
-    boolean qD(String str);
+    boolean qx(String str);
 }

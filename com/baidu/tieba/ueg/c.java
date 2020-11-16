@@ -7,35 +7,35 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String nlh;
-    private a nli;
+    private String nmo;
+    private a nmp;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cXT();
+        void cXp();
 
-        void cXU();
+        void cXq();
 
-        void cXV();
+        void cXr();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.nlh = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.nli = aVar;
+        this.nmo = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.nmp = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: V */
+    /* renamed from: W */
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            aa aaVar = new aa(this.nlh);
-            aaVar.bqN().brt().mIsNeedAddCommenParam = false;
-            aaVar.bqN().brt().mIsUseCurrentBDUSS = false;
+            aa aaVar = new aa(this.nmo);
+            aaVar.bqa().bqH().mIsNeedAddCommenParam = false;
+            aaVar.bqa().bqH().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(aaVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.nli != null && num != null) {
+        if (this.nmp != null && num != null) {
             if (num.intValue() == -1) {
-                this.nli.onError(null);
+                this.nmp.onError(null);
             } else if (num.intValue() == 1) {
-                this.nli.cXT();
+                this.nmp.cXp();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.nli.cXU();
+                this.nmp.cXq();
             } else {
-                this.nli.cXV();
+                this.nmp.cXr();
             }
         }
     }

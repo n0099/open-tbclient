@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class AbsHandlerTask implements ITimerTask {
     private static final int REFRESH_ACTION = 1;
     PrivateHandler mHandler = new PrivateHandler(Looper.getMainLooper());
@@ -32,7 +32,7 @@ public abstract class AbsHandlerTask implements ITimerTask {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class PrivateHandler extends Handler {
         public PrivateHandler(Looper looper) {
             super(looper);

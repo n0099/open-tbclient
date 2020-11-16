@@ -17,19 +17,19 @@ public final class c {
             cVar.g("channel", "cashiersdk");
             cVar.g(CashierData.DEVICE_TYPE, "ANDROID");
             cVar.g(CommandMessage.SDK_VERSION, "2.7.4");
-            cVar.g("appVersion", aaU());
+            cVar.g("appVersion", aal());
             cVar.g("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         }
     }
 
-    private static final String aaU() {
-        Context abr = g.abr();
-        q.m(abr, "SdkRunTime.getAppContext()");
-        PackageManager packageManager = abr.getPackageManager();
+    private static final String aal() {
+        Context aaI = g.aaI();
+        q.m(aaI, "SdkRunTime.getAppContext()");
+        PackageManager packageManager = aaI.getPackageManager();
         try {
-            Context abr2 = g.abr();
-            q.m(abr2, "SdkRunTime.getAppContext()");
-            String str = packageManager.getPackageInfo(abr2.getPackageName(), 0).versionName;
+            Context aaI2 = g.aaI();
+            q.m(aaI2, "SdkRunTime.getAppContext()");
+            String str = packageManager.getPackageInfo(aaI2.getPackageName(), 0).versionName;
             q.m(str, "packageInfo.versionName");
             return str;
         } catch (PackageManager.NameNotFoundException e) {
@@ -38,7 +38,7 @@ public final class c {
         }
     }
 
-    public static final com.baidu.poly.a.a.b as(JSONObject jSONObject) {
+    public static final com.baidu.poly.a.a.b am(JSONObject jSONObject) {
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();

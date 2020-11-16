@@ -5,7 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes12.dex */
 public class GzipUtil {
     private static final int IO_BUF_SIZE = 1024;
 

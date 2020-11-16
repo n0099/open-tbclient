@@ -23,12 +23,12 @@ import java.lang.reflect.Field;
 import java.nio.channels.FileChannel;
 import org.json.JSONObject;
 import tv.chushou.basis.http.HttpConsts;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean ahd() {
-        return com.baidu.swan.apps.t.a.awM().ahd();
+    public static boolean agv() {
+        return com.baidu.swan.apps.t.a.awe().agv();
     }
 
     public static void g(File file, File file2) throws IOException {
@@ -61,7 +61,7 @@ public class e {
         }
     }
 
-    public static void mF(String str) {
+    public static void mz(String str) {
         b(str, null, null, true);
     }
 
@@ -234,7 +234,7 @@ public class e {
         if (DEBUG) {
             Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
         }
-        new c.a(10006).sX(jSONObject2).sW(com.baidu.swan.apps.runtime.e.aHw()).atR();
+        new c.a(10006).sS(jSONObject2).sR(com.baidu.swan.apps.runtime.e.aGO()).atj();
     }
 
     public static void H(String str, String str2, String str3) {
@@ -254,7 +254,7 @@ public class e {
             if (DEBUG) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
             }
-            new c.a(10008).sX(jSONObject2).sW(com.baidu.swan.apps.runtime.e.aHw()).atR();
+            new c.a(10008).sS(jSONObject2).sR(com.baidu.swan.apps.runtime.e.aGO()).atj();
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

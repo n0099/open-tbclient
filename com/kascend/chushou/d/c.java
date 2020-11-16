@@ -7,35 +7,35 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes6.dex */
 public final class c {
-    public static final c phK = new c();
+    public static final c pjq = new c();
 
     private c() {
     }
 
     public final String a() {
         StringBuilder sb = new StringBuilder();
-        Application eHo = tv.chushou.basis.d.b.eHo();
-        q.m(eHo, "Router.application()");
-        File filesDir = eHo.getFilesDir();
+        Application eHp = tv.chushou.basis.d.b.eHp();
+        q.m(eHp, "Router.application()");
+        File filesDir = eHp.getFilesDir();
         q.m(filesDir, "Router.application().filesDir");
         return sb.append(filesDir.getAbsolutePath()).append("/plugin/").toString();
     }
 
     public final String b() {
         StringBuilder sb = new StringBuilder();
-        Application eHo = tv.chushou.basis.d.b.eHo();
-        q.m(eHo, "Router.application()");
-        File filesDir = eHo.getFilesDir();
+        Application eHp = tv.chushou.basis.d.b.eHp();
+        q.m(eHp, "Router.application()");
+        File filesDir = eHp.getFilesDir();
         q.m(filesDir, "Router.application().filesDir");
         return sb.append(filesDir.getAbsolutePath()).append("/svga/").toString();
     }
 
     public final File c() {
-        File externalFilesDir = tv.chushou.basis.d.b.eHo().getExternalFilesDir("cstv_imagecache");
+        File externalFilesDir = tv.chushou.basis.d.b.eHp().getExternalFilesDir("cstv_imagecache");
         if (externalFilesDir == null || (!externalFilesDir.exists() && !externalFilesDir.mkdirs())) {
-            Application eHo = tv.chushou.basis.d.b.eHo();
-            q.m(eHo, "Router.application()");
-            File file = new File(eHo.getCacheDir(), "cstv_imagecache");
+            Application eHp = tv.chushou.basis.d.b.eHp();
+            q.m(eHp, "Router.application()");
+            File file = new File(eHp.getCacheDir(), "cstv_imagecache");
             file.mkdirs();
             return file;
         }
@@ -43,11 +43,11 @@ public final class c {
     }
 
     public final File etV() {
-        File externalFilesDir = tv.chushou.basis.d.b.eHo().getExternalFilesDir("cstv_download");
+        File externalFilesDir = tv.chushou.basis.d.b.eHp().getExternalFilesDir("cstv_download");
         if (externalFilesDir == null || (!externalFilesDir.exists() && !externalFilesDir.mkdirs())) {
-            Application eHo = tv.chushou.basis.d.b.eHo();
-            q.m(eHo, "Router.application()");
-            File file = new File(eHo.getCacheDir(), "cstv_download");
+            Application eHp = tv.chushou.basis.d.b.eHp();
+            q.m(eHp, "Router.application()");
+            File file = new File(eHp.getCacheDir(), "cstv_download");
             file.mkdirs();
             return file;
         }
@@ -55,11 +55,11 @@ public final class c {
     }
 
     public final File e() {
-        File externalFilesDir = tv.chushou.basis.d.b.eHo().getExternalFilesDir("cstv_ninepatch");
+        File externalFilesDir = tv.chushou.basis.d.b.eHp().getExternalFilesDir("cstv_ninepatch");
         if (externalFilesDir == null || (!externalFilesDir.exists() && !externalFilesDir.mkdirs())) {
-            Application eHo = tv.chushou.basis.d.b.eHo();
-            q.m(eHo, "Router.application()");
-            File file = new File(eHo.getCacheDir(), "cstv_ninepatch");
+            Application eHp = tv.chushou.basis.d.b.eHp();
+            q.m(eHp, "Router.application()");
+            File file = new File(eHp.getCacheDir(), "cstv_ninepatch");
             file.mkdirs();
             return file;
         }

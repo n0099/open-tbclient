@@ -5,7 +5,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.baidu.sofire.l.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public final class d implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
@@ -17,7 +17,7 @@ public final class d implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        this.f3660a.f3658a = a.AbstractBinderC0361a.a(iBinder);
+        this.f3660a.f3658a = a.AbstractBinderC0359a.a(iBinder);
     }
 
     @Override // android.content.ServiceConnection

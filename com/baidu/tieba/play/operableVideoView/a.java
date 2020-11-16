@@ -3,24 +3,24 @@ package com.baidu.tieba.play.operableVideoView;
 import android.view.View;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 import com.baidu.tieba.play.o;
 /* loaded from: classes.dex */
 public interface a extends View.OnClickListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, TbCyberVideoView.a {
-    void Hx(int i);
+    void HV(int i);
 
-    void ad(View.OnClickListener onClickListener);
+    void ac(View.OnClickListener onClickListener);
 
     void b(o oVar);
 
-    void bTA();
+    void bST();
 
-    boolean dsl();
+    boolean drL();
 
-    View dwP();
+    View dwp();
 
-    boolean dxB();
+    boolean dxb();
 
     int getCurrentPosition();
 
@@ -28,11 +28,11 @@ public interface a extends View.OnClickListener, CyberPlayerManager.OnCompletion
 
     boolean isPlaying();
 
-    boolean re(boolean z);
+    boolean rh(boolean z);
 
     void setAfterClickListener(View.OnClickListener onClickListener);
 
-    void setData(bw bwVar);
+    void setData(bx bxVar);
 
     void setFrom(String str);
 

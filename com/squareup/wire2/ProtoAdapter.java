@@ -14,7 +14,7 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
-/* loaded from: classes6.dex */
+/* loaded from: classes17.dex */
 public abstract class ProtoAdapter<E> {
     private static final int FIXED_32_SIZE = 4;
     private static final int FIXED_64_SIZE = 8;
@@ -144,7 +144,7 @@ public abstract class ProtoAdapter<E> {
     public static final ProtoAdapter<Long> INT64 = new ProtoAdapter<Long>(FieldEncoding.VARINT, Long.class) { // from class: com.squareup.wire2.ProtoAdapter.12
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        /* renamed from: i */
+        /* renamed from: j */
         public int encodedSize(Long l) {
             return d.varint64Size(l.longValue());
         }
@@ -166,7 +166,7 @@ public abstract class ProtoAdapter<E> {
     public static final ProtoAdapter<Long> UINT64 = new ProtoAdapter<Long>(FieldEncoding.VARINT, Long.class) { // from class: com.squareup.wire2.ProtoAdapter.13
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        /* renamed from: i */
+        /* renamed from: j */
         public int encodedSize(Long l) {
             return d.varint64Size(l.longValue());
         }
@@ -188,7 +188,7 @@ public abstract class ProtoAdapter<E> {
     public static final ProtoAdapter<Long> SINT64 = new ProtoAdapter<Long>(FieldEncoding.VARINT, Long.class) { // from class: com.squareup.wire2.ProtoAdapter.14
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        /* renamed from: i */
+        /* renamed from: j */
         public int encodedSize(Long l) {
             return d.varint64Size(d.encodeZigZag64(l.longValue()));
         }
@@ -210,7 +210,7 @@ public abstract class ProtoAdapter<E> {
     public static final ProtoAdapter<Long> FIXED64 = new ProtoAdapter<Long>(FieldEncoding.FIXED64, Long.class) { // from class: com.squareup.wire2.ProtoAdapter.15
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        /* renamed from: i */
+        /* renamed from: j */
         public int encodedSize(Long l) {
             return 8;
         }
@@ -277,7 +277,7 @@ public abstract class ProtoAdapter<E> {
     public static final ProtoAdapter<String> STRING = new ProtoAdapter<String>(FieldEncoding.LENGTH_DELIMITED, String.class) { // from class: com.squareup.wire2.ProtoAdapter.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        /* renamed from: Zk */
+        /* renamed from: YV */
         public int encodedSize(String str) {
             return d.utf8Length(str);
         }
@@ -315,7 +315,7 @@ public abstract class ProtoAdapter<E> {
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: e */
         public ByteString decode(c cVar) throws IOException {
-            return cVar.eyn();
+            return cVar.eyo();
         }
     };
 
@@ -374,7 +374,7 @@ public abstract class ProtoAdapter<E> {
         if (this.fieldEncoding == FieldEncoding.LENGTH_DELIMITED) {
             encodedSize += d.varint32Size(encodedSize);
         }
-        return encodedSize + d.Rg(i);
+        return encodedSize + d.RJ(i);
     }
 
     public void encodeWithTag(d dVar, int i, E e) throws IOException {
@@ -583,7 +583,7 @@ public abstract class ProtoAdapter<E> {
         };
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes17.dex */
     public static final class EnumConstantNotFoundException extends IllegalArgumentException {
         public final int value;
 
@@ -594,13 +594,13 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes17.dex */
     private static final class b<K, V> extends ProtoAdapter<Map<K, V>> {
-        private final a<K, V> pHJ;
+        private final a<K, V> pJm;
 
         b(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
             super(FieldEncoding.LENGTH_DELIMITED, null);
-            this.pHJ = new a<>(protoAdapter, protoAdapter2);
+            this.pJm = new a<>(protoAdapter, protoAdapter2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -619,7 +619,7 @@ public abstract class ProtoAdapter<E> {
             while (true) {
                 int i3 = i2;
                 if (it.hasNext()) {
-                    i2 = this.pHJ.encodedSizeWithTag(i, it.next()) + i3;
+                    i2 = this.pJm.encodedSizeWithTag(i, it.next()) + i3;
                 } else {
                     return i3;
                 }
@@ -638,7 +638,7 @@ public abstract class ProtoAdapter<E> {
         /* renamed from: a */
         public void encodeWithTag(d dVar, int i, Map<K, V> map) throws IOException {
             for (Map.Entry<K, V> entry : map.entrySet()) {
-                this.pHJ.encodeWithTag(dVar, i, entry);
+                this.pJm.encodeWithTag(dVar, i, entry);
             }
         }
 
@@ -647,21 +647,21 @@ public abstract class ProtoAdapter<E> {
         /* renamed from: j */
         public Map<K, V> decode(c cVar) throws IOException {
             V v = null;
-            long eyk = cVar.eyk();
+            long eyl = cVar.eyl();
             K k = null;
             while (true) {
-                int eyl = cVar.eyl();
-                if (eyl != -1) {
-                    switch (eyl) {
+                int eym = cVar.eym();
+                if (eym != -1) {
+                    switch (eym) {
                         case 1:
-                            k = this.pHJ.pHF.decode(cVar);
+                            k = this.pJm.pJi.decode(cVar);
                             break;
                         case 2:
-                            v = this.pHJ.pHI.decode(cVar);
+                            v = this.pJm.pJl.decode(cVar);
                             break;
                     }
                 } else {
-                    cVar.ib(eyk);
+                    cVar.ie(eyl);
                     if (k == null) {
                         throw new IllegalStateException("Map entry with null key");
                     }
@@ -682,30 +682,30 @@ public abstract class ProtoAdapter<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes17.dex */
     public static final class a<K, V> extends ProtoAdapter<Map.Entry<K, V>> {
-        final ProtoAdapter<K> pHF;
-        final ProtoAdapter<V> pHI;
+        final ProtoAdapter<K> pJi;
+        final ProtoAdapter<V> pJl;
 
         a(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
             super(FieldEncoding.LENGTH_DELIMITED, null);
-            this.pHF = protoAdapter;
-            this.pHI = protoAdapter2;
+            this.pJi = protoAdapter;
+            this.pJl = protoAdapter2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
         public int encodedSize(Map.Entry<K, V> entry) {
-            return this.pHF.encodedSizeWithTag(1, entry.getKey()) + this.pHI.encodedSizeWithTag(2, entry.getValue());
+            return this.pJi.encodedSizeWithTag(1, entry.getKey()) + this.pJl.encodedSizeWithTag(2, entry.getValue());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
         public void encode(d dVar, Map.Entry<K, V> entry) throws IOException {
-            this.pHF.encodeWithTag(dVar, 1, entry.getKey());
-            this.pHI.encodeWithTag(dVar, 2, entry.getValue());
+            this.pJi.encodeWithTag(dVar, 1, entry.getKey());
+            this.pJl.encodeWithTag(dVar, 2, entry.getValue());
         }
 
         /* JADX DEBUG: Method merged with bridge method */

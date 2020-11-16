@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes17.dex */
 class MMSharedPreferences implements SharedPreferences {
     private static final String TAG = "MicroMsg.SDK.SharedPreferences";
     private final ContentResolver cr;
@@ -21,7 +21,7 @@ class MMSharedPreferences implements SharedPreferences {
     private final HashMap<String, Object> values = new HashMap<>();
     private REditor editor = null;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes17.dex */
     private static class REditor implements SharedPreferences.Editor {
         private ContentResolver cr;
         private Map<String, Object> values = new HashMap();

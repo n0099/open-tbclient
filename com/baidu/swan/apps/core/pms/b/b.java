@@ -9,7 +9,7 @@ import com.baidu.swan.apps.runtime.j;
 import com.baidu.swan.pms.c.f;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -39,15 +39,15 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
         }
         String jSONObject2 = jSONObject == null ? "" : jSONObject.toString();
         final a aVar2 = new a(aVar);
-        com.baidu.swan.apps.process.b.b bV = com.baidu.swan.apps.process.b.c.ru("pms_http_with_ipc").bV("pms_http_with_ipc_key_action", str);
+        com.baidu.swan.apps.process.b.b bU = com.baidu.swan.apps.process.b.c.ro("pms_http_with_ipc").bU("pms_http_with_ipc_key_action", str);
         if (TextUtils.isEmpty(str2)) {
             str2 = "";
         }
-        com.baidu.swan.apps.process.b.b bV2 = bV.bV("pms_http_with_ipc_key_url", str2);
+        com.baidu.swan.apps.process.b.b bU2 = bU.bU("pms_http_with_ipc_key_url", str2);
         if (TextUtils.isEmpty(jSONObject2)) {
             jSONObject2 = "";
         }
-        com.baidu.swan.apps.process.b.b t = bV2.bV("pms_http_with_ipc_keyjson_body", jSONObject2).d("pms_http_with_ipc_key_url_param_map", z(map)).d("pms_http_with_ipc_key_header_param_map", z(map2)).ge(true).u(aVar2).t(new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.process.b.b>() { // from class: com.baidu.swan.apps.core.pms.b.b.1
+        com.baidu.swan.apps.process.b.b t = bU2.bU("pms_http_with_ipc_keyjson_body", jSONObject2).d("pms_http_with_ipc_key_url_param_map", z(map)).d("pms_http_with_ipc_key_header_param_map", z(map2)).gh(true).u(aVar2).t(new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.process.b.b>() { // from class: com.baidu.swan.apps.core.pms.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
@@ -56,23 +56,23 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
             }
         });
         if (DEBUG) {
-            E("ipcHttp", "session=" + t);
+            D("ipcHttp", "session=" + t);
         }
-        t.ch(cNR);
+        t.ch(cMh);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public class a implements com.baidu.swan.apps.ap.e.b<i.a>, f.a {
-        final f.a cNM;
-        final boolean cNN;
+        final f.a cMc;
+        final boolean cMd;
         boolean finished = false;
 
         public a(f.a aVar) {
-            this.cNM = aVar;
-            this.cNN = aVar != null;
+            this.cMc = aVar;
+            this.cMd = aVar != null;
             if (b.DEBUG) {
-                b.this.E("IpcHttpCallbackWrapper", "wrappedCallback=" + aVar);
+                b.this.D("IpcHttpCallbackWrapper", "wrappedCallback=" + aVar);
             }
         }
 
@@ -83,7 +83,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
             synchronized (this) {
                 boolean valid = valid();
                 if (b.DEBUG) {
-                    b.this.E("IpcHttpCallbackWrapper#onCallback", "valid=" + valid + " msg=" + aVar);
+                    b.this.D("IpcHttpCallbackWrapper#onCallback", "valid=" + valid + " msg=" + aVar);
                 }
                 if (valid) {
                     String string = aVar.getString("pms_http_with_ipc_key_action", "");
@@ -128,10 +128,10 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
             synchronized (this) {
                 boolean valid = valid();
                 if (b.DEBUG) {
-                    b.this.E("IpcHttpCallbackWrapper#onStatRecord", "valid=" + valid + " url=" + str + " statRecord=" + jSONObject);
+                    b.this.D("IpcHttpCallbackWrapper#onStatRecord", "valid=" + valid + " url=" + str + " statRecord=" + jSONObject);
                 }
                 if (valid) {
-                    this.cNM.b(str, str2, jSONObject);
+                    this.cMc.b(str, str2, jSONObject);
                 }
             }
         }
@@ -141,11 +141,11 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
             synchronized (this) {
                 boolean valid = valid();
                 if (b.DEBUG) {
-                    b.this.E("IpcHttpCallbackWrapper#onSuccess", "valid=" + valid + " statusCode=" + i + " response=" + str);
+                    b.this.D("IpcHttpCallbackWrapper#onSuccess", "valid=" + valid + " statusCode=" + i + " response=" + str);
                 }
                 if (valid) {
                     finish();
-                    this.cNM.onSuccess(str, i);
+                    this.cMc.onSuccess(str, i);
                 }
             }
         }
@@ -155,11 +155,11 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
             synchronized (this) {
                 boolean valid = valid();
                 if (b.DEBUG) {
-                    b.this.E("IpcHttpCallbackWrapper#onFail", "valid=" + valid + " exception=" + exc);
+                    b.this.D("IpcHttpCallbackWrapper#onFail", "valid=" + valid + " exception=" + exc);
                 }
                 if (valid) {
                     finish();
-                    f.a aVar = this.cNM;
+                    f.a aVar = this.cMc;
                     if (exc == null) {
                         exc = new Exception("onFail");
                     }
@@ -174,7 +174,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
 
         synchronized boolean valid() {
             boolean z;
-            if (this.cNN) {
+            if (this.cMd) {
                 z = this.finished ? false : true;
             }
             return z;
@@ -188,7 +188,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void E(String str, String str2) {
+    public void D(String str, String str2) {
         log(str + ": " + str2);
     }
 }

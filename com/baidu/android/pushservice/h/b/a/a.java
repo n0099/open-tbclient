@@ -11,15 +11,15 @@ import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.ObjectStreamException;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class a {
 
     /* renamed from: com.baidu.android.pushservice.h.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class C0065a extends GeneratedMessageLite implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<C0065a> f1139a = new AbstractParser<C0065a>() { // from class: com.baidu.android.pushservice.h.b.a.a.a.1
+        public static Parser<C0065a> f1142a = new AbstractParser<C0065a>() { // from class: com.baidu.android.pushservice.h.b.a.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -39,11 +39,11 @@ public final class a {
         private int k;
 
         /* renamed from: com.baidu.android.pushservice.h.b.a.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0066a extends GeneratedMessageLite implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            public static Parser<C0066a> f1140a = new AbstractParser<C0066a>() { // from class: com.baidu.android.pushservice.h.b.a.a.a.a.1
+            public static Parser<C0066a> f1143a = new AbstractParser<C0066a>() { // from class: com.baidu.android.pushservice.h.b.a.a.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.Parser
                 /* renamed from: a */
@@ -58,11 +58,11 @@ public final class a {
             private int f;
 
             /* renamed from: com.baidu.android.pushservice.h.b.a.a$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes10.dex */
+            /* loaded from: classes7.dex */
             public static final class C0067a extends GeneratedMessageLite.Builder<C0066a, C0067a> implements b {
 
                 /* renamed from: a  reason: collision with root package name */
-                private int f1141a;
+                private int f1144a;
                 private Object b = "";
 
                 private C0067a() {
@@ -83,7 +83,7 @@ public final class a {
                 public C0067a clear() {
                     super.clear();
                     this.b = "";
-                    this.f1141a &= -2;
+                    this.f1144a &= -2;
                     return this;
                 }
 
@@ -92,7 +92,7 @@ public final class a {
                 /* renamed from: a */
                 public C0067a mergeFrom(C0066a c0066a) {
                     if (c0066a != C0066a.a() && c0066a.c()) {
-                        this.f1141a |= 1;
+                        this.f1144a |= 1;
                         this.b = c0066a.d;
                     }
                     return this;
@@ -110,7 +110,7 @@ public final class a {
                     Throwable th;
                     try {
                         try {
-                            C0066a parsePartialFrom = C0066a.f1140a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            C0066a parsePartialFrom = C0066a.f1143a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                             if (parsePartialFrom != null) {
                                 mergeFrom(parsePartialFrom);
                             }
@@ -141,7 +141,7 @@ public final class a {
                     if (str == null) {
                         throw new NullPointerException();
                     }
-                    this.f1141a |= 1;
+                    this.f1144a |= 1;
                     this.b = str;
                     return this;
                 }
@@ -176,7 +176,7 @@ public final class a {
                 /* renamed from: e */
                 public C0066a buildPartial() {
                     C0066a c0066a = new C0066a(this);
-                    int i = (this.f1141a & 1) != 1 ? 0 : 1;
+                    int i = (this.f1144a & 1) != 1 ? 0 : 1;
                     c0066a.d = this.b;
                     c0066a.c = i;
                     return c0066a;
@@ -294,7 +294,7 @@ public final class a {
 
             @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
             public Parser<C0066a> getParserForType() {
-                return f1140a;
+                return f1143a;
             }
 
             @Override // com.google.protobuf.MessageLite
@@ -333,16 +333,16 @@ public final class a {
         }
 
         /* renamed from: com.baidu.android.pushservice.h.b.a.a$a$b */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public interface b extends MessageLiteOrBuilder {
         }
 
         /* renamed from: com.baidu.android.pushservice.h.b.a.a$a$c */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class c extends GeneratedMessageLite.Builder<C0065a, c> implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1142a;
+            private int f1145a;
             private long b;
             private long e;
             private Object c = "";
@@ -368,22 +368,22 @@ public final class a {
             public c clear() {
                 super.clear();
                 this.b = 0L;
-                this.f1142a &= -2;
+                this.f1145a &= -2;
                 this.c = "";
-                this.f1142a &= -3;
+                this.f1145a &= -3;
                 this.d = C0066a.a();
-                this.f1142a &= -5;
+                this.f1145a &= -5;
                 this.e = 0L;
-                this.f1142a &= -9;
+                this.f1145a &= -9;
                 this.f = "";
-                this.f1142a &= -17;
+                this.f1145a &= -17;
                 this.g = ByteString.EMPTY;
-                this.f1142a &= -33;
+                this.f1145a &= -33;
                 return this;
             }
 
             public c a(long j) {
-                this.f1142a |= 1;
+                this.f1145a |= 1;
                 this.b = j;
                 return this;
             }
@@ -393,7 +393,7 @@ public final class a {
                     throw new NullPointerException();
                 }
                 this.d = c0066a;
-                this.f1142a |= 4;
+                this.f1145a |= 4;
                 return this;
             }
 
@@ -406,7 +406,7 @@ public final class a {
                         a(c0065a.d());
                     }
                     if (c0065a.e()) {
-                        this.f1142a |= 2;
+                        this.f1145a |= 2;
                         this.c = c0065a.e;
                     }
                     if (c0065a.g()) {
@@ -416,7 +416,7 @@ public final class a {
                         b(c0065a.j());
                     }
                     if (c0065a.k()) {
-                        this.f1142a |= 16;
+                        this.f1145a |= 16;
                         this.f = c0065a.h;
                     }
                     if (c0065a.m()) {
@@ -430,7 +430,7 @@ public final class a {
                 if (byteString == null) {
                     throw new NullPointerException();
                 }
-                this.f1142a |= 32;
+                this.f1145a |= 32;
                 this.g = byteString;
                 return this;
             }
@@ -447,7 +447,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        C0065a parsePartialFrom = C0065a.f1139a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        C0065a parsePartialFrom = C0065a.f1142a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -478,7 +478,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1142a |= 2;
+                this.f1145a |= 2;
                 this.c = str;
                 return this;
             }
@@ -491,18 +491,18 @@ public final class a {
             }
 
             public c b(long j) {
-                this.f1142a |= 8;
+                this.f1145a |= 8;
                 this.e = j;
                 return this;
             }
 
             public c b(C0066a c0066a) {
-                if ((this.f1142a & 4) != 4 || this.d == C0066a.a()) {
+                if ((this.f1145a & 4) != 4 || this.d == C0066a.a()) {
                     this.d = c0066a;
                 } else {
                     this.d = C0066a.a(this.d).mergeFrom(c0066a).buildPartial();
                 }
-                this.f1142a |= 4;
+                this.f1145a |= 4;
                 return this;
             }
 
@@ -510,7 +510,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1142a |= 16;
+                this.f1145a |= 16;
                 this.f = str;
                 return this;
             }
@@ -538,7 +538,7 @@ public final class a {
             /* renamed from: e */
             public C0065a buildPartial() {
                 C0065a c0065a = new C0065a(this);
-                int i = this.f1142a;
+                int i = this.f1145a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 c0065a.d = this.b;
                 if ((i & 2) == 2) {
@@ -609,7 +609,7 @@ public final class a {
                                 z2 = z;
                             case 26:
                                 C0066a.C0067a builder = (this.c & 4) == 4 ? this.f.toBuilder() : null;
-                                this.f = (C0066a) codedInputStream.readMessage(C0066a.f1140a, extensionRegistryLite);
+                                this.f = (C0066a) codedInputStream.readMessage(C0066a.f1143a, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.f);
                                     this.f = builder.buildPartial();
@@ -717,7 +717,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<C0065a> getParserForType() {
-            return f1139a;
+            return f1142a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -833,15 +833,15 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface b extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class c extends GeneratedMessageLite implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<c> f1143a = new AbstractParser<c>() { // from class: com.baidu.android.pushservice.h.b.a.a.c.1
+        public static Parser<c> f1146a = new AbstractParser<c>() { // from class: com.baidu.android.pushservice.h.b.a.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -858,11 +858,11 @@ public final class a {
         private int h;
 
         /* renamed from: com.baidu.android.pushservice.h.b.a.a$c$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0068a extends GeneratedMessageLite.Builder<c, C0068a> implements d {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1144a;
+            private int f1147a;
             private int b;
             private Object c = "";
             private long d;
@@ -885,22 +885,22 @@ public final class a {
             public C0068a clear() {
                 super.clear();
                 this.b = 0;
-                this.f1144a &= -2;
+                this.f1147a &= -2;
                 this.c = "";
-                this.f1144a &= -3;
+                this.f1147a &= -3;
                 this.d = 0L;
-                this.f1144a &= -5;
+                this.f1147a &= -5;
                 return this;
             }
 
             public C0068a a(int i) {
-                this.f1144a |= 1;
+                this.f1147a |= 1;
                 this.b = i;
                 return this;
             }
 
             public C0068a a(long j) {
-                this.f1144a |= 4;
+                this.f1147a |= 4;
                 this.d = j;
                 return this;
             }
@@ -914,7 +914,7 @@ public final class a {
                         a(cVar.d());
                     }
                     if (cVar.e()) {
-                        this.f1144a |= 2;
+                        this.f1147a |= 2;
                         this.c = cVar.e;
                     }
                     if (cVar.h()) {
@@ -936,7 +936,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        c parsePartialFrom = c.f1143a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        c parsePartialFrom = c.f1146a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -993,7 +993,7 @@ public final class a {
             /* renamed from: e */
             public c buildPartial() {
                 c cVar = new c(this);
-                int i = this.f1144a;
+                int i = this.f1147a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 cVar.d = this.b;
                 if ((i & 2) == 2) {
@@ -1084,7 +1084,7 @@ public final class a {
         }
 
         public static c a(byte[] bArr) throws InvalidProtocolBufferException {
-            return f1143a.parseFrom(bArr);
+            return f1146a.parseFrom(bArr);
         }
 
         public static C0068a j() {
@@ -1141,7 +1141,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<c> getParserForType() {
-            return f1143a;
+            return f1146a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -1213,7 +1213,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface d extends MessageLiteOrBuilder {
     }
 }

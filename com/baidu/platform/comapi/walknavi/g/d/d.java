@@ -15,10 +15,10 @@ public class d {
     /* renamed from: a  reason: collision with root package name */
     private a.c f3058a;
     private a.b b;
-    private a.C0252a c;
+    private a.C0250a c;
     private a.c d;
     private a.b e;
-    private a.C0251a f;
+    private a.C0249a f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
@@ -91,7 +91,7 @@ public class d {
                     this.b = new a.b();
                     return;
                 case 3:
-                    this.c = new a.C0252a();
+                    this.c = new a.C0250a();
                     return;
                 case 4:
                     this.d = new a.c();
@@ -100,7 +100,7 @@ public class d {
                     this.e = new a.b();
                     return;
                 case 6:
-                    this.f = new a.C0251a();
+                    this.f = new a.C0249a();
                     return;
                 default:
                     return;

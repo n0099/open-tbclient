@@ -7,10 +7,10 @@ import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class a {
     @Nullable
-    private static Pattern oUv;
+    private static Pattern oVY;
     public final int from;
     public final int to;
 
@@ -19,8 +19,8 @@ public class a {
         this.to = i2;
     }
 
-    public String enK() {
-        return String.format(null, "bytes=%s-%s", Pd(this.from), Pd(this.to));
+    public String enI() {
+        return String.format(null, "bytes=%s-%s", PG(this.from), PG(this.to));
     }
 
     public boolean a(@Nullable a aVar) {
@@ -28,10 +28,10 @@ public class a {
     }
 
     public String toString() {
-        return String.format(null, "%s-%s", Pd(this.from), Pd(this.to));
+        return String.format(null, "%s-%s", PG(this.from), PG(this.to));
     }
 
-    private static String Pd(int i) {
+    private static String PG(int i) {
         return i == Integer.MAX_VALUE ? "" : Integer.toString(i);
     }
 
@@ -50,25 +50,25 @@ public class a {
         return com.facebook.common.util.a.hashCode(this.from, this.to);
     }
 
-    public static a Pe(int i) {
+    public static a PH(int i) {
         g.checkArgument(i >= 0);
         return new a(i, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
-    public static a Pf(int i) {
+    public static a PI(int i) {
         g.checkArgument(i > 0);
         return new a(0, i);
     }
 
     @Nullable
-    public static a Yl(@Nullable String str) throws IllegalArgumentException {
+    public static a XW(@Nullable String str) throws IllegalArgumentException {
         a aVar = null;
         if (str != null) {
-            if (oUv == null) {
-                oUv = Pattern.compile("[-/ ]");
+            if (oVY == null) {
+                oVY = Pattern.compile("[-/ ]");
             }
             try {
-                String[] split = oUv.split(str);
+                String[] split = oVY.split(str);
                 g.checkArgument(split.length == 4);
                 g.checkArgument(split[0].equals("bytes"));
                 int parseInt = Integer.parseInt(split[1]);

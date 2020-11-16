@@ -9,21 +9,21 @@ import com.xiaomi.push.iw;
 import com.xiaomi.push.service.bg;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public final class x extends bg.a {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ XMPushService f5121a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ k f935a;
+    final /* synthetic */ k f938a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(String str, long j, XMPushService xMPushService, k kVar) {
         super(str, j);
         this.f5121a = xMPushService;
-        this.f935a = kVar;
+        this.f938a = kVar;
     }
 
     @Override // com.xiaomi.push.service.bg.a
@@ -36,11 +36,11 @@ public final class x extends bg.a {
         }
         bgVar.a("GAID", "gaid", b);
         il ilVar = new il();
-        ilVar.b(this.f935a.d);
-        ilVar.c(hw.ClientInfoUpdate.f476a);
+        ilVar.b(this.f938a.d);
+        ilVar.c(hw.ClientInfoUpdate.f479a);
         ilVar.a(an.a());
         ilVar.a(new HashMap());
-        ilVar.m433a().put("gaid", b);
-        this.f5121a.a(this.f5121a.getPackageName(), iw.a(w.a(this.f5121a.getPackageName(), this.f935a.d, ilVar, hm.Notification)), true);
+        ilVar.m436a().put("gaid", b);
+        this.f5121a.a(this.f5121a.getPackageName(), iw.a(w.a(this.f5121a.getPackageName(), this.f938a.d, ilVar, hm.Notification)), true);
     }
 }

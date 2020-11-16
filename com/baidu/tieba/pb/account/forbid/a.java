@@ -7,13 +7,13 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import java.lang.ref.WeakReference;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private static final String lll = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String llB = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public interface b {
         void a(ForbidResultData forbidResultData);
 
@@ -21,16 +21,16 @@ public class a {
     }
 
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
-        new C0808a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
+        new C0810a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
     }
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    private static class C0808a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String fgt;
-        private String fgx;
-        private String llm;
-        private WeakReference<b> lln;
+    /* loaded from: classes21.dex */
+    private static class C0810a extends BdAsyncTask<String, Object, ForbidResultData> {
+        private String ffB;
+        private String ffF;
+        private String llC;
+        private WeakReference<b> llD;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -38,27 +38,27 @@ public class a {
         private String mThreadId;
         private String mUserName;
 
-        public C0808a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+        public C0810a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.llm = str6;
-            this.fgx = str8;
-            this.fgt = str9;
+            this.llC = str6;
+            this.ffF = str8;
+            this.ffB = str9;
             this.mReason = str7;
             this.mPostId = str5;
-            this.lln = new WeakReference<>(bVar);
+            this.llD = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: P */
+        /* renamed from: Q */
         public ForbidResultData doInBackground(String... strArr) {
-            aa aaVar = new aa(a.lll);
-            aaVar.addPostData("day", this.llm);
+            aa aaVar = new aa(a.llB);
+            aaVar.addPostData("day", this.llC);
             aaVar.addPostData("un", this.mUserName);
             aaVar.addPostData("fid", this.mForumId);
             aaVar.addPostData("word", this.mForumName);
@@ -66,11 +66,11 @@ public class a {
             aaVar.addPostData(TiebaInitialize.LogFields.REASON, this.mReason);
             aaVar.addPostData("ntn", "banid");
             aaVar.addPostData("post_id", this.mPostId);
-            aaVar.addPostData("nick_name", this.fgx);
-            aaVar.addPostData("portrait", this.fgt);
-            aaVar.bqN().brt().mIsNeedTbs = true;
+            aaVar.addPostData("nick_name", this.ffF);
+            aaVar.addPostData("portrait", this.ffB);
+            aaVar.bqa().bqH().mIsNeedTbs = true;
             String postNetData = aaVar.postNetData();
-            if (aaVar.bqN().bru().isRequestSuccess()) {
+            if (aaVar.bqa().bqI().isRequestSuccess()) {
                 try {
                     return (ForbidResultData) OrmObject.objectWithJsonStr(postNetData, ForbidResultData.class);
                 } catch (Exception e) {
@@ -92,9 +92,9 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.lln.get();
+            b bVar = this.llD.get();
             if (bVar != null) {
-                if (forbidResultData.error_code == 0 && at.isEmpty(forbidResultData.error_msg)) {
+                if (forbidResultData.error_code == 0 && au.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);
                 } else {
                     bVar.b(forbidResultData);

@@ -18,25 +18,25 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final boolean djc = com.baidu.swan.apps.t.a.awD().getSwitch("swan_performance_aligned_search_switch", false);
-    private static Timer djd;
-    public static String dje;
+    public static final boolean dhs = com.baidu.swan.apps.t.a.avV().getSwitch("swan_performance_aligned_search_switch", false);
+    private static Timer dht;
+    public static String dhu;
     @Deprecated
-    private static volatile b djf;
+    private static volatile b dhv;
 
-    private static b aDF() {
-        if (djf == null) {
+    private static b aCX() {
+        if (dhv == null) {
             synchronized (b.class) {
-                if (djf == null) {
-                    djf = new b();
-                    a(djf);
+                if (dhv == null) {
+                    dhv = new b();
+                    a(dhv);
                 }
             }
         }
-        return djf;
+        return dhv;
     }
 
     private static void a(b bVar) {
@@ -51,56 +51,56 @@ public final class i {
     }
 
     @Deprecated
-    public static synchronized HybridUbcFlow aDG() {
-        HybridUbcFlow qJ;
+    public static synchronized HybridUbcFlow aCY() {
+        HybridUbcFlow qD;
         synchronized (i.class) {
-            qJ = qJ("startup");
+            qD = qD("startup");
         }
-        return qJ;
+        return qD;
     }
 
-    public static synchronized HybridUbcFlow qJ(String str) {
-        HybridUbcFlow qJ;
+    public static synchronized HybridUbcFlow qD(String str) {
+        HybridUbcFlow qD;
         synchronized (i.class) {
-            qJ = aDF().qJ(str);
+            qD = aCX().qD(str);
         }
-        return qJ;
+        return qD;
     }
 
-    public static synchronized HybridUbcFlow cf(String str, String str2) {
-        HybridUbcFlow cf;
+    public static synchronized HybridUbcFlow ce(String str, String str2) {
+        HybridUbcFlow ce;
         synchronized (i.class) {
-            cf = aDF().cf(str, str2);
+            ce = aCX().ce(str, str2);
         }
-        return cf;
+        return ce;
     }
 
-    public static synchronized HybridUbcFlow qL(String str) {
-        HybridUbcFlow qL;
+    public static synchronized HybridUbcFlow qF(String str) {
+        HybridUbcFlow qF;
         synchronized (i.class) {
-            qL = aDF().qL(str);
+            qF = aCX().qF(str);
         }
-        return qL;
+        return qF;
     }
 
-    public static synchronized void qR(String str) {
+    public static synchronized void qL(String str) {
         synchronized (i.class) {
-            aDF().qK(str);
+            aCX().qE(str);
+        }
+    }
+
+    public static synchronized void ci(String str, String str2) {
+        synchronized (i.class) {
+            aCX().cf(str, str2);
         }
     }
 
     public static synchronized void cj(String str, String str2) {
         synchronized (i.class) {
-            aDF().cg(str, str2);
-        }
-    }
-
-    public static synchronized void ck(String str, String str2) {
-        synchronized (i.class) {
-            HybridUbcFlow qL = aDF().qL(str);
-            if (qL != null) {
-                aDF().qJ(str2).d(qL);
-                qR(str);
+            HybridUbcFlow qF = aCX().qF(str);
+            if (qF != null) {
+                aCX().qD(str2).d(qF);
+                qL(str);
             }
         }
     }
@@ -116,34 +116,34 @@ public final class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(final com.baidu.swan.apps.u.c.b bVar, final boolean z) {
-        com.baidu.swan.apps.console.c.bn("SwanAppPerformanceUBC", "recordForStartup");
-        if (bVar != null && bVar.ayI() != null) {
+        com.baidu.swan.apps.console.c.bm("SwanAppPerformanceUBC", "recordForStartup");
+        if (bVar != null && bVar.aya() != null) {
             final String i = i(bVar);
             p.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.performance.i.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    HybridUbcFlow qJ = i.qJ("startup");
-                    String ayD = TextUtils.isEmpty(com.baidu.swan.apps.u.c.b.this.ayD()) ? "NA" : com.baidu.swan.apps.u.c.b.this.ayD();
+                    HybridUbcFlow qD = i.qD("startup");
+                    String axV = TextUtils.isEmpty(com.baidu.swan.apps.u.c.b.this.axV()) ? "NA" : com.baidu.swan.apps.u.c.b.this.axV();
                     if (com.baidu.swan.apps.u.c.b.this.getAppFrameType() == 1) {
-                        qJ.a(HybridUbcFlow.SubmitStrategy.NA_ONLY);
+                        qD.a(HybridUbcFlow.SubmitStrategy.NA_ONLY);
                     }
-                    qJ.r("from", "swan");
-                    qJ.r("source", ayD);
-                    qJ.ci("appid", com.baidu.swan.apps.u.c.b.this.getAppId());
-                    qJ.ci("swan", com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.u.c.b.this.asd(), com.baidu.swan.apps.u.c.b.this.getAppFrameType()));
-                    qJ.ci("mobile", l.aMx());
+                    qD.r("from", "swan");
+                    qD.r("source", axV);
+                    qD.ch("appid", com.baidu.swan.apps.u.c.b.this.getAppId());
+                    qD.ch("swan", com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.u.c.b.this.arv(), com.baidu.swan.apps.u.c.b.this.getAppFrameType()));
+                    qD.ch("mobile", l.aLP());
                     long j = com.baidu.swan.apps.u.c.b.this.getLong("box_cold_launch", -1L);
                     if (j < 0) {
-                        j = c.aDi();
+                        j = c.aCA();
                     }
                     if (j > 0) {
-                        qJ.ci("box_cold_launch", String.valueOf(j));
+                        qD.ch("box_cold_launch", String.valueOf(j));
                     }
-                    qJ.ci("net", SwanAppNetworkUtils.aCH().type);
-                    qJ.ci(ETAG.KEY_APP_VERSION, com.baidu.swan.apps.u.c.b.this.getVersion());
-                    qJ.ci("thirdversion", com.baidu.swan.apps.u.c.b.this.getVersionCode());
-                    qJ.r("from", com.baidu.swan.apps.u.c.b.this.getAppFrameType() == 1 ? "swangame" : "swan");
-                    qJ.ci("scheme", com.baidu.swan.apps.u.c.b.this.ayF());
+                    qD.ch("net", SwanAppNetworkUtils.aBZ().type);
+                    qD.ch(ETAG.KEY_APP_VERSION, com.baidu.swan.apps.u.c.b.this.getVersion());
+                    qD.ch("thirdversion", com.baidu.swan.apps.u.c.b.this.getVersionCode());
+                    qD.r("from", com.baidu.swan.apps.u.c.b.this.getAppFrameType() == 1 ? "swangame" : "swan");
+                    qD.ch("scheme", com.baidu.swan.apps.u.c.b.this.axX());
                     HashSet hashSet = new HashSet();
                     hashSet.add(BuyTBeanActivityConfig.CALLBACK);
                     hashSet.add(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
@@ -151,7 +151,7 @@ public final class i {
                     if (!TextUtils.isEmpty(deleteQueryParam) && deleteQueryParam.startsWith(File.separator)) {
                         deleteQueryParam = deleteQueryParam.substring(1);
                     }
-                    qJ.ci("path", TextUtils.isEmpty(deleteQueryParam) ? "" : deleteQueryParam);
+                    qD.ch("path", TextUtils.isEmpty(deleteQueryParam) ? "" : deleteQueryParam);
                     if (i.DEBUG) {
                         StringBuilder append = new StringBuilder().append("PerformanceUbc path: ");
                         if (TextUtils.isEmpty(deleteQueryParam)) {
@@ -160,19 +160,19 @@ public final class i {
                         Log.v("SwanAppPerformanceUBC", append.append(deleteQueryParam).toString());
                     }
                     if (z) {
-                        qJ.r("value", "arrive_success");
+                        qD.r("value", "arrive_success");
                     }
-                    qJ.ci("launchid", com.baidu.swan.apps.u.c.b.this.ayW());
+                    qD.ch("launchid", com.baidu.swan.apps.u.c.b.this.ayo());
                     if (com.baidu.swan.apps.u.c.b.this.getAppFrameType() == 0) {
-                        qJ.aDl();
+                        qD.aCD();
                     }
-                    com.baidu.swan.apps.console.c.bn("SwanAppPerformanceUBC", "recordFromLaunchInfoForStartup" + com.baidu.swan.apps.u.c.b.this);
+                    com.baidu.swan.apps.console.c.bm("SwanAppPerformanceUBC", "recordFromLaunchInfoForStartup" + com.baidu.swan.apps.u.c.b.this);
                 }
             }, "recordFromLaunchInfo");
         }
     }
 
-    public static void qS(String str) {
+    public static void qM(String str) {
         String str2;
         char c = 65535;
         switch (str.hashCode()) {
@@ -218,55 +218,55 @@ public final class i {
                 str2 = "-1";
                 break;
         }
-        qJ("startup").ci("package_type", str2);
+        qD("startup").ch("package_type", str2);
     }
 
-    public static synchronized HybridUbcFlow aDH() {
-        HybridUbcFlow qL;
+    public static synchronized HybridUbcFlow aCZ() {
+        HybridUbcFlow qF;
         synchronized (i.class) {
-            akq();
-            com.baidu.swan.apps.inlinewidget.f.b.b.awd();
-            qL = qL("startup");
-            if (qL == null) {
-                qL = null;
+            ajI();
+            com.baidu.swan.apps.inlinewidget.f.b.b.avv();
+            qF = qF("startup");
+            if (qF == null) {
+                qF = null;
             } else {
-                qL.f(new UbcFlowEvent("performanceEnd"));
-                qL.aDl();
-                qL.aDo();
-                qL.aDn();
-                qL.aDp();
+                qF.f(new UbcFlowEvent("performanceEnd"));
+                qF.aCD();
+                qF.aCG();
+                qF.aCF();
+                qF.aCH();
             }
         }
-        return qL;
+        return qF;
     }
 
-    public static void aDI() {
-        djd = new Timer();
-        djd.schedule(new TimerTask() { // from class: com.baidu.swan.apps.performance.i.3
+    public static void aDa() {
+        dht = new Timer();
+        dht.schedule(new TimerTask() { // from class: com.baidu.swan.apps.performance.i.3
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                i.aDH();
+                i.aCZ();
             }
         }, 15000L);
     }
 
-    public static void akq() {
-        if (djd != null) {
-            djd.cancel();
-            djd = null;
+    public static void ajI() {
+        if (dht != null) {
+            dht.cancel();
+            dht = null;
         }
     }
 
     public static synchronized void d(com.baidu.swan.apps.am.a aVar) {
         synchronized (i.class) {
-            HybridUbcFlow aDH = aDH();
-            if (aDH != null) {
-                aDH.r("value", SmsLoginView.f.l);
+            HybridUbcFlow aCZ = aCZ();
+            if (aCZ != null) {
+                aCZ.r("value", SmsLoginView.f.l);
                 if (aVar != null) {
-                    aDH.ci("statusCode", String.valueOf(aVar.aLP()));
-                    aDH.ci("launchid", com.baidu.swan.apps.runtime.d.aHq().aHm().aHy().ayW());
+                    aCZ.ch("statusCode", String.valueOf(aVar.aLh()));
+                    aCZ.ch("launchid", com.baidu.swan.apps.runtime.d.aGI().aGE().aGQ().ayo());
                 }
-                aDH.aDm();
+                aCZ.aCE();
             }
         }
     }
@@ -274,45 +274,45 @@ public final class i {
     private static String i(com.baidu.swan.apps.u.c.b bVar) {
         String page = bVar.getPage();
         if (TextUtils.isEmpty(page)) {
-            if (TextUtils.isEmpty(dje)) {
-                dje = com.baidu.swan.apps.scheme.actions.k.c.aIN();
+            if (TextUtils.isEmpty(dhu)) {
+                dhu = com.baidu.swan.apps.scheme.actions.k.c.aIf();
                 if (DEBUG) {
-                    Log.v("SwanAppPerformanceUBC", "chechPath- 冷启场景 path 为空，取首页 path: " + dje);
+                    Log.v("SwanAppPerformanceUBC", "chechPath- 冷启场景 path 为空，取首页 path: " + dhu);
                 }
             } else if (DEBUG) {
-                Log.v("SwanAppPerformanceUBC", "chechPath- 热启场景 path 为空，使用上次调起 path: " + dje);
+                Log.v("SwanAppPerformanceUBC", "chechPath- 热启场景 path 为空，使用上次调起 path: " + dhu);
             }
         } else {
-            dje = page;
+            dhu = page;
             if (DEBUG) {
-                Log.v("SwanAppPerformanceUBC", "chechPath- 冷/热启场景 path 不为空，直接使用调起 path: " + dje);
+                Log.v("SwanAppPerformanceUBC", "chechPath- 冷/热启场景 path 不为空，直接使用调起 path: " + dhu);
             }
         }
-        return dje;
+        return dhu;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class a extends com.baidu.swan.apps.statistic.a.e {
-        private static int djg = 35;
-        public JSONObject djh;
-        private boolean dji = true;
+        private static int dhw = 35;
+        public JSONObject dhx;
+        private boolean dhy = true;
         final String eventId;
 
         public a(String str) {
             this.eventId = str;
         }
 
-        public a qT(String str) {
+        public a qN(String str) {
             this.mFrom = str;
             return this;
         }
 
-        public a qU(String str) {
+        public a qO(String str) {
             this.mType = str;
             return this;
         }
 
-        public a qV(String str) {
+        public a qP(String str) {
             this.mSource = str;
             return this;
         }
@@ -320,18 +320,18 @@ public final class i {
         @Override // com.baidu.swan.apps.statistic.a.e
         public JSONObject toJSONObject() {
             this.mSource = TextUtils.isEmpty(this.mSource) ? "NA" : this.mSource;
-            if (this.dAh == null) {
-                this.dAh = new JSONObject();
+            if (this.dyA == null) {
+                this.dyA = new JSONObject();
             }
             try {
-                if (this.djh != null) {
-                    if (this.dji) {
-                        String lq = ak.lq(djg);
-                        if (!TextUtils.isEmpty(lq)) {
-                            this.djh.put("stacktrace", lq);
+                if (this.dhx != null) {
+                    if (this.dhy) {
+                        String lm = ak.lm(dhw);
+                        if (!TextUtils.isEmpty(lm)) {
+                            this.dhx.put("stacktrace", lm);
                         }
                     }
-                    this.dAh.put("info", this.djh);
+                    this.dyA.put("info", this.dhx);
                 }
             } catch (JSONException e) {
                 if (DEBUG) {

@@ -9,21 +9,21 @@ import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import com.xiaomi.push.fc;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class fd implements fc.a {
 
     /* renamed from: a  reason: collision with other field name */
-    protected Context f315a;
+    protected Context f318a;
 
     /* renamed from: a  reason: collision with other field name */
-    private PendingIntent f314a = null;
+    private PendingIntent f317a = null;
 
     /* renamed from: a  reason: collision with root package name */
     private volatile long f4898a = 0;
 
     public fd(Context context) {
-        this.f315a = null;
-        this.f315a = context;
+        this.f318a = null;
+        this.f318a = context;
     }
 
     private void a(AlarmManager alarmManager, long j, PendingIntent pendingIntent) {
@@ -42,12 +42,12 @@ public class fd implements fc.a {
 
     @Override // com.xiaomi.push.fc.a
     public void a() {
-        if (this.f314a != null) {
+        if (this.f317a != null) {
             try {
-                ((AlarmManager) this.f315a.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.f314a);
+                ((AlarmManager) this.f318a.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.f317a);
             } catch (Exception e) {
             } finally {
-                this.f314a = null;
+                this.f317a = null;
                 com.xiaomi.channel.commonutils.logger.b.c("unregister timer");
                 this.f4898a = 0L;
             }
@@ -56,14 +56,14 @@ public class fd implements fc.a {
     }
 
     public void a(Intent intent, long j) {
-        AlarmManager alarmManager = (AlarmManager) this.f315a.getSystemService(NotificationCompat.CATEGORY_ALARM);
-        this.f314a = PendingIntent.getBroadcast(this.f315a, 0, intent, 0);
+        AlarmManager alarmManager = (AlarmManager) this.f318a.getSystemService(NotificationCompat.CATEGORY_ALARM);
+        this.f317a = PendingIntent.getBroadcast(this.f318a, 0, intent, 0);
         if (Build.VERSION.SDK_INT >= 23) {
-            ba.a(alarmManager, "setExactAndAllowWhileIdle", 0, Long.valueOf(j), this.f314a);
+            ba.a(alarmManager, "setExactAndAllowWhileIdle", 0, Long.valueOf(j), this.f317a);
         } else if (Build.VERSION.SDK_INT >= 19) {
-            a(alarmManager, j, this.f314a);
+            a(alarmManager, j, this.f317a);
         } else {
-            alarmManager.set(0, j, this.f314a);
+            alarmManager.set(0, j, this.f317a);
         }
         com.xiaomi.channel.commonutils.logger.b.c("register timer " + j);
     }
@@ -84,7 +84,7 @@ public class fd implements fc.a {
                 }
             }
             Intent intent = new Intent(com.xiaomi.push.service.at.o);
-            intent.setPackage(this.f315a.getPackageName());
+            intent.setPackage(this.f318a.getPackageName());
             a(intent, this.f4898a);
         }
     }

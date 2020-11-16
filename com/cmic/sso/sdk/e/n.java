@@ -8,7 +8,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class n {
     public static int a(Context context, String str) {
         ConnectivityManager connectivityManager;

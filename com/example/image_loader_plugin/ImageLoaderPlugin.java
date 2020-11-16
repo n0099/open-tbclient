@@ -22,19 +22,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.n.m;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
-/* loaded from: classes17.dex */
+/* loaded from: classes12.dex */
 public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private static int requestId = -1;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes12.dex */
     public enum ImageLoadingError {
         Invalid,
         Succeed,
@@ -60,17 +61,17 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
 
     @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
     public void onMethodCall(MethodCall methodCall, final MethodChannel.Result result) {
-        int i;
         Drawable a2;
-        int i2;
+        int i;
         boolean z;
+        int i2;
         if ("loadImage".equals(methodCall.method)) {
             int intValue = ((Integer) methodCall.argument("type")).intValue();
             String str = (String) methodCall.argument("key");
             String str2 = (String) methodCall.argument("themeStr");
             boolean booleanValue = ((Boolean) methodCall.argument("isSvg")).booleanValue();
             ((Boolean) methodCall.argument("cache")).booleanValue();
-            if (at.isEmpty(str)) {
+            if (au.isEmpty(str)) {
                 result.error("key is empty", "", "");
                 return;
             }
@@ -84,21 +85,33 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                     String androidNameFromIos = ResNameTransform.getAndroidNameFromIos(str);
                     int identifier = resources.getIdentifier(androidNameFromIos, "drawable", BdBaseApplication.getInst().getPackageName());
                     boolean z2 = false;
-                    if (booleanValue && (androidNameFromIos.contains("_mask_") || androidNameFromIos.contains("_pure_"))) {
-                        if (methodCall.hasArgument("patternColor")) {
-                            int i3 = 0;
-                            if (methodCall.argument("patternColor") instanceof Integer) {
-                                i3 = ((Integer) methodCall.argument("patternColor")).intValue();
-                            } else if (methodCall.argument("patternColor") instanceof Long) {
-                                i3 = ((Long) methodCall.argument("patternColor")).intValue();
+                    if (androidNameFromIos.contains("_mask_") || androidNameFromIos.contains("_pure_")) {
+                        if (booleanValue) {
+                            if (methodCall.hasArgument("patternColor")) {
+                                int i3 = 0;
+                                if (methodCall.argument("patternColor") instanceof Integer) {
+                                    i3 = ((Integer) methodCall.argument("patternColor")).intValue();
+                                } else if (methodCall.argument("patternColor") instanceof Long) {
+                                    i3 = ((Long) methodCall.argument("patternColor")).intValue();
+                                }
+                                a2 = SvgManager.bqB().b(identifier, i3, SvgManager.SvgResourceStateType.NORMAL);
+                            } else {
+                                a2 = SvgManager.bqB().a(identifier, null);
                             }
-                            a2 = SvgManager.brn().b(identifier, i3, SvgManager.SvgResourceStateType.NORMAL);
+                        } else if (methodCall.hasArgument("patternColor")) {
+                            int i4 = 0;
+                            if (methodCall.argument("patternColor") instanceof Integer) {
+                                i4 = ((Integer) methodCall.argument("patternColor")).intValue();
+                            } else if (methodCall.argument("patternColor") instanceof Long) {
+                                i4 = ((Long) methodCall.argument("patternColor")).intValue();
+                            }
+                            a2 = WebPManager.a(identifier, i4, WebPManager.ResourceStateType.NORMAL);
                         } else {
-                            a2 = SvgManager.brn().a(identifier, null);
+                            a2 = WebPManager.a(identifier, null);
                         }
-                        int i4 = 1;
+                        int i5 = 1;
                         if (a2 != null) {
-                            i4 = 2;
+                            i5 = 2;
                             Bitmap createBitmap = Bitmap.createBitmap(a2.getIntrinsicWidth(), a2.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
                             Canvas canvas = new Canvas(createBitmap);
                             a2.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -107,33 +120,33 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                                 hashMap.put("step", String.valueOf(3));
                                 onResult(ImageLoadingError.Succeed, result, new a(createBitmap, false), hashMap, null);
                                 z = true;
-                                i2 = 3;
+                                i = 3;
                                 boolean z3 = z;
-                                i = i2;
+                                i2 = i;
                                 z2 = z3;
                             }
                         }
-                        i2 = i4;
+                        i = i5;
                         z = false;
                         boolean z32 = z;
-                        i = i2;
+                        i2 = i;
                         z2 = z32;
                     } else {
                         int resIdBySkin = getResIdBySkin(str2, identifier);
-                        i = 4;
+                        i2 = 4;
                         if (resIdBySkin != 0) {
-                            i = 5;
+                            i2 = 5;
                             Bitmap bitMap = getBitMap(resources, resIdBySkin);
                             if (bitMap != null) {
                                 hashMap.put("step", String.valueOf(6));
                                 onResult(ImageLoadingError.Succeed, result, new a(bitMap, false), hashMap, null);
                                 z2 = true;
-                                i = 6;
+                                i2 = 6;
                             }
                         }
                     }
                     if (!z2) {
-                        hashMap.put("step", String.valueOf(i));
+                        hashMap.put("step", String.valueOf(i2));
                         onResult(ImageLoadingError.NoSuchFile, result, null, hashMap, null);
                         if (BdBaseApplication.getInst().isDebugMode()) {
                             UtilHelper.showToast(TbadkCoreApplication.getInst(), "图片找不到:" + str);
@@ -149,9 +162,9 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.e.b
-                    public void onLoaded(a aVar, String str3, int i5) {
+                    public void onLoaded(a aVar, String str3, int i6) {
                         HashMap hashMap3 = null;
-                        hashMap2.put("resourceFrom", i5 + "");
+                        hashMap2.put("resourceFrom", i6 + "");
                         if (aVar != null) {
                             hashMap2.put("isGif", String.valueOf(aVar.isGif()));
                         } else {
@@ -161,14 +174,14 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                             ImageLoaderPlugin.this.onResult(ImageLoadingError.NetworkError, result, aVar, hashMap2, null);
                             return;
                         }
-                        if (i5 == 3) {
+                        if (i6 == 3) {
                             ImageLoaderPlugin.access$108();
                             hashMap2.put("requestId", Integer.valueOf(ImageLoaderPlugin.requestId));
                             hashMap3 = new HashMap();
-                            hashMap3.put("codecCost", Long.valueOf(aVar.Vn.costTime));
+                            hashMap3.put("codecCost", Long.valueOf(aVar.Vo.costTime));
                             hashMap3.put("isBundleFile", false);
                             hashMap3.put("netType", j.netTypeNameInLowerCase());
-                            hashMap3.put(CameraActivityConfig.KEY_CONTENT_TYPE, String.valueOf(i5));
+                            hashMap3.put(CameraActivityConfig.KEY_CONTENT_TYPE, String.valueOf(i6));
                             hashMap3.put("loadingCost", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
                         }
                         ImageLoaderPlugin.this.onResult(ImageLoadingError.Succeed, result, aVar, hashMap2, hashMap3);
@@ -200,7 +213,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
     private int getResIdBySkin(String str, int i) {
         int d;
         int c;
-        if (at.isEmpty(str)) {
+        if (au.isEmpty(str)) {
             return 0;
         }
         if (ComboPraiseProvider.DIR_PREFIX_NIGHT.equals(str) && (c = ap.c(TbadkCoreApplication.getInst().getResources(), i)) > 0) {
@@ -222,7 +235,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
     }
 
     private boolean shouldMonitorPerformance(int i) {
-        return m.bCu().bCv() && i % 100 == 0;
+        return m.bBK().isSmallFlow() && i % 100 == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

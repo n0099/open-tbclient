@@ -4,37 +4,37 @@ import com.baidu.tbadk.core.feedManager.FeedRecModel;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a eIT;
-    private DataRes eIV;
-    private FeedRecModel.a eIW = new FeedRecModel.a() { // from class: com.baidu.tbadk.core.feedManager.a.1
+    private static volatile a eHT;
+    private DataRes eHV;
+    private FeedRecModel.a eHW = new FeedRecModel.a() { // from class: com.baidu.tbadk.core.feedManager.a.1
         @Override // com.baidu.tbadk.core.feedManager.FeedRecModel.a
         public void a(DataRes dataRes, boolean z, boolean z2) {
-            a.this.eIV = dataRes;
+            a.this.eHV = dataRes;
         }
 
         @Override // com.baidu.tbadk.core.feedManager.FeedRecModel.a
-        public void aE(int i, String str) {
-            a.this.eIV = null;
+        public void aC(int i, String str) {
+            a.this.eHV = null;
         }
     };
-    private FeedRecModel eIU = new FeedRecModel();
+    private FeedRecModel eHU = new FeedRecModel();
 
     public a() {
-        this.eIU.a(this.eIW);
+        this.eHU.a(this.eHW);
     }
 
-    public static a bpu() {
-        if (eIT == null) {
+    public static a boH() {
+        if (eHT == null) {
             synchronized (a.class) {
-                if (eIT == null) {
-                    eIT = new a();
+                if (eHT == null) {
+                    eHT = new a();
                 }
             }
         }
-        return eIT;
+        return eHT;
     }
 
-    public DataRes bpv() {
-        return this.eIV;
+    public DataRes boI() {
+        return this.eHV;
     }
 }

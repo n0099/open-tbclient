@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class aw extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */

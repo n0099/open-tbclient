@@ -17,4 +17,9 @@ public class NewAdTbWebViewActivityConfig extends WebViewActivityConfig {
         super(context, str, str2, z, z2, z3, z4);
         getIntent().putExtra(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID, str3);
     }
+
+    @Override // com.baidu.tbadk.core.atomData.WebViewActivityConfig
+    public String addTiebaParams(String str) {
+        return str;
+    }
 }

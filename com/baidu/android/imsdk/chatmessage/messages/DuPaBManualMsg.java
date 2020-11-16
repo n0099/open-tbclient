@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class DuPaBManualMsg extends ChatMsg {
     private static final String B_CALLBACK_KEY = "callback_key";
     private static final String B_EVALUATIONS = "evaluations";

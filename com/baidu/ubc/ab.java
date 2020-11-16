@@ -1,7 +1,7 @@
 package com.baidu.ubc;
 
 import java.io.IOException;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public abstract class ab {
     public abstract void close();
 

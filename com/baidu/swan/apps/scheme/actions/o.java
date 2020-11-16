@@ -14,7 +14,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class o extends aa {
     public o(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/openApp");
@@ -37,7 +37,7 @@ public class o extends aa {
         }
         final String optString2 = b.optString("open", "");
         c(eVar, optString2);
-        eVar.aHG().e("scope_open_app", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
+        eVar.aGY().e("scope_open_app", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: c */
@@ -61,7 +61,7 @@ public class o extends aa {
 
     private void c(@NonNull com.baidu.swan.apps.runtime.e eVar, @NonNull String str) {
         com.baidu.swan.apps.statistic.a.e eVar2 = new com.baidu.swan.apps.statistic.a.e();
-        eVar2.mSource = eVar.afO().ayD();
+        eVar2.mSource = eVar.afg().axV();
         eVar2.u("appkey", eVar.getAppId());
         eVar2.u(Config.ROM, "Android");
         try {
@@ -78,16 +78,16 @@ public class o extends aa {
         if (eVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        String ayD = com.baidu.swan.apps.runtime.d.aHq().aHm().aHy().ayD();
-        if (TextUtils.isEmpty(ayD)) {
-            ayD = "NA";
+        String axV = com.baidu.swan.apps.runtime.d.aGI().aGE().aGQ().axV();
+        if (TextUtils.isEmpty(axV)) {
+            axV = "NA";
         }
-        JSONObject jSONObject = eVar.dxW;
+        JSONObject jSONObject = eVar.dwp;
         if (jSONObject == null || jSONObject.keys() == null) {
             return false;
         }
         if (DEBUG) {
-            Log.i("OpenAppAction", "source: " + ayD + " openUrl:" + str + " 配置数据:" + jSONObject);
+            Log.i("OpenAppAction", "source: " + axV + " openUrl:" + str + " 配置数据:" + jSONObject);
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("scene");
         JSONArray optJSONArray2 = jSONObject.optJSONArray("package_name");
@@ -95,7 +95,7 @@ public class o extends aa {
         if (length > 0) {
             boolean z2 = false;
             for (int i = 0; i < length; i++) {
-                if (ayD.equals(optJSONArray.optString(i))) {
+                if (axV.equals(optJSONArray.optString(i))) {
                     z2 = true;
                 }
             }
@@ -140,7 +140,7 @@ public class o extends aa {
             }
             return;
         }
-        boolean ak = !a2 ? ak.ak(context, jSONObject.optString("download")) : true;
-        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(ak ? 0 : 1001, ak ? "下载APP成功" : "下载APP失败").toString());
+        boolean ah = !a2 ? ak.ah(context, jSONObject.optString("download")) : true;
+        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(ah ? 0 : 1001, ah ? "下载APP成功" : "下载APP失败").toString());
     }
 }

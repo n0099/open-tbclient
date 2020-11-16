@@ -1,5 +1,5 @@
 package com.baidu.mobstat;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public interface cs extends cx {
     String a();
 }

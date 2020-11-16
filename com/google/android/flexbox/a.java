@@ -2,23 +2,23 @@ package com.google.android.flexbox;
 
 import android.view.View;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 interface a {
-    View PV(int i);
+    View Qy(int i);
 
-    View PW(int i);
+    View Qz(int i);
 
     void a(View view, int i, int i2, b bVar);
 
     void a(b bVar);
 
-    int ah(int i, int i2, int i3);
+    int ak(int i, int i2, int i3);
 
-    int ai(int i, int i2, int i3);
+    int al(int i, int i2, int i3);
 
-    int dY(View view);
+    int ef(View view);
 
-    boolean esf();
+    boolean esd();
 
     int getAlignContent();
 
@@ -50,7 +50,7 @@ interface a {
 
     int getSumOfCrossSize();
 
-    int j(View view, int i, int i2);
+    int k(View view, int i, int i2);
 
     void n(int i, View view);
 

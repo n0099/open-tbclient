@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.swan.menu.g;
 import com.baidu.swan.menu.viewpager.SlideableGridView;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public SwanAppMenuSlidableGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -27,7 +27,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
         return new a(context);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     private class a extends WrapContentHeightViewPager {
         private a(Context context) {
             super(context);
@@ -52,29 +52,29 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
     protected void dJ(Context context) {
-        this.ehe = new com.baidu.swan.menu.viewpager.a(context).aD(g.c.menu_indicator_normal, g.c.menu_indicator_selected).mM((int) getResources().getDimension(g.b.common_grid_indicator_margin));
-        this.ehf[0] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
-        this.ehf[1] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
-        addView(this.ehe, baE());
+        this.efw = new com.baidu.swan.menu.viewpager.a(context).aD(g.c.menu_indicator_normal, g.c.menu_indicator_selected).mI((int) getResources().getDimension(g.b.common_grid_indicator_margin));
+        this.efx[0] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
+        this.efx[1] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
+        addView(this.efw, aZX());
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    protected int baD() {
+    protected int aZW() {
         return (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    protected void baF() {
+    protected void aZY() {
         SlideableGridView.a gridItemAdapter = getGridItemAdapter();
         int pageCount = gridItemAdapter == null ? 0 : gridItemAdapter.getPageCount();
         boolean z = pageCount > 1;
-        int i = !z ? this.ehf[0] : this.ehf[1];
+        int i = !z ? this.efx[0] : this.efx[1];
         if (!z) {
-            this.ehe.setVisibility(8);
+            this.efw.setVisibility(8);
             return;
         }
-        this.ehe.setVisibility(0);
-        this.ehe.mL(pageCount);
-        this.ehe.getLayoutParams().height = i;
+        this.efw.setVisibility(0);
+        this.efw.mH(pageCount);
+        this.efw.getLayoutParams().height = i;
     }
 }

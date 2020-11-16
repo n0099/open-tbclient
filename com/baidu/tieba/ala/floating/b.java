@@ -6,46 +6,46 @@ import com.baidu.tieba.ala.floating.a;
 /* loaded from: classes4.dex */
 public class b {
     private static String TAG = "AlaFloatLiveControllerUtil";
-    private static a gBH;
+    private static a gBo;
 
     public static a fa(Context context) {
-        if (gBH == null) {
-            gBH = fb(context);
+        if (gBo == null) {
+            gBo = fb(context);
         }
-        return gBH;
+        return gBo;
     }
 
     private static synchronized a fb(Context context) {
         a aVar;
         synchronized (b.class) {
-            if (gBH == null) {
-                gBH = new a(context);
+            if (gBo == null) {
+                gBo = new a(context);
             }
-            aVar = gBH;
+            aVar = gBo;
         }
         return aVar;
     }
 
-    public static AlaLiveInfoData bSm() {
-        a aVar = gBH;
+    public static AlaLiveInfoData bRF() {
+        a aVar = gBo;
         if (aVar != null) {
-            return aVar.bSm();
+            return aVar.bRF();
         }
         return null;
     }
 
     public static void b(a.InterfaceC0640a interfaceC0640a) {
-        a aVar = gBH;
+        a aVar = gBo;
         if (aVar != null) {
             aVar.a(interfaceC0640a);
-            aVar.bSr();
+            aVar.bRK();
         }
     }
 
-    public static boolean bSp() {
-        a aVar = gBH;
+    public static boolean bRI() {
+        a aVar = gBo;
         if (aVar != null) {
-            return aVar.bSp();
+            return aVar.bRI();
         }
         return false;
     }
@@ -53,8 +53,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public static synchronized void destroy() {
         synchronized (b.class) {
-            a aVar = gBH;
-            gBH = null;
+            a aVar = gBo;
+            gBo = null;
             if (aVar != null) {
                 aVar.onDestroy();
             }

@@ -1,5 +1,5 @@
 package org.webrtc;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface Predicate<T> {
     Predicate<T> and(Predicate<? super T> predicate);
 

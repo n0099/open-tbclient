@@ -5,15 +5,15 @@ import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 import java.io.IOException;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f1177a;
+    protected Context f1180a;
     private LinkedList<e> b = new LinkedList<>();
 
     public d(Context context) {
-        this.f1177a = context;
+        this.f1180a = context;
     }
 
     public abstract e a(byte[] bArr) throws IOException;
@@ -28,7 +28,7 @@ public abstract class d {
                 this.b.add(eVar);
                 this.b.notifyAll();
             } catch (Exception e) {
-                new b.c(this.f1177a).a(Log.getStackTraceString(e)).a();
+                new b.c(this.f1180a).a(Log.getStackTraceString(e)).a();
             }
         }
     }

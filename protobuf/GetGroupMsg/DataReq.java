@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import protobuf.GroupLastId;
 import protobuf.NewpushRepair;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_GETTYPE = "";
     public static final String DEFAULT_MAX_TIME = "";
@@ -110,7 +110,7 @@ public final class DataReq extends Message {
         this.newpushRepire = builder.newpushRepire;
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String gettype;
         public List<GroupLastId> groupMids;

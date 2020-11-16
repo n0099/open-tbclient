@@ -21,7 +21,7 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class BdUploadHandler implements INoProGuard {
     private static final String AUDIO_MIME_TYPE = "audio/*";
     private static final String IMAGE_MIME_TYPE = "image/*";
@@ -81,7 +81,7 @@ public class BdUploadHandler implements INoProGuard {
     private Intent createChooserIntent(Intent... intentArr) {
         Intent intent = new Intent("android.intent.action.CHOOSER");
         intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
-        intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(g.P("string", "sailor_choose_upload")));
+        intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(g.O("string", "sailor_choose_upload")));
         return intent;
     }
 

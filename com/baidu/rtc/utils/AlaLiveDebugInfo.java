@@ -1,7 +1,7 @@
 package com.baidu.rtc.utils;
 
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class AlaLiveDebugInfo implements Serializable {
     private static final long serialVersionUID = 5698793191517772253L;
     public long bandWidth;

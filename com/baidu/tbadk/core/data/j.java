@@ -1,43 +1,31 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.BannerImage;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.FrsPage.Badges;
 /* loaded from: classes.dex */
-public class j implements com.baidu.tbadk.core.flow.a.a {
-    private String bLu;
-    private String ezL;
-    private String mTitle;
+public class j {
+    private String badge_url;
+    private int exZ;
+    private String webview;
 
-    public void a(BannerImage bannerImage) {
-        if (bannerImage != null) {
-            this.bLu = bannerImage.img_url;
-            this.ezL = bannerImage.ahead_url;
-            this.mTitle = bannerImage.title;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.exZ = jSONObject.optInt("badge_id", 0);
+                this.badge_url = jSONObject.optString("badge_url", "");
+                this.webview = jSONObject.optString("webview");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 
-    public String bkw() {
-        return this.bLu;
-    }
-
-    public String bkx() {
-        return this.ezL;
-    }
-
-    public void AO(String str) {
-        this.ezL = str;
-    }
-
-    public String getTitle() {
-        return this.mTitle;
-    }
-
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String getPicUrl() {
-        return this.bLu;
-    }
-
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String bky() {
-        return this.ezL;
+    public void a(Badges badges) {
+        if (badges != null) {
+            this.exZ = badges.badge_id.intValue();
+            this.badge_url = badges.badge_url;
+            this.webview = badges.webview;
+        }
     }
 }

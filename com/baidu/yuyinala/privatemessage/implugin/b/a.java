@@ -13,27 +13,27 @@ import com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d;
 /* loaded from: classes4.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a oxq;
+    private static a oyU;
     private Context mContext;
-    private LongSparseArray<ImageMsg> oxr = new LongSparseArray<>();
+    private LongSparseArray<ImageMsg> oyV = new LongSparseArray<>();
 
     private a(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
-    public static a gx(Context context) {
-        if (oxq == null) {
+    public static a gv(Context context) {
+        if (oyU == null) {
             synchronized (a.class) {
-                if (oxq == null) {
-                    oxq = new a(context);
+                if (oyU == null) {
+                    oyU = new a(context);
                 }
             }
         }
-        return oxq;
+        return oyU;
     }
 
     public void a(ChatMsg chatMsg, String str) {
-        com.baidu.yuyinala.privatemessage.implugin.d.b.efv().saveMessage(this.mContext, chatMsg);
+        com.baidu.yuyinala.privatemessage.implugin.d.b.eft().saveMessage(this.mContext, chatMsg);
         switch (chatMsg.getMsgType()) {
             case 0:
                 b(chatMsg, str);
@@ -49,7 +49,7 @@ public class a {
 
     private void b(ChatMsg chatMsg, String str) {
         if (chatMsg instanceof TextMsg) {
-            com.baidu.yuyinala.privatemessage.implugin.d.b.efv().a(this.mContext, chatMsg, new C0944a(str));
+            com.baidu.yuyinala.privatemessage.implugin.d.b.eft().a(this.mContext, chatMsg, new C0947a(str));
         } else {
             LogUtils.e(TAG, "sendTextChatMsg msg error");
         }
@@ -57,7 +57,7 @@ public class a {
 
     private void c(ChatMsg chatMsg, String str) {
         if (chatMsg instanceof SignleGraphicTextMsg) {
-            com.baidu.yuyinala.privatemessage.implugin.d.b.efv().a(this.mContext, chatMsg, new C0944a(str));
+            com.baidu.yuyinala.privatemessage.implugin.d.b.eft().a(this.mContext, chatMsg, new C0947a(str));
         } else {
             LogUtils.e(TAG, "sendTextChatMsg msg error");
         }
@@ -68,9 +68,9 @@ public class a {
     }
 
     public void a(ImageMsg imageMsg) {
-        if (this.oxr != null) {
-            if (this.oxr.get(imageMsg.getRowId()) != null) {
-                imageMsg.setProgress(this.oxr.get(imageMsg.getRowId()).getProgress());
+        if (this.oyV != null) {
+            if (this.oyV.get(imageMsg.getRowId()) != null) {
+                imageMsg.setProgress(this.oyV.get(imageMsg.getRowId()).getProgress());
             } else {
                 imageMsg.setStatus(2);
             }
@@ -78,28 +78,28 @@ public class a {
     }
 
     public void a(int i, ChatMsg chatMsg, String str) {
-        c XE = d.egN().XE(str);
-        if (XE != null) {
-            XE.onSendMessageResult(i, chatMsg);
+        c Xp = d.egL().Xp(str);
+        if (Xp != null) {
+            Xp.onSendMessageResult(i, chatMsg);
         }
         if (chatMsg.getMsgType() == 1) {
-            this.oxr.remove(chatMsg.getRowId());
+            this.oyV.remove(chatMsg.getRowId());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0944a implements b.f {
+    public class C0947a implements b.f {
         private String mListenerKey;
 
-        private C0944a(String str) {
+        private C0947a(String str) {
             this.mListenerKey = str;
         }
 
         @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
         public void onSendMessageResult(int i, ChatMsg chatMsg) {
-            a.gx(a.this.mContext).a(i, chatMsg, this.mListenerKey);
+            a.gv(a.this.mContext).a(i, chatMsg, this.mListenerKey);
         }
     }
 }

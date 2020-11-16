@@ -3,20 +3,20 @@ package com.baidu.tieba.homepage.hotTopic.tab.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.frs.FrsTabInfoData;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b implements q {
-    private FrsTabInfoData jBR;
+    private FrsTabInfoData jCO;
 
     public b(FrsTabInfoData frsTabInfoData) {
-        this.jBR = frsTabInfoData;
+        this.jCO = frsTabInfoData;
     }
 
-    public FrsTabInfoData cyU() {
-        return this.jBR;
+    public FrsTabInfoData cyx() {
+        return this.jCO;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return a.jBQ;
+        return a.jCN;
     }
 }

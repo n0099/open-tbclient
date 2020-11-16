@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface aa {
     com.baidu.swan.apps.inlinewidget.f.c.a a(ZeusPluginFactory.Invoker invoker, String str);
 

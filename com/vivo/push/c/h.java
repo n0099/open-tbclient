@@ -2,7 +2,7 @@ package com.vivo.push.c;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 final class h extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(com.vivo.push.y yVar) {

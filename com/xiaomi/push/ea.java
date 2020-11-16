@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class ea extends ed {
 
     /* renamed from: a  reason: collision with root package name */
@@ -29,24 +29,24 @@ public class ea extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo166a() {
+    public int mo169a() {
         return 24;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo166a() {
+    public ho mo169a() {
         return ho.AppIsInstalled;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo166a() {
+    public String mo169a() {
         String[] a2 = a();
         if (a2 == null || a2.length <= 0) {
             return null;
         }
-        PackageManager packageManager = this.f231a.getPackageManager();
+        PackageManager packageManager = this.f234a.getPackageManager();
         StringBuilder sb = new StringBuilder();
         for (String str : a2) {
             try {

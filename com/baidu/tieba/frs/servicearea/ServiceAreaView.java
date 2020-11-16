@@ -9,61 +9,82 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.tbadkCore.aa;
 import com.baidu.tieba.tbadkCore.z;
-/* loaded from: classes22.dex */
+import java.util.ArrayList;
+/* loaded from: classes21.dex */
 public class ServiceAreaView extends FrameLayout {
-    private b jeW;
-    private int jeX;
+    private b jfJ;
+    private int jfK;
+    private boolean jfL;
 
     public ServiceAreaView(@NonNull Context context) {
         super(context);
-        this.jeX = ap.getColor(R.color.cp_link_tip_a);
+        this.jfK = ap.getColor(R.color.CAM_X0302);
     }
 
     public ServiceAreaView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jeX = ap.getColor(R.color.cp_link_tip_a);
+        this.jfK = ap.getColor(R.color.CAM_X0302);
     }
 
     public ServiceAreaView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jeX = ap.getColor(R.color.cp_link_tip_a);
+        this.jfK = ap.getColor(R.color.CAM_X0302);
     }
 
-    public void setData(z zVar) {
+    public void setData(z zVar, FrsViewData frsViewData) {
+        if (this.jfL) {
+            if (zVar == null) {
+                zVar = new z();
+                zVar.dataList = new ArrayList();
+            }
+            zVar.mWP++;
+            aa aaVar = new aa();
+            aaVar.name = getResources().getString(R.string.hot_user_rank);
+            aaVar.imageUrl = getResources().getString(R.string.hot_user_rank);
+            zVar.dataList.add(0, aaVar);
+        }
         if (zVar != null) {
-            int dimens = l.getDimens(getContext(), R.dimen.tbds24);
-            int dimens2 = l.getDimens(getContext(), R.dimen.tbds37);
-            if (zVar.mVW > 3) {
-                this.jeW = new c(getContext());
-            } else if (zVar.mVW == 2 || zVar.mVW == 3) {
-                this.jeW = new f(getContext());
-            } else if (zVar.mVW == 1) {
-                this.jeW = new d(getContext());
-                dimens2 = l.getDimens(getContext(), R.dimen.tbds19);
+            int dimens = l.getDimens(getContext(), R.dimen.M_H_X001);
+            int dimens2 = l.getDimens(getContext(), R.dimen.M_H_X001);
+            if (zVar.mWP >= 2) {
+                this.jfJ = new c(getContext());
+            } else if (zVar.mWP == 1) {
+                this.jfJ = new d(getContext());
+                dimens2 = l.getDimens(getContext(), R.dimen.tbds12);
+                dimens = l.getDimens(getContext(), R.dimen.tbds5);
             }
             setPadding(0, dimens, 0, dimens2);
             removeAllViews();
-            addView(this.jeW.getView(), -1, -2);
-            this.jeW.setData(zVar);
-            if (this.jeW instanceof a) {
-                ((a) this.jeW).setThemeFontColor(this.jeX);
+            addView(this.jfJ.getView(), -1, -2);
+            this.jfJ.setData(zVar, frsViewData);
+            if (this.jfJ instanceof a) {
+                ((a) this.jfJ).setThemeFontColor(this.jfK);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jeW != null) {
-            this.jeW.onChangeSkinType(i);
+        if (this.jfJ != null) {
+            this.jfJ.onChangeSkinType(i);
         }
-        ap.setBackgroundColor(this, R.color.cp_bg_line_d);
     }
 
     public void setThemeFontColor(int i) {
-        this.jeX = i;
-        if (this.jeW instanceof a) {
-            ((a) this.jeW).setThemeFontColor(this.jeX);
+        this.jfK = i;
+        if (this.jfJ instanceof a) {
+            ((a) this.jfJ).setThemeFontColor(this.jfK);
         }
+    }
+
+    public void setHasHotRankList(boolean z) {
+        this.jfL = z;
+    }
+
+    public boolean cEo() {
+        return this.jfL;
     }
 }

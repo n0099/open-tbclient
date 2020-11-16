@@ -18,15 +18,15 @@ import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class a {
 
     /* renamed from: com.baidu.android.pushservice.h.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class C0048a extends GeneratedMessageLite implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<C0048a> f1094a = new AbstractParser<C0048a>() { // from class: com.baidu.android.pushservice.h.a.a.a.a.1
+        public static Parser<C0048a> f1097a = new AbstractParser<C0048a>() { // from class: com.baidu.android.pushservice.h.a.a.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -45,11 +45,11 @@ public final class a {
         private int j;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0049a extends GeneratedMessageLite.Builder<C0048a, C0049a> implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1095a;
+            private int f1098a;
             private long d;
             private long f;
             private Object b = "";
@@ -74,20 +74,20 @@ public final class a {
             public C0049a clear() {
                 super.clear();
                 this.b = "";
-                this.f1095a &= -2;
+                this.f1098a &= -2;
                 this.c = "";
-                this.f1095a &= -3;
+                this.f1098a &= -3;
                 this.d = 0L;
-                this.f1095a &= -5;
+                this.f1098a &= -5;
                 this.e = "";
-                this.f1095a &= -9;
+                this.f1098a &= -9;
                 this.f = 0L;
-                this.f1095a &= -17;
+                this.f1098a &= -17;
                 return this;
             }
 
             public C0049a a(long j) {
-                this.f1095a |= 4;
+                this.f1098a |= 4;
                 this.d = j;
                 return this;
             }
@@ -98,18 +98,18 @@ public final class a {
             public C0049a mergeFrom(C0048a c0048a) {
                 if (c0048a != C0048a.a()) {
                     if (c0048a.c()) {
-                        this.f1095a |= 1;
+                        this.f1098a |= 1;
                         this.b = c0048a.d;
                     }
                     if (c0048a.e()) {
-                        this.f1095a |= 2;
+                        this.f1098a |= 2;
                         this.c = c0048a.e;
                     }
                     if (c0048a.g()) {
                         a(c0048a.h());
                     }
                     if (c0048a.i()) {
-                        this.f1095a |= 8;
+                        this.f1098a |= 8;
                         this.e = c0048a.g;
                     }
                     if (c0048a.k()) {
@@ -131,7 +131,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        C0048a parsePartialFrom = C0048a.f1094a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        C0048a parsePartialFrom = C0048a.f1097a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -162,7 +162,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1095a |= 1;
+                this.f1098a |= 1;
                 this.b = str;
                 return this;
             }
@@ -175,7 +175,7 @@ public final class a {
             }
 
             public C0049a b(long j) {
-                this.f1095a |= 16;
+                this.f1098a |= 16;
                 this.f = j;
                 return this;
             }
@@ -184,7 +184,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1095a |= 2;
+                this.f1098a |= 2;
                 return this;
             }
 
@@ -192,7 +192,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1095a |= 8;
+                this.f1098a |= 8;
                 this.e = str;
                 return this;
             }
@@ -220,7 +220,7 @@ public final class a {
             /* renamed from: e */
             public C0048a buildPartial() {
                 C0048a c0048a = new C0048a(this);
-                int i = this.f1095a;
+                int i = this.f1098a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 c0048a.d = this.b;
                 if ((i & 2) == 2) {
@@ -379,7 +379,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<C0048a> getParserForType() {
-            return f1094a;
+            return f1097a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -480,11 +480,11 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class aa extends GeneratedMessageLite implements ab {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<aa> f1096a = new AbstractParser<aa>() { // from class: com.baidu.android.pushservice.h.a.a.a.aa.1
+        public static Parser<aa> f1099a = new AbstractParser<aa>() { // from class: com.baidu.android.pushservice.h.a.a.a.aa.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -505,11 +505,11 @@ public final class a {
         private int l;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$aa$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0050a extends GeneratedMessageLite.Builder<aa, C0050a> implements ab {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1097a;
+            private int f1100a;
             private long d;
             private long e;
             private long f;
@@ -536,24 +536,24 @@ public final class a {
             public C0050a clear() {
                 super.clear();
                 this.b = "";
-                this.f1097a &= -2;
+                this.f1100a &= -2;
                 this.c = "";
-                this.f1097a &= -3;
+                this.f1100a &= -3;
                 this.d = 0L;
-                this.f1097a &= -5;
+                this.f1100a &= -5;
                 this.e = 0L;
-                this.f1097a &= -9;
+                this.f1100a &= -9;
                 this.f = 0L;
-                this.f1097a &= -17;
+                this.f1100a &= -17;
                 this.g = "";
-                this.f1097a &= -33;
+                this.f1100a &= -33;
                 this.h = 0L;
-                this.f1097a &= -65;
+                this.f1100a &= -65;
                 return this;
             }
 
             public C0050a a(long j) {
-                this.f1097a |= 4;
+                this.f1100a |= 4;
                 this.d = j;
                 return this;
             }
@@ -564,11 +564,11 @@ public final class a {
             public C0050a mergeFrom(aa aaVar) {
                 if (aaVar != aa.a()) {
                     if (aaVar.c()) {
-                        this.f1097a |= 1;
+                        this.f1100a |= 1;
                         this.b = aaVar.d;
                     }
                     if (aaVar.e()) {
-                        this.f1097a |= 2;
+                        this.f1100a |= 2;
                         this.c = aaVar.e;
                     }
                     if (aaVar.g()) {
@@ -581,7 +581,7 @@ public final class a {
                         c(aaVar.l());
                     }
                     if (aaVar.m()) {
-                        this.f1097a |= 32;
+                        this.f1100a |= 32;
                         this.g = aaVar.i;
                     }
                     if (aaVar.o()) {
@@ -603,7 +603,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        aa parsePartialFrom = aa.f1096a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        aa parsePartialFrom = aa.f1099a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -634,7 +634,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1097a |= 1;
+                this.f1100a |= 1;
                 this.b = str;
                 return this;
             }
@@ -647,7 +647,7 @@ public final class a {
             }
 
             public C0050a b(long j) {
-                this.f1097a |= 8;
+                this.f1100a |= 8;
                 this.e = j;
                 return this;
             }
@@ -656,13 +656,13 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1097a |= 2;
+                this.f1100a |= 2;
                 this.c = str;
                 return this;
             }
 
             public C0050a c(long j) {
-                this.f1097a |= 16;
+                this.f1100a |= 16;
                 this.f = j;
                 return this;
             }
@@ -671,7 +671,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1097a |= 32;
+                this.f1100a |= 32;
                 this.g = str;
                 return this;
             }
@@ -684,7 +684,7 @@ public final class a {
             }
 
             public C0050a d(long j) {
-                this.f1097a |= 64;
+                this.f1100a |= 64;
                 this.h = j;
                 return this;
             }
@@ -705,7 +705,7 @@ public final class a {
             /* renamed from: e */
             public aa buildPartial() {
                 aa aaVar = new aa(this);
-                int i = this.f1097a;
+                int i = this.f1100a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 aaVar.d = this.b;
                 if ((i & 2) == 2) {
@@ -882,7 +882,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<aa> getParserForType() {
-            return f1096a;
+            return f1099a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -1011,15 +1011,15 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface ab extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class ac extends GeneratedMessageLite implements ad {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<ac> f1098a = new AbstractParser<ac>() { // from class: com.baidu.android.pushservice.h.a.a.a.ac.1
+        public static Parser<ac> f1101a = new AbstractParser<ac>() { // from class: com.baidu.android.pushservice.h.a.a.a.ac.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -1040,11 +1040,11 @@ public final class a {
         private int l;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$ac$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0051a extends GeneratedMessageLite.Builder<ac, C0051a> implements ad {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1099a;
+            private int f1102a;
             private x b = x.OS_TYPE_UNKNWON;
             private Object c = "";
             private Object d = "";
@@ -1071,24 +1071,24 @@ public final class a {
             public C0051a clear() {
                 super.clear();
                 this.b = x.OS_TYPE_UNKNWON;
-                this.f1099a &= -2;
+                this.f1102a &= -2;
                 this.c = "";
-                this.f1099a &= -3;
+                this.f1102a &= -3;
                 this.d = "";
-                this.f1099a &= -5;
+                this.f1102a &= -5;
                 this.e = "";
-                this.f1099a &= -9;
+                this.f1102a &= -9;
                 this.f = 0;
-                this.f1099a &= -17;
+                this.f1102a &= -17;
                 this.g = 0;
-                this.f1099a &= -33;
+                this.f1102a &= -33;
                 this.h = 0;
-                this.f1099a &= -65;
+                this.f1102a &= -65;
                 return this;
             }
 
             public C0051a a(int i) {
-                this.f1099a |= 16;
+                this.f1102a |= 16;
                 this.f = i;
                 return this;
             }
@@ -1102,15 +1102,15 @@ public final class a {
                         a(acVar.d());
                     }
                     if (acVar.e()) {
-                        this.f1099a |= 2;
+                        this.f1102a |= 2;
                         this.c = acVar.e;
                     }
                     if (acVar.g()) {
-                        this.f1099a |= 4;
+                        this.f1102a |= 4;
                         this.d = acVar.f;
                     }
                     if (acVar.i()) {
-                        this.f1099a |= 8;
+                        this.f1102a |= 8;
                         this.e = acVar.g;
                     }
                     if (acVar.k()) {
@@ -1130,7 +1130,7 @@ public final class a {
                 if (xVar == null) {
                     throw new NullPointerException();
                 }
-                this.f1099a |= 1;
+                this.f1102a |= 1;
                 this.b = xVar;
                 return this;
             }
@@ -1147,7 +1147,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        ac parsePartialFrom = ac.f1098a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        ac parsePartialFrom = ac.f1101a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -1178,7 +1178,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1099a |= 2;
+                this.f1102a |= 2;
                 this.c = str;
                 return this;
             }
@@ -1191,7 +1191,7 @@ public final class a {
             }
 
             public C0051a b(int i) {
-                this.f1099a |= 32;
+                this.f1102a |= 32;
                 this.g = i;
                 return this;
             }
@@ -1200,13 +1200,13 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1099a |= 4;
+                this.f1102a |= 4;
                 this.d = str;
                 return this;
             }
 
             public C0051a c(int i) {
-                this.f1099a |= 64;
+                this.f1102a |= 64;
                 this.h = i;
                 return this;
             }
@@ -1215,7 +1215,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1099a |= 8;
+                this.f1102a |= 8;
                 this.e = str;
                 return this;
             }
@@ -1243,7 +1243,7 @@ public final class a {
             /* renamed from: e */
             public ac buildPartial() {
                 ac acVar = new ac(this);
-                int i = this.f1099a;
+                int i = this.f1102a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 acVar.d = this.b;
                 if ((i & 2) == 2) {
@@ -1417,7 +1417,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<ac> getParserForType() {
-            return f1098a;
+            return f1101a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -1552,15 +1552,15 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface ad extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class ae extends GeneratedMessageLite implements af {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<ae> f1100a = new AbstractParser<ae>() { // from class: com.baidu.android.pushservice.h.a.a.a.ae.1
+        public static Parser<ae> f1103a = new AbstractParser<ae>() { // from class: com.baidu.android.pushservice.h.a.a.a.ae.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -1581,11 +1581,11 @@ public final class a {
         private int l;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$ae$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0052a extends GeneratedMessageLite.Builder<ae, C0052a> implements af {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1101a;
+            private int f1104a;
             private long d;
             private long e;
             private long f;
@@ -1612,24 +1612,24 @@ public final class a {
             public C0052a clear() {
                 super.clear();
                 this.b = "";
-                this.f1101a &= -2;
+                this.f1104a &= -2;
                 this.c = "";
-                this.f1101a &= -3;
+                this.f1104a &= -3;
                 this.d = 0L;
-                this.f1101a &= -5;
+                this.f1104a &= -5;
                 this.e = 0L;
-                this.f1101a &= -9;
+                this.f1104a &= -9;
                 this.f = 0L;
-                this.f1101a &= -17;
+                this.f1104a &= -17;
                 this.g = "";
-                this.f1101a &= -33;
+                this.f1104a &= -33;
                 this.h = 0L;
-                this.f1101a &= -65;
+                this.f1104a &= -65;
                 return this;
             }
 
             public C0052a a(long j) {
-                this.f1101a |= 4;
+                this.f1104a |= 4;
                 this.d = j;
                 return this;
             }
@@ -1640,11 +1640,11 @@ public final class a {
             public C0052a mergeFrom(ae aeVar) {
                 if (aeVar != ae.a()) {
                     if (aeVar.c()) {
-                        this.f1101a |= 1;
+                        this.f1104a |= 1;
                         this.b = aeVar.d;
                     }
                     if (aeVar.e()) {
-                        this.f1101a |= 2;
+                        this.f1104a |= 2;
                         this.c = aeVar.e;
                     }
                     if (aeVar.g()) {
@@ -1657,7 +1657,7 @@ public final class a {
                         c(aeVar.l());
                     }
                     if (aeVar.m()) {
-                        this.f1101a |= 32;
+                        this.f1104a |= 32;
                         this.g = aeVar.i;
                     }
                     if (aeVar.o()) {
@@ -1679,7 +1679,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        ae parsePartialFrom = ae.f1100a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        ae parsePartialFrom = ae.f1103a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -1714,13 +1714,13 @@ public final class a {
             }
 
             public C0052a b(long j) {
-                this.f1101a |= 8;
+                this.f1104a |= 8;
                 this.e = j;
                 return this;
             }
 
             public C0052a c(long j) {
-                this.f1101a |= 16;
+                this.f1104a |= 16;
                 this.f = j;
                 return this;
             }
@@ -1733,7 +1733,7 @@ public final class a {
             }
 
             public C0052a d(long j) {
-                this.f1101a |= 64;
+                this.f1104a |= 64;
                 this.h = j;
                 return this;
             }
@@ -1754,7 +1754,7 @@ public final class a {
             /* renamed from: e */
             public ae buildPartial() {
                 ae aeVar = new ae(this);
-                int i = this.f1101a;
+                int i = this.f1104a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 aeVar.d = this.b;
                 if ((i & 2) == 2) {
@@ -1931,7 +1931,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<ae> getParserForType() {
-            return f1100a;
+            return f1103a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -2060,19 +2060,19 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface af extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface b extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class c extends GeneratedMessageLite implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<c> f1102a = new AbstractParser<c>() { // from class: com.baidu.android.pushservice.h.a.a.a.c.1
+        public static Parser<c> f1105a = new AbstractParser<c>() { // from class: com.baidu.android.pushservice.h.a.a.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -2094,11 +2094,11 @@ public final class a {
         private int m;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$c$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0053a extends GeneratedMessageLite.Builder<c, C0053a> implements d {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1103a;
+            private int f1106a;
             private e b = e.UI;
             private ae c = ae.a();
             private l d = l.a();
@@ -2126,21 +2126,21 @@ public final class a {
             public C0053a clear() {
                 super.clear();
                 this.b = e.UI;
-                this.f1103a &= -2;
+                this.f1106a &= -2;
                 this.c = ae.a();
-                this.f1103a &= -3;
+                this.f1106a &= -3;
                 this.d = l.a();
-                this.f1103a &= -5;
+                this.f1106a &= -5;
                 this.e = n.a();
-                this.f1103a &= -9;
+                this.f1106a &= -9;
                 this.f = j.a();
-                this.f1103a &= -17;
+                this.f1106a &= -17;
                 this.g = aa.a();
-                this.f1103a &= -33;
+                this.f1106a &= -33;
                 this.h = C0048a.a();
-                this.f1103a &= -65;
+                this.f1106a &= -65;
                 this.i = t.a();
-                this.f1103a &= -129;
+                this.f1106a &= -129;
                 return this;
             }
 
@@ -2149,7 +2149,7 @@ public final class a {
                     throw new NullPointerException();
                 }
                 this.h = c0048a;
-                this.f1103a |= 64;
+                this.f1106a |= 64;
                 return this;
             }
 
@@ -2158,17 +2158,17 @@ public final class a {
                     throw new NullPointerException();
                 }
                 this.g = aaVar;
-                this.f1103a |= 32;
+                this.f1106a |= 32;
                 return this;
             }
 
             public C0053a a(ae aeVar) {
-                if ((this.f1103a & 2) != 2 || this.c == ae.a()) {
+                if ((this.f1106a & 2) != 2 || this.c == ae.a()) {
                     this.c = aeVar;
                 } else {
                     this.c = ae.a(this.c).mergeFrom(aeVar).buildPartial();
                 }
-                this.f1103a |= 2;
+                this.f1106a |= 2;
                 return this;
             }
 
@@ -2209,7 +2209,7 @@ public final class a {
                 if (eVar == null) {
                     throw new NullPointerException();
                 }
-                this.f1103a |= 1;
+                this.f1106a |= 1;
                 this.b = eVar;
                 return this;
             }
@@ -2219,7 +2219,7 @@ public final class a {
                     throw new NullPointerException();
                 }
                 this.f = jVar;
-                this.f1103a |= 16;
+                this.f1106a |= 16;
                 return this;
             }
 
@@ -2228,7 +2228,7 @@ public final class a {
                     throw new NullPointerException();
                 }
                 this.d = lVar;
-                this.f1103a |= 4;
+                this.f1106a |= 4;
                 return this;
             }
 
@@ -2237,17 +2237,17 @@ public final class a {
                     throw new NullPointerException();
                 }
                 this.e = nVar;
-                this.f1103a |= 8;
+                this.f1106a |= 8;
                 return this;
             }
 
             public C0053a a(t tVar) {
-                if ((this.f1103a & 128) != 128 || this.i == t.a()) {
+                if ((this.f1106a & 128) != 128 || this.i == t.a()) {
                     this.i = tVar;
                 } else {
                     this.i = t.a(this.i).mergeFrom(tVar).buildPartial();
                 }
-                this.f1103a |= 128;
+                this.f1106a |= 128;
                 return this;
             }
 
@@ -2263,7 +2263,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        c parsePartialFrom = c.f1102a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        c parsePartialFrom = c.f1105a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -2298,52 +2298,52 @@ public final class a {
             }
 
             public C0053a b(C0048a c0048a) {
-                if ((this.f1103a & 64) != 64 || this.h == C0048a.a()) {
+                if ((this.f1106a & 64) != 64 || this.h == C0048a.a()) {
                     this.h = c0048a;
                 } else {
                     this.h = C0048a.a(this.h).mergeFrom(c0048a).buildPartial();
                 }
-                this.f1103a |= 64;
+                this.f1106a |= 64;
                 return this;
             }
 
             public C0053a b(aa aaVar) {
-                if ((this.f1103a & 32) != 32 || this.g == aa.a()) {
+                if ((this.f1106a & 32) != 32 || this.g == aa.a()) {
                     this.g = aaVar;
                 } else {
                     this.g = aa.a(this.g).mergeFrom(aaVar).buildPartial();
                 }
-                this.f1103a |= 32;
+                this.f1106a |= 32;
                 return this;
             }
 
             public C0053a b(j jVar) {
-                if ((this.f1103a & 16) != 16 || this.f == j.a()) {
+                if ((this.f1106a & 16) != 16 || this.f == j.a()) {
                     this.f = jVar;
                 } else {
                     this.f = j.a(this.f).mergeFrom(jVar).buildPartial();
                 }
-                this.f1103a |= 16;
+                this.f1106a |= 16;
                 return this;
             }
 
             public C0053a b(l lVar) {
-                if ((this.f1103a & 4) != 4 || this.d == l.a()) {
+                if ((this.f1106a & 4) != 4 || this.d == l.a()) {
                     this.d = lVar;
                 } else {
                     this.d = l.a(this.d).mergeFrom(lVar).buildPartial();
                 }
-                this.f1103a |= 4;
+                this.f1106a |= 4;
                 return this;
             }
 
             public C0053a b(n nVar) {
-                if ((this.f1103a & 8) != 8 || this.e == n.a()) {
+                if ((this.f1106a & 8) != 8 || this.e == n.a()) {
                     this.e = nVar;
                 } else {
                     this.e = n.a(this.e).mergeFrom(nVar).buildPartial();
                 }
-                this.f1103a |= 8;
+                this.f1106a |= 8;
                 return this;
             }
 
@@ -2370,7 +2370,7 @@ public final class a {
             /* renamed from: e */
             public c buildPartial() {
                 c cVar = new c(this);
-                int i = this.f1103a;
+                int i = this.f1106a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 cVar.d = this.b;
                 if ((i & 2) == 2) {
@@ -2447,7 +2447,7 @@ public final class a {
                                 break;
                             case 18:
                                 ae.C0052a builder = (this.c & 2) == 2 ? this.e.toBuilder() : null;
-                                this.e = (ae) codedInputStream.readMessage(ae.f1100a, extensionRegistryLite);
+                                this.e = (ae) codedInputStream.readMessage(ae.f1103a, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.e);
                                     this.e = builder.buildPartial();
@@ -2458,7 +2458,7 @@ public final class a {
                                 z2 = z;
                             case 26:
                                 l.C0057a builder2 = (this.c & 4) == 4 ? this.f.toBuilder() : null;
-                                this.f = (l) codedInputStream.readMessage(l.f1111a, extensionRegistryLite);
+                                this.f = (l) codedInputStream.readMessage(l.f1114a, extensionRegistryLite);
                                 if (builder2 != null) {
                                     builder2.mergeFrom(this.f);
                                     this.f = builder2.buildPartial();
@@ -2469,7 +2469,7 @@ public final class a {
                                 z2 = z;
                             case 34:
                                 n.C0058a builder3 = (this.c & 8) == 8 ? this.g.toBuilder() : null;
-                                this.g = (n) codedInputStream.readMessage(n.f1113a, extensionRegistryLite);
+                                this.g = (n) codedInputStream.readMessage(n.f1116a, extensionRegistryLite);
                                 if (builder3 != null) {
                                     builder3.mergeFrom(this.g);
                                     this.g = builder3.buildPartial();
@@ -2480,7 +2480,7 @@ public final class a {
                                 z2 = z;
                             case 42:
                                 j.C0056a builder4 = (this.c & 16) == 16 ? this.h.toBuilder() : null;
-                                this.h = (j) codedInputStream.readMessage(j.f1109a, extensionRegistryLite);
+                                this.h = (j) codedInputStream.readMessage(j.f1112a, extensionRegistryLite);
                                 if (builder4 != null) {
                                     builder4.mergeFrom(this.h);
                                     this.h = builder4.buildPartial();
@@ -2491,7 +2491,7 @@ public final class a {
                                 z2 = z;
                             case 50:
                                 aa.C0050a builder5 = (this.c & 32) == 32 ? this.i.toBuilder() : null;
-                                this.i = (aa) codedInputStream.readMessage(aa.f1096a, extensionRegistryLite);
+                                this.i = (aa) codedInputStream.readMessage(aa.f1099a, extensionRegistryLite);
                                 if (builder5 != null) {
                                     builder5.mergeFrom(this.i);
                                     this.i = builder5.buildPartial();
@@ -2502,7 +2502,7 @@ public final class a {
                                 z2 = z;
                             case 58:
                                 C0048a.C0049a builder6 = (this.c & 64) == 64 ? this.j.toBuilder() : null;
-                                this.j = (C0048a) codedInputStream.readMessage(C0048a.f1094a, extensionRegistryLite);
+                                this.j = (C0048a) codedInputStream.readMessage(C0048a.f1097a, extensionRegistryLite);
                                 if (builder6 != null) {
                                     builder6.mergeFrom(this.j);
                                     this.j = builder6.buildPartial();
@@ -2513,7 +2513,7 @@ public final class a {
                                 z2 = z;
                             case 66:
                                 t.C0061a builder7 = (this.c & 128) == 128 ? this.k.toBuilder() : null;
-                                this.k = (t) codedInputStream.readMessage(t.f1119a, extensionRegistryLite);
+                                this.k = (t) codedInputStream.readMessage(t.f1122a, extensionRegistryLite);
                                 if (builder7 != null) {
                                     builder7.mergeFrom(this.k);
                                     this.k = builder7.buildPartial();
@@ -2601,7 +2601,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<c> getParserForType() {
-            return f1102a;
+            return f1105a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -2738,11 +2738,11 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface d extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public enum e implements Internal.EnumLite {
         UI(101),
         CRASH(201),
@@ -2785,11 +2785,11 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class f extends GeneratedMessageLite implements g {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<f> f1105a = new AbstractParser<f>() { // from class: com.baidu.android.pushservice.h.a.a.a.f.1
+        public static Parser<f> f1108a = new AbstractParser<f>() { // from class: com.baidu.android.pushservice.h.a.a.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -2806,11 +2806,11 @@ public final class a {
         private int h;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$f$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0054a extends GeneratedMessageLite.Builder<f, C0054a> implements g {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1106a;
+            private int f1109a;
             private Object b = "";
             private Object c = "";
             private Object d = "";
@@ -2833,11 +2833,11 @@ public final class a {
             public C0054a clear() {
                 super.clear();
                 this.b = "";
-                this.f1106a &= -2;
+                this.f1109a &= -2;
                 this.c = "";
-                this.f1106a &= -3;
+                this.f1109a &= -3;
                 this.d = "";
-                this.f1106a &= -5;
+                this.f1109a &= -5;
                 return this;
             }
 
@@ -2847,15 +2847,15 @@ public final class a {
             public C0054a mergeFrom(f fVar) {
                 if (fVar != f.a()) {
                     if (fVar.c()) {
-                        this.f1106a |= 1;
+                        this.f1109a |= 1;
                         this.b = fVar.d;
                     }
                     if (fVar.e()) {
-                        this.f1106a |= 2;
+                        this.f1109a |= 2;
                         this.c = fVar.e;
                     }
                     if (fVar.g()) {
-                        this.f1106a |= 4;
+                        this.f1109a |= 4;
                         this.d = fVar.f;
                     }
                 }
@@ -2874,7 +2874,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        f parsePartialFrom = f.f1105a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        f parsePartialFrom = f.f1108a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -2905,7 +2905,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1106a |= 1;
+                this.f1109a |= 1;
                 this.b = str;
                 return this;
             }
@@ -2921,7 +2921,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1106a |= 2;
+                this.f1109a |= 2;
                 this.c = str;
                 return this;
             }
@@ -2930,7 +2930,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1106a |= 4;
+                this.f1109a |= 4;
                 this.d = str;
                 return this;
             }
@@ -2958,7 +2958,7 @@ public final class a {
             /* renamed from: e */
             public f buildPartial() {
                 f fVar = new f(this);
-                int i = this.f1106a;
+                int i = this.f1109a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 fVar.d = this.b;
                 if ((i & 2) == 2) {
@@ -3099,7 +3099,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<f> getParserForType() {
-            return f1105a;
+            return f1108a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -3172,15 +3172,15 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface g extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class h extends GeneratedMessageLite implements i {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<h> f1107a = new AbstractParser<h>() { // from class: com.baidu.android.pushservice.h.a.a.a.h.1
+        public static Parser<h> f1110a = new AbstractParser<h>() { // from class: com.baidu.android.pushservice.h.a.a.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -3202,11 +3202,11 @@ public final class a {
         private int m;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$h$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0055a extends GeneratedMessageLite.Builder<h, C0055a> implements i {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1108a;
+            private int f1111a;
             private long e;
             private long f;
             private Object b = "";
@@ -3234,26 +3234,26 @@ public final class a {
             public C0055a clear() {
                 super.clear();
                 this.b = "";
-                this.f1108a &= -2;
+                this.f1111a &= -2;
                 this.c = "";
-                this.f1108a &= -3;
+                this.f1111a &= -3;
                 this.d = p.a();
-                this.f1108a &= -5;
+                this.f1111a &= -5;
                 this.e = 0L;
-                this.f1108a &= -9;
+                this.f1111a &= -9;
                 this.f = 0L;
-                this.f1108a &= -17;
+                this.f1111a &= -17;
                 this.g = ac.a();
-                this.f1108a &= -33;
+                this.f1111a &= -33;
                 this.h = f.a();
-                this.f1108a &= -65;
+                this.f1111a &= -65;
                 this.i = v.a();
-                this.f1108a &= -129;
+                this.f1111a &= -129;
                 return this;
             }
 
             public C0055a a(long j) {
-                this.f1108a |= 8;
+                this.f1111a |= 8;
                 this.e = j;
                 return this;
             }
@@ -3263,7 +3263,7 @@ public final class a {
                     throw new NullPointerException();
                 }
                 this.g = acVar;
-                this.f1108a |= 32;
+                this.f1111a |= 32;
                 return this;
             }
 
@@ -3272,7 +3272,7 @@ public final class a {
                     throw new NullPointerException();
                 }
                 this.h = fVar;
-                this.f1108a |= 64;
+                this.f1111a |= 64;
                 return this;
             }
 
@@ -3282,11 +3282,11 @@ public final class a {
             public C0055a mergeFrom(h hVar) {
                 if (hVar != h.a()) {
                     if (hVar.c()) {
-                        this.f1108a |= 1;
+                        this.f1111a |= 1;
                         this.b = hVar.d;
                     }
                     if (hVar.e()) {
-                        this.f1108a |= 2;
+                        this.f1111a |= 2;
                         this.c = hVar.e;
                     }
                     if (hVar.g()) {
@@ -3316,7 +3316,7 @@ public final class a {
                     throw new NullPointerException();
                 }
                 this.d = pVar;
-                this.f1108a |= 4;
+                this.f1111a |= 4;
                 return this;
             }
 
@@ -3325,7 +3325,7 @@ public final class a {
                     throw new NullPointerException();
                 }
                 this.i = vVar;
-                this.f1108a |= 128;
+                this.f1111a |= 128;
                 return this;
             }
 
@@ -3341,7 +3341,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        h parsePartialFrom = h.f1107a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        h parsePartialFrom = h.f1110a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -3376,48 +3376,48 @@ public final class a {
             }
 
             public C0055a b(long j) {
-                this.f1108a |= 16;
+                this.f1111a |= 16;
                 this.f = j;
                 return this;
             }
 
             public C0055a b(ac acVar) {
-                if ((this.f1108a & 32) != 32 || this.g == ac.a()) {
+                if ((this.f1111a & 32) != 32 || this.g == ac.a()) {
                     this.g = acVar;
                 } else {
                     this.g = ac.a(this.g).mergeFrom(acVar).buildPartial();
                 }
-                this.f1108a |= 32;
+                this.f1111a |= 32;
                 return this;
             }
 
             public C0055a b(f fVar) {
-                if ((this.f1108a & 64) != 64 || this.h == f.a()) {
+                if ((this.f1111a & 64) != 64 || this.h == f.a()) {
                     this.h = fVar;
                 } else {
                     this.h = f.a(this.h).mergeFrom(fVar).buildPartial();
                 }
-                this.f1108a |= 64;
+                this.f1111a |= 64;
                 return this;
             }
 
             public C0055a b(p pVar) {
-                if ((this.f1108a & 4) != 4 || this.d == p.a()) {
+                if ((this.f1111a & 4) != 4 || this.d == p.a()) {
                     this.d = pVar;
                 } else {
                     this.d = p.a(this.d).mergeFrom(pVar).buildPartial();
                 }
-                this.f1108a |= 4;
+                this.f1111a |= 4;
                 return this;
             }
 
             public C0055a b(v vVar) {
-                if ((this.f1108a & 128) != 128 || this.i == v.a()) {
+                if ((this.f1111a & 128) != 128 || this.i == v.a()) {
                     this.i = vVar;
                 } else {
                     this.i = v.a(this.i).mergeFrom(vVar).buildPartial();
                 }
-                this.f1108a |= 128;
+                this.f1111a |= 128;
                 return this;
             }
 
@@ -3444,7 +3444,7 @@ public final class a {
             /* renamed from: e */
             public h buildPartial() {
                 h hVar = new h(this);
-                int i = this.f1108a;
+                int i = this.f1111a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 hVar.d = this.b;
                 if ((i & 2) == 2) {
@@ -3480,7 +3480,7 @@ public final class a {
             }
 
             public boolean f() {
-                return (this.f1108a & 4) == 4;
+                return (this.f1111a & 4) == 4;
             }
 
             public p g() {
@@ -3488,7 +3488,7 @@ public final class a {
             }
 
             public boolean h() {
-                return (this.f1108a & 8) == 8;
+                return (this.f1111a & 8) == 8;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -3538,7 +3538,7 @@ public final class a {
                                 break;
                             case 58:
                                 p.C0059a builder = (this.c & 4) == 4 ? this.f.toBuilder() : null;
-                                this.f = (p) codedInputStream.readMessage(p.f1115a, extensionRegistryLite);
+                                this.f = (p) codedInputStream.readMessage(p.f1118a, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.f);
                                     this.f = builder.buildPartial();
@@ -3558,7 +3558,7 @@ public final class a {
                                 break;
                             case 162:
                                 ac.C0051a builder2 = (this.c & 32) == 32 ? this.i.toBuilder() : null;
-                                this.i = (ac) codedInputStream.readMessage(ac.f1098a, extensionRegistryLite);
+                                this.i = (ac) codedInputStream.readMessage(ac.f1101a, extensionRegistryLite);
                                 if (builder2 != null) {
                                     builder2.mergeFrom(this.i);
                                     this.i = builder2.buildPartial();
@@ -3568,7 +3568,7 @@ public final class a {
                                 break;
                             case Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID /* 170 */:
                                 f.C0054a builder3 = (this.c & 64) == 64 ? this.j.toBuilder() : null;
-                                this.j = (f) codedInputStream.readMessage(f.f1105a, extensionRegistryLite);
+                                this.j = (f) codedInputStream.readMessage(f.f1108a, extensionRegistryLite);
                                 if (builder3 != null) {
                                     builder3.mergeFrom(this.j);
                                     this.j = builder3.buildPartial();
@@ -3578,7 +3578,7 @@ public final class a {
                                 break;
                             case Opcodes.GETSTATIC /* 178 */:
                                 v.C0062a builder4 = (this.c & 128) == 128 ? this.k.toBuilder() : null;
-                                this.k = (v) codedInputStream.readMessage(v.f1121a, extensionRegistryLite);
+                                this.k = (v) codedInputStream.readMessage(v.f1124a, extensionRegistryLite);
                                 if (builder4 != null) {
                                     builder4.mergeFrom(this.k);
                                     this.k = builder4.buildPartial();
@@ -3677,7 +3677,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<h> getParserForType() {
-            return f1107a;
+            return f1110a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -3821,15 +3821,15 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface i extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class j extends GeneratedMessageLite implements k {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<j> f1109a = new AbstractParser<j>() { // from class: com.baidu.android.pushservice.h.a.a.a.j.1
+        public static Parser<j> f1112a = new AbstractParser<j>() { // from class: com.baidu.android.pushservice.h.a.a.a.j.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -3850,11 +3850,11 @@ public final class a {
         private int l;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$j$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0056a extends GeneratedMessageLite.Builder<j, C0056a> implements k {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1110a;
+            private int f1113a;
             private long b;
             private long c;
             private long e;
@@ -3881,24 +3881,24 @@ public final class a {
             public C0056a clear() {
                 super.clear();
                 this.b = 0L;
-                this.f1110a &= -2;
+                this.f1113a &= -2;
                 this.c = 0L;
-                this.f1110a &= -3;
+                this.f1113a &= -3;
                 this.d = "";
-                this.f1110a &= -5;
+                this.f1113a &= -5;
                 this.e = 0L;
-                this.f1110a &= -9;
+                this.f1113a &= -9;
                 this.f = 0L;
-                this.f1110a &= -17;
+                this.f1113a &= -17;
                 this.g = "";
-                this.f1110a &= -33;
+                this.f1113a &= -33;
                 this.h = 0L;
-                this.f1110a &= -65;
+                this.f1113a &= -65;
                 return this;
             }
 
             public C0056a a(long j) {
-                this.f1110a |= 1;
+                this.f1113a |= 1;
                 this.b = j;
                 return this;
             }
@@ -3915,7 +3915,7 @@ public final class a {
                         b(jVar.f());
                     }
                     if (jVar.g()) {
-                        this.f1110a |= 4;
+                        this.f1113a |= 4;
                         this.d = jVar.f;
                     }
                     if (jVar.i()) {
@@ -3925,7 +3925,7 @@ public final class a {
                         d(jVar.l());
                     }
                     if (jVar.m()) {
-                        this.f1110a |= 32;
+                        this.f1113a |= 32;
                         this.g = jVar.i;
                     }
                     if (jVar.o()) {
@@ -3947,7 +3947,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        j parsePartialFrom = j.f1109a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        j parsePartialFrom = j.f1112a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -3978,7 +3978,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1110a |= 4;
+                this.f1113a |= 4;
                 this.d = str;
                 return this;
             }
@@ -3991,7 +3991,7 @@ public final class a {
             }
 
             public C0056a b(long j) {
-                this.f1110a |= 2;
+                this.f1113a |= 2;
                 this.c = j;
                 return this;
             }
@@ -4000,13 +4000,13 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1110a |= 32;
+                this.f1113a |= 32;
                 this.g = str;
                 return this;
             }
 
             public C0056a c(long j) {
-                this.f1110a |= 8;
+                this.f1113a |= 8;
                 this.e = j;
                 return this;
             }
@@ -4019,7 +4019,7 @@ public final class a {
             }
 
             public C0056a d(long j) {
-                this.f1110a |= 16;
+                this.f1113a |= 16;
                 this.f = j;
                 return this;
             }
@@ -4036,7 +4036,7 @@ public final class a {
             }
 
             public C0056a e(long j) {
-                this.f1110a |= 64;
+                this.f1113a |= 64;
                 this.h = j;
                 return this;
             }
@@ -4046,7 +4046,7 @@ public final class a {
             /* renamed from: e */
             public j buildPartial() {
                 j jVar = new j(this);
-                int i = this.f1110a;
+                int i = this.f1113a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 jVar.d = this.b;
                 if ((i & 2) == 2) {
@@ -4211,7 +4211,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<j> getParserForType() {
-            return f1109a;
+            return f1112a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -4346,15 +4346,15 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface k extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class l extends GeneratedMessageLite implements m {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<l> f1111a = new AbstractParser<l>() { // from class: com.baidu.android.pushservice.h.a.a.a.l.1
+        public static Parser<l> f1114a = new AbstractParser<l>() { // from class: com.baidu.android.pushservice.h.a.a.a.l.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -4372,11 +4372,11 @@ public final class a {
         private int i;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$l$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0057a extends GeneratedMessageLite.Builder<l, C0057a> implements m {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1112a;
+            private int f1115a;
             private long c;
             private long e;
             private Object b = "";
@@ -4400,18 +4400,18 @@ public final class a {
             public C0057a clear() {
                 super.clear();
                 this.b = "";
-                this.f1112a &= -2;
+                this.f1115a &= -2;
                 this.c = 0L;
-                this.f1112a &= -3;
+                this.f1115a &= -3;
                 this.d = "";
-                this.f1112a &= -5;
+                this.f1115a &= -5;
                 this.e = 0L;
-                this.f1112a &= -9;
+                this.f1115a &= -9;
                 return this;
             }
 
             public C0057a a(long j) {
-                this.f1112a |= 2;
+                this.f1115a |= 2;
                 this.c = j;
                 return this;
             }
@@ -4422,14 +4422,14 @@ public final class a {
             public C0057a mergeFrom(l lVar) {
                 if (lVar != l.a()) {
                     if (lVar.c()) {
-                        this.f1112a |= 1;
+                        this.f1115a |= 1;
                         this.b = lVar.d;
                     }
                     if (lVar.e()) {
                         a(lVar.f());
                     }
                     if (lVar.g()) {
-                        this.f1112a |= 4;
+                        this.f1115a |= 4;
                         this.d = lVar.f;
                     }
                     if (lVar.i()) {
@@ -4451,7 +4451,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        l parsePartialFrom = l.f1111a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        l parsePartialFrom = l.f1114a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -4482,7 +4482,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1112a |= 1;
+                this.f1115a |= 1;
                 this.b = str;
                 return this;
             }
@@ -4495,7 +4495,7 @@ public final class a {
             }
 
             public C0057a b(long j) {
-                this.f1112a |= 8;
+                this.f1115a |= 8;
                 this.e = j;
                 return this;
             }
@@ -4504,7 +4504,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1112a |= 4;
+                this.f1115a |= 4;
                 this.d = str;
                 return this;
             }
@@ -4532,7 +4532,7 @@ public final class a {
             /* renamed from: e */
             public l buildPartial() {
                 l lVar = new l(this);
-                int i = this.f1112a;
+                int i = this.f1115a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 lVar.d = this.b;
                 if ((i & 2) == 2) {
@@ -4676,7 +4676,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<l> getParserForType() {
-            return f1111a;
+            return f1114a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -4763,15 +4763,15 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface m extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class n extends GeneratedMessageLite implements o {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<n> f1113a = new AbstractParser<n>() { // from class: com.baidu.android.pushservice.h.a.a.a.n.1
+        public static Parser<n> f1116a = new AbstractParser<n>() { // from class: com.baidu.android.pushservice.h.a.a.a.n.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -4794,11 +4794,11 @@ public final class a {
         private int n;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$n$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0058a extends GeneratedMessageLite.Builder<n, C0058a> implements o {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1114a;
+            private int f1117a;
             private long f;
             private long g;
             private long h;
@@ -4827,28 +4827,28 @@ public final class a {
             public C0058a clear() {
                 super.clear();
                 this.b = "";
-                this.f1114a &= -2;
+                this.f1117a &= -2;
                 this.c = "";
-                this.f1114a &= -3;
+                this.f1117a &= -3;
                 this.d = "";
-                this.f1114a &= -5;
+                this.f1117a &= -5;
                 this.e = "";
-                this.f1114a &= -9;
+                this.f1117a &= -9;
                 this.f = 0L;
-                this.f1114a &= -17;
+                this.f1117a &= -17;
                 this.g = 0L;
-                this.f1114a &= -33;
+                this.f1117a &= -33;
                 this.h = 0L;
-                this.f1114a &= -65;
+                this.f1117a &= -65;
                 this.i = "";
-                this.f1114a &= -129;
+                this.f1117a &= -129;
                 this.j = 0L;
-                this.f1114a &= -257;
+                this.f1117a &= -257;
                 return this;
             }
 
             public C0058a a(long j) {
-                this.f1114a |= 16;
+                this.f1117a |= 16;
                 this.f = j;
                 return this;
             }
@@ -4859,19 +4859,19 @@ public final class a {
             public C0058a mergeFrom(n nVar) {
                 if (nVar != n.a()) {
                     if (nVar.c()) {
-                        this.f1114a |= 1;
+                        this.f1117a |= 1;
                         this.b = nVar.d;
                     }
                     if (nVar.e()) {
-                        this.f1114a |= 2;
+                        this.f1117a |= 2;
                         this.c = nVar.e;
                     }
                     if (nVar.g()) {
-                        this.f1114a |= 4;
+                        this.f1117a |= 4;
                         this.d = nVar.f;
                     }
                     if (nVar.i()) {
-                        this.f1114a |= 8;
+                        this.f1117a |= 8;
                         this.e = nVar.g;
                     }
                     if (nVar.k()) {
@@ -4884,7 +4884,7 @@ public final class a {
                         c(nVar.p());
                     }
                     if (nVar.q()) {
-                        this.f1114a |= 128;
+                        this.f1117a |= 128;
                         this.i = nVar.k;
                     }
                     if (nVar.s()) {
@@ -4906,7 +4906,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        n parsePartialFrom = n.f1113a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        n parsePartialFrom = n.f1116a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -4937,7 +4937,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1114a |= 1;
+                this.f1117a |= 1;
                 this.b = str;
                 return this;
             }
@@ -4950,7 +4950,7 @@ public final class a {
             }
 
             public C0058a b(long j) {
-                this.f1114a |= 32;
+                this.f1117a |= 32;
                 this.g = j;
                 return this;
             }
@@ -4959,13 +4959,13 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1114a |= 2;
+                this.f1117a |= 2;
                 this.c = str;
                 return this;
             }
 
             public C0058a c(long j) {
-                this.f1114a |= 64;
+                this.f1117a |= 64;
                 this.h = j;
                 return this;
             }
@@ -4974,7 +4974,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1114a |= 4;
+                this.f1117a |= 4;
                 this.d = str;
                 return this;
             }
@@ -4987,7 +4987,7 @@ public final class a {
             }
 
             public C0058a d(long j) {
-                this.f1114a |= 256;
+                this.f1117a |= 256;
                 this.j = j;
                 return this;
             }
@@ -4996,7 +4996,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1114a |= 8;
+                this.f1117a |= 8;
                 this.e = str;
                 return this;
             }
@@ -5016,7 +5016,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1114a |= 128;
+                this.f1117a |= 128;
                 this.i = str;
                 return this;
             }
@@ -5026,7 +5026,7 @@ public final class a {
             /* renamed from: e */
             public n buildPartial() {
                 n nVar = new n(this);
-                int i = this.f1114a;
+                int i = this.f1117a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 nVar.d = this.b;
                 if ((i & 2) == 2) {
@@ -5221,7 +5221,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<n> getParserForType() {
-            return f1113a;
+            return f1116a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -5390,15 +5390,15 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface o extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class p extends GeneratedMessageLite implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<p> f1115a = new AbstractParser<p>() { // from class: com.baidu.android.pushservice.h.a.a.a.p.1
+        public static Parser<p> f1118a = new AbstractParser<p>() { // from class: com.baidu.android.pushservice.h.a.a.a.p.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -5413,11 +5413,11 @@ public final class a {
         private int f;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$p$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0059a extends GeneratedMessageLite.Builder<p, C0059a> implements q {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1116a;
+            private int f1119a;
             private Object b = "";
 
             private C0059a() {
@@ -5438,7 +5438,7 @@ public final class a {
             public C0059a clear() {
                 super.clear();
                 this.b = "";
-                this.f1116a &= -2;
+                this.f1119a &= -2;
                 return this;
             }
 
@@ -5447,7 +5447,7 @@ public final class a {
             /* renamed from: a */
             public C0059a mergeFrom(p pVar) {
                 if (pVar != p.a() && pVar.c()) {
-                    this.f1116a |= 1;
+                    this.f1119a |= 1;
                     this.b = pVar.d;
                 }
                 return this;
@@ -5465,7 +5465,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        p parsePartialFrom = p.f1115a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        p parsePartialFrom = p.f1118a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -5496,7 +5496,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1116a |= 1;
+                this.f1119a |= 1;
                 this.b = str;
                 return this;
             }
@@ -5531,14 +5531,14 @@ public final class a {
             /* renamed from: e */
             public p buildPartial() {
                 p pVar = new p(this);
-                int i = (this.f1116a & 1) != 1 ? 0 : 1;
+                int i = (this.f1119a & 1) != 1 ? 0 : 1;
                 pVar.d = this.b;
                 pVar.c = i;
                 return pVar;
             }
 
             public boolean f() {
-                return (this.f1116a & 1) == 1;
+                return (this.f1119a & 1) == 1;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -5653,7 +5653,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<p> getParserForType() {
-            return f1115a;
+            return f1118a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -5694,15 +5694,15 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface q extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class r extends GeneratedMessageLite implements s {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<r> f1117a = new AbstractParser<r>() { // from class: com.baidu.android.pushservice.h.a.a.a.r.1
+        public static Parser<r> f1120a = new AbstractParser<r>() { // from class: com.baidu.android.pushservice.h.a.a.a.r.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -5719,11 +5719,11 @@ public final class a {
         private int h;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$r$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0060a extends GeneratedMessageLite.Builder<r, C0060a> implements s {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1118a;
+            private int f1121a;
             private int b = 7399;
             private Object c = "push_im_client";
             private Object d = "phonebaidu";
@@ -5746,16 +5746,16 @@ public final class a {
             public C0060a clear() {
                 super.clear();
                 this.b = 7399;
-                this.f1118a &= -2;
+                this.f1121a &= -2;
                 this.c = "push_im_client";
-                this.f1118a &= -3;
+                this.f1121a &= -3;
                 this.d = "phonebaidu";
-                this.f1118a &= -5;
+                this.f1121a &= -5;
                 return this;
             }
 
             public C0060a a(int i) {
-                this.f1118a |= 1;
+                this.f1121a |= 1;
                 this.b = i;
                 return this;
             }
@@ -5769,11 +5769,11 @@ public final class a {
                         a(rVar.d());
                     }
                     if (rVar.e()) {
-                        this.f1118a |= 2;
+                        this.f1121a |= 2;
                         this.c = rVar.e;
                     }
                     if (rVar.g()) {
-                        this.f1118a |= 4;
+                        this.f1121a |= 4;
                         this.d = rVar.f;
                     }
                 }
@@ -5792,7 +5792,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        r parsePartialFrom = r.f1117a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        r parsePartialFrom = r.f1120a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -5849,7 +5849,7 @@ public final class a {
             /* renamed from: e */
             public r buildPartial() {
                 r rVar = new r(this);
-                int i = this.f1118a;
+                int i = this.f1121a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 rVar.d = this.b;
                 if ((i & 2) == 2) {
@@ -5984,7 +5984,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<r> getParserForType() {
-            return f1117a;
+            return f1120a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -6057,15 +6057,15 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface s extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class t extends GeneratedMessageLite implements u {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<t> f1119a = new AbstractParser<t>() { // from class: com.baidu.android.pushservice.h.a.a.a.t.1
+        public static Parser<t> f1122a = new AbstractParser<t>() { // from class: com.baidu.android.pushservice.h.a.a.a.t.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -6086,11 +6086,11 @@ public final class a {
         private int l;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$t$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0061a extends GeneratedMessageLite.Builder<t, C0061a> implements u {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1120a;
+            private int f1123a;
             private long b;
             private long d;
             private long e;
@@ -6117,24 +6117,24 @@ public final class a {
             public C0061a clear() {
                 super.clear();
                 this.b = 0L;
-                this.f1120a &= -2;
+                this.f1123a &= -2;
                 this.c = "";
-                this.f1120a &= -3;
+                this.f1123a &= -3;
                 this.d = 0L;
-                this.f1120a &= -5;
+                this.f1123a &= -5;
                 this.e = 0L;
-                this.f1120a &= -9;
+                this.f1123a &= -9;
                 this.f = "";
-                this.f1120a &= -17;
+                this.f1123a &= -17;
                 this.g = 0L;
-                this.f1120a &= -33;
+                this.f1123a &= -33;
                 this.h = 0L;
-                this.f1120a &= -65;
+                this.f1123a &= -65;
                 return this;
             }
 
             public C0061a a(long j) {
-                this.f1120a |= 1;
+                this.f1123a |= 1;
                 this.b = j;
                 return this;
             }
@@ -6148,7 +6148,7 @@ public final class a {
                         a(tVar.d());
                     }
                     if (tVar.e()) {
-                        this.f1120a |= 2;
+                        this.f1123a |= 2;
                         this.c = tVar.e;
                     }
                     if (tVar.g()) {
@@ -6158,7 +6158,7 @@ public final class a {
                         c(tVar.j());
                     }
                     if (tVar.k()) {
-                        this.f1120a |= 16;
+                        this.f1123a |= 16;
                         this.f = tVar.h;
                     }
                     if (tVar.m()) {
@@ -6183,7 +6183,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        t parsePartialFrom = t.f1119a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        t parsePartialFrom = t.f1122a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -6218,13 +6218,13 @@ public final class a {
             }
 
             public C0061a b(long j) {
-                this.f1120a |= 4;
+                this.f1123a |= 4;
                 this.d = j;
                 return this;
             }
 
             public C0061a c(long j) {
-                this.f1120a |= 8;
+                this.f1123a |= 8;
                 this.e = j;
                 return this;
             }
@@ -6237,7 +6237,7 @@ public final class a {
             }
 
             public C0061a d(long j) {
-                this.f1120a |= 32;
+                this.f1123a |= 32;
                 this.g = j;
                 return this;
             }
@@ -6254,7 +6254,7 @@ public final class a {
             }
 
             public C0061a e(long j) {
-                this.f1120a |= 64;
+                this.f1123a |= 64;
                 this.h = j;
                 return this;
             }
@@ -6264,7 +6264,7 @@ public final class a {
             /* renamed from: e */
             public t buildPartial() {
                 t tVar = new t(this);
-                int i = this.f1120a;
+                int i = this.f1123a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 tVar.d = this.b;
                 if ((i & 2) == 2) {
@@ -6435,7 +6435,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<t> getParserForType() {
-            return f1119a;
+            return f1122a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -6564,15 +6564,15 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface u extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class v extends GeneratedMessageLite implements w {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<v> f1121a = new AbstractParser<v>() { // from class: com.baidu.android.pushservice.h.a.a.a.v.1
+        public static Parser<v> f1124a = new AbstractParser<v>() { // from class: com.baidu.android.pushservice.h.a.a.a.v.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -6588,11 +6588,11 @@ public final class a {
         private int g;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$v$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0062a extends GeneratedMessageLite.Builder<v, C0062a> implements w {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1122a;
+            private int f1125a;
             private Object b = "";
             private Object c = "";
 
@@ -6614,9 +6614,9 @@ public final class a {
             public C0062a clear() {
                 super.clear();
                 this.b = "";
-                this.f1122a &= -2;
+                this.f1125a &= -2;
                 this.c = "";
-                this.f1122a &= -3;
+                this.f1125a &= -3;
                 return this;
             }
 
@@ -6626,11 +6626,11 @@ public final class a {
             public C0062a mergeFrom(v vVar) {
                 if (vVar != v.a()) {
                     if (vVar.c()) {
-                        this.f1122a |= 1;
+                        this.f1125a |= 1;
                         this.b = vVar.d;
                     }
                     if (vVar.e()) {
-                        this.f1122a |= 2;
+                        this.f1125a |= 2;
                         this.c = vVar.e;
                     }
                 }
@@ -6649,7 +6649,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        v parsePartialFrom = v.f1121a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        v parsePartialFrom = v.f1124a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -6680,7 +6680,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1122a |= 1;
+                this.f1125a |= 1;
                 this.b = str;
                 return this;
             }
@@ -6696,7 +6696,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1122a |= 2;
+                this.f1125a |= 2;
                 this.c = str;
                 return this;
             }
@@ -6724,7 +6724,7 @@ public final class a {
             /* renamed from: e */
             public v buildPartial() {
                 v vVar = new v(this);
-                int i = this.f1122a;
+                int i = this.f1125a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 vVar.d = this.b;
                 if ((i & 2) == 2) {
@@ -6852,7 +6852,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<v> getParserForType() {
-            return f1121a;
+            return f1124a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -6909,11 +6909,11 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface w extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public enum x implements Internal.EnumLite {
         OS_TYPE_UNKNWON(0),
         IOS(1),
@@ -6947,11 +6947,11 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static final class y extends GeneratedMessageLite implements z {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<y> f1124a = new AbstractParser<y>() { // from class: com.baidu.android.pushservice.h.a.a.a.y.1
+        public static Parser<y> f1127a = new AbstractParser<y>() { // from class: com.baidu.android.pushservice.h.a.a.a.y.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -6970,11 +6970,11 @@ public final class a {
         private int j;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$y$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes7.dex */
         public static final class C0063a extends GeneratedMessageLite.Builder<y, C0063a> implements z {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1125a;
+            private int f1128a;
             private long e;
             private r b = r.a();
             private h c = h.a();
@@ -6994,9 +6994,9 @@ public final class a {
             }
 
             private void k() {
-                if ((this.f1125a & 16) != 16) {
+                if ((this.f1128a & 16) != 16) {
                     this.f = new ArrayList(this.f);
-                    this.f1125a |= 16;
+                    this.f1128a |= 16;
                 }
             }
 
@@ -7006,20 +7006,20 @@ public final class a {
             public C0063a clear() {
                 super.clear();
                 this.b = r.a();
-                this.f1125a &= -2;
+                this.f1128a &= -2;
                 this.c = h.a();
-                this.f1125a &= -3;
+                this.f1128a &= -3;
                 this.d = "";
-                this.f1125a &= -5;
+                this.f1128a &= -5;
                 this.e = 0L;
-                this.f1125a &= -9;
+                this.f1128a &= -9;
                 this.f = Collections.emptyList();
-                this.f1125a &= -17;
+                this.f1128a &= -17;
                 return this;
             }
 
             public C0063a a(long j) {
-                this.f1125a |= 8;
+                this.f1128a |= 8;
                 this.e = j;
                 return this;
             }
@@ -7029,17 +7029,17 @@ public final class a {
                     throw new NullPointerException();
                 }
                 this.c = hVar;
-                this.f1125a |= 2;
+                this.f1128a |= 2;
                 return this;
             }
 
             public C0063a a(r rVar) {
-                if ((this.f1125a & 1) != 1 || this.b == r.a()) {
+                if ((this.f1128a & 1) != 1 || this.b == r.a()) {
                     this.b = rVar;
                 } else {
                     this.b = r.a(this.b).mergeFrom(rVar).buildPartial();
                 }
-                this.f1125a |= 1;
+                this.f1128a |= 1;
                 return this;
             }
 
@@ -7055,7 +7055,7 @@ public final class a {
                         b(yVar.f());
                     }
                     if (yVar.g()) {
-                        this.f1125a |= 4;
+                        this.f1128a |= 4;
                         this.d = yVar.f;
                     }
                     if (yVar.i()) {
@@ -7064,7 +7064,7 @@ public final class a {
                     if (!yVar.h.isEmpty()) {
                         if (this.f.isEmpty()) {
                             this.f = yVar.h;
-                            this.f1125a &= -17;
+                            this.f1128a &= -17;
                         } else {
                             k();
                             this.f.addAll(yVar.h);
@@ -7086,7 +7086,7 @@ public final class a {
                 Throwable th;
                 try {
                     try {
-                        y parsePartialFrom = y.f1124a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        y parsePartialFrom = y.f1127a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -7123,7 +7123,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1125a |= 4;
+                this.f1128a |= 4;
                 this.d = str;
                 return this;
             }
@@ -7136,12 +7136,12 @@ public final class a {
             }
 
             public C0063a b(h hVar) {
-                if ((this.f1125a & 2) != 2 || this.c == h.a()) {
+                if ((this.f1128a & 2) != 2 || this.c == h.a()) {
                     this.c = hVar;
                 } else {
                     this.c = h.a(this.c).mergeFrom(hVar).buildPartial();
                 }
-                this.f1125a |= 2;
+                this.f1128a |= 2;
                 return this;
             }
 
@@ -7168,7 +7168,7 @@ public final class a {
             /* renamed from: e */
             public y buildPartial() {
                 y yVar = new y(this);
-                int i = this.f1125a;
+                int i = this.f1128a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 yVar.d = this.b;
                 if ((i & 2) == 2) {
@@ -7183,9 +7183,9 @@ public final class a {
                     i2 |= 8;
                 }
                 yVar.g = this.e;
-                if ((this.f1125a & 16) == 16) {
+                if ((this.f1128a & 16) == 16) {
                     this.f = Collections.unmodifiableList(this.f);
-                    this.f1125a &= -17;
+                    this.f1128a &= -17;
                 }
                 yVar.h = this.f;
                 yVar.c = i2;
@@ -7193,7 +7193,7 @@ public final class a {
             }
 
             public boolean f() {
-                return (this.f1125a & 2) == 2;
+                return (this.f1128a & 2) == 2;
             }
 
             public h g() {
@@ -7240,7 +7240,7 @@ public final class a {
                                 break;
                             case 202:
                                 r.C0060a builder = (this.c & 1) == 1 ? this.d.toBuilder() : null;
-                                this.d = (r) codedInputStream.readMessage(r.f1117a, extensionRegistryLite);
+                                this.d = (r) codedInputStream.readMessage(r.f1120a, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.d);
                                     this.d = builder.buildPartial();
@@ -7251,7 +7251,7 @@ public final class a {
                                 break;
                             case 330:
                                 h.C0055a builder2 = (this.c & 2) == 2 ? this.e.toBuilder() : null;
-                                this.e = (h) codedInputStream.readMessage(h.f1107a, extensionRegistryLite);
+                                this.e = (h) codedInputStream.readMessage(h.f1110a, extensionRegistryLite);
                                 if (builder2 != null) {
                                     builder2.mergeFrom(this.e);
                                     this.e = builder2.buildPartial();
@@ -7280,7 +7280,7 @@ public final class a {
                                     z = z5;
                                 }
                                 try {
-                                    this.h.add(codedInputStream.readMessage(c.f1102a, extensionRegistryLite));
+                                    this.h.add(codedInputStream.readMessage(c.f1105a, extensionRegistryLite));
                                     boolean z6 = z4;
                                     z2 = z;
                                     z3 = z6;
@@ -7383,7 +7383,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<y> getParserForType() {
-            return f1124a;
+            return f1127a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -7495,7 +7495,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface z extends MessageLiteOrBuilder {
     }
 }

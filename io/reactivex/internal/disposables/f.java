@@ -2,7 +2,7 @@ package io.reactivex.internal.disposables;
 
 import io.reactivex.internal.util.NotificationLite;
 import io.reactivex.u;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class f<T> extends c implements io.reactivex.disposables.b {
     final u<? super T> actual;
     volatile boolean cancelled;
@@ -20,7 +20,7 @@ public final class f<T> extends c implements io.reactivex.disposables.b {
     public void dispose() {
         if (!this.cancelled) {
             this.cancelled = true;
-            eAE();
+            eAF();
         }
     }
 
@@ -30,7 +30,7 @@ public final class f<T> extends c implements io.reactivex.disposables.b {
         return bVar != null ? bVar.isDisposed() : this.cancelled;
     }
 
-    void eAE() {
+    void eAF() {
         io.reactivex.disposables.b bVar = this.resource;
         this.resource = null;
         if (bVar != null) {
@@ -90,7 +90,7 @@ public final class f<T> extends c implements io.reactivex.disposables.b {
                             }
                         } else if (NotificationLite.isError(poll2)) {
                             aVar.clear();
-                            eAE();
+                            eAF();
                             Throwable error = NotificationLite.getError(poll2);
                             if (!this.cancelled) {
                                 this.cancelled = true;
@@ -100,7 +100,7 @@ public final class f<T> extends c implements io.reactivex.disposables.b {
                             }
                         } else if (NotificationLite.isComplete(poll2)) {
                             aVar.clear();
-                            eAE();
+                            eAF();
                             if (!this.cancelled) {
                                 this.cancelled = true;
                                 uVar.onComplete();

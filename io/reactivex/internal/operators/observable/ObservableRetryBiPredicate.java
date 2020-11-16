@@ -6,7 +6,7 @@ import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class ObservableRetryBiPredicate<T> extends a<T, T> {
     final d<? super Integer, ? super Throwable> predicate;
 
@@ -17,7 +17,7 @@ public final class ObservableRetryBiPredicate<T> extends a<T, T> {
         new RetryBiObserver(uVar, this.predicate, sequentialDisposable, this.source).subscribeNext();
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class RetryBiObserver<T> extends AtomicInteger implements u<T> {
         private static final long serialVersionUID = -7098360935104053232L;
         final u<? super T> actual;

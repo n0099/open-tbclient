@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import android.content.Context;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface ay {
     void a(Context context, com.baidu.swan.apps.ap.e.b<String> bVar);
 

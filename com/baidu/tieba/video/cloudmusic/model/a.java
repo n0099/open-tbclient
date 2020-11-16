@@ -1,5 +1,5 @@
 package com.baidu.tieba.video.cloudmusic.model;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public interface a<T> {
-    void aR(T t);
+    void aS(T t);
 }

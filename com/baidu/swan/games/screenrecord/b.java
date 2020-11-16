@@ -1,15 +1,15 @@
 package com.baidu.swan.games.screenrecord;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
 
     /* renamed from: com.baidu.swan.games.screenrecord.b$b  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0544b {
+    /* loaded from: classes7.dex */
+    public static class C0542b {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class a extends com.baidu.swan.games.binding.model.b {
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(String str) {
@@ -17,7 +17,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class c {
         @V8JavascriptField
         public int microphoneStatus;
@@ -28,7 +28,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class d {
         @V8JavascriptField
         public String videoPath;

@@ -1,6 +1,6 @@
 package kotlin.text;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 class c extends b {
     public static final boolean a(char c, char c2, boolean z) {
         if (c == c2) {

@@ -1,11 +1,11 @@
 package com.baidu.tieba.post;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class l {
-    public final com.baidu.tieba.n.b mnX;
+    public final com.baidu.tieba.o.b mos;
     public final String uuid;
 
-    public l(com.baidu.tieba.n.b bVar, String str) {
-        this.mnX = bVar;
+    public l(com.baidu.tieba.o.b bVar, String str) {
+        this.mos = bVar;
         this.uuid = str;
     }
 }

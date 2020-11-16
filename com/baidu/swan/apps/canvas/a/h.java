@@ -14,7 +14,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class h extends a {
     @Override // com.baidu.swan.apps.canvas.a.a
     public /* bridge */ /* synthetic */ void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
@@ -22,8 +22,8 @@ public class h extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject hC(int i) {
-        return super.hC(i);
+    public /* bridge */ /* synthetic */ JSONObject hy(int i) {
+        return super.hy(i);
     }
 
     public h(j jVar) {
@@ -33,37 +33,37 @@ public class h extends a {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.runtime.e eVar) {
         final String str;
-        com.baidu.swan.apps.core.d.e apc;
+        com.baidu.swan.apps.core.d.e aou;
         final com.baidu.swan.apps.canvas.b.f d = d(unitedSchemeEntity);
         if (d == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath action parse model is null");
-            unitedSchemeEntity.result = hC(201);
+            unitedSchemeEntity.result = hy(201);
             return false;
         }
-        String tv2 = com.baidu.swan.apps.storage.b.tv(eVar.id);
-        if (TextUtils.isEmpty(tv2)) {
+        String tq = com.baidu.swan.apps.storage.b.tq(eVar.id);
+        if (TextUtils.isEmpty(tq)) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
-            unitedSchemeEntity.result = hC(201);
+            unitedSchemeEntity.result = hy(201);
             return false;
         }
-        String str2 = tv2 + File.separator + Calendar.getInstance().getTimeInMillis();
-        if (d.akF()) {
+        String str2 = tq + File.separator + Calendar.getInstance().getTimeInMillis();
+        if (d.ajX()) {
             str = str2 + ".jpg";
         } else {
             str = str2 + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
         }
-        if (TextUtils.isEmpty(d.cDL) && (apc = com.baidu.swan.apps.v.f.azO().apc()) != null) {
-            d.cDL = apc.aoL();
+        if (TextUtils.isEmpty(d.cCb) && (aou = com.baidu.swan.apps.v.f.azg().aou()) != null) {
+            d.cCb = aou.aod();
         }
-        if (TextUtils.isEmpty(d.cDL) || TextUtils.isEmpty(d.cDK)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + d.cDL + " ; canvas id = " + d.cDK);
-            unitedSchemeEntity.result = hC(201);
+        if (TextUtils.isEmpty(d.cCb) || TextUtils.isEmpty(d.cCa)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + d.cCb + " ; canvas id = " + d.cCa);
+            unitedSchemeEntity.result = hy(201);
             return false;
         }
         final CanvasView a2 = com.baidu.swan.apps.component.components.d.a.a.a(d);
         if (a2 == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
-            unitedSchemeEntity.result = hC(201);
+            unitedSchemeEntity.result = hy(201);
             return false;
         }
         p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.canvas.a.h.1
@@ -87,7 +87,7 @@ public class h extends a {
                         try {
                             str3 = new JSONObject(str4).optString("cb");
                             try {
-                                jSONObject.putOpt("tempFilePath", com.baidu.swan.apps.storage.b.cC(str, eVar.id));
+                                jSONObject.putOpt("tempFilePath", com.baidu.swan.apps.storage.b.cB(str, eVar.id));
                             } catch (JSONException e2) {
                                 e = e2;
                                 e.printStackTrace();

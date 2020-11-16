@@ -5,176 +5,176 @@ import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class d {
-    private static volatile d elE;
-    private HashSet<String> elF = new HashSet<>();
-    private HashSet<String> elG = new HashSet<>();
-    private HashSet<String> elH = new HashSet<>();
-    private HashSet<String> elI = new HashSet<>();
-    private HashMap<String, String> elJ = new HashMap<>();
-    private HashMap<String, String> elK = new HashMap<>();
-    private HashMap<String, h> elL = new HashMap<>();
-    private HashSet<String> elM = new HashSet<>();
-    private int elN;
-    private int elO;
-    private int elP;
+    private static volatile d ejX;
+    private HashSet<String> ejY = new HashSet<>();
+    private HashSet<String> ejZ = new HashSet<>();
+    private HashSet<String> eka = new HashSet<>();
+    private HashSet<String> ekb = new HashSet<>();
+    private HashMap<String, String> ekc = new HashMap<>();
+    private HashMap<String, String> ekd = new HashMap<>();
+    private HashMap<String, h> eke = new HashMap<>();
+    private HashSet<String> ekf = new HashSet<>();
+    private int ekg;
+    private int ekh;
+    private int eki;
     private Context mContext;
 
     private d() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static d bdo() {
-        if (elE == null) {
+    public static d bcH() {
+        if (ejX == null) {
             synchronized (d.class) {
-                if (elE == null) {
-                    elE = new d();
+                if (ejX == null) {
+                    ejX = new d();
                 }
             }
         }
-        return elE;
+        return ejX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(c cVar, Context context) {
         this.mContext = context;
-        this.elN = 360000;
-        u bea = u.bea();
-        this.elO = bea.getInt("ubc_data_expire_time", 259200000);
-        this.elP = bea.getInt("ubc_database_limit", 4000);
-        cVar.bdl().a(this.elF, this.elI, this.elG, this.elH, this.elJ, this.elK, this.elL, this.elM);
+        this.ekg = 360000;
+        u bdt = u.bdt();
+        this.ekh = bdt.getInt("ubc_data_expire_time", 259200000);
+        this.eki = bdt.getInt("ubc_database_limit", 4000);
+        cVar.bcE().a(this.ejY, this.ekb, this.ejZ, this.eka, this.ekc, this.ekd, this.eke, this.ekf);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void aZ(List<g> list) {
         for (g gVar : list) {
-            if ("0".equals(gVar.bdu())) {
-                this.elF.add(gVar.getId());
+            if ("0".equals(gVar.bcN())) {
+                this.ejY.add(gVar.getId());
             } else {
-                this.elF.remove(gVar.getId());
+                this.ejY.remove(gVar.getId());
             }
-            if ("1".equals(gVar.bdv())) {
-                this.elG.add(gVar.getId());
+            if ("1".equals(gVar.bcO())) {
+                this.ejZ.add(gVar.getId());
             } else {
-                this.elG.remove(gVar.getId());
+                this.ejZ.remove(gVar.getId());
             }
-            if ("1".equals(gVar.bdw())) {
-                this.elH.add(gVar.getId());
+            if ("1".equals(gVar.bcP())) {
+                this.eka.add(gVar.getId());
             } else {
-                this.elH.remove(gVar.getId());
+                this.eka.remove(gVar.getId());
             }
-            if (gVar.bdx() >= 1 && gVar.bdx() <= 100) {
-                this.elJ.put(gVar.getId(), String.valueOf(gVar.bdx()));
+            if (gVar.bcQ() >= 1 && gVar.bcQ() <= 100) {
+                this.ekc.put(gVar.getId(), String.valueOf(gVar.bcQ()));
             } else {
-                this.elJ.remove(gVar.getId());
+                this.ekc.remove(gVar.getId());
             }
             if (!TextUtils.isEmpty(gVar.getCategory())) {
-                this.elK.put(gVar.getId(), gVar.getCategory());
+                this.ekd.put(gVar.getId(), gVar.getCategory());
             } else {
-                this.elK.remove(gVar.getId());
+                this.ekd.remove(gVar.getId());
             }
-            if (gVar.bdz() != 0 && gVar.bdy() != 0) {
-                h hVar = new h(gVar.getId(), gVar.bdz(), gVar.bdy());
-                this.elL.put(hVar.getId(), hVar);
+            if (gVar.bcS() != 0 && gVar.bcR() != 0) {
+                h hVar = new h(gVar.getId(), gVar.bcS(), gVar.bcR());
+                this.eke.put(hVar.getId(), hVar);
             }
-            if (TextUtils.equals(gVar.bdA(), "1")) {
-                this.elM.add(gVar.getId());
+            if (TextUtils.equals(gVar.bcT(), "1")) {
+                this.ekf.add(gVar.getId());
             } else {
-                this.elM.remove(gVar.getId());
+                this.ekf.remove(gVar.getId());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean ag(String str, int i) {
-        if (this.elF.contains(str)) {
+        if (this.ejY.contains(str)) {
             return false;
         }
         if ((i & 16) != 0 || (i & 32) != 0) {
-            return this.elI.contains(str);
+            return this.ekb.contains(str);
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean yN(String str) {
-        if (e.bds().aDa()) {
+    public boolean yI(String str) {
+        if (e.bcL().aCs()) {
             return true;
         }
-        return this.elG.contains(str);
+        return this.ejZ.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean yO(String str) {
-        return this.elH.contains(str);
+    public boolean yJ(String str) {
+        return this.eka.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String yP(String str) {
-        return this.elK.containsKey(str) ? this.elK.get(str) : "";
+    public String yK(String str) {
+        return this.ekd.containsKey(str) ? this.ekd.get(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int bdp() {
-        return this.elN;
+    public int bcI() {
+        return this.ekg;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ng(int i) {
-        if (i * 60000 >= this.elN) {
-            this.elN = i * 60000;
+    public void nc(int i) {
+        if (i * 60000 >= this.ekg) {
+            this.ekg = i * 60000;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int bdq() {
-        return this.elO;
+    public int bcJ() {
+        return this.ekh;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void nh(int i) {
-        if (i >= this.elO) {
-            this.elO = i;
-            u.bea().putInt("ubc_data_expire_time", i);
+    public void nd(int i) {
+        if (i >= this.ekh) {
+            this.ekh = i;
+            u.bdt().putInt("ubc_data_expire_time", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int bdr() {
-        return this.elP;
+    public int bcK() {
+        return this.eki;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ni(int i) {
-        if (i >= this.elP) {
-            this.elP = i;
-            u.bea().putInt("ubc_database_limit", i);
+    public void ne(int i) {
+        if (i >= this.eki) {
+            this.eki = i;
+            u.bdt().putInt("ubc_database_limit", i);
         }
     }
 
-    public int yQ(String str) {
-        if (e.bds().aDb() || TextUtils.isEmpty(str) || !this.elJ.containsKey(str)) {
+    public int yL(String str) {
+        if (e.bcL().aCt() || TextUtils.isEmpty(str) || !this.ekc.containsKey(str)) {
             return 0;
         }
-        return Integer.parseInt(this.elJ.get(str));
+        return Integer.parseInt(this.ekc.get(str));
     }
 
-    public boolean yR(String str) {
-        if (this.elL == null || !this.elL.containsKey(str)) {
+    public boolean yM(String str) {
+        if (this.eke == null || !this.eke.containsKey(str)) {
             return false;
         }
-        return this.elL.get(str).bdB();
+        return this.eke.get(str).bcU();
     }
 
-    public boolean yS(String str) {
-        if (this.elL == null || !this.elL.containsKey(str)) {
+    public boolean yN(String str) {
+        if (this.eke == null || !this.eke.containsKey(str)) {
             return false;
         }
-        return this.elL.get(str).bdC();
+        return this.eke.get(str).bcV();
     }
 
-    public String yT(String str) {
-        return (TextUtils.isEmpty(str) || !this.elM.contains(str)) ? "0" : "1";
+    public String yO(String str) {
+        return (TextUtils.isEmpty(str) || !this.ekf.contains(str)) ? "0" : "1";
     }
 }

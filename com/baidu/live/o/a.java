@@ -61,7 +61,7 @@ public class a {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public static void aD(String str, String str2) {
+    public static void aC(String str, String str2) {
         Message message = new Message();
         message.what = 1;
         message.obj = new String[]{str, str2};

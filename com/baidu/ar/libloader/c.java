@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.ar.ARType;
 import com.baidu.ar.libloader.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class c implements a {
     private boolean sv = false;
     private e sw = new e();

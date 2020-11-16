@@ -16,29 +16,29 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.a.g;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.easterEgg.e;
+import com.baidu.tieba.easterEgg.d;
 import com.google.gson.Gson;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class EasterEggH5Service extends Service {
     private static String KEY_URL = "url";
-    private a eggBridge;
+    private EasterEggBridge eggBridge;
     private com.baidu.tieba.tbadkCore.e.a jsBridge;
     private com.baidu.tieba.easterEgg.c.a mHttpRule;
     private com.baidu.tieba.easterEgg.c.b mSocketRule;
     private BaseWebView mWebView;
-    private e model;
+    private d model;
     private String mUrl = null;
     private BdUniqueId mTag = BdUniqueId.gen();
     private Gson gson = new Gson();
-    private d onHitEventListener = new d() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.1
-        @Override // com.baidu.tieba.easterEgg.d
+    private c onHitEventListener = new c() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.1
+        @Override // com.baidu.tieba.easterEgg.c
         public void az(String str, String str2, String str3) {
             if (EasterEggH5Service.this.mWebView != null) {
                 EasterEggH5Service.this.loadJsUrl(EasterEggH5Service.this.mWebView, "receiveEvent", str2, str3);
@@ -52,7 +52,7 @@ public class EasterEggH5Service extends Service {
             String str;
             if (customResponsedMessage.getData() instanceof String) {
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.Jo("reindeer_search");
+                    str = EasterEggH5Service.this.mHttpRule.IP("reindeer_search");
                 } else {
                     str = null;
                 }
@@ -75,7 +75,7 @@ public class EasterEggH5Service extends Service {
             if (customResponsedMessage.getData() instanceof g) {
                 g gVar = (g) customResponsedMessage.getData();
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.Jo(gVar.mUrl);
+                    str = EasterEggH5Service.this.mHttpRule.IP(gVar.mUrl);
                 } else {
                     str = null;
                 }
@@ -109,7 +109,7 @@ public class EasterEggH5Service extends Service {
     public int onStartCommand(Intent intent, int i, int i2) {
         if (intent != null) {
             this.mUrl = intent.getStringExtra(KEY_URL);
-            if (!at.isEmpty(this.mUrl)) {
+            if (!au.isEmpty(this.mUrl)) {
                 this.mWebView.loadUrl(this.mUrl);
             }
         }
@@ -121,18 +121,18 @@ public class EasterEggH5Service extends Service {
         super.onCreate();
         initWebView();
         initListenerAndRule();
-        this.model = new e();
-        this.model.a(new e.a() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.4
-            @Override // com.baidu.tieba.easterEgg.e.a
+        this.model = new d();
+        this.model.a(new d.a() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.4
+            @Override // com.baidu.tieba.easterEgg.d.a
             public void a(boolean z, com.baidu.tieba.easterEgg.a.a aVar) {
-                if (z && aVar != null && !at.isEmpty(aVar.cqs()) && aVar.isOpen()) {
+                if (z && aVar != null && !au.isEmpty(aVar.cpV()) && aVar.isOpen()) {
                     if (EasterEggH5Service.this.mWebView != null) {
-                        EasterEggH5Service.this.mWebView.loadUrl(aVar.cqs());
+                        EasterEggH5Service.this.mWebView.loadUrl(aVar.cpV());
                     }
-                    HashMap<String, String> cqr = aVar.cqr();
-                    if (cqr != null) {
-                        EasterEggH5Service.this.mHttpRule.G(cqr);
-                        EasterEggH5Service.this.mSocketRule.G(cqr);
+                    HashMap<String, String> cpU = aVar.cpU();
+                    if (cpU != null) {
+                        EasterEggH5Service.this.mHttpRule.F(cpU);
+                        EasterEggH5Service.this.mSocketRule.F(cpU);
                         return;
                     }
                     return;
@@ -172,12 +172,12 @@ public class EasterEggH5Service extends Service {
                     }
                 }
             });
-            this.eggBridge = new a();
+            this.eggBridge = new EasterEggBridge();
             this.jsBridge.a(this.eggBridge);
             this.mWebView.setOnJsPromptCallback(new com.baidu.tieba.tbadkCore.e.c() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.6
                 @Override // com.baidu.tieba.tbadkCore.e.c
                 public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-                    return EasterEggH5Service.this.jsBridge != null && EasterEggH5Service.this.jsBridge.a(str, jsPromptResult);
+                    return EasterEggH5Service.this.jsBridge != null && EasterEggH5Service.this.jsBridge.a(EasterEggH5Service.this.mWebView, str, jsPromptResult);
                 }
             });
         } catch (Throwable th) {
@@ -189,7 +189,7 @@ public class EasterEggH5Service extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadJsUrl(WebView webView, String str, String... strArr) {
-        if (!at.isEmpty(str)) {
+        if (!au.isEmpty(str)) {
             String str2 = "javascript:" + str + "(";
             if (strArr != null) {
                 for (int i = 0; i < strArr.length; i++) {

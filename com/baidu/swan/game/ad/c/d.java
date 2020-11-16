@@ -8,11 +8,11 @@ import com.baidu.swan.game.ad.a.a;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class d {
     public static void a(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aQJ()) {
+            for (String str : adElementInfo.aQb()) {
                 a(a(str, (b) null), bVar);
             }
         }
@@ -28,7 +28,7 @@ public class d {
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aQL()) {
+            for (String str : adElementInfo.aQd()) {
                 a(a(str, bVar), bVar2);
             }
         }
@@ -44,18 +44,18 @@ public class d {
 
     public static String a(String str, b bVar) {
         if (bVar != null) {
-            return str.replaceAll("\\{REQ_WIDTH\\}", bVar.dNO).replaceAll("\\{REQ_HEIGHT\\}", bVar.dNP).replaceAll("\\{WIDTH\\}", bVar.dNQ).replaceAll("\\{HEIGHT\\}", bVar.dNR).replaceAll("\\{DOWN_X\\}", bVar.dNS).replaceAll("\\{DOWN_Y\\}", bVar.dNT).replaceAll("\\{UP_X\\}", bVar.dNU).replaceAll("\\{UP_Y\\}", bVar.dNV).replaceAll("\\{VIDEO_TIME\\}", bVar.dNW).replaceAll("\\{BEGIN_TIME\\}", bVar.dNX).replaceAll("\\{END_TIME\\}", bVar.mEndTime).replaceAll("\\{PLAY_FIRST_FRAME\\}", bVar.dNY).replaceAll("\\{PLAY_LAST_FRAME\\}", bVar.dNZ).replaceAll("\\{SCENE\\}", bVar.dOa).replaceAll("\\{TYPE\\}", bVar.mType).replaceAll("\\{BEHAVIOR\\}", bVar.dOb).replaceAll("\\{STATUS\\}", bVar.mStatus).replaceAll("\\{CONVERSION_ACTION\\}", bVar.dOc).replaceAll("\\{CLICK_ID\\}", bVar.mClickId);
+            return str.replaceAll("\\{REQ_WIDTH\\}", bVar.dMg).replaceAll("\\{REQ_HEIGHT\\}", bVar.dMh).replaceAll("\\{WIDTH\\}", bVar.dMi).replaceAll("\\{HEIGHT\\}", bVar.dMj).replaceAll("\\{DOWN_X\\}", bVar.dMk).replaceAll("\\{DOWN_Y\\}", bVar.dMl).replaceAll("\\{UP_X\\}", bVar.dMm).replaceAll("\\{UP_Y\\}", bVar.dMn).replaceAll("\\{VIDEO_TIME\\}", bVar.dMo).replaceAll("\\{BEGIN_TIME\\}", bVar.dMp).replaceAll("\\{END_TIME\\}", bVar.mEndTime).replaceAll("\\{PLAY_FIRST_FRAME\\}", bVar.dMq).replaceAll("\\{PLAY_LAST_FRAME\\}", bVar.dMr).replaceAll("\\{SCENE\\}", bVar.dMs).replaceAll("\\{TYPE\\}", bVar.mType).replaceAll("\\{BEHAVIOR\\}", bVar.dMt).replaceAll("\\{STATUS\\}", bVar.mStatus).replaceAll("\\{CONVERSION_ACTION\\}", bVar.dMu).replaceAll("\\{CLICK_ID\\}", bVar.mClickId);
         }
         return str;
     }
 
     private static void a(String str, com.baidu.swan.game.ad.a.b bVar) {
-        bVar.vD(str);
+        bVar.vy(str);
     }
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2, final a.d dVar) {
-        if (adElementInfo != null && !TextUtils.isEmpty(adElementInfo.aQE())) {
-            String a2 = a(adElementInfo.aQE(), bVar);
+        if (adElementInfo != null && !TextUtils.isEmpty(adElementInfo.aPW())) {
+            String a2 = a(adElementInfo.aPW(), bVar);
             ResponseCallback<a> responseCallback = new ResponseCallback<a>() { // from class: com.baidu.swan.game.ad.c.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -78,7 +78,7 @@ public class d {
                                 }
                                 a aVar = new a();
                                 aVar.mClickId = optJSONObject.optString("clickid");
-                                aVar.dNN = optJSONObject.optString("dstlink");
+                                aVar.dMf = optJSONObject.optString("dstlink");
                                 return aVar;
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -97,7 +97,7 @@ public class d {
                 /* renamed from: a */
                 public void onSuccess(a aVar, int i) {
                     if (aVar != null && a.d.this != null) {
-                        a.d.this.cO(aVar.mClickId, aVar.dNN);
+                        a.d.this.cN(aVar.mClickId, aVar.dMf);
                     }
                 }
 

@@ -5,12 +5,12 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
-public class PollOptionData extends m implements Serializable {
+public class PollOptionData extends n implements Serializable {
     private int id;
     private long num;
     private String text;
 
-    @Override // com.baidu.tbadk.core.data.m
+    @Override // com.baidu.tbadk.core.data.n
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {

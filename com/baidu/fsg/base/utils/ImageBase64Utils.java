@@ -8,7 +8,7 @@ import android.util.Base64;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class ImageBase64Utils {
 
     /* renamed from: a  reason: collision with root package name */
@@ -16,7 +16,7 @@ public class ImageBase64Utils {
     private static int b = 70;
     private static ImageBase64Utils c;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public interface ImageBase64Listener {
         void onBase64Result(String str);
     }
@@ -118,7 +118,7 @@ public class ImageBase64Utils {
         new ImageBase64AsyncTask(imageBase64Listener, str, i).execute("");
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     class ImageBase64AsyncTask extends AsyncTask<String, Integer, String> {
         private ImageBase64Listener b;
         private String c;

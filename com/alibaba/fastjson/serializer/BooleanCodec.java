@@ -8,7 +8,7 @@ import com.alibaba.fastjson.util.TypeUtils;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class BooleanCodec implements ObjectDeserializer, ObjectSerializer {
     public static final BooleanCodec instance = new BooleanCodec();
 

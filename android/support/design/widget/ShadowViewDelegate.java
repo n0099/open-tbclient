@@ -1,7 +1,7 @@
 package android.support.design.widget;
 
 import android.graphics.drawable.Drawable;
-/* loaded from: classes16.dex */
+/* loaded from: classes9.dex */
 interface ShadowViewDelegate {
     float getRadius();
 

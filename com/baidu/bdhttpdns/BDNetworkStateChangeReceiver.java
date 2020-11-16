@@ -12,11 +12,11 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1271a = false;
+    private boolean f1274a = false;
     private boolean b = true;
     private boolean c = true;
     private String d = "";
@@ -24,7 +24,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     private boolean f = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public class a implements Callable<Object> {
         a() {
         }
@@ -87,8 +87,8 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
         String str;
         RuntimeException e;
         ConnectivityManager connectivityManager;
-        if (!this.f1271a) {
-            this.f1271a = true;
+        if (!this.f1274a) {
+            this.f1274a = true;
             return;
         }
         try {

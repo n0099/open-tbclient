@@ -25,29 +25,29 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaWheatSwitchHttpRespons
 import com.baidu.tieba.yuyinala.liveroom.wheat.model.k;
 /* loaded from: classes4.dex */
 public abstract class a {
-    protected w gMW;
+    protected w gMD;
     protected TbPageContext mPageContext;
-    protected AlaWheatInfoData nVu;
-    protected int nVv;
-    protected int nVw;
-    private d odk;
-    private HostConnectionWheatDialog odl;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.b odm;
-    private c odi = new c();
-    protected b odj = new b();
-    protected CustomMessageListener odn = new CustomMessageListener(2501036) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.a.1
+    protected AlaWheatInfoData nWX;
+    protected int nWY;
+    protected int nWZ;
+    private d oeN;
+    private HostConnectionWheatDialog oeO;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.b oeP;
+    private c oeL = new c();
+    protected b oeM = new b();
+    protected CustomMessageListener oeQ = new CustomMessageListener(2501036) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501036) {
-                a.this.chg();
+                a.this.cgz();
             }
         }
     };
 
-    protected abstract void VD(String str);
+    protected abstract void Vo(String str);
 
-    protected abstract void VE(String str);
+    protected abstract void Vp(String str);
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -55,54 +55,54 @@ public abstract class a {
 
     @CallSuper
     public void a(w wVar, AlaWheatInfoData alaWheatInfoData, int i, int i2) {
-        this.gMW = wVar;
-        this.nVu = alaWheatInfoData;
-        this.nVv = i;
-        this.nVw = i2;
+        this.gMD = wVar;
+        this.nWX = alaWheatInfoData;
+        this.nWY = i;
+        this.nWZ = i2;
     }
 
-    public void dYT() {
+    public void dYS() {
+        dYW();
         dYX();
-        dYY();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean dYT() {
+        return this.nWY == g.ofD;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean dYU() {
-        return this.nVv == g.odZ;
+        return this.nWY == g.ofE;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean dYV() {
-        return this.nVv == g.oea;
+    private boolean dYV() {
+        return this.nWY == g.ofF;
     }
 
-    private boolean dYW() {
-        return this.nVv == g.oeb;
-    }
-
-    protected void dYX() {
+    protected void dYW() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(this.mPageContext.getPageActivity());
             return;
         }
         String loginUk = getLoginUk();
         if (!TextUtils.isEmpty(loginUk)) {
-            if (dYW()) {
-                VD(loginUk);
-            } else if (this.nVu == null) {
-                VE(loginUk);
+            if (dYV()) {
+                Vo(loginUk);
+            } else if (this.nWX == null) {
+                Vp(loginUk);
             } else {
-                VF(loginUk);
+                Vq(loginUk);
             }
         }
     }
 
-    protected void VF(String str) {
-        if (this.gMW != null && this.gMW.aJr != null) {
-            if (TextUtils.equals(this.nVu.uk, str)) {
-                this.odj.a(this.mPageContext, this.gMW);
+    protected void Vq(String str) {
+        if (this.gMD != null && this.gMD.aHG != null) {
+            if (TextUtils.equals(this.nWX.uk, str)) {
+                this.oeM.a(this.mPageContext, this.gMD);
             } else {
-                this.odj.l(this.nVu);
+                this.oeM.l(this.nWX);
             }
         }
     }
@@ -115,79 +115,79 @@ public abstract class a {
         return ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID());
     }
 
-    protected void dYY() {
-        if (dYW()) {
-            this.odi.ac(this.gMW);
+    protected void dYX() {
+        if (dYV()) {
+            this.oeL.ac(this.gMD);
         } else {
-            this.odi.a(this.nVu, this.nVw);
+            this.oeL.a(this.nWX, this.nWZ);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void dYY() {
+        this.oeN = new d(this.mPageContext, this.nWZ);
+        this.oeN.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.a.2
+            @Override // android.content.DialogInterface.OnDismissListener
+            public void onDismiss(DialogInterface dialogInterface) {
+                a.this.oeN = null;
+            }
+        });
+        this.oeN.show();
+        this.oeN.dZA();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void dYZ() {
-        this.odk = new d(this.mPageContext, this.nVw);
-        this.odk.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.a.2
+        this.oeO = new HostConnectionWheatDialog(this.mPageContext);
+        this.oeO.Nb(this.nWZ);
+        this.oeO.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.a.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                a.this.odk = null;
+                a.this.oeO = null;
             }
         });
-        this.odk.show();
-        this.odk.dZB();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void dZa() {
-        this.odl = new HostConnectionWheatDialog(this.mPageContext);
-        this.odl.My(this.nVw);
-        this.odl.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.a.3
-            @Override // android.content.DialogInterface.OnDismissListener
-            public void onDismiss(DialogInterface dialogInterface) {
-                a.this.odl = null;
-            }
-        });
-        if (!this.odl.isShowing()) {
-            this.odl.show();
+        if (!this.oeO.isShowing()) {
+            this.oeO.show();
         }
-        this.odl.lO(true);
+        this.oeO.lP(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoadingDialog(String str) {
-        if (this.odm == null) {
-            this.odm = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.b(this.mPageContext.getPageActivity());
+        if (this.oeP == null) {
+            this.oeP = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.b(this.mPageContext.getPageActivity());
         }
-        this.odm.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.a.4
+        this.oeP.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.a.4
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                a.this.odm = null;
+                a.this.oeP = null;
             }
         });
-        if (!this.odm.isShowing()) {
-            this.odm.show();
+        if (!this.oeP.isShowing()) {
+            this.oeP.show();
         }
-        this.odm.setTipString(str);
+        this.oeP.setTipString(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chg() {
-        if (this.odm != null) {
-            this.odm.dismiss();
-            this.odm = null;
+    public void cgz() {
+        if (this.oeP != null) {
+            this.oeP.dismiss();
+            this.oeP = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dZb() {
-        com.baidu.tieba.yuyinala.liveroom.wheat.c.c.dZi().a(new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.a.5
+    public void dZa() {
+        com.baidu.tieba.yuyinala.liveroom.wheat.c.c.dZh().a(new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.a.5
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.c.a
-            public void daO() {
+            public void dal() {
                 com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("start_connection_wheat_host_1", true);
                 a.this.showLoadingDialog(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connecting_wheat_text_3));
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.c.a
-            public void dZd() {
+            public void dZc() {
                 SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.a.5.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -196,25 +196,25 @@ public abstract class a {
                 });
             }
         }).a(this.mPageContext.getPageActivity(), this.mPageContext.getPageActivity(), "1", "0");
-        MessageManager.getInstance().unRegisterListener(this.odn);
-        MessageManager.getInstance().registerListener(this.odn);
+        MessageManager.getInstance().unRegisterListener(this.oeQ);
+        MessageManager.getInstance().registerListener(this.oeQ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dZc() {
+    public void dZb() {
         showLoadingDialog(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_switch_text));
         new k(null, new k.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.b.a.6
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.k.a
             public void a(AlaWheatSwitchHttpResponseMessage alaWheatSwitchHttpResponseMessage) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
-                a.this.chg();
+                a.this.cgz();
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.k.a
             public void b(AlaWheatSwitchHttpResponseMessage alaWheatSwitchHttpResponseMessage) {
-                a.this.chg();
+                a.this.cgz();
             }
-        }).gP(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYL().Ca(), Integer.toString(o.dZA().dZE() + 1));
+        }).gP(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().Br(), Integer.toString(o.dZz().dZD() + 1));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -223,15 +223,15 @@ public abstract class a {
     }
 
     public void onDestory() {
-        if (this.odk != null) {
-            this.odk = null;
+        if (this.oeN != null) {
+            this.oeN = null;
         }
-        if (this.odl != null) {
-            this.odl = null;
+        if (this.oeO != null) {
+            this.oeO = null;
         }
-        if (this.odm != null) {
-            this.odm = null;
+        if (this.oeP != null) {
+            this.oeP = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.odn);
+        MessageManager.getInstance().unRegisterListener(this.oeQ);
     }
 }

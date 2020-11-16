@@ -2,7 +2,7 @@ package com.baidu.fsg.face.base;
 
 import android.content.Context;
 import com.baidu.fsg.face.base.dto.SapiBiometricDto;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class c extends d {
 
     /* renamed from: a  reason: collision with root package name */

@@ -20,7 +20,7 @@ import org.webrtc.ThreadUtils;
 import org.webrtc.VideoEncoder;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 class HardwareVideoEncoder implements VideoEncoder {
     private static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT_US = 100000;
     private static final String KEY_BITRATE_MODE = "bitrate-mode";
@@ -69,7 +69,7 @@ class HardwareVideoEncoder implements VideoEncoder {
     private final ThreadUtils.ThreadChecker outputThreadChecker = new ThreadUtils.ThreadChecker();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public enum YuvFormat {
         I420 { // from class: org.webrtc.HardwareVideoEncoder.YuvFormat.1
             @Override // org.webrtc.HardwareVideoEncoder.YuvFormat

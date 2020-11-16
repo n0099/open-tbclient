@@ -6,20 +6,20 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class a {
-    private static final Map<String, Set<q>> myi = new HashMap();
+    private static final Map<String, Set<q>> myN = new HashMap();
 
     public static void b(String str, Set<q> set) {
-        myi.put(str, set);
+        myN.put(str, set);
     }
 
-    public static Set<q> RE(String str) {
-        return myi.get(str);
+    public static Set<q> Rc(String str) {
+        return myN.get(str);
     }
 
     public static void remove(String str) {
-        if (myi.get(str) != null) {
-            myi.get(str).clear();
-            myi.remove(str);
+        if (myN.get(str) != null) {
+            myN.get(str).clear();
+            myN.remove(str);
         }
     }
 }

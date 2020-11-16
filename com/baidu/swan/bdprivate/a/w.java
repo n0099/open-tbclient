@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class w implements com.baidu.swan.apps.adaptation.a.e {
     @Override // com.baidu.swan.apps.adaptation.a.e
     public void a(Activity activity, Bundle bundle, com.baidu.swan.apps.a.a aVar) {

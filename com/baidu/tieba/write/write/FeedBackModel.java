@@ -6,30 +6,30 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.aa;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class FeedBackModel extends BdBaseModel<TbPageContext> {
-    private TbPageContext eIc;
+    private TbPageContext eGu;
     private int mErrCode;
-    private a nLv;
-    private ArrayList<bw> nLw;
+    private a nMW;
+    private ArrayList<bx> nMX;
 
     public FeedBackModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.nLv = null;
-        this.nLw = null;
+        this.nMW = null;
+        this.nMX = null;
         this.mErrCode = 0;
-        this.eIc = tbPageContext;
-        this.nLw = new ArrayList<>();
+        this.eGu = tbPageContext;
+        this.nMX = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<bw> dUL() {
-        return this.nLw;
+    public ArrayList<bx> dUK() {
+        return this.nMX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,17 +38,17 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void UX(String str) {
-        if (this.nLv == null) {
-            this.nLv = new a();
-            this.nLv.setPriority(3);
-            this.nLv.execute(str);
+    public void UI(String str) {
+        if (this.nMW == null) {
+            this.nMW = new a();
+            this.nMW.setPriority(3);
+            this.nMW.execute(str);
         }
     }
 
     /* loaded from: classes3.dex */
     private class a extends BdAsyncTask<Object, FeedBackModel, FeedBackModel> {
-        private aa caS;
+        private aa bZh;
 
         private a() {
         }
@@ -59,13 +59,13 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         /* renamed from: K */
         public FeedBackModel doInBackground(Object... objArr) {
             String obj = objArr[0].toString();
-            this.caS = new aa(TbConfig.SERVER_ADDRESS + Config.FRS_TOP_LIST);
-            this.caS.addPostData("kw", obj);
-            String postNetData = this.caS.postNetData();
-            if (!this.caS.bqN().bru().isRequestSuccess()) {
+            this.bZh = new aa(TbConfig.SERVER_ADDRESS + Config.FRS_TOP_LIST);
+            this.bZh.addPostData("kw", obj);
+            String postNetData = this.bZh.postNetData();
+            if (!this.bZh.bqa().bqI().isRequestSuccess()) {
                 return null;
             }
-            FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.eIc);
+            FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.eGu);
             feedBackModel.parserJson(postNetData);
             return feedBackModel;
         }
@@ -76,16 +76,16 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         /* renamed from: c */
         public void onPostExecute(FeedBackModel feedBackModel) {
             super.onPostExecute(feedBackModel);
-            FeedBackModel.this.nLv = null;
+            FeedBackModel.this.nMW = null;
             FeedBackModel.this.mLoadDataCallBack.callback(feedBackModel);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            FeedBackModel.this.nLv = null;
-            if (this.caS != null) {
-                this.caS.cancelNetConnect();
+            FeedBackModel.this.nMW = null;
+            if (this.bZh != null) {
+                this.bZh.cancelNetConnect();
             }
         }
     }
@@ -107,9 +107,9 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            bw bwVar = new bw();
-                            bwVar.parserJson(jSONObject2);
-                            this.nLw.add(bwVar);
+                            bx bxVar = new bx();
+                            bxVar.parserJson(jSONObject2);
+                            this.nMX.add(bxVar);
                         }
                     }
                 }
@@ -126,8 +126,8 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.nLv != null) {
-            this.nLv.cancel();
+        if (this.nMW != null) {
+            this.nMW.cancel();
             return true;
         }
         return true;

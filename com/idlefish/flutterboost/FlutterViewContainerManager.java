@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
-import com.baidu.tieba.t.a;
+import com.baidu.tieba.u.a;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
 import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class FlutterViewContainerManager implements IContainerManager {
     private final Map<IFlutterViewContainer, IContainerRecord> mRecordMap = new LinkedHashMap();
     private final Set<ContainerRef> mRefs = new HashSet();
@@ -29,7 +29,7 @@ public class FlutterViewContainerManager implements IContainerManager {
     private final Map<String, OnResult> mOnResults = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public interface OnResult {
         void onResult(Map<String, Object> map);
     }
@@ -247,7 +247,7 @@ public class FlutterViewContainerManager implements IContainerManager {
         return false;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class ContainerRef {
         public final WeakReference<IFlutterViewContainer> container;
         public final String uniqueId;

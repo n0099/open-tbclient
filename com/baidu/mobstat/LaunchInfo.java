@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class LaunchInfo {
 
     /* renamed from: a  reason: collision with root package name */

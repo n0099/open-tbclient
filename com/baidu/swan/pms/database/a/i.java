@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import com.baidu.swan.pms.utils.AbiType;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class i extends b<com.baidu.swan.pms.model.i> implements com.baidu.swan.pms.database.c {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
@@ -36,8 +36,8 @@ public class i extends b<com.baidu.swan.pms.model.i> implements com.baidu.swan.p
     public ContentValues aj(com.baidu.swan.pms.model.i iVar) {
         ContentValues e = super.e(iVar);
         e.put("max_age", Long.valueOf(iVar.maxAge));
-        e.put("abi", iVar.ehM.id);
-        e.put("lib_name", iVar.cSs);
+        e.put("abi", iVar.ege.id);
+        e.put("lib_name", iVar.cQI);
         return e;
     }
 
@@ -46,8 +46,8 @@ public class i extends b<com.baidu.swan.pms.model.i> implements com.baidu.swan.p
             com.baidu.swan.pms.model.i iVar = new com.baidu.swan.pms.model.i();
             if (a(cursor, iVar)) {
                 iVar.maxAge = cursor.getLong(a(cursor, "max_age"));
-                iVar.ehM = AbiType.findById(cursor.getString(a(cursor, "abi")), null);
-                iVar.cSs = cursor.getString(a(cursor, "lib_name"));
+                iVar.ege = AbiType.findById(cursor.getString(a(cursor, "abi")), null);
+                iVar.cQI = cursor.getString(a(cursor, "lib_name"));
                 return iVar;
             }
         }

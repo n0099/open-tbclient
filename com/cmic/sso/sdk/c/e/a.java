@@ -10,12 +10,12 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
     private X509Certificate f4018a;
-    private SSLContext oJj;
+    private SSLContext oKN;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [34=4] */
     /* JADX WARN: Removed duplicated region for block: B:38:0x003d A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -81,14 +81,14 @@ public class a {
             keyStore.setCertificateEntry("cert", this.f4018a);
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(keyStore);
-            this.oJj = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-            this.oJj.init(null, trustManagerFactory.getTrustManagers(), null);
+            this.oKN = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
+            this.oKN.init(null, trustManagerFactory.getTrustManagers(), null);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public SSLContext eiR() {
-        return this.oJj;
+    public SSLContext eiP() {
+        return this.oKN;
     }
 }

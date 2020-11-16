@@ -60,7 +60,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mIndicatorWidth = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds64);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
-        this.mSelectorColor = ap.getColor(R.color.cp_cont_b);
+        this.mSelectorColor = ap.getColor(R.color.CAM_X0105);
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
@@ -97,7 +97,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mIndicatorWidth = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds64);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
-        this.mSelectorColor = ap.getColor(R.color.cp_cont_b);
+        this.mSelectorColor = ap.getColor(R.color.CAM_X0105);
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
@@ -134,7 +134,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mIndicatorWidth = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds64);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
-        this.mSelectorColor = ap.getColor(R.color.cp_cont_b);
+        this.mSelectorColor = ap.getColor(R.color.CAM_X0105);
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
@@ -303,9 +303,9 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     private void setTabStatus(TextView textView, boolean z) {
         if (textView != null) {
             if (z) {
-                ap.setViewTextColor(textView, R.color.cp_cont_b);
+                ap.setViewTextColor(textView, R.color.CAM_X0105);
             } else {
-                ap.setViewTextColor(textView, R.color.cp_cont_j);
+                ap.setViewTextColor(textView, R.color.CAM_X0107);
             }
         }
     }
@@ -411,7 +411,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     }
 
     public void onChangeSkinType(int i) {
-        this.mSelectorColor = ap.getColor(R.color.cp_cont_b);
+        this.mSelectorColor = ap.getColor(R.color.CAM_X0105);
         updateTabStyles();
         invalidate();
     }

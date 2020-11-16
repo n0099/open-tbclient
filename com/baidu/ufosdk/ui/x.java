@@ -4,7 +4,7 @@ import android.graphics.BitmapFactory;
 import android.os.Handler;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class x implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

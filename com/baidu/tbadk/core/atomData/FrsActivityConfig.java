@@ -12,14 +12,14 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tbadk.util.ac;
+import com.baidu.tbadk.util.aa;
 import com.baidu.tieba.frs.f.i;
 import com.baidu.tieba.frs.mc.FrsNetModel;
-import com.baidu.tieba.recapp.r;
+import com.baidu.tieba.recapp.q;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
@@ -169,7 +169,7 @@ public class FrsActivityConfig extends IntentConfig {
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public void preJump() {
         AccountData currentAccountObj;
-        int KY;
+        int Kz;
         Intent intent = getIntent();
         String stringExtra = intent.getStringExtra("name");
         String stringExtra2 = intent.getStringExtra("from");
@@ -189,18 +189,18 @@ public class FrsActivityConfig extends IntentConfig {
         }
         FrsRequestData frsRequestData = new FrsRequestData();
         if (FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD.equals(stringExtra2)) {
-            KY = 3;
+            Kz = 3;
         } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
-            KY = 6;
+            Kz = 6;
         } else {
             String str = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str = currentAccountObj.getID() + Constants.WAVE_SEPARATOR;
             }
-            KY = i.KY("1~" + str + stringExtra);
+            Kz = i.Kz("1~" + str + stringExtra);
         }
-        frsRequestData.setSortType(i.Ar(KY));
-        if (KY == 5) {
+        frsRequestData.setSortType(i.AP(Kz));
+        if (Kz == 5) {
             frsRequestData.setIsGood(1);
         } else {
             frsRequestData.setIsGood(0);
@@ -209,8 +209,8 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.go("client_type", "2");
         frsRequestData.setPn(1);
         frsRequestData.setCallFrom(intExtra);
-        i.a(KY, frsRequestData);
-        frsRequestData.SH("2");
+        i.a(Kz, frsRequestData);
+        frsRequestData.Si("2");
         frsRequestData.setObjSource("-2");
         frsRequestData.setKw(stringExtra);
         frsRequestData.setWithGroup(1);
@@ -218,23 +218,23 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.setScrW(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
         frsRequestData.setScrH(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
         frsRequestData.setScrDip(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        frsRequestData.setqType(au.bro().brp() ? 2 : 1);
+        frsRequestData.setqType(av.bqC().bqD() ? 2 : 1);
         if (uri != null) {
             frsRequestData.setSchemeUrl(uri.toString());
         }
         frsRequestData.setLastId(null);
         frsRequestData.setYuelaouLocate(stringExtra3);
-        frsRequestData.setLastClickTid(b.toLong(ac.bDU(), 0L));
+        frsRequestData.setLastClickTid(b.toLong(aa.bDl(), 0L));
         frsRequestData.setStType(stringExtra2);
-        frsRequestData.Jy(1);
+        frsRequestData.Ka(1);
         frsRequestData.setNeedCache(true);
         frsRequestData.setUpdateType(3);
-        frsRequestData.gY(longExtra);
-        i.a(KY, frsRequestData);
+        frsRequestData.hb(longExtra);
+        i.a(Kz, frsRequestData);
         frsRequestData.setLoadType(1);
-        if (bw.eEm.get() && r.dAo().dAi() != null) {
-            int aZ = r.dAo().dAi().aZ(stringExtra, false);
-            int ba = r.dAo().dAi().ba(stringExtra, false);
+        if (bx.eCE.get() && q.dzO().dzI() != null) {
+            int aZ = q.dzO().dzI().aZ(stringExtra, false);
+            int ba = q.dzO().dzI().ba(stringExtra, false);
             if (frsRequestData.getLoadType() == 1) {
                 aZ++;
             } else if (frsRequestData.getLoadType() == 2) {

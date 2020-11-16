@@ -14,14 +14,14 @@ import com.tb.airbnb.lottie.h;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class b {
     private static final Object Er = new Object();
     private String Es;
     private final Map<String, h> Eu;
     private final Context context;
     @Nullable
-    private c pJe;
+    private c pKH;
 
     public b(Drawable.Callback callback, String str, c cVar, Map<String, h> map) {
         this.Es = str;
@@ -40,7 +40,7 @@ public class b {
     }
 
     public void a(@Nullable c cVar) {
-        this.pJe = cVar;
+        this.pKH = cVar;
     }
 
     @Nullable
@@ -64,8 +64,8 @@ public class b {
         if (bitmap != null) {
             return bitmap;
         }
-        if (this.pJe != null) {
-            Bitmap fetchBitmap = this.pJe.fetchBitmap(hVar);
+        if (this.pKH != null) {
+            Bitmap fetchBitmap = this.pKH.fetchBitmap(hVar);
             if (fetchBitmap != null) {
                 b(str, fetchBitmap);
                 return fetchBitmap;

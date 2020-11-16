@@ -26,7 +26,7 @@ import com.baidu.ufosdk.UfoSDK;
 import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.util.Timer;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class FeedbackFacePageActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */

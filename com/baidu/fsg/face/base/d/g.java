@@ -5,7 +5,7 @@ import android.os.Environment;
 import com.baidu.fsg.base.ApollonConstants;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */

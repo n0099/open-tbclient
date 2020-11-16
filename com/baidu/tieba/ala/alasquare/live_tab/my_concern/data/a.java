@@ -1,12 +1,13 @@
 package com.baidu.tieba.ala.alasquare.live_tab.my_concern.data;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes4.dex */
-public class a extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId glv = BdUniqueId.gen();
+public class a extends BaseCardInfo {
+    public static final BdUniqueId glc = BdUniqueId.gen();
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return glv;
+        return glc;
     }
 }

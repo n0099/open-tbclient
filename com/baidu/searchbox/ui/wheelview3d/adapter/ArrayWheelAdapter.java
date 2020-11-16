@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ui.wheelview3d.adapter;
 
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class ArrayWheelAdapter<T> implements WheelAdapter {
     private List<T> items;
 

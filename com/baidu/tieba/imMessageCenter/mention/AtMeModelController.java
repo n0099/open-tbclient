@@ -21,149 +21,150 @@ import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tbadk.mvc.model.NetModel;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class AtMeModelController extends BdBaseModel<AtMessageActivity> implements CacheModel.a<c>, NetModel.b<b, c> {
-    final CustomMessageListener exb;
-    private com.baidu.tbadk.mvc.d.a icN;
-    private AtMessageActivity ktG;
-    private b ktH;
-    private AtMeNetModel ktI;
-    private AtMeCacheModel ktJ;
-    private FeedData ktK;
-    private f ktL;
+    final CustomMessageListener evs;
+    private com.baidu.tbadk.mvc.d.a idG;
+    private AtMessageActivity kuq;
+    private b kur;
+    private AtMeNetModel kus;
+    private AtMeCacheModel kut;
+    private FeedData kuu;
+    private f kuv;
 
     public AtMeModelController(AtMessageActivity atMessageActivity) {
         super(com.baidu.adp.base.i.I(atMessageActivity.getPageContext().getPageActivity()));
-        this.exb = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.imMessageCenter.mention.AtMeModelController.1
+        this.evs = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.imMessageCenter.mention.AtMeModelController.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    AtMeModelController.this.ktG.cWy();
+                    AtMeModelController.this.kuq.cWe();
                 }
             }
         };
-        this.ktG = atMessageActivity;
+        this.kuq = atMessageActivity;
     }
 
     public void aj(Bundle bundle) {
-        this.ktH = new b();
-        this.ktI = new AtMeNetModel((TbPageContext) com.baidu.adp.base.i.I(this.ktG.getPageContext().getPageActivity()), this.ktH);
-        this.ktI.a(this);
-        if (this.ktG != null) {
-            this.ktI.setUniqueId(this.ktG.getUniqueId());
+        this.kur = new b();
+        this.kus = new AtMeNetModel((TbPageContext) com.baidu.adp.base.i.I(this.kuq.getPageContext().getPageActivity()), this.kur);
+        this.kus.a(this);
+        if (this.kuq != null) {
+            this.kus.setUniqueId(this.kuq.getUniqueId());
         }
-        this.ktI.registerListener(this.exb);
-        this.ktJ = new AtMeCacheModel((TbPageContext) com.baidu.adp.base.i.I(this.ktG.getPageContext().getPageActivity()));
-        this.ktJ.a(this);
-        if (this.ktG != null) {
-            this.ktJ.setUniqueId(this.ktG.getUniqueId());
+        this.kus.registerListener(this.evs);
+        this.kut = new AtMeCacheModel((TbPageContext) com.baidu.adp.base.i.I(this.kuq.getPageContext().getPageActivity()));
+        this.kut.a(this);
+        if (this.kuq != null) {
+            this.kut.setUniqueId(this.kuq.getUniqueId());
         }
-        this.ktL = new f();
-        this.icN = new com.baidu.tbadk.mvc.d.a();
+        this.kuv = new f();
+        this.idG = new com.baidu.tbadk.mvc.d.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean cpc() {
-        if (!this.ktI.isLoading() && this.icN.bBQ() && cWx()) {
-            this.icN.kt(true);
-            this.icN.kv(true);
-            this.ktH.e(this.ktK);
-            this.ktI.setNeedCache(false);
-            this.ktI.loadData();
-            this.ktG.c(this.icN);
+    public boolean coD() {
+        if (!this.kus.isLoading() && this.idG.bBg() && cWd()) {
+            this.idG.ku(true);
+            this.idG.kw(true);
+            this.kur.e(this.kuu);
+            this.kus.setNeedCache(false);
+            this.kus.loadData();
+            this.kuq.c(this.idG);
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean cDM() {
-        if (this.ktI.isLoading() || !cWx()) {
+    public boolean cDq() {
+        if (this.kus.isLoading() || !cWd()) {
             return false;
         }
-        this.ktK = null;
-        this.ktH.reset();
-        this.ktI.setNeedCache(true);
-        this.ktI.loadData();
+        this.kuu = null;
+        this.kur.reset();
+        this.kus.setNeedCache(true);
+        this.kus.loadData();
         return true;
     }
 
-    protected boolean cWx() {
+    protected boolean cWd() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        if (this.ktL != null && this.ktL.kvh != null) {
-            this.ktL.kvh.clear();
+        if (this.kuv != null && this.kuv.kvR != null) {
+            this.kuv.kvR.clear();
         }
-        this.ktG.cWy();
-        this.ktG.a(this.ktL);
+        this.kuq.cWe();
+        this.kuq.a(this.kuv);
         return false;
     }
 
-    public boolean cpb() {
-        if (cWx()) {
-            if (this.ktG != null) {
-                this.ktG.cWz();
+    public boolean coC() {
+        if (cWd()) {
+            if (this.kuq != null) {
+                this.kuq.cWf();
             }
-            this.ktJ.a((com.baidu.tbadk.mvc.b.e) this.ktH);
+            this.kut.a((com.baidu.tbadk.mvc.b.e) this.kur);
             return true;
         }
         return true;
     }
 
     protected boolean a(b bVar, c cVar) {
+        this.kuq.VB();
         if (bVar.getUpdateType() != 4) {
-            this.ktL.cWP().clear();
+            this.kuv.cWv().clear();
         }
-        this.ktL.a(cVar);
-        if (cVar != null && cVar.cWP() != null && cVar.cWP().size() > 0) {
-            this.ktK = cVar.cWP().get(cVar.cWP().size() - 1);
-            if (this.ktL.getPage() != null) {
-                this.icN.ku(this.ktL.getPage().blq() == 1);
+        this.kuv.a(cVar);
+        if (cVar != null && cVar.cWv() != null && cVar.cWv().size() > 0) {
+            this.kuu = cVar.cWv().get(cVar.cWv().size() - 1);
+            if (this.kuv.getPage() != null) {
+                this.idG.kv(this.kuv.getPage().bks() == 1);
             } else {
-                this.icN.ku(true);
+                this.idG.kv(true);
             }
             if (bVar != null) {
                 bVar.toNextPage();
             }
-            this.icN.kv(true);
+            this.idG.kw(true);
         } else {
-            this.ktK = null;
-            this.icN.ku(false);
-            this.icN.kv(false);
+            this.kuu = null;
+            this.idG.kv(false);
+            this.idG.kw(false);
         }
-        this.icN.kt(false);
-        this.icN.ks(false);
-        com.baidu.tbadk.coreExtra.messageCenter.b.bvS().bwg();
+        this.idG.ku(false);
+        this.idG.kt(false);
+        com.baidu.tbadk.coreExtra.messageCenter.b.bvi().bvw();
         if (!TbadkCoreApplication.isLogin()) {
-            this.ktL.cWP().clear();
+            this.kuv.cWv().clear();
         } else {
-            this.ktG.c(this.icN);
+            this.kuq.c(this.idG);
         }
-        this.ktG.a(this.ktL);
+        this.kuq.a(this.kuv);
         return false;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
-    public void a(ReadCacheRespMsg<List<c>> readCacheRespMsg, ReadCacheMessage<c> readCacheMessage) {
+    public void onCacheDataGet(ReadCacheRespMsg<List<c>> readCacheRespMsg, ReadCacheMessage<c> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.ktH, readCacheRespMsg.getData().get(0));
+            a(this.kur, readCacheRespMsg.getData().get(0));
         }
-        this.ktK = null;
-        this.ktH.reset();
-        this.ktI.setNeedCache(true);
-        this.ktI.loadData();
+        this.kuu = null;
+        this.kur.reset();
+        this.kus.setNeedCache(true);
+        this.kus.loadData();
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
-    public void a(WriteCacheRespMsg<List<c>> writeCacheRespMsg, WriteCacheMessage<c> writeCacheMessage) {
+    public void onCacheDataWrite(WriteCacheRespMsg<List<c>> writeCacheRespMsg, WriteCacheMessage<c> writeCacheMessage) {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<c> mvcHttpResponsedMessage, MvcHttpMessage<b, c> mvcHttpMessage, MvcNetMessage<b, c> mvcNetMessage) {
         c cVar;
-        this.ktG.cWy();
+        this.kuq.cWe();
         if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
             cVar = mvcHttpResponsedMessage.getData();
             r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
@@ -171,7 +172,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.b.bvS().setMsgAtme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.b.bvi().setMsgAtme(0);
             cVar = null;
         }
         if (r1 == null || cVar == null || !a(r1, cVar)) {
@@ -182,14 +183,14 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.ktG.a(errorData);
+            this.kuq.a(errorData);
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<c, ?> mvcSocketResponsedMessage, MvcSocketMessage<b, c> mvcSocketMessage, MvcNetMessage<b, c> mvcNetMessage) {
         c cVar;
-        this.ktG.cWy();
+        this.kuq.cWe();
         if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
             cVar = mvcSocketResponsedMessage.getData();
             r1 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;
@@ -197,7 +198,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.b.bvS().setMsgAtme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.b.bvi().setMsgAtme(0);
             cVar = null;
         }
         if (r1 == null || cVar == null || !a(r1, cVar)) {
@@ -208,7 +209,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.ktG.a(errorData);
+            this.kuq.a(errorData);
         }
     }
 

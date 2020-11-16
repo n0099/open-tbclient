@@ -10,13 +10,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public final class iy {
 
     /* renamed from: a  reason: collision with root package name */
     private static final Comparator f4992a = new a();
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes18.dex */
     private static class a implements Comparator {
         private a() {
         }
@@ -161,7 +161,7 @@ public final class iy {
     }
 
     public static ByteBuffer a(ByteBuffer byteBuffer) {
-        return m479a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m480a(byteBuffer));
+        return m482a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m483a(byteBuffer));
     }
 
     public static void a(ByteBuffer byteBuffer, StringBuilder sb) {
@@ -181,13 +181,13 @@ public final class iy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m479a(ByteBuffer byteBuffer) {
+    public static boolean m482a(ByteBuffer byteBuffer) {
         return byteBuffer.hasArray() && byteBuffer.position() == 0 && byteBuffer.arrayOffset() == 0 && byteBuffer.remaining() == byteBuffer.capacity();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m480a(ByteBuffer byteBuffer) {
-        if (m479a(byteBuffer)) {
+    public static byte[] m483a(ByteBuffer byteBuffer) {
+        if (m482a(byteBuffer)) {
             return byteBuffer.array();
         }
         byte[] bArr = new byte[byteBuffer.remaining()];

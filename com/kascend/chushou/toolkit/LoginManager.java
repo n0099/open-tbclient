@@ -68,20 +68,20 @@ public class LoginManager {
             @Override // com.kascend.chushou.c.b
             public void a(String str2, JSONObject jSONObject) {
                 LoginManager.this.showProcessDialog(false);
-                g.Sc(a.i.cs_baidu_login_success);
-                ParserRet eH = com.kascend.chushou.c.g.eH(jSONObject);
-                if (eH.mRc == 0 && eH.mData != null) {
-                    LoginManager.this.userLoginIn((MyUserInfo) eH.mData);
+                g.SE(a.i.cs_baidu_login_success);
+                ParserRet eC = com.kascend.chushou.c.g.eC(jSONObject);
+                if (eC.mRc == 0 && eC.mData != null) {
+                    LoginManager.this.userLoginIn((MyUserInfo) eC.mData);
                     return;
                 }
-                a(eH.mRc, eH.mMessage);
+                a(eC.mRc, eC.mMessage);
             }
 
             @Override // com.kascend.chushou.c.b
             public void a(int i, String str2) {
                 LoginManager.this.showProcessDialog(false);
                 LoginManager.this.userLogout();
-                g.Sc(a.i.cs_baidu_login_failed);
+                g.SE(a.i.cs_baidu_login_failed);
             }
         });
     }
@@ -94,16 +94,16 @@ public class LoginManager {
 
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
             public void callSuccess(String str4, JSONObject jSONObject) {
-                ParserRet eH = com.kascend.chushou.c.g.eH(jSONObject);
-                if (eH.mRc == 0 && eH.mData != null) {
-                    LoginManager.this.userLoginIn((MyUserInfo) eH.mData);
+                ParserRet eC = com.kascend.chushou.c.g.eC(jSONObject);
+                if (eC.mRc == 0 && eC.mData != null) {
+                    LoginManager.this.userLoginIn((MyUserInfo) eC.mData);
                     if (simpleCallback != null) {
                         simpleCallback.onSuccess();
                         return;
                     }
                     return;
                 }
-                callFailure(eH.mRc, eH.mMessage, str4);
+                callFailure(eC.mRc, eC.mMessage, str4);
             }
 
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
@@ -127,16 +127,16 @@ public class LoginManager {
 
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
             public void callSuccess(String str, JSONObject jSONObject) {
-                ParserRet eH = com.kascend.chushou.c.g.eH(jSONObject);
-                if (eH.mRc == 0 && eH.mData != null) {
-                    LoginManager.this.userLoginIn((MyUserInfo) eH.mData);
+                ParserRet eC = com.kascend.chushou.c.g.eC(jSONObject);
+                if (eC.mRc == 0 && eC.mData != null) {
+                    LoginManager.this.userLoginIn((MyUserInfo) eC.mData);
                     if (simpleCallback != null) {
                         simpleCallback.onSuccess();
                         return;
                     }
                     return;
                 }
-                callFailure(eH.mRc, eH.mMessage, str);
+                callFailure(eC.mRc, eC.mMessage, str);
             }
 
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
@@ -184,7 +184,7 @@ public class LoginManager {
 
     public void userLogout() {
         this.mUserInfo = null;
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.eHq().S(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.eHr().S(tv.chushou.basis.d.a.a.a.class);
         if (aVar != null) {
             aVar.remove("token");
         }
@@ -193,13 +193,13 @@ public class LoginManager {
         com.kascend.chushou.d.h.etY().d(false);
         com.kascend.chushou.d.h.etY().c(false);
         tv.chushou.zues.a.a.post(new i(1, true));
-        tv.chushou.basis.d.b.eHp().d(TAG, "userLogout");
+        tv.chushou.basis.d.b.eHq().d(TAG, "userLogout");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void userLoginIn(MyUserInfo myUserInfo) {
         this.mUserInfo = myUserInfo;
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.eHq().S(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.eHr().S(tv.chushou.basis.d.a.a.a.class);
         if (aVar != null) {
             aVar.putString("token", myUserInfo.mToken);
         }

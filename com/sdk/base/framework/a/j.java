@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class j<T> implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */

@@ -1,5 +1,5 @@
 package com.baidu.ala.ndk;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class AlaAudioFrame {
     private static final int CHANNEL_NB = 1;
     private static final int SAMPLE_RATE = 44100;

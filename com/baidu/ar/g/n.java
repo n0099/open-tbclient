@@ -1,7 +1,7 @@
 package com.baidu.ar.g;
 
 import java.lang.reflect.Constructor;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class n {
     public static Object a(Object obj, String str, String str2, Object obj2, Class<?> cls) {
         try {

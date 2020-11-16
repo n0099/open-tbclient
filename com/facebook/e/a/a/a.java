@@ -5,18 +5,18 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.style.ReplacementSpan;
-/* loaded from: classes6.dex */
+/* loaded from: classes12.dex */
 public class a extends ReplacementSpan {
     private Rect mBounds;
     private final Drawable mDrawable;
     private int mHeight;
     private int mWidth;
-    private final int paA;
-    private final Paint.FontMetricsInt paB = new Paint.FontMetricsInt();
+    private final int pcd;
+    private final Paint.FontMetricsInt pce = new Paint.FontMetricsInt();
 
     public a(Drawable drawable, int i) {
         this.mDrawable = drawable;
-        this.paA = i;
+        this.pcd = i;
         iK();
     }
 
@@ -26,13 +26,13 @@ public class a extends ReplacementSpan {
         if (fontMetricsInt == null) {
             return this.mWidth;
         }
-        int a2 = a(fontMetricsInt);
-        int i3 = this.mHeight + a2;
-        if (a2 < fontMetricsInt.ascent) {
-            fontMetricsInt.ascent = a2;
+        int b = b(fontMetricsInt);
+        int i3 = this.mHeight + b;
+        if (b < fontMetricsInt.ascent) {
+            fontMetricsInt.ascent = b;
         }
-        if (a2 < fontMetricsInt.top) {
-            fontMetricsInt.top = a2;
+        if (b < fontMetricsInt.top) {
+            fontMetricsInt.top = b;
         }
         if (i3 > fontMetricsInt.descent) {
             fontMetricsInt.descent = i3;
@@ -45,11 +45,11 @@ public class a extends ReplacementSpan {
 
     @Override // android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        paint.getFontMetricsInt(this.paB);
-        int a2 = a(this.paB) + i4;
-        canvas.translate(f, a2);
+        paint.getFontMetricsInt(this.pce);
+        int b = b(this.pce) + i4;
+        canvas.translate(f, b);
         this.mDrawable.draw(canvas);
-        canvas.translate(-f, -a2);
+        canvas.translate(-f, -b);
     }
 
     public void iK() {
@@ -58,8 +58,8 @@ public class a extends ReplacementSpan {
         this.mHeight = this.mBounds.height();
     }
 
-    private int a(Paint.FontMetricsInt fontMetricsInt) {
-        switch (this.paA) {
+    private int b(Paint.FontMetricsInt fontMetricsInt) {
+        switch (this.pcd) {
             case 0:
                 return fontMetricsInt.descent - this.mHeight;
             case 1:

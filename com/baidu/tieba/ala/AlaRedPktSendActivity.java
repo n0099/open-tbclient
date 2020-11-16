@@ -15,11 +15,11 @@ import com.baidu.live.tbadk.core.util.ViewCommonUtil;
 /* loaded from: classes4.dex */
 public class AlaRedPktSendActivity extends BaseFragmentActivity {
     private int availableHeight;
-    private com.baidu.tieba.ala.d.d fZH;
+    private com.baidu.tieba.ala.d.d fZo;
     private int mLastScreenHeight;
     private int mLastScreenWidth;
     private boolean mIsKeyboardOpen = false;
-    private boolean bFL = true;
+    private boolean bEa = true;
     ViewTreeObserver.OnGlobalLayoutListener globalListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaRedPktSendActivity.1
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
@@ -34,7 +34,7 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
             } else if (AlaRedPktSendActivity.this.mLastScreenWidth != screenFullSize[0]) {
                 AlaRedPktSendActivity.this.mLastScreenWidth = screenFullSize[0];
             }
-            if (screenFullSize[1] - rect.bottom > screenFullSize[1] / 4 && ((!AlaRedPktSendActivity.this.mIsKeyboardOpen || z) && AlaRedPktSendActivity.this.bFL)) {
+            if (screenFullSize[1] - rect.bottom > screenFullSize[1] / 4 && ((!AlaRedPktSendActivity.this.mIsKeyboardOpen || z) && AlaRedPktSendActivity.this.bEa)) {
                 AlaRedPktSendActivity.this.mIsKeyboardOpen = true;
                 TbadkCoreApplication.getInst().setKeyboardHeight(screenFullSize[1] - rect.bottom);
                 AlaRedPktSendActivity.this.onKeyboardVisibilityChanged(true);
@@ -56,8 +56,8 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
         }
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.fZH = new com.baidu.tieba.ala.d.d(getPageContext().getPageActivity());
-            setContentView(this.fZH.getView());
+            this.fZo = new com.baidu.tieba.ala.d.d(getPageContext().getPageActivity());
+            setContentView(this.fZo.getView());
             Window window = getWindow();
             if (window != null) {
                 window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.globalListener);
@@ -68,15 +68,15 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.fZH != null) {
-            this.fZH.HJ();
+        if (this.fZo != null) {
+            this.fZo.Ha();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.fZH != null) {
-            this.fZH.onKeyboardVisibilityChanged(z);
+        if (this.fZo != null) {
+            this.fZo.onKeyboardVisibilityChanged(z);
         }
     }
 
@@ -84,22 +84,22 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.bFL = true;
+        this.bEa = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.bFL = false;
+        this.bEa = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.fZH != null) {
-            this.fZH.destroy();
+        if (this.fZo != null) {
+            this.fZo.destroy();
         }
     }
 

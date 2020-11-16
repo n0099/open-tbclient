@@ -22,17 +22,17 @@ import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.TopicDetailActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import java.util.HashMap;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class SchemaRouteActivity extends BaseActivity {
-    private final f.a iIV = new f.a() { // from class: com.baidu.tieba.tblauncher.SchemaRouteActivity.1
+    private final f.a iJJ = new f.a() { // from class: com.baidu.tieba.tblauncher.SchemaRouteActivity.1
         @Override // com.baidu.tbadk.BdToken.f.a
-        public void B(HashMap<String, Object> hashMap) {
+        public void onCallBack(HashMap<String, Object> hashMap) {
             if (hashMap != null && (hashMap.get(com.baidu.tbadk.BdToken.f.PARAM_URL) instanceof String)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(SchemaRouteActivity.this.getActivity(), null, (String) hashMap.get(com.baidu.tbadk.BdToken.f.PARAM_URL), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
-                tbWebViewActivityConfig.setUri((Uri) hashMap.get(com.baidu.tbadk.BdToken.f.esa));
+                tbWebViewActivityConfig.setUri((Uri) hashMap.get(com.baidu.tbadk.BdToken.f.equ));
                 SchemaRouteActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
             }
         }
@@ -48,15 +48,15 @@ public class SchemaRouteActivity extends BaseActivity {
 
     private void al(Intent intent) {
         if (intent != null) {
-            B(intent.getData());
+            C(intent.getData());
             String dataString = intent.getDataString();
             UtilHelper.clearClipBoardBySchemaParam(dataString);
             if (!TextUtils.isEmpty(dataString) && (dataString.contains("invoke_frs") || dataString.contains("tbfrs") || dataString.contains("unidispatch/frs"))) {
                 FrsActivityConfig frsActivityConfig = new FrsActivityConfig(getActivity());
                 frsActivityConfig.setUri(intent.getData());
                 sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig));
-                com.baidu.tbadk.BdToken.c.bgf().setSchemaUp(true);
-                f.E(intent.getData());
+                com.baidu.tbadk.BdToken.c.bfy().setSchemaUp(true);
+                f.F(intent.getData());
             } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbpb") || dataString.contains("unidispatch/pb"))) {
                 if ("tbpb://tieba.baidu.com".equals(dataString)) {
                     if (!com.baidu.adp.base.a.lg().bq("MainTabActivity")) {
@@ -71,50 +71,50 @@ public class SchemaRouteActivity extends BaseActivity {
                     pbActivityConfig.setJumpToCommentArea(true);
                 }
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
-                com.baidu.tbadk.BdToken.c.bgf().setSchemaUp(true);
-                f.C(intent.getData());
+                com.baidu.tbadk.BdToken.c.bfy().setSchemaUp(true);
+                f.D(intent.getData());
             } else if (!TextUtils.isEmpty(dataString) && dataString.contains("tbwebview")) {
                 Uri data = intent.getData();
                 if (com.baidu.tbadk.BdToken.f.p(data)) {
-                    com.baidu.tbadk.BdToken.f.bgz().a(dataString, data, this.iIV);
+                    com.baidu.tbadk.BdToken.f.bfS().a(dataString, data, this.iJJ);
                 } else {
                     TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(getActivity());
                     tbWebViewActivityConfig.setUri(intent.getData());
                     sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
                 }
-                f.D(intent.getData());
-                com.baidu.tbadk.BdToken.c.bgf().setSchemaUp(true);
+                f.E(intent.getData());
+                com.baidu.tbadk.BdToken.c.bfy().setSchemaUp(true);
             } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbtopicdetail") || dataString.contains("unidispatch/topicdetail"))) {
                 TopicDetailActivityConfig topicDetailActivityConfig = new TopicDetailActivityConfig(getActivity());
                 topicDetailActivityConfig.setUri(intent.getData());
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, topicDetailActivityConfig));
-                com.baidu.tbadk.BdToken.c.bgf().setSchemaUp(true);
-                f.F(intent.getData());
+                com.baidu.tbadk.BdToken.c.bfy().setSchemaUp(true);
+                f.G(intent.getData());
             } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbusercenter") || dataString.contains("unidispatch/usercenter") || dataString.contains("usercenter"))) {
                 PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(getActivity());
                 personPolymericActivityConfig.setUri(intent.getData());
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, personPolymericActivityConfig));
-                com.baidu.tbadk.BdToken.c.bgf().setSchemaUp(true);
-                f.G(intent.getData());
+                com.baidu.tbadk.BdToken.c.bfy().setSchemaUp(true);
+                f.H(intent.getData());
             } else if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/forumsquare")) {
                 ForumSquareActivityConfig forumSquareActivityConfig = new ForumSquareActivityConfig(getActivity());
                 forumSquareActivityConfig.setUri(intent.getData());
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, forumSquareActivityConfig));
-                com.baidu.tbadk.BdToken.c.bgf().setSchemaUp(true);
+                com.baidu.tbadk.BdToken.c.bfy().setSchemaUp(true);
             } else if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/hotuserrank")) {
                 HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(getActivity());
                 hotUserRankActivityConfig.setUri(intent.getData());
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hotUserRankActivityConfig));
-                com.baidu.tbadk.BdToken.c.bgf().setSchemaUp(true);
+                com.baidu.tbadk.BdToken.c.bfy().setSchemaUp(true);
             } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("unidispatch/openapp") || dataString.contains("donothing"))) {
                 if (!com.baidu.adp.base.a.lg().bq("MainTabActivity")) {
                     sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LogoActivityConfig((Context) getActivity(), false)));
                 }
-                com.baidu.tbadk.BdToken.c.bgf().setSchemaUp(true);
-            } else if (!TextUtils.isEmpty(dataString) && dataString.contains(com.baidu.tbadk.BdToken.f.HOST + com.baidu.tbadk.BdToken.f.erD)) {
+                com.baidu.tbadk.BdToken.c.bfy().setSchemaUp(true);
+            } else if (!TextUtils.isEmpty(dataString) && dataString.contains(com.baidu.tbadk.BdToken.f.HOST + com.baidu.tbadk.BdToken.f.epV)) {
                 Uri parse = Uri.parse(dataString);
-                be.brr().b(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + parse.getQueryParameter(com.baidu.tbadk.BdToken.f.erX) + "&livetype=" + parse.getQueryParameter(com.baidu.tbadk.BdToken.f.erW)});
-                com.baidu.tbadk.BdToken.c.bgf().setSchemaUp(true);
+                bf.bqF().b(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + parse.getQueryParameter(com.baidu.tbadk.BdToken.f.eqr) + "&livetype=" + parse.getQueryParameter(com.baidu.tbadk.BdToken.f.eqq)});
+                com.baidu.tbadk.BdToken.c.bfy().setSchemaUp(true);
             } else if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/onekeysign")) {
                 if (TbadkCoreApplication.isLogin()) {
                     SignAllForumActivityConfig signAllForumActivityConfig = new SignAllForumActivityConfig(getPageContext().getPageActivity());
@@ -123,13 +123,13 @@ public class SchemaRouteActivity extends BaseActivity {
                 } else {
                     sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this).createNormalCfg(1)));
                 }
-                com.baidu.tbadk.BdToken.c.bgf().setSchemaUp(true);
-                f.H(intent.getData());
+                com.baidu.tbadk.BdToken.c.bfy().setSchemaUp(true);
+                f.I(intent.getData());
             }
         }
     }
 
-    private void B(Uri uri) {
+    private void C(Uri uri) {
         if (uri != null && com.baidu.tbadk.BdToken.f.p(uri)) {
             String queryParameter = uri.getQueryParameter("obj_locate");
             if (!TextUtils.isEmpty(queryParameter) && queryParameter.startsWith("mdp")) {

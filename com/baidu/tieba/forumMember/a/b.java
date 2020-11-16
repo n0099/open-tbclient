@@ -3,27 +3,27 @@ package com.baidu.tieba.forumMember.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import tbclient.GetMemberInfo.MemberGodInfo;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class b implements q {
-    public static final BdUniqueId iDe = BdUniqueId.gen();
-    private int iDf;
+    public static final BdUniqueId iDS = BdUniqueId.gen();
+    private int iDT;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iDe;
+        return iDS;
     }
 
-    public int cwD() {
-        return this.iDf;
+    public int cwg() {
+        return this.iDT;
     }
 
-    public void yo(int i) {
-        this.iDf = i;
+    public void yM(int i) {
+        this.iDT = i;
     }
 
     public void a(MemberGodInfo memberGodInfo) {
         if (memberGodInfo != null && memberGodInfo.forum_god_list != null && memberGodInfo.forum_god_list.size() > 0) {
-            yo(memberGodInfo.forum_god_num.intValue());
+            yM(memberGodInfo.forum_god_num.intValue());
         }
     }
 }

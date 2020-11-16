@@ -2,49 +2,49 @@ package com.baidu.swan.apps.swancore.d;
 
 import android.support.annotation.Nullable;
 import com.baidu.swan.apps.u.c.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public boolean dBk;
-    public boolean dBl;
+    public boolean dzD;
+    public boolean dzE;
     @Nullable
-    public c dBm;
-    public String dBn;
+    public c dzF;
+    public String dzG;
 
     private b() {
-        this.dBk = false;
-        this.dBl = false;
-        this.dBm = null;
-        this.dBn = "";
+        this.dzD = false;
+        this.dzE = false;
+        this.dzF = null;
+        this.dzG = "";
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        private boolean dBk = false;
-        private boolean dBl = false;
+        private boolean dzD = false;
+        private boolean dzE = false;
         @Nullable
-        private c dBm = null;
-        private String dBn = "";
+        private c dzF = null;
+        private String dzG = "";
 
-        public static a aLh() {
+        public static a aKz() {
             return new a();
         }
 
-        public a gM(boolean z) {
-            this.dBk = z;
+        public a gP(boolean z) {
+            this.dzD = z;
             return this;
         }
 
-        public a tR(String str) {
-            this.dBn = str;
+        public a tM(String str) {
+            this.dzG = str;
             return this;
         }
 
-        public b aLi() {
+        public b aKA() {
             b bVar = new b();
-            bVar.dBk = this.dBk;
-            bVar.dBl = this.dBl;
-            bVar.dBm = this.dBm;
-            bVar.dBn = this.dBn;
+            bVar.dzD = this.dzD;
+            bVar.dzE = this.dzE;
+            bVar.dzF = this.dzF;
+            bVar.dzG = this.dzG;
             return bVar;
         }
     }

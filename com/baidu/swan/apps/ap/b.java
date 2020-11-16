@@ -27,61 +27,61 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile int cZP = -1;
-    private static volatile int dDk = -1;
-    private static final boolean dDo = c.hasLollipop();
-    private static volatile b dDp;
+    private static volatile int cYf = -1;
+    private static volatile int dBD = -1;
+    private static final boolean dBH = c.hasLollipop();
+    private static volatile b dBI;
     @Nullable
-    private ActivityManager dDl;
-    private List<ActivityManager.AppTask> dDm;
+    private ActivityManager dBE;
+    private List<ActivityManager.AppTask> dBF;
     @Nullable
-    private ArrayList<Integer> dDn;
-    private final SparseIntArray dDq = new SparseIntArray();
-    private final SparseArray<SwanTaskDeadEvent> dDr = new SparseArray<>();
+    private ArrayList<Integer> dBG;
+    private final SparseIntArray dBJ = new SparseIntArray();
+    private final SparseArray<SwanTaskDeadEvent> dBK = new SparseArray<>();
 
     private b() {
-        Application awA = com.baidu.swan.apps.t.a.awA();
-        if (awA != null) {
-            this.dDl = (ActivityManager) awA.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+        Application avS = com.baidu.swan.apps.t.a.avS();
+        if (avS != null) {
+            this.dBE = (ActivityManager) avS.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         }
     }
 
-    public static b aLZ() {
-        if (dDp == null) {
+    public static b aLr() {
+        if (dBI == null) {
             synchronized (b.class) {
-                if (dDp == null) {
-                    dDp = new b();
+                if (dBI == null) {
+                    dBI = new b();
                 }
             }
         }
-        return dDp;
+        return dBI;
     }
 
     public void a(@Nullable final b.a aVar, final int i) {
         p.postOnSerial(new Runnable() { // from class: com.baidu.swan.apps.ap.b.1
             @Override // java.lang.Runnable
             public void run() {
-                b.this.aMc();
-                if (aVar != null && "1202000800000000".equals(aVar.ayD())) {
-                    SwanTaskDeadEvent swanTaskDeadEvent = (SwanTaskDeadEvent) aVar.pE("key_stack_info");
+                b.this.aLu();
+                if (aVar != null && "1202000800000000".equals(aVar.axV())) {
+                    SwanTaskDeadEvent swanTaskDeadEvent = (SwanTaskDeadEvent) aVar.py("key_stack_info");
                     if (swanTaskDeadEvent != null) {
-                        b.this.dDn = swanTaskDeadEvent.aCb();
-                        SparseArray<SwanTaskDeadEvent> aCc = swanTaskDeadEvent.aCc();
-                        if (aCc != null) {
+                        b.this.dBG = swanTaskDeadEvent.aBt();
+                        SparseArray<SwanTaskDeadEvent> aBu = swanTaskDeadEvent.aBu();
+                        if (aBu != null) {
                             int i2 = 0;
                             while (true) {
                                 int i3 = i2;
-                                if (i3 >= aCc.size()) {
+                                if (i3 >= aBu.size()) {
                                     break;
                                 }
-                                int keyAt = aCc.keyAt(i3);
-                                SwanTaskDeadEvent valueAt = aCc.valueAt(i3);
+                                int keyAt = aBu.keyAt(i3);
+                                SwanTaskDeadEvent valueAt = aBu.valueAt(i3);
                                 if (valueAt != null && valueAt.getAppId() != null) {
-                                    b.this.dDr.put(keyAt, valueAt);
-                                    b.this.dDq.put(valueAt.getAppId().hashCode(), keyAt);
+                                    b.this.dBK.put(keyAt, valueAt);
+                                    b.this.dBJ.put(valueAt.getAppId().hashCode(), keyAt);
                                 }
                                 i2 = i3 + 1;
                             }
@@ -89,7 +89,7 @@ public class b {
                         b.this.m(null, swanTaskDeadEvent.getTaskId(), i);
                     }
                     if (b.DEBUG) {
-                        Log.d("SwanActivityTaskManager", "stack back: " + b.this.dDn);
+                        Log.d("SwanActivityTaskManager", "stack back: " + b.this.dBG);
                         return;
                     }
                     return;
@@ -97,24 +97,24 @@ public class b {
                 if (aVar != null) {
                     b.this.m(aVar.getAppId(), -1, i);
                 }
-                b.this.dDn = b.this.aMe();
+                b.this.dBG = b.this.aLw();
                 if (b.DEBUG) {
-                    Log.d("SwanActivityTaskManager", "getLaunchTask=" + b.this.dDn);
+                    Log.d("SwanActivityTaskManager", "getLaunchTask=" + b.this.dBG);
                 }
             }
         }, "getLaunchTask");
     }
 
     public void b(@Nullable Intent intent, int i) {
-        ArrayList<Integer> aMe = aMe();
-        if (!j(this.dDn, aMe)) {
-            aMc();
+        ArrayList<Integer> aLw = aLw();
+        if (!j(this.dBG, aLw)) {
+            aLu();
             m(null, -1, i);
         }
         if (DEBUG) {
-            Log.d("SwanActivityTaskManager", "onNewIntent: " + i + ", newTaskList=" + aMe + ", mLaunchTaskList=" + this.dDn + ", flag=" + (intent != null ? intent.getFlags() : -1));
+            Log.d("SwanActivityTaskManager", "onNewIntent: " + i + ", newTaskList=" + aLw + ", mLaunchTaskList=" + this.dBG + ", flag=" + (intent != null ? intent.getFlags() : -1));
         }
-        this.dDn = aMe;
+        this.dBG = aLw;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -123,106 +123,106 @@ public class b {
         bundle.putInt("key_task_id", i2);
         bundle.putInt("key_task_id_old", i);
         bundle.putString("app_id", str);
-        com.baidu.swan.apps.process.messaging.a.aFe().a(new com.baidu.swan.apps.process.messaging.c(Constants.METHOD_IM_FRIEND_GROUP_QUERY, bundle).gg(true));
+        com.baidu.swan.apps.process.messaging.a.aEw().a(new com.baidu.swan.apps.process.messaging.c(Constants.METHOD_IM_FRIEND_GROUP_QUERY, bundle).gj(true));
     }
 
     private void V(@Nullable Bundle bundle) {
-        if (bundle != null && this.dDn != null) {
+        if (bundle != null && this.dBG != null) {
             String string = bundle.getString("app_id");
             int i = bundle.getInt("key_task_id", -1);
             if (!TextUtils.isEmpty(string)) {
-                int i2 = this.dDq.get(string.hashCode(), -1);
+                int i2 = this.dBJ.get(string.hashCode(), -1);
                 if (i2 > -1) {
-                    this.dDn.remove(Integer.valueOf(i2));
-                    this.dDq.delete(string.hashCode());
-                    this.dDr.remove(i2);
+                    this.dBG.remove(Integer.valueOf(i2));
+                    this.dBJ.delete(string.hashCode());
+                    this.dBK.remove(i2);
                     if (DEBUG) {
                         Log.d("SwanActivityTaskManager", "removeTaskFromCache: " + string + ", oldTask=" + i2);
                     }
                 }
-                this.dDn.remove(Integer.valueOf(i));
+                this.dBG.remove(Integer.valueOf(i));
                 return;
             }
             int i3 = bundle.getInt("key_task_id_old", -1);
             if (i3 == -1) {
-                this.dDn.remove(Integer.valueOf(i));
+                this.dBG.remove(Integer.valueOf(i));
             } else {
                 int i4 = 0;
                 while (true) {
                     int i5 = i4;
-                    if (i5 >= this.dDn.size()) {
+                    if (i5 >= this.dBG.size()) {
                         break;
-                    } else if (this.dDn.get(i5).intValue() != i3) {
+                    } else if (this.dBG.get(i5).intValue() != i3) {
                         i4 = i5 + 1;
                     } else {
-                        this.dDn.set(i5, Integer.valueOf(i));
+                        this.dBG.set(i5, Integer.valueOf(i));
                         break;
                     }
                 }
-                SwanTaskDeadEvent swanTaskDeadEvent = this.dDr.get(i3);
+                SwanTaskDeadEvent swanTaskDeadEvent = this.dBK.get(i3);
                 if (swanTaskDeadEvent != null) {
                     if (swanTaskDeadEvent.getAppId() != null) {
-                        this.dDq.delete(swanTaskDeadEvent.getAppId().hashCode());
+                        this.dBJ.delete(swanTaskDeadEvent.getAppId().hashCode());
                     }
-                    this.dDr.remove(i3);
+                    this.dBK.remove(i3);
                 }
             }
             if (DEBUG) {
-                Log.d("SwanActivityTaskManager", "removeTaskFromCache nowTask=" + i + ", old=" + i3 + ", " + this.dDn);
+                Log.d("SwanActivityTaskManager", "removeTaskFromCache nowTask=" + i + ", old=" + i3 + ", " + this.dBG);
             }
         }
     }
 
-    public static boolean aMa() {
-        if (cZP == -1) {
+    public static boolean aLs() {
+        if (cYf == -1) {
             synchronized (b.class) {
-                if (cZP == -1) {
-                    if (DEBUG && com.baidu.swan.apps.ad.a.a.aEz().getBoolean("swan_page_stack_optimize", false)) {
-                        cZP = 1;
+                if (cYf == -1) {
+                    if (DEBUG && com.baidu.swan.apps.ad.a.a.aDR().getBoolean("swan_page_stack_optimize", false)) {
+                        cYf = 1;
                         return true;
                     }
-                    cZP = (dDo && com.baidu.swan.apps.t.a.awD().getSwitch("swan_page_stack_optimize", true)) ? 1 : 0;
+                    cYf = (dBH && com.baidu.swan.apps.t.a.avV().getSwitch("swan_page_stack_optimize", true)) ? 1 : 0;
                 }
             }
         }
-        return cZP == 1;
+        return cYf == 1;
     }
 
-    public static boolean aMb() {
-        if (dDk == -1) {
-            dDk = com.baidu.swan.apps.t.a.awD().getSwitch("swan_move_task_optimize", 1);
+    public static boolean aLt() {
+        if (dBD == -1) {
+            dBD = com.baidu.swan.apps.t.a.avV().getSwitch("swan_move_task_optimize", 1);
         }
-        return dDk == 1;
+        return dBD == 1;
     }
 
     @AnyThread
     public synchronized boolean c(int i, boolean z, boolean z2) {
         boolean z3;
         if (i > -1) {
-            if (this.dDl != null) {
+            if (this.dBE != null) {
                 if (B(i, z)) {
                     if (DEBUG) {
                         Log.i("SwanActivityTaskManager", "moveTaskToFront:" + i);
                     }
                     try {
-                        this.dDl.moveTaskToFront(i, 2, null);
+                        this.dBE.moveTaskToFront(i, 2, null);
                         z3 = true;
                     } catch (Exception e) {
                         com.baidu.swan.apps.console.c.e("SwanActivityTaskManager", "moveTaskToFront", e);
                     }
                 } else {
-                    if (this.dDr.indexOfKey(i) >= 0) {
-                        SwanTaskDeadEvent swanTaskDeadEvent = this.dDr.get(i);
+                    if (this.dBK.indexOfKey(i) >= 0) {
+                        SwanTaskDeadEvent swanTaskDeadEvent = this.dBK.get(i);
                         if (swanTaskDeadEvent != null) {
-                            c.a aVar = (c.a) ((c.a) ((c.a) new c.a().pq(swanTaskDeadEvent.getAppId())).pv(swanTaskDeadEvent.aCa())).pt("1202000800000000");
+                            c.a aVar = (c.a) ((c.a) ((c.a) new c.a().pk(swanTaskDeadEvent.getAppId())).pp(swanTaskDeadEvent.aBs())).pn("1202000800000000");
                             Bundle bundle = new Bundle();
-                            ArrayList<Integer> aCb = swanTaskDeadEvent.aCb();
-                            if (aCb != null && !aCb.isEmpty()) {
+                            ArrayList<Integer> aBt = swanTaskDeadEvent.aBt();
+                            if (aBt != null && !aBt.isEmpty()) {
                                 SparseArray<SwanTaskDeadEvent> sparseArray = new SparseArray<>();
-                                Iterator<Integer> it = aCb.iterator();
+                                Iterator<Integer> it = aBt.iterator();
                                 while (it.hasNext()) {
                                     Integer next = it.next();
-                                    SwanTaskDeadEvent swanTaskDeadEvent2 = this.dDr.get(next.intValue(), null);
+                                    SwanTaskDeadEvent swanTaskDeadEvent2 = this.dBK.get(next.intValue(), null);
                                     if (swanTaskDeadEvent2 != null) {
                                         sparseArray.put(next.intValue(), swanTaskDeadEvent2);
                                     }
@@ -230,14 +230,14 @@ public class b {
                                 swanTaskDeadEvent.a(sparseArray);
                             }
                             bundle.putParcelable("key_stack_info", swanTaskDeadEvent);
-                            SwanLauncher.atl().a(aVar, bundle);
+                            SwanLauncher.asD().a(aVar, bundle);
                             if (DEBUG) {
                                 Log.i("SwanActivityTaskManager", "launch dead app:" + swanTaskDeadEvent.getAppId());
                             }
                             z3 = true;
                         }
                     } else if (DEBUG) {
-                        Log.d("SwanActivityTaskManager", "Not Found taskId:" + i + " cacheSize:" + this.dDr.size());
+                        Log.d("SwanActivityTaskManager", "Not Found taskId:" + i + " cacheSize:" + this.dBK.size());
                     }
                     z3 = false;
                 }
@@ -262,14 +262,14 @@ public class b {
         }
     }
 
-    public synchronized boolean gQ(boolean z) {
+    public synchronized boolean gT(boolean z) {
         boolean z2;
-        ArrayList<Integer> arrayList = this.dDn;
+        ArrayList<Integer> arrayList = this.dBG;
         if (z) {
-            arrayList = aMe();
+            arrayList = aLw();
         }
-        if (arrayList != null && !arrayList.isEmpty() && this.dDl != null) {
-            this.dDm = null;
+        if (arrayList != null && !arrayList.isEmpty() && this.dBE != null) {
+            this.dBF = null;
             Iterator<Integer> it = arrayList.iterator();
             while (it.hasNext()) {
                 if (c(it.next().intValue(), true, true)) {
@@ -282,18 +282,18 @@ public class b {
         return z2;
     }
 
-    public void aMc() {
-        this.dDr.clear();
-        this.dDq.clear();
+    public void aLu() {
+        this.dBK.clear();
+        this.dBJ.clear();
     }
 
     private boolean B(int i, boolean z) {
-        if (dDo) {
-            List<ActivityManager.AppTask> list = this.dDm;
-            if ((!z || list == null) && this.dDl != null) {
-                list = this.dDl.getAppTasks();
+        if (dBH) {
+            List<ActivityManager.AppTask> list = this.dBF;
+            if ((!z || list == null) && this.dBE != null) {
+                list = this.dBE.getAppTasks();
                 if (z) {
-                    this.dDm = list;
+                    this.dBF = list;
                 }
             }
             if (list != null) {
@@ -308,10 +308,10 @@ public class b {
         return false;
     }
 
-    public boolean lm(int i) {
-        if (aMa() && dDo && this.dDl != null) {
+    public boolean li(int i) {
+        if (aLs() && dBH && this.dBE != null) {
             int i2 = 0;
-            for (ActivityManager.AppTask appTask : this.dDl.getAppTasks()) {
+            for (ActivityManager.AppTask appTask : this.dBE.getAppTasks()) {
                 if (i2 > 0 && a(appTask) == i) {
                     appTask.finishAndRemoveTask();
                     return true;
@@ -323,12 +323,12 @@ public class b {
         return false;
     }
 
-    public int aMd() {
-        if (!dDo || this.dDl == null) {
+    public int aLv() {
+        if (!dBH || this.dBE == null) {
             return -1;
         }
         try {
-            return a(this.dDl.getAppTasks().get(0));
+            return a(this.dBE.getAppTasks().get(0));
         } catch (Exception e) {
             if (DEBUG) {
                 Log.e("SwanActivityTaskManager", "getTopTaskId", e);
@@ -356,10 +356,10 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     @Nullable
-    public ArrayList<Integer> aMe() {
+    public ArrayList<Integer> aLw() {
         List<ActivityManager.AppTask> appTasks;
         int size;
-        if (dDo && this.dDl != null && (size = (appTasks = this.dDl.getAppTasks()).size()) >= 2) {
+        if (dBH && this.dBE != null && (size = (appTasks = this.dBE.getAppTasks()).size()) >= 2) {
             ArrayList<Integer> arrayList = new ArrayList<>(size - 1);
             for (int i = 1; i < size; i++) {
                 int a2 = a(appTasks.get(i));
@@ -373,22 +373,22 @@ public class b {
     }
 
     public static void O(@NonNull Message message) {
-        if (aMa()) {
-            aLZ().V((Bundle) message.obj);
+        if (aLs()) {
+            aLr().V((Bundle) message.obj);
         }
     }
 
     public static void P(@NonNull Message message) {
-        if (aMa()) {
-            b aLZ = aLZ();
+        if (aLs()) {
+            b aLr = aLr();
             if (message.obj instanceof Bundle) {
                 Bundle bundle = (Bundle) message.obj;
                 bundle.setClassLoader(SwanTaskDeadEvent.class.getClassLoader());
                 SwanTaskDeadEvent swanTaskDeadEvent = (SwanTaskDeadEvent) bundle.getParcelable("key_stack_info");
                 if (swanTaskDeadEvent != null && !TextUtils.isEmpty(swanTaskDeadEvent.getAppId())) {
-                    if (ProcessUtils.isMainProcess() || (aLZ.dDn != null && aLZ.dDn.contains(Integer.valueOf(swanTaskDeadEvent.getTaskId())))) {
-                        aLZ.dDq.put(swanTaskDeadEvent.getAppId().hashCode(), swanTaskDeadEvent.getTaskId());
-                        aLZ.dDr.put(swanTaskDeadEvent.getTaskId(), swanTaskDeadEvent);
+                    if (ProcessUtils.isMainProcess() || (aLr.dBG != null && aLr.dBG.contains(Integer.valueOf(swanTaskDeadEvent.getTaskId())))) {
+                        aLr.dBJ.put(swanTaskDeadEvent.getAppId().hashCode(), swanTaskDeadEvent.getTaskId());
+                        aLr.dBK.put(swanTaskDeadEvent.getTaskId(), swanTaskDeadEvent);
                     }
                 }
             }
@@ -396,16 +396,16 @@ public class b {
     }
 
     public void l(@Nullable SwanAppActivity swanAppActivity) {
-        com.baidu.swan.apps.core.d.f afM;
+        com.baidu.swan.apps.core.d.f afe;
         com.baidu.swan.apps.core.d.e eVar;
-        com.baidu.swan.apps.model.c aoB;
-        if (aMa() && swanAppActivity != null && (afM = swanAppActivity.afM()) != null && (eVar = (com.baidu.swan.apps.core.d.e) afM.q(com.baidu.swan.apps.core.d.e.class)) != null && (aoB = eVar.aoB()) != null) {
+        com.baidu.swan.apps.model.c anT;
+        if (aLs() && swanAppActivity != null && (afe = swanAppActivity.afe()) != null && (eVar = (com.baidu.swan.apps.core.d.e) afe.q(com.baidu.swan.apps.core.d.e.class)) != null && (anT = eVar.anT()) != null) {
             Bundle bundle = new Bundle();
-            bundle.putParcelable("key_stack_info", new SwanTaskDeadEvent(swanAppActivity.afV(), swanAppActivity.getTaskId(), aoB.getPage() + "?" + aoB.getParams(), this.dDn));
+            bundle.putParcelable("key_stack_info", new SwanTaskDeadEvent(swanAppActivity.afn(), swanAppActivity.getTaskId(), anT.getPage() + "?" + anT.getParams(), this.dBG));
             bundle.setClassLoader(SwanTaskDeadEvent.class.getClassLoader());
-            com.baidu.swan.apps.process.messaging.a.aFe().a(new com.baidu.swan.apps.process.messaging.c(Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER, bundle).gg(true));
+            com.baidu.swan.apps.process.messaging.a.aEw().a(new com.baidu.swan.apps.process.messaging.c(Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER, bundle).gj(true));
             if (DEBUG) {
-                Log.d("SwanActivityTaskManager", "notify dead " + swanAppActivity.afV() + ", " + swanAppActivity.getTaskId());
+                Log.d("SwanActivityTaskManager", "notify dead " + swanAppActivity.afn() + ", " + swanAppActivity.getTaskId());
             }
         }
     }

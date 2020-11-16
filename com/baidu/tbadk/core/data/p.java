@@ -1,98 +1,31 @@
 package com.baidu.tbadk.core.data;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import org.json.JSONObject;
+import tbclient.BookThread;
 /* loaded from: classes.dex */
 public class p {
-    private boolean ezW;
-    private int ezX;
-    private int ezY;
-    private int time;
-    private int ezZ = 25;
-    private int eAa = 25;
-    private int eAb = 10;
+    public String eyj;
+    public long eyk;
+    public int eyl;
 
-    public int getSuccRank() {
-        return this.ezZ;
-    }
-
-    public int getErrRank() {
-        return this.eAa;
-    }
-
-    public int getSlowRank() {
-        return this.eAb;
-    }
-
-    public boolean ismSwitch() {
-        return this.ezW;
-    }
-
-    public void setmSwitch(boolean z) {
-        if (this.ezW != z) {
-            com.baidu.adp.lib.stats.a mT = com.baidu.tbadk.core.util.u.mT();
-            mT.append("act", "fallback");
-            mT.append("result", z ? "1" : "0");
-            mT.append("type", "switch");
-            BdStatisticsManager.getInstance().debug("img", mT);
-        }
-        this.ezW = z;
-    }
-
-    public int getSlowNumber() {
-        return this.ezX;
-    }
-
-    public int getTime() {
-        return this.time;
-    }
-
-    public int getErrNumber() {
-        return this.ezY;
-    }
-
-    public void parseJson(String str) {
-        try {
-            if (!TextUtils.isEmpty(str)) {
-                parseJson(new JSONObject(str));
-            }
-        } catch (Exception e) {
-            this.ezW = false;
-            BdLog.e(e.getMessage());
+    public void a(BookThread bookThread) {
+        if (bookThread != null) {
+            this.eyj = bookThread.book_id;
+            this.eyk = bookThread.chapter_id.longValue();
+            this.eyl = bookThread.book_type.intValue();
         }
     }
 
-    private void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                if (jSONObject.optInt("switch") == 1) {
-                    this.ezW = true;
-                } else {
-                    this.ezW = false;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("err");
-                if (optJSONObject != null) {
-                    this.ezY = optJSONObject.optInt("num");
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
-                if (optJSONObject2 != null) {
-                    this.time = optJSONObject2.optInt("time");
-                    this.ezX = optJSONObject2.optInt("num");
-                }
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
-                if (optJSONObject3 != null) {
-                    this.ezZ = optJSONObject3.optInt("succ");
-                    this.eAa = optJSONObject3.optInt("err");
-                    this.eAb = optJSONObject3.optInt("slow");
-                }
-                if (this.time <= 0 || this.ezX <= 0 || this.ezY <= 0) {
-                    this.ezW = false;
-                }
+                this.eyj = jSONObject.optString("book_id", "0");
+                this.eyk = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
+                this.eyl = jSONObject.optInt("book_type", 0);
             } catch (Exception e) {
-                this.ezW = false;
-                BdLog.e(e.getMessage());
+                BdLog.e(e.toString());
             }
         }
     }

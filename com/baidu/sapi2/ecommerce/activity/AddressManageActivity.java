@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes10.dex */
 public class AddressManageActivity extends SlideActiviy {
     private static final String ADDRESS_MANAGE_ACTIVITY = "AddressManageActivity";
     private static final String CREATE_EXTRA = "create_extra";

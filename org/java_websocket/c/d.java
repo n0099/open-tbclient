@@ -1,18 +1,18 @@
 package org.java_websocket.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class d extends g implements b {
-    private String qcw = "*";
+    private String qdZ = "*";
 
     @Override // org.java_websocket.c.b
-    public void aad(String str) throws IllegalArgumentException {
+    public void ZO(String str) throws IllegalArgumentException {
         if (str == null) {
             throw new IllegalArgumentException("http resource descriptor must not be null");
         }
-        this.qcw = str;
+        this.qdZ = str;
     }
 
     @Override // org.java_websocket.c.a
     public String getResourceDescriptor() {
-        return this.qcw;
+        return this.qdZ;
     }
 }

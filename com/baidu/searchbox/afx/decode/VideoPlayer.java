@@ -23,7 +23,7 @@ import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class VideoPlayer {
     private static final int DEFAULT_FPS = 25;
     public static final int MEDIA_INFO_EXTRA_NONE = 0;
@@ -47,7 +47,7 @@ public class VideoPlayer {
     private volatile long mStartFrameTimeUs = 0;
     private volatile int mPlayFrames = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public interface FrameCallback {
         void loopReset();
 
@@ -56,7 +56,7 @@ public class VideoPlayer {
         void reset();
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public interface OnInfoListener {
         boolean onInfo(VideoPlayer videoPlayer, int i, int i2);
     }
@@ -435,7 +435,7 @@ public class VideoPlayer {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public static class PlayTask implements Runnable {
         private static final int MSG_PLAY_ERROR = 1;
         private static final int MSG_PLAY_STOPPED = 0;
@@ -516,7 +516,7 @@ public class VideoPlayer {
             }
         }
 
-        /* loaded from: classes17.dex */
+        /* loaded from: classes7.dex */
         private static class LocalHandler extends Handler {
             private OnVideoEndedListener mOnEndedListener;
             private OnVideoErrorListener mOnErrorListener;

@@ -3,7 +3,7 @@ package org.webrtc;
 import android.opengl.GLES20;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class GlShader {
     private static final String TAG = "GlShader";
     private int program;

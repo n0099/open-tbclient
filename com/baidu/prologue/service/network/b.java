@@ -6,10 +6,10 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public abstract class b implements e {
     /* JADX INFO: Access modifiers changed from: protected */
-    public static String d(String str, Map<String, String> map) throws URISyntaxException {
+    public static String c(String str, Map<String, String> map) throws URISyntaxException {
         if (map != null && map.size() != 0) {
             URI create = URI.create(str);
             StringBuilder sb = new StringBuilder(TextUtils.isEmpty(create.getQuery()) ? "" : create.getQuery());

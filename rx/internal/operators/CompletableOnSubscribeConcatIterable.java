@@ -3,12 +3,12 @@ package rx.internal.operators;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.b;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class CompletableOnSubscribeConcatIterable implements b.a {
-    final Iterable<? extends rx.b> pMG;
+    final Iterable<? extends rx.b> pOj;
 
     public CompletableOnSubscribeConcatIterable(Iterable<? extends rx.b> iterable) {
-        this.pMG = iterable;
+        this.pOj = iterable;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,9 +16,9 @@ public final class CompletableOnSubscribeConcatIterable implements b.a {
     /* renamed from: a */
     public void call(rx.c cVar) {
         try {
-            Iterator<? extends rx.b> it = this.pMG.iterator();
+            Iterator<? extends rx.b> it = this.pOj.iterator();
             if (it == null) {
-                cVar.onSubscribe(rx.subscriptions.e.eGY());
+                cVar.onSubscribe(rx.subscriptions.e.eGZ());
                 cVar.onError(new NullPointerException("The iterator returned is null"));
                 return;
             }
@@ -26,13 +26,13 @@ public final class CompletableOnSubscribeConcatIterable implements b.a {
             cVar.onSubscribe(concatInnerSubscriber.sd);
             concatInnerSubscriber.next();
         } catch (Throwable th) {
-            cVar.onSubscribe(rx.subscriptions.e.eGY());
+            cVar.onSubscribe(rx.subscriptions.e.eGZ());
             cVar.onError(th);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes14.dex */
     public static final class ConcatInnerSubscriber extends AtomicInteger implements rx.c {
         private static final long serialVersionUID = -7965400327305809232L;
         final rx.c actual;

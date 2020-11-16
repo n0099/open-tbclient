@@ -6,7 +6,7 @@ import io.reactivex.m;
 import io.reactivex.o;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class MaybeSubscribeOn<T> extends io.reactivex.internal.operators.maybe.a<T, T> {
     final v scheduler;
 
@@ -17,23 +17,23 @@ public final class MaybeSubscribeOn<T> extends io.reactivex.internal.operators.m
         subscribeOnMaybeObserver.task.replace(this.scheduler.H(new a(subscribeOnMaybeObserver, this.source)));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class a<T> implements Runnable {
-        final m<? super T> pOc;
+        final m<? super T> pPF;
         final o<T> source;
 
         a(m<? super T> mVar, o<T> oVar) {
-            this.pOc = mVar;
+            this.pPF = mVar;
             this.source = oVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.source.a(this.pOc);
+            this.source.a(this.pPF);
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class SubscribeOnMaybeObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = 8571289934935992137L;
         final m<? super T> actual;

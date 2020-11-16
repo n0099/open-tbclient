@@ -5,7 +5,7 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static String a(byte[] bArr, String str) {
         try {

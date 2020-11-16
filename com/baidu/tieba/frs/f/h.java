@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.frs.FrsFragment;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class h {
     public static boolean a(FrsFragment frsFragment, String str, String str2, boolean z) {
-        if (z && frsFragment != null && !TextUtils.isEmpty(str) && frsFragment.isAdded() && k.aN(TbadkCoreApplication.getInst().getApplicationContext(), frsFragment.getActivity().getClass().getName())) {
+        if (z && frsFragment != null && !TextUtils.isEmpty(str) && frsFragment.isAdded() && k.aK(TbadkCoreApplication.getInst().getApplicationContext(), frsFragment.getActivity().getClass().getName())) {
             Intent intent = new Intent();
             intent.putExtra(DealIntentService.KEY_CLASS, 2);
             intent.putExtra("fname", str);

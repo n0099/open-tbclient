@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.utils.Log;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes17.dex */
 public final class WXMediaMessage {
     public static final String ACTION_WXAPPMESSAGE = "com.tencent.mm.sdk.openapi.Intent.ACTION_WXAPPMESSAGE";
     public static final int DESCRIPTION_LENGTH_LIMIT = 1024;
@@ -24,7 +24,7 @@ public final class WXMediaMessage {
     public byte[] thumbData;
     public String title;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes17.dex */
     public static class Builder {
         public static final String KEY_IDENTIFIER = "_wxobject_identifier_";
 
@@ -90,7 +90,7 @@ public final class WXMediaMessage {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes17.dex */
     public interface IMediaObject {
         public static final int TYPE_APPBRAND = 33;
         public static final int TYPE_APPDATA = 7;

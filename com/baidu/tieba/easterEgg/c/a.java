@@ -5,17 +5,18 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.easterEgg.c;
 import com.google.gson.Gson;
 import java.util.HashMap;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class a extends d {
-    private Gson ewq;
-    private com.baidu.tieba.easterEgg.d igu;
-    private HashMap<String, String> igv;
+    private Gson euH;
+    private c ihi;
+    private HashMap<String, String> ihj;
 
     public a(int i) {
         super(i);
-        this.ewq = new Gson();
+        this.euH = new Gson();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,39 +24,39 @@ public class a extends d {
     /* renamed from: d */
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
-        String Jo = Jo(httpMessageTask.getUrl());
-        if (Jo != null && this.igu != null) {
+        String IP = IP(httpMessageTask.getUrl());
+        if (IP != null && this.ihi != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
                     json = "";
                 } else {
-                    json = this.ewq.toJson(netMessage.getSocketMessage().getData());
+                    json = this.euH.toJson(netMessage.getSocketMessage().getData());
                 }
             } else {
-                json = this.ewq.toJson(httpMessage.getParams());
+                json = this.euH.toJson(httpMessage.getParams());
             }
-            this.igu.az(httpMessageTask.getUrl(), this.ewq.toJson(Jo), this.ewq.toJson(json));
+            this.ihi.az(httpMessageTask.getUrl(), this.euH.toJson(IP), this.euH.toJson(json));
         }
         return httpMessage;
     }
 
-    public String Jo(String str) {
+    public String IP(String str) {
         if (str.contains("?")) {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        if (this.igv != null) {
-            return this.igv.get(replace);
+        if (this.ihj != null) {
+            return this.ihj.get(replace);
         }
         return null;
     }
 
-    public void G(HashMap<String, String> hashMap) {
-        this.igv = hashMap;
+    public void F(HashMap<String, String> hashMap) {
+        this.ihj = hashMap;
     }
 
-    public void a(com.baidu.tieba.easterEgg.d dVar) {
-        this.igu = dVar;
+    public void a(c cVar) {
+        this.ihi = cVar;
     }
 }

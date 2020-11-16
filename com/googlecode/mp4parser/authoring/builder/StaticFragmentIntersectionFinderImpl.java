@@ -2,7 +2,7 @@ package com.googlecode.mp4parser.authoring.builder;
 
 import com.googlecode.mp4parser.authoring.Track;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class StaticFragmentIntersectionFinderImpl implements FragmentIntersectionFinder {
     Map<Track, long[]> sampleNumbers;
 

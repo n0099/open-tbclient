@@ -2,7 +2,7 @@ package io.reactivex.internal.operators.flowable;
 
 import io.reactivex.c.h;
 import io.reactivex.j;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T, U> {
     final h<? super T, ? extends U> mapper;
 
@@ -15,13 +15,13 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
     @Override // io.reactivex.g
     public void a(org.a.c<? super U> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.pMK.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
+            this.pOn.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
         } else {
-            this.pMK.a((j) new b(cVar, this.mapper));
+            this.pOn.a((j) new b(cVar, this.mapper));
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class b<T, U> extends io.reactivex.internal.subscribers.b<T, U> {
         final h<? super T, ? extends U> mapper;
 
@@ -48,7 +48,7 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return Rj(i);
+            return RM(i);
         }
 
         @Override // io.reactivex.internal.a.g
@@ -61,7 +61,7 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class a<T, U> extends io.reactivex.internal.subscribers.a<T, U> {
         final h<? super T, ? extends U> mapper;
 
@@ -100,7 +100,7 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return Rj(i);
+            return RM(i);
         }
 
         @Override // io.reactivex.internal.a.g

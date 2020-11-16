@@ -16,7 +16,7 @@ import com.baidu.ar.arplay.d.a;
 import com.baidu.ar.arplay.d.b;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class a implements ARPMessage.MessageHandler {
     private ARPEngine.f fB = new ARPEngine.f() { // from class: com.baidu.ar.arplay.b.a.1
         @Override // com.baidu.ar.arplay.core.engine.ARPEngine.f

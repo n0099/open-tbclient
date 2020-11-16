@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class GameRankHorizontalLayout extends HorizontalScrollView {
-    private LinearLayout fRy;
-    private a iXd;
+    private LinearLayout fRg;
+    private a iXP;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public interface a {
-        void b(com.baidu.tieba.h.a aVar, int i);
+        void b(com.baidu.tieba.i.a aVar, int i);
     }
 
     public GameRankHorizontalLayout(Context context) {
@@ -43,72 +43,72 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
     private void init(Context context) {
         setFillViewport(true);
         setHorizontalScrollBarEnabled(false);
-        this.fRy = new LinearLayout(context);
-        addView(this.fRy, -1, -1);
+        this.fRg = new LinearLayout(context);
+        addView(this.fRg, -1, -1);
     }
 
-    public void setData(com.baidu.tieba.h.b bVar) {
-        if (this.fRy != null && bVar != null) {
-            this.fRy.removeAllViews();
-            if (!y.isEmpty(bVar.cHv())) {
-                for (int i = 0; i < bVar.cHv().size(); i++) {
-                    View a2 = a(bVar.cHv().get(i), i);
+    public void setData(com.baidu.tieba.i.b bVar) {
+        if (this.fRg != null && bVar != null) {
+            this.fRg.removeAllViews();
+            if (!y.isEmpty(bVar.cHa())) {
+                for (int i = 0; i < bVar.cHa().size(); i++) {
+                    View a2 = a(bVar.cHa().get(i), i);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(l.getDimens(getContext(), R.dimen.ds468), l.getDimens(getContext(), R.dimen.ds190));
                     if (i != 0) {
                         layoutParams.leftMargin = l.getDimens(getContext(), R.dimen.ds8);
                     } else {
                         layoutParams.leftMargin = l.getDimens(getContext(), R.dimen.ds40);
                     }
-                    if (i == bVar.cHv().size() - 1) {
+                    if (i == bVar.cHa().size() - 1) {
                         layoutParams.rightMargin = l.getDimens(getContext(), R.dimen.ds40);
                     } else {
                         layoutParams.rightMargin = 0;
                     }
                     a2.setLayoutParams(layoutParams);
-                    this.fRy.addView(a2);
+                    this.fRg.addView(a2);
                 }
             }
         }
     }
 
     public void setOnCardClickListener(a aVar) {
-        this.iXd = aVar;
+        this.iXP = aVar;
     }
 
-    private View a(final com.baidu.tieba.h.a aVar, final int i) {
+    private View a(final com.baidu.tieba.i.a aVar, final int i) {
         RoundAngleRelativeLayout roundAngleRelativeLayout = null;
         if (aVar != null) {
-            if (!StringUtils.isNull(aVar.cHs())) {
+            if (!StringUtils.isNull(aVar.cGX())) {
                 roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.game_rank_week_card, (ViewGroup) null);
                 roundAngleRelativeLayout.setRadius(4.0f);
                 TbImageView tbImageView = (TbImageView) roundAngleRelativeLayout.findViewById(R.id.week_card_bg);
                 HeadImageView headImageView = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.head_img);
                 headImageView.setIsRound(true);
-                headImageView.startLoad(aVar.cHs(), 10, false);
+                headImageView.startLoad(aVar.cGX(), 10, false);
                 tbImageView.setDefaultErrorResource(R.color.transparent);
-                tbImageView.startLoad(aVar.cHs(), 10, false);
+                tbImageView.startLoad(aVar.cGX(), 10, false);
             } else {
                 roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.game_rank_normal_card, (ViewGroup) null);
                 roundAngleRelativeLayout.setRadius(4.0f);
                 TbImageView tbImageView2 = (TbImageView) roundAngleRelativeLayout.findViewById(R.id.normal_card_bg);
                 HeadImageView headImageView2 = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.head_img);
                 headImageView2.setIsRound(true);
-                headImageView2.startLoad(aVar.cHr(), 10, false);
+                headImageView2.startLoad(aVar.cGW(), 10, false);
                 tbImageView2.setDefaultErrorResource(R.color.transparent);
-                tbImageView2.startLoad(aVar.cHr(), 10, false);
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.user_name)).setText(aVar.cHq());
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.rank_title)).setText(aVar.cHn());
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.user_rank)).setText(getContext().getString(R.string.game_rank_no, aVar.cHo()));
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.rank_des)).setText(aVar.cHp());
+                tbImageView2.startLoad(aVar.cGW(), 10, false);
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.user_name)).setText(aVar.cGV());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.rank_title)).setText(aVar.cGS());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.user_rank)).setText(getContext().getString(R.string.game_rank_no, aVar.cGT()));
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.rank_des)).setText(aVar.cGU());
             }
             if (roundAngleRelativeLayout != null) {
                 roundAngleRelativeLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (GameRankHorizontalLayout.this.iXd != null) {
-                            GameRankHorizontalLayout.this.iXd.b(aVar, i);
-                            if (com.baidu.tbadk.core.sharedPref.b.bqh().getInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0) != 0) {
-                                com.baidu.tbadk.core.sharedPref.b.bqh().putInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0);
+                        if (GameRankHorizontalLayout.this.iXP != null) {
+                            GameRankHorizontalLayout.this.iXP.b(aVar, i);
+                            if (com.baidu.tbadk.core.sharedPref.b.bpu().getInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0) != 0) {
+                                com.baidu.tbadk.core.sharedPref.b.bpu().putInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0);
                             }
                         }
                     }

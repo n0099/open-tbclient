@@ -10,7 +10,6 @@ import com.baidu.tieba.lego.card.view.BaseLegoCardView;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.lego.model.AdPost;
 import com.baidu.tieba.recapp.lego.model.AdPostPbData;
-import com.baidu.tieba.recapp.lego.model.CriusAdCard;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.baidu.tieba.recapp.lego.model.VideoMiddlePageAdCard;
 import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
@@ -20,33 +19,30 @@ import com.baidu.tieba.recapp.lego.view.AdCardSinglePicView;
 import com.baidu.tieba.recapp.lego.view.AdCardSmallPicVideoView;
 import com.baidu.tieba.recapp.lego.view.AdCardSmallPicView;
 import com.baidu.tieba.recapp.lego.view.AdCardVideoView;
-import com.baidu.tieba.recapp.lego.view.CriusAdCardView;
 import com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView;
 import com.baidu.tieba.recapp.lego.view.form.FormCardView;
 import com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView;
 import com.baidu.tieba.recapp.lego.view.postad.AdPostImageView;
 import com.baidu.tieba.recapp.lego.view.postad.AdPostPbView;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
-    protected void cYT() {
-        kEB.put(17, kEB.size() + 1);
-        kEB.put(26, kEB.size() + 1);
-        kEB.put(27, kEB.size() + 1);
-        kEB.put(31, kEB.size() + 1);
-        kEB.put(32, kEB.size() + 1);
-        kEB.put(33, kEB.size() + 1);
-        kEB.put(34, kEB.size() + 1);
-        kEB.put(99, kEB.size() + 1);
-        kEC.put(17, BdUniqueId.gen());
-        kEC.put(26, BdUniqueId.gen());
-        kEC.put(27, BdUniqueId.gen());
-        kEC.put(31, BdUniqueId.gen());
-        kEC.put(32, BdUniqueId.gen());
-        kEC.put(33, BdUniqueId.gen());
-        kEC.put(34, BdUniqueId.gen());
-        kEC.put(99, BdUniqueId.gen());
+    protected void cYp() {
+        kEQ.put(17, kEQ.size() + 1);
+        kEQ.put(26, kEQ.size() + 1);
+        kEQ.put(27, kEQ.size() + 1);
+        kEQ.put(31, kEQ.size() + 1);
+        kEQ.put(32, kEQ.size() + 1);
+        kEQ.put(33, kEQ.size() + 1);
+        kEQ.put(34, kEQ.size() + 1);
+        kER.put(17, BdUniqueId.gen());
+        kER.put(26, BdUniqueId.gen());
+        kER.put(27, BdUniqueId.gen());
+        kER.put(31, BdUniqueId.gen());
+        kER.put(32, BdUniqueId.gen());
+        kER.put(33, BdUniqueId.gen());
+        kER.put(34, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -69,8 +65,6 @@ class a extends e {
                 return new AdPostPbData(jSONObject);
             case 33:
                 return new VideoMiddlePageAdCard(jSONObject);
-            case 99:
-                return new CriusAdCard(jSONObject);
             default:
                 return null;
         }
@@ -91,8 +85,6 @@ class a extends e {
                 return new AdPostPbView(tbPageContext);
             case 33:
                 return new VideoMiddlePageAdView(tbPageContext);
-            case 99:
-                return new CriusAdCardView(tbPageContext);
             default:
                 return null;
         }

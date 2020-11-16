@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.b.c;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class b extends j {
 
     /* renamed from: a  reason: collision with root package name */
@@ -11,7 +11,7 @@ public class b extends j {
     private final List<String> b;
     private final List<String> c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */

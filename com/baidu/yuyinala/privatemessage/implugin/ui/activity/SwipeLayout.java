@@ -15,41 +15,41 @@ import android.widget.FrameLayout;
 import com.baidu.yuyinala.privatemessage.implugin.util.f;
 /* loaded from: classes4.dex */
 public class SwipeLayout extends FrameLayout {
-    private View bSq;
-    private float bmg;
-    private float bmh;
+    private View bQG;
+    private float bkv;
+    private float bkw;
     private float currentX;
     private float currentY;
     private final int duration;
     private float lastX;
     private Activity mActivity;
     private Context mContext;
-    private Drawable oyQ;
-    public boolean oyR;
-    protected boolean oyS;
-    protected boolean oyT;
-    private boolean oyU;
-    private boolean oyV;
-    private int oyW;
-    private int oyX;
-    private VelocityTracker oyY;
-    private int oyZ;
-    private boolean oza;
-    private ObjectAnimator ozb;
+    private int oAA;
+    private int oAB;
+    private VelocityTracker oAC;
+    private int oAD;
+    private boolean oAE;
+    private ObjectAnimator oAF;
+    private Drawable oAu;
+    public boolean oAv;
+    protected boolean oAw;
+    protected boolean oAx;
+    private boolean oAy;
+    private boolean oAz;
     private int screenWidth;
     private int touchSlop;
 
     public SwipeLayout(Context context) {
         super(context);
-        this.oyR = false;
-        this.oyS = true;
-        this.oyT = false;
-        this.oyU = false;
-        this.oyV = false;
-        this.oyW = 16;
-        this.oyX = 72;
+        this.oAv = false;
+        this.oAw = true;
+        this.oAx = false;
+        this.oAy = false;
+        this.oAz = false;
+        this.oAA = 16;
+        this.oAB = 72;
         this.screenWidth = 1080;
-        this.oyZ = 30;
+        this.oAD = 30;
         this.touchSlop = 60;
         this.duration = 200;
         this.mContext = context;
@@ -57,15 +57,15 @@ public class SwipeLayout extends FrameLayout {
 
     public SwipeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oyR = false;
-        this.oyS = true;
-        this.oyT = false;
-        this.oyU = false;
-        this.oyV = false;
-        this.oyW = 16;
-        this.oyX = 72;
+        this.oAv = false;
+        this.oAw = true;
+        this.oAx = false;
+        this.oAy = false;
+        this.oAz = false;
+        this.oAA = 16;
+        this.oAB = 72;
         this.screenWidth = 1080;
-        this.oyZ = 30;
+        this.oAD = 30;
         this.touchSlop = 60;
         this.duration = 200;
         this.mContext = context;
@@ -73,26 +73,26 @@ public class SwipeLayout extends FrameLayout {
 
     public SwipeLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oyR = false;
-        this.oyS = true;
-        this.oyT = false;
-        this.oyU = false;
-        this.oyV = false;
-        this.oyW = 16;
-        this.oyX = 72;
+        this.oAv = false;
+        this.oAw = true;
+        this.oAx = false;
+        this.oAy = false;
+        this.oAz = false;
+        this.oAA = 16;
+        this.oAB = 72;
         this.screenWidth = 1080;
-        this.oyZ = 30;
+        this.oAD = 30;
         this.touchSlop = 60;
         this.duration = 200;
         this.mContext = context;
     }
 
     public void setSwipeAnyWhere(boolean z) {
-        this.oyT = z;
+        this.oAx = z;
     }
 
     public void setSwipeEnabled(boolean z) {
-        this.oyS = z;
+        this.oAw = z;
     }
 
     @Override // android.view.ViewGroup
@@ -100,91 +100,91 @@ public class SwipeLayout extends FrameLayout {
         boolean drawChild = super.drawChild(canvas, view, j);
         int dp2px = f.dp2px(this.mContext, 20.0f);
         int contentX = ((int) getContentX()) - dp2px;
-        this.oyQ.setBounds(contentX, view.getTop(), dp2px + contentX, view.getBottom());
-        this.oyQ.draw(canvas);
-        this.oyQ.setAlpha(76);
+        this.oAu.setBounds(contentX, view.getTop(), dp2px + contentX, view.getBottom());
+        this.oAu.draw(canvas);
+        this.oAu.setAlpha(76);
         return drawChild;
     }
 
     public void setCanSwipe(boolean z) {
-        this.oyU = z;
+        this.oAy = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.oyS && !this.oyU && !this.oyV) {
-            if (this.oyT) {
+        if (this.oAw && !this.oAy && !this.oAz) {
+            if (this.oAx) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        this.bmg = motionEvent.getX();
-                        this.bmh = motionEvent.getY();
-                        this.currentX = this.bmg;
-                        this.currentY = this.bmh;
-                        this.lastX = this.bmg;
+                        this.bkv = motionEvent.getX();
+                        this.bkw = motionEvent.getY();
+                        this.currentX = this.bkv;
+                        this.currentY = this.bkw;
+                        this.lastX = this.bkv;
                         break;
                     case 2:
-                        float x = motionEvent.getX() - this.bmg;
-                        float y = motionEvent.getY() - this.bmh;
+                        float x = motionEvent.getX() - this.bkv;
+                        float y = motionEvent.getY() - this.bkw;
                         if ((x * x) + (y * y) > this.touchSlop * this.touchSlop) {
                             if (y == 0.0f || Math.abs(x / y) > 1.0f) {
-                                this.bmg = motionEvent.getX();
-                                this.bmh = motionEvent.getY();
-                                this.currentX = this.bmg;
-                                this.currentY = this.bmh;
-                                this.lastX = this.bmg;
-                                this.oyU = true;
-                                this.oyY = VelocityTracker.obtain();
+                                this.bkv = motionEvent.getX();
+                                this.bkw = motionEvent.getY();
+                                this.currentX = this.bkv;
+                                this.currentY = this.bkw;
+                                this.lastX = this.bkv;
+                                this.oAy = true;
+                                this.oAC = VelocityTracker.obtain();
                                 return true;
                             }
-                            this.oyV = true;
+                            this.oAz = true;
                             break;
                         }
                         break;
                 }
-            } else if (motionEvent.getAction() == 0 && motionEvent.getX() < this.oyX) {
-                this.oyU = true;
-                this.oyY = VelocityTracker.obtain();
+            } else if (motionEvent.getAction() == 0 && motionEvent.getX() < this.oAB) {
+                this.oAy = true;
+                this.oAC = VelocityTracker.obtain();
                 return true;
             }
         }
         if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            this.oyV = false;
+            this.oAz = false;
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.oyU || super.onInterceptTouchEvent(motionEvent);
+        return this.oAy || super.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.oyU) {
-            if (this.oyY == null) {
-                this.oyY = VelocityTracker.obtain();
+        if (this.oAy) {
+            if (this.oAC == null) {
+                this.oAC = VelocityTracker.obtain();
             }
-            this.oyY.addMovement(motionEvent);
+            this.oAC.addMovement(motionEvent);
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.bmg = motionEvent.getX();
-                    this.bmh = motionEvent.getY();
-                    this.currentX = this.bmg;
-                    this.currentY = this.bmh;
-                    this.lastX = this.bmg;
+                    this.bkv = motionEvent.getX();
+                    this.bkw = motionEvent.getY();
+                    this.currentX = this.bkv;
+                    this.currentY = this.bkw;
+                    this.lastX = this.bkv;
                     break;
                 case 1:
                 case 3:
-                    this.oyY.computeCurrentVelocity(10000);
-                    this.oyY.computeCurrentVelocity(1000, 20000.0f);
-                    this.oyU = false;
-                    this.oza = false;
-                    if (Math.abs(this.oyY.getXVelocity()) > (this.screenWidth / 200) * 1000) {
-                        ba(this.oyY.getXVelocity());
+                    this.oAC.computeCurrentVelocity(10000);
+                    this.oAC.computeCurrentVelocity(1000, 20000.0f);
+                    this.oAy = false;
+                    this.oAE = false;
+                    if (Math.abs(this.oAC.getXVelocity()) > (this.screenWidth / 200) * 1000) {
+                        bh(this.oAC.getXVelocity());
                     } else if (getContentX() > this.screenWidth / 3) {
-                        zM(false);
+                        zT(false);
                     } else {
-                        zL(false);
+                        zS(false);
                     }
                     recycleVelocityTracker();
                     break;
@@ -192,8 +192,8 @@ public class SwipeLayout extends FrameLayout {
                     this.currentX = motionEvent.getX();
                     this.currentY = motionEvent.getY();
                     float f = this.currentX - this.lastX;
-                    if (f != 0.0f && !this.oza) {
-                        this.oza = true;
+                    if (f != 0.0f && !this.oAE) {
+                        this.oAE = true;
                         f /= f;
                     }
                     if (getContentX() + f < 0.0f) {
@@ -209,54 +209,54 @@ public class SwipeLayout extends FrameLayout {
     }
 
     private void recycleVelocityTracker() {
-        if (this.oyY != null) {
-            this.oyY.recycle();
-            this.oyY = null;
+        if (this.oAC != null) {
+            this.oAC.recycle();
+            this.oAC = null;
         }
     }
 
-    public void efY() {
-        if (this.ozb != null) {
-            this.ozb.removeAllListeners();
-            this.ozb.cancel();
+    public void efW() {
+        if (this.oAF != null) {
+            this.oAF.removeAllListeners();
+            this.oAF.cancel();
         }
     }
 
     public void setContentX(float f) {
-        this.bSq.setX((int) f);
+        this.bQG.setX((int) f);
         invalidate();
     }
 
     public float getContentX() {
-        return this.bSq.getX();
+        return this.bQG.getX();
     }
 
-    private void zL(boolean z) {
+    private void zS(boolean z) {
         int i;
-        efY();
-        this.ozb = ObjectAnimator.ofFloat(this, "contentX", getContentX(), 0.0f);
+        efW();
+        this.oAF = ObjectAnimator.ofFloat(this, "contentX", getContentX(), 0.0f);
         if (z) {
             i = (int) ((200.0f * getContentX()) / this.screenWidth);
         } else {
             i = 200;
         }
-        this.ozb.setDuration(i >= 100 ? i : 100);
-        this.ozb.setInterpolator(new DecelerateInterpolator());
-        this.ozb.start();
+        this.oAF.setDuration(i >= 100 ? i : 100);
+        this.oAF.setInterpolator(new DecelerateInterpolator());
+        this.oAF.start();
     }
 
-    private void zM(boolean z) {
+    private void zT(boolean z) {
         int i;
-        efY();
-        this.ozb = ObjectAnimator.ofFloat(this, "contentX", getContentX(), this.screenWidth);
+        efW();
+        this.oAF = ObjectAnimator.ofFloat(this, "contentX", getContentX(), this.screenWidth);
         if (z) {
             i = (int) ((200.0f * (this.screenWidth - getContentX())) / this.screenWidth);
         } else {
             i = 200;
         }
-        this.ozb.setDuration(i >= 100 ? i : 100);
-        this.ozb.setInterpolator(new DecelerateInterpolator());
-        this.ozb.addListener(new Animator.AnimatorListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.SwipeLayout.1
+        this.oAF.setDuration(i >= 100 ? i : 100);
+        this.oAF.setInterpolator(new DecelerateInterpolator());
+        this.oAF.addListener(new Animator.AnimatorListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.SwipeLayout.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
@@ -268,7 +268,7 @@ public class SwipeLayout extends FrameLayout {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (!SwipeLayout.this.mActivity.isFinishing()) {
-                    SwipeLayout.this.oyR = true;
+                    SwipeLayout.this.oAv = true;
                     SwipeLayout.this.mActivity.finish();
                 }
             }
@@ -277,20 +277,20 @@ public class SwipeLayout extends FrameLayout {
             public void onAnimationCancel(Animator animator) {
             }
         });
-        this.ozb.start();
+        this.oAF.start();
     }
 
-    private void ba(float f) {
+    private void bh(float f) {
         if (f > 0.0f) {
             if (getContentX() < this.screenWidth / 3 && ((f * 200.0f) / 1000.0f) + getContentX() < this.screenWidth / 3) {
-                zL(false);
+                zS(false);
             } else {
-                zM(true);
+                zT(true);
             }
         } else if (getContentX() > this.screenWidth / 3 && ((f * 200.0f) / 1000.0f) + getContentX() > this.screenWidth / 3) {
-            zM(false);
+            zT(false);
         } else {
-            zL(true);
+            zS(true);
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.meizu.flyme.openidsdk;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */

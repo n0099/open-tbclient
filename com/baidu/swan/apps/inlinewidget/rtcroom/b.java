@@ -31,59 +31,59 @@ import com.baidu.swan.apps.inlinewidget.rtcroom.a.b.y;
 import com.baidu.swan.apps.inlinewidget.rtcroom.a.b.z;
 import com.baidu.swan.apps.inlinewidget.rtcroom.c.b;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
-    private b.a cWq;
+    private b.a cUG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(@NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
         super(bVar);
-        this.cWq = new b.a() { // from class: com.baidu.swan.apps.inlinewidget.rtcroom.b.1
+        this.cUG = new b.a() { // from class: com.baidu.swan.apps.inlinewidget.rtcroom.b.1
         };
-        bVar.a(this.cWq);
-        this.cVM.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.a());
-        this.cVM.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.b());
-        this.cVM.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.c());
-        this.cVM.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.e());
-        this.cVM.a(new g());
-        this.cVM.a(new h());
-        this.cVM.a(new i());
-        this.cVM.a(new j());
-        this.cVM.a(new k());
-        this.cVM.a(new l());
-        this.cVM.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.d());
-        this.cVM.a(new f());
-        this.cVM.a(new m());
-        this.cVM.a(new n());
-        this.cVM.a(new o());
-        this.cVM.a(new q());
-        this.cVM.a(new p());
-        this.cVM.a(new r());
-        this.cVM.a(new s());
-        this.cVM.a(new t());
-        this.cVM.a(new u());
-        this.cVM.a(new v());
-        this.cVM.a(new w());
-        this.cVM.a(new x());
-        this.cVM.a(new y());
-        this.cVM.a(new z());
-        this.cVM.a(new aa());
-        this.cVM.a(new ab());
-        this.cVM.a(new ac());
-        this.cVM.a(new ad());
-        this.cVM.a(new ae());
-        this.cVM.a(new ag());
-        this.cVM.a(new af());
+        bVar.a(this.cUG);
+        this.cUc.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.a());
+        this.cUc.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.b());
+        this.cUc.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.c());
+        this.cUc.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.e());
+        this.cUc.a(new g());
+        this.cUc.a(new h());
+        this.cUc.a(new i());
+        this.cUc.a(new j());
+        this.cUc.a(new k());
+        this.cUc.a(new l());
+        this.cUc.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.d());
+        this.cUc.a(new f());
+        this.cUc.a(new m());
+        this.cUc.a(new n());
+        this.cUc.a(new o());
+        this.cUc.a(new q());
+        this.cUc.a(new p());
+        this.cUc.a(new r());
+        this.cUc.a(new s());
+        this.cUc.a(new t());
+        this.cUc.a(new u());
+        this.cUc.a(new v());
+        this.cUc.a(new w());
+        this.cUc.a(new x());
+        this.cUc.a(new y());
+        this.cUc.a(new z());
+        this.cUc.a(new aa());
+        this.cUc.a(new ab());
+        this.cUc.a(new ac());
+        this.cUc.a(new ad());
+        this.cUc.a(new ae());
+        this.cUc.a(new ag());
+        this.cUc.a(new af());
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.b, com.baidu.webkit.sdk.plugin.ZeusPlugin
     public void sendCommand(ZeusPlugin.Command command) {
         String str = command == null ? "" : command.what;
-        if (((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) this.cVO).ZZ()) {
+        if (((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) this.cUe).Zq()) {
             com.baidu.swan.apps.console.c.i("InlineRtcRoomController", "isReleased command：" + str);
             return;
         }
-        com.baidu.swan.apps.console.c.i("InlineRtcRoomController", "authorize type：" + ((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) this.cVO).avT() + " command：" + str);
+        com.baidu.swan.apps.console.c.i("InlineRtcRoomController", "authorize type：" + ((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) this.cUe).avl() + " command：" + str);
         super.sendCommand(command);
     }
 }

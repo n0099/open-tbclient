@@ -7,20 +7,20 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.q;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.ax;
 import org.apache.http.HttpHost;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class PbVideoFullscreenAttentionLayout extends FrameLayout {
-    private HeadImageView lOU;
-    private PbVideoFullscreenLikeBtn lOV;
-    private ax lOW;
+    private HeadImageView lPk;
+    private PbVideoFullscreenLikeBtn lPl;
+    private ax lPm;
     private BdUniqueId uniqueId;
 
     public PbVideoFullscreenAttentionLayout(Context context) {
@@ -40,13 +40,13 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
 
     private void init(Context context) {
         inflate(context, R.layout.pb_video_attention, this);
-        this.lOU = (HeadImageView) findViewById(R.id.attention_img);
-        this.lOV = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
-        this.lOU.setIsRound(true);
-        this.lOU.setBorderWidth(l.getDimens(context, R.dimen.tbds3));
-        this.lOU.setBorderColor(context.getResources().getColor(R.color.cp_border_b));
-        this.lOU.setAutoChangeStyle(false);
-        this.lOV.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
+        this.lPk = (HeadImageView) findViewById(R.id.attention_img);
+        this.lPl = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
+        this.lPk.setIsRound(true);
+        this.lPk.setBorderWidth(l.getDimens(context, R.dimen.tbds3));
+        this.lPk.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
+        this.lPk.setAutoChangeStyle(false);
+        this.lPl.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -54,62 +54,62 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     }
 
     public void setOnClickEvent(View.OnClickListener onClickListener) {
-        this.lOV.setOnclickEvent(onClickListener);
+        this.lPl.setOnclickEvent(onClickListener);
     }
 
-    public void setData(bw bwVar) {
-        if (bwVar != null && bwVar.bmA() != null) {
-            String BL = q.BL(bwVar.bmA().getAvater());
-            if (BL.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                this.lOU.startLoad(BL, 10, false);
+    public void setData(bx bxVar) {
+        if (bxVar != null && bxVar.blC() != null) {
+            String Bk = q.Bk(bxVar.blC().getAvater());
+            if (Bk.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                this.lPk.startLoad(Bk, 10, false);
             } else {
-                this.lOU.startLoad(BL, 25, false);
+                this.lPk.startLoad(Bk, 25, false);
             }
-            if (bwVar.bmA().getBaijiahaoInfo() != null && bwVar.bmA().getBaijiahaoInfo().auth_id.intValue() > 0) {
-                this.lOU.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(bwVar.bmA().getBaijiahaoInfo().auth_id.intValue(), 1));
-                this.lOU.setShowV(true);
-                this.lOU.setGodIconWidth(R.dimen.tbds31);
+            if (bxVar.blC().getBaijiahaoInfo() != null && bxVar.blC().getBaijiahaoInfo().auth_id.intValue() > 0) {
+                this.lPk.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(bxVar.blC().getBaijiahaoInfo().auth_id.intValue(), 1));
+                this.lPk.setShowV(true);
+                this.lPk.setGodIconWidth(R.dimen.tbds31);
             } else {
-                this.lOU.setBjhAuthIconRes(0);
-                this.lOU.setIsBigV(bwVar.bmA().isBigV());
-                this.lOU.setShowV(bwVar.bmA().isBigV());
+                this.lPk.setBjhAuthIconRes(0);
+                this.lPk.setIsBigV(bxVar.blC().isBigV());
+                this.lPk.setShowV(bxVar.blC().isBigV());
             }
-            aU(bwVar);
+            aW(bxVar);
         }
     }
 
-    public void aU(bw bwVar) {
-        if (bwVar != null && bwVar.bmA() != null) {
-            String str = bwVar.tid;
-            int aV = aV(bwVar);
-            if (this.lOW == null) {
+    public void aW(bx bxVar) {
+        if (bxVar != null && bxVar.blC() != null) {
+            String str = bxVar.tid;
+            int aX = aX(bxVar);
+            if (this.lPm == null) {
                 if (getContext() instanceof PbActivity) {
-                    this.lOW = new ax(((PbActivity) getContext()).getPageContext(), this.lOV, -1);
-                    this.lOW.Ba("11");
-                    this.lOW.l(this.uniqueId);
+                    this.lPm = new ax(((PbActivity) getContext()).getPageContext(), this.lPl, -1);
+                    this.lPm.Av("11");
+                    this.lPm.l(this.uniqueId);
                 } else {
                     return;
                 }
             }
-            this.lOW.a(bwVar.bmA());
-            this.lOW.setTid(str);
-            this.lOW.setThreadData(bwVar);
-            this.lOW.lAR = true;
-            this.lOW.Gg(aV);
+            this.lPm.a(bxVar.blC());
+            this.lPm.setTid(str);
+            this.lPm.setThreadData(bxVar);
+            this.lPm.lBj = true;
+            this.lPm.GE(aX);
         }
     }
 
-    public int aV(bw bwVar) {
-        if (bwVar == null) {
+    public int aX(bx bxVar) {
+        if (bxVar == null) {
             return 0;
         }
-        if (bwVar.bnX()) {
-            return !at.isEmpty(bwVar.bmE()) ? 2 : 0;
+        if (bxVar.bnb()) {
+            return !au.isEmpty(bxVar.blG()) ? 2 : 0;
         }
         return 1;
     }
 
-    public boolean dsp() {
-        return (this.lOW == null || this.lOW.btI() == null || !this.lOW.btI().getIsLike()) ? false : true;
+    public boolean drP() {
+        return (this.lPm == null || this.lPm.bsY() == null || !this.lPm.bsY().getIsLike()) ? false : true;
     }
 }

@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.view.Surface;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     private static class MediaCodecWrapperImpl implements MediaCodecWrapper {
         private final MediaCodec mediaCodec;
 

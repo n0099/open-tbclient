@@ -3,7 +3,7 @@ package protobuf.QueryUserInfos;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class QueryUserInfosResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;
@@ -21,7 +21,7 @@ public final class QueryUserInfosResIdl extends Message {
         this.data = builder.data;
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public static final class Builder extends Message.Builder<QueryUserInfosResIdl> {
         public DataRes data;
         public Error error;

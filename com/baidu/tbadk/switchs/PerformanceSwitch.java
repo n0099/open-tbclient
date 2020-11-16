@@ -1,12 +1,10 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-import com.baidu.tbadk.n.m;
 /* loaded from: classes.dex */
 public class PerformanceSwitch extends a {
     @Override // com.baidu.adp.lib.featureSwitch.a
     protected void changeSettingByType(int i) {
-        m.bCu().ky(1 == i);
     }
 
     @Override // com.baidu.adp.lib.featureSwitch.a

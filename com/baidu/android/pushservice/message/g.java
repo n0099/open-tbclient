@@ -1,17 +1,17 @@
 package com.baidu.android.pushservice.message;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1179a;
+    private int f1182a;
     private byte[] b;
 
     public int a() {
-        return this.f1179a;
+        return this.f1182a;
     }
 
     public void a(int i) {
-        this.f1179a = i;
+        this.f1182a = i;
     }
 
     public void a(byte[] bArr) {

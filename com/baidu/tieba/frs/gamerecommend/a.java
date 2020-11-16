@@ -8,13 +8,13 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class a extends b {
-    private FrsGameRecommendFragment iXk;
+    private FrsGameRecommendFragment iXW;
 
     public a(String str, String str2) {
-        this.iXk = FrsGameRecommendFragment.eT(str, str2);
-        getFragmentTabStructure().frag = this.iXk;
+        this.iXW = FrsGameRecommendFragment.eT(str, str2);
+        getFragmentTabStructure().frag = this.iXW;
     }
 
     @Override // com.baidu.tbadk.mainTab.b

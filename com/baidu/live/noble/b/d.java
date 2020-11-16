@@ -10,41 +10,41 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class d implements com.baidu.live.h.b {
-    private String aNj;
-    private String bnP;
-    private e bpa;
-    private com.baidu.live.noble.d.b bpb;
-    private com.baidu.live.noble.data.b bpc;
-    private long bpd;
+    private String aLy;
+    private String bme;
+    private e bnp;
+    private com.baidu.live.noble.d.b bnq;
+    private com.baidu.live.noble.data.b bnr;
+    private long bns;
     private boolean mIsHost;
     private String mLiveId;
     private int mTabId;
     private TbPageContext mTbPageContext;
     private Handler mHandler = new Handler();
-    private final b.a bpe = new b.a() { // from class: com.baidu.live.noble.b.d.1
+    private final b.a bnt = new b.a() { // from class: com.baidu.live.noble.b.d.1
         @Override // com.baidu.live.noble.d.b.a
-        public void Oy() {
-            d.this.KM();
+        public void NP() {
+            d.this.Kd();
         }
     };
-    private final e.a bpf = new e.a() { // from class: com.baidu.live.noble.b.d.2
+    private final e.a bnu = new e.a() { // from class: com.baidu.live.noble.b.d.2
         @Override // com.baidu.live.noble.c.e.a
         public void a(com.baidu.live.noble.data.b bVar) {
-            d.this.bpc = bVar;
-            if (d.this.bpb != null) {
-                d.this.bpb.b(bVar);
+            d.this.bnr = bVar;
+            if (d.this.bnq != null) {
+                d.this.bnq.b(bVar);
             }
             if (bVar == null) {
-                d.this.bpd = 5L;
-                d.this.aD(d.this.bpd);
+                d.this.bns = 5L;
+                d.this.aD(d.this.bns);
                 return;
             }
-            if (bVar.bpm <= 0) {
-                d.this.bpd = 5L;
+            if (bVar.bnB <= 0) {
+                d.this.bns = 5L;
             } else {
-                d.this.bpd = bVar.bpm;
+                d.this.bns = bVar.bnB;
             }
-            d.this.aD(d.this.bpd);
+            d.this.aD(d.this.bns);
         }
 
         @Override // com.baidu.live.noble.c.e.a
@@ -52,17 +52,17 @@ public class d implements com.baidu.live.h.b {
             if (d.this.mTbPageContext != null) {
                 BdUtilHelper.showToast(d.this.mTbPageContext.getPageActivity(), str);
             }
-            d.this.bpd = 5L;
-            d.this.aD(d.this.bpd);
-            if (d.this.bpb != null && d.this.bpc == null) {
-                d.this.bpb.cm(true);
+            d.this.bns = 5L;
+            d.this.aD(d.this.bns);
+            if (d.this.bnq != null && d.this.bnr == null) {
+                d.this.bnq.co(true);
             }
         }
     };
-    private final Runnable bpg = new Runnable() { // from class: com.baidu.live.noble.b.d.3
+    private final Runnable bnv = new Runnable() { // from class: com.baidu.live.noble.b.d.3
         @Override // java.lang.Runnable
         public void run() {
-            d.this.KM();
+            d.this.Kd();
         }
     };
 
@@ -70,21 +70,21 @@ public class d implements com.baidu.live.h.b {
     public void a(TbPageContext tbPageContext, String str, String str2, String str3, int i, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.bnP = str2;
-        this.aNj = str3;
+        this.bme = str2;
+        this.aLy = str3;
         this.mTabId = i;
         this.mIsHost = z;
-        this.bpa = new e(this.mTbPageContext, this.bpf);
-        this.bpb = new com.baidu.live.noble.d.b(this.mTbPageContext, this.mLiveId, this.bnP, this.mIsHost);
-        this.bpb.a(this.bpe);
+        this.bnp = new e(this.mTbPageContext, this.bnu);
+        this.bnq = new com.baidu.live.noble.d.b(this.mTbPageContext, this.mLiveId, this.bme, this.mIsHost);
+        this.bnq.a(this.bnt);
     }
 
     @Override // com.baidu.live.h.b
-    public void bQ(boolean z) {
+    public void bS(boolean z) {
         if (z) {
-            KM();
+            Kd();
         } else {
-            Ox();
+            NO();
         }
     }
 
@@ -95,48 +95,48 @@ public class d implements com.baidu.live.h.b {
 
     @Override // com.baidu.live.h.b
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.bpb != null) {
-            this.bpb.a(configuration);
+        if (this.bnq != null) {
+            this.bnq.a(configuration);
         }
     }
 
     @Override // com.baidu.live.h.b
-    public void KM() {
-        if (this.bpa != null) {
-            this.bpa.aC(this.bnP, this.mLiveId);
+    public void Kd() {
+        if (this.bnp != null) {
+            this.bnp.aB(this.bme, this.mLiveId);
         }
     }
 
     @Override // com.baidu.live.h.b
-    public void bR(boolean z) {
+    public void bT(boolean z) {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aD(long j) {
-        if (this.mHandler != null && this.bpg != null) {
-            this.mHandler.removeCallbacks(this.bpg);
-            this.mHandler.postDelayed(this.bpg, 1000 * j);
+        if (this.mHandler != null && this.bnv != null) {
+            this.mHandler.removeCallbacks(this.bnv);
+            this.mHandler.postDelayed(this.bnv, 1000 * j);
         }
     }
 
-    private void Ox() {
-        if (this.mHandler != null && this.bpg != null) {
-            this.mHandler.removeCallbacks(this.bpg);
+    private void NO() {
+        if (this.mHandler != null && this.bnv != null) {
+            this.mHandler.removeCallbacks(this.bnv);
         }
     }
 
     @Override // com.baidu.live.h.b
     public void onDestroy() {
-        if (this.bpa != null) {
-            this.bpa.onDestroy();
+        if (this.bnp != null) {
+            this.bnp.onDestroy();
         }
-        Ox();
+        NO();
     }
 
     @Override // com.baidu.live.h.b
     public View getView() {
-        if (this.bpb != null) {
-            return this.bpb.getRootView();
+        if (this.bnq != null) {
+            return this.bnq.getRootView();
         }
         return null;
     }

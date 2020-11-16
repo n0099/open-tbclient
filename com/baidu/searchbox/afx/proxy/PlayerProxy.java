@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public abstract class PlayerProxy implements IPlayer {
     protected OnReportListener mOnReportListener;
     protected OnVideoEndedListener mOnVideoEndedListener;
@@ -21,7 +21,7 @@ public abstract class PlayerProxy implements IPlayer {
     protected PlayerState mPlayerState = PlayerState.NOT_PREPARED;
     protected String mSourcePath;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public enum PlayerState {
         NOT_PREPARED,
         PREPARING,

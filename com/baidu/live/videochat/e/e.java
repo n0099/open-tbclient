@@ -13,15 +13,15 @@ public interface e extends c {
 
     void L(int i, String str);
 
-    void Vl();
+    void UC();
 
-    void Vm();
+    void UD();
 
-    void Vn();
+    void UE();
 
-    void Vo();
+    void UF();
 
-    void Vp();
+    void UG();
 
     void a(com.baidu.live.videochat.b.a aVar);
 }

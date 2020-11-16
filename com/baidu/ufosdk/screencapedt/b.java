@@ -4,7 +4,7 @@ import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.ufosdk.f.m;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 final class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */

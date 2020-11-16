@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.ScrollView;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.BdWalletUtils;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class SafeScrollView extends ScrollView {
 
     /* renamed from: a  reason: collision with root package name */
@@ -26,12 +26,12 @@ public class SafeScrollView extends ScrollView {
     private int j;
     private boolean k;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public interface ScrollChangedListener {
         void onScrollChanged(int i, int i2, int i3, int i4);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public interface onKeyBoardStatusChangeListener {
         void onKeyBoardStatusChange(boolean z, int i);
     }

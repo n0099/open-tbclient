@@ -1,7 +1,7 @@
 package com.baidu.idl.util;
 
 import android.os.Looper;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class UIThread {
     public static boolean isUITread() {
         return Looper.myLooper() == Looper.getMainLooper();

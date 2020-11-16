@@ -7,14 +7,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import com.xiaomi.push.gx;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class TrafficProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with other field name */
-    private SQLiteOpenHelper f791a;
+    private SQLiteOpenHelper f794a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Uri f790a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
+    public static final Uri f793a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
 
     /* renamed from: a  reason: collision with root package name */
     private static final UriMatcher f5016a = new UriMatcher(-1);
@@ -51,17 +51,17 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        this.f791a = new a(getContext());
+        this.f794a = new a(getContext());
         return true;
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         Cursor query;
-        synchronized (a.f792a) {
+        synchronized (a.f795a) {
             switch (f5016a.match(uri)) {
                 case 1:
-                    query = this.f791a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
+                    query = this.f794a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown URI " + uri);
@@ -77,7 +77,7 @@ public class TrafficProvider extends ContentProvider {
                 if (contentValues == null || !contentValues.containsKey("imsi")) {
                     return 0;
                 }
-                gx.m331a(contentValues.getAsString("imsi"));
+                gx.m334a(contentValues.getAsString("imsi"));
                 return 0;
             default:
                 return 0;

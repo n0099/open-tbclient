@@ -16,7 +16,7 @@ import com.baidu.swan.apps.scheme.j;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class e extends aa {
     public e(j jVar) {
         super(jVar, "/swanAPI/showToast");
@@ -24,7 +24,7 @@ public class e extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (eVar != null && eVar.ajA()) {
+        if (eVar != null && eVar.aiS()) {
             if (DEBUG) {
                 Log.d("ShowToastAction", "ShowToastAction does not supported when app is invisible.");
             }
@@ -46,7 +46,7 @@ public class e extends aa {
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("type", "1");
-            final int aM = h.aM(jSONObject);
+            final int aG = h.aG(jSONObject);
             final String optString2 = jSONObject.optString("message");
             if (TextUtils.isEmpty(optString2)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -94,7 +94,7 @@ public class e extends aa {
                     ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.e.e.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, aM, optBoolean);
+                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, aG, optBoolean);
                         }
                     });
                     break;
@@ -102,7 +102,7 @@ public class e extends aa {
                     ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.e.e.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, aM, a2, optBoolean);
+                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, aG, a2, optBoolean);
                         }
                     });
                     break;
@@ -110,7 +110,7 @@ public class e extends aa {
                     ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.e.e.3
                         @Override // java.lang.Runnable
                         public void run() {
-                            e.this.b(context, callbackHandler, unitedSchemeEntity, optString2, aM, optBoolean);
+                            e.this.b(context, callbackHandler, unitedSchemeEntity, optString2, aG, optBoolean);
                         }
                     });
                     break;
@@ -118,7 +118,7 @@ public class e extends aa {
                     ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.e.e.4
                         @Override // java.lang.Runnable
                         public void run() {
-                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, aM, optString5, optString4);
+                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, aG, optString5, optString4);
                         }
                     });
                     break;
@@ -139,7 +139,7 @@ public class e extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, @NonNull String str2, final String str3) {
-        com.baidu.swan.apps.res.widget.b.d.ct(context).h(str).i(str2).km(i).b(new d.a() { // from class: com.baidu.swan.apps.scheme.actions.e.e.5
+        com.baidu.swan.apps.res.widget.b.d.ct(context).h(str).i(str2).ki(i).b(new d.a() { // from class: com.baidu.swan.apps.scheme.actions.e.e.5
             @Override // com.baidu.swan.apps.res.widget.b.d.a
             public void onToastClick() {
                 if (!TextUtils.isEmpty(str3)) {
@@ -152,19 +152,19 @@ public class e extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, str).km(i).gz(z).ki(2).showToast();
+        com.baidu.swan.apps.res.widget.b.d.a(context, str).ki(i).gC(z).ke(2).showToast();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, Drawable drawable, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, h.L(str, 14)).d(drawable).km(i).gz(z).showHighlightToast();
+        com.baidu.swan.apps.res.widget.b.d.a(context, h.L(str, 14)).d(drawable).ki(i).gC(z).showHighlightToast();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, h.L(str, 14)).km(i).gz(z).showHighLoadingToast();
+        com.baidu.swan.apps.res.widget.b.d.a(context, h.L(str, 14)).ki(i).gC(z).showHighLoadingToast();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 

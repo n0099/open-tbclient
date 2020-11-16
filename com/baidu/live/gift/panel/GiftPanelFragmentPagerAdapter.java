@@ -6,31 +6,31 @@ import android.view.ViewGroup;
 import com.baidu.live.tbadk.core.BaseFragment;
 /* loaded from: classes4.dex */
 public class GiftPanelFragmentPagerAdapter extends FragmentPagerAdapter {
-    private Fragment bes;
-    private Fragment[] beu;
+    private Fragment bcG;
+    private Fragment[] bcH;
 
-    public Fragment[] JJ() {
-        return this.beu;
+    public Fragment[] Ja() {
+        return this.bcH;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return this.beu[i];
+        return this.bcH[i];
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.beu.length;
+        return this.bcH.length;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (this.bes != obj) {
-            if (this.bes instanceof BaseFragment) {
-                ((BaseFragment) this.bes).setPrimary(false);
+        if (this.bcG != obj) {
+            if (this.bcG instanceof BaseFragment) {
+                ((BaseFragment) this.bcG).setPrimary(false);
             }
-            this.bes = (Fragment) obj;
+            this.bcG = (Fragment) obj;
             if (obj instanceof BaseFragment) {
                 ((BaseFragment) obj).setPrimary(true);
             }

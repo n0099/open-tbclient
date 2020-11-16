@@ -2,15 +2,8 @@ package com.baidu.cyberplayer.sdk.rtc;
 
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class RTCConst {
-    public static final int RTC_ROOM_EVENTS_DISBAND_ROOM = 112;
-    public static final int RTC_ROOM_EVENTS_LIVE_INTERRUPT = 118;
-    public static final int RTC_ROOM_EVENTS_LIVE_PUBLISH_FAIL = 117;
-    public static final int RTC_ROOM_EVENTS_LIVE_PUBLISH_SUCCESS = 116;
-    public static final int RTC_ROOM_EVENTS_SOMEBODY_DISSHUTUPED = 114;
-    public static final int RTC_ROOM_EVENTS_SOMEBODY_KICKOFFED = 115;
-    public static final int RTC_ROOM_EVENTS_SOMEBODY_SHUTUPED = 113;
     public static final int RTC_ROOM_EVENT_AVAILABLE_SEND_BITRATE = 200;
     public static final int RTC_ROOM_EVENT_CONNECTION_LOST = 103;
     public static final int RTC_ROOM_EVENT_LOGIN_ERROR = 102;
@@ -29,7 +22,6 @@ public class RTCConst {
     public static final int RTC_ROOM_SET_EXTERNAL_SURFACE_ERROR = 600;
     public static final int RTC_ROOM_SO_DOWNLOAD_FAILED = 400;
     public static final int RTC_ROOM_SO_LOADING_FAILED = 401;
-    public static final int RTC_ROOM_USERID_ALREADY_EXIST_ERROR = 436;
     public static final int RTC_STATE_SENDING_MEDIA_FAILED = 2002;
     public static final int RTC_STATE_SENDING_MEDIA_OK = 2001;
     public static final int RTC_STATE_STREAM_DOWN = 2003;

@@ -10,7 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-/* loaded from: classes17.dex */
+/* loaded from: classes19.dex */
 public class HttpConnectTaskImpl implements HttpConnectTask {
     private final HttpConnectTask.OnConnectListener mOnConnectListener;
     private volatile long mStartTime;

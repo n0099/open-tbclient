@@ -5,24 +5,24 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.BawuThrones;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class c {
-    private x iGd;
-    private BawuThrones iGe;
+    private x iGR;
+    private BawuThrones iGS;
 
     private c() {
     }
 
-    public static c cxq() {
-        return a.iGf;
+    public static c cwS() {
+        return a.iGT;
     }
 
     public void a(BawuThrones bawuThrones) {
-        this.iGe = bawuThrones;
+        this.iGS = bawuThrones;
     }
 
-    public BawuThrones cxr() {
-        return this.iGe;
+    public BawuThrones cwT() {
+        return this.iGS;
     }
 
     public void eS(String str, String str2) {
@@ -33,23 +33,23 @@ public class c {
     }
 
     public void b(TbPageContext tbPageContext, String str, String str2) {
-        if (this.iGd == null) {
-            this.iGd = new x();
+        if (this.iGR == null) {
+            this.iGR = new x();
         }
-        this.iGd.b(tbPageContext, str, str2);
+        this.iGR.b(tbPageContext, str, str2);
     }
 
     public void destory() {
-        this.iGe = null;
-        if (this.iGd != null) {
-            this.iGd.onDestory();
+        this.iGS = null;
+        if (this.iGR != null) {
+            this.iGR.onDestory();
         }
-        this.iGd = null;
+        this.iGR = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes21.dex */
+    /* loaded from: classes20.dex */
     public static class a {
-        private static c iGf = new c();
+        private static c iGT = new c();
     }
 }

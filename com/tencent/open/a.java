@@ -12,22 +12,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
     protected HashMap<String, b> f4573a = new HashMap<>();
 
     /* renamed from: com.tencent.open.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C1048a {
+    /* loaded from: classes11.dex */
+    public static class C1051a {
 
         /* renamed from: a  reason: collision with root package name */
         protected WeakReference<WebView> f4575a;
         protected long b;
         protected String c;
 
-        public C1048a(WebView webView, long j, String str) {
+        public C1051a(WebView webView, long j, String str) {
             this.f4575a = new WeakReference<>(webView);
             this.b = j;
             this.c = str;
@@ -63,9 +63,9 @@ public class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class b {
-        public void call(String str, List<String> list, C1048a c1048a) {
+        public void call(String str, List<String> list, C1051a c1051a) {
             Object invoke;
             Method[] declaredMethods = getClass().getDeclaredMethods();
             Method method = null;
@@ -84,8 +84,8 @@ public class a {
                     i++;
                 } catch (Exception e) {
                     f.b("openSDK_LOG.JsBridge", "-->handler call mehtod ex. targetMethod: " + ((Object) null), e);
-                    if (c1048a != null) {
-                        c1048a.a();
+                    if (c1051a != null) {
+                        c1051a.a();
                         return;
                     }
                     return;
@@ -118,14 +118,14 @@ public class a {
                 Class<?> returnType = method.getReturnType();
                 f.b("openSDK_LOG.JsBridge", "-->call, result: " + invoke + " | ReturnType: " + returnType.getName());
                 if ("void".equals(returnType.getName()) || returnType == Void.class) {
-                    if (c1048a != null) {
-                        c1048a.a((Object) null);
+                    if (c1051a != null) {
+                        c1051a.a((Object) null);
                     }
-                } else if (c1048a != null && customCallback()) {
-                    c1048a.a(invoke != null ? invoke.toString() : null);
+                } else if (c1051a != null && customCallback()) {
+                    c1051a.a(invoke != null ? invoke.toString() : null);
                 }
-            } else if (c1048a != null) {
-                c1048a.a();
+            } else if (c1051a != null) {
+                c1051a.a();
             }
         }
 
@@ -138,7 +138,7 @@ public class a {
         this.f4573a.put(str, bVar);
     }
 
-    public void a(String str, String str2, List<String> list, C1048a c1048a) {
+    public void a(String str, String str2, List<String> list, C1051a c1051a) {
         f.a("openSDK_LOG.JsBridge", "getResult---objName = " + str + " methodName = " + str2);
         int size = list.size();
         for (int i = 0; i < size; i++) {
@@ -151,12 +151,12 @@ public class a {
         b bVar = this.f4573a.get(str);
         if (bVar != null) {
             f.b("openSDK_LOG.JsBridge", "call----");
-            bVar.call(str2, list, c1048a);
+            bVar.call(str2, list, c1051a);
             return;
         }
         f.b("openSDK_LOG.JsBridge", "not call----objName NOT FIND");
-        if (c1048a != null) {
-            c1048a.a();
+        if (c1051a != null) {
+            c1051a.a();
         }
     }
 
@@ -166,9 +166,9 @@ public class a {
             ArrayList arrayList = new ArrayList(Arrays.asList((str + "/#").split("/")));
             if (arrayList.size() >= 6) {
                 List<String> subList = arrayList.subList(4, arrayList.size() - 1);
-                C1048a c1048a = new C1048a(webView, 4L, str);
+                C1051a c1051a = new C1051a(webView, 4L, str);
                 webView.getUrl();
-                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c1048a);
+                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c1051a);
                 return true;
             }
             return false;

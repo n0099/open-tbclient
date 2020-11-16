@@ -4,7 +4,7 @@ import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.swan.apps.adaptation.a.av;
 import com.baidu.swan.game.ad.e.n;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class d implements av {
     @Override // com.baidu.swan.apps.adaptation.a.av
     public com.baidu.swan.games.a.c a(com.baidu.swan.games.f.b bVar, JsObject jsObject) {

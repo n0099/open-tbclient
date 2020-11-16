@@ -2,7 +2,7 @@ package com.idlefish.flutterboost.containers;
 
 import com.idlefish.flutterboost.XPlatformPlugin;
 import io.flutter.embedding.engine.systemchannels.PlatformChannel;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 class BoostViewUtils {
     private static volatile XPlatformPlugin mInstance;
 

@@ -2,42 +2,42 @@ package com.baidu.swan.games.n;
 
 import android.text.TextUtils;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private com.baidu.swan.games.f.b dWL;
+    private com.baidu.swan.games.f.b dVd;
 
     public b(com.baidu.swan.games.f.b bVar) {
-        this.dWL = bVar;
+        this.dVd = bVar;
     }
 
-    public void xl(String str) {
+    public void xg(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        df(str, "keyboardinput");
+        de(str, "keyboardinput");
     }
 
-    public void xm(String str) {
+    public void xh(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        df(str, "keyboardconfirm");
+        de(str, "keyboardconfirm");
     }
 
-    public void xn(String str) {
+    public void xi(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        df(str, "keyboardcomplete");
+        de(str, "keyboardcomplete");
     }
 
-    private void df(String str, String str2) {
-        if (this.dWL != null && this.dWL.aUP() != null && this.dWL.aUP().hasEventListener(str2)) {
+    private void de(String str, String str2) {
+        if (this.dVd != null && this.dVd.aUh() != null && this.dVd.aUh().hasEventListener(str2)) {
             com.baidu.swan.games.n.a.a aVar = new com.baidu.swan.games.n.a.a();
             aVar.value = str;
             JSEvent jSEvent = new JSEvent(str2);
             jSEvent.data = aVar;
-            this.dWL.aUP().dispatchEvent(jSEvent);
+            this.dVd.aUh().dispatchEvent(jSEvent);
         }
     }
 }

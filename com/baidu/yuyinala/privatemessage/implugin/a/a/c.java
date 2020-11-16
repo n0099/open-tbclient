@@ -7,9 +7,9 @@ import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.DarkImageView;
 /* loaded from: classes4.dex */
 public abstract class c {
-    public TextView ovq;
-    public TextView ovr;
-    public DarkImageView ovs;
+    public TextView owU;
+    public TextView owV;
+    public DarkImageView owW;
 
     public abstract View getContentView();
 

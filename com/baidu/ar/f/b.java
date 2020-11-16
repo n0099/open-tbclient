@@ -2,7 +2,7 @@ package com.baidu.ar.f;
 
 import android.content.Context;
 import com.baidu.ar.f.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class b {
     private static b vp;
     private a vq;

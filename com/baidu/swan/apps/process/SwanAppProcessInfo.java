@@ -15,7 +15,7 @@ import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService2;
 import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService3;
 import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService4;
 import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService5;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public enum SwanAppProcessInfo {
     UNKNOWN(-2, false, false, null, null),
     SERVICE(-1, true, false, null, null),

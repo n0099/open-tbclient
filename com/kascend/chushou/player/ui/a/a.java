@@ -11,16 +11,16 @@ import java.util.concurrent.TimeUnit;
 import tv.chushou.zues.utils.e;
 /* loaded from: classes6.dex */
 public class a {
-    private BangInfo psZ;
-    private AutoBang pta;
-    private final SparseArrayCompat<BangListInfo> ptb = new SparseArrayCompat<>();
-    private IconConfig.Config ptc = new IconConfig.Config();
-    private InterfaceC0998a ptd;
-    private b pte;
+    private BangInfo puD;
+    private AutoBang puE;
+    private final SparseArrayCompat<BangListInfo> puF = new SparseArrayCompat<>();
+    private IconConfig.Config puG = new IconConfig.Config();
+    private InterfaceC1001a puH;
+    private b puI;
 
     /* renamed from: com.kascend.chushou.player.ui.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0998a {
+    public interface InterfaceC1001a {
         void a(long j, BangInfo bangInfo, String str);
 
         void a(BangInfo bangInfo, String str);
@@ -28,18 +28,18 @@ public class a {
         void a(IconConfig.Config config);
     }
 
-    public a(InterfaceC0998a interfaceC0998a) {
-        this.ptd = interfaceC0998a;
+    public a(InterfaceC1001a interfaceC1001a) {
+        this.puH = interfaceC1001a;
     }
 
     public void a() {
-        this.ptc = new IconConfig.Config();
-        this.psZ = null;
-        this.pta = null;
-        this.ptb.clear();
-        if (this.pte != null) {
-            this.pte.dispose();
-            this.pte = null;
+        this.puG = new IconConfig.Config();
+        this.puD = null;
+        this.puE = null;
+        this.puF.clear();
+        if (this.puI != null) {
+            this.puI.dispose();
+            this.puI = null;
         }
     }
 
@@ -49,45 +49,45 @@ public class a {
 
     public void a(SparseArrayCompat<BangListInfo> sparseArrayCompat) {
         if (sparseArrayCompat != null) {
-            this.ptb.clear();
+            this.puF.clear();
             for (int i = 0; i < sparseArrayCompat.size(); i++) {
-                this.ptb.put(sparseArrayCompat.keyAt(i), sparseArrayCompat.valueAt(i));
+                this.puF.put(sparseArrayCompat.keyAt(i), sparseArrayCompat.valueAt(i));
             }
         }
     }
 
     public void a(IconConfig.Config config) {
         if (config != null) {
-            this.ptc = config;
-            if (this.ptd != null) {
-                this.ptd.a(config);
+            this.puG = config;
+            if (this.puH != null) {
+                this.puH.a(config);
             }
         }
     }
 
     public void a(BangInfo bangInfo) {
         if (bangInfo != null) {
-            this.psZ = bangInfo;
-            if (this.ptd != null) {
-                this.ptd.a(bangInfo, a(bangInfo.mLevel));
+            this.puD = bangInfo;
+            if (this.puH != null) {
+                this.puH.a(bangInfo, a(bangInfo.mLevel));
             }
         }
     }
 
     public void a(AutoBang autoBang) {
         if (autoBang != null && autoBang.bangTime != 0) {
-            AutoBang autoBang2 = this.pta;
+            AutoBang autoBang2 = this.puE;
             if (autoBang.isDone) {
                 if (autoBang2 != null) {
-                    if (autoBang.bangTime >= autoBang2.currentTime && this.pte != null) {
-                        this.pte.dispose();
-                        this.pte = null;
+                    if (autoBang.bangTime >= autoBang2.currentTime && this.puI != null) {
+                        this.puI.dispose();
+                        this.puI = null;
                         return;
                     }
                     return;
-                } else if (this.pte != null) {
-                    this.pte.dispose();
-                    this.pte = null;
+                } else if (this.puI != null) {
+                    this.puI.dispose();
+                    this.puI = null;
                     return;
                 } else {
                     return;
@@ -103,41 +103,41 @@ public class a {
             }
             final long j = (autoBang3.bangTime - autoBang3.currentTime) / 1000;
             if (j <= 0) {
-                if (this.pte != null) {
-                    this.pte.dispose();
-                    this.pte = null;
+                if (this.puI != null) {
+                    this.puI.dispose();
+                    this.puI = null;
                     return;
                 }
                 return;
             }
-            if (this.pte != null) {
-                this.pte.dispose();
-                this.pte = null;
+            if (this.puI != null) {
+                this.puI.dispose();
+                this.puI = null;
             }
-            this.pta = autoBang3;
-            this.pte = g.a(1L, j, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.eBg()).b(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.a.a.4
+            this.puE = autoBang3;
+            this.puI = g.a(1L, j, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.eBh()).b(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.a.a.4
                 @Override // io.reactivex.c.a
                 public void run() throws Exception {
-                    if (a.this.ptd != null) {
-                        a.this.ptd.a(0L, a.this.psZ, a.this.d());
+                    if (a.this.puH != null) {
+                        a.this.puH.a(0L, a.this.puD, a.this.d());
                     }
-                    a.this.pta = null;
+                    a.this.puE = null;
                 }
             }).a(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.a.a.3
                 @Override // io.reactivex.c.a
                 public void run() throws Exception {
-                    if (a.this.ptd != null) {
-                        a.this.ptd.a(0L, a.this.psZ, a.this.d());
+                    if (a.this.puH != null) {
+                        a.this.puH.a(0L, a.this.puD, a.this.d());
                     }
                 }
-            }).b(io.reactivex.a.b.a.eAB()).a(io.reactivex.a.b.a.eAB()).c(io.reactivex.a.b.a.eAB()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.a.a.1
+            }).b(io.reactivex.a.b.a.eAC()).a(io.reactivex.a.b.a.eAC()).c(io.reactivex.a.b.a.eAC()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // io.reactivex.c.g
                 /* renamed from: a */
                 public void accept(Long l) throws Exception {
                     long longValue = j - l.longValue();
-                    if (a.this.ptd != null) {
-                        a.this.ptd.a(longValue, a.this.psZ, a.this.d());
+                    if (a.this.puH != null) {
+                        a.this.puH.a(longValue, a.this.puD, a.this.d());
                     }
                 }
             }, new io.reactivex.c.g<Throwable>() { // from class: com.kascend.chushou.player.ui.a.a.2
@@ -152,22 +152,22 @@ public class a {
     }
 
     public IconConfig.Config evO() {
-        return this.ptc;
+        return this.puG;
     }
 
     public String d() {
-        if (this.psZ == null) {
+        if (this.puD == null) {
             return null;
         }
-        return a(this.psZ.mLevel);
+        return a(this.puD.mLevel);
     }
 
     public BangInfo evP() {
-        return this.psZ;
+        return this.puD;
     }
 
     private String a(int i) {
-        BangListInfo bangListInfo = this.ptb.get(i);
+        BangListInfo bangListInfo = this.puF.get(i);
         if (bangListInfo != null) {
             return bangListInfo.icon;
         }

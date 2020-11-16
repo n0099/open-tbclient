@@ -6,48 +6,48 @@ import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @V8JavascriptField
     public JsObject canvas = null;
-    private com.baidu.swan.games.f.b dQV;
+    private com.baidu.swan.games.f.b dPn;
 
     public e(com.baidu.swan.games.f.b bVar) {
-        this.dQV = bVar;
-        aWy();
-        aWz();
+        this.dPn = bVar;
+        aVQ();
+        aVR();
     }
 
-    private boolean aWy() {
-        return di(this.dQV.getInitBasePath(), "swan-game-open-data.js");
+    private boolean aVQ() {
+        return dh(this.dPn.getInitBasePath(), "swan-game-open-data.js");
     }
 
-    private boolean aWz() {
-        String azv = com.baidu.swan.apps.v.f.azO().azv();
-        String aWC = f.aWA().aWC();
+    private boolean aVR() {
+        String ayN = com.baidu.swan.apps.v.f.azg().ayN();
+        String aVU = f.aVS().aVU();
         if (DEBUG) {
-            Log.d("SwanGameOpenDataContext", "baseFilePath: " + azv);
-            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + aWC);
+            Log.d("SwanGameOpenDataContext", "baseFilePath: " + ayN);
+            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + aVU);
         }
-        return di(azv, aWC);
+        return dh(ayN, aVU);
     }
 
     @JavascriptInterface
     public void destroyOpenDataContext() {
-        this.dQV.aUN().aUZ();
+        this.dPn.aUf().aUr();
     }
 
     @JavascriptInterface
     public void postMessage(JsObject jsObject) {
-        this.dQV.aUQ().dispatchEvent(new JSEvent("postmessage", jsObject));
+        this.dPn.aUi().dispatchEvent(new JSEvent("postmessage", jsObject));
     }
 
-    private boolean di(String str, String str2) {
-        if (!f.aWA().aWB() || TextUtils.isEmpty(str)) {
+    private boolean dh(String str, String str2) {
+        if (!f.aVS().aVT() || TextUtils.isEmpty(str)) {
             return false;
         }
-        this.dQV.aUN().cV(str, str2);
+        this.dPn.aUf().cU(str, str2);
         return true;
     }
 }

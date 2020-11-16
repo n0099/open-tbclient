@@ -12,7 +12,7 @@ import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class BlurringView extends View {
 
     /* renamed from: a  reason: collision with root package name */

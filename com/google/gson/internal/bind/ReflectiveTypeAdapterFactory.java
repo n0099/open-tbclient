@@ -19,13 +19,13 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     private final com.google.gson.internal.b constructorConstructor;
     private final Excluder excluder;
     private final FieldNamingStrategy fieldNamingPolicy;
     private final JsonAdapterAnnotationTypeAdapterFactory jsonAdapterFactory;
-    private final com.google.gson.internal.a.b pcS = com.google.gson.internal.a.b.etm();
+    private final com.google.gson.internal.a.b pev = com.google.gson.internal.a.b.etm();
 
     public ReflectiveTypeAdapterFactory(com.google.gson.internal.b bVar, FieldNamingStrategy fieldNamingStrategy, Excluder excluder, JsonAdapterAnnotationTypeAdapterFactory jsonAdapterAnnotationTypeAdapterFactory) {
         this.constructorConstructor = bVar;
@@ -95,8 +95,8 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
             }
 
             @Override // com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.a
-            public boolean bE(Object obj) throws IOException, IllegalAccessException {
-                return this.per && field.get(obj) != obj;
+            public boolean bF(Object obj) throws IOException, IllegalAccessException {
+                return this.pfU && field.get(obj) != obj;
             }
         };
     }
@@ -113,7 +113,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                 boolean a2 = a(field, true);
                 boolean a3 = a(field, false);
                 if (a2 || a3) {
-                    this.pcS.b(field);
+                    this.pev.b(field);
                     Type a4 = C$Gson$Types.a(aVar.getType(), cls, field.getGenericType());
                     List<String> a5 = a(field);
                     a aVar2 = null;
@@ -143,33 +143,33 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static abstract class a {
         final String name;
-        final boolean per;
-        final boolean pes;
+        final boolean pfU;
+        final boolean pfV;
 
         abstract void a(com.google.gson.stream.a aVar, Object obj) throws IOException, IllegalAccessException;
 
-        abstract boolean bE(Object obj) throws IOException, IllegalAccessException;
+        abstract boolean bF(Object obj) throws IOException, IllegalAccessException;
 
         abstract void write(com.google.gson.stream.b bVar, Object obj) throws IOException, IllegalAccessException;
 
         protected a(String str, boolean z, boolean z2) {
             this.name = str;
-            this.per = z;
-            this.pes = z2;
+            this.pfU = z;
+            this.pfV = z2;
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class Adapter<T> extends TypeAdapter<T> {
-        private final e<T> pdU;
-        private final Map<String, a> peq;
+        private final Map<String, a> pfT;
+        private final e<T> pfx;
 
         Adapter(e<T> eVar, Map<String, a> map) {
-            this.pdU = eVar;
-            this.peq = map;
+            this.pfx = eVar;
+            this.pfT = map;
         }
 
         @Override // com.google.gson.TypeAdapter
@@ -178,12 +178,12 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                 aVar.etb();
                 return null;
             }
-            T construct = this.pdU.construct();
+            T construct = this.pfx.construct();
             try {
                 aVar.esV();
                 while (aVar.hasNext()) {
-                    a aVar2 = this.peq.get(aVar.esZ());
-                    if (aVar2 == null || !aVar2.pes) {
+                    a aVar2 = this.pfT.get(aVar.esZ());
+                    if (aVar2 == null || !aVar2.pfV) {
                         aVar.etc();
                     } else {
                         aVar2.a(aVar, construct);
@@ -206,9 +206,9 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
             }
             bVar.etj();
             try {
-                for (a aVar : this.peq.values()) {
-                    if (aVar.bE(t)) {
-                        bVar.Yz(aVar.name);
+                for (a aVar : this.pfT.values()) {
+                    if (aVar.bF(t)) {
+                        bVar.Yk(aVar.name);
                         aVar.write(bVar, t);
                     }
                 }

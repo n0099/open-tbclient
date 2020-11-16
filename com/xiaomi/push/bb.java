@@ -1,30 +1,30 @@
 package com.xiaomi.push;
 
 import java.util.LinkedList;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class bb {
 
     /* renamed from: a  reason: collision with root package name */
     private LinkedList<a> f4809a = new LinkedList<>();
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes18.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
         private static final bb f4810a = new bb();
 
         /* renamed from: a  reason: collision with other field name */
-        public int f121a;
+        public int f124a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f122a;
+        public Object f125a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f123a;
+        public String f126a;
 
         a(int i, Object obj) {
-            this.f121a = i;
-            this.f122a = obj;
+            this.f124a = i;
+            this.f125a = obj;
         }
     }
 
@@ -33,19 +33,19 @@ public class bb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m159a() {
+    private void m162a() {
         if (this.f4809a.size() > 100) {
             this.f4809a.removeFirst();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m160a() {
+    public synchronized int m163a() {
         return this.f4809a.size();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m161a() {
+    public synchronized LinkedList<a> m164a() {
         LinkedList<a> linkedList;
         linkedList = this.f4809a;
         this.f4809a = new LinkedList<>();
@@ -54,6 +54,6 @@ public class bb {
 
     public synchronized void a(Object obj) {
         this.f4809a.add(new a(0, obj));
-        m159a();
+        m162a();
     }
 }

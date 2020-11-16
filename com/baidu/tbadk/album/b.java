@@ -11,7 +11,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.io.File;
@@ -21,16 +21,16 @@ import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class b {
     private final String TIEBA = TbConfig.getTempDirName();
-    private a euk;
-    private c eul;
+    private a esE;
+    private c esF;
     private final Context mContext;
 
     /* renamed from: com.baidu.tbadk.album.b$b  reason: collision with other inner class name */
-    /* loaded from: classes21.dex */
-    public interface InterfaceC0572b {
+    /* loaded from: classes20.dex */
+    public interface InterfaceC0570b {
         void bf(List<ImageFileInfo> list);
     }
 
@@ -42,10 +42,10 @@ public class b {
         if (cVar == null) {
             return false;
         }
-        bip();
-        this.euk = new a(cVar);
-        this.euk.setPriority(3);
-        this.euk.execute(new Object[0]);
+        bhJ();
+        this.esE = new a(cVar);
+        this.esE.setPriority(3);
+        this.esE.execute(new Object[0]);
         return true;
     }
 
@@ -53,34 +53,34 @@ public class b {
         if (dVar == null) {
             return false;
         }
-        biq();
-        this.eul = new c(str, dVar);
-        this.eul.setPriority(3);
-        this.eul.execute(new Void[0]);
+        bhK();
+        this.esF = new c(str, dVar);
+        this.esF.setPriority(3);
+        this.esF.execute(new Void[0]);
         return true;
     }
 
-    public void bip() {
-        if (this.euk != null) {
-            this.euk.cancel();
-            this.euk = null;
+    public void bhJ() {
+        if (this.esE != null) {
+            this.esE.cancel();
+            this.esE = null;
         }
     }
 
-    public void biq() {
-        if (this.eul != null) {
-            this.eul.cancel();
-            this.eul = null;
+    public void bhK() {
+        if (this.esF != null) {
+            this.esF.cancel();
+            this.esF = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes21.dex */
+    /* loaded from: classes20.dex */
     public class a extends BdAsyncTask<Object, Integer, List<com.baidu.tbadk.album.a>> {
-        private final com.baidu.tbadk.album.c eum;
+        private final com.baidu.tbadk.album.c esG;
 
         public a(com.baidu.tbadk.album.c cVar) {
-            this.eum = cVar;
+            this.esG = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,15 +88,15 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public List<com.baidu.tbadk.album.a> doInBackground(Object... objArr) {
-            return b.this.bir();
+            return b.this.bhL();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.eum != null) {
-                this.eum.onPreLoad();
+            if (this.esG != null) {
+                this.esG.onPreLoad();
             }
         }
 
@@ -106,14 +106,14 @@ public class b {
         /* renamed from: A */
         public void onPostExecute(List<com.baidu.tbadk.album.a> list) {
             super.onPostExecute(list);
-            if (this.eum != null) {
-                this.eum.bg(list);
+            if (this.esG != null) {
+                this.esG.bg(list);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.tbadk.album.a> bir() {
+    public List<com.baidu.tbadk.album.a> bhL() {
         HashSet<String> hashSet = new HashSet<>();
         return a(this.mContext, a(this.mContext, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, hashSet), MediaStore.Images.Media.INTERNAL_CONTENT_URI, hashSet);
     }
@@ -172,7 +172,7 @@ public class b {
                                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                                 File file3 = new File(string3);
                                 if (file3.exists() && file3.isFile()) {
-                                    imageFileInfo.setModifyTime(at.getChineseFormatTimeString(file3.lastModified()));
+                                    imageFileInfo.setModifyTime(au.getChineseFormatTimeString(file3.lastModified()));
                                 }
                                 imageFileInfo.setFilePath(string3);
                                 aVar.a(imageFileInfo);
@@ -242,23 +242,23 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes21.dex */
+    /* loaded from: classes20.dex */
     public class c extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo>> {
-        private final d euo;
-        private final String eup;
-        private String euq;
-        private List<com.baidu.tbadk.album.a> eur;
-        private int eus = 1;
-        private InterfaceC0572b eut = new InterfaceC0572b() { // from class: com.baidu.tbadk.album.b.c.1
-            @Override // com.baidu.tbadk.album.b.InterfaceC0572b
+        private final d esI;
+        private final String esJ;
+        private String esK;
+        private List<com.baidu.tbadk.album.a> esL;
+        private int esM = 1;
+        private InterfaceC0570b esN = new InterfaceC0570b() { // from class: com.baidu.tbadk.album.b.c.1
+            @Override // com.baidu.tbadk.album.b.InterfaceC0570b
             public void bf(List<ImageFileInfo> list) {
                 c.this.publishProgress(list);
             }
         };
 
         public c(String str, d dVar) {
-            this.euo = dVar;
-            this.eup = str;
+            this.esI = dVar;
+            this.esJ = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -266,31 +266,31 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public List<ImageFileInfo> doInBackground(Void... voidArr) {
-            if (TextUtils.isEmpty(this.eup)) {
+            if (TextUtils.isEmpty(this.esJ)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            if (this.eup.equals(com.baidu.tbadk.album.a.ALBUM_ID_ALL)) {
-                this.eur = b.this.bir();
-                if (this.eur != null) {
-                    for (com.baidu.tbadk.album.a aVar : this.eur) {
+            if (this.esJ.equals(com.baidu.tbadk.album.a.ALBUM_ID_ALL)) {
+                this.esL = b.this.bhL();
+                if (this.esL != null) {
+                    for (com.baidu.tbadk.album.a aVar : this.esL) {
                         String albumId = aVar.getAlbumId();
                         if (!TextUtils.isEmpty(albumId)) {
-                            a(arrayList, this.eut, albumId);
+                            a(arrayList, this.esN, albumId);
                         }
                     }
                 }
                 return arrayList;
             }
-            a(arrayList, this.eut, this.eup);
+            a(arrayList, this.esN, this.esJ);
             return arrayList;
         }
 
-        private void a(List<ImageFileInfo> list, InterfaceC0572b interfaceC0572b, String str) {
+        private void a(List<ImageFileInfo> list, InterfaceC0570b interfaceC0570b, String str) {
             if (list != null) {
-                a(list, interfaceC0572b, str, b.this.mContext, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                a(list, interfaceC0570b, str, b.this.mContext, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 if (list == null || list.size() <= 0) {
-                    a(list, interfaceC0572b, str, b.this.mContext, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                    a(list, interfaceC0570b, str, b.this.mContext, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
                 }
             }
         }
@@ -299,8 +299,8 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (this.euo != null) {
-                this.euo.onPreLoad();
+            if (this.esI != null) {
+                this.esI.onPreLoad();
             }
         }
 
@@ -310,8 +310,8 @@ public class b {
         /* renamed from: c */
         public void onProgressUpdate(List<ImageFileInfo>... listArr) {
             super.onProgressUpdate(listArr);
-            if (listArr.length > 0 && this.euo != null) {
-                this.euo.a(this.eur, listArr[0], this.euq);
+            if (listArr.length > 0 && this.esI != null) {
+                this.esI.a(this.esL, listArr[0], this.esK);
             }
         }
 
@@ -321,30 +321,30 @@ public class b {
         /* renamed from: A */
         public void onPostExecute(List<ImageFileInfo> list) {
             super.onPostExecute(list);
-            if (this.euo != null) {
-                this.euo.a(this.eur, list, this.euq);
+            if (this.esI != null) {
+                this.esI.a(this.esL, list, this.esK);
             }
         }
 
-        private void a(List<ImageFileInfo> list, InterfaceC0572b interfaceC0572b) {
-            if (list != null && interfaceC0572b != null) {
-                if (this.eus == 1 || this.eus == 2) {
-                    if (list.size() / this.eus > 50) {
-                        if (interfaceC0572b != null) {
-                            interfaceC0572b.bf(list);
+        private void a(List<ImageFileInfo> list, InterfaceC0570b interfaceC0570b) {
+            if (list != null && interfaceC0570b != null) {
+                if (this.esM == 1 || this.esM == 2) {
+                    if (list.size() / this.esM > 50) {
+                        if (interfaceC0570b != null) {
+                            interfaceC0570b.bf(list);
                         }
-                        this.eus++;
+                        this.esM++;
                     }
-                } else if (list.size() / this.eus > 500) {
-                    if (interfaceC0572b != null) {
-                        interfaceC0572b.bf(list);
+                } else if (list.size() / this.esM > 500) {
+                    if (interfaceC0570b != null) {
+                        interfaceC0570b.bf(list);
                     }
-                    this.eus++;
+                    this.esM++;
                 }
             }
         }
 
-        private void a(List<ImageFileInfo> list, InterfaceC0572b interfaceC0572b, String str, Context context, Uri uri) {
+        private void a(List<ImageFileInfo> list, InterfaceC0570b interfaceC0570b, String str, Context context, Uri uri) {
             Cursor cursor;
             String str2;
             if (list != null) {
@@ -363,7 +363,7 @@ public class b {
                                 }
                                 do {
                                     String string = cursor.getString(columnIndex);
-                                    this.euq = cursor.getString(columnIndex2);
+                                    this.esK = cursor.getString(columnIndex2);
                                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                                     imageFileInfo.setAlbumnId(str);
                                     imageFileInfo.setContentUriStr(str2);
@@ -381,9 +381,9 @@ public class b {
                                         }
                                         imageFileInfo.setIsGif(z);
                                         imageFileInfo.setIsLong(z2);
-                                        imageFileInfo.setModifyTime(at.getChineseFormatTimeString(file.lastModified()));
+                                        imageFileInfo.setModifyTime(au.getChineseFormatTimeString(file.lastModified()));
                                         list.add(imageFileInfo);
-                                        a(list, interfaceC0572b);
+                                        a(list, interfaceC0570b);
                                     }
                                 } while (cursor.moveToNext());
                                 com.baidu.adp.lib.f.a.close(cursor);

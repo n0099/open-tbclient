@@ -7,7 +7,7 @@ import com.tencent.connect.common.BaseApi;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.e;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class UserInfo extends BaseApi {
     public static final String GRAPH_OPEN_ID = "oauth2.0/m_me";
 

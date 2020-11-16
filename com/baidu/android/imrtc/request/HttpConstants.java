@@ -1,5 +1,5 @@
 package com.baidu.android.imrtc.request;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public interface HttpConstants {
     public static final int ERROR_CREATE_REQUEST_EXCEPTION = 10000;
     public static final int ERROR_PARSE_EXCEPTION = 10001;

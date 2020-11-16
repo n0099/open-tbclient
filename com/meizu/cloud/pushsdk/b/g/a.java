@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.b.g;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */

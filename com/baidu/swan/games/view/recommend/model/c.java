@@ -1,13 +1,13 @@
 package com.baidu.swan.games.view.recommend.model;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
-    public int Te;
+    public int Tf;
     public JSONObject data;
     public String errMsg;
 
     public boolean isSuccess() {
-        return this.Te == 0;
+        return this.Tf == 0;
     }
 }

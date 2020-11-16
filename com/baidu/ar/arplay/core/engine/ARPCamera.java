@@ -1,7 +1,7 @@
 package com.baidu.ar.arplay.core.engine;
 
 import android.util.Log;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class ARPCamera extends ARPNode {
     private static ARPCamera dU = null;
 

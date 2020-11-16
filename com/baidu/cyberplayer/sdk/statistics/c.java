@@ -3,7 +3,7 @@ package com.baidu.cyberplayer.sdk.statistics;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */

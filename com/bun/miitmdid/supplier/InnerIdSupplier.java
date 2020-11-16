@@ -2,7 +2,7 @@ package com.bun.miitmdid.supplier;
 
 import android.support.annotation.Keep;
 import com.bun.miitmdid.utils.SupplierListener;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public interface InnerIdSupplier extends IdSupplier {
     void a(SupplierListener supplierListener);
 

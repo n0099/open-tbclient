@@ -1,17 +1,17 @@
 package com.baidu.tieba.homepage.gamevideo.c;
 
 import com.baidu.fsg.face.base.b.c;
-import com.baidu.tbadk.core.data.m;
+import com.baidu.tbadk.core.data.n;
 import org.json.JSONObject;
 import tbclient.RecomVertical.SubClassItem;
-/* loaded from: classes22.dex */
-public class a extends m {
+/* loaded from: classes21.dex */
+public class a extends n {
     public int enable;
     public String sub_class_icon;
     public int sub_class_id;
     public String sub_class_name;
 
-    @Override // com.baidu.tbadk.core.data.m
+    @Override // com.baidu.tbadk.core.data.n
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.sub_class_id = jSONObject.optInt("sub_class_id");

@@ -5,7 +5,7 @@ import com.vivo.push.cache.ISubscribeAppTagManager;
 import com.vivo.push.model.SubscribeAppInfo;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class g implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

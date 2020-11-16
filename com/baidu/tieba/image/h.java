@@ -1,238 +1,497 @@
 package com.baidu.tieba.image;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.data.ConstantData;
-import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.searchbox.ugc.model.UgcConstant;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.MetaData;
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.dialog.i;
+import com.baidu.tbadk.core.dialog.k;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
+import com.baidu.tbadk.coreExtra.view.MultiImageView;
+import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.tbadkCore.data.o;
+import com.baidu.tieba.ueg.c;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.App;
-import tbclient.GoodsInfo;
-/* loaded from: classes21.dex */
-public class h {
-    public String fpM;
-    private ForumData jpk;
-    public MetaData kxM;
-    public String kxN;
-    private LinkedList<f> kxX;
-    private String kxZ;
-    private String kya;
-    public int kyc;
-    private int replyPrivateFlag;
-    private String fid = null;
-    private int kxW = 0;
-    private AdvertAppInfo kxY = null;
-    private LinkedList<AlaInfoData> kyb = new LinkedList<>();
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes20.dex */
+public class h implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
+    private i hZg;
+    private k hZh;
+    private com.baidu.tbadk.core.dialog.g ijN;
+    private MultiImageView kyz;
+    private final ImageViewerActivity kzm;
+    private a kzn;
+    private com.baidu.tieba.ueg.c kzp;
+    private com.baidu.tbadk.core.dialog.g kzq;
+    private com.baidu.tbadk.core.dialog.g kzr;
+    private com.baidu.tbadk.core.dialog.g kzs;
+    private com.baidu.tbadk.core.dialog.g kzt;
+    private com.baidu.tbadk.core.dialog.g kzu;
+    private PermissionJudgePolicy mPermissionJudgement;
+    private String kzo = null;
+    private List<com.baidu.tbadk.core.dialog.g> hZl = null;
+    private CustomMessageListener kzv = new CustomMessageListener(2921403) { // from class: com.baidu.tieba.image.h.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            o oVar;
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof o) && !h.this.kzm.isFinishing() && (oVar = (o) customResponsedMessage.getData()) != null) {
+                oVar.mYR = null;
+                if (!TextUtils.isEmpty(oVar.mYT) && !TextUtils.isEmpty(oVar.mYQ) && oVar.mYQ.equals(h.this.kzo)) {
+                    h.this.kyz.setCurrentImageQRInfo(oVar.mYT);
+                    h.this.Nb(oVar.mYT);
+                }
+            }
+        }
+    };
+    private k.b kzw = new k.b() { // from class: com.baidu.tieba.image.h.3
+        @Override // com.baidu.tbadk.core.dialog.k.b
+        public void onClick() {
+            h.this.kyz.rw(h.this.kzm.cNM());
+            h.this.cnO();
+        }
+    };
+    private k.b kzx = new k.b() { // from class: com.baidu.tieba.image.h.4
+        @Override // com.baidu.tbadk.core.dialog.k.b
+        public void onClick() {
+            e.aN(h.this.kzm.getPageContext().getPageActivity(), h.this.kyz.getCurrentImageUrl());
+            h.this.cnO();
+            h.this.Eq(1);
+        }
+    };
+    private k.b kzy = new k.b() { // from class: com.baidu.tieba.image.h.5
+        @Override // com.baidu.tbadk.core.dialog.k.b
+        public void onClick() {
+            String currentImageUrl = h.this.kyz.getCurrentImageUrl();
+            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_USER_COLLECT, currentImageUrl));
+            } else {
+                Intent intent = new Intent(com.baidu.tbadk.imageManager.d.ADD_USER_COLLECT_EMOTION_ACTION);
+                intent.putExtra(com.baidu.tbadk.imageManager.d.IMAGE_URL, currentImageUrl);
+                TbadkCoreApplication.getInst().sendBroadcast(intent);
+            }
+            h.this.cnO();
+            h.this.Eq(2);
+        }
+    };
+    private k.b ijO = new k.b() { // from class: com.baidu.tieba.image.h.6
+        @Override // com.baidu.tbadk.core.dialog.k.b
+        public void onClick() {
+            Activity pageActivity = h.this.kzm.getPageContext().getPageActivity();
+            if (h.this.mPermissionJudgement == null) {
+                h.this.mPermissionJudgement = new PermissionJudgePolicy();
+            }
+            h.this.mPermissionJudgement.clearRequestPermissionList();
+            h.this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+            if (!h.this.mPermissionJudgement.startRequestPermission(pageActivity)) {
+                h.this.saveImage();
+                h.this.cnO();
+                h.this.Eq(3);
+            }
+        }
+    };
+    private k.b kzz = new k.b() { // from class: com.baidu.tieba.image.h.7
+        @Override // com.baidu.tbadk.core.dialog.k.b
+        public void onClick() {
+            h.this.bxc();
+            h.this.cnO();
+            h.this.Eq(4);
+            h.this.cXn();
+        }
+    };
+    private k.b kzA = new AnonymousClass8();
 
-    public h() {
-        this.kxX = null;
-        this.kxX = new LinkedList<>();
+    public h(@Nullable ImageViewerActivity imageViewerActivity) {
+        this.kzm = imageViewerActivity;
+        this.kzm.registerListener(this.kzv);
     }
 
-    public void aS(String str, boolean z) {
+    public void j(@Nullable MultiImageView multiImageView) {
+        this.kyz = multiImageView;
+        if (this.hZg == null) {
+            this.hZh = new k(this.kzm);
+        }
+        if (this.hZl == null) {
+            this.hZl = new ArrayList();
+        }
+        cqT();
+        this.hZg = new i(this.kzm.getPageContext(), this.hZh);
+    }
+
+    public void cqT() {
+        this.hZl.clear();
+        String rv = this.kyz.rv(this.kzm.cNM());
+        if (rv != null) {
+            this.kzq = new com.baidu.tbadk.core.dialog.g(rv, this.hZh);
+            this.kzq.a(this.kzw);
+            this.hZl.add(this.kzq);
+        }
+        this.ijN = new com.baidu.tbadk.core.dialog.g(getString(R.string.save_to_local), this.hZh);
+        this.ijN.a(this.ijO);
+        this.hZl.add(this.ijN);
+        if (this.kzm != null && !this.kzm.cXj()) {
+            this.kzs = new com.baidu.tbadk.core.dialog.g(getString(R.string.save_to_emotion), this.hZh);
+            this.kzs.a(this.kzy);
+            this.hZl.add(this.kzs);
+        }
+        this.kzr = new com.baidu.tbadk.core.dialog.g(getString(R.string.identify_image), this.hZh);
+        this.kzr.a(this.kzx);
+        this.hZl.add(this.kzr);
+        String currentImageQRInfo = this.kyz.getCurrentImageQRInfo();
+        if (!TextUtils.isEmpty(currentImageQRInfo) && !currentImageQRInfo.equals("qr_none")) {
+            this.kzu = new com.baidu.tbadk.core.dialog.g(getString(R.string.image_qr_code), this.hZh);
+            this.kzu.a(this.kzA);
+            this.hZl.add(this.kzu);
+        }
+        this.kzt = new com.baidu.tbadk.core.dialog.g(getString(R.string.image_share), this.hZh);
+        this.kzt.a(this.kzz);
+        this.hZl.add(this.kzt);
+        this.hZh.a(new k.a() { // from class: com.baidu.tieba.image.h.2
+            @Override // com.baidu.tbadk.core.dialog.k.a
+            public void onClick() {
+                h.this.cnO();
+            }
+        });
+        this.hZh.br(this.hZl);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String getString(int i) {
+        return this.kzm.getString(i);
+    }
+
+    public void cnO() {
+        if (this.hZg != null && this.hZg.isShowing()) {
+            this.hZg.dismiss();
+        }
+    }
+
+    public void show() {
+        if (this.hZg != null && !this.kzm.isFinishing()) {
+            this.hZg.PA();
+        }
+    }
+
+    /* renamed from: com.baidu.tieba.image.h$8  reason: invalid class name */
+    /* loaded from: classes20.dex */
+    class AnonymousClass8 implements k.b {
+        AnonymousClass8() {
+        }
+
+        @Override // com.baidu.tbadk.core.dialog.k.b
+        public void onClick() {
+            final String currentImageQRInfo = h.this.kyz.getCurrentImageQRInfo();
+            if (!TextUtils.isEmpty(currentImageQRInfo) && !"qr_none".equals(currentImageQRInfo)) {
+                if (!l.isNetOk()) {
+                    l.showToast(h.this.kzm.getPageContext().getPageActivity(), h.this.getString(R.string.network_not_available));
+                    return;
+                }
+                if (h.this.kzp != null && !h.this.kzp.isCancelled()) {
+                    h.this.kzp.cancel();
+                }
+                h.this.kzp = new com.baidu.tieba.ueg.c(currentImageQRInfo, new c.a() { // from class: com.baidu.tieba.image.h.8.1
+                    @Override // com.baidu.tieba.ueg.c.a
+                    public void cXp() {
+                        h.this.openUrl(currentImageQRInfo);
+                    }
+
+                    @Override // com.baidu.tieba.ueg.c.a
+                    public void cXq() {
+                        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(h.this.kzm.getPageContext().getPageActivity());
+                        aVar.setTitleShowCenter(true);
+                        aVar.AI(h.this.getString(R.string.qr_url_jump_external_title));
+                        aVar.setMessageShowCenter(true);
+                        aVar.AJ(h.this.getString(R.string.qr_url_jump_external_message));
+                        aVar.a(h.this.getString(R.string.confirm), new a.b() { // from class: com.baidu.tieba.image.h.8.1.1
+                            @Override // com.baidu.tbadk.core.dialog.a.b
+                            public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                                aVar2.dismiss();
+                                h.this.openUrl(currentImageQRInfo);
+                            }
+                        });
+                        aVar.b(h.this.getString(R.string.cancel), new a.b() { // from class: com.baidu.tieba.image.h.8.1.2
+                            @Override // com.baidu.tbadk.core.dialog.a.b
+                            public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                                aVar2.dismiss();
+                            }
+                        });
+                        aVar.iW(false);
+                        aVar.iX(false);
+                        aVar.b(h.this.kzm.getPageContext()).bog();
+                    }
+
+                    @Override // com.baidu.tieba.ueg.c.a
+                    public void cXr() {
+                        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(h.this.kzm.getPageContext().getPageActivity());
+                        aVar.AI(null);
+                        aVar.setMessageShowCenter(true);
+                        aVar.AJ(h.this.getString(R.string.qr_url_risk_forbid));
+                        aVar.a(h.this.getString(R.string.qr_url_risk_forbid_button), new a.b() { // from class: com.baidu.tieba.image.h.8.1.3
+                            @Override // com.baidu.tbadk.core.dialog.a.b
+                            public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                                aVar2.dismiss();
+                            }
+                        });
+                        aVar.iW(false);
+                        aVar.iX(false);
+                        aVar.b(h.this.kzm.getPageContext()).bog();
+                    }
+
+                    @Override // com.baidu.tieba.ueg.c.a
+                    public void onError(String str) {
+                        l.showToast(h.this.kzm.getPageContext().getPageActivity(), h.this.getString(R.string.qr_scan_error));
+                    }
+                });
+                h.this.kzp.setPriority(3);
+                h.this.kzp.execute(new String[0]);
+                h.this.cnO();
+                h.this.Eq(5);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void openUrl(String str) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.kzm.getPageContext().getPageActivity(), null, str, false)));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void saveImage() {
         try {
-            a(new JSONObject(str), Boolean.valueOf(z));
+            this.kzn = new a(this.kyz.getCurrentImageUrl(), this.kyz.getCurrentImageData());
+            this.kzn.execute(new String[0]);
+            if (ImageViewerConfig.FROM_DISCOVER_BEAUTY.equals(this.kzm.getFrom())) {
+                TiebaStatic.log("c12173");
+            }
         } catch (Exception e) {
-            BdLog.detailException(e);
         }
     }
 
-    public LinkedList<f> cXx() {
-        return this.kxX;
-    }
-
-    public LinkedList<AlaInfoData> cXy() {
-        return this.kyb;
-    }
-
-    public int getImageNum() {
-        return this.kxW;
-    }
-
-    public String boi() {
-        return this.kxZ;
-    }
-
-    public String boj() {
-        return this.kya;
-    }
-
-    public int cXz() {
-        return this.replyPrivateFlag;
-    }
-
-    public ForumData bAz() {
-        return this.jpk;
-    }
-
-    public void a(JSONObject jSONObject, Boolean bool) {
-        if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("forum");
-                if (optJSONObject != null) {
-                    this.jpk = new ForumData();
-                    this.jpk.parserJson(optJSONObject);
-                    this.fid = optJSONObject.optString("id");
-                    this.kxZ = optJSONObject.optString("frist_class");
-                    this.kya = optJSONObject.optString("second_class");
+    @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.c
+    public void bxc() {
+        UrlDragImageView currentUrlDragImageView;
+        if (this.kyz != null && (currentUrlDragImageView = this.kyz.getCurrentUrlDragImageView()) != null) {
+            ImageUrlData imageUrlData = currentUrlDragImageView.getmAssistUrlData();
+            String str = "";
+            String str2 = "";
+            if (imageUrlData != null) {
+                str = imageUrlData.imageUrl;
+                str2 = com.baidu.tbadk.core.util.c.c.getNameMd5FromUrl(str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = this.kyz.getCurrentImageUrl();
+                str2 = aw.getNameMd5FromUrl(str);
+            }
+            ShareItem shareItem = new ShareItem();
+            if (imageUrlData != null) {
+                long j = imageUrlData.threadId;
+                if (j > 0) {
+                    shareItem.linkUrl = "http://tieba.baidu.com/p/" + j + "?fr=share";
                 }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("thread");
-                if (optJSONObject2 != null) {
-                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("author");
-                    if (optJSONObject3 != null) {
-                        this.kxM = new MetaData();
-                        this.kxM.setUserId(optJSONObject3.optString("user_id"));
-                        this.kxM.setUserName(optJSONObject3.optString("user_name"));
-                        this.kxM.setName_show(optJSONObject3.optString("nickname"));
+            }
+            if (!au.isEmpty(str)) {
+                shareItem.imageUri = Uri.parse(str);
+                shareItem.shareType = 1;
+                Bundle bundle = new Bundle();
+                bundle.putString("path", TbConfig.IMAGE_CACHE_DIR_NAME);
+                bundle.putString("name", str2);
+                bundle.putBoolean("formatData", true);
+                bundle.putBoolean("isSubDir", true);
+                bundle.putBoolean("isSdcard", false);
+                bundle.putBoolean("isSavedCache", true);
+                shareItem.diskPicOperate = bundle;
+            }
+            shareItem.isFromImageViewer = true;
+            shareItem.fge = 14;
+            this.kzm.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.kzm, shareItem, false)));
+        }
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.b
+    public void bxb() {
+        Activity pageActivity = this.kzm.getPageContext().getPageActivity();
+        if (this.mPermissionJudgement == null) {
+            this.mPermissionJudgement = new PermissionJudgePolicy();
+        }
+        this.mPermissionJudgement.clearRequestPermissionList();
+        this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+        if (!this.mPermissionJudgement.startRequestPermission(pageActivity)) {
+            saveImage();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes20.dex */
+    public class a extends BdAsyncTask<String, Integer, String> {
+        private byte[] mData;
+        private String mUrl;
+
+        public a(String str, byte[] bArr) {
+            this.mUrl = str;
+            this.mData = bArr;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... strArr) {
+            ImageUrlData imageUrlData;
+            String nameMd5FromUrl;
+            Map<String, ImageUrlData> cXa = h.this.kzm.cXa();
+            if (this.mUrl != null && cXa != null) {
+                Iterator<Map.Entry<String, ImageUrlData>> it = cXa.entrySet().iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        imageUrlData = null;
+                        break;
                     }
-                    this.kxN = optJSONObject2.optString("first_post_id");
-                    this.kyc = optJSONObject2.optInt("is_multiforum_thread");
+                    Map.Entry<String, ImageUrlData> next = it.next();
+                    if (next != null && next.getKey() != null && next.getValue() != null && next.getKey().contains(this.mUrl)) {
+                        imageUrlData = next.getValue();
+                        break;
+                    }
                 }
-                JSONObject optJSONObject4 = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
-                if (optJSONObject4 != null) {
-                    this.replyPrivateFlag = optJSONObject4.optInt("reply_private_flag");
-                    this.fpM = optJSONObject4.optString("voice_message");
+                if (imageUrlData != null) {
+                    String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + at.bqz().Bt(nameMd5FromUrl) + "/" + aw.getNameMd5FromUrl(imageUrlData.originalUrl);
+                    int[] imageFileWH = n.getImageFileWH(str);
+                    if (imageFileWH != null && imageFileWH.length == 2 && imageFileWH[0] > 0 && n.copyImageFile(str, this.mUrl, h.this.kzm.getPageContext().getPageActivity()) == 0) {
+                        return h.this.kzm.getPageContext().getString(R.string.save_image_to_album);
+                    }
                 }
-                this.kxW = jSONObject.optInt("pic_amount", 0);
-                JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
-                if (optJSONArray != null) {
-                    if (bool.booleanValue()) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            f fVar = new f();
-                            fVar.paserJson(optJSONArray.optJSONObject(i));
-                            int index = fVar.getIndex();
-                            if (index >= 1 && index <= this.kxW) {
-                                this.kxX.addLast(fVar);
-                            }
-                        }
+            }
+            if (this.mUrl != null && this.mData != null) {
+                switch (n.saveImageFileByUser(this.mUrl, this.mData, h.this.kzm.getPageContext().getPageActivity())) {
+                    case -2:
+                        return n.getSdErrorString();
+                    case 0:
+                        return h.this.getString(R.string.save_image_to_album);
+                }
+            }
+            return h.this.getString(R.string.save_fail);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            super.onPostExecute((a) str);
+            h.this.kzm.showToast(str);
+            h.this.kzn = null;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            h.this.kzn = null;
+            super.cancel(true);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Eq(int i) {
+        TiebaStatic.log(new ar("c13270").dR("uid", this.kzm.getUserId()).ak("obj_type", i));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void cXn() {
+    }
+
+    public void Nb(String str) {
+        int i;
+        boolean z = false;
+        if (this.hZg != null && !this.kzm.isFinishing() && this.hZg.isShowing() && !TextUtils.isEmpty(str) && !"qr_none".equals(str)) {
+            this.kzu = new com.baidu.tbadk.core.dialog.g(getString(R.string.image_qr_code), this.hZh);
+            this.kzu.a(this.kzA);
+            int i2 = 0;
+            while (true) {
+                if (i2 < this.hZl.size()) {
+                    if (this.kzr == null || this.hZl.get(i2) != this.kzr || (i = i2 + 1) > this.hZl.size()) {
+                        i2++;
                     } else {
-                        for (int length = optJSONArray.length() - 1; length >= 0; length--) {
-                            f fVar2 = new f();
-                            fVar2.paserJson(optJSONArray.getJSONObject(length));
-                            int index2 = fVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.kxW) {
-                                this.kxX.addFirst(fVar2);
-                            }
-                        }
+                        this.hZl.add(i, this.kzu);
+                        z = true;
+                        break;
                     }
+                } else {
+                    break;
                 }
-                f(jSONObject, bool.booleanValue());
-                ei(jSONObject);
-            } catch (Exception e) {
-                BdLog.detailException(e);
             }
+            if (!z) {
+                this.hZl.add(this.kzu);
+            }
+            this.hZh.br(this.hZl);
         }
     }
 
-    private void f(JSONObject jSONObject, boolean z) {
-        JSONArray optJSONArray;
-        if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("recom_ala_info")) != null) {
-            if (z) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    AlaInfoData alaInfoData = new AlaInfoData();
-                    alaInfoData.parserJson(optJSONArray.optJSONObject(i));
-                    this.kyb.addLast(alaInfoData);
+    public void da(View view) {
+        Bitmap imageBitmap;
+        if (view != null && (view instanceof DragImageView)) {
+            DragImageView dragImageView = (DragImageView) view;
+            ImageUrlData imageUrlData = dragImageView.getImageUrlData();
+            if ((imageUrlData == null || TextUtils.isEmpty(imageUrlData.qrInfo)) && (imageBitmap = dragImageView.getImageBitmap()) != null && !imageBitmap.isRecycled()) {
+                o oVar = new o();
+                oVar.type = 0;
+                oVar.mYR = imageBitmap;
+                String currentImageUrl = this.kyz.getCurrentImageUrl();
+                if (!TextUtils.isEmpty(currentImageUrl)) {
+                    oVar.mYQ = String.valueOf(System.currentTimeMillis()) + aw.getNameMd5FromUrl(currentImageUrl);
+                } else {
+                    oVar.mYQ = String.valueOf(BdUniqueId.gen().getId());
                 }
-                return;
-            }
-            for (int length = optJSONArray.length() - 1; length >= 0; length--) {
-                AlaInfoData alaInfoData2 = new AlaInfoData();
-                alaInfoData2.parserJson(optJSONArray.optJSONObject(length));
-                this.kyb.addFirst(alaInfoData2);
+                this.kzo = oVar.mYQ;
+                this.kzm.sendMessage(new CustomMessage(2921403, oVar));
             }
         }
     }
 
-    private void ei(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        JSONArray optJSONArray = jSONObject.optJSONArray("app");
-        if (optJSONArray != null && (optJSONObject = optJSONArray.optJSONObject(0)) != null) {
-            App.Builder builder = new App.Builder();
-            builder.id = optJSONObject.optString("id");
-            builder.type = Integer.valueOf(optJSONObject.optInt("type", 0));
-            builder.pos = Integer.valueOf(optJSONObject.optInt("pos", 0));
-            builder.icon_url = optJSONObject.optString("icon_url");
-            builder.icon_link = optJSONObject.optString("icon_link");
-            builder.app_name = optJSONObject.optString("app_name");
-            builder.app_desc = optJSONObject.optString("app_desc");
-            builder.p_name = optJSONObject.optString("p_name");
-            builder.p_url = optJSONObject.optString("p_url");
-            builder.img_url = optJSONObject.optString(BigdayActivityConfig.IMG_URL);
-            builder.app_time = Integer.valueOf(optJSONObject.optInt("app_time", 0));
-            builder.web_url = optJSONObject.optString("web_url");
-            builder.ad_id = optJSONObject.optString(LegoListActivityConfig.AD_ID);
-            builder.id = optJSONObject.optString("id");
-            builder.name = optJSONObject.optString("name");
-            builder.url_type = Integer.valueOf(optJSONObject.optInt(ConstantData.Logo.LOGO_JUMP_URL_TPYE, 0));
-            builder.url = optJSONObject.optString("url");
-            builder.ios_url = optJSONObject.optString("ios_url");
-            builder.apk_url = optJSONObject.optString(ConstantData.Logo.LOGO_AD_APK_URL);
-            builder.apk_name = optJSONObject.optString(ConstantData.Logo.LOGO_AD_APK_PACKAGE_NAME);
-            builder.pos_name = optJSONObject.optString("pos_name");
-            builder.first_name = optJSONObject.optString("first_name");
-            builder.second_name = optJSONObject.optString("second_name");
-            builder.cpid = Integer.valueOf(optJSONObject.optInt("cpid", 0));
-            builder.abtest = optJSONObject.optString("abtest");
-            builder.plan_id = Integer.valueOf(optJSONObject.optInt("plan_id", 0));
-            builder.user_id = optJSONObject.optString("user_id");
-            builder.price = optJSONObject.optString("price");
-            builder.verify = optJSONObject.optString(SmsLoginView.f.j);
-            builder.ext_info = optJSONObject.optString(UgcConstant.EXT_INFO);
-            builder.pos_name = optJSONObject.optString("pos_name");
-            GoodsInfo ej = ej(optJSONObject);
-            if (ej != null) {
-                builder.goods_info = new ArrayList();
-                builder.goods_info.add(ej);
-            }
-            builder.loc_code = optJSONObject.optString("loc_code");
-            App build = builder.build(true);
-            this.kxY = new AdvertAppInfo();
-            this.kxY.a(build);
-            this.kxY.adPosition = "c0111";
-            this.kxY.ezc = this.fid;
+    public void cXo() {
+        this.kzo = null;
+    }
+
+    public void release() {
+        if (this.kzn != null) {
+            this.kzn.cancel();
+            this.kzn = null;
+        }
+        if (this.kzp != null) {
+            this.kzp.cancel();
+            this.kzp = null;
         }
     }
 
-    private GoodsInfo ej(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        JSONArray optJSONArray = jSONObject.optJSONArray("goods_info");
-        if (optJSONArray == null || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
-            return null;
+    public void onChangeSkinType() {
+        if (this.hZh != null) {
+            this.hZh.onChangeSkinType();
         }
-        GoodsInfo.Builder builder = new GoodsInfo.Builder();
-        builder.id = Integer.valueOf(optJSONObject.optInt("id", 0));
-        builder.user_name = optJSONObject.optString("user_name");
-        builder.user_portrait = optJSONObject.optString("user_portrait");
-        builder.thread_title = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
-        builder.thread_pic = optJSONObject.optString("thread_pic");
-        builder.pop_window_text = optJSONObject.optString("pop_window_text");
-        builder.goods_style = Integer.valueOf(optJSONObject.optInt("goods_style", 0));
-        builder.label_visible = Integer.valueOf(optJSONObject.optInt("label_visible", 0));
-        builder.label_text = optJSONObject.optString("label_text");
-        builder.rank_level = Integer.valueOf(optJSONObject.optInt("rank_level", 0));
-        builder.thread_type = optJSONObject.optString("thread_type");
-        builder.button_text = optJSONObject.optString("button_text");
-        builder.card_desc = optJSONObject.optString("card_desc");
-        builder.card_tag = optJSONObject.optString("card_tag");
-        builder.tag_name = optJSONObject.optString("tag_name");
-        builder.ad_source = optJSONObject.optString("ad_source");
-        builder.tag_name_url = optJSONObject.optString("tag_name_url");
-        builder.tag_name_wh = optJSONObject.optString("tag_name_wh");
-        builder.lego_card = optJSONObject.optString("lego_card");
-        return builder.build(true);
-    }
-
-    public AdvertAppInfo cXA() {
-        return this.kxY;
     }
 }

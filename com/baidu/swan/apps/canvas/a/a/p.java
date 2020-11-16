@@ -3,7 +3,7 @@ package com.baidu.swan.apps.canvas.a.a;
 import android.graphics.Canvas;
 import android.support.v7.widget.ActivityChooserView;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class p extends a {
     private int mX = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     private int mY = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
@@ -11,8 +11,8 @@ public class p extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 1) {
-            this.mX = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(0));
-            this.mY = com.baidu.swan.apps.ap.ah.N((float) jSONArray.optDouble(1));
+            this.mX = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(0));
+            this.mY = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(1));
         }
     }
 

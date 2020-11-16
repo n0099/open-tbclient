@@ -10,7 +10,7 @@ import com.googlecode.mp4parser.authoring.samples.DefaultMp4SampleList;
 import com.googlecode.mp4parser.authoring.samples.FragmentedMp4SampleList;
 import java.util.AbstractList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SampleList extends AbstractList<Sample> {
     List<Sample> samples;
 

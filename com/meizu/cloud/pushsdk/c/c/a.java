@@ -7,7 +7,7 @@ import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
@@ -16,8 +16,8 @@ public class a {
     protected final String c;
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static abstract class AbstractC1028a<T extends AbstractC1028a<T>> {
+    /* loaded from: classes15.dex */
+    public static abstract class AbstractC1031a<T extends AbstractC1031a<T>> {
 
         /* renamed from: a  reason: collision with root package name */
         private List<com.meizu.cloud.pushsdk.c.a.b> f4395a = new LinkedList();
@@ -34,13 +34,13 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a(AbstractC1028a<?> abstractC1028a) {
-        d.a(((AbstractC1028a) abstractC1028a).f4395a);
-        d.a(((AbstractC1028a) abstractC1028a).c);
-        d.a(!((AbstractC1028a) abstractC1028a).c.isEmpty(), "eventId cannot be empty");
-        this.f4394a = ((AbstractC1028a) abstractC1028a).f4395a;
-        this.b = ((AbstractC1028a) abstractC1028a).b;
-        this.c = ((AbstractC1028a) abstractC1028a).c;
+    public a(AbstractC1031a<?> abstractC1031a) {
+        d.a(((AbstractC1031a) abstractC1031a).f4395a);
+        d.a(((AbstractC1031a) abstractC1031a).c);
+        d.a(!((AbstractC1031a) abstractC1031a).c.isEmpty(), "eventId cannot be empty");
+        this.f4394a = ((AbstractC1031a) abstractC1031a).f4395a;
+        this.b = ((AbstractC1031a) abstractC1031a).b;
+        this.c = ((AbstractC1031a) abstractC1031a).c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -5,7 +5,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class e extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */

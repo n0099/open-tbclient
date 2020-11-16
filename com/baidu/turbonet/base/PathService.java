@@ -2,7 +2,7 @@ package com.baidu.turbonet.base;
 
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
-/* loaded from: classes17.dex */
+/* loaded from: classes12.dex */
 public abstract class PathService {
     private static native void nativeOverride(int i, String str);
 

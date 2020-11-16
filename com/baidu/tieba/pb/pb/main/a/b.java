@@ -8,99 +8,99 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.pb.pb.main.PbFragment;
 import tbclient.SmartApp;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private View.OnClickListener iKb;
-    private RelativeLayout lEa;
-    private HeadImageView lEb;
-    private TextView lEc;
-    private TextView lEd;
-    private ImageView lEe;
-    private PbFragment lpI;
+    private View.OnClickListener iKO;
+    private RelativeLayout lEs;
+    private HeadImageView lEt;
+    private TextView lEu;
+    private TextView lEv;
+    private ImageView lEw;
+    private PbFragment lpX;
 
     public b(PbFragment pbFragment, View.OnClickListener onClickListener) {
-        this.iKb = null;
-        this.lpI = pbFragment;
-        this.iKb = onClickListener;
+        this.iKO = null;
+        this.lpX = pbFragment;
+        this.iKO = onClickListener;
         initView();
     }
 
     public void initView() {
-        if (this.lEa == null) {
-            this.lEa = (RelativeLayout) LayoutInflater.from(this.lpI.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
-            this.lEb = (HeadImageView) this.lEa.findViewById(R.id.iv_pb_video_smart_app_head);
-            this.lEb.setIsRound(true);
-            this.lEb.setPlaceHolder(1);
-            this.lEc = (TextView) this.lEa.findViewById(R.id.tv_pb_video_smart_app_title);
-            this.lEd = (TextView) this.lEa.findViewById(R.id.tv_pb_video_smart_app_abstract);
-            this.lEe = (ImageView) this.lEa.findViewById(R.id.iv_pb_video_smart_app_arrow);
-            this.lEa.setOnClickListener(this.iKb);
+        if (this.lEs == null) {
+            this.lEs = (RelativeLayout) LayoutInflater.from(this.lpX.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
+            this.lEt = (HeadImageView) this.lEs.findViewById(R.id.iv_pb_video_smart_app_head);
+            this.lEt.setIsRound(true);
+            this.lEt.setPlaceHolder(1);
+            this.lEu = (TextView) this.lEs.findViewById(R.id.tv_pb_video_smart_app_title);
+            this.lEv = (TextView) this.lEs.findViewById(R.id.tv_pb_video_smart_app_abstract);
+            this.lEw = (ImageView) this.lEs.findViewById(R.id.iv_pb_video_smart_app_arrow);
+            this.lEs.setOnClickListener(this.iKO);
         }
     }
 
     public void a(f fVar, BdTypeListView bdTypeListView) {
         String charSequence;
         if (fVar != null && bdTypeListView != null) {
-            if (fVar.dik().blg() && fVar.dik().bnp() != null) {
-                SmartApp bnp = fVar.dik().bnp();
-                this.lEa.setVisibility(0);
+            if (fVar.dhH().bki() && fVar.dhH().bmr() != null) {
+                SmartApp bmr = fVar.dhH().bmr();
+                this.lEs.setVisibility(0);
                 c(bdTypeListView);
                 a(bdTypeListView, 1);
-                if (!at.isEmpty(bnp.avatar)) {
-                    this.lEb.startLoad(bnp.avatar, 10, false, false);
+                if (!au.isEmpty(bmr.avatar)) {
+                    this.lEt.startLoad(bmr.avatar, 10, false, false);
                 }
-                if (!at.isEmpty(bnp.name)) {
-                    charSequence = bnp.name + " " + ((Object) this.lpI.getText(R.string.smart_app_suffix));
+                if (!au.isEmpty(bmr.name)) {
+                    charSequence = bmr.name + " " + ((Object) this.lpX.getText(R.string.smart_app_suffix));
                 } else {
-                    charSequence = this.lpI.getText(R.string.intelligent_smart_app).toString();
+                    charSequence = this.lpX.getText(R.string.intelligent_smart_app).toString();
                 }
-                this.lEc.setText(charSequence);
-                if (!at.isEmpty(bnp._abstract)) {
-                    this.lEd.setText(bnp._abstract);
+                this.lEu.setText(charSequence);
+                if (!au.isEmpty(bmr._abstract)) {
+                    this.lEv.setText(bmr._abstract);
                 } else {
-                    this.lEd.setText(this.lpI.getText(R.string.smart_app_default_abstract));
+                    this.lEv.setText(this.lpX.getText(R.string.smart_app_default_abstract));
                 }
-                this.lEa.setTag(bnp);
+                this.lEs.setTag(bmr);
                 return;
             }
-            this.lEa.setVisibility(8);
+            this.lEs.setVisibility(8);
             c(bdTypeListView);
         }
     }
 
     public void a(BdTypeListView bdTypeListView, int i) {
-        if (bdTypeListView != null && this.lEa != null) {
-            bdTypeListView.addHeaderView(this.lEa, i);
+        if (bdTypeListView != null && this.lEs != null) {
+            bdTypeListView.addHeaderView(this.lEs, i);
         }
     }
 
     public void c(BdTypeListView bdTypeListView) {
-        if (bdTypeListView != null && this.lEa != null) {
-            bdTypeListView.removeHeaderView(this.lEa);
+        if (bdTypeListView != null && this.lEs != null) {
+            bdTypeListView.removeHeaderView(this.lEs);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.lEa != null) {
-            ap.setBackgroundColor(this.lEa, R.color.cp_bg_line_c);
+        if (this.lEs != null) {
+            ap.setBackgroundColor(this.lEs, R.color.CAM_X0204);
         }
-        if (this.lEb != null) {
-            this.lEb.setIsNight(i == 1);
+        if (this.lEt != null) {
+            this.lEt.setIsNight(i == 1);
         }
-        if (this.lEc != null) {
-            ap.setViewTextColor(this.lEc, R.color.cp_cont_b);
+        if (this.lEu != null) {
+            ap.setViewTextColor(this.lEu, R.color.CAM_X0105);
         }
-        if (this.lEd != null) {
-            ap.setViewTextColor(this.lEd, R.color.cp_cont_j);
+        if (this.lEv != null) {
+            ap.setViewTextColor(this.lEv, R.color.CAM_X0107);
         }
-        if (this.lEe != null) {
-            ap.setBackgroundResource(this.lEe, R.drawable.icon_common_arrow16_right_n);
+        if (this.lEw != null) {
+            ap.setBackgroundResource(this.lEw, R.drawable.icon_common_arrow16_right_n);
         }
     }
 }

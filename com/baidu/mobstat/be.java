@@ -11,7 +11,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class be implements bk.b {
     @Override // com.baidu.mobstat.bk.b
     public void a(View view, boolean z, Activity activity) {

@@ -1,6 +1,7 @@
 package com.example.utility_plugin;
 
 import android.support.v7.widget.ActivityChooserView;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -22,7 +23,7 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 import com.baidu.tbadk.data.m;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
-import com.baidu.tieba.p.a;
+import com.baidu.tieba.q.a;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.e;
 import com.baidu.tieba.tbadkCore.v;
@@ -31,7 +32,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class NativeListeners {
     public MethodChannel mMethodChannel;
     private int mLastMainTabIndex = -1;
@@ -56,6 +57,7 @@ public class NativeListeners {
     private final String kTBCShareSdkResultNotification = "kTBCShareSdkResultNotification";
     private final String kTBCCancleLikeFrsNotification = "kTBCCancleLikeFrsNotification";
     private final String PersonDataChangedNotification = "PersonDataChangedNotification";
+    private final String KTBShareNumberPlus = "KTBShareNumberPlus";
     private final String ThreadWriteReplyListener = "ThreadWriteReplyListener";
     private final String kTBCDeleteFrsSection = "kTBCDeleteFrsSection";
     private final String kTBCBroadcastPublishSuccess = "kTBCBroadcastPublishSuccess";
@@ -68,11 +70,11 @@ public class NativeListeners {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (a.dBY().dBU()) {
+                if (a.dBC().dBy()) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uniqueKey", "FansCountUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-                } else if (a.dBY().dBV()) {
+                } else if (a.dBC().dBz()) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("uniqueKey", "BookMarkUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
@@ -274,7 +276,24 @@ public class NativeListeners {
             NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
         }
     };
-    private CustomMessageListener mThreadWriteReplyListener = new CustomMessageListener(CmdConfigCustom.CMD_FORCE_UPDATE_PREPARE_LOCATION_INFO) { // from class: com.example.utility_plugin.NativeListeners.17
+    private CustomMessageListener mUpdateShareNumListener = new CustomMessageListener(2921417) { // from class: com.example.utility_plugin.NativeListeners.17
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String)) {
+                String str = (String) customResponsedMessage.getData();
+                if (!TextUtils.isEmpty(str)) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("tid", str);
+                    HashMap hashMap2 = new HashMap();
+                    hashMap2.put("uniqueKey", "KTBShareNumberPlus");
+                    hashMap2.put("data", hashMap);
+                    NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
+                }
+            }
+        }
+    };
+    private CustomMessageListener mThreadWriteReplyListener = new CustomMessageListener(CmdConfigCustom.CMD_FORCE_UPDATE_PREPARE_LOCATION_INFO) { // from class: com.example.utility_plugin.NativeListeners.18
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -305,7 +324,7 @@ public class NativeListeners {
             NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap3);
         }
     };
-    private CustomMessageListener mMainTabClickListener = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.example.utility_plugin.NativeListeners.18
+    private CustomMessageListener mMainTabClickListener = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.example.utility_plugin.NativeListeners.19
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -492,7 +511,7 @@ public class NativeListeners {
         switch (str.hashCode()) {
             case -2111678678:
                 if (str.equals("AutoRefreshCategory")) {
-                    c = 18;
+                    c = 19;
                     break;
                 }
                 break;
@@ -528,13 +547,19 @@ public class NativeListeners {
                 break;
             case -336540695:
                 if (str.equals("ThreadWriteReplyListener")) {
-                    c = 15;
+                    c = 16;
                     break;
                 }
                 break;
             case -241869128:
                 if (str.equals("FansCountUpdate")) {
                     c = 3;
+                    break;
+                }
+                break;
+            case 79574153:
+                if (str.equals("KTBShareNumberPlus")) {
+                    c = 15;
                     break;
                 }
                 break;
@@ -546,7 +571,7 @@ public class NativeListeners {
                 break;
             case 353880651:
                 if (str.equals("AutoRefreshBarEntry")) {
-                    c = 16;
+                    c = 17;
                     break;
                 }
                 break;
@@ -594,7 +619,7 @@ public class NativeListeners {
                 break;
             case 1599848416:
                 if (str.equals("AccountInfoUpdated")) {
-                    c = 17;
+                    c = 18;
                     break;
                 }
                 break;
@@ -646,12 +671,14 @@ public class NativeListeners {
             case 14:
                 return this.mPersonDataChangedListener;
             case 15:
-                return this.mThreadWriteReplyListener;
+                return this.mUpdateShareNumListener;
             case 16:
-                return this.mMainTabClickListener;
+                return this.mThreadWriteReplyListener;
             case 17:
-                return this.mAccountChangedListener;
+                return this.mMainTabClickListener;
             case 18:
+                return this.mAccountChangedListener;
+            case 19:
                 return this.mMainTabClickListener;
             default:
                 return null;

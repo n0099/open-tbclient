@@ -4,10 +4,10 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class drawable {
-        public static final int retry_btn_default = 0x7f021bf8;
-        public static final int retry_btn_press = 0x7f021bf9;
-        public static final int retry_btn_selector = 0x7f021bfa;
-        public static final int weibosdk_common_shadow_top = 0x7f0223b5;
-        public static final int weibosdk_empty_failed = 0x7f0223b6;
+        public static final int retry_btn_default = 0x7f021c4d;
+        public static final int retry_btn_press = 0x7f021c4e;
+        public static final int retry_btn_selector = 0x7f021c4f;
+        public static final int weibosdk_common_shadow_top = 0x7f022407;
+        public static final int weibosdk_empty_failed = 0x7f022408;
     }
 }

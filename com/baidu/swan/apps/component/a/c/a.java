@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.swan.apps.component.a.c.b;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.apps.component.a.d.a<V, M> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.component.a.c.a<V extends android.widget.TextView, M extends com.baidu.swan.apps.component.a.c.b> */
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,7 +40,7 @@ public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b a2 = super.a(m, m2);
         if (!TextUtils.equals(m.text, m2.text)) {
-            a2.hK(6);
+            a2.hG(6);
         }
         return a2;
     }
@@ -48,10 +48,10 @@ public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(@NonNull V v, @NonNull M m, @NonNull com.baidu.swan.apps.component.d.b bVar) {
         super.a((a<V, M>) v, (V) m, bVar);
-        if (bVar.hL(6)) {
+        if (bVar.hH(6)) {
             a((a<V, M>) v, (V) m);
         }
-        if (bVar.hL(4)) {
+        if (bVar.hH(4)) {
             b((a<V, M>) v, (V) m);
         }
     }
@@ -65,11 +65,11 @@ public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.
     }
 
     private void b(@NonNull V v, @NonNull M m) {
-        if (m.cDv != null) {
+        if (m.cBL != null) {
             if (DEBUG) {
                 Log.d("Component-TextView", "renderTextStyle");
             }
-            if (m.cDo) {
+            if (m.cBE) {
                 v.setTextColor(m.textColor);
             }
             float f = (float) m.fontSize;
@@ -79,7 +79,7 @@ public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.
             c((a<V, M>) v, (V) m);
             d(v, m);
             e(v, m);
-            String str = m.cDp;
+            String str = m.cBF;
             char c = 65535;
             switch (str.hashCode()) {
                 case -1039745817:
@@ -103,14 +103,14 @@ public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.
                     v.setSingleLine(true);
                     break;
             }
-            if ("ellipsis".equals(m.cDq)) {
+            if ("ellipsis".equals(m.cBG)) {
                 v.setEllipsize(TextUtils.TruncateAt.END);
             }
         }
     }
 
     protected void c(@NonNull V v, @NonNull M m) {
-        if (m.cDv != null) {
+        if (m.cBL != null) {
             if (DEBUG) {
                 Log.d("Component-TextView", "renderTextStyleLineSpace");
             }
@@ -129,7 +129,7 @@ public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(@NonNull V v, @NonNull M m, int i) {
         int i2;
-        if (m.cDv != null) {
+        if (m.cBL != null) {
             if (DEBUG) {
                 Log.d("Component-TextView", "renderTextStyleTextAlign");
             }
@@ -176,7 +176,7 @@ public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void e(@NonNull V v, @NonNull M m) {
-        if (m.cDv != null) {
+        if (m.cBL != null) {
             if (DEBUG) {
                 Log.d("Component-TextView", "renderTextStyleFontWeight");
             }

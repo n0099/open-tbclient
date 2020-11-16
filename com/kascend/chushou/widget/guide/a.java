@@ -21,8 +21,8 @@ public class a extends b {
     /* renamed from: a  reason: collision with root package name */
     public String f4289a;
     private boolean d = false;
-    private CSWebView pCB;
-    private EmptyLoadingView pyg;
+    private CSWebView pEe;
+    private EmptyLoadingView pzJ;
 
     @Override // com.kascend.chushou.view.base.b, android.support.v4.app.Fragment
     public void onCreate(@Nullable Bundle bundle) {
@@ -33,9 +33,9 @@ public class a extends b {
     @Override // com.kascend.chushou.view.base.b
     protected View initView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(a.h.view_x5_page, (ViewGroup) null);
-        this.pyg = (EmptyLoadingView) inflate.findViewById(a.f.empty_view);
-        this.pCB = (CSWebView) inflate.findViewById(a.f.web_view);
-        CSWebView.a(this.pCB, this.mContext, new c() { // from class: com.kascend.chushou.widget.guide.a.1
+        this.pzJ = (EmptyLoadingView) inflate.findViewById(a.f.empty_view);
+        this.pEe = (CSWebView) inflate.findViewById(a.f.web_view);
+        CSWebView.a(this.pEe, this.mContext, new c() { // from class: com.kascend.chushou.widget.guide.a.1
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
@@ -50,7 +50,7 @@ public class a extends b {
                 if (!a.this.isFinishing()) {
                     a.this.d = false;
                     String str2 = (String) webView.getTag();
-                    if (tv.chushou.zues.utils.a.eHM()) {
+                    if (tv.chushou.zues.utils.a.eHN()) {
                         if (str2 != null && str2.equals(BdStatsConstant.StatsType.ERROR)) {
                             a.this.showStatus(4);
                             return;
@@ -90,21 +90,21 @@ public class a extends b {
 
     @Override // com.kascend.chushou.view.base.b
     public void unInit() {
-        if (this.pCB != null) {
-            this.pCB.loadUrl("");
-            this.pCB.removeAllViews();
-            this.pCB.destroy();
-            this.pCB = null;
+        if (this.pEe != null) {
+            this.pEe.loadUrl("");
+            this.pEe.removeAllViews();
+            this.pEe.destroy();
+            this.pEe = null;
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.pCB != null) {
-            this.pCB.pauseTimers();
+        if (this.pEe != null) {
+            this.pEe.pauseTimers();
             if (Build.VERSION.SDK_INT >= 11) {
-                this.pCB.onPause();
+                this.pEe.onPause();
             }
         }
     }
@@ -112,22 +112,22 @@ public class a extends b {
     @Override // android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.pCB != null) {
-            this.pCB.resumeTimers();
+        if (this.pEe != null) {
+            this.pEe.resumeTimers();
             if (Build.VERSION.SDK_INT >= 11) {
-                this.pCB.onResume();
+                this.pEe.onResume();
             }
         }
     }
 
     private void b() {
         e.d("GuideFragment", "H5=" + this.f4289a);
-        if (tv.chushou.zues.utils.a.eHM()) {
+        if (tv.chushou.zues.utils.a.eHN()) {
             if (this.f4289a != null && this.f4289a.length() > 0) {
-                this.pCB.loadUrl(this.f4289a);
+                this.pEe.loadUrl(this.f4289a);
                 return;
             } else {
-                this.pCB.loadUrl("");
+                this.pEe.loadUrl("");
                 return;
             }
         }
@@ -138,20 +138,20 @@ public class a extends b {
     public void showStatus(int i) {
         switch (i) {
             case 1:
-                this.pCB.setVisibility(8);
-                this.pyg.QP(1);
+                this.pEe.setVisibility(8);
+                this.pzJ.Rs(1);
                 return;
             case 2:
-                this.pCB.setVisibility(0);
-                this.pyg.setVisibility(8);
+                this.pEe.setVisibility(0);
+                this.pzJ.setVisibility(8);
                 return;
             case 3:
             case 4:
             case 5:
             case 6:
-                this.pCB.setVisibility(8);
-                this.pyg.setVisibility(0);
-                this.pyg.QP(i);
+                this.pEe.setVisibility(8);
+                this.pzJ.setVisibility(0);
+                this.pzJ.Rs(i);
                 return;
             default:
                 return;
@@ -159,13 +159,13 @@ public class a extends b {
     }
 
     public void a() {
-        if (tv.chushou.zues.utils.a.eHM()) {
+        if (tv.chushou.zues.utils.a.eHN()) {
             this.d = true;
             if (this.f4289a != null && this.f4289a.length() > 0) {
-                this.pCB.loadUrl(this.f4289a);
+                this.pEe.loadUrl(this.f4289a);
                 return;
             } else {
-                this.pCB.loadUrl("");
+                this.pEe.loadUrl("");
                 return;
             }
         }

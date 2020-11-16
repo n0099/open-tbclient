@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class FlowableCache<T> extends io.reactivex.internal.operators.flowable.a<T, T> {
     final AtomicBoolean once;
     final a<T> state;
@@ -23,14 +23,14 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T> extends io.reactivex.internal.util.f implements j<T> {
-        static final ReplaySubscription[] pMP = new ReplaySubscription[0];
-        static final ReplaySubscription[] pMQ = new ReplaySubscription[0];
+        static final ReplaySubscription[] pOs = new ReplaySubscription[0];
+        static final ReplaySubscription[] pOt = new ReplaySubscription[0];
         volatile boolean isConnected;
-        final io.reactivex.g<T> pMK;
-        final AtomicReference<org.a.d> pMO;
-        boolean pMR;
+        final io.reactivex.g<T> pOn;
+        final AtomicReference<org.a.d> pOr;
+        boolean pOu;
         final AtomicReference<ReplaySubscription<T>[]> subscribers;
 
         public void a(ReplaySubscription<T> replaySubscription) {
@@ -38,7 +38,7 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
             ReplaySubscription<T>[] replaySubscriptionArr2;
             do {
                 replaySubscriptionArr = this.subscribers.get();
-                if (replaySubscriptionArr != pMQ) {
+                if (replaySubscriptionArr != pOt) {
                     int length = replaySubscriptionArr.length;
                     replaySubscriptionArr2 = new ReplaySubscription[length + 1];
                     System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr2, 0, length);
@@ -70,7 +70,7 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
                     }
                     if (i >= 0) {
                         if (length == 1) {
-                            replaySubscriptionArr2 = pMP;
+                            replaySubscriptionArr2 = pOs;
                         } else {
                             replaySubscriptionArr2 = new ReplaySubscription[length - 1];
                             System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr2, 0, i);
@@ -87,19 +87,19 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (SubscriptionHelper.setOnce(this.pMO, dVar)) {
+            if (SubscriptionHelper.setOnce(this.pOr, dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         public void connect() {
-            this.pMK.a((j) this);
+            this.pOn.a((j) this);
             this.isConnected = true;
         }
 
         @Override // org.a.c
         public void onNext(T t) {
-            if (!this.pMR) {
+            if (!this.pOu) {
                 add(NotificationLite.next(t));
                 for (ReplaySubscription<T> replaySubscription : this.subscribers.get()) {
                     replaySubscription.replay();
@@ -109,11 +109,11 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            if (!this.pMR) {
-                this.pMR = true;
+            if (!this.pOu) {
+                this.pOu = true;
                 add(NotificationLite.error(th));
-                SubscriptionHelper.cancel(this.pMO);
-                for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(pMQ)) {
+                SubscriptionHelper.cancel(this.pOr);
+                for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(pOt)) {
                     replaySubscription.replay();
                 }
                 return;
@@ -123,11 +123,11 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
 
         @Override // org.a.c
         public void onComplete() {
-            if (!this.pMR) {
-                this.pMR = true;
+            if (!this.pOu) {
+                this.pOu = true;
                 add(NotificationLite.complete());
-                SubscriptionHelper.cancel(this.pMO);
-                for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(pMQ)) {
+                SubscriptionHelper.cancel(this.pOr);
+                for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(pOt)) {
                     replaySubscription.replay();
                 }
             }
@@ -135,7 +135,7 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class ReplaySubscription<T> extends AtomicInteger implements org.a.d {
         private static final long serialVersionUID = -2557562030197141021L;
         final org.a.c<? super T> child;
@@ -185,7 +185,7 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
                         if (size != 0) {
                             Object[] objArr = this.currentBuffer;
                             if (objArr == null) {
-                                objArr = this.state.eAZ();
+                                objArr = this.state.eBa();
                                 this.currentBuffer = objArr;
                             }
                             int length = objArr.length - 1;

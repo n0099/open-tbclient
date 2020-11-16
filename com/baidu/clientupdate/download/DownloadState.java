@@ -1,5 +1,5 @@
 package com.baidu.clientupdate.download;
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 public enum DownloadState {
     WAITING,
     DOWNLOADING,

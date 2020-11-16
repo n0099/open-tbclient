@@ -2,11 +2,11 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.c;
 
 import com.baidu.swan.apps.inlinewidget.d;
 import com.baidu.swan.apps.inlinewidget.rtcroom.model.RtcStatus;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface c extends d {
-    boolean ZZ();
+    boolean Zq();
 
-    RtcStatus avT();
+    RtcStatus avl();
 
     void onRelease();
 }

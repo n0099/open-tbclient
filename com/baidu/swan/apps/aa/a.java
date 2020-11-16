@@ -9,27 +9,27 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.core.d.i;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile a dij;
+    public static volatile a dgB;
     public String appId;
-    public String dih;
-    public String dii;
-    public com.baidu.l.a.a dik;
+    public String dgA;
+    public com.baidu.l.a.a dgC;
+    public String dgz;
 
     private a() {
     }
 
-    public static a aDe() {
-        if (dij == null) {
+    public static a aCw() {
+        if (dgB == null) {
             synchronized (a.class) {
-                if (dij == null) {
-                    dij = new a();
+                if (dgB == null) {
+                    dgB = new a();
                 }
             }
         }
-        return dij;
+        return dgB;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
@@ -38,11 +38,11 @@ public class a {
             com.baidu.swan.apps.console.c.i("SwanAppPayLaunchMsg", "wxPay: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!com.baidu.l.b.aaM().aO(context)) {
+        } else if (!com.baidu.l.b.aad().aO(context)) {
             com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).showToast();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
             return false;
-        } else if (!i.b("wxPay", com.baidu.swan.apps.model.b.cb(a2, a2))) {
+        } else if (!i.b("wxPay", com.baidu.swan.apps.model.b.ca(a2, a2))) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
@@ -73,7 +73,7 @@ public class a {
         }
     }
 
-    public static int jE(int i) {
+    public static int jA(int i) {
         switch (i) {
             case -2:
                 return 2;

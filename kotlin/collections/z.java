@@ -2,7 +2,7 @@ package kotlin.collections;
 
 import java.util.Iterator;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class z implements Iterator<Double> {
     public abstract double nextDouble();
 
@@ -13,7 +13,7 @@ public abstract class z implements Iterator<Double> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: eBy */
+    /* renamed from: eBz */
     public final Double next() {
         return Double.valueOf(nextDouble());
     }

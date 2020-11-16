@@ -4,17 +4,17 @@ import android.util.Log;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class UbcFlowEvent {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public final String id;
     private long mTime = System.currentTimeMillis();
     private String mValue = "";
-    private String djr = "NA";
-    private RecordType djs = RecordType.KEEP;
-    private boolean djt = false;
+    private String dhH = "NA";
+    private RecordType dhI = RecordType.KEEP;
+    private boolean dhJ = false;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public enum RecordType {
         KEEP,
         UPDATE,
@@ -34,7 +34,7 @@ public class UbcFlowEvent {
         return this;
     }
 
-    public long aDK() {
+    public long aDc() {
         return this.mTime;
     }
 
@@ -42,39 +42,39 @@ public class UbcFlowEvent {
         return this.mValue;
     }
 
-    public UbcFlowEvent ra(String str) {
-        this.djr = str;
+    public UbcFlowEvent qU(String str) {
+        this.dhH = str;
         return this;
     }
 
-    public String aDL() {
-        return this.djr;
+    public String aDd() {
+        return this.dhH;
     }
 
-    public UbcFlowEvent fS(boolean z) {
-        this.djt = z;
+    public UbcFlowEvent fV(boolean z) {
+        this.dhJ = z;
         return this;
     }
 
-    public boolean aDM() {
-        return this.djt;
+    public boolean aDe() {
+        return this.dhJ;
     }
 
     public UbcFlowEvent a(RecordType recordType) {
-        this.djs = recordType;
+        this.dhI = recordType;
         return this;
     }
 
-    public RecordType aDN() {
-        return this.djs;
+    public RecordType aDf() {
+        return this.dhI;
     }
 
     public String toString() {
         Locale locale = Locale.getDefault();
         Object[] objArr = new Object[3];
-        objArr[0] = Long.valueOf(aDK());
+        objArr[0] = Long.valueOf(aDc());
         objArr[1] = this.id;
-        objArr[2] = aDM() ? "(justLocalRecord)" : "";
+        objArr[2] = aDe() ? "(justLocalRecord)" : "";
         return String.format(locale, "Event at %d id = %s %s", objArr);
     }
 

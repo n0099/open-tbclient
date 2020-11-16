@@ -1,17 +1,18 @@
 package com.baidu.tieba.personPolymeric.c;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes24.dex */
-public class f extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId mdr = BdUniqueId.gen();
+import com.baidu.tieba.card.data.BaseCardInfo;
+/* loaded from: classes23.dex */
+public class f extends BaseCardInfo {
+    public static final BdUniqueId mdJ = BdUniqueId.gen();
     public String avatar;
     public long forumId;
     public String forumName;
-    public int mds;
+    public int mdK;
     public int sex;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return mdr;
+        return mdJ;
     }
 }

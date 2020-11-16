@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
-public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener, a.InterfaceC0250a {
-    private View bEb = null;
-    private boolean bEc;
-    e nFh;
+public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener, a.InterfaceC0248a {
+    private View bCq = null;
+    private boolean bCr;
+    e nGI;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -23,31 +23,31 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         setContentView(R.layout.album_activity);
-        this.bEb = findViewById(R.id.statebar_view);
-        this.bEc = UtilHelper.canUseStyleImmersiveSticky();
-        Tz();
-        this.nFh = new e(this, bundle, R.id.fragment, R.id.fragment);
+        this.bCq = findViewById(R.id.statebar_view);
+        this.bCr = UtilHelper.canUseStyleImmersiveSticky();
+        SQ();
+        this.nGI = new e(this, bundle, R.id.fragment, R.id.fragment);
     }
 
-    private void Tz() {
-        if (this.bEb != null) {
-            if (this.bEc && this.bEb.getLayoutParams() != null) {
-                ViewGroup.LayoutParams layoutParams = this.bEb.getLayoutParams();
+    private void SQ() {
+        if (this.bCq != null) {
+            if (this.bCr && this.bCq.getLayoutParams() != null) {
+                ViewGroup.LayoutParams layoutParams = this.bCq.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
-                this.bEb.setLayoutParams(layoutParams);
-                cP(true);
+                this.bCq.setLayoutParams(layoutParams);
+                cR(true);
                 return;
             }
-            cP(false);
+            cR(false);
         }
     }
 
-    private void cP(boolean z) {
-        if (this.bEb != null) {
-            if (this.bEc && z && this.bEb.getVisibility() != 0) {
-                this.bEb.setVisibility(0);
-            } else if (!z && this.bEb.getVisibility() != 8) {
-                this.bEb.setVisibility(8);
+    private void cR(boolean z) {
+        if (this.bCq != null) {
+            if (this.bCr && z && this.bCq.getVisibility() != 0) {
+                this.bCq.setVisibility(0);
+            } else if (!z && this.bCq.getVisibility() != 8) {
+                this.bCq.setVisibility(8);
             }
         }
     }
@@ -56,16 +56,16 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (this.nFh != null) {
-            this.nFh.onSaveInstanceState(bundle);
+        if (this.nGI != null) {
+            this.nGI.onSaveInstanceState(bundle);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        ap.setBackgroundColor(this.bEb, R.color.cp_bg_line_d, i);
-        if (this.nFh != null) {
-            this.nFh.rO(i);
+        ap.setBackgroundColor(this.bCq, R.color.CAM_X0201, i);
+        if (this.nGI != null) {
+            this.nGI.sm(i);
         }
     }
 
@@ -74,21 +74,21 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
-            this.nFh.o(intent);
+            this.nGI.o(intent);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.nFh != null) {
-            this.nFh.onClick(view);
+        if (this.nGI != null) {
+            this.nGI.onClick(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.nFh.onBackClick();
+            this.nGI.onBackClick();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -98,11 +98,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.bEb != null) {
-            this.bEb.setBackgroundDrawable(null);
+        if (this.bCq != null) {
+            this.bCq.setBackgroundDrawable(null);
         }
-        if (this.nFh != null) {
-            this.nFh.onDestroy();
+        if (this.nGI != null) {
+            this.nGI.onDestroy();
         }
     }
 
@@ -120,8 +120,8 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (this.nFh != null) {
-            this.nFh.onStart();
+        if (this.nGI != null) {
+            this.nGI.onStart();
         }
     }
 
@@ -129,8 +129,8 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.nFh != null) {
-            this.nFh.onResume();
+        if (this.nGI != null) {
+            this.nGI.onResume();
         }
     }
 
@@ -138,16 +138,16 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.nFh != null) {
-            this.nFh.onStop();
+        if (this.nGI != null) {
+            this.nGI.onStop();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        if (this.nFh != null) {
-            this.nFh.onPause();
+        if (this.nGI != null) {
+            this.nGI.onPause();
         }
         super.onPause();
     }

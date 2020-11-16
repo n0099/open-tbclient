@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ubcprocessor;
-/* loaded from: classes5.dex */
+/* loaded from: classes17.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.ubcprocessor";
     public static final String BUILD_TYPE = "release";

@@ -1,7 +1,7 @@
 package com.baidu.live.videochat.e;
 /* loaded from: classes4.dex */
 public interface a {
-    int DG();
+    int CX();
 
-    int Vk();
+    int UB();
 }

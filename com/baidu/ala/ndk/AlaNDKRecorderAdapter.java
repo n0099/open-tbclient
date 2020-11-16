@@ -1,5 +1,5 @@
 package com.baidu.ala.ndk;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class AlaNDKRecorderAdapter {
     public static final int NATIVE_COMMON_MODE = 1;
     public static final int NATIVE_RTC_MODE = 2;

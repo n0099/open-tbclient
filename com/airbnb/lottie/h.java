@@ -3,7 +3,7 @@ package com.airbnb.lottie;
 import android.graphics.Bitmap;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class h {
     private final String BU;
     @Nullable

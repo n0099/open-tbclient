@@ -4,33 +4,33 @@ import com.baidu.live.data.w;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class a {
-    private static a otn;
+    private static a ouR;
     private TbPageContext mPageContext;
-    private b oto;
+    private b ouS;
 
-    public static a eeD() {
-        if (otn == null) {
+    public static a eeB() {
+        if (ouR == null) {
             synchronized (a.class) {
-                if (otn == null) {
-                    otn = new a();
+                if (ouR == null) {
+                    ouR = new a();
                 }
             }
         }
-        return otn;
+        return ouR;
     }
 
     public void b(TbPageContext tbPageContext, w wVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oto = null;
+            this.ouS = null;
         }
-        this.oto = new b(tbPageContext, wVar);
-        this.oto.show();
+        this.ouS = new b(tbPageContext, wVar);
+        this.ouS.show();
     }
 
-    public void Hv() {
-        if (this.oto != null && this.oto.isShowing()) {
-            this.oto.dismiss();
+    public void GM() {
+        if (this.ouS != null && this.ouS.isShowing()) {
+            this.ouS.dismiss();
         }
     }
 }

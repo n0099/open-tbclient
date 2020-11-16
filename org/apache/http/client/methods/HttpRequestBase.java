@@ -8,7 +8,7 @@ import org.apache.http.conn.ClientConnectionRequest;
 import org.apache.http.conn.ConnectionReleaseTrigger;
 import org.apache.http.message.AbstractHttpMessage;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public abstract class HttpRequestBase extends AbstractHttpMessage implements AbortableHttpRequest, HttpUriRequest {
     public abstract String getMethod();
 

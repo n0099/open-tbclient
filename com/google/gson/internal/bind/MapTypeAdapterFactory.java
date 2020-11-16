@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     final boolean complexMapKeySerialization;
     private final com.google.gson.internal.b constructorConstructor;
@@ -36,19 +36,19 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     private TypeAdapter<?> a(Gson gson, Type type) {
-        return (type == Boolean.TYPE || type == Boolean.class) ? TypeAdapters.peJ : gson.getAdapter(com.google.gson.b.a.k(type));
+        return (type == Boolean.TYPE || type == Boolean.class) ? TypeAdapters.pgm : gson.getAdapter(com.google.gson.b.a.k(type));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     private final class Adapter<K, V> extends TypeAdapter<Map<K, V>> {
-        private final e<? extends Map<K, V>> pdU;
-        private final TypeAdapter<K> pef;
-        private final TypeAdapter<V> peg;
+        private final TypeAdapter<K> pfI;
+        private final TypeAdapter<V> pfJ;
+        private final e<? extends Map<K, V>> pfx;
 
         public Adapter(Gson gson, Type type, TypeAdapter<K> typeAdapter, Type type2, TypeAdapter<V> typeAdapter2, e<? extends Map<K, V>> eVar) {
-            this.pef = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
-            this.peg = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, type2);
-            this.pdU = eVar;
+            this.pfI = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
+            this.pfJ = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, type2);
+            this.pfx = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,13 +60,13 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                 aVar.etb();
                 return null;
             }
-            Map<K, V> construct = this.pdU.construct();
+            Map<K, V> construct = this.pfx.construct();
             if (esW == JsonToken.BEGIN_ARRAY) {
                 aVar.esU();
                 while (aVar.hasNext()) {
                     aVar.esU();
-                    K read = this.pef.read(aVar);
-                    if (construct.put(read, this.peg.read(aVar)) != null) {
+                    K read = this.pfI.read(aVar);
+                    if (construct.put(read, this.pfJ.read(aVar)) != null) {
                         throw new JsonSyntaxException("duplicate key: " + read);
                     }
                     aVar.endArray();
@@ -76,9 +76,9 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
             }
             aVar.esV();
             while (aVar.hasNext()) {
-                d.pdm.a(aVar);
-                K read2 = this.pef.read(aVar);
-                if (construct.put(read2, this.peg.read(aVar)) != null) {
+                d.peP.a(aVar);
+                K read2 = this.pfI.read(aVar);
+                if (construct.put(read2, this.pfJ.read(aVar)) != null) {
                     throw new JsonSyntaxException("duplicate key: " + read2);
                 }
             }
@@ -99,8 +99,8 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
             } else if (!MapTypeAdapterFactory.this.complexMapKeySerialization) {
                 bVar.etj();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
-                    bVar.Yz(String.valueOf(entry.getKey()));
-                    this.peg.write(bVar, entry.getValue());
+                    bVar.Yk(String.valueOf(entry.getKey()));
+                    this.pfJ.write(bVar, entry.getValue());
                 }
                 bVar.etk();
             } else {
@@ -108,7 +108,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                 ArrayList arrayList2 = new ArrayList(map.size());
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    JsonElement jsonTree = this.pef.toJsonTree(entry2.getKey());
+                    JsonElement jsonTree = this.pfI.toJsonTree(entry2.getKey());
                     arrayList.add(jsonTree);
                     arrayList2.add(entry2.getValue());
                     z = (jsonTree.isJsonArray() || jsonTree.isJsonObject()) | z;
@@ -119,7 +119,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                     while (i < size) {
                         bVar.eth();
                         h.a((JsonElement) arrayList.get(i), bVar);
-                        this.peg.write(bVar, arrayList2.get(i));
+                        this.pfJ.write(bVar, arrayList2.get(i));
                         bVar.eti();
                         i++;
                     }
@@ -129,8 +129,8 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                 bVar.etj();
                 int size2 = arrayList.size();
                 while (i < size2) {
-                    bVar.Yz(b((JsonElement) arrayList.get(i)));
-                    this.peg.write(bVar, arrayList2.get(i));
+                    bVar.Yk(b((JsonElement) arrayList.get(i)));
+                    this.pfJ.write(bVar, arrayList2.get(i));
                     i++;
                 }
                 bVar.etk();

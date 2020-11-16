@@ -2,7 +2,7 @@ package com.baidu.ufosdk.f;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */

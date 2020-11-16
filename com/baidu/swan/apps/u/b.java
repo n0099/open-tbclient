@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.swan.apps.u.a;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.swan.apps.process.a.a.a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static Map<String, com.baidu.swan.apps.ap.e.b<Bundle>> zb = new com.baidu.swan.support.v4.b.a();
@@ -23,7 +23,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
                 b.this.mAppId = bundle2.getString("key_launch_app_id");
                 b.this.mStatus = bundle2.getInt("key_launch_status");
                 if (TextUtils.equals(string, b.this.mAppId)) {
-                    b.this.dlj.putInt("ok", b.this.mStatus);
+                    b.this.djC.putInt("ok", b.this.mStatus);
                     b.this.finish();
                 }
                 b.zb.remove(string);
@@ -31,8 +31,8 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         });
     }
 
-    public static void b(final String str, final a.InterfaceC0490a interfaceC0490a) {
-        if (!TextUtils.isEmpty(str) && interfaceC0490a != null) {
+    public static void b(final String str, final a.InterfaceC0488a interfaceC0488a) {
+        if (!TextUtils.isEmpty(str) && interfaceC0488a != null) {
             zb.put(str, new com.baidu.swan.apps.ap.e.b<Bundle>() { // from class: com.baidu.swan.apps.u.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
@@ -42,9 +42,9 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
                     int i = bundle.getInt("key_launch_status");
                     if (TextUtils.equals(str, string)) {
                         if (i == 0) {
-                            interfaceC0490a.ayh();
+                            interfaceC0488a.axz();
                         } else {
-                            interfaceC0490a.ayi();
+                            interfaceC0488a.axA();
                         }
                     }
                     b.zb.remove(str);
@@ -53,7 +53,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         }
     }
 
-    public static void oY(String str) {
+    public static void oS(String str) {
         com.baidu.swan.apps.ap.e.b<Bundle> bVar = zb.get(str);
         if (bVar != null) {
             Bundle bundle = new Bundle();
@@ -63,7 +63,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         }
     }
 
-    public static void oZ(String str) {
+    public static void oT(String str) {
         com.baidu.swan.apps.ap.e.b<Bundle> bVar = zb.get(str);
         if (bVar != null) {
             Bundle bundle = new Bundle();

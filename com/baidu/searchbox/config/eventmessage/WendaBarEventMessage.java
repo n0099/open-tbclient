@@ -1,7 +1,7 @@
 package com.baidu.searchbox.config.eventmessage;
 
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class WendaBarEventMessage {
     public JSONObject extObj;
     public String scheme;

@@ -11,20 +11,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class b extends g {
-    private Set<a> eiG;
+    private Set<a> egZ;
 
     public b(List<? extends a> list, @Nullable com.baidu.swan.pms.utils.a aVar) {
         super(-1);
         if (list != null && !list.isEmpty()) {
-            this.eiG = new LinkedHashSet();
-            Map<String, PMSAppInfo> bbj = com.baidu.swan.pms.database.a.bbh().bbj();
-            Map<String, com.baidu.swan.pms.model.f> bbi = com.baidu.swan.pms.database.a.bbh().bbi();
+            this.egZ = new LinkedHashSet();
+            Map<String, PMSAppInfo> baC = com.baidu.swan.pms.database.a.baA().baC();
+            Map<String, com.baidu.swan.pms.model.f> baB = com.baidu.swan.pms.database.a.baA().baB();
             for (a aVar2 : list) {
                 if (aVar2 != null && !TextUtils.isEmpty(aVar2.getBundleId())) {
-                    a(bbj, bbi, aVar2, aVar);
-                    this.eiG.add(aVar2);
+                    a(baC, baB, aVar2, aVar);
+                    this.egZ.add(aVar2);
                 }
             }
         }
@@ -33,14 +33,14 @@ public class b extends g {
     public b(Collection<String> collection, @Nullable com.baidu.swan.pms.utils.a aVar) {
         super(-1);
         if (collection != null && !collection.isEmpty()) {
-            this.eiG = new LinkedHashSet();
-            Map<String, PMSAppInfo> bbj = com.baidu.swan.pms.database.a.bbh().bbj();
-            Map<String, com.baidu.swan.pms.model.f> bbi = com.baidu.swan.pms.database.a.bbh().bbi();
+            this.egZ = new LinkedHashSet();
+            Map<String, PMSAppInfo> baC = com.baidu.swan.pms.database.a.baA().baC();
+            Map<String, com.baidu.swan.pms.model.f> baB = com.baidu.swan.pms.database.a.baA().baB();
             for (String str : collection) {
                 if (!TextUtils.isEmpty(str)) {
                     a aVar2 = new a(str);
-                    a(bbj, bbi, aVar2, aVar);
-                    this.eiG.add(aVar2);
+                    a(baC, baB, aVar2, aVar);
+                    this.egZ.add(aVar2);
                 }
             }
         }
@@ -55,7 +55,7 @@ public class b extends g {
             }
             if (!map2.containsKey(aVar.getBundleId())) {
                 aVar.cQ(0L);
-            } else if (aVar2 != null && pMSAppInfo.versionCode != 0 && !aVar2.uC(aVar.getBundleId())) {
+            } else if (aVar2 != null && pMSAppInfo.versionCode != 0 && !aVar2.ux(aVar.getBundleId())) {
                 aVar.cQ(0L);
             } else {
                 com.baidu.swan.pms.model.f fVar = map2.get(aVar.getBundleId());
@@ -74,54 +74,54 @@ public class b extends g {
     }
 
     @Nullable
-    public Set<a> bbX() {
-        return this.eiG;
+    public Set<a> bbq() {
+        return this.egZ;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class a {
-        private String eiH;
-        private long eiI;
-        private long eiJ;
+        private String eha;
+        private long ehb;
+        private long ehc;
         private int mCategory;
 
         public a(String str) {
             this.mCategory = -1;
-            this.eiI = 0L;
-            this.eiJ = 0L;
-            this.eiH = str;
+            this.ehb = 0L;
+            this.ehc = 0L;
+            this.eha = str;
         }
 
         public a(String str, int i) {
             this.mCategory = -1;
-            this.eiI = 0L;
-            this.eiJ = 0L;
-            this.eiH = str;
+            this.ehb = 0L;
+            this.ehc = 0L;
+            this.eha = str;
             this.mCategory = i;
         }
 
         public String getBundleId() {
-            return this.eiH;
+            return this.eha;
         }
 
-        public long bbY() {
-            return this.eiI;
+        public long bbr() {
+            return this.ehb;
         }
 
         public int getCategory() {
             return this.mCategory;
         }
 
-        public long bbZ() {
-            return this.eiJ;
+        public long bbs() {
+            return this.ehc;
         }
 
         void cQ(long j) {
-            this.eiI = j;
+            this.ehb = j;
         }
 
         void cR(long j) {
-            this.eiJ = j;
+            this.ehc = j;
         }
 
         void setCategory(int i) {
@@ -129,7 +129,7 @@ public class b extends g {
         }
 
         public int hashCode() {
-            return Objects.hash(this.eiH, Integer.valueOf(this.mCategory));
+            return Objects.hash(this.eha, Integer.valueOf(this.mCategory));
         }
 
         public boolean equals(Object obj) {
@@ -138,7 +138,7 @@ public class b extends g {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return TextUtils.equals(aVar.getBundleId(), this.eiH) && aVar.getCategory() == this.mCategory;
+                return TextUtils.equals(aVar.getBundleId(), this.eha) && aVar.getCategory() == this.mCategory;
             }
             return false;
         }

@@ -2,7 +2,7 @@ package org.apache.http.conn.params;
 
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class ConnManagerParams implements ConnManagerPNames {
     public static final int DEFAULT_MAX_TOTAL_CONNECTIONS = 20;
 

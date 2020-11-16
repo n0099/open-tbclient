@@ -2,7 +2,7 @@ package com.baidu.swan.apps.adaptation.a;
 
 import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface aq {
     void K(String str, int i);
 
@@ -12,7 +12,7 @@ public interface aq {
 
     void a(String str, String str2, int i, String str3, long j, int i2);
 
-    ExecutorService ahR();
+    ExecutorService ahj();
 
     void i(String str, int i, String str2);
 }

@@ -11,7 +11,7 @@ import com.baidu.sapi2.utils.ParamsUtil;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class WXLoginActivity extends BaseSSOLoginActivity {
     public static final String KEY_BASE_RESP_CODE = "code";
     public static final String KEY_BASE_RESP_ERROR_CODE = "error_code";
@@ -25,7 +25,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     public String wxRespState;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public interface WxCallback {
         void handleNotInstall();
 

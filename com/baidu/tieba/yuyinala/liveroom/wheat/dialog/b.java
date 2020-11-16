@@ -13,32 +13,32 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
 /* loaded from: classes4.dex */
 public class b extends Dialog implements View.OnClickListener {
-    private Activity bNY;
+    private Activity bMo;
     private TextView mTipView;
     private View mView;
 
     public b(Activity activity) {
         super(activity, a.i.DialogConnectionWheatStyle_3);
-        this.bNY = activity;
+        this.bMo = activity;
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.g.yuyin_sdk_custom_loading_toast);
-        Xy();
+        WP();
         initView();
         initListener();
     }
 
-    private void Xy() {
+    private void WP() {
         Window window;
-        if (this.bNY != null && (window = this.bNY.getWindow()) != null) {
+        if (this.bMo != null && (window = this.bMo.getWindow()) != null) {
             window.getDecorView().setPadding(0, 0, 0, 0);
             if (((WindowManager) getContext().getSystemService("window")) != null) {
                 WindowManager.LayoutParams attributes = window.getAttributes();
-                if (UtilHelper.getRealScreenOrientation(this.bNY) == 2) {
-                    attributes.width = ScreenHelper.getRealScreenHeight(this.bNY);
+                if (UtilHelper.getRealScreenOrientation(this.bMo) == 2) {
+                    attributes.width = ScreenHelper.getRealScreenHeight(this.bMo);
                     attributes.height = -1;
                 } else {
                     attributes.width = -1;

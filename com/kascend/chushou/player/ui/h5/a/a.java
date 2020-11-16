@@ -8,33 +8,33 @@ import tv.chushou.zues.c;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class a {
-    private InterfaceC1001a puG;
-    private final c puF = new c(Looper.getMainLooper());
+    private InterfaceC1004a pwk;
+    private final c pwj = new c(Looper.getMainLooper());
     private final List<com.kascend.chushou.player.ui.h5.c.b> c = new ArrayList();
 
     /* renamed from: com.kascend.chushou.player.ui.h5.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1001a {
+    public interface InterfaceC1004a {
         void c(int i);
     }
 
     public a(Activity activity) {
         try {
-            this.puG = (InterfaceC1001a) activity;
+            this.pwk = (InterfaceC1004a) activity;
         } catch (Exception e) {
-            this.puG = null;
+            this.pwk = null;
         }
     }
 
     public void a() {
         this.c.clear();
-        this.puF.cs(null);
+        this.pwj.ct(null);
     }
 
     public void b() {
         this.c.clear();
-        this.puF.cs(null);
-        this.puG = null;
+        this.pwj.ct(null);
+        this.pwk = null;
     }
 
     public void a(List<com.kascend.chushou.player.ui.h5.c.b> list) {
@@ -48,7 +48,7 @@ public class a {
             for (int i2 = 0; i2 < this.c.size(); i2++) {
                 final com.kascend.chushou.player.ui.h5.c.b bVar2 = this.c.get(i2);
                 if (bVar2.b > 0) {
-                    this.puF.f(new Runnable() { // from class: com.kascend.chushou.player.ui.h5.a.a.1
+                    this.pwj.f(new Runnable() { // from class: com.kascend.chushou.player.ui.h5.a.a.1
                         @Override // java.lang.Runnable
                         public void run() {
                             a.this.b(bVar2);
@@ -56,8 +56,8 @@ public class a {
                     }, bVar2.b * 1000);
                 }
             }
-            if (this.puG != null) {
-                this.puG.c(this.c.size());
+            if (this.pwk != null) {
+                this.pwk.c(this.c.size());
             }
         }
     }
@@ -88,8 +88,8 @@ public class a {
         if (bVar != null) {
             this.c.remove(bVar);
         }
-        if (this.puG != null) {
-            this.puG.c(this.c.size());
+        if (this.pwk != null) {
+            this.pwk.c(this.c.size());
         }
     }
 

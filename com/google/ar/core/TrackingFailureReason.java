@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public enum TrackingFailureReason {
     NONE(0),
     BAD_STATE(1),

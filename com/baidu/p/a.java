@@ -3,9 +3,9 @@ package com.baidu.p;
 import android.text.TextUtils;
 import android.util.Base64;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class a {
-    public static String WR(String str) {
+    public static String WC(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "process";
         }

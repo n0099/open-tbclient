@@ -41,13 +41,13 @@ public class c extends com.kascend.chushou.view.base.c<f> {
                     if (z) {
                         tv.chushou.zues.a.a.post(new com.kascend.chushou.widget.gifts.a.a(c.this.d, 2));
                     }
-                    ParserRet eL = com.kascend.chushou.c.f.eL(jSONObject);
-                    List<GeneralGift> list = (List) eL.mData;
+                    ParserRet eG = com.kascend.chushou.c.f.eG(jSONObject);
+                    List<GeneralGift> list = (List) eG.mData;
                     if (z && h.isEmpty(list)) {
                         tv.chushou.zues.a.a.post(new com.kascend.chushou.widget.gifts.a.a(c.this.d, 6));
                     }
                     ((f) c.this.b).g(list, true, z);
-                    c.this.c = eL.mBreakpoint;
+                    c.this.c = eG.mBreakpoint;
                 }
             }
 

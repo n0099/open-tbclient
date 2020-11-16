@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.File;
 import java.io.IOException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static File dM(Context context) {
         File dir = context.getDir("pms_dir", 0);
@@ -16,7 +16,7 @@ public class d {
         return dir;
     }
 
-    public static String dt(String str, String str2) {
+    public static String ds(String str, String str2) {
         return af(str, str2, File.separator);
     }
 
@@ -39,11 +39,11 @@ public class d {
         return str2;
     }
 
-    public static File du(String str, String str2) {
+    public static File dt(String str, String str2) {
         File file = new File(str);
         if (file.exists() || file.mkdirs()) {
-            String dt = dt(str, str2);
-            String str3 = dt;
+            String ds = ds(str, str2);
+            String str3 = ds;
             for (int i = 0; i < 1000; i++) {
                 File file2 = new File(str3);
                 try {
@@ -55,7 +55,7 @@ public class d {
                         e.printStackTrace();
                     }
                 }
-                str3 = dt + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i;
+                str3 = ds + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i;
             }
             return null;
         }

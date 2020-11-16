@@ -6,7 +6,7 @@ import com.baidu.live.adp.lib.util.SecureHelper;
 import com.baidu.sapi2.utils.e;
 import java.security.Provider;
 import org.apache.commons.codec.digest4util.MessageDigestAlgorithms;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public final class OpenSSLProvider extends Provider {
     private static final String PREFIX = OpenSSLProvider.class.getPackage().getName() + ".";
     private static final String STANDARD_EC_PRIVATE_KEY_INTERFACE_CLASS_NAME = "java.security.interfaces.ECPrivateKey";

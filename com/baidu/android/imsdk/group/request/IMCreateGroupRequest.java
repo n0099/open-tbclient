@@ -24,7 +24,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMCreateGroupRequest.class.getSimpleName();
     private ArrayList<String> mAddingList;
@@ -32,7 +32,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     private String mKey;
     private String mName;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);

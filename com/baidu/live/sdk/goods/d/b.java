@@ -11,11 +11,11 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class b {
-    public static void I(Context context, String str) {
+    public static void F(Context context, String str) {
         Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan1 scheme=" + str);
-        bn bnVar = com.baidu.live.aa.a.PQ().btT;
-        if (bnVar != null && bnVar.aPB != null) {
-            int i = bnVar.aPB.aSe;
+        bn bnVar = com.baidu.live.aa.a.Ph().bsh;
+        if (bnVar != null && bnVar.aNQ != null) {
+            int i = bnVar.aNQ.aQt;
             Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan1 preDownload=" + i);
             if (isDebug()) {
                 Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan1 debug");
@@ -33,9 +33,9 @@ public class b {
 
     public static void e(Context context, ArrayList<String> arrayList) {
         Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan2 appkeys=" + arrayList);
-        bn bnVar = com.baidu.live.aa.a.PQ().btT;
-        if (bnVar != null && bnVar.aPB != null) {
-            int i = bnVar.aPB.aSe;
+        bn bnVar = com.baidu.live.aa.a.Ph().bsh;
+        if (bnVar != null && bnVar.aNQ != null) {
+            int i = bnVar.aNQ.aQt;
             Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan2 preDownload=" + i);
             if (isDebug()) {
                 Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan2 debug");

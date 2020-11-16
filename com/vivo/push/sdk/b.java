@@ -2,7 +2,7 @@ package com.vivo.push.sdk;
 
 import com.vivo.push.util.p;
 import java.lang.reflect.Method;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 final class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

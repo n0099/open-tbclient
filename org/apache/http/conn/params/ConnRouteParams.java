@@ -5,7 +5,7 @@ import org.apache.http.HttpHost;
 import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ConnRouteParams implements ConnRoutePNames {
     public static final HttpHost NO_HOST = null;
     public static final HttpRoute NO_ROUTE = null;

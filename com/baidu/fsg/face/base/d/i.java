@@ -18,14 +18,14 @@ import javax.crypto.NoSuchPaddingException;
 import javax.security.cert.CertificateException;
 import javax.security.cert.X509Certificate;
 import org.json.JSONArray;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
     public static final String f1588a = TextUtils.join("", new String[]{com.baidu.pass.biometrics.face.liveness.d.b.f2753a, "a", "i", "d", "u", "v", Config.OS, "i", "c", "e", "3", "5", "h", "y", "1", "2"});
     public static final String b = TextUtils.join("", new String[]{com.baidu.pass.biometrics.face.liveness.d.b.f2753a, "a", "i", "d", "u", "f", "a", "c", "e", "D", MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, ExifInterface.GPS_DIRECTION_TRUE, "9", "9", "1", "1"});
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */

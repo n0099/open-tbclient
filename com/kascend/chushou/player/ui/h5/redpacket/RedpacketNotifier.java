@@ -23,7 +23,7 @@ public class RedpacketNotifier extends FrameLayout implements View.OnClickListen
     private TextView b;
     private int d;
     private boolean e;
-    private FrescoThumbnailView ptS;
+    private FrescoThumbnailView pvv;
 
     public RedpacketNotifier(@NonNull Context context) {
         this(context, null);
@@ -45,10 +45,10 @@ public class RedpacketNotifier extends FrameLayout implements View.OnClickListen
         LayoutInflater.from(context).inflate(a.h.view_videoplayer_redpacket_notifier, (ViewGroup) this, true);
         this.f4180a = (ImageView) findViewById(a.f.red_packet_close_view);
         this.f4180a.setOnClickListener(this);
-        this.ptS = (FrescoThumbnailView) findViewById(a.f.iv_redpacket);
-        this.ptS.setAnim(true);
-        this.ptS.DX(a.e.open_red_packet);
-        this.ptS.setOnClickListener(this);
+        this.pvv = (FrescoThumbnailView) findViewById(a.f.iv_redpacket);
+        this.pvv.setAnim(true);
+        this.pvv.Ev(a.e.open_red_packet);
+        this.pvv.setOnClickListener(this);
         this.b = (TextView) findViewById(a.f.tv_redpacket_count);
     }
 
@@ -60,8 +60,8 @@ public class RedpacketNotifier extends FrameLayout implements View.OnClickListen
             } else if (!this.e) {
                 setVisibility(0);
                 String f = aVar.f();
-                if (this.ptS != null) {
-                    this.ptS.i(f, a.e.open_red_packet, -1, -1);
+                if (this.pvv != null) {
+                    this.pvv.i(f, a.e.open_red_packet, -1, -1);
                 }
                 a(size, z);
                 this.e = true;
@@ -93,8 +93,8 @@ public class RedpacketNotifier extends FrameLayout implements View.OnClickListen
         if (id == a.f.red_packet_close_view) {
             setVisibility(8);
         } else if (id == a.f.iv_redpacket) {
-            if (!tv.chushou.zues.utils.a.eHM()) {
-                g.Sc(a.i.s_no_available_network);
+            if (!tv.chushou.zues.utils.a.eHN()) {
+                g.SE(a.i.s_no_available_network);
             } else if (e.c(getContext(), null)) {
                 tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.b(6, null));
             }

@@ -6,13 +6,13 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes17.dex */
 public final class a {
-    public static <T> List<T> eyv() {
+    public static <T> List<T> eyw() {
         return new MutableOnWriteList(Collections.emptyList());
     }
 
-    public static <K, V> Map<K, V> eyw() {
+    public static <K, V> Map<K, V> eyx() {
         return new LinkedHashMap();
     }
 
@@ -23,7 +23,7 @@ public final class a {
         return (list == Collections.emptyList() || (list instanceof ImmutableList)) ? new MutableOnWriteList(list) : new ArrayList(list);
     }
 
-    public static <K, V> Map<K, V> o(String str, Map<K, V> map) {
+    public static <K, V> Map<K, V> n(String str, Map<K, V> map) {
         if (map == null) {
             throw new NullPointerException(str + " == null");
         }
@@ -47,7 +47,7 @@ public final class a {
         return list;
     }
 
-    public static <K, V> Map<K, V> p(String str, Map<K, V> map) {
+    public static <K, V> Map<K, V> o(String str, Map<K, V> map) {
         if (map == null) {
             throw new NullPointerException(str + " == null");
         }

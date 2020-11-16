@@ -3,7 +3,7 @@ package com.baidu.fsg.base.router;
 import android.content.Context;
 import com.baidu.fsg.base.utils.LogUtil;
 import java.util.HashMap;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class LocalRouter {
 
     /* renamed from: a  reason: collision with root package name */

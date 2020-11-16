@@ -13,19 +13,19 @@ import com.baidu.sofire.ac.F;
 import com.baidu.sofire.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
     private static a f3622a;
-    private C0358a b;
+    private C0356a b;
     private e c;
     private SQLiteDatabase d;
     private Context e;
 
     private a(Context context) {
         this.e = context;
-        this.b = new C0358a(context);
+        this.b = new C0356a(context);
         this.c = new e(context);
         try {
             this.d = this.b.getWritableDatabase();
@@ -577,9 +577,9 @@ public final class a {
     }
 
     /* renamed from: com.baidu.sofire.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    class C0358a extends SQLiteOpenHelper {
-        public C0358a(Context context) {
+    /* loaded from: classes9.dex */
+    class C0356a extends SQLiteOpenHelper {
+        public C0356a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 

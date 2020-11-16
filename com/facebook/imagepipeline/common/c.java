@@ -2,48 +2,48 @@ package com.facebook.imagepipeline.common;
 
 import android.graphics.Bitmap;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class c {
-    private boolean oUF;
-    private boolean oUG;
-    private boolean oUH;
-    private boolean oUI;
+    private boolean oWi;
+    private boolean oWj;
+    private boolean oWk;
+    private boolean oWl;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b oUJ;
-    private int oUE = 100;
+    private com.facebook.imagepipeline.decoder.b oWm;
+    private int oWh = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int enN() {
-        return this.oUE;
+    public int enL() {
+        return this.oWh;
+    }
+
+    public boolean enM() {
+        return this.oWi;
+    }
+
+    public boolean enN() {
+        return this.oWj;
     }
 
     public boolean enO() {
-        return this.oUF;
+        return this.oWk;
     }
 
-    public boolean enP() {
-        return this.oUG;
-    }
-
-    public boolean enQ() {
-        return this.oUH;
-    }
-
-    public c Al(boolean z) {
-        this.oUI = z;
+    public c As(boolean z) {
+        this.oWl = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b enR() {
-        return this.oUJ;
+    public com.facebook.imagepipeline.decoder.b enP() {
+        return this.oWm;
     }
 
-    public boolean enS() {
-        return this.oUI;
+    public boolean enQ() {
+        return this.oWl;
     }
 
-    public Bitmap.Config enT() {
+    public Bitmap.Config enR() {
         return this.mBitmapConfig;
     }
 
@@ -52,7 +52,7 @@ public class c {
         return this;
     }
 
-    public b enU() {
+    public b enS() {
         return new b(this);
     }
 }

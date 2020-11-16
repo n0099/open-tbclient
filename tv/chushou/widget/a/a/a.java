@@ -11,14 +11,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class a extends Drawable {
-    private final C1112a qmv;
+    private final C1115a qnY;
 
     public a(Bitmap bitmap, @ColorInt int i) {
-        this.qmv = new C1112a(bitmap, i);
+        this.qnY = new C1115a(bitmap, i);
     }
 
-    private a(@NonNull C1112a c1112a) {
-        this.qmv = c1112a;
+    private a(@NonNull C1115a c1115a) {
+        this.qnY = c1115a;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -26,11 +26,11 @@ public class a extends Drawable {
         Rect bounds = getBounds();
         int width = bounds.width();
         int height = bounds.height();
-        canvas.drawColor(this.qmv.qmw);
-        if (this.qmv.mBitmap != null) {
-            int i = this.qmv.mBitmapWidth;
-            int i2 = this.qmv.mBitmapHeight;
-            if (width < this.qmv.mBitmapWidth || height < this.qmv.mBitmapHeight) {
+        canvas.drawColor(this.qnY.qnZ);
+        if (this.qnY.mBitmap != null) {
+            int i = this.qnY.mBitmapWidth;
+            int i2 = this.qnY.mBitmapHeight;
+            if (width < this.qnY.mBitmapWidth || height < this.qnY.mBitmapHeight) {
                 i2 = (int) (Math.min(width, height) * 0.5d);
                 i = i2;
             }
@@ -39,21 +39,21 @@ public class a extends Drawable {
             rect.right = (i + width) / 2;
             rect.top = (height - i2) / 2;
             rect.bottom = (i2 + height) / 2;
-            canvas.drawBitmap(this.qmv.mBitmap, this.qmv.mRect, rect, this.qmv.mPaint);
+            canvas.drawBitmap(this.qnY.mBitmap, this.qnY.mRect, rect, this.qnY.mPaint);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        if (i != this.qmv.mPaint.getAlpha()) {
-            this.qmv.mPaint.setAlpha(i);
+        if (i != this.qnY.mPaint.getAlpha()) {
+            this.qnY.mPaint.setAlpha(i);
             invalidateSelf();
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        this.qmv.mPaint.setColorFilter(colorFilter);
+        this.qnY.mPaint.setColorFilter(colorFilter);
         invalidateSelf();
     }
 
@@ -65,24 +65,24 @@ public class a extends Drawable {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.graphics.drawable.Drawable
     @Nullable
-    /* renamed from: eHG */
-    public C1112a getConstantState() {
-        return this.qmv;
+    /* renamed from: eHH */
+    public C1115a getConstantState() {
+        return this.qnY;
     }
 
     /* renamed from: tv.chushou.widget.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1112a extends Drawable.ConstantState {
+    public static class C1115a extends Drawable.ConstantState {
         final Bitmap mBitmap;
         int mBitmapHeight;
         int mBitmapWidth;
         final Paint mPaint = new Paint();
         Rect mRect;
-        final int qmw;
+        final int qnZ;
 
-        C1112a(Bitmap bitmap, @ColorInt int i) {
+        C1115a(Bitmap bitmap, @ColorInt int i) {
             this.mBitmap = bitmap;
-            this.qmw = i;
+            this.qnZ = i;
             if (bitmap != null) {
                 this.mBitmapWidth = bitmap.getWidth();
                 this.mBitmapHeight = bitmap.getHeight();

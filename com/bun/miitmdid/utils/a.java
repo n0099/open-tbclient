@@ -1,9 +1,9 @@
 package com.bun.miitmdid.utils;
 
 import android.util.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class a {
-    private static a oIu;
+    private static a oJY;
     private int b = -1;
 
     private a() {
@@ -22,7 +22,7 @@ public class a {
     }
 
     public static void a(boolean z) {
-        eiH().b = z ? 1 : 0;
+        eiF().b = z ? 1 : 0;
     }
 
     public static void b(String str, String str2) {
@@ -38,17 +38,17 @@ public class a {
     }
 
     public static boolean b() {
-        return eiH().b == 1;
+        return eiF().b == 1;
     }
 
-    public static a eiH() {
-        if (oIu == null) {
+    public static a eiF() {
+        if (oJY == null) {
             synchronized (a.class) {
-                if (oIu == null) {
-                    oIu = new a();
+                if (oJY == null) {
+                    oJY = new a();
                 }
             }
         }
-        return oIu;
+        return oJY;
     }
 }

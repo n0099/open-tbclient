@@ -1,7 +1,7 @@
 package com.baidu.mobstat;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public final class br {
 
     /* renamed from: a  reason: collision with root package name */

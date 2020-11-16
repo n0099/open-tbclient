@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
@@ -18,6 +18,6 @@ public class af {
     }
 
     public static boolean a(Context context) {
-        return ae.f93a;
+        return ae.f96a;
     }
 }

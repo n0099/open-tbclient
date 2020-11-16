@@ -1,61 +1,61 @@
 package com.baidu.swan.games.binding.model;
 
 import com.baidu.searchbox.v8engine.JsFunction;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class a {
-    public JsFunction dSV;
-    public JsFunction dSW;
-    public JsFunction dSX;
+    public JsFunction dRn;
+    public JsFunction dRo;
+    public JsFunction dRp;
 
     public static a f(c cVar) {
         if (cVar == null) {
             return null;
         }
         a aVar = new a();
-        aVar.dSV = cVar.wE("success");
-        aVar.dSW = cVar.wE("fail");
-        aVar.dSX = cVar.wE(com.baidu.mobads.openad.c.b.COMPLETE);
+        aVar.dRn = cVar.wz("success");
+        aVar.dRo = cVar.wz("fail");
+        aVar.dRp = cVar.wz(com.baidu.mobads.openad.c.b.COMPLETE);
         return aVar;
     }
 
     public void onSuccess(Object obj) {
-        if (this.dSV != null) {
-            this.dSV.call(obj);
+        if (this.dRn != null) {
+            this.dRn.call(obj);
         }
-        if (this.dSX != null) {
-            this.dSX.call(obj);
+        if (this.dRp != null) {
+            this.dRp.call(obj);
         }
-        a(this.dSW);
+        a(this.dRo);
     }
 
     public void ac(Object obj) {
-        if (this.dSW != null) {
-            this.dSW.call(obj);
+        if (this.dRo != null) {
+            this.dRo.call(obj);
         }
-        if (this.dSX != null) {
-            this.dSX.call(obj);
+        if (this.dRp != null) {
+            this.dRp.call(obj);
         }
-        a(this.dSV);
+        a(this.dRn);
     }
 
     public void onSuccess() {
-        if (this.dSV != null) {
-            this.dSV.call();
+        if (this.dRn != null) {
+            this.dRn.call();
         }
-        if (this.dSX != null) {
-            this.dSX.call();
+        if (this.dRp != null) {
+            this.dRp.call();
         }
-        a(this.dSW);
+        a(this.dRo);
     }
 
     public void onFail() {
-        if (this.dSW != null) {
-            this.dSW.call();
+        if (this.dRo != null) {
+            this.dRo.call();
         }
-        if (this.dSX != null) {
-            this.dSX.call();
+        if (this.dRp != null) {
+            this.dRp.call();
         }
-        a(this.dSV);
+        a(this.dRn);
     }
 
     private void a(JsFunction jsFunction) {

@@ -1,19 +1,19 @@
 package com.baidu.cesium.c.c;
 
 import java.math.BigInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static byte[] f1309a;
+    private static byte[] f1312a;
     private static byte[] b;
 
     public static byte[] a() {
-        if (f1309a != null) {
-            return f1309a;
+        if (f1312a != null) {
+            return f1312a;
         }
-        f1309a = new BigInteger(a.f1308a).modPow(new BigInteger(a.b), new BigInteger(a.e)).toByteArray();
-        return f1309a;
+        f1312a = new BigInteger(a.f1311a).modPow(new BigInteger(a.b), new BigInteger(a.e)).toByteArray();
+        return f1312a;
     }
 
     public static byte[] b() {

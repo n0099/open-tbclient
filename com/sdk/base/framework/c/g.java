@@ -1,7 +1,7 @@
 package com.sdk.base.framework.c;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public abstract class g {
 
     /* renamed from: a  reason: collision with root package name */

@@ -5,11 +5,11 @@ public class d {
         return 1 + j;
     }
 
-    public static long gt(long j) {
+    public static long gw(long j) {
         return 100 * j;
     }
 
-    public static long gu(long j) {
+    public static long gx(long j) {
         return j / 100;
     }
 }

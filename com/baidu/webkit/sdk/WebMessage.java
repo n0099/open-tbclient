@@ -1,5 +1,5 @@
 package com.baidu.webkit.sdk;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class WebMessage {
     private String mData;
     private WebMessagePort[] mPorts;

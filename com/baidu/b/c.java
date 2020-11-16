@@ -19,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class c {
-    private com.baidu.b.c.d.d adm;
+    private com.baidu.b.c.d.d adr;
     private List<b> b;
 
     public c() {
@@ -39,7 +39,7 @@ public class c {
     }
 
     private void a() {
-        this.adm = new com.baidu.b.c.d.e(e.a(), e.b());
+        this.adr = new com.baidu.b.c.d.e(e.a(), e.b());
     }
 
     private boolean a(String[] strArr, String[] strArr2) {
@@ -98,7 +98,7 @@ public class c {
                                 JSONObject jSONObject = new JSONObject(new String(a2));
                                 b bVar = new b();
                                 bVar.b = jSONObject.getInt("priority");
-                                bVar.acS = resolveInfo.activityInfo.applicationInfo;
+                                bVar.acX = resolveInfo.activityInfo.applicationInfo;
                                 if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     bVar.d = true;
                                 }
@@ -112,7 +112,7 @@ public class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.b.d.a.a(string2.getBytes()), this.adm);
+                                            byte[] a3 = a(com.baidu.b.d.a.a(string2.getBytes()), this.adr);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.b.d.c.a(a2))) {
                                                 bVar.c = true;
                                             }

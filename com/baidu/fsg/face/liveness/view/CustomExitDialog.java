@@ -6,7 +6,7 @@ import android.content.DialogInterface;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class CustomExitDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */

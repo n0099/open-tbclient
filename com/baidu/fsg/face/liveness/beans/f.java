@@ -1,7 +1,7 @@
 package com.baidu.fsg.face.liveness.beans;
 
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */

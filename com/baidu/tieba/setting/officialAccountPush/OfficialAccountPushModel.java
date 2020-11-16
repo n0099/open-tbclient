@@ -8,43 +8,43 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetOfficialSwitch.OfficialList;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class OfficialAccountPushModel extends BdBaseModel {
     public static int NET_SUCCESS = 0;
-    private a mIa;
+    private a mIC;
     public List<OfficialList> official_list;
     public ArrayList<OfficialAccountPushInfo> list = new ArrayList<>();
-    private com.baidu.adp.framework.listener.a mJQ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, 309620) { // from class: com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel.1
+    private com.baidu.adp.framework.listener.a mKz = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, 309620) { // from class: com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             OfficialAccountPushHttpResponseMessage officialAccountPushHttpResponseMessage;
             if (responsedMessage instanceof OfficialAccountPushSocketResponseMessage) {
                 OfficialAccountPushSocketResponseMessage officialAccountPushSocketResponseMessage = (OfficialAccountPushSocketResponseMessage) responsedMessage;
                 if (officialAccountPushSocketResponseMessage != null && officialAccountPushSocketResponseMessage.getList() != null) {
-                    OfficialAccountPushModel.this.mIa.a(officialAccountPushSocketResponseMessage.getList(), officialAccountPushSocketResponseMessage.getError(), officialAccountPushSocketResponseMessage.getErrorString());
+                    OfficialAccountPushModel.this.mIC.a(officialAccountPushSocketResponseMessage.getList(), officialAccountPushSocketResponseMessage.getError(), officialAccountPushSocketResponseMessage.getErrorString());
                 } else {
                     return;
                 }
             }
             if ((responsedMessage instanceof OfficialAccountPushHttpResponseMessage) && (officialAccountPushHttpResponseMessage = (OfficialAccountPushHttpResponseMessage) responsedMessage) != null) {
-                OfficialAccountPushModel.this.mIa.a(officialAccountPushHttpResponseMessage.getList(), officialAccountPushHttpResponseMessage.getError(), officialAccountPushHttpResponseMessage.getErrorString());
+                OfficialAccountPushModel.this.mIC.a(officialAccountPushHttpResponseMessage.getList(), officialAccountPushHttpResponseMessage.getError(), officialAccountPushHttpResponseMessage.getErrorString());
             }
         }
     };
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes25.dex */
     public interface a {
         void a(ArrayList<OfficialAccountPushInfo> arrayList, int i, String str);
     }
 
     public OfficialAccountPushModel(a aVar) {
-        this.mIa = aVar;
-        registerListener(this.mJQ);
+        this.mIC = aVar;
+        registerListener(this.mKz);
         com.baidu.tieba.tbadkCore.a.a.c(309620, OfficialAccountPushSocketResponseMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
     }
 
-    public void dFF() {
+    public void dFt() {
         sendMessage(new OfficialAccountPushRequestMessage());
     }
 
@@ -60,6 +60,6 @@ public class OfficialAccountPushModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.mJQ);
+        MessageManager.getInstance().unRegisterListener(this.mKz);
     }
 }

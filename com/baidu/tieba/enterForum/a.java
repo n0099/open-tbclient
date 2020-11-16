@@ -1,45 +1,44 @@
 package com.baidu.tieba.enterForum;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.l;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.t;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class a {
-    public static void a(View view, AbsThreadDataSupport absThreadDataSupport, String str) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bjZ() != null) {
-            bw bjZ = absThreadDataSupport.bjZ();
-            if (bjZ.blg()) {
-                TiebaStatic.log(l.f(bjZ, str));
+    public static void a(View view, com.baidu.tbadk.core.data.a aVar, String str) {
+        if (aVar != null && aVar.bjd() != null) {
+            bx bjd = aVar.bjd();
+            if (bjd.bki()) {
+                TiebaStatic.log(l.f(bjd, str));
                 return;
             }
             int id = view.getId();
             if (view.getId() == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
-                TiebaStatic.log(l.d(bjZ, str));
+                TiebaStatic.log(l.d(bjd, str));
             } else if (id == R.id.user_avatar) {
-                TiebaStatic.log(l.c(bjZ, str));
+                TiebaStatic.log(l.c(bjd, str));
             } else if (id == R.id.user_name) {
-                TiebaStatic.log(l.c(bjZ, str));
+                TiebaStatic.log(l.c(bjd, str));
             } else if (id == R.id.forum_name_text) {
-                TiebaStatic.log(l.g(bjZ, str));
+                TiebaStatic.log(l.g(bjd, str));
             } else if (id == R.id.thread_info_commont_container) {
-                TiebaStatic.log(l.d(bjZ, str));
+                TiebaStatic.log(l.d(bjd, str));
             } else if (view instanceof TbImageView) {
-                TiebaStatic.log(l.e(bjZ, str));
+                TiebaStatic.log(l.e(bjd, str));
             }
         }
     }
 
-    public static void a(AbsThreadDataSupport absThreadDataSupport, String str) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bjZ() != null) {
-            if (absThreadDataSupport.bjZ().blg()) {
-                t.cor().e(l.b(absThreadDataSupport.bjZ(), str));
+    public static void a(com.baidu.tbadk.core.data.a aVar, String str) {
+        if (aVar != null && aVar.bjd() != null) {
+            if (aVar.bjd().bki()) {
+                t.cnT().e(l.b(aVar.bjd(), str));
             } else {
-                t.cor().e(l.a(absThreadDataSupport.bjZ(), str));
+                t.cnT().e(l.a(aVar.bjd(), str));
             }
         }
     }

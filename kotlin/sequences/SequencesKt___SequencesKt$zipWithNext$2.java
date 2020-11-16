@@ -6,9 +6,9 @@ import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.q;
 import kotlin.l;
-@kotlin.coroutines.jvm.internal.c(c = "kotlin/sequences/SequencesKt___SequencesKt$zipWithNext$2", eBK = {1693}, f = "_Sequences.kt", m = "invokeSuspend")
+@kotlin.coroutines.jvm.internal.c(c = "kotlin/sequences/SequencesKt___SequencesKt$zipWithNext$2", eBL = {1693}, f = "_Sequences.kt", m = "invokeSuspend")
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSuspendLambda implements m<d<? super R>, kotlin.coroutines.a<? super l>, Object> {
     final /* synthetic */ c $this_zipWithNext;
     final /* synthetic */ m $transform;
@@ -38,7 +38,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSuspendLam
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.a.m
     public final Object invoke(Object obj, kotlin.coroutines.a<? super l> aVar) {
-        return ((SequencesKt___SequencesKt$zipWithNext$2) create(obj, aVar)).invokeSuspend(l.pRS);
+        return ((SequencesKt___SequencesKt$zipWithNext$2) create(obj, aVar)).invokeSuspend(l.pTv);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1687=4] */
@@ -47,7 +47,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSuspendLam
         d dVar;
         Iterator it;
         Object obj2;
-        Object eBJ = kotlin.coroutines.intrinsics.a.eBJ();
+        Object eBK = kotlin.coroutines.intrinsics.a.eBK();
         switch (this.label) {
             case 0:
                 if (!(obj instanceof Result.Failure)) {
@@ -57,7 +57,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSuspendLam
                         obj2 = it.next();
                         break;
                     } else {
-                        return l.pRS;
+                        return l.pTv;
                     }
                 } else {
                     throw ((Result.Failure) obj).exception;
@@ -86,11 +86,11 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSuspendLam
             this.L$2 = obj2;
             this.L$3 = next;
             this.label = 1;
-            if (dVar.a((d) invoke, (kotlin.coroutines.a<? super l>) this) == eBJ) {
-                return eBJ;
+            if (dVar.a((d) invoke, (kotlin.coroutines.a<? super l>) this) == eBK) {
+                return eBK;
             }
             obj2 = next;
         }
-        return l.pRS;
+        return l.pTv;
     }
 }

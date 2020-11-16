@@ -1,5 +1,5 @@
 package com.baidubce.model;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class User {
     private String displayName;
     private String id;

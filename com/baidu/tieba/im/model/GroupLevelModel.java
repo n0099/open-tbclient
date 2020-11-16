@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tieba.im.frsgroup.GroupLevelActivity;
 import com.baidu.tieba.im.message.RequestGroupLevelMessage;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class GroupLevelModel extends BdBaseModel<GroupLevelActivity> {
     public static final String GROUP_ID = "group_id";
     public static final String IS_MEM = "is_mem";

@@ -10,7 +10,7 @@ public class c implements ILiveScheme {
     @Override // com.baidu.live.tbadk.scheme.ILiveScheme
     public void excute(Context context, Map<String, String> map, SchemeCallback schemeCallback) {
         try {
-            com.baidu.tieba.sdk.a.dCs().a(TbadkCoreApplication.getInst(), map.get("exp") == null ? -1L : Long.parseLong(map.get("exp")), map.get("level") == null ? -1 : Integer.parseInt(map.get("level")));
+            com.baidu.tieba.sdk.a.dBW().a(TbadkCoreApplication.getInst(), map.get("exp") == null ? -1L : Long.parseLong(map.get("exp")), map.get("level") == null ? -1 : Integer.parseInt(map.get("level")));
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }

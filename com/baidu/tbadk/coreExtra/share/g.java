@@ -12,9 +12,11 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.coreExtra.share.b;
 import com.baidu.tbadk.switchs.UrlNeedCuidSwitch;
 import com.baidu.tieba.R;
@@ -25,36 +27,36 @@ import java.net.URI;
 import java.net.URISyntaxException;
 /* loaded from: classes.dex */
 public class g {
-    private c fhv;
-    private d fhw;
-    private b fhz;
+    private c fgD;
+    private d fgE;
+    private b fgH;
     private final Context mContext;
-    private String fhx = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
-    private String fhy = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.fhx;
-    private b.a fhA = new b.a() { // from class: com.baidu.tbadk.coreExtra.share.g.1
+    private String fgF = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
+    private String fgG = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.fgF;
+    private b.a fgI = new b.a() { // from class: com.baidu.tbadk.coreExtra.share.g.1
         @Override // com.baidu.tbadk.coreExtra.share.b.a
-        public void e(ShareItem shareItem) {
-            g.this.fhw.a(g.this.a(shareItem, LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND), 3, false);
+        public void d(ShareItem shareItem) {
+            g.this.fgE.a(g.this.a(shareItem, LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND), 3, false);
         }
     };
 
     public g(Context context, c cVar) {
         e eVar;
-        this.fhv = null;
-        this.fhw = null;
+        this.fgD = null;
+        this.fgE = null;
         this.mContext = context;
-        this.fhv = cVar;
+        this.fgD = cVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG, e.class);
         if (runTask.getData() != null && (eVar = (e) runTask.getData()) != null) {
-            this.fhw = eVar.a(this.mContext, this.fhv);
+            this.fgE = eVar.a(this.mContext, this.fgD);
         }
     }
 
     public static boolean eh(Context context) {
-        return bxA();
+        return bwQ();
     }
 
-    public static boolean bxA() {
+    public static boolean bwQ() {
         return TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG);
     }
 
@@ -62,71 +64,75 @@ public class g {
         return am(str, "copy", str2);
     }
 
-    public void f(ShareItem shareItem) {
-        if (this.fhw != null && shareItem != null) {
+    public void e(ShareItem shareItem) {
+        if (this.fgE != null && shareItem != null) {
             if (StringUtils.isNull(shareItem.tid)) {
-                shareItem.content = b(shareItem.content, 80, 20, shareItem.fhi ? this.fhx : "");
+                shareItem.content = b(shareItem.content, 80, 20, shareItem.fgq ? this.fgF : "");
             }
-            if (shareItem.canShareBySmartApp && !at.isEmpty(shareItem.fhl)) {
-                shareItem.imageUri = Uri.parse(shareItem.fhl);
-                this.fhw.a(a(shareItem, LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND), 3, false);
-            } else if (shareItem.canShareBySmartApp && at.isEmpty(shareItem.fhl) && !at.isEmpty(shareItem.tid) && !"0".equals(shareItem.tid)) {
-                if (this.fhz == null) {
-                    this.fhz = new b();
-                    this.fhz.a(this.fhA);
+            if (shareItem.canShareBySmartApp && !au.isEmpty(shareItem.fgt)) {
+                shareItem.imageUri = Uri.parse(shareItem.fgt);
+                this.fgE.a(a(shareItem, LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND), 3, false);
+            } else if (shareItem.canShareBySmartApp && au.isEmpty(shareItem.fgt) && !au.isEmpty(shareItem.tid) && !"0".equals(shareItem.tid)) {
+                if (this.fgH == null) {
+                    this.fgH = new b();
+                    this.fgH.a(this.fgI);
                 }
-                this.fhz.c(shareItem);
+                this.fgH.b(shareItem);
             } else {
                 if (shareItem.typeShareToSmallApp == 4) {
-                    if (this.fhz == null) {
-                        this.fhz = new b();
+                    if (this.fgH == null) {
+                        this.fgH = new b();
                     }
-                    this.fhz.c(shareItem);
+                    this.fgH.b(shareItem);
                 }
-                this.fhw.a(a(shareItem, LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND), 3, false);
+                this.fgE.a(a(shareItem, LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND), 3, false);
             }
+        }
+    }
+
+    public void f(ShareItem shareItem) {
+        if (this.fgE != null && shareItem != null) {
+            shareItem.content = b(shareItem.content, 80, 20, shareItem.fgq ? this.fgF : "");
+            this.fgE.a(a(shareItem, LogConfig.LIVE_SHARE_WEIXIN_TIMELINE), 2, false);
         }
     }
 
     public void g(ShareItem shareItem) {
-        if (this.fhw != null && shareItem != null) {
-            shareItem.content = b(shareItem.content, 80, 20, shareItem.fhi ? this.fhx : "");
-            this.fhw.a(a(shareItem, LogConfig.LIVE_SHARE_WEIXIN_TIMELINE), 2, false);
+        if (this.fgE != null && shareItem != null) {
+            shareItem.content = b(shareItem.content, 80, 32, shareItem.fgq ? this.fgF : "");
+            this.fgE.a(a(shareItem, LogConfig.LIVE_SHARE_QQ_FRIEND), 8, true);
         }
     }
 
     public void h(ShareItem shareItem) {
-        if (this.fhw != null && shareItem != null) {
-            shareItem.content = b(shareItem.content, 80, 32, shareItem.fhi ? this.fhx : "");
-            this.fhw.a(a(shareItem, LogConfig.LIVE_SHARE_QQ_FRIEND), 8, true);
+        if (this.fgE != null) {
+            shareItem.content = b(shareItem.content, 80, 32, shareItem.fgq ? this.fgF : "");
+            this.fgE.a(a(shareItem, Constants.SOURCE_QZONE), 4, true);
         }
     }
 
     public void i(ShareItem shareItem) {
-        if (this.fhw != null) {
-            shareItem.content = b(shareItem.content, 80, 32, shareItem.fhi ? this.fhx : "");
-            this.fhw.a(a(shareItem, Constants.SOURCE_QZONE), 4, true);
+        if (this.fgE != null) {
+            shareItem.content = b(shareItem.content, 140, 20, shareItem.fgq ? this.fgF : "");
+            this.fgE.a(a(shareItem, "tencent_weibo"), 5, true);
         }
     }
 
     public void j(ShareItem shareItem) {
-        if (this.fhw != null) {
-            shareItem.content = b(shareItem.content, 140, 20, shareItem.fhi ? this.fhx : "");
-            this.fhw.a(a(shareItem, "tencent_weibo"), 5, true);
+        if (this.fgE != null) {
+            if (!a.v(TbadkApplication.getInst().getApplicationContext(), 6)) {
+                BdToast.b(TbadkApplication.getInst().getApplicationContext(), TbadkApplication.getInst().getApplicationContext().getText(R.string.share_sina_weibo_not_install)).bom();
+                return;
+            }
+            shareItem.content = b(shareItem.content, 140, 20, shareItem.fgq ? this.fgG : "");
+            this.fgE.a(a(shareItem, "sina_weibo"), 6, true);
         }
     }
 
     public void k(ShareItem shareItem) {
-        if (this.fhw != null) {
-            shareItem.content = b(shareItem.content, 140, 20, shareItem.fhi ? this.fhy : "");
-            this.fhw.a(a(shareItem, "sina_weibo"), 6, true);
-        }
-    }
-
-    public void l(ShareItem shareItem) {
-        if (this.fhw != null) {
-            shareItem.content = b(shareItem.content, 140, 20, shareItem.fhi ? this.fhx : "");
-            this.fhw.a(a(shareItem, "renren"), 7, true);
+        if (this.fgE != null) {
+            shareItem.content = b(shareItem.content, 140, 20, shareItem.fgq ? this.fgF : "");
+            this.fgE.a(a(shareItem, "renren"), 7, true);
         }
     }
 
@@ -146,7 +152,7 @@ public class g {
         if (shareItem == null) {
             return null;
         }
-        if ((shareItem.imageUri == null || shareItem.imageUri.equals("")) && shareItem.bxu() == null) {
+        if ((shareItem.imageUri == null || shareItem.imageUri.equals("")) && shareItem.bwK() == null) {
             String str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             if (str.startsWith(LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND)) {
                 str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
@@ -155,21 +161,21 @@ public class g {
         }
         if (shareItem.imageUri != null && !shareItem.imageUri.equals("")) {
             String uri = shareItem.imageUri.toString();
-            if (!Db(uri) && !Dc(uri)) {
+            if (!CA(uri) && !CB(uri)) {
                 shareItem.imageUri = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
             } else {
                 shareItem.imageUri = Uri.parse(uri);
                 dW(uri, "sfc=" + str);
             }
         }
-        if (shareItem.fhj) {
+        if (shareItem.fgr) {
             shareItem.linkUrl = am(shareItem.linkUrl, str, shareItem.tid);
             return shareItem;
         }
         return shareItem;
     }
 
-    protected boolean Db(String str) {
+    protected boolean CA(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith("file://")) {
             try {
                 File file = new File(new URI(str));
@@ -183,7 +189,7 @@ public class g {
 
     private static String am(String str, String str2, String str3) {
         String md5;
-        if (at.isEmpty(str)) {
+        if (au.isEmpty(str)) {
             str = "http://tieba.baidu.com/";
         }
         String dW = dW(dW(dW(dW(str, "sfc=" + str2), "client_type=2"), "client_version=" + TbConfig.getVersion()), "st=" + (System.currentTimeMillis() / 1000));
@@ -207,9 +213,9 @@ public class g {
         return str + str3 + str2;
     }
 
-    private boolean Dc(String str) {
+    private boolean CB(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
-        if (be.brr().UrlValidated(str)) {
+        if (bf.bqF().UrlValidated(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

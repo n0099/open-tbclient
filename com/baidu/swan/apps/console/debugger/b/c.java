@@ -8,28 +8,28 @@ import com.baidu.webkit.internal.ETAG;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    String Qf;
-    String cFI;
-    String cFJ;
-    String cFK;
-    String cFL;
-    JSONArray cFM;
+    String Qg;
+    String cDY;
+    String cDZ;
+    String cEa;
+    String cEb;
+    JSONArray cEc;
     String mAppKey;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c bh(JSONObject jSONObject) {
+    public static c bb(JSONObject jSONObject) {
         c cVar = new c();
         try {
             cVar.mAppKey = jSONObject.getString("appKey");
-            cVar.cFI = jSONObject.getString("appUrl") + "?swanJsVersion" + ETAG.EQUAL + com.baidu.swan.apps.swancore.b.kF(0) + ETAG.ITEM_SEPARATOR + "appVersion" + ETAG.EQUAL + ak.getVersionName();
-            cVar.Qf = jSONObject.getString("wsUrl");
-            cVar.cFJ = jSONObject.optString("notInHistory", "1");
-            cVar.cFK = jSONObject.optString("masterPreload");
-            cVar.cFL = jSONObject.optString("slavePreload");
-            cVar.cFM = jSONObject.optJSONArray("hosts");
+            cVar.cDY = jSONObject.getString("appUrl") + "?swanJsVersion" + ETAG.EQUAL + com.baidu.swan.apps.swancore.b.kB(0) + ETAG.ITEM_SEPARATOR + "appVersion" + ETAG.EQUAL + ak.getVersionName();
+            cVar.Qg = jSONObject.getString("wsUrl");
+            cVar.cDZ = jSONObject.optString("notInHistory", "1");
+            cVar.cEa = jSONObject.optString("masterPreload");
+            cVar.cEb = jSONObject.optString("slavePreload");
+            cVar.cEc = jSONObject.optJSONArray("hosts");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -43,19 +43,19 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String hN(int i) {
-        return ah(i, this.cFI);
+    public String hJ(int i) {
+        return ah(i, this.cDY);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String hO(int i) {
-        return ah(i, this.Qf);
+    public String hK(int i) {
+        return ah(i, this.Qg);
     }
 
     private String ah(int i, String str) {
-        if (this.cFM != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.cFM.length()) {
+        if (this.cEc != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.cEc.length()) {
             Uri parse = Uri.parse(str);
-            String optString = this.cFM.optString(i);
+            String optString = this.cEc.optString(i);
             if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
                 return str.replace(parse.getHost(), optString);
             }
@@ -66,6 +66,6 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isInvalid() {
-        return TextUtils.isEmpty(this.mAppKey) || TextUtils.isEmpty(this.cFI) || TextUtils.isEmpty(this.Qf);
+        return TextUtils.isEmpty(this.mAppKey) || TextUtils.isEmpty(this.cDY) || TextUtils.isEmpty(this.Qg);
     }
 }

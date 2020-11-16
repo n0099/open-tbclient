@@ -4,9 +4,9 @@ import android.content.Context;
 import com.baidu.tbadk.mainTab.b;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class a {
-    private ArrayList<b> aiK = new ArrayList<>();
+    private ArrayList<b> aiP = new ArrayList<>();
     private Context mContext;
 
     public a(Context context) {
@@ -15,19 +15,19 @@ public class a {
 
     public void a(b bVar) {
         if (bVar != null && bVar.getFragmentTabStructure() != null) {
-            Iterator<b> it = this.aiK.iterator();
+            Iterator<b> it = this.aiP.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
                     return;
                 }
             }
-            this.aiK.add(bVar);
+            this.aiP.add(bVar);
         }
     }
 
     public ArrayList<b> getList() {
-        return this.aiK;
+        return this.aiP;
     }
 
     public Context getContext() {

@@ -6,11 +6,11 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class CfgItemParser {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public enum a {
         FAILED,
         AND_NEED_CHECK_NEXT,
@@ -18,14 +18,14 @@ public class CfgItemParser {
         SUCCESS
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     private static class b {
         public int e;
         public boolean c = false;
         public boolean d = false;
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f1373a = null;
+        public String[] f1376a = null;
         public boolean b = true;
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -40,17 +40,17 @@ public class CfgItemParser {
                 this.c = true;
                 this.d = false;
             } else if (!str.contains(str2)) {
-                this.f1373a = a(str, str3);
+                this.f1376a = a(str, str3);
             } else {
                 if (str2.endsWith("|")) {
                     str2 = EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR;
                 }
                 String[] split = str.split(str2);
                 if (split.length == 2) {
-                    this.f1373a = a(split[0], str3);
+                    this.f1376a = a(split[0], str3);
                     this.b = c(split[1]);
                 } else if (split.length == 1) {
-                    this.f1373a = a(split[0], str3);
+                    this.f1376a = a(split[0], str3);
                 }
             }
         }
@@ -85,16 +85,16 @@ public class CfgItemParser {
             if (this.c) {
                 return true;
             }
-            if (!TextUtils.isEmpty(str) && this.f1373a != null) {
-                int length = this.f1373a.length;
+            if (!TextUtils.isEmpty(str) && this.f1376a != null) {
+                int length = this.f1376a.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(this.f1373a[i])) {
+                    if (str.equals(this.f1376a[i])) {
                         return true;
                     }
-                    if (this.e == 0 && a(str, this.f1373a[i], "\\.", "*")) {
+                    if (this.e == 0 && a(str, this.f1376a[i], "\\.", "*")) {
                         return true;
                     }
-                    if (this.e == 1 && str.contains("." + this.f1373a[i])) {
+                    if (this.e == 1 && str.contains("." + this.f1376a[i])) {
                         return true;
                     }
                 }

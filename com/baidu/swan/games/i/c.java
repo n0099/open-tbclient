@@ -1,9 +1,9 @@
 package com.baidu.swan.games.i;
 
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
-    public byte[] dTY;
+    public byte[] dSq;
     public String digest;
     public int errCode;
     public String errMsg;

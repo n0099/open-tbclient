@@ -7,19 +7,19 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex.a {
     final boolean delayErrors;
     final h<? super T, ? extends io.reactivex.e> mapper;
     final int maxConcurrency;
-    final io.reactivex.g<T> pMK;
+    final io.reactivex.g<T> pOn;
 
     @Override // io.reactivex.a
     protected void b(io.reactivex.c cVar) {
-        this.pMK.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.pOn.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class FlatMapCompletableMainSubscriber<T> extends AtomicInteger implements io.reactivex.disposables.b, j<T> {
         private static final long serialVersionUID = 8443155186132538303L;
         final io.reactivex.c actual;
@@ -129,7 +129,7 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
             onError(th);
         }
 
-        /* loaded from: classes17.dex */
+        /* loaded from: classes5.dex */
         final class InnerObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c, io.reactivex.disposables.b {
             private static final long serialVersionUID = 8606673141535671828L;
 

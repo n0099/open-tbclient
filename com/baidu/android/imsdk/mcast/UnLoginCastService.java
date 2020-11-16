@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class UnLoginCastService {
     static final int BACKPLAY = 1;
     static final int NOWPLAY = 0;
@@ -388,7 +388,7 @@ public class UnLoginCastService {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     public class Uptask extends UpMessageManager.Task {
         public Uptask(String str, String str2) {
             super(str, str2);

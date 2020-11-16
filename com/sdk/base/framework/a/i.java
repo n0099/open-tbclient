@@ -7,7 +7,7 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */

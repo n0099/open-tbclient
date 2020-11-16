@@ -19,7 +19,7 @@ import java.io.File;
 import java.net.URI;
 import org.json.JSONObject;
 import rx.schedulers.Schedulers;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
     public a(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/saveVideoToPhotosAlbum");
@@ -31,7 +31,7 @@ public class a extends aa {
         if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
-        } else if (eVar.ajA()) {
+        } else if (eVar.aiS()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -47,9 +47,9 @@ public class a extends aa {
             try {
                 File file2 = null;
                 if ("bdfile".equalsIgnoreCase(URI.create(optString).getScheme())) {
-                    String cz = com.baidu.swan.apps.storage.b.cz(optString, eVar.id);
-                    if (!TextUtils.isEmpty(cz)) {
-                        file2 = new File(cz);
+                    String cy = com.baidu.swan.apps.storage.b.cy(optString, eVar.id);
+                    if (!TextUtils.isEmpty(cy)) {
+                        file2 = new File(cy);
                     }
                     file = file2;
                 } else {
@@ -69,7 +69,7 @@ public class a extends aa {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                     return false;
                 }
-                eVar.aHG().b(context, "mapp_images", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.media.b.a.a.1
+                eVar.aGY().b(context, "mapp_images", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.media.b.a.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.ap.e.b
                     /* renamed from: a */
@@ -97,7 +97,7 @@ public class a extends aa {
     public void a(@NonNull final Context context, @NonNull final File file, @NonNull final UnitedSchemeEntity unitedSchemeEntity, @NonNull final CallbackHandler callbackHandler, @NonNull final String str) {
         com.baidu.swan.apps.ab.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.media.b.a.a.2
             @Override // com.baidu.swan.apps.ab.b
-            public void kt(String str2) {
+            public void kn(String str2) {
                 if (a.DEBUG) {
                     Log.d("SwanAppAction", str2 + "");
                 }
@@ -116,18 +116,18 @@ public class a extends aa {
         if (file == null) {
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
         } else {
-            rx.d.cd(file).d(new rx.functions.f<File, File>() { // from class: com.baidu.swan.apps.media.b.a.a.4
+            rx.d.ce(file).d(new rx.functions.f<File, File>() { // from class: com.baidu.swan.apps.media.b.a.a.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.f
                 /* renamed from: H */
                 public File call(File file2) {
-                    String tv2 = com.baidu.swan.apps.storage.b.tv(com.baidu.swan.apps.runtime.e.aHw());
-                    if (!TextUtils.isEmpty(tv2) && file2.getPath().startsWith(tv2)) {
+                    String tq = com.baidu.swan.apps.storage.b.tq(com.baidu.swan.apps.runtime.e.aGO());
+                    if (!TextUtils.isEmpty(tq) && file2.getPath().startsWith(tq)) {
                         return a.this.e(context, file2);
                     }
                     return null;
                 }
-            }).d(Schedulers.io()).c(rx.a.b.a.eFz()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.b.a.a.3
+            }).d(Schedulers.io()).c(rx.a.b.a.eFA()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.b.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: G */

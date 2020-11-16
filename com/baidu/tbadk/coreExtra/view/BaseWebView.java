@@ -19,12 +19,14 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
     private com.baidu.tieba.tbadkCore.e.c jsCallback;
-    private com.baidu.tbadk.browser.b mCommonJsBridge;
+    private CommonTbJsBridge mCommonJsBridge;
     private Context mContext;
     private b mDownloadListener;
     private boolean mIsLoaded;
@@ -83,7 +85,7 @@ public class BaseWebView extends WebView {
             @Override // com.baidu.tieba.tbadkCore.e.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
                 if (BaseWebView.this.mJsBridge != null) {
-                    return BaseWebView.this.mJsBridge.a(str, jsPromptResult);
+                    return BaseWebView.this.mJsBridge.a(BaseWebView.this.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -107,7 +109,7 @@ public class BaseWebView extends WebView {
             @Override // com.baidu.tieba.tbadkCore.e.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
                 if (BaseWebView.this.mJsBridge != null) {
-                    return BaseWebView.this.mJsBridge.a(str, jsPromptResult);
+                    return BaseWebView.this.mJsBridge.a(BaseWebView.this.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -135,7 +137,7 @@ public class BaseWebView extends WebView {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
         getSettings().setUseWideViewPort(true);
-        getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + ap.brh());
+        getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + ap.bqu());
         com.baidu.tbadk.browser.a.WebViewNoDataBase(getSettings());
         this.mWebViewClient = new a();
         this.mWebChromeClient = new h();
@@ -170,7 +172,7 @@ public class BaseWebView extends WebView {
     }
 
     public void initCommonJsBridge(Context context) {
-        this.mCommonJsBridge = new com.baidu.tbadk.browser.b(context, this);
+        this.mCommonJsBridge = new CommonTbJsBridge(context, this);
         this.mJsBridge.a(this.mCommonJsBridge);
     }
 
@@ -356,8 +358,15 @@ public class BaseWebView extends WebView {
     }
 
     public void onChangeSkinType() {
-        if (this.mCommonJsBridge != null) {
-            this.mCommonJsBridge.biZ();
+        if (this.mJsBridge != null) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("skin", ap.bqu());
+            this.mJsBridge.a(getWebView(), "changeSkinType", linkedHashMap);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public BaseWebView getWebView() {
+        return this;
     }
 }

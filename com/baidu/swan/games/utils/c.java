@@ -7,54 +7,54 @@ import com.baidu.searchbox.http.callback.StringResponseCallback;
 import com.baidu.swan.apps.storage.c.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private static c dZS = new c();
-    private static String dZT = "banner_ad_close_btn_show_key";
-    private static String dZU = "banner_ad_close_duration_key";
-    private static String dZX = "gdt_banner_ad_app_id_key";
-    private static String dZY = "gdt_video_ad_app_id_key";
-    private static String dZZ = "gdt_banner_ad_id_key";
-    private static String eaa = "gdt_video_ad_id_key";
-    private static String eab = "gdt_video_ad_config_time";
-    private static String eac = "video_interaction_optimization";
-    private static String ead = "video_request_optimization";
-    private static String eae = "first_request_optimization";
-    private long dZV;
-    private long dZW;
+    private static c dYk = new c();
+    private static String dYl = "banner_ad_close_btn_show_key";
+    private static String dYm = "banner_ad_close_duration_key";
+    private static String dYp = "gdt_banner_ad_app_id_key";
+    private static String dYq = "gdt_video_ad_app_id_key";
+    private static String dYr = "gdt_banner_ad_id_key";
+    private static String dYs = "gdt_video_ad_id_key";
+    private static String dYt = "gdt_video_ad_config_time";
+    private static String dYu = "video_interaction_optimization";
+    private static String dYv = "video_request_optimization";
+    private static String dYw = "first_request_optimization";
+    private long dYn;
+    private long dYo;
 
     private c() {
     }
 
-    public static c aXu() {
-        return dZS;
+    public static c aWM() {
+        return dYk;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xL(String str) {
-        h.aKS().putBoolean(dZT, "1".equals(str));
+    public void xG(String str) {
+        h.aKk().putBoolean(dYl, "1".equals(str));
     }
 
-    public boolean aXv() {
-        return h.aKS().getBoolean(dZT, true);
+    public boolean aWN() {
+        return h.aKk().getBoolean(dYl, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xM(String str) {
-        h.aKS().putString(dZU, str);
+    public void xH(String str) {
+        h.aKk().putString(dYm, str);
     }
 
-    private long aXw() {
-        String string = h.aKS().getString(dZU, "1");
+    private long aWO() {
+        String string = h.aKk().getString(dYm, "1");
         return string != null ? Long.valueOf(string).longValue() * 60 * 60 * 1000 : BdKVCache.MILLS_1Hour;
     }
 
-    public void dm(String str, String str2) {
-        h.aKS().putString(str, str2);
+    public void dl(String str, String str2) {
+        h.aKk().putString(str, str2);
     }
 
-    private long xN(String str) {
-        String string = h.aKS().getString(str, "0");
+    private long xI(String str) {
+        String string = h.aKk().getString(str, "0");
         if (string != null) {
             return Long.valueOf(string).longValue();
         }
@@ -63,63 +63,63 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cG(long j) {
-        h.aKS().putLong("banner_ad_start_show_key", j);
+        h.aKk().putLong("banner_ad_start_show_key", j);
     }
 
-    public long aXx() {
-        return h.aKS().getLong("banner_ad_start_show_key", 5L) * 1000;
+    public long aWP() {
+        return h.aKk().getLong("banner_ad_start_show_key", 5L) * 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cH(long j) {
-        h.aKS().putLong("banner_ad_repeat_show_key", j);
+        h.aKk().putLong("banner_ad_repeat_show_key", j);
     }
 
-    public long aXy() {
-        return h.aKS().getLong("banner_ad_repeat_show_key", 120L) * 1000;
+    public long aWQ() {
+        return h.aKk().getLong("banner_ad_repeat_show_key", 120L) * 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cI(long j) {
-        h.aKS().putLong("banner_ad_close_key", j);
+        h.aKk().putLong("banner_ad_close_key", j);
     }
 
-    public long aXz() {
-        return h.aKS().getLong("banner_ad_close_key", 60L) * 1000;
+    public long aWR() {
+        return h.aKk().getLong("banner_ad_close_key", 60L) * 1000;
     }
 
-    public void aXA() {
-        this.dZV = System.currentTimeMillis();
+    public void aWS() {
+        this.dYn = System.currentTimeMillis();
     }
 
-    public void aXB() {
-        this.dZW = System.currentTimeMillis();
+    public void aWT() {
+        this.dYo = System.currentTimeMillis();
     }
 
-    public boolean xO(String str) {
-        return System.currentTimeMillis() - xN(str) <= aXw();
+    public boolean xJ(String str) {
+        return System.currentTimeMillis() - xI(str) <= aWO();
     }
 
-    public boolean aXC() {
-        return this.dZV != 0 && System.currentTimeMillis() - this.dZV <= aXx();
+    public boolean aWU() {
+        return this.dYn != 0 && System.currentTimeMillis() - this.dYn <= aWP();
     }
 
-    public boolean aXD() {
-        return this.dZW != 0 && System.currentTimeMillis() - this.dZW <= aXy();
+    public boolean aWV() {
+        return this.dYo != 0 && System.currentTimeMillis() - this.dYo <= aWQ();
     }
 
-    public void aXE() {
-        com.baidu.swan.apps.runtime.e aHu = com.baidu.swan.apps.runtime.e.aHu();
-        if (aHu != null && com.baidu.swan.apps.t.a.awM() != null && com.baidu.swan.apps.t.a.awZ() != null) {
-            aHu.aHJ().getRequest().cookieManager(com.baidu.swan.apps.t.a.awZ().aij()).url(com.baidu.swan.apps.t.a.awM().aht()).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.c.1
+    public void aWW() {
+        com.baidu.swan.apps.runtime.e aGM = com.baidu.swan.apps.runtime.e.aGM();
+        if (aGM != null && com.baidu.swan.apps.t.a.awe() != null && com.baidu.swan.apps.t.a.awr() != null) {
+            aGM.aHb().getRequest().cookieManager(com.baidu.swan.apps.t.a.awr().ahB()).url(com.baidu.swan.apps.t.a.awe().agL()).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onSuccess(String str, int i) {
                     JSONObject optJSONObject;
                     try {
                         if (com.baidu.swan.games.network.c.aa(str, i) && (optJSONObject = new JSONObject(str).optJSONObject("data")) != null) {
-                            c.this.xL(optJSONObject.optString("show", "1"));
-                            c.this.xM(optJSONObject.optString("duration", "1"));
+                            c.this.xG(optJSONObject.optString("show", "1"));
+                            c.this.xH(optJSONObject.optString("duration", "1"));
                             c.this.cG(optJSONObject.optLong("startNoBannerADGap", 5L));
                             c.this.cH(optJSONObject.optLong("bannerShowSuccGap", 120L));
                             c.this.cI(optJSONObject.optLong("preventBannerADShowingGap", 60L));
@@ -135,10 +135,10 @@ public class c {
         }
     }
 
-    public void aXF() {
-        com.baidu.swan.apps.runtime.e aHu = com.baidu.swan.apps.runtime.e.aHu();
-        if (aHu != null && com.baidu.swan.apps.t.a.awM() != null && com.baidu.swan.apps.t.a.awZ() != null) {
-            aHu.aHJ().getRequest().cookieManager(com.baidu.swan.apps.t.a.awZ().aij()).url(com.baidu.swan.apps.t.a.awM().ahz()).addUrlParam("app_key", aHu.getAppKey()).addUrlParam("host", aHu.getPackageName()).addUrlParam("os", "android").build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.c.2
+    public void aWX() {
+        com.baidu.swan.apps.runtime.e aGM = com.baidu.swan.apps.runtime.e.aGM();
+        if (aGM != null && com.baidu.swan.apps.t.a.awe() != null && com.baidu.swan.apps.t.a.awr() != null) {
+            aGM.aHb().getRequest().cookieManager(com.baidu.swan.apps.t.a.awr().ahB()).url(com.baidu.swan.apps.t.a.awe().agR()).addUrlParam("app_key", aGM.getAppKey()).addUrlParam("host", aGM.getPackageName()).addUrlParam("os", "android").build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.c.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onSuccess(String str, int i) {
@@ -150,23 +150,23 @@ public class c {
                                 if (jSONObject.optInt(BaseJsonData.TAG_ERRNO) == 0) {
                                     JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
                                     if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject("ads_config")) == null) {
-                                        c.this.xP("");
-                                        c.this.xQ("");
-                                        c.this.xR("");
-                                        c.this.xS("");
+                                        c.this.xK("");
+                                        c.this.xL("");
+                                        c.this.xM("");
+                                        c.this.xN("");
                                         c.this.cJ(0L);
-                                        c.this.hB(false);
-                                        c.this.hC(false);
-                                        c.this.hD(false);
+                                        c.this.hE(false);
+                                        c.this.hF(false);
+                                        c.this.hG(false);
                                     } else {
-                                        c.this.xP(optJSONObject.optString("banner"));
-                                        c.this.xQ(optJSONObject.optString("video"));
-                                        c.this.xR(optJSONObject.optString("banner_app_id"));
-                                        c.this.xS(optJSONObject.optString("video_app_id"));
+                                        c.this.xK(optJSONObject.optString("banner"));
+                                        c.this.xL(optJSONObject.optString("video"));
+                                        c.this.xM(optJSONObject.optString("banner_app_id"));
+                                        c.this.xN(optJSONObject.optString("video_app_id"));
                                         c.this.cJ(System.currentTimeMillis());
-                                        c.this.hB(optJSONObject.optBoolean("video_ui_opt"));
-                                        c.this.hC(optJSONObject.optBoolean("video_request_opt"));
-                                        c.this.hD(optJSONObject.optBoolean("first_request_opt"));
+                                        c.this.hE(optJSONObject.optBoolean("video_ui_opt"));
+                                        c.this.hF(optJSONObject.optBoolean("video_request_opt"));
+                                        c.this.hG(optJSONObject.optBoolean("first_request_opt"));
                                     }
                                 }
                             }
@@ -183,71 +183,71 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xP(String str) {
-        h.aKS().putString(dZZ, str);
+    public void xK(String str) {
+        h.aKk().putString(dYr, str);
     }
 
-    public String aXG() {
-        return h.aKS().getString(dZZ, "");
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void xQ(String str) {
-        h.aKS().putString(eaa, str);
-    }
-
-    public String aXH() {
-        return h.aKS().getString(eaa, "");
+    public String aWY() {
+        return h.aKk().getString(dYr, "");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xR(String str) {
-        h.aKS().putString(dZX, str);
+    public void xL(String str) {
+        h.aKk().putString(dYs, str);
     }
 
-    public String aRh() {
-        return h.aKS().getString(dZX, "");
+    public String aWZ() {
+        return h.aKk().getString(dYs, "");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xS(String str) {
-        h.aKS().putString(dZY, str);
+    public void xM(String str) {
+        h.aKk().putString(dYp, str);
     }
 
-    public String aRj() {
-        return h.aKS().getString(dZY, "");
+    public String aQz() {
+        return h.aKk().getString(dYp, "");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void xN(String str) {
+        h.aKk().putString(dYq, str);
+    }
+
+    public String aQB() {
+        return h.aKk().getString(dYq, "");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cJ(long j) {
-        h.aKS().putLong(eab, j);
+        h.aKk().putLong(dYt, j);
     }
 
-    public Long aXI() {
-        return Long.valueOf(h.aKS().getLong(eab, 0L));
+    public Long aXa() {
+        return Long.valueOf(h.aKk().getLong(dYt, 0L));
     }
 
-    public boolean aXJ() {
-        return h.aKS().getBoolean(eac, false);
+    public boolean aXb() {
+        return h.aKk().getBoolean(dYu, false);
     }
 
-    public void hB(boolean z) {
-        h.aKS().putBoolean(eac, z);
+    public void hE(boolean z) {
+        h.aKk().putBoolean(dYu, z);
     }
 
-    public boolean aXK() {
-        return h.aKS().getBoolean(ead, false);
+    public boolean aXc() {
+        return h.aKk().getBoolean(dYv, false);
     }
 
-    public void hC(boolean z) {
-        h.aKS().putBoolean(ead, z);
+    public void hF(boolean z) {
+        h.aKk().putBoolean(dYv, z);
     }
 
-    public boolean aXL() {
-        return h.aKS().getBoolean(eae, false);
+    public boolean aXd() {
+        return h.aKk().getBoolean(dYw, false);
     }
 
-    public void hD(boolean z) {
-        h.aKS().putBoolean(eae, z);
+    public void hG(boolean z) {
+        h.aKk().putBoolean(dYw, z);
     }
 }

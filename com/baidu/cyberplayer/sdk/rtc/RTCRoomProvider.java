@@ -3,22 +3,13 @@ package com.baidu.cyberplayer.sdk.rtc;
 import android.content.Context;
 import android.view.Surface;
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.cyberplayer.sdk.rtc.CyberRTCAudioSamples;
 import com.baidu.cyberplayer.sdk.rtc.CyberRTCSetting;
-import java.nio.ByteBuffer;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public abstract class RTCRoomProvider {
 
     @Keep
-    /* loaded from: classes12.dex */
-    public enum CyberRtcLiveTransferMode {
-        RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION,
-        RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION
-    }
-
-    @Keep
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public static class CyberRtcRoomAudioLevel {
         public String nicName;
         public long userID;
@@ -32,23 +23,17 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public interface CyberRtcRoomDelegate {
-        void onEngineStatisticsInfo(int i);
-
         void onErrorInfoUpdate(int i);
 
         void onPeerConnectStateUpdate(int i);
 
-        void onRoomDataMessage(ByteBuffer byteBuffer);
-
         void onRoomEventUpdate(int i, long j, String str);
-
-        void onStreamInfoUpdate(String[] strArr);
     }
 
     @Keep
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public static class CyberRtcRoomUserInfo {
         public String attribute;
         public int role;
@@ -64,7 +49,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public static class CyberRtcRoomVideoDimension {
         public int videoHeight;
         public int videoRotation;
@@ -72,7 +57,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes12.dex */
+    /* loaded from: classes17.dex */
     public enum CyberRtcSoundMode {
         RTC_SOUND_MODE_SPEAKER,
         RTC_SOUND_MODE_EAR
@@ -80,21 +65,15 @@ public abstract class RTCRoomProvider {
 
     public abstract void changeSurfaceSize(long j, int i, int i2);
 
-    public abstract boolean configLiveServerWithUrl(String str, boolean z, boolean z2, String str2, CyberRtcLiveTransferMode cyberRtcLiveTransferMode);
-
     public abstract void destroy();
 
     public abstract void destroyExternalSurface(long j, Surface surface);
-
-    public abstract void disbandRoom();
 
     public abstract void enableAgc(boolean z);
 
     public abstract void enableAns(boolean z);
 
     public abstract void enableExternalVideoCapturer(boolean z);
-
-    public abstract void enableStatsToServer(boolean z, String str);
 
     public abstract CyberRtcRoomAudioLevel[] getRemoteAudioLevels();
 
@@ -106,12 +85,6 @@ public abstract class RTCRoomProvider {
 
     public abstract boolean initWithAppID(Context context, String str, String str2, String str3, boolean z);
 
-    public abstract void kickOffUserWithID(long j);
-
-    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2);
-
-    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z);
-
     public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z, boolean z2);
 
     public abstract boolean logoutRtcRoom();
@@ -120,13 +93,9 @@ public abstract class RTCRoomProvider {
 
     public abstract void muteMicphone(boolean z);
 
-    public abstract void presetLoudSpeaker(boolean z);
-
     public abstract void publishStreaming();
 
     public abstract void sendMessageToUser(String str, long j);
-
-    public abstract void setAudioRecordDelegate(CyberRTCAudioSamples.CyberRTCSamplesReadyCallback cyberRTCSamplesReadyCallback);
 
     public abstract void setCyberRTCRoomDelegate(CyberRtcRoomDelegate cyberRtcRoomDelegate);
 
@@ -136,17 +105,11 @@ public abstract class RTCRoomProvider {
 
     public abstract void setRemoteAudioPlayState(boolean z, long j);
 
-    public abstract void setRemoteDisplay(CyberRTCVideoView cyberRTCVideoView);
-
     public abstract void setRemoteVideoPlayState(boolean z, long j);
 
     public abstract void setSoundMod(CyberRtcSoundMode cyberRtcSoundMode);
 
     public abstract void setUserAttribute(String str);
-
-    public abstract void shutUpUserWithID(long j);
-
-    public abstract void shutUpUserWithID(long j, boolean z);
 
     public abstract void startPublish();
 

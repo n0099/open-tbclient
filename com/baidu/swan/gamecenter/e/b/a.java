@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.swan.apps.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class a extends com.baidu.swan.gamecenter.c.a {
     public static final boolean DEBUG = b.DEBUG;
 
@@ -14,16 +14,16 @@ public class a extends com.baidu.swan.gamecenter.c.a {
 
     @Override // com.baidu.swan.gamecenter.c.a
     public com.baidu.swan.apps.api.c.b b(JSONObject jSONObject, com.baidu.swan.apps.o.b bVar) {
-        String agn = com.baidu.swan.apps.t.a.awD().agn();
+        String afF = com.baidu.swan.apps.t.a.avV().afF();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put(UbcStatConstant.KEY_CONTENT_EXT_SID, agn);
+            jSONObject2.put(UbcStatConstant.KEY_CONTENT_EXT_SID, afF);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        bVar.aE(jSONObject2);
+        bVar.ay(jSONObject2);
         return null;
     }
 }

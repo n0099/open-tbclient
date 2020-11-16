@@ -4,21 +4,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes17.dex */
+/* loaded from: classes12.dex */
 public class e extends InputStream {
     private ByteBuffer mBuffer;
-    private final d opI;
-    private boolean opJ;
-    private IOException opK;
+    private final d orm;
+    private boolean orn;
+    private IOException oro;
 
     public e(d dVar) {
-        this.opI = dVar;
+        this.orm = dVar;
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        ecX();
-        if (ecY()) {
+        ecW();
+        if (ecX()) {
             return this.mBuffer.get() & 255;
         }
         return -1;
@@ -32,8 +32,8 @@ public class e extends InputStream {
         if (i2 == 0) {
             return 0;
         }
-        ecX();
-        if (ecY()) {
+        ecW();
+        if (ecX()) {
             int min = Math.min(this.mBuffer.limit() - this.mBuffer.position(), i2);
             this.mBuffer.get(bArr, i, min);
             return min;
@@ -43,24 +43,24 @@ public class e extends InputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(IOException iOException) {
-        this.opK = iOException;
-        this.opJ = true;
+        this.oro = iOException;
+        this.orn = true;
         this.mBuffer = null;
     }
 
-    private void ecX() throws IOException {
-        if (this.opJ) {
-            if (this.opK != null) {
-                throw this.opK;
+    private void ecW() throws IOException {
+        if (this.orn) {
+            if (this.oro != null) {
+                throw this.oro;
             }
-        } else if (!ecY()) {
+        } else if (!ecX()) {
             if (this.mBuffer == null) {
                 this.mBuffer = ByteBuffer.allocateDirect(32768);
             }
             this.mBuffer.clear();
-            this.opI.q(this.mBuffer);
-            if (this.opK != null) {
-                throw this.opK;
+            this.orm.q(this.mBuffer);
+            if (this.oro != null) {
+                throw this.oro;
             }
             if (this.mBuffer != null) {
                 this.mBuffer.flip();
@@ -68,7 +68,7 @@ public class e extends InputStream {
         }
     }
 
-    private boolean ecY() {
+    private boolean ecX() {
         return this.mBuffer != null && this.mBuffer.hasRemaining();
     }
 }

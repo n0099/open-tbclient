@@ -9,7 +9,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @d
-/* loaded from: classes18.dex */
+/* loaded from: classes9.dex */
 public class WebPImage implements c, b {
     @d
     private long mNativeContext;
@@ -52,7 +52,7 @@ public class WebPImage implements c, b {
     }
 
     public static WebPImage L(long j, int i) {
-        com.facebook.imagepipeline.nativecode.b.eji();
+        com.facebook.imagepipeline.nativecode.b.ejg();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
@@ -78,7 +78,7 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public int[] ejj() {
+    public int[] ejh() {
         return nativeGetFrameDurations();
     }
 
@@ -89,8 +89,8 @@ public class WebPImage implements c, b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: Oo */
-    public WebPFrame On(int i) {
+    /* renamed from: OR */
+    public WebPFrame OQ(int i) {
         return nativeGetFrame(i);
     }
 
@@ -100,17 +100,17 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean ejk() {
+    public boolean eji() {
         return true;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo Ol(int i) {
-        WebPFrame On = On(i);
+    public AnimatedDrawableFrameInfo OO(int i) {
+        WebPFrame OQ = OQ(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, On.getXOffset(), On.getYOffset(), On.getWidth(), On.getHeight(), On.ejm() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, On.ejl() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
+            return new AnimatedDrawableFrameInfo(i, OQ.getXOffset(), OQ.getYOffset(), OQ.getWidth(), OQ.getHeight(), OQ.ejk() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, OQ.ejj() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
         } finally {
-            On.dispose();
+            OQ.dispose();
         }
     }
 }

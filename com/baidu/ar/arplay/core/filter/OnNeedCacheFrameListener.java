@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.core.filter;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public interface OnNeedCacheFrameListener {
     boolean isNeedCacheFrame(long j);
 }

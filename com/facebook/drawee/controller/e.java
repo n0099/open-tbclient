@@ -7,7 +7,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class e<INFO> implements c<INFO> {
     private final List<c<? super INFO>> mListeners = new ArrayList(2);
 
@@ -22,7 +22,7 @@ public class e<INFO> implements c<INFO> {
         }
     }
 
-    public synchronized void elL() {
+    public synchronized void elJ() {
         this.mListeners.clear();
     }
 
@@ -106,13 +106,13 @@ public class e<INFO> implements c<INFO> {
     }
 
     @Override // com.facebook.drawee.controller.c
-    public synchronized void hm(String str) {
+    public synchronized void hg(String str) {
         int size = this.mListeners.size();
         for (int i = 0; i < size; i++) {
             try {
                 c<? super INFO> cVar = this.mListeners.get(i);
                 if (cVar != null) {
-                    cVar.hm(str);
+                    cVar.hg(str);
                 }
             } catch (Exception e) {
                 l("InternalListener exception in onRelease", e);

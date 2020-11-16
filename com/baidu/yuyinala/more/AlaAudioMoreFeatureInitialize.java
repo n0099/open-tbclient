@@ -14,27 +14,27 @@ import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class AlaAudioMoreFeatureInitialize {
     static {
-        eeS();
-        eeT();
-        eeP();
         eeQ();
-        eez();
         eeR();
+        eeN();
+        eeO();
+        eex();
+        eeP();
     }
 
-    private static void eeP() {
+    private static void eeN() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501033) { // from class: com.baidu.yuyinala.more.AlaAudioMoreFeatureInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501033 && (customResponsedMessage.getData() instanceof w)) {
-                    a.eeU().ax((w) customResponsedMessage.getData());
+                    a.eeS().ax((w) customResponsedMessage.getData());
                 }
             }
         });
     }
 
-    private static void eeQ() {
+    private static void eeO() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501015) { // from class: com.baidu.yuyinala.more.AlaAudioMoreFeatureInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -44,14 +44,14 @@ public class AlaAudioMoreFeatureInitialize {
                     Object obj = hashMap.get("context");
                     Object obj2 = hashMap.get("listener");
                     if ((obj instanceof TbPageContext) && (obj2 instanceof com.baidu.live.c.c)) {
-                        a.eeU().a((TbPageContext) obj, (com.baidu.live.c.c) obj2);
+                        a.eeS().a((TbPageContext) obj, (com.baidu.live.c.c) obj2);
                     }
                 }
             }
         });
     }
 
-    private static void eeR() {
+    private static void eeP() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501025) { // from class: com.baidu.yuyinala.more.AlaAudioMoreFeatureInitialize.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -61,14 +61,14 @@ public class AlaAudioMoreFeatureInitialize {
                     Object obj = hashMap.get("is_new_user");
                     Object obj2 = hashMap.get("show_super_recharge");
                     if ((obj instanceof Boolean) && (obj2 instanceof Boolean)) {
-                        a.eeU().aE(((Boolean) obj).booleanValue(), ((Boolean) obj2).booleanValue());
+                        a.eeS().aC(((Boolean) obj).booleanValue(), ((Boolean) obj2).booleanValue());
                     }
                 }
             }
         });
     }
 
-    private static void eeS() {
+    private static void eeQ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031017, TbConfig.SERVER_ADDRESS + "ala/audio/room/clearCharm");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -80,7 +80,7 @@ public class AlaAudioMoreFeatureInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void eeT() {
+    private static void eeR() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031022, TbConfig.SERVER_ADDRESS + "ala/audio/closeLive");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -92,13 +92,13 @@ public class AlaAudioMoreFeatureInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void eez() {
+    private static void eex() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.more.AlaAudioMoreFeatureInitialize.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.eeU().Hv();
+                    a.eeS().GM();
                 }
             }
         });

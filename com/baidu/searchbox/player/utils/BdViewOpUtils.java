@@ -9,7 +9,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class BdViewOpUtils {
     private static final String TAG = "BdViewOpUtils";
 

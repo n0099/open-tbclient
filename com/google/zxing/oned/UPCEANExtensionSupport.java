@@ -5,7 +5,7 @@ import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
 import com.google.zxing.common.BitArray;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public final class UPCEANExtensionSupport {
     private static final int[] EXTENSION_START_PATTERN = {1, 1, 2};
     private final UPCEANExtension2Support twoSupport = new UPCEANExtension2Support();

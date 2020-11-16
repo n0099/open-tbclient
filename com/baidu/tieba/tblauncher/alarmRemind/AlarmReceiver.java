@@ -9,14 +9,14 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.RemindRecommendMessage;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class AlarmReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (j.isNetWorkAvailable() && a.dMu() && !a.isTaday(com.baidu.tbadk.core.sharedPref.b.bqh().getLong(SharedPrefConfig.TIEBA_LAST_ACTIVE_TIME, 0L))) {
-            RemindRecommendMessage Tn = a.Tn(TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.REMIND_RECOMMEND_INFO, ""));
-            if (Tn != null) {
-                MessageManager.getInstance().dispatchResponsedMessage(Tn);
+        if (j.isNetWorkAvailable() && a.dMt() && !a.isTaday(com.baidu.tbadk.core.sharedPref.b.bpu().getLong(SharedPrefConfig.TIEBA_LAST_ACTIVE_TIME, 0L))) {
+            RemindRecommendMessage SY = a.SY(TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.REMIND_RECOMMEND_INFO, ""));
+            if (SY != null) {
+                MessageManager.getInstance().dispatchResponsedMessage(SY);
             }
         }
     }

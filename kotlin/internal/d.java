@@ -2,9 +2,9 @@ package kotlin.internal;
 
 import kotlin.h;
 @h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class d {
-    private static final int eq(int i, int i2) {
+    private static final int er(int i, int i2) {
         int i3 = i % i2;
         return i3 >= 0 ? i3 : i3 + i2;
     }
@@ -14,19 +14,19 @@ public final class d {
         return j3 >= 0 ? j3 : j3 + j2;
     }
 
-    private static final int an(int i, int i2, int i3) {
-        return eq(eq(i, i3) - eq(i2, i3), i3);
+    private static final int aq(int i, int i2, int i3) {
+        return er(er(i, i3) - er(i2, i3), i3);
     }
 
     private static final long i(long j, long j2, long j3) {
         return Q(Q(j, j3) - Q(j2, j3), j3);
     }
 
-    public static final int ao(int i, int i2, int i3) {
+    public static final int ar(int i, int i2, int i3) {
         if (i3 > 0) {
-            return i >= i2 ? i2 : i2 - an(i2, i, i3);
+            return i >= i2 ? i2 : i2 - aq(i2, i, i3);
         } else if (i3 < 0) {
-            return i > i2 ? i2 + an(i, i2, -i3) : i2;
+            return i > i2 ? i2 + aq(i, i2, -i3) : i2;
         } else {
             throw new IllegalArgumentException("Step is zero.");
         }

@@ -13,7 +13,7 @@ public class ImageSubscribeButton extends LinearLayout {
     /* renamed from: a  reason: collision with root package name */
     private String f4248a;
     private String b;
-    private FrescoThumbnailView ptS;
+    private FrescoThumbnailView pvv;
 
     public ImageSubscribeButton(Context context) {
         this(context, null, 0);
@@ -26,7 +26,7 @@ public class ImageSubscribeButton extends LinearLayout {
     public ImageSubscribeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(context).inflate(a.h.widget_image_subscribe_button, (ViewGroup) this, true);
-        this.ptS = (FrescoThumbnailView) findViewById(a.f.iv_image_subscribe_btn);
+        this.pvv = (FrescoThumbnailView) findViewById(a.f.iv_image_subscribe_btn);
     }
 
     public void a(String str, String str2) {
@@ -38,15 +38,15 @@ public class ImageSubscribeButton extends LinearLayout {
         if (i == 1) {
             setVisibility(0);
             setEnabled(false);
-            this.ptS.ce(this.b, a.e.btn_follow_user_disabled);
+            this.pvv.cd(this.b, a.e.btn_follow_user_disabled);
         } else if (i == 2) {
             setVisibility(0);
             setEnabled(true);
-            this.ptS.ce(this.b, a.e.btn_follow_user_disabled);
+            this.pvv.cd(this.b, a.e.btn_follow_user_disabled);
         } else if (i == 0) {
             setVisibility(0);
             setEnabled(true);
-            this.ptS.ce(this.f4248a, a.e.btn_follow_user_enabled);
+            this.pvv.cd(this.f4248a, a.e.btn_follow_user_enabled);
         } else if (i == -1) {
             setVisibility(8);
         }

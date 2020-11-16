@@ -33,24 +33,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private boolean aUj;
-    private j aXb;
-    private int bck;
-    private int bcl;
-    private int bcm;
-    private boolean bdE;
-    private ArrayList<c> bdF;
-    private b beI;
-    private b beJ;
-    private AlaSmallGiftView beK;
-    private AlaSmallGiftView beL;
-    private b.a beM;
+    private boolean aSy;
+    private j aVq;
+    private int baA;
+    private int baB;
+    private int baz;
+    private boolean bbT;
+    private ArrayList<c> bbU;
+    private b bcV;
+    private b bcW;
+    private AlaSmallGiftView bcX;
+    private AlaSmallGiftView bcY;
+    private b.a bcZ;
     private Context mContext;
     private View mRootView;
 
     public a(Context context, j jVar) {
-        this.bdE = false;
-        this.beM = new b.a() { // from class: com.baidu.live.gift.smallgift.a.1
+        this.bbT = false;
+        this.bcZ = new b.a() { // from class: com.baidu.live.gift.smallgift.a.1
             @Override // com.baidu.live.gift.smallgift.b.a
             public void u(c cVar) {
                 if (cVar != null) {
@@ -59,18 +59,18 @@ public class a {
             }
 
             @Override // com.baidu.live.gift.smallgift.b.a
-            public void JV() {
-                if (!a.this.JU()) {
-                    a.this.HF();
+            public void Jm() {
+                if (!a.this.Jl()) {
+                    a.this.GW();
                 }
             }
 
             @Override // com.baidu.live.gift.smallgift.b.a
             public void v(c cVar) {
-                if (cVar != null && cVar.bbj < cVar.bbi) {
+                if (cVar != null && cVar.aZx < cVar.aZw) {
                     a.this.i(cVar);
-                    cVar.bbr = true;
-                    if (a.this.aXb.a(cVar)) {
+                    cVar.aZF = true;
+                    if (a.this.aVq.a(cVar)) {
                         if (cVar.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
                             cVar.priority = 10;
                         } else {
@@ -86,40 +86,40 @@ public class a {
             }
         };
         this.mContext = context;
-        this.aXb = jVar;
+        this.aVq = jVar;
         initData();
         initView();
     }
 
     public a(Context context, j jVar, boolean z) {
         this(context, jVar);
-        this.aUj = z;
-        this.beK.setMode(z);
-        this.beL.setMode(z);
+        this.aSy = z;
+        this.bcX.setMode(z);
+        this.bcY.setMode(z);
     }
 
     private void initData() {
-        this.bdF = new ArrayList<>();
+        this.bbU = new ArrayList<>();
         Resources resources = this.mContext.getResources();
-        this.bck = (int) resources.getDimension(a.d.sdk_ds650);
-        this.bcl = resources.getDimensionPixelOffset(a.d.sdk_ds12) + (resources.getDimensionPixelOffset(a.d.sdk_ds136) * 2) + resources.getDimensionPixelOffset(a.d.sdk_ds46);
+        this.baz = (int) resources.getDimension(a.d.sdk_ds650);
+        this.baA = resources.getDimensionPixelOffset(a.d.sdk_ds12) + (resources.getDimensionPixelOffset(a.d.sdk_ds136) * 2) + resources.getDimensionPixelOffset(a.d.sdk_ds46);
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.ala_small_gift_panel_layout, (ViewGroup) null);
-        this.beK = (AlaSmallGiftView) this.mRootView.findViewById(a.f.alaSmallGift1);
-        this.beL = (AlaSmallGiftView) this.mRootView.findViewById(a.f.alaSmallGift2);
-        this.beI = new b(this.beK);
-        this.beI.a(this.beM);
-        this.beJ = new b(this.beL);
-        this.beJ.a(this.beM);
+        this.bcX = (AlaSmallGiftView) this.mRootView.findViewById(a.f.alaSmallGift1);
+        this.bcY = (AlaSmallGiftView) this.mRootView.findViewById(a.f.alaSmallGift2);
+        this.bcV = new b(this.bcX);
+        this.bcV.a(this.bcZ);
+        this.bcW = new b(this.bcY);
+        this.bcW.a(this.bcZ);
         setRootViewParam(UtilHelper.getRealScreenOrientation(this.mContext));
-        this.aXb.M(this.mRootView);
+        this.aVq.M(this.mRootView);
     }
 
     private void setRootViewParam(int i) {
         if (i == 2) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.bck, this.bcl);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.baz, this.baA);
             if (Build.VERSION.SDK_INT >= 17) {
                 layoutParams.removeRule(12);
             } else {
@@ -130,7 +130,7 @@ public class a {
             layoutParams.topMargin = (int) this.mContext.getResources().getDimension(a.d.sdk_ds160);
             this.mRootView.setLayoutParams(layoutParams);
         } else if (i == 1) {
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.bcl);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.baA);
             if (Build.VERSION.SDK_INT >= 17) {
                 layoutParams2.removeRule(10);
             } else {
@@ -138,68 +138,68 @@ public class a {
             }
             layoutParams2.topMargin = 0;
             layoutParams2.addRule(12);
-            layoutParams2.bottomMargin = this.bcm;
+            layoutParams2.bottomMargin = this.baB;
             this.mRootView.setLayoutParams(layoutParams2);
         }
     }
 
-    public void ew(int i) {
-        this.bcm = i;
+    public void es(int i) {
+        this.baB = i;
         ViewGroup.LayoutParams layoutParams = this.mRootView.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = this.bcm;
+            ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = this.baB;
             this.mRootView.setLayoutParams(layoutParams);
         }
     }
 
-    public void HJ() {
+    public void Ha() {
         setRootViewParam(UtilHelper.getRealScreenOrientation(this.mContext));
-        if (this.beI != null) {
-            this.beI.HJ();
+        if (this.bcV != null) {
+            this.bcV.Ha();
         }
-        if (this.beJ != null) {
-            this.beJ.HJ();
+        if (this.bcW != null) {
+            this.bcW.Ha();
         }
     }
 
-    public void GC() {
-        this.bdE = true;
-        if (this.beI != null) {
-            this.beI.GC();
+    public void FT() {
+        this.bbT = true;
+        if (this.bcV != null) {
+            this.bcV.FT();
         }
-        if (this.beJ != null) {
-            this.beJ.GC();
+        if (this.bcW != null) {
+            this.bcW.FT();
         }
-        this.aXb.GE();
+        this.aVq.FV();
     }
 
-    public void GD() {
-        this.bdE = false;
-        this.aXb.M(this.mRootView);
-        if (this.beI != null) {
-            this.beI.GD();
+    public void FU() {
+        this.bbT = false;
+        this.aVq.M(this.mRootView);
+        if (this.bcV != null) {
+            this.bcV.FU();
         }
-        if (this.beJ != null) {
-            this.beJ.GD();
+        if (this.bcW != null) {
+            this.bcW.FU();
         }
     }
 
     private void c(c cVar, boolean z) {
         if (cVar != null) {
-            g gVar = cVar.bbc;
-            if (!cVar.bbn && !cVar.bbo) {
-                if (cVar.bbk || cVar.bbb) {
+            g gVar = cVar.aZq;
+            if (!cVar.aZB && !cVar.aZC) {
+                if (cVar.aZy || cVar.aZp) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.putOpt(LogConfig.LOG_GIFT_ID, gVar.FT());
-                        jSONObject.putOpt("gift_name", gVar.FU());
+                        jSONObject.putOpt(LogConfig.LOG_GIFT_ID, gVar.Fk());
+                        jSONObject.putOpt("gift_name", gVar.Fl());
                         jSONObject.putOpt(LogConfig.LOG_GIFT_VALUE, gVar.getPrice());
-                        jSONObject.putOpt("gift_num", Long.valueOf(cVar.bbi));
+                        jSONObject.putOpt("gift_num", Long.valueOf(cVar.aZw));
                         jSONObject.putOpt("is_down", Integer.valueOf(z ? 1 : 0));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", cVar.bbk ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", "giftplay_show").setContentExt(null, "popup", jSONObject));
+                    UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", cVar.aZy ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", "giftplay_show").setContentExt(null, "popup", jSONObject));
                 }
             }
         }
@@ -208,9 +208,9 @@ public class a {
     public void d(c cVar) {
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
             boolean z = false;
-            if (this.beI.z(cVar)) {
+            if (this.bcV.z(cVar)) {
                 z = true;
-            } else if (this.beJ.z(cVar)) {
+            } else if (this.bcW.z(cVar)) {
                 z = true;
             }
             c(cVar, true);
@@ -223,7 +223,7 @@ public class a {
     private void q(c cVar) {
         boolean z;
         boolean z2 = false;
-        Iterator<c> it = this.bdF.iterator();
+        Iterator<c> it = this.bbU.iterator();
         while (true) {
             z = z2;
             if (!it.hasNext()) {
@@ -242,13 +242,13 @@ public class a {
     }
 
     public static boolean c(c cVar, c cVar2) {
-        return cVar != null && !StringUtils.isNull(cVar.bbd) && cVar.bbd.equals(cVar2.bbd) && Math.abs(cVar2.IA() - cVar.IA()) <= IMConnection.RETRY_DELAY_TIMES && cVar2.bbi <= 99;
+        return cVar != null && !StringUtils.isNull(cVar.aZr) && cVar.aZr.equals(cVar2.aZr) && Math.abs(cVar2.HR() - cVar.HR()) <= IMConnection.RETRY_DELAY_TIMES && cVar2.aZw <= 99;
     }
 
     public static void d(c cVar, c cVar2) {
         v.a(cVar, cVar2);
-        cVar.bbi += cVar2.bbi;
-        cVar.as(cVar2.IA());
+        cVar.aZw += cVar2.aZw;
+        cVar.as(cVar2.HR());
     }
 
     private void r(c cVar) {
@@ -256,28 +256,28 @@ public class a {
             s(cVar);
             return;
         }
-        this.bdF.add(cVar);
-        if (cVar.bbk) {
+        this.bbU.add(cVar);
+        if (cVar.aZy) {
             LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_ENTER_LIST, cVar.chatMCastId, cVar.ensureMCastId, cVar.giftId, "");
         }
         try {
-            HC();
+            GT();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        HF();
+        GW();
     }
 
     public void s(c cVar) {
-        if (this.bdE) {
+        if (this.bbT) {
             t(cVar);
-        } else if (!this.beI.Kj() && this.beI.w(cVar)) {
-            this.beI.y(cVar);
-        } else if (!this.beJ.Kj() && this.beJ.w(cVar)) {
-            this.beJ.y(cVar);
+        } else if (!this.bcV.JA() && this.bcV.w(cVar)) {
+            this.bcV.y(cVar);
+        } else if (!this.bcW.JA() && this.bcW.w(cVar)) {
+            this.bcW.y(cVar);
         } else {
             t(cVar);
-            HF();
+            GW();
         }
     }
 
@@ -287,81 +287,81 @@ public class a {
         int i2 = 0;
         while (true) {
             i = i2;
-            if (i >= this.bdF.size()) {
+            if (i >= this.bbU.size()) {
                 i = -1;
                 break;
-            } else if (cVar.priority > this.bdF.get(i).priority) {
+            } else if (cVar.priority > this.bbU.get(i).priority) {
                 break;
             } else {
                 i2 = i + 1;
             }
         }
         if (i == -1) {
-            this.bdF.add(cVar);
+            this.bbU.add(cVar);
         } else {
-            this.bdF.add(i, cVar);
+            this.bbU.add(i, cVar);
         }
         try {
-            HC();
+            GT();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void HC() {
-        if (this.bdF != null) {
-            int i = com.baidu.live.aa.a.PQ().bod != null ? com.baidu.live.aa.a.PQ().bod.aNf : 0;
-            if (i > 0 && this.bdF.size() >= i) {
-                Collections.sort(this.bdF, new c.a());
-                ArrayList arrayList = new ArrayList(this.bdF.subList(0, Math.max((int) (i * 0.7f), 1)));
-                this.bdF.clear();
-                this.bdF.addAll(arrayList);
+    private void GT() {
+        if (this.bbU != null) {
+            int i = com.baidu.live.aa.a.Ph().bms != null ? com.baidu.live.aa.a.Ph().bms.aLu : 0;
+            if (i > 0 && this.bbU.size() >= i) {
+                Collections.sort(this.bbU, new c.a());
+                ArrayList arrayList = new ArrayList(this.bbU.subList(0, Math.max((int) (i * 0.7f), 1)));
+                this.bbU.clear();
+                this.bbU.addAll(arrayList);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HF() {
-        if (!this.bdF.isEmpty() && !this.bdE) {
-            if (this.beI.isReady() || this.beJ.isReady()) {
-                c remove = this.bdF.remove(0);
+    public void GW() {
+        if (!this.bbU.isEmpty() && !this.bbT) {
+            if (this.bcV.isReady() || this.bcW.isReady()) {
+                c remove = this.bbU.remove(0);
                 if (remove != null) {
                     remove.as(System.currentTimeMillis());
                     n(remove);
-                    HF();
+                    GW();
                     return;
                 }
-                HF();
+                GW();
             }
         }
     }
 
     private void n(c cVar) {
-        if (this.beI.isReady()) {
-            this.beI.x(cVar);
-        } else if (this.beJ.isReady()) {
-            this.beJ.x(cVar);
+        if (this.bcV.isReady()) {
+            this.bcV.x(cVar);
+        } else if (this.bcW.isReady()) {
+            this.bcW.x(cVar);
         }
-        if (cVar.bbk) {
+        if (cVar.aZy) {
             LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW, cVar.chatMCastId, cVar.ensureMCastId, cVar.giftId, "");
         }
     }
 
-    public boolean JU() {
-        return this.bdF.isEmpty();
+    public boolean Jl() {
+        return this.bbU.isEmpty();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(c cVar) {
-        if (cVar != null && cVar.bbk) {
+        if (cVar != null && cVar.aZy) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(LogConfig.LOG_GIFT_ID, cVar.giftId);
-                jSONObject.put("gift_count", cVar.bbj);
+                jSONObject.put("gift_count", cVar.aZx);
                 jSONObject.put("sender_uk", EncryptionHelper.getEncryptionUserId(cVar.userId));
-                jSONObject.put("show_stime", cVar.IA());
+                jSONObject.put("show_stime", cVar.HR());
                 jSONObject.put("show_ctime", System.currentTimeMillis());
-                if (cVar.bbr) {
+                if (cVar.aZF) {
                     jSONObject.put("from_recovery", 1);
                 }
             } catch (JSONException e) {
@@ -371,20 +371,20 @@ public class a {
         }
     }
 
-    public View GH() {
+    public View FY() {
         return this.mRootView;
     }
 
     public void onDestroy() {
-        this.bdE = false;
-        if (this.bdF != null) {
-            this.bdF.clear();
+        this.bbT = false;
+        if (this.bbU != null) {
+            this.bbU.clear();
         }
-        if (this.beI != null) {
-            this.beI.onDestroy();
+        if (this.bcV != null) {
+            this.bcV.onDestroy();
         }
-        if (this.beJ != null) {
-            this.beJ.onDestroy();
+        if (this.bcW != null) {
+            this.bcW.onDestroy();
         }
         this.mContext = null;
     }

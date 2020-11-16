@@ -19,9 +19,9 @@ public class UserRoomActivity extends BaseActivity {
     private TextView e;
     private String h;
     private String i;
-    private FrameLayout pwA;
-    private AnimationImageView pyI;
-    private b pyJ;
+    private AnimationImageView pAl;
+    private b pAm;
+    private FrameLayout pyd;
 
     @Override // com.kascend.chushou.view.base.BaseActivity, android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -33,10 +33,10 @@ public class UserRoomActivity extends BaseActivity {
     public void a() {
         setContentView(a.h.activity_my_room);
         this.f4240a = findViewById(a.f.title_view);
-        this.pwA = (FrameLayout) findViewById(a.f.fragment_container);
+        this.pyd = (FrameLayout) findViewById(a.f.fragment_container);
         this.b = findViewById(a.f.rl_empty);
         this.c = (ImageView) findViewById(a.f.iv_empty);
-        this.pyI = (AnimationImageView) findViewById(a.f.iv_loading);
+        this.pAl = (AnimationImageView) findViewById(a.f.iv_loading);
         this.e = (TextView) findViewById(a.f.tv_empty);
     }
 
@@ -46,18 +46,18 @@ public class UserRoomActivity extends BaseActivity {
         this.h = intent.getStringExtra("uid");
         this.i = intent.getStringExtra("dataInfo");
         boolean booleanExtra = intent.getBooleanExtra("scrollto", false);
-        if (!tv.chushou.zues.utils.a.eHM()) {
+        if (!tv.chushou.zues.utils.a.eHN()) {
             a_(3);
             return;
         }
         a_(1);
-        this.pyJ = b.c(this.h, null, booleanExtra, this.i);
-        getSupportFragmentManager().beginTransaction().replace(a.f.fragment_container, this.pyJ).commitAllowingStateLoss();
+        this.pAm = b.c(this.h, null, booleanExtra, this.i);
+        getSupportFragmentManager().beginTransaction().replace(a.f.fragment_container, this.pAm).commitAllowingStateLoss();
     }
 
     @Override // com.kascend.chushou.view.base.BaseActivity
     protected int y() {
-        tv.chushou.zues.utils.systemBar.b.aM(this);
+        tv.chushou.zues.utils.systemBar.b.aL(this);
         return 1;
     }
 
@@ -66,9 +66,9 @@ public class UserRoomActivity extends BaseActivity {
         switch (i) {
             case 1:
                 this.f4240a.setVisibility(0);
-                this.pwA.setVisibility(8);
+                this.pyd.setVisibility(8);
                 this.b.setVisibility(0);
-                this.pyI.setVisibility(0);
+                this.pAl.setVisibility(0);
                 this.c.setVisibility(8);
                 this.e.setVisibility(8);
                 return;
@@ -77,18 +77,18 @@ public class UserRoomActivity extends BaseActivity {
                 return;
             case 3:
                 this.f4240a.setVisibility(0);
-                this.pwA.setVisibility(8);
+                this.pyd.setVisibility(8);
                 this.b.setVisibility(0);
-                this.pyI.setVisibility(8);
+                this.pAl.setVisibility(8);
                 this.c.setVisibility(0);
                 this.c.setImageResource(a.e.commonres_pagestatus_net_error);
                 this.e.setVisibility(8);
                 return;
             case 4:
                 this.f4240a.setVisibility(0);
-                this.pwA.setVisibility(8);
+                this.pyd.setVisibility(8);
                 this.b.setVisibility(0);
-                this.pyI.setVisibility(8);
+                this.pAl.setVisibility(8);
                 this.c.setVisibility(0);
                 this.c.setImageResource(a.e.commonres_pagestatus_unknown_error);
                 this.e.setVisibility(8);
@@ -99,6 +99,6 @@ public class UserRoomActivity extends BaseActivity {
     public void c() {
         this.f4240a.setVisibility(8);
         this.b.setVisibility(8);
-        this.pwA.setVisibility(0);
+        this.pyd.setVisibility(0);
     }
 }

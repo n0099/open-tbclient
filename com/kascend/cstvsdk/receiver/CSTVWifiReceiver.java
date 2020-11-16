@@ -49,7 +49,7 @@ public final class CSTVWifiReceiver extends BroadcastReceiver {
             if (networkInfo2 != null) {
                 b.etQ().b = q.l(networkInfo2.getState(), NetworkInfo.State.CONNECTED);
             }
-            com.kascend.cstvsdk.utils.a.pCO.a(b.etQ().b ? 1 : 2);
+            com.kascend.cstvsdk.utils.a.pEr.a(b.etQ().b ? 1 : 2);
             if (z != b.etQ().f4066a || z2 != b.etQ().b) {
                 tv.chushou.zues.a.a.post(new j(1));
             }

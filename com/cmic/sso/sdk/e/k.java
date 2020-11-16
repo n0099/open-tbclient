@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 @SuppressLint({"ApplySharedPref"})
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class k {
     @SuppressLint({"StaticFieldLeak"})
 
@@ -33,11 +33,11 @@ public class k {
         return f4025a.getSharedPreferences("ssoconfigs", 0).getString(d.a(str), str2);
     }
 
-    public static a eiU() {
+    public static a eiS() {
         return new a(f4025a.getSharedPreferences("ssoconfigs", 0).edit());
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */

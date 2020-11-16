@@ -21,8 +21,8 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public class b {
-    private boolean aTB;
-    private com.baidu.live.entereffect.a.a aTC;
+    private boolean aRQ;
+    private com.baidu.live.entereffect.a.a aRR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final boolean z, final com.baidu.live.entereffect.a.a aVar, final String str, final String str2, final String str3, final boolean z2) {
@@ -35,10 +35,10 @@ public class b {
                 if (aVar == null || TextUtils.isEmpty(aVar.id) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                     return null;
                 }
-                b.this.aTB = z;
-                b.this.aTC = aVar;
+                b.this.aRQ = z;
+                b.this.aRR = aVar;
                 if (com.baidu.live.f.a.existFile(str2)) {
-                    b.this.gz(str2);
+                    b.this.gt(str2);
                 }
                 final String str4 = aVar.id;
                 DownloadData downloadData = new DownloadData();
@@ -47,7 +47,7 @@ public class b {
                 downloadData.setName(str4);
                 downloadData.setUrl(str);
                 downloadData.setType(20);
-                downloadData.setPath(b.this.ao(str2, str4));
+                downloadData.setPath(b.this.an(str2, str4));
                 downloadData.setCallback(new FileDownloadCallBack() { // from class: com.baidu.live.entereffect.b.b.1.1
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -55,7 +55,7 @@ public class b {
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public boolean onPreDownload(DownloadData downloadData2) {
-                        return com.baidu.live.ac.a.b.Qx().K(downloadData2);
+                        return com.baidu.live.ac.a.b.PO().K(downloadData2);
                     }
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -65,7 +65,7 @@ public class b {
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public void onFileDownloadSucceed(DownloadData downloadData2) {
-                        b.this.an(b.this.ao(str2, str4), str3);
+                        b.this.am(b.this.an(str2, str4), str3);
                     }
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -126,7 +126,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void an(final String str, final String str2) {
+    public void am(final String str, final String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             new BdAsyncTask<Void, Void, List<com.baidu.live.entereffect.a.b>>() { // from class: com.baidu.live.entereffect.b.b.2
                 /* JADX DEBUG: Method merged with bridge method */
@@ -134,16 +134,16 @@ public class b {
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: c */
                 public List<com.baidu.live.entereffect.a.b> doInBackground(Void... voidArr) {
-                    List<com.baidu.live.entereffect.a.b> ap = b.this.ap(str, str2);
-                    if (ap == null || ap.isEmpty()) {
-                        b.this.gz(str);
-                        b.this.gz(str2);
+                    List<com.baidu.live.entereffect.a.b> ao = b.this.ao(str, str2);
+                    if (ao == null || ao.isEmpty()) {
+                        b.this.gt(str);
+                        b.this.gt(str2);
                         JSONObject jSONObject = new JSONObject();
                         JSONObject jSONObject2 = new JSONObject();
                         try {
                             String str3 = "";
-                            if (b.this.aTC != null) {
-                                str3 = b.this.aTB ? b.this.aTC.videoUrl : b.this.aTC.aTm;
+                            if (b.this.aRR != null) {
+                                str3 = b.this.aRQ ? b.this.aRR.videoUrl : b.this.aRR.aRB;
                             }
                             jSONObject2.put("step_error", 6);
                             jSONObject2.put("down_type", UbcStatConstant.ContentType.UBC_TYPE_ENTEREFFECT_DYNAMIC_LIST);
@@ -154,7 +154,7 @@ public class b {
                         }
                         UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_RESP, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", "").setContentExt(jSONObject), null, true);
                     }
-                    return ap;
+                    return ao;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -164,7 +164,7 @@ public class b {
                 public void onPostExecute(List<com.baidu.live.entereffect.a.b> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.Fk().a(b.this.aTB, b.this.aTC, str2, list);
+                        c.EB().a(b.this.aRQ, b.this.aRR, str2, list);
                     }
                 }
             }.execute(new Void[0]);
@@ -172,7 +172,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String ao(String str, String str2) {
+    public String an(String str, String str2) {
         return str + "/" + str2 + ".zip";
     }
 
@@ -185,7 +185,7 @@ public class b {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX INFO: Access modifiers changed from: private */
-    public java.util.List<com.baidu.live.entereffect.a.b> ap(java.lang.String r8, java.lang.String r9) {
+    public java.util.List<com.baidu.live.entereffect.a.b> ao(java.lang.String r8, java.lang.String r9) {
         /*
             r7 = this;
             r1 = 0
@@ -290,7 +290,7 @@ public class b {
             r2 = r1
             goto L4e
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.live.entereffect.b.b.ap(java.lang.String, java.lang.String):java.util.List");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.live.entereffect.b.b.ao(java.lang.String, java.lang.String):java.util.List");
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [370=5, 371=5, 372=5, 374=5, 375=5] */
@@ -405,7 +405,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gz(String str) {
+    public void gt(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.live.f.a.cleanDir(new File(str));
         }

@@ -7,7 +7,7 @@ import android.widget.RelativeLayout;
 import com.baidu.prologue.a.c.m;
 import com.baidu.prologue.business.data.SplashStyleRecorder;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public final class e {
     public static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
 
@@ -30,8 +30,8 @@ public final class e {
 
     private static void a(ViewGroup.MarginLayoutParams marginLayoutParams, int[] iArr) {
         if (iArr != null && iArr.length == 4) {
-            Context abJ = com.baidu.prologue.a.b.a.che.get().abJ();
-            marginLayoutParams.setMargins(m.dip2px(abJ, iArr[0]), m.dip2px(abJ, iArr[1]), m.dip2px(abJ, iArr[2]), m.dip2px(abJ, iArr[3]));
+            Context aba = com.baidu.prologue.a.b.a.cft.get().aba();
+            marginLayoutParams.setMargins(m.dip2px(aba, iArr[0]), m.dip2px(aba, iArr[1]), m.dip2px(aba, iArr[2]), m.dip2px(aba, iArr[3]));
         }
     }
 
@@ -49,10 +49,10 @@ public final class e {
 
     private static void a(RelativeLayout.LayoutParams layoutParams, JSONObject jSONObject) {
         if (jSONObject != null) {
-            int ax = SplashStyleRecorder.ax(jSONObject);
-            int[] ay = SplashStyleRecorder.ay(jSONObject);
-            a(layoutParams, ax);
-            a(layoutParams, ay);
+            int ar = SplashStyleRecorder.ar(jSONObject);
+            int[] as = SplashStyleRecorder.as(jSONObject);
+            a(layoutParams, ar);
+            a(layoutParams, as);
         }
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.ala.view.AlaAttentionManager;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.core.view.f;
@@ -31,13 +31,13 @@ import com.baidu.tieba.ala.alasquare.recent_history.b.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private BdListView VY;
-    private FrameLayout bJO;
-    private CustomMessageListener eNv;
-    private PbListView gjo;
-    private AlaRecentHistoryActivity goP;
-    private com.baidu.tieba.ala.alasquare.recent_history.a.a goQ;
-    private b goR;
+    private BdListView Wa;
+    private FrameLayout bId;
+    private CustomMessageListener eMu;
+    private PbListView giV;
+    private AlaRecentHistoryActivity gow;
+    private com.baidu.tieba.ala.alasquare.recent_history.a.a gox;
+    private b goy;
     private NoNetworkView mNetworkView;
     private TbPageContext mPageContext;
     private g mPullView;
@@ -46,57 +46,57 @@ public class a {
 
     public a(TbPageContext tbPageContext, int i) {
         this.mPageContext = tbPageContext;
-        this.goP = (AlaRecentHistoryActivity) tbPageContext.getPageActivity();
+        this.gow = (AlaRecentHistoryActivity) tbPageContext.getPageActivity();
         this.mType = i;
         initView();
     }
 
     public void initView() {
         ColorDrawable colorDrawable;
-        this.mRootView = LayoutInflater.from(this.goP).inflate(R.layout.square_recent_history_view, (ViewGroup) null);
-        this.mRootView.setPadding(0, (int) this.goP.getResources().getDimension(R.dimen.ds80), 0, 0);
-        this.bJO = (FrameLayout) this.mRootView.findViewById(R.id.square_recent_history_container);
-        this.VY = (BdListView) this.mRootView.findViewById(R.id.square_recent_history_listview);
+        this.mRootView = LayoutInflater.from(this.gow).inflate(R.layout.square_recent_history_view, (ViewGroup) null);
+        this.mRootView.setPadding(0, (int) this.gow.getResources().getDimension(R.dimen.ds80), 0, 0);
+        this.bId = (FrameLayout) this.mRootView.findViewById(R.id.square_recent_history_container);
+        this.Wa = (BdListView) this.mRootView.findViewById(R.id.square_recent_history_listview);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            colorDrawable = new ColorDrawable(this.goP.getPageContext().getResources().getColor(R.color.cp_bg_line_c_1));
+            colorDrawable = new ColorDrawable(this.gow.getPageContext().getResources().getColor(R.color.CAM_X0204_1));
         } else {
-            colorDrawable = new ColorDrawable(this.goP.getPageContext().getResources().getColor(R.color.cp_bg_line_c));
+            colorDrawable = new ColorDrawable(this.gow.getPageContext().getResources().getColor(R.color.CAM_X0204));
         }
-        this.VY.setDivider(colorDrawable);
-        this.VY.setDividerHeight(this.goP.getActivity().getResources().getDimensionPixelSize(R.dimen.ds1));
+        this.Wa.setDivider(colorDrawable);
+        this.Wa.setDividerHeight(this.gow.getActivity().getResources().getDimensionPixelSize(R.dimen.ds1));
         this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.square_recent_history_network);
         this.mPullView = new g(this.mPageContext);
-        this.mPullView.setTag(this.goP.getUniqueId());
-        this.VY.setPullRefresh(this.mPullView);
-        this.gjo = new PbListView(this.goP);
-        this.gjo.createView();
-        bPD();
+        this.mPullView.setTag(this.gow.getUniqueId());
+        this.Wa.setPullRefresh(this.mPullView);
+        this.giV = new PbListView(this.gow);
+        this.giV.createView();
+        bOW();
     }
 
-    private void bPD() {
-        bPE();
+    private void bOW() {
+        bOX();
     }
 
-    private void bPE() {
+    private void bOX() {
         if (this.mType == 0) {
-            this.goQ = new com.baidu.tieba.ala.alasquare.recent_history.a.b(this.mPageContext);
+            this.gox = new com.baidu.tieba.ala.alasquare.recent_history.a.b(this.mPageContext);
         } else if (1 == this.mType) {
-            this.goQ = new c(this.mPageContext);
+            this.gox = new c(this.mPageContext);
             registerListener();
-            ((c) this.goQ).a(new c.a() { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.1
+            ((c) this.gox).a(new c.a() { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.1
                 @Override // com.baidu.tieba.ala.alasquare.recent_history.a.c.a
                 public void a(b bVar) {
-                    a.this.goR = bVar;
-                    a.this.a(bVar.exA.bmA(), bVar.isFollow);
+                    a.this.goy = bVar;
+                    a.this.a(bVar.evQ.blC(), bVar.isFollow);
                 }
             });
         }
-        this.VY.setAdapter((ListAdapter) this.goQ);
-        this.VY.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.2
+        this.Wa.setAdapter((ListAdapter) this.gox);
+        this.Wa.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0) {
-                    com.baidu.tieba.ala.alasquare.c.a.bPC().bMp();
+                    com.baidu.tieba.ala.alasquare.c.a.bOV().bLI();
                 }
             }
 
@@ -107,41 +107,41 @@ public class a {
     }
 
     private void registerListener() {
-        this.eNv = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.3
+        this.eMu = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 long j;
                 if (customResponsedMessage != null && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                     UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                    if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && a.this.goR != null) {
-                        if (a.this.goR.exA != null && a.this.goR.exA.bmA() != null) {
-                            j = a.this.goR.exA.bmA().getUserIdLong();
+                    if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && a.this.goy != null) {
+                        if (a.this.goy.evQ != null && a.this.goy.evQ.blC() != null) {
+                            j = a.this.goy.evQ.blC().getUserIdLong();
                         } else {
                             j = -100;
                         }
                         if (updateAttentionMessage.getData().toUid.equals(String.valueOf(j))) {
                             if (updateAttentionMessage.getData().isSucc) {
-                                a.this.goR.isFollow = true;
-                                if (a.this.goQ instanceof c) {
-                                    a.this.goQ.notifyDataSetChanged();
+                                a.this.goy.isFollow = true;
+                                if (a.this.gox instanceof c) {
+                                    a.this.gox.notifyDataSetChanged();
                                     return;
                                 }
                                 return;
                             }
-                            a.this.goR.isFollow = false;
+                            a.this.goy.isFollow = false;
                         }
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.eNv);
+        MessageManager.getInstance().registerListener(this.eMu);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(MetaData metaData, boolean z) {
         if (!TbadkCoreApplication.isLogin()) {
-            bg.skipToLoginActivity(this.mPageContext.getPageActivity());
+            bh.skipToLoginActivity(this.mPageContext.getPageActivity());
             return;
         }
         String valueOf = String.valueOf(metaData.getUserId());
@@ -152,53 +152,53 @@ public class a {
         return this.mRootView;
     }
 
-    public ViewGroup bPF() {
-        return this.bJO;
+    public ViewGroup bOY() {
+        return this.bId;
     }
 
     public void completePullRefresh() {
-        this.VY.completePullRefresh();
+        this.Wa.completePullRefresh();
     }
 
     public void setData(List<b> list, boolean z) {
-        if (this.goQ instanceof com.baidu.tieba.ala.alasquare.recent_history.a.b) {
-            this.goQ.setData(list);
-        } else if (this.goQ instanceof c) {
-            this.goQ.setData(list);
+        if (this.gox instanceof com.baidu.tieba.ala.alasquare.recent_history.a.b) {
+            this.gox.setData(list);
+        } else if (this.gox instanceof c) {
+            this.gox.setData(list);
         }
         if (z) {
-            bOX();
+            bOq();
         } else {
-            bOW();
+            bOp();
         }
     }
 
-    private void bOW() {
-        if (this.gjo != null) {
-            if (this.gjo.getView().getParent() == null) {
-                this.VY.setNextPage(this.gjo);
+    private void bOp() {
+        if (this.giV != null) {
+            if (this.giV.getView().getParent() == null) {
+                this.Wa.setNextPage(this.giV);
             }
-            this.gjo.setText(this.goP.getPageContext().getResources().getString(R.string.list_no_more));
-            this.gjo.endLoadData();
+            this.giV.setText(this.gow.getPageContext().getResources().getString(R.string.list_no_more));
+            this.giV.endLoadData();
         }
     }
 
-    private void bOX() {
-        if (this.gjo != null) {
-            if (this.gjo.getView().getParent() == null) {
-                this.VY.setNextPage(this.gjo);
+    private void bOq() {
+        if (this.giV != null) {
+            if (this.giV.getView().getParent() == null) {
+                this.Wa.setNextPage(this.giV);
             }
-            this.gjo.showLoadingViewWithoutEmptyView();
-            this.gjo.startLoadData();
+            this.giV.showLoadingViewWithoutEmptyView();
+            this.giV.startLoadData();
         }
     }
 
-    public void bPG() {
-        this.VY.setNextPage(null);
+    public void bOZ() {
+        this.Wa.setNextPage(null);
     }
 
     public void setOnSrollToBottomListener(BdListView.e eVar) {
-        this.VY.setOnSrollToBottomListener(eVar);
+        this.Wa.setOnSrollToBottomListener(eVar);
     }
 
     public void setListPullRefreshListener(f.c cVar) {
@@ -212,8 +212,8 @@ public class a {
     }
 
     public void onDestroy() {
-        if (this.eNv != null) {
-            MessageManager.getInstance().unRegisterListener(this.eNv);
+        if (this.eMu != null) {
+            MessageManager.getInstance().unRegisterListener(this.eMu);
         }
     }
 }

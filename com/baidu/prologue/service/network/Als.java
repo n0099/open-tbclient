@@ -8,31 +8,31 @@ import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class Als {
     private static final boolean DEBUG;
 
     static {
-        DEBUG = com.baidu.prologue.a.b.a.che.get() != null && com.baidu.prologue.a.b.a.che.get().abT();
+        DEBUG = com.baidu.prologue.a.b.a.cft.get() != null && com.baidu.prologue.a.b.a.cft.get().abk();
     }
 
     public static void a(@NonNull a aVar) {
-        com.baidu.prologue.a.b.a aVar2 = com.baidu.prologue.a.b.a.che.get();
+        com.baidu.prologue.a.b.a aVar2 = com.baidu.prologue.a.b.a.cft.get();
         if (aVar2 == null) {
             if (DEBUG) {
                 throw new IllegalStateException("宿主App未初始化IAppContext");
             }
             return;
         }
-        Request.a aVar3 = new Request.a(aVar2.abJ(), "https://als.baidu.com/clog/clog");
+        Request.a aVar3 = new Request.a(aVar2.aba(), "https://als.baidu.com/clog/clog");
         a(aVar3, aVar2);
         JSONArray jSONArray = new JSONArray();
-        jSONArray.put(aVar.cjh);
-        aVar3.bd(MapBundleKey.MapObjKey.OBJ_AD, jSONArray.toString());
-        aVar3.adc().ada().a(new m() { // from class: com.baidu.prologue.service.network.Als.1
+        jSONArray.put(aVar.chv);
+        aVar3.bc(MapBundleKey.MapObjKey.OBJ_AD, jSONArray.toString());
+        aVar3.act().acr().a(new m() { // from class: com.baidu.prologue.service.network.Als.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
-            /* renamed from: jC */
+            /* renamed from: jw */
             public void onResponse(String str) {
                 if (Als.DEBUG) {
                     Log.d("Als", "Als get correct response.");
@@ -49,21 +49,21 @@ public class Als {
     }
 
     public static void a(String str, String str2, String str3, long j, String str4) {
-        com.baidu.prologue.a.b.a aVar = com.baidu.prologue.a.b.a.che.get();
+        com.baidu.prologue.a.b.a aVar = com.baidu.prologue.a.b.a.cft.get();
         if (aVar == null) {
             if (DEBUG) {
                 throw new IllegalStateException("宿主App未初始化IAppContext");
             }
             return;
         }
-        Request.a aVar2 = new Request.a(aVar.abJ(), "http://als.baidu.com/elog/plog");
+        Request.a aVar2 = new Request.a(aVar.aba(), "http://als.baidu.com/elog/plog");
         a(aVar2, aVar);
         a(aVar2);
         a(aVar2, str, str2, str3, j, str4);
-        aVar2.adc().ada().a(new m() { // from class: com.baidu.prologue.service.network.Als.2
+        aVar2.act().acr().a(new m() { // from class: com.baidu.prologue.service.network.Als.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
-            /* renamed from: jC */
+            /* renamed from: jw */
             public void onResponse(String str5) {
                 if (Als.DEBUG) {
                     Log.d("Als", "Als performance get correct response.");
@@ -80,63 +80,63 @@ public class Als {
     }
 
     private static void a(Request.a aVar, com.baidu.prologue.a.b.a aVar2) {
-        aVar.bd("_client_type", "2");
-        aVar.bd("_os_type", "2");
-        aVar.bd("_client_version", aVar2.abK());
-        aVar.bd("_os_version", aVar2.abL());
-        aVar.bd("model", aVar2.abN());
-        aVar.bd("cuid", aVar2.abM());
-        aVar.bd("productId", aVar2.abU());
-        aVar.bd("net_type", String.valueOf(new g(aVar2.abJ()).acY()));
+        aVar.bc("_client_type", "2");
+        aVar.bc("_os_type", "2");
+        aVar.bc("_client_version", aVar2.abb());
+        aVar.bc("_os_version", aVar2.abc());
+        aVar.bc("model", aVar2.abe());
+        aVar.bc("cuid", aVar2.abd());
+        aVar.bc("productId", aVar2.abl());
+        aVar.bc("net_type", String.valueOf(new g(aVar2.aba()).acp()));
     }
 
     private static void a(Request.a aVar) {
-        aVar.bd("c_id", "1038");
-        aVar.bd("c_type", "every");
+        aVar.bc("c_id", "1038");
+        aVar.bc("c_type", "every");
     }
 
     private static void a(Request.a aVar, String str, String str2, String str3, long j, String str4) {
-        aVar.bd("f1", str);
-        aVar.bd("f2", str2);
-        aVar.bd("f3", str3);
-        aVar.bd("f4", j + "");
-        aVar.bd("f5", str4);
+        aVar.bc("f1", str);
+        aVar.bc("f2", str2);
+        aVar.bc("f3", str3);
+        aVar.bc("f4", j + "");
+        aVar.bc("f5", str4);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes14.dex */
     public static final class a {
-        private final JSONObject cjh = new JSONObject();
+        private final JSONObject chv = new JSONObject();
 
         public a(@NonNull Type type) {
-            bb("da_type", type.value);
+            ba("da_type", type.value);
             j("origin_time", Long.valueOf(System.currentTimeMillis()));
         }
 
         public a a(@NonNull Page page) {
-            return bb("da_page", page.value);
+            return ba("da_page", page.value);
         }
 
         public a b(@NonNull Area area) {
-            return bb("da_area", area.value);
+            return ba("da_area", area.value);
         }
 
-        public a jN(@NonNull String str) {
-            return bb("extra_param", str);
+        public a jH(@NonNull String str) {
+            return ba("extra_param", str);
         }
 
-        public a jO(@NonNull String str) {
-            return bb("da_ext1", str);
+        public a jI(@NonNull String str) {
+            return ba("da_ext1", str);
         }
 
-        public a jP(@NonNull String str) {
-            return bb("da_ext2", str);
+        public a jJ(@NonNull String str) {
+            return ba("da_ext2", str);
         }
 
-        public a jQ(@NonNull String str) {
-            return bb("da_ext3", str);
+        public a jK(@NonNull String str) {
+            return ba("da_ext3", str);
         }
 
-        private a bb(String str, String str2) {
+        private a ba(String str, String str2) {
             return k(str, str2);
         }
 
@@ -145,11 +145,11 @@ public class Als {
         }
 
         private <T> a k(String str, T t) {
-            if (Als.DEBUG && this.cjh.has(str)) {
+            if (Als.DEBUG && this.chv.has(str)) {
                 throw new IllegalArgumentException("key " + str + " has been set!");
             }
             try {
-                this.cjh.put(str, t);
+                this.chv.put(str, t);
             } catch (JSONException e) {
                 if (Als.DEBUG) {
                     throw new IllegalArgumentException("Json put create invalid exception");
@@ -159,7 +159,7 @@ public class Als {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes14.dex */
     public enum Type {
         CLICK("2"),
         SHOW("3"),
@@ -174,7 +174,7 @@ public class Als {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes14.dex */
     public enum CloseType {
         COUNTDOWN_TIME_FINISH("0"),
         CLICK_SKIP_BUTTON("1"),
@@ -187,7 +187,7 @@ public class Als {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes14.dex */
     public enum Page {
         NA_SPLASH("NA_SPLASH"),
         NA_DEEPLINK("DEEPLINK");
@@ -199,7 +199,7 @@ public class Als {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes14.dex */
     public enum Area {
         SKIP_BUTTON("skip_button"),
         IMAGE("image"),

@@ -3,7 +3,7 @@ package com.tencent.open.b;
 import android.os.Bundle;
 import java.io.Serializable;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class b implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */

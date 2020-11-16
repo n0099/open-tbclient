@@ -6,8 +6,9 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bw;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
 import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
@@ -17,10 +18,10 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 import tbclient.GetMyPost.User_Info;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private BdUniqueId fsQ;
-    private final com.baidu.adp.framework.listener.a ieB = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
+    private BdUniqueId fsa;
+    private final com.baidu.adp.framework.listener.a ifq = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -32,31 +33,31 @@ public class a {
             }
         }
     };
-    private TopicDetailView jJI;
+    private TopicDetailView jKt;
 
     public a(TopicDetailView topicDetailView) {
-        this.jJI = topicDetailView;
+        this.jKt = topicDetailView;
     }
 
     public void l(BdUniqueId bdUniqueId) {
-        this.fsQ = bdUniqueId;
-        this.ieB.setTag(bdUniqueId);
-        this.ieB.getHttpMessageListener().setSelfListener(true);
-        this.ieB.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.ieB);
+        this.fsa = bdUniqueId;
+        this.ifq.setTag(bdUniqueId);
+        this.ifq.getHttpMessageListener().setSelfListener(true);
+        this.ifq.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.ifq);
     }
 
-    public RunnableC0746a A(long j, long j2) {
-        return new RunnableC0746a(j2, j);
+    public RunnableC0749a A(long j, long j2) {
+        return new RunnableC0749a(j2, j);
     }
 
     /* renamed from: com.baidu.tieba.homepage.topic.topicdetail.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    public class RunnableC0746a implements Runnable {
+    /* loaded from: classes21.dex */
+    public class RunnableC0749a implements Runnable {
         private long postId;
         private long threadId;
 
-        public RunnableC0746a(long j, long j2) {
+        public RunnableC0749a(long j, long j2) {
             this.threadId = j;
             this.postId = j2;
         }
@@ -67,11 +68,11 @@ public class a {
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i = 1;
-            if (au.bro().brp()) {
+            if (av.bqC().bqD()) {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(a.this.fsQ);
+            requestGetMyPostNetMessage.setTag(a.this.fsa);
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, equipmentWidth, equipmentHeight, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -86,11 +87,11 @@ public class a {
             builder2.portrait = TbadkCoreApplication.getCurrentPortrait();
             builder.author = builder2.build(true);
             ThreadInfo build = builder.build(true);
-            bw bwVar = new bw();
-            bwVar.a(build);
-            bwVar.dg(new Date().getTime());
-            if (com.baidu.tieba.card.data.l.ab(bwVar)) {
-                this.jJI.aD(bwVar);
+            bx bxVar = new bx();
+            bxVar.a(build);
+            bxVar.dg(new Date().getTime());
+            if (k.ad(bxVar)) {
+                this.jKt.aF(bxVar);
             }
         }
     }

@@ -15,12 +15,12 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class d extends BdBaseModel {
-    private TbPageContext bwO;
-    private HttpMessageListener bzl;
+    private TbPageContext bvd;
+    private HttpMessageListener bxA;
 
     public d(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bzl = new HttpMessageListener(1021219) { // from class: com.baidu.live.talentshow.model.d.1
+        this.bxA = new HttpMessageListener(1021219) { // from class: com.baidu.live.talentshow.model.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -29,12 +29,12 @@ public class d extends BdBaseModel {
                 }
             }
         };
-        this.bwO = tbPageContext;
-        SB();
+        this.bvd = tbPageContext;
+        RS();
     }
 
     public void onDestroy() {
-        SA();
+        RR();
     }
 
     public void c(com.baidu.live.talentshow.b.c cVar) {
@@ -53,31 +53,31 @@ public class d extends BdBaseModel {
         return false;
     }
 
-    private void SA() {
+    private void RR() {
         MessageManager.getInstance().unRegisterTask(1021219);
-        MessageManager.getInstance().unRegisterListener(this.bzl);
+        MessageManager.getInstance().unRegisterListener(this.bxA);
     }
 
-    private void SB() {
+    private void RS() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021219, TbConfig.SERVER_ADDRESS + "liveconnect/receive/receiveSignal");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setRetry(3);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.bzl);
+        MessageManager.getInstance().registerListener(this.bxA);
     }
 
     private HttpMessage d(com.baidu.live.talentshow.b.c cVar) {
         HttpMessage httpMessage = new HttpMessage(1021219);
         httpMessage.addParam("appid", AccountManager.getAppid(TbadkCoreApplication.getInst().getContext()));
-        httpMessage.addParam("source", com.baidu.live.talentshow.d.d.byy);
-        httpMessage.addParam(LogConfig.LOG_ROOMID, cVar.bxZ);
+        httpMessage.addParam("source", com.baidu.live.talentshow.d.d.bwN);
+        httpMessage.addParam(LogConfig.LOG_ROOMID, cVar.bwo);
         httpMessage.addParam("action", cVar.action);
-        httpMessage.addParam("answer_type", cVar.bya);
-        httpMessage.addParam("from_userid", cVar.byb);
-        httpMessage.addParam("role", cVar.byc);
-        httpMessage.addParam("user_states", cVar.byd);
+        httpMessage.addParam("answer_type", cVar.bwp);
+        httpMessage.addParam("from_userid", cVar.bwq);
+        httpMessage.addParam("role", cVar.bwr);
+        httpMessage.addParam("user_states", cVar.bws);
         httpMessage.addParam("ext", cVar.ext != null ? cVar.ext.toString() : "");
         return httpMessage;
     }

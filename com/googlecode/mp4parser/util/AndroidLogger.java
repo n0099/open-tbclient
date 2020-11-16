@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.util;
 
 import android.util.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AndroidLogger extends Logger {
     private static final String TAG = "isoparser";
     String name;

@@ -1,4 +1,4 @@
 package com.alibaba.fastjson.serializer;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public interface SerializeFilter {
 }

@@ -3,7 +3,7 @@ package com.airbnb.lottie.model;
 import android.support.annotation.ColorInt;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class b {
     final double EA;
     public final double EB;

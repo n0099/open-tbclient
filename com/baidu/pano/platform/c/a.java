@@ -10,11 +10,11 @@ public class a {
     private long b = -1;
     private long c = 250;
     private Interpolator d = new DecelerateInterpolator();
-    private EnumC0271a e = EnumC0271a.None;
+    private EnumC0269a e = EnumC0269a.None;
 
     /* renamed from: com.baidu.pano.platform.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public enum EnumC0271a {
+    public enum EnumC0269a {
         None,
         Running
     }
@@ -27,13 +27,13 @@ public class a {
         }
         float f2 = (((float) (currentTimeMillis - this.b)) * 1.0f) / ((float) this.c);
         if (f2 < 0.0f) {
-            this.e = EnumC0271a.None;
+            this.e = EnumC0269a.None;
         } else if (f2 > 1.0f) {
-            this.e = EnumC0271a.None;
+            this.e = EnumC0269a.None;
             f = 1.0f;
         } else {
             f = this.d.getInterpolation(f2);
-            this.e = EnumC0271a.Running;
+            this.e = EnumC0269a.Running;
         }
         return (f * this.f2668a[1]) + this.f2668a[0];
     }
@@ -42,6 +42,6 @@ public class a {
         this.f2668a[0] = f;
         this.f2668a[1] = f2 - f;
         this.b = -1L;
-        this.e = EnumC0271a.Running;
+        this.e = EnumC0269a.Running;
     }
 }

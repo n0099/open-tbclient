@@ -17,21 +17,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
-    public int gbh;
-    public int gbi;
-    public a gbj;
-    private BeautyType gbk;
-    private String gbl;
-    public boolean gbm;
-    private String gbn;
-    private String gbo;
-    private String gbp;
-    private int gbq;
-    private int gbr;
-    private int gbs;
-    private int gbt;
-    com.baidu.tieba.ala.alaar.sticker.model.c gbu;
-    private WeakReference<h.a> gbv;
+    public int gaO;
+    public int gaP;
+    public a gaQ;
+    private BeautyType gaR;
+    private String gaS;
+    public boolean gaT;
+    private String gaU;
+    private String gaV;
+    private String gaW;
+    private int gaX;
+    private int gaY;
+    private int gaZ;
+    private int gba;
+    com.baidu.tieba.ala.alaar.sticker.model.c gbb;
+    private WeakReference<h.a> gbc;
     private String icon;
     public String id;
     private File mFolder;
@@ -43,7 +43,7 @@ public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
         public void onStarted() {
             super.onStarted();
             c.this.d("DownloadCallback onStarted");
-            if (com.baidu.tieba.ala.alaar.sticker.download.b.bNs().isRunning(c.this.bML())) {
+            if (com.baidu.tieba.ala.alaar.sticker.download.b.bML().isRunning(c.this.bMe())) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -57,9 +57,9 @@ public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
                     i = i2 + 1;
                 }
             }
-            h.a bMO = c.this.bMO();
-            if (bMO != null) {
-                bMO.aD(c.this);
+            h.a bMh = c.this.bMh();
+            if (bMh != null) {
+                bMh.aD(c.this);
             }
         }
 
@@ -67,19 +67,19 @@ public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
         public void onCompleted(String str) {
             super.onCompleted(str);
             c.this.d("DownloadCallback onCompleted:" + str);
-            if (c.this.gbu == null || c.this.gbu.isLoaded()) {
+            if (c.this.gbb == null || c.this.gbb.isLoaded()) {
                 onCompleted();
             }
         }
 
         public void onCompleted() {
-            c.this.d("DownloadCallback onCompleted,mFinished:" + c.this.gbu.isLoaded());
+            c.this.d("DownloadCallback onCompleted,mFinished:" + c.this.gbb.isLoaded());
             synchronized (c.this) {
                 c.this.mAbilityCb = null;
             }
-            h.a bMO = c.this.bMO();
-            if (bMO != null) {
-                bMO.aE(c.this);
+            h.a bMh = c.this.bMh();
+            if (bMh != null) {
+                bMh.aE(c.this);
             }
             int i = 0;
             while (true) {
@@ -113,9 +113,9 @@ public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
                 } else {
                     i = 0;
                 }
-                h.a bMO = c.this.bMO();
-                if (bMO != null) {
-                    bMO.a(c.this, i, 0, str);
+                h.a bMh = c.this.bMh();
+                if (bMh != null) {
+                    bMh.a(c.this, i, 0, str);
                 }
                 for (int i2 = 0; i2 < c.this.mOnFileLoadedCallbacks.size(); i2++) {
                     h.a aVar = (h.a) c.this.mOnFileLoadedCallbacks.get(i2);
@@ -144,8 +144,8 @@ public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
         this.name = str;
     }
 
-    protected void tC(int i) {
-        this.gbi = i;
+    protected void ua(int i) {
+        this.gaP = i;
     }
 
     public String getIcon() {
@@ -155,91 +155,91 @@ public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
     public void setIcon(String str) {
         this.icon = g(this.mFolder, str);
         if (str.startsWith("resIdName://")) {
-            int aL = aL(TbadkCoreApplication.getInst().getApp(), FU(str));
-            if (aL > 0) {
-                tC(aL);
+            int aI = aI(TbadkCoreApplication.getInst().getApp(), Fv(str));
+            if (aI > 0) {
+                ua(aI);
             }
         }
     }
 
     public void a(a aVar) {
-        this.gbj = aVar;
+        this.gaQ = aVar;
     }
 
-    public a bME() {
-        return this.gbj;
+    public a bLX() {
+        return this.gaQ;
     }
 
     public int getValue() {
         return this.value;
     }
 
-    public int bMF() {
-        return this.gbr;
+    public int bLY() {
+        return this.gaY;
     }
 
-    public int bMG() {
-        return this.gbq;
+    public int bLZ() {
+        return this.gaX;
     }
 
     public void setValue(int i) {
         this.value = i;
     }
 
-    public void tD(int i) {
-        this.gbh = i;
+    public void ub(int i) {
+        this.gaO = i;
     }
 
-    public int bMH() {
-        return this.gbh;
+    public int bMa() {
+        return this.gaO;
     }
 
-    public float bMI() {
-        return ((((this.value - this.gbq) / (this.gbr - this.gbq)) * (this.gbt - this.gbs)) + this.gbs) / 100.0f;
+    public float bMb() {
+        return ((((this.value - this.gaX) / (this.gaY - this.gaX)) * (this.gba - this.gaZ)) + this.gaZ) / 100.0f;
     }
 
     public void setHide(boolean z) {
-        this.gbm = z;
+        this.gaT = z;
     }
 
-    public boolean bMJ() {
-        return this.gbm;
+    public boolean bMc() {
+        return this.gaT;
     }
 
     public BeautyType getType() {
-        return this.gbk;
+        return this.gaR;
     }
 
     public String getTypeName() {
-        return this.gbl;
+        return this.gaS;
     }
 
     public void setTypeName(String str) {
-        this.gbl = str;
+        this.gaS = str;
     }
 
     public void a(BeautyType beautyType) {
-        this.gbk = beautyType;
+        this.gaR = beautyType;
     }
 
-    public String bMK() {
-        return this.gbn;
+    public String bMd() {
+        return this.gaU;
     }
 
-    public void FS(String str) {
-        this.gbn = g(this.mFolder, str);
+    public void Ft(String str) {
+        this.gaU = g(this.mFolder, str);
     }
 
-    public String bML() {
-        return this.gbo;
+    public String bMe() {
+        return this.gaV;
     }
 
-    public void FT(String str) {
-        this.gbo = g(this.mFolder, str);
+    public void Fu(String str) {
+        this.gaV = g(this.mFolder, str);
     }
 
-    public String bMM() {
-        return this.gbp;
+    public String bMf() {
+        return this.gaW;
     }
 
     public static String g(File file, String str) {
@@ -249,7 +249,7 @@ public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
         return str;
     }
 
-    public String FU(String str) {
+    public String Fv(String str) {
         if (str.startsWith("resIdName://")) {
             return str.replace("resIdName://", "");
         }
@@ -260,7 +260,7 @@ public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
         this.mFolder = file;
     }
 
-    public File bMN() {
+    public File bMg() {
         return this.mFolder;
     }
 
@@ -270,25 +270,25 @@ public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
             jSONObject.put("name", getName());
             jSONObject.put("makeup_id", getId());
             String str = null;
-            if (this.gbk != null) {
-                str = this.gbk.name();
+            if (this.gaR != null) {
+                str = this.gaR.name();
             }
             jSONObject.put("type", str);
             jSONObject.put("value", getValue());
-            jSONObject.put("live_default", bMH());
-            jSONObject.put("hide", bMJ() ? 1 : 0);
+            jSONObject.put("live_default", bMa());
+            jSONObject.put("hide", bMc() ? 1 : 0);
             jSONObject.put(AlaStaticKeys.ALA_STATIC_VALUE_ICON, getIcon());
-            jSONObject.put("path", bMK());
-            jSONObject.put("file", bML());
-            a bME = bME();
-            if (bME != null) {
-                jSONObject.put("state_icon", bME.toJson());
+            jSONObject.put("path", bMd());
+            jSONObject.put("file", bMe());
+            a bLX = bLX();
+            if (bLX != null) {
+                jSONObject.put("state_icon", bLX.toJson());
             }
-            jSONObject.put(SmsLoginView.f.j, this.gbp);
-            jSONObject.put("live_min", this.gbq);
-            jSONObject.put("live_max", this.gbr);
-            jSONObject.put("actual_min", this.gbs);
-            jSONObject.put("actual_max", this.gbt);
+            jSONObject.put(SmsLoginView.f.j, this.gaW);
+            jSONObject.put("live_min", this.gaX);
+            jSONObject.put("live_max", this.gaY);
+            jSONObject.put("actual_min", this.gaZ);
+            jSONObject.put("actual_max", this.gba);
         } catch (JSONException e) {
             e.printStackTrace();
             if (h.isDebug()) {
@@ -299,44 +299,44 @@ public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.b.b
-    public boolean dz(JSONObject jSONObject) {
+    public boolean dt(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
         setName(jSONObject.optString("name"));
         setId(jSONObject.optString("makeup_id"));
-        tD(jSONObject.optInt("live_default", 0));
-        setValue(jSONObject.optInt("value", bMH()));
+        ub(jSONObject.optInt("live_default", 0));
+        setValue(jSONObject.optInt("value", bMa()));
         setIcon(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON));
         JSONObject optJSONObject = jSONObject.optJSONObject("state_icon");
         if (optJSONObject != null) {
             a aVar = new a();
             aVar.X(this.mFolder);
-            if (aVar.dz(optJSONObject)) {
+            if (aVar.dt(optJSONObject)) {
                 a(aVar);
             }
         }
-        this.gbl = jSONObject.optString("type", this.gbl);
-        FS(jSONObject.optString("path"));
-        FT(jSONObject.optString("file"));
-        if (TextUtils.isEmpty(this.gbl)) {
+        this.gaS = jSONObject.optString("type", this.gaS);
+        Ft(jSONObject.optString("path"));
+        Fu(jSONObject.optString("file"));
+        if (TextUtils.isEmpty(this.gaS)) {
             return false;
         }
-        a(BeautyType.valueOf(this.gbl));
+        a(BeautyType.valueOf(this.gaS));
         setHide(jSONObject.optInt("hide", 0) == 1);
-        this.gbp = jSONObject.optString(SmsLoginView.f.j);
-        this.gbq = jSONObject.optInt("live_min", 0);
-        this.gbr = jSONObject.optInt("live_max", 0);
-        this.gbs = jSONObject.optInt("actual_min", 0);
-        this.gbt = jSONObject.optInt("actual_max", 100);
-        if (!TextUtils.isEmpty(bML())) {
-            this.gbu = com.baidu.tieba.ala.alaar.sticker.a.f.bNF().Gg(bMM());
-            if (this.gbu == null) {
-                this.gbu = new com.baidu.tieba.ala.alaar.sticker.model.c(this);
-                com.baidu.tieba.ala.alaar.sticker.a.f.bNF().a(bMM(), this.gbu);
+        this.gaW = jSONObject.optString(SmsLoginView.f.j);
+        this.gaX = jSONObject.optInt("live_min", 0);
+        this.gaY = jSONObject.optInt("live_max", 0);
+        this.gaZ = jSONObject.optInt("actual_min", 0);
+        this.gba = jSONObject.optInt("actual_max", 100);
+        if (!TextUtils.isEmpty(bMe())) {
+            this.gbb = com.baidu.tieba.ala.alaar.sticker.a.f.bMY().FH(bMf());
+            if (this.gbb == null) {
+                this.gbb = new com.baidu.tieba.ala.alaar.sticker.model.c(this);
+                com.baidu.tieba.ala.alaar.sticker.a.f.bMY().a(bMf(), this.gbb);
             }
-            if (this.gbu.getLocalFile() != null) {
-                FS(this.gbu.getLocalFile().getAbsolutePath());
+            if (this.gbb.getLocalFile() != null) {
+                Ft(this.gbb.getLocalFile().getAbsolutePath());
             }
         }
         return true;
@@ -348,23 +348,23 @@ public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
     }
 
     public void download(h.a aVar) {
-        if (this.gbu == null) {
+        if (this.gbb == null) {
             d("download-return with model null");
             return;
         }
         if (aVar != null && !this.mOnFileLoadedCallbacks.contains(aVar)) {
             this.mOnFileLoadedCallbacks.add(aVar);
         }
-        d("download-from: " + bML() + "\nto: " + this.gbu.getLocalFile() + "\nis exists: " + this.gbu.getLocalFile().exists());
-        this.gbu.b(this.mAbilityCb);
+        d("download-from: " + bMe() + "\nto: " + this.gbb.getLocalFile() + "\nis exists: " + this.gbb.getLocalFile().exists());
+        this.gbb.b(this.mAbilityCb);
     }
 
     public boolean isLoaded() {
-        return this.gbu == null || this.gbu.isLoaded();
+        return this.gbb == null || this.gbb.isLoaded();
     }
 
     public boolean isLoading() {
-        return this.gbu != null && this.gbu.isLoading();
+        return this.gbb != null && this.gbb.isLoading();
     }
 
     public boolean equals(Object obj) {
@@ -378,46 +378,46 @@ public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
         return false;
     }
 
-    public h.a bMO() {
-        if (this.gbv != null) {
-            return this.gbv.get();
+    public h.a bMh() {
+        if (this.gbc != null) {
+            return this.gbc.get();
         }
         return null;
     }
 
     /* loaded from: classes4.dex */
     public static class a implements com.baidu.tieba.ala.alaar.makeup.b.b {
-        private String gbx;
-        private String gby;
+        private String gbe;
+        private String gbf;
         private File mFolder;
 
         public void X(File file) {
             this.mFolder = file;
         }
 
-        public String bMP() {
-            return this.gbx;
+        public String bMi() {
+            return this.gbe;
         }
 
-        public void FV(String str) {
-            this.gbx = c.g(this.mFolder, str);
+        public void Fw(String str) {
+            this.gbe = c.g(this.mFolder, str);
         }
 
-        public void FW(String str) {
-            this.gby = c.g(this.mFolder, str);
+        public void Fx(String str) {
+            this.gbf = c.g(this.mFolder, str);
         }
 
         public JSONObject toJson() {
-            if (TextUtils.isEmpty(this.gbx) && TextUtils.isEmpty(this.gby)) {
+            if (TextUtils.isEmpty(this.gbe) && TextUtils.isEmpty(this.gbf)) {
                 return null;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                if (!TextUtils.isEmpty(this.gbx)) {
-                    jSONObject.put("normal", this.gbx);
+                if (!TextUtils.isEmpty(this.gbe)) {
+                    jSONObject.put("normal", this.gbe);
                 }
-                if (!TextUtils.isEmpty(this.gby)) {
-                    jSONObject.put("disable", this.gby);
+                if (!TextUtils.isEmpty(this.gbf)) {
+                    jSONObject.put("disable", this.gbf);
                 }
                 if (jSONObject.length() <= 0) {
                     jSONObject = null;
@@ -430,13 +430,13 @@ public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
         }
 
         @Override // com.baidu.tieba.ala.alaar.makeup.b.b
-        public boolean dz(JSONObject jSONObject) {
+        public boolean dt(JSONObject jSONObject) {
             if (jSONObject != null) {
                 try {
                     String optString = jSONObject.optString("normal");
                     String optString2 = jSONObject.optString("disable");
-                    FV(optString);
-                    FW(optString2);
+                    Fw(optString);
+                    Fx(optString2);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -445,7 +445,7 @@ public class c implements com.baidu.tieba.ala.alaar.makeup.b.b {
         }
     }
 
-    public static int aL(Context context, String str) {
+    public static int aI(Context context, String str) {
         return context.getResources().getIdentifier(str, "drawable", context.getApplicationInfo().packageName);
     }
 }

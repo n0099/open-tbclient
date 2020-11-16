@@ -1,5 +1,5 @@
 package com.cmic.sso.sdk.c.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
@@ -19,7 +19,7 @@ public class a {
         return this.b;
     }
 
-    public static a Oj(int i) {
+    public static a OM(int i) {
         switch (i) {
             case 102102:
                 return new a(102102, "网络异常");

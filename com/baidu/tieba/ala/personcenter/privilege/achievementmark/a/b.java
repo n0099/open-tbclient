@@ -9,14 +9,14 @@ public class b {
     public int buy_staus;
     private String description;
     private String end_time;
-    private String hFK;
-    private int hFM;
-    private int hFN;
-    private int hFO;
-    private int hFP;
-    private String hFQ;
-    private String hFR;
-    private String hFS;
+    private String hFr;
+    private int hFt;
+    private int hFu;
+    private int hFv;
+    private int hFw;
+    private String hFx;
+    private String hFy;
+    private String hFz;
     private int height;
     private String mark_name;
     private String mark_pic;
@@ -29,22 +29,22 @@ public class b {
     private int weight;
     private int width;
     public int propId = -1;
-    private List<d> hFT = new ArrayList();
+    private List<d> hFA = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
         this.type = jSONObject.optInt("type");
-        this.hFN = jSONObject.optInt("mark_id");
+        this.hFu = jSONObject.optInt("mark_id");
         this.mark_name = jSONObject.optString("mark_name");
         this.description = jSONObject.optString("description");
-        this.hFP = jSONObject.optInt("wear_status");
+        this.hFw = jSONObject.optInt("wear_status");
         this.mark_pic = jSONObject.optString("mark_pic");
-        this.hFO = jSONObject.optInt("mark_rank");
+        this.hFv = jSONObject.optInt("mark_rank");
         this.width = jSONObject.optInt("width");
         this.height = jSONObject.optInt("height");
         this.weight = jSONObject.optInt("weight");
-        this.hFR = jSONObject.optString("next_level_diff");
-        this.hFQ = jSONObject.optString("mark_dir_level");
-        this.hFS = jSONObject.optString("expire_text");
+        this.hFy = jSONObject.optString("next_level_diff");
+        this.hFx = jSONObject.optString("mark_dir_level");
+        this.hFz = jSONObject.optString("expire_text");
         this.start_time = jSONObject.optString("begin_time");
         this.end_time = jSONObject.optString("end_time");
         JSONArray optJSONArray = jSONObject.optJSONArray("mark_other");
@@ -52,7 +52,7 @@ public class b {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 d dVar = new d();
                 dVar.parseJson(optJSONArray.optJSONObject(i));
-                this.hFT.add(dVar);
+                this.hFA.add(dVar);
             }
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("props_info");
@@ -69,70 +69,70 @@ public class b {
         }
     }
 
-    public List<d> cjK() {
-        if (this.hFT == null) {
-            this.hFT = new ArrayList();
+    public List<d> cjd() {
+        if (this.hFA == null) {
+            this.hFA = new ArrayList();
         }
-        return this.hFT;
+        return this.hFA;
     }
 
-    public boolean cjL() {
-        return this.hFM == 1;
+    public boolean cje() {
+        return this.hFt == 1;
     }
 
-    public void wy(int i) {
-        this.hFM = i;
+    public void wW(int i) {
+        this.hFt = i;
     }
 
-    public String cjJ() {
-        return this.hFK;
+    public String cjc() {
+        return this.hFr;
     }
 
-    public void IH(String str) {
-        this.hFK = str;
+    public void Ii(String str) {
+        this.hFr = str;
     }
 
-    public int cjM() {
-        return this.hFN;
+    public int cjf() {
+        return this.hFu;
     }
 
-    public String cjN() {
+    public String cjg() {
         return this.mark_name;
     }
 
-    public String cjO() {
+    public String cjh() {
         return this.mark_pic;
     }
 
-    public int cjP() {
-        return this.hFP;
+    public int cji() {
+        return this.hFw;
     }
 
-    public void wz(int i) {
-        this.hFP = i;
+    public void wX(int i) {
+        this.hFw = i;
     }
 
     public String getDescription() {
         return this.description;
     }
 
-    public String cjQ() {
-        return this.hFR;
+    public String cjj() {
+        return this.hFy;
     }
 
-    public int cjR() {
-        return this.hFO;
+    public int cjk() {
+        return this.hFv;
     }
 
-    public String cjS() {
-        return this.hFS;
+    public String cjl() {
+        return this.hFz;
     }
 
-    public boolean cjT() {
+    public boolean cjm() {
         return this.type == 10;
     }
 
-    public boolean cjU() {
+    public boolean cjn() {
         return this.type == 9;
     }
 }

@@ -15,15 +15,15 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
-    public static final String dvI = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-    public static final String dvJ = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    public static final String dub = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    public static final String duc = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     /* renamed from: com.baidu.swan.apps.scheme.actions.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0473a {
-        void bR(JSONObject jSONObject);
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0471a {
+        void bL(JSONObject jSONObject);
     }
 
     public a(j jVar) {
@@ -50,7 +50,7 @@ public class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        eVar.aHG().b(context, "mapp_i_get_history", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.c.a.1
+        eVar.aGY().b(context, "mapp_i_get_history", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
@@ -69,9 +69,9 @@ public class a extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str) {
         c.i("history", "start get history");
-        com.baidu.swan.apps.database.a.b.a(new InterfaceC0473a() { // from class: com.baidu.swan.apps.scheme.actions.c.a.2
-            @Override // com.baidu.swan.apps.scheme.actions.c.a.InterfaceC0473a
-            public void bR(JSONObject jSONObject) {
+        com.baidu.swan.apps.database.a.b.a(new InterfaceC0471a() { // from class: com.baidu.swan.apps.scheme.actions.c.a.2
+            @Override // com.baidu.swan.apps.scheme.actions.c.a.InterfaceC0471a
+            public void bL(JSONObject jSONObject) {
                 if (jSONObject == null || jSONObject.length() == 0) {
                     c.i("history", "none history");
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParamsWithEncode(null, 0).toString(), str);

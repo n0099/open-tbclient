@@ -3,5 +3,5 @@ package com.baidu.b.c.a;
 public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f1254a = {16, 24, 32};
+    public static final int[] f1257a = {16, 24, 32};
 }

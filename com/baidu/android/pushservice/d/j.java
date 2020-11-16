@@ -4,21 +4,21 @@ import android.content.Context;
 import android.text.TextUtils;
 import java.io.InputStream;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class j extends com.baidu.android.pushservice.g.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1060a;
+    private Context f1063a;
     private a b;
     private String c;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(int i, String[] strArr);
     }
 
     public j(Context context, String str, a aVar) {
-        this.f1060a = context;
+        this.f1063a = context;
         this.c = str;
         this.b = aVar;
         c("PushService-PushService-HTTPDNS");
@@ -38,33 +38,33 @@ public class j extends com.baidu.android.pushservice.g.c {
         String[] strArr;
         try {
             try {
-                com.baidu.android.pushservice.e.a a2 = com.baidu.android.pushservice.e.b.a(this.f1060a, "https://httpsdns.baidu.com/?dn=" + this.c, "GET", (HashMap<String, String>) null);
+                com.baidu.android.pushservice.e.a a2 = com.baidu.android.pushservice.e.b.a(this.f1063a, "https://httpsdns.baidu.com/?dn=" + this.c, "GET", (HashMap<String, String>) null);
                 int b = a2.b();
                 inputStream = a2.a();
                 try {
                     if (b == 200) {
-                        String a3 = com.baidu.android.pushservice.i.m.a(this.f1060a, inputStream);
+                        String a3 = com.baidu.android.pushservice.i.m.a(this.f1063a, inputStream);
                         this.b.a(0, TextUtils.isEmpty(a3) ? null : a3.split(" "));
                     } else {
-                        com.baidu.android.pushservice.i.m.a(this.f1060a, inputStream);
+                        com.baidu.android.pushservice.i.m.a(this.f1063a, inputStream);
                         this.b.a(-1, null);
                     }
-                    com.baidu.android.pushservice.e.b.a(this.f1060a, inputStream);
+                    com.baidu.android.pushservice.e.b.a(this.f1063a, inputStream);
                 } catch (Exception e) {
                     this.b.a(-1, null);
-                    com.baidu.android.pushservice.e.b.a(this.f1060a, inputStream);
+                    com.baidu.android.pushservice.e.b.a(this.f1063a, inputStream);
                 }
             } catch (Throwable th) {
                 r1 = strArr;
                 th = th;
-                com.baidu.android.pushservice.e.b.a(this.f1060a, r1);
+                com.baidu.android.pushservice.e.b.a(this.f1063a, r1);
                 throw th;
             }
         } catch (Exception e2) {
             inputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            com.baidu.android.pushservice.e.b.a(this.f1060a, r1);
+            com.baidu.android.pushservice.e.b.a(this.f1063a, r1);
             throw th;
         }
     }

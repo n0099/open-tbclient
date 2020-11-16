@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.api.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface a {
-    void lW(String str);
+    void lQ(String str);
 
-    void lX(String str);
+    void lR(String str);
 }

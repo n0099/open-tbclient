@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class LivenessVideoUploadView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
@@ -29,7 +29,7 @@ public class LivenessVideoUploadView extends FrameLayout {
     private LinearLayout e;
     private a f;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public interface a {
         void a();
 

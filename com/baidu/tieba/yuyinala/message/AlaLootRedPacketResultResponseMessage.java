@@ -5,7 +5,7 @@ import com.baidu.tieba.yuyinala.data.b;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaLootRedPacketResultResponseMessage extends JsonHttpResponsedMessage {
-    private b oiA;
+    private b okd;
 
     public AlaLootRedPacketResultResponseMessage() {
         super(1031075);
@@ -16,12 +16,12 @@ public class AlaLootRedPacketResultResponseMessage extends JsonHttpResponsedMess
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.oiA = new b();
-            this.oiA.parserJson(optJSONObject);
+            this.okd = new b();
+            this.okd.parserJson(optJSONObject);
         }
     }
 
-    public b eaO() {
-        return this.oiA;
+    public b eaN() {
+        return this.okd;
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.util.UrlManager;
-import com.baidu.tieba.recapp.g;
+import com.baidu.tieba.recapp.h;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -14,22 +14,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
-/* loaded from: classes21.dex */
-public final class a implements g {
+/* loaded from: classes20.dex */
+public final class a implements h {
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a fRB = new a();
-    private final List<g.a> mListeners = new LinkedList();
-    private final ConcurrentHashMap<String, g.b> mHandlers = new ConcurrentHashMap<>();
-    private g.c fRC = null;
+    private static a fRj = new a();
+    private final List<h.a> mListeners = new LinkedList();
+    private final ConcurrentHashMap<String, h.b> mHandlers = new ConcurrentHashMap<>();
+    private h.c fRk = null;
 
     private a() {
     }
 
-    public static a bJk() {
-        return fRB;
+    public static a bIE() {
+        return fRj;
     }
 
-    public void a(final g.a aVar) {
+    public void a(final h.a aVar) {
         if (l.isMainThread()) {
             b(aVar);
         } else {
@@ -43,17 +43,17 @@ public final class a implements g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(g.a aVar) {
+    public void b(h.a aVar) {
         if (!this.mListeners.contains(aVar)) {
             this.mListeners.add(aVar);
         }
     }
 
-    public void a(g.c cVar) {
-        this.fRC = cVar;
+    public void a(h.c cVar) {
+        this.fRk = cVar;
     }
 
-    public boolean a(Context context, String[] strArr, boolean z, g.d dVar, boolean z2) {
+    public boolean a(Context context, String[] strArr, boolean z, h.d dVar, boolean z2) {
         return a(context, "", strArr, z, dVar, z2);
     }
 
@@ -62,7 +62,7 @@ public final class a implements g {
         if (strArr == null || strArr.length == 0) {
             return 3;
         }
-        for (g.a aVar : this.mListeners) {
+        for (h.a aVar : this.mListeners) {
             if (aVar != null && (d = aVar.d(context, strArr)) != 3) {
                 return d;
             }
@@ -70,31 +70,31 @@ public final class a implements g {
         return 3;
     }
 
-    public boolean a(Context context, String str, String[] strArr, boolean z, g.d dVar, boolean z2) {
+    public boolean a(Context context, String str, String[] strArr, boolean z, h.d dVar, boolean z2) {
         boolean z3;
         boolean z4;
         if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
             return false;
         }
         String str2 = strArr[0];
-        g.b bVar = this.mHandlers.get(getSchemaKey(str2));
+        h.b bVar = this.mHandlers.get(getSchemaKey(str2));
         if (bVar != null) {
-            bVar.l(context, getInnerParamPair(Fc(str2)));
+            bVar.l(context, getInnerParamPair(ED(str2)));
             return true;
         }
-        Iterator<g.a> it = this.mListeners.iterator();
+        Iterator<h.a> it = this.mListeners.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z3 = false;
                 break;
             }
-            g.a next = it.next();
+            h.a next = it.next();
             if (next != null && next.d(context, strArr) != 3) {
                 z3 = true;
                 break;
             }
         }
-        if (!z3 && this.fRC != null) {
+        if (!z3 && this.fRk != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -105,7 +105,7 @@ public final class a implements g {
         return z4;
     }
 
-    private String Fc(String str) {
+    private String ED(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -142,24 +142,24 @@ public final class a implements g {
         return str;
     }
 
-    @Override // com.baidu.tieba.recapp.g
+    @Override // com.baidu.tieba.recapp.h
     public boolean c(Context context, String[] strArr) {
         return a(context, strArr, false, null, false);
     }
 
-    @Override // com.baidu.tieba.recapp.g
+    @Override // com.baidu.tieba.recapp.h
     public void a(Context context, String[] strArr, boolean z) {
         a(context, strArr, false, null, z);
     }
 
-    private void a(Context context, String str, String str2, boolean z, g.d dVar, boolean z2) {
+    private void a(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
         if (pattern.matcher(str2).find()) {
-            this.fRC.b(context, str, str2, z, dVar, z2);
+            this.fRk.b(context, str, str2, z, dVar, z2);
         }
     }
 
-    @Override // com.baidu.tieba.recapp.g
-    public boolean Fd(String str) {
+    @Override // com.baidu.tieba.recapp.h
+    public boolean EE(String str) {
         return pattern.matcher(str).find();
     }
 }

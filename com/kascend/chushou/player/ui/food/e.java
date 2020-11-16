@@ -19,9 +19,9 @@ public class e extends k {
     private ImageView c;
     private int e;
     private int f;
-    private FrameLayout pqc;
-    private FrescoThumbnailView ptI;
-    private ItemTagView ptM;
+    private FrameLayout prF;
+    private FrescoThumbnailView pvl;
+    private ItemTagView pvp;
 
     @Override // com.kascend.chushou.player.ui.food.k
     int a() {
@@ -33,23 +33,23 @@ public class e extends k {
     @SuppressLint({"ClickableViewAccessibility"})
     public void f(FoodView foodView) {
         super.f(foodView);
-        this.pqc = (FrameLayout) QH(a.f.fl_holder);
-        this.ptI = (FrescoThumbnailView) QH(a.f.iv_ad);
-        this.ptM = (ItemTagView) QH(a.f.iv_icon);
-        this.c = (ImageView) QH(a.f.iv_close);
+        this.prF = (FrameLayout) Rk(a.f.fl_holder);
+        this.pvl = (FrescoThumbnailView) Rk(a.f.iv_ad);
+        this.pvp = (ItemTagView) Rk(a.f.iv_icon);
+        this.c = (ImageView) Rk(a.f.iv_close);
         this.c.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.puc.c();
+                e.this.pvF.c();
             }
         });
-        this.ptI.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.e.2
+        this.pvl.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.puc.b(e.this.m, e.this.n, e.this.o, e.this.p);
+                e.this.pvF.b(e.this.m, e.this.n, e.this.o, e.this.p);
             }
         });
-        this.ptI.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.e.3
+        this.pvl.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.e.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getActionMasked() == 0) {
@@ -70,21 +70,21 @@ public class e extends k {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.kascend.chushou.player.ui.food.k
     public void a(ListItem listItem, k.a aVar) {
-        a(listItem, this.pqc);
-        Point hD = tv.chushou.zues.utils.a.hD(this.q);
-        this.e = (int) (hD.x * 0.8d);
-        this.f = (hD.x * 1066) / 720;
-        int i = (hD.x * 800) / 720;
+        a(listItem, this.prF);
+        Point hB = tv.chushou.zues.utils.a.hB(this.q);
+        this.e = (int) (hB.x * 0.8d);
+        this.f = (hB.x * 1066) / 720;
+        int i = (hB.x * 800) / 720;
         if (b()) {
-            this.pqc.setVisibility(0);
-            this.ptI.setVisibility(8);
-            a(listItem, aVar, hD, i, this.pqc);
+            this.prF.setVisibility(0);
+            this.pvl.setVisibility(8);
+            a(listItem, aVar, hB, i, this.prF);
             c();
             return;
         }
-        this.pqc.setVisibility(8);
-        this.ptI.setVisibility(0);
-        a(listItem, aVar, hD, i, this.ptI);
+        this.prF.setVisibility(8);
+        this.pvl.setVisibility(0);
+        a(listItem, aVar, hB, i, this.pvl);
     }
 
     private void a(ListItem listItem, k.a aVar, Point point, int i, View view) {
@@ -100,7 +100,7 @@ public class e extends k {
 
     private void a(ListItem listItem, @IdRes int i) {
         if (listItem.mAdExtraInfo != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ptM.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.pvp.getLayoutParams();
             switch (listItem.mAdExtraInfo.mDisplayTagLocation) {
                 case 1:
                     if (Build.VERSION.SDK_INT >= 17) {
@@ -147,9 +147,9 @@ public class e extends k {
                     layoutParams.setMargins(tv.chushou.zues.utils.a.dip2px(this.q, 10.0f), 0, 0, tv.chushou.zues.utils.a.dip2px(this.q, 15.0f));
                     break;
             }
-            this.ptM.setLayoutParams(layoutParams);
+            this.pvp.setLayoutParams(layoutParams);
         }
-        this.ptM.a(listItem);
+        this.pvp.a(listItem);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -162,9 +162,9 @@ public class e extends k {
             }
         } else {
             a(listItem, a.f.iv_ad);
-            this.ptI.setAnim(true);
-            this.ptI.i(listItem.mCover, tv.chushou.widget.a.c.eHE(), this.e, this.f);
+            this.pvl.setAnim(true);
+            this.pvl.i(listItem.mCover, tv.chushou.widget.a.c.eHF(), this.e, this.f);
         }
-        this.ptM.a(listItem);
+        this.pvp.a(listItem);
     }
 }

@@ -12,30 +12,30 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.message.AlaLootRedPacketResultResponseMessage;
 /* loaded from: classes4.dex */
 public class g extends BdBaseModel {
-    private o fZC;
-    private HttpMessageListener hyM;
+    private o fZj;
+    private HttpMessageListener hyt;
 
     public g(BdPageContext<?> bdPageContext, o oVar) {
         super(bdPageContext);
-        this.hyM = new HttpMessageListener(1021162) { // from class: com.baidu.tieba.ala.g.g.1
+        this.hyt = new HttpMessageListener(1021162) { // from class: com.baidu.tieba.ala.g.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021162 && (httpResponsedMessage instanceof AlaLootRedPacketResultResponseMessage)) {
                     AlaLootRedPacketResultResponseMessage alaLootRedPacketResultResponseMessage = (AlaLootRedPacketResultResponseMessage) httpResponsedMessage;
-                    if (g.this.fZC != null) {
+                    if (g.this.fZj != null) {
                         if (alaLootRedPacketResultResponseMessage.getError() != 0 || !alaLootRedPacketResultResponseMessage.isSuccess()) {
-                            g.this.fZC.t(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
+                            g.this.fZj.t(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
                         } else {
-                            g.this.fZC.b(alaLootRedPacketResultResponseMessage.ciC());
+                            g.this.fZj.b(alaLootRedPacketResultResponseMessage.chV());
                         }
                     }
                 }
             }
         };
-        this.fZC = oVar;
+        this.fZj = oVar;
         initTasks();
-        registerListener(this.hyM);
+        registerListener(this.hyt);
     }
 
     private void initTasks() {
@@ -67,7 +67,7 @@ public class g extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hyM);
+        MessageManager.getInstance().unRegisterListener(this.hyt);
         MessageManager.getInstance().unRegisterTask(1021162);
     }
 }

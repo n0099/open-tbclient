@@ -1,10 +1,10 @@
 package com.baidu.swan.apps.ac.c.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     public String appKey;
-    public String dkB;
-    public String dkC;
-    public int dkD = -1;
-    public boolean dkE = false;
-    public boolean dkF = false;
+    public String diU;
+    public String diV;
+    public int diW = -1;
+    public boolean diX = false;
+    public boolean diY = false;
 }

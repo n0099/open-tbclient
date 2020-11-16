@@ -1,7 +1,7 @@
 package com.coremedia.iso.boxes;
 
 import com.googlecode.mp4parser.AbstractContainerBox;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SchemeInformationBox extends AbstractContainerBox {
     public static final String TYPE = "schi";
 

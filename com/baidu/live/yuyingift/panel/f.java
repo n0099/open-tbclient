@@ -13,33 +13,33 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class f implements ad {
-    private com.baidu.live.yuyingift.c.c bRI;
+    private com.baidu.live.yuyingift.c.c bPY;
     private Context mContext;
 
     public f(Context context) {
         this.mContext = context;
-        Jz();
+        IQ();
     }
 
     @Override // com.baidu.live.gift.ad
-    public void hk(String str) {
-        this.bRI.hy(str);
+    public void he(String str) {
+        this.bPY.hs(str);
     }
 
     @Override // com.baidu.live.gift.ad
-    public void Ht() {
+    public void GK() {
     }
 
     @Override // com.baidu.live.gift.ad
     public void release() {
-        if (this.bRI != null) {
-            this.bRI.release();
+        if (this.bPY != null) {
+            this.bPY.release();
         }
     }
 
-    private void Jz() {
-        this.bRI = new com.baidu.live.yuyingift.c.c();
-        this.bRI.a(new com.baidu.live.yuyingift.c.a() { // from class: com.baidu.live.yuyingift.panel.f.1
+    private void IQ() {
+        this.bPY = new com.baidu.live.yuyingift.c.c();
+        this.bPY.a(new com.baidu.live.yuyingift.c.a() { // from class: com.baidu.live.yuyingift.panel.f.1
             @Override // com.baidu.live.yuyingift.c.a, com.baidu.live.yuyingift.c.b.a
             public void a(boolean z, int i, String str, ArrayList<h> arrayList, ArrayList<com.baidu.live.data.h> arrayList2, ArrayList<j> arrayList3) {
                 super.a(z, i, str, arrayList, arrayList2, arrayList3);
@@ -57,7 +57,7 @@ public class f implements ad {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, List<h> list) {
         if (z) {
-            y.Hc().G(list);
+            y.Gt().G(list);
         }
     }
 
@@ -71,37 +71,37 @@ public class f implements ad {
             BdUtilHelper.showToast(this.mContext.getApplicationContext(), str);
         }
         if (i == 101) {
-            if (this.bRI == null) {
-                this.bRI = new com.baidu.live.yuyingift.c.c();
+            if (this.bPY == null) {
+                this.bPY = new com.baidu.live.yuyingift.c.c();
             }
-            this.bRI.hy("gift_send_101");
+            this.bPY.hs("gift_send_101");
         }
     }
 
     private void B(String str, int i) {
         List<h> datas;
-        if (!TextUtils.isEmpty(str) && (datas = y.Hc().getDatas()) != null) {
+        if (!TextUtils.isEmpty(str) && (datas = y.Gt().getDatas()) != null) {
             ArrayList<h> arrayList = new ArrayList(datas);
             for (h hVar : arrayList) {
-                List<g> Gu = hVar.Gu();
-                if (Gu != null) {
+                List<g> FL = hVar.FL();
+                if (FL != null) {
                     if (i == 0) {
-                        Iterator<g> it = Gu.iterator();
+                        Iterator<g> it = FL.iterator();
                         while (it.hasNext()) {
-                            if (it.next().FT().equals(str)) {
+                            if (it.next().Fk().equals(str)) {
                                 it.remove();
                             }
                         }
                     } else {
-                        for (g gVar : Gu) {
-                            if (gVar.FT().equals(str)) {
-                                gVar.aUI.aUV = i;
+                        for (g gVar : FL) {
+                            if (gVar.Fk().equals(str)) {
+                                gVar.aSX.aTk = i;
                             }
                         }
                     }
                 }
             }
-            y.Hc().G(arrayList);
+            y.Gt().G(arrayList);
         }
     }
 }

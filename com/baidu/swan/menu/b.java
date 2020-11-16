@@ -1,7 +1,7 @@
 package com.baidu.swan.menu;
 
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface b {
     boolean a(i iVar);
 

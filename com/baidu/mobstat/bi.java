@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class bi {
 
     /* renamed from: a  reason: collision with root package name */
@@ -20,7 +20,7 @@ public class bi {
     private bk d;
     private boolean e;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(View view, boolean z);
     }
@@ -97,7 +97,7 @@ public class bi {
         return false;
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
@@ -115,7 +115,7 @@ public class bi {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */

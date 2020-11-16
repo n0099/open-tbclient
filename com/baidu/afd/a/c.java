@@ -16,7 +16,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, d> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: k */
+    /* renamed from: g */
     public d c(ViewGroup viewGroup) {
         View view = new View(this.mPageContext.getPageActivity());
         view.setVisibility(8);
@@ -27,7 +27,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, d> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.afd.d dVar, d dVar2) {
-        com.baidu.tbadk.core.data.b.a(dVar);
+        com.baidu.tbadk.core.data.c.a(dVar);
         return dVar2.getView();
     }
 }

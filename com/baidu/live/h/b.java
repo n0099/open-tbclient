@@ -5,13 +5,13 @@ import android.view.View;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public interface b {
-    void KM();
+    void Kd();
 
     void a(TbPageContext tbPageContext, String str, String str2, String str3, int i, boolean z);
 
-    void bQ(boolean z);
+    void bS(boolean z);
 
-    void bR(boolean z);
+    void bT(boolean z);
 
     String getTitle();
 

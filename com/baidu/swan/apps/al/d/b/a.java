@@ -6,21 +6,21 @@ import android.provider.Settings;
 import android.view.Window;
 import android.view.WindowManager;
 import com.baidu.swan.apps.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
     /* renamed from: com.baidu.swan.apps.al.d.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    private static class C0377a {
-        public static final a dBE = new a();
+    /* loaded from: classes7.dex */
+    private static class C0375a {
+        public static final a dzX = new a();
     }
 
     private a() {
     }
 
-    public static a aLq() {
-        return C0377a.dBE;
+    public static a aKI() {
+        return C0375a.dzX;
     }
 
     public void b(Activity activity, float f) {
@@ -31,7 +31,7 @@ public class a {
         }
     }
 
-    public float M(Activity activity) {
+    public float L(Activity activity) {
         if (activity != null) {
             WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
             if (attributes.screenBrightness < 0.0f) {

@@ -1,5 +1,5 @@
 package com.baidu.down.common;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class TaskManagerConfiguration {
     private String mDomainNameToIpReg;
     private String mHttpDnsServerIp;

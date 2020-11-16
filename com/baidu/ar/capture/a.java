@@ -4,14 +4,14 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 class a {
     private HandlerThread kJ;
     private HandlerC0081a kK;
     private String mTag;
 
     /* renamed from: com.baidu.ar.capture.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     private static final class HandlerC0081a extends Handler {
         public HandlerC0081a(Looper looper) {
             super(looper);

@@ -1,7 +1,7 @@
 package com.cmic.sso.sdk.e;
 
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
@@ -19,7 +19,7 @@ public class e {
         f4020a.remove(str);
     }
 
-    public static com.cmic.sso.sdk.b.b XO(String str) {
+    public static com.cmic.sso.sdk.b.b Xz(String str) {
         return f4020a.get(str);
     }
 

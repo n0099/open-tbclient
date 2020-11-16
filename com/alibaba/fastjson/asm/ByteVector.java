@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.asm;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class ByteVector {
     byte[] data;
     int length;

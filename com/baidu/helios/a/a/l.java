@@ -1,7 +1,7 @@
 package com.baidu.helios.a.a;
 
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes19.dex */
 class l {
     public static JSONObject a(String str) {
         if (b(str)) {

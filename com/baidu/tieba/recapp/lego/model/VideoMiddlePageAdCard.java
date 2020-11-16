@@ -3,19 +3,18 @@ package com.baidu.tieba.recapp.lego.model;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.c;
 import com.baidu.afd.d;
-import com.baidu.afd.h;
+import com.baidu.afd.i;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.lego.card.b.b;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
-import com.baidu.tieba.lego.card.view.i;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.VideoInfo;
-/* loaded from: classes26.dex */
-public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, i {
+/* loaded from: classes25.dex */
+public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b, com.baidu.tieba.lego.card.view.i {
     private d adFacadeData;
     public boolean autoPlay;
     public AdCard.c operateData;
@@ -65,8 +64,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, i {
         this.operateData.parseFromJson(optJSONObject3);
         this.parallelChargeInfo = new b.a();
         this.parallelChargeInfo.parseFromJson(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.muw)) {
-            this.operateData.muw = this.userName;
+        if (TextUtils.isEmpty(this.operateData.muO)) {
+            this.operateData.muO = this.userName;
         }
     }
 
@@ -97,7 +96,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, i {
         return this.adFacadeData;
     }
 
-    @Override // com.baidu.afd.h
+    @Override // com.baidu.afd.i
     public void setAdFacadeData(d dVar) {
         this.adFacadeData = dVar;
     }

@@ -2,7 +2,7 @@ package com.baidu.ar.imu;
 
 import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class k extends d {
     private float[] sq;
     private float[] sr;

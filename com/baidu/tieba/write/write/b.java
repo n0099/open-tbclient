@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b {
-    private com.baidu.tieba.c.e lAO;
+    private com.baidu.tieba.d.e lBg;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext) {
@@ -13,21 +13,21 @@ public class b {
     }
 
     public void hideTip() {
-        if (this.lAO != null) {
-            this.lAO.SR();
+        if (this.lBg != null) {
+            this.lBg.Si();
         }
     }
 
     public void showTip(View view) {
         if (this.mPageContext != null && view != null) {
-            if (this.lAO == null) {
-                this.lAO = new com.baidu.tieba.c.e(this.mPageContext, view);
-                this.lAO.fu(R.drawable.pic_sign_tip_down);
-                this.lAO.xr(1);
-                this.lAO.ft(32);
-                this.lAO.setAnchor(2);
-                this.lAO.oF(false);
-                this.lAO.d(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.b.1
+            if (this.lBg == null) {
+                this.lBg = new com.baidu.tieba.d.e(this.mPageContext, view);
+                this.lBg.fq(R.drawable.pic_sign_tip_down);
+                this.lBg.xP(1);
+                this.lBg.fp(32);
+                this.lBg.setAnchor(2);
+                this.lBg.oI(false);
+                this.lBg.d(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.b.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         b.this.hideTip();
@@ -38,15 +38,15 @@ public class b {
                 int dimensionPixelSize3 = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
                 int dimensionPixelSize4 = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds50);
                 int dimensionPixelSize5 = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds6);
-                this.lAO.A(dimensionPixelSize3, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2);
-                this.lAO.xq(-dimensionPixelSize4);
-                this.lAO.setYOffset(-dimensionPixelSize5);
-                this.lAO.fv(3000);
+                this.lBg.B(dimensionPixelSize3, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2);
+                this.lBg.xO(-dimensionPixelSize4);
+                this.lBg.setYOffset(-dimensionPixelSize5);
+                this.lBg.fr(3000);
             }
             String string = this.mPageContext.getResources().getString(R.string.write_activity_tip_content);
-            this.lAO.xs(R.drawable.icon_pure_guide_haowu16);
-            this.lAO.oI(true);
-            this.lAO.aM(string, "commodity_tip_show_controller");
+            this.lBg.xQ(R.drawable.icon_pure_guide_haowu16);
+            this.lBg.oL(true);
+            this.lBg.aL(string, "commodity_tip_show_controller");
         }
     }
 }

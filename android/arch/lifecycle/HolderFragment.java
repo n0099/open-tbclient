@@ -13,7 +13,7 @@ import android.util.Log;
 import java.util.HashMap;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes16.dex */
 public class HolderFragment extends Fragment implements aa {
     private static final a zj = new a();
     private z mViewModelStore = new z();
@@ -50,7 +50,7 @@ public class HolderFragment extends Fragment implements aa {
         return zj.a(fragmentActivity);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes16.dex */
     static class a {
         private Map<Activity, HolderFragment> zk = new HashMap();
         private Map<Fragment, HolderFragment> zl = new HashMap();

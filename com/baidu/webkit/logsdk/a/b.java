@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class b implements Handler.Callback {
     public static final List<Message> e = new ArrayList();
     @SuppressLint({"StaticFieldLeak"})

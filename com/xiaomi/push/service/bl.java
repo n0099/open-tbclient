@@ -4,7 +4,7 @@ import com.xiaomi.push.fl;
 import com.xiaomi.push.fx;
 import com.xiaomi.push.gj;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 class bl implements fx {
 
     /* renamed from: a  reason: collision with root package name */

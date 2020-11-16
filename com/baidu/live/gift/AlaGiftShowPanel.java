@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 /* loaded from: classes4.dex */
 public class AlaGiftShowPanel extends RelativeLayout {
-    private a aVD;
+    private a aTS;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -29,12 +29,12 @@ public class AlaGiftShowPanel extends RelativeLayout {
     @Override // android.view.View
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.aVD != null) {
-            this.aVD.onConfigurationChanged(configuration);
+        if (this.aTS != null) {
+            this.aTS.onConfigurationChanged(configuration);
         }
     }
 
     public void setConfigurationChangedListener(a aVar) {
-        this.aVD = aVar;
+        this.aTS = aVar;
     }
 }

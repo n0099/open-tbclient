@@ -6,65 +6,65 @@ import java.util.LinkedList;
 import java.util.Queue;
 /* loaded from: classes.dex */
 public class k {
-    private static k ePx = null;
-    private Queue<a> ePy = new LinkedList();
-    private BdAsyncTaskParallel ePz = null;
-    private BdAsyncTaskParallel ePA = null;
-    private float ePB = 0.0f;
+    private static k eOB = null;
+    private Queue<a> eOC = new LinkedList();
+    private BdAsyncTaskParallel eOD = null;
+    private BdAsyncTaskParallel eOE = null;
+    private float eOF = 0.0f;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public int ePC;
-        public long ePD;
+        public int eOG;
+        public long eOH;
 
         private a() {
-            this.ePC = 0;
-            this.ePD = 0L;
+            this.eOG = 0;
+            this.eOH = 0L;
         }
     }
 
-    public static k brK() {
-        if (ePx == null) {
-            ePx = new k();
+    public static k bqY() {
+        if (eOB == null) {
+            eOB = new k();
         }
-        return ePx;
+        return eOB;
     }
 
     public synchronized void t(int i, long j) {
         a aVar = new a();
-        aVar.ePC = i;
-        aVar.ePD = j;
-        this.ePy.offer(aVar);
-        if (this.ePy.size() > 5) {
-            this.ePy.poll();
+        aVar.eOG = i;
+        aVar.eOH = j;
+        this.eOC.offer(aVar);
+        if (this.eOC.size() > 5) {
+            this.eOC.poll();
         }
-        if (brL()) {
+        if (bqZ()) {
             int i2 = 0;
-            for (a aVar2 : this.ePy) {
-                i2 = j > 0 ? (int) ((aVar2.ePC / aVar2.ePD) + i2) : i2;
+            for (a aVar2 : this.eOC) {
+                i2 = j > 0 ? (int) ((aVar2.eOG / aVar2.eOH) + i2) : i2;
             }
-            this.ePB = i2 / 5;
+            this.eOF = i2 / 5;
         }
     }
 
-    public boolean brL() {
-        return this.ePy.size() == 5;
+    public boolean bqZ() {
+        return this.eOC.size() == 5;
     }
 
     public BdAsyncTaskParallel mW() {
         if (!com.baidu.adp.lib.util.j.is4GNet()) {
             return null;
         }
-        if (brL() && this.ePB < 20.0f) {
-            if (this.ePz == null) {
-                this.ePz = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        if (bqZ() && this.eOF < 20.0f) {
+            if (this.eOD == null) {
+                this.eOD = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
             }
-            return this.ePz;
+            return this.eOD;
         }
-        if (this.ePA == null) {
-            this.ePA = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
+        if (this.eOE == null) {
+            this.eOE = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
         }
-        return this.ePA;
+        return this.eOE;
     }
 }

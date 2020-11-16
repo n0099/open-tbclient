@@ -10,7 +10,7 @@ import com.baidu.adp.lib.webSocket.k;
 import com.baidu.bdhttpdns.BDHttpDns;
 import com.baidu.bdhttpdns.BDHttpDnsResult;
 import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.d.a;
 import com.baidu.tbadk.coreExtra.d.d;
@@ -20,42 +20,42 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class g {
-    private static g fly = null;
-    private int flz;
+    private static g fkG = null;
+    private int fkH;
     private int currentIndex = 0;
-    private boolean flA = false;
-    private boolean flB = false;
-    private List<String> fle = null;
-    private boolean flC = false;
-    private final Object flD = new Object();
-    private List<String> flE = new ArrayList();
-    private boolean flF = false;
-    private BDHttpDnsResult flG = null;
-    private final g.a flH = new g.a() { // from class: com.baidu.tbadk.coreExtra.d.g.1
+    private boolean fkI = false;
+    private boolean fkJ = false;
+    private List<String> fkm = null;
+    private boolean fkK = false;
+    private final Object fkL = new Object();
+    private List<String> fkM = new ArrayList();
+    private boolean fkN = false;
+    private BDHttpDnsResult fkO = null;
+    private final g.a fkP = new g.a() { // from class: com.baidu.tbadk.coreExtra.d.g.1
         @Override // com.baidu.adp.lib.webSocket.g.a
         public void onOpen(Map<String, String> map) {
             if (UseHttpdnsSdkSwitch.isOn()) {
-                if (g.this.flz > 0) {
-                    g.this.flF = false;
+                if (g.this.fkH > 0) {
+                    g.this.fkN = false;
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append("URL_");
                     stringBuffer.append(com.baidu.adp.framework.client.socket.h.getUrl());
-                    if (g.this.flG != null) {
+                    if (g.this.fkO != null) {
                         stringBuffer.append("-dnsResolveIp_");
-                        stringBuffer.append(g.this.flG.sY());
+                        stringBuffer.append(g.this.fkO.sY());
                         stringBuffer.append("-dnsResolveType_");
-                        stringBuffer.append(g.this.flG.sW());
+                        stringBuffer.append(g.this.fkO.sW());
                         stringBuffer.append("-dnsResolveStatus_");
-                        stringBuffer.append(g.this.flG.sX());
+                        stringBuffer.append(g.this.fkO.sX());
                     }
                     com.baidu.adp.framework.client.socket.i.debug("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, stringBuffer.toString());
                 }
-            } else if (g.this.flz >= 5) {
+            } else if (g.this.fkH >= 5) {
                 com.baidu.adp.framework.client.socket.i.debug("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + com.baidu.adp.framework.client.socket.h.getUrl());
-                a.bym().Dl(com.baidu.adp.framework.client.socket.h.getUrl());
-                a.bym().byp();
+                a.bxC().CK(com.baidu.adp.framework.client.socket.h.getUrl());
+                a.bxC().bxF();
             }
-            g.this.flz = 0;
+            g.this.fkH = 0;
         }
 
         @Override // com.baidu.adp.lib.webSocket.g.a
@@ -63,30 +63,30 @@ public class g {
             if ((i == 2 || i == 9) && j.isNetWorkAvailable()) {
                 g.c(g.this);
                 if (UseHttpdnsSdkSwitch.isOn()) {
-                    if (g.this.flE == null || g.this.flE.isEmpty()) {
-                        g.this.byC();
+                    if (g.this.fkM == null || g.this.fkM.isEmpty()) {
+                        g.this.bxS();
                     } else {
-                        g.this.byB();
+                        g.this.bxR();
                     }
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append("retryiplist_");
                     stringBuffer.append(com.baidu.adp.framework.client.socket.h.getUrl());
-                    if (g.this.flG != null) {
+                    if (g.this.fkO != null) {
                         stringBuffer.append("-dnsResolveIp_");
-                        stringBuffer.append(g.this.flG.sY());
+                        stringBuffer.append(g.this.fkO.sY());
                         stringBuffer.append("-dnsResolveType_");
-                        stringBuffer.append(g.this.flG.sW());
+                        stringBuffer.append(g.this.fkO.sW());
                         stringBuffer.append("-dnsResolveStatus_");
-                        stringBuffer.append(g.this.flG.sX());
+                        stringBuffer.append(g.this.fkO.sX());
                     }
                     com.baidu.adp.framework.client.socket.i.debug("RetryIpListManager", 0, 0, "retry_iplist", 0, stringBuffer.toString());
-                    if (g.this.flz >= 5) {
+                    if (g.this.fkH >= 5) {
                         BdSocketLinkService.setAvailable(false);
-                        g.this.byD();
+                        g.this.bxT();
                     }
-                } else if (g.this.flz >= 5) {
+                } else if (g.this.fkH >= 5) {
                     com.baidu.adp.framework.client.socket.i.debug("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist_" + com.baidu.adp.framework.client.socket.h.getUrl());
-                    g.this.byG();
+                    g.this.bxW();
                 }
             }
         }
@@ -125,37 +125,37 @@ public class g {
     };
 
     static /* synthetic */ int c(g gVar) {
-        int i = gVar.flz;
-        gVar.flz = i + 1;
+        int i = gVar.fkH;
+        gVar.fkH = i + 1;
         return i;
     }
 
-    public static synchronized g byA() {
+    public static synchronized g bxQ() {
         g gVar;
         synchronized (g.class) {
-            if (fly == null) {
+            if (fkG == null) {
                 synchronized (g.class) {
-                    if (fly == null) {
-                        fly = new g();
+                    if (fkG == null) {
+                        fkG = new g();
                     }
                 }
             }
-            gVar = fly;
+            gVar = fkG;
         }
         return gVar;
     }
 
     public void init() {
-        com.baidu.adp.lib.webSocket.h.oD().a(this.flH);
+        com.baidu.adp.lib.webSocket.h.oD().a(this.fkP);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byB() {
-        synchronized (this.flD) {
-            if (this.flE != null && !this.flE.isEmpty()) {
-                String remove = this.flE.remove(0);
+    public void bxR() {
+        synchronized (this.fkL) {
+            if (this.fkM != null && !this.fkM.isEmpty()) {
+                String remove = this.fkM.remove(0);
                 if (!TextUtils.isEmpty(remove)) {
-                    com.baidu.adp.framework.client.socket.h.setUrl("ws://" + remove + ":" + Dr(TiebaIMConfig.url));
+                    com.baidu.adp.framework.client.socket.h.setUrl("ws://" + remove + ":" + CQ(TiebaIMConfig.url));
                     BdSocketLinkService.init();
                 }
             }
@@ -163,25 +163,25 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byC() {
-        if (!this.flF) {
+    public void bxS() {
+        if (!this.fkN) {
             try {
-                String Dq = Dq(TiebaIMConfig.url);
-                if (at.isEmpty(Dq)) {
-                    byD();
+                String CP = CP(TiebaIMConfig.url);
+                if (au.isEmpty(CP)) {
+                    bxT();
                 } else {
-                    this.flF = true;
-                    BDHttpDns.P(BdBaseApplication.getInst().getApplicationContext()).a(Dq, new BDHttpDns.a() { // from class: com.baidu.tbadk.coreExtra.d.g.2
+                    this.fkN = true;
+                    BDHttpDns.P(BdBaseApplication.getInst().getApplicationContext()).a(CP, new BDHttpDns.a() { // from class: com.baidu.tbadk.coreExtra.d.g.2
                         @Override // com.baidu.bdhttpdns.BDHttpDns.a
                         public void a(BDHttpDnsResult bDHttpDnsResult) {
                             ArrayList<String> sY;
-                            g.this.flF = false;
-                            g.this.flG = bDHttpDnsResult;
+                            g.this.fkN = false;
+                            g.this.fkO = bDHttpDnsResult;
                             if (bDHttpDnsResult != null && (sY = bDHttpDnsResult.sY()) != null && !sY.isEmpty()) {
-                                synchronized (g.this.flD) {
-                                    g.this.flE = sY;
+                                synchronized (g.this.fkL) {
+                                    g.this.fkM = sY;
                                 }
-                                g.this.byB();
+                                g.this.bxR();
                             }
                         }
                     });
@@ -193,13 +193,13 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byD() {
+    public void bxT() {
         NoNetworkView.updateUI();
         this.currentIndex = 0;
-        this.flF = false;
+        this.fkN = false;
     }
 
-    public static String Dq(String str) {
+    public static String CP(String str) {
         int lastIndexOf;
         if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
@@ -211,7 +211,7 @@ public class g {
         return null;
     }
 
-    public static String Dr(String str) {
+    public static String CQ(String str) {
         int lastIndexOf;
         if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
@@ -223,99 +223,99 @@ public class g {
         return null;
     }
 
-    private String byE() {
-        if (this.fle == null || this.currentIndex <= -1 || this.currentIndex >= this.fle.size()) {
+    private String bxU() {
+        if (this.fkm == null || this.currentIndex <= -1 || this.currentIndex >= this.fkm.size()) {
             return null;
         }
-        return a.bym().getIpList().get(this.currentIndex);
+        return a.bxC().getIpList().get(this.currentIndex);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ds(final String str) {
-        String byE = byE();
-        if (byE == null) {
-            if (!a.bym().byq()) {
-                a.bym().a(new a.InterfaceC0584a() { // from class: com.baidu.tbadk.coreExtra.d.g.3
-                    @Override // com.baidu.tbadk.coreExtra.d.a.InterfaceC0584a
-                    public void byr() {
+    public void CR(final String str) {
+        String bxU = bxU();
+        if (bxU == null) {
+            if (!a.bxC().bxG()) {
+                a.bxC().a(new a.InterfaceC0583a() { // from class: com.baidu.tbadk.coreExtra.d.g.3
+                    @Override // com.baidu.tbadk.coreExtra.d.a.InterfaceC0583a
+                    public void bxH() {
                         g.this.currentIndex = 0;
-                        g.this.fle = a.bym().getIpList();
-                        if (g.this.fle != null) {
-                            g.this.Ds(str);
+                        g.this.fkm = a.bxC().getIpList();
+                        if (g.this.fkm != null) {
+                            g.this.CR(str);
                         } else {
-                            g.this.flC = false;
+                            g.this.fkK = false;
                         }
                     }
                 });
             }
             com.baidu.adp.framework.client.socket.h.setUrl(TiebaIMConfig.url);
             BdSocketLinkService.setAvailable(false);
-            byF();
-        } else if (Dq(byE) == null) {
-            byF();
+            bxV();
+        } else if (CP(bxU) == null) {
+            bxV();
         } else {
-            this.flC = false;
+            this.fkK = false;
             BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
-            com.baidu.adp.framework.client.socket.h.setUrl(byE);
+            com.baidu.adp.framework.client.socket.h.setUrl(bxU);
             BdSocketLinkService.init();
             BdSocketLinkService.startService(true, str);
-            this.flA = true;
+            this.fkI = true;
             this.currentIndex++;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byF() {
+    public void bxV() {
         NoNetworkView.updateUI();
-        this.flB = false;
+        this.fkJ = false;
         this.currentIndex = 0;
-        this.flC = false;
-        this.flA = false;
+        this.fkK = false;
+        this.fkI = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byG() {
-        if (!this.flC) {
-            this.flC = true;
-            if (this.flA) {
-                this.flA = false;
-                b.byt().Dn(TiebaIMConfig.url);
+    public void bxW() {
+        if (!this.fkK) {
+            this.fkK = true;
+            if (this.fkI) {
+                this.fkI = false;
+                b.bxJ().CM(TiebaIMConfig.url);
             }
-            b.byt().byu();
-            if (!this.flB) {
+            b.bxJ().bxK();
+            if (!this.fkJ) {
                 new d("www.baidu.com", new d.b() { // from class: com.baidu.tbadk.coreExtra.d.g.4
                     @Override // com.baidu.tbadk.coreExtra.d.d.b
-                    public void jR(boolean z) {
-                        b.byt().ra(z ? 2 : 1);
+                    public void jS(boolean z) {
+                        b.bxJ().ry(z ? 2 : 1);
                         if (z) {
-                            g.this.fle = a.bym().getIpList();
-                            if (g.this.fle != null) {
-                                g.this.Ds("change ip to reconnect with DNS' failed.");
+                            g.this.fkm = a.bxC().getIpList();
+                            if (g.this.fkm != null) {
+                                g.this.CR("change ip to reconnect with DNS' failed.");
                                 return;
                             } else {
-                                a.bym().a(new a.InterfaceC0584a() { // from class: com.baidu.tbadk.coreExtra.d.g.4.1
-                                    @Override // com.baidu.tbadk.coreExtra.d.a.InterfaceC0584a
-                                    public void byr() {
+                                a.bxC().a(new a.InterfaceC0583a() { // from class: com.baidu.tbadk.coreExtra.d.g.4.1
+                                    @Override // com.baidu.tbadk.coreExtra.d.a.InterfaceC0583a
+                                    public void bxH() {
                                         g.this.currentIndex = 0;
-                                        g.this.fle = a.bym().getIpList();
-                                        if (g.this.fle != null) {
-                                            g.this.Ds("change ip to reconnect with DNS' failed.");
+                                        g.this.fkm = a.bxC().getIpList();
+                                        if (g.this.fkm != null) {
+                                            g.this.CR("change ip to reconnect with DNS' failed.");
                                         } else {
-                                            g.this.flC = false;
+                                            g.this.fkK = false;
                                         }
                                     }
                                 });
                                 return;
                             }
                         }
-                        g.this.flC = false;
-                        g.this.byF();
+                        g.this.fkK = false;
+                        g.this.bxV();
                     }
                 });
-                this.flB = true;
+                this.fkJ = true;
                 return;
             }
-            Ds("change ip to reconnect with DNS' failed.");
+            CR("change ip to reconnect with DNS' failed.");
         }
     }
 }

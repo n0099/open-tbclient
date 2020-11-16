@@ -1,15 +1,15 @@
 package com.tb.airbnb.lottie.model.content;
 
 import com.tb.airbnb.lottie.a.a.r;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class ShapeTrimPath implements b {
     private final String name;
-    private final Type pIJ;
-    private final com.tb.airbnb.lottie.model.a.b pJP;
-    private final com.tb.airbnb.lottie.model.a.b pJS;
-    private final com.tb.airbnb.lottie.model.a.b pJT;
+    private final Type pKm;
+    private final com.tb.airbnb.lottie.model.a.b pLs;
+    private final com.tb.airbnb.lottie.model.a.b pLv;
+    private final com.tb.airbnb.lottie.model.a.b pLw;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public enum Type {
         Simultaneously,
         Individually;
@@ -28,30 +28,30 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.pIJ = type;
-        this.pJS = bVar;
-        this.pJT = bVar2;
-        this.pJP = bVar3;
+        this.pKm = type;
+        this.pLv = bVar;
+        this.pLw = bVar2;
+        this.pLs = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type eyB() {
-        return this.pIJ;
-    }
-
-    public com.tb.airbnb.lottie.model.a.b ezt() {
-        return this.pJT;
+    public Type eyC() {
+        return this.pKm;
     }
 
     public com.tb.airbnb.lottie.model.a.b ezu() {
-        return this.pJS;
+        return this.pLw;
     }
 
-    public com.tb.airbnb.lottie.model.a.b ezp() {
-        return this.pJP;
+    public com.tb.airbnb.lottie.model.a.b ezv() {
+        return this.pLv;
+    }
+
+    public com.tb.airbnb.lottie.model.a.b ezq() {
+        return this.pLs;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.pJS + ", end: " + this.pJT + ", offset: " + this.pJP + "}";
+        return "Trim Path: {start: " + this.pLv + ", end: " + this.pLw + ", offset: " + this.pLs + "}";
     }
 }

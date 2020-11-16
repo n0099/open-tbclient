@@ -1,5 +1,5 @@
 package com.baidu.ala.recorder;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public interface IFaceUnityOperator {
     void onBlurLevelSelected(int i);
 

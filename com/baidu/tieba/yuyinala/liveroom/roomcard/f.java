@@ -56,38 +56,38 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class f extends Dialog {
-    private w aES;
-    private View bPK;
-    public CustomMessageListener bek;
-    private CommonEmptyView bpJ;
-    private TextView iTB;
+    private w aDh;
+    private View bOa;
+    public CustomMessageListener bcy;
+    private CommonEmptyView bnY;
+    private TextView iUn;
     private boolean isFollowed;
     private Activity mActivity;
-    private h nTv;
-    private AlphaGradientHListView nZB;
-    private AlphaGradientHListView nZC;
-    private ImageView nZD;
-    private BarImageView nZE;
-    private TextView nZF;
-    private TextView nZG;
-    private TextView nZH;
-    private TextView nZI;
-    private TextView nZJ;
-    private TextView nZK;
-    private TextView nZL;
-    private TextView nZM;
-    private d nZN;
-    private d nZO;
-    private g nZP;
-    private ImageView nZQ;
-    private com.baidu.tieba.yuyinala.liveroom.rename.e nZe;
-    private e nZj;
-    private String nZr;
+    private h nUY;
+    private com.baidu.tieba.yuyinala.liveroom.rename.e oaH;
+    private e oaM;
+    private String oaU;
+    private AlphaGradientHListView obe;
+    private AlphaGradientHListView obf;
+    private ImageView obg;
+    private BarImageView obh;
+    private TextView obi;
+    private TextView obk;
+    private TextView obl;
+    private TextView obm;
+    private TextView obn;
+    private TextView obo;
+    private TextView obp;
+    private TextView obq;
+    private d obr;
+    private d obs;
+    private g obt;
+    private ImageView obu;
 
     public f(Activity activity) {
         super(activity, a.i.DialogRoomcardStyle);
         this.isFollowed = false;
-        this.bek = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.3
+        this.bcy = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -97,16 +97,16 @@ public class f extends Dialog {
             }
         };
         this.mActivity = activity;
-        this.nTv = new h(activity);
+        this.nUY = new h(activity);
         init();
     }
 
     private void init() {
         initView();
-        Xy();
+        WP();
     }
 
-    private void Xy() {
+    private void WP() {
         Window window = getWindow();
         if (window != null) {
             window.setFlags(262144, 262144);
@@ -123,86 +123,86 @@ public class f extends Dialog {
 
     private void initView() {
         setContentView(a.g.yuyin_layout_dialog_room_card);
-        this.bpJ = (CommonEmptyView) findViewById(a.f.empty_yuyin_view);
-        this.bPK = findViewById(a.f.view);
-        this.nZD = (ImageView) findViewById(a.f.iv_rename);
-        this.nZE = (BarImageView) findViewById(a.f.user_portrait);
-        this.nZF = (TextView) findViewById(a.f.tv_report);
-        this.nZG = (TextView) findViewById(a.f.tv_banded_post);
-        this.nZH = (TextView) findViewById(a.f.room_name);
-        this.iTB = (TextView) findViewById(a.f.tv_fans_num);
-        this.nZI = (TextView) findViewById(a.f.tv_id);
-        this.nZQ = (ImageView) findViewById(a.f.iv_modify_img);
-        this.nZJ = (TextView) findViewById(a.f.tv_manager_count);
-        this.nZK = (TextView) findViewById(a.f.tv_zhuchi_count);
-        this.nZL = (TextView) findViewById(a.f.tv_collect_room);
-        this.nZM = (TextView) findViewById(a.f.tv_bottom_toast);
-        this.nZB = (AlphaGradientHListView) findViewById(a.f.ala_live_manager_listview);
-        this.nZC = (AlphaGradientHListView) findViewById(a.f.ala_live_zhuchi_listview);
-        this.nZP = new g(this.mActivity);
-        this.nZe = new com.baidu.tieba.yuyinala.liveroom.rename.e(this.mActivity);
-        this.nZN = new d(this.mActivity);
-        this.nZB.setAdapter((ListAdapter) this.nZN);
-        this.nZB.setSelector(this.mActivity.getResources().getDrawable(a.e.sdk_transparent_bg));
-        MessageManager.getInstance().registerListener(this.bek);
-        this.nZB.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.1
+        this.bnY = (CommonEmptyView) findViewById(a.f.empty_yuyin_view);
+        this.bOa = findViewById(a.f.view);
+        this.obg = (ImageView) findViewById(a.f.iv_rename);
+        this.obh = (BarImageView) findViewById(a.f.user_portrait);
+        this.obi = (TextView) findViewById(a.f.tv_report);
+        this.obk = (TextView) findViewById(a.f.tv_banded_post);
+        this.obl = (TextView) findViewById(a.f.room_name);
+        this.iUn = (TextView) findViewById(a.f.tv_fans_num);
+        this.obm = (TextView) findViewById(a.f.tv_id);
+        this.obu = (ImageView) findViewById(a.f.iv_modify_img);
+        this.obn = (TextView) findViewById(a.f.tv_manager_count);
+        this.obo = (TextView) findViewById(a.f.tv_zhuchi_count);
+        this.obp = (TextView) findViewById(a.f.tv_collect_room);
+        this.obq = (TextView) findViewById(a.f.tv_bottom_toast);
+        this.obe = (AlphaGradientHListView) findViewById(a.f.ala_live_manager_listview);
+        this.obf = (AlphaGradientHListView) findViewById(a.f.ala_live_zhuchi_listview);
+        this.obt = new g(this.mActivity);
+        this.oaH = new com.baidu.tieba.yuyinala.liveroom.rename.e(this.mActivity);
+        this.obr = new d(this.mActivity);
+        this.obe.setAdapter((ListAdapter) this.obr);
+        this.obe.setSelector(this.mActivity.getResources().getDrawable(a.e.sdk_transparent_bg));
+        MessageManager.getInstance().registerListener(this.bcy);
+        this.obe.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.1
             @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
             public void a(AdapterView<?> adapterView, View view, int i, long j) {
-                List<e.a> dYr;
+                List<e.a> dYq;
                 e.a aVar;
-                if (f.this.nZN != null && (dYr = f.this.nZN.dYr()) != null && dYr.size() > 0 && (aVar = dYr.get(i)) != null && !aVar.nZA) {
+                if (f.this.obr != null && (dYq = f.this.obr.dYq()) != null && dYq.size() > 0 && (aVar = dYq.get(i)) != null && !aVar.obd) {
                     f.this.dismiss();
                     f.this.a(aVar);
                 }
             }
         });
-        this.nZE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.4
+        this.obh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.nZj != null && f.this.nZj.nZp != 0) {
-                    c.dYq().a(f.this.mActivity, f.this.mActivity, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.4.1
+                if (f.this.oaM != null && f.this.oaM.oaS != 0) {
+                    c.dYp().a(f.this.mActivity, f.this.mActivity, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.4.1
                         @Override // com.baidu.tieba.yuyinala.liveroom.roomcard.c.a
-                        public void yT(boolean z) {
-                            if (z && f.this.nZj != null && f.this.nZj.nZp == 1) {
-                                f.this.cif();
+                        public void za(boolean z) {
+                            if (z && f.this.oaM != null && f.this.oaM.oaS == 1) {
+                                f.this.chy();
                             }
                         }
                     });
                 }
             }
         });
-        this.nZG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.5
+        this.obk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 try {
-                    if (f.this.aES != null) {
+                    if (f.this.aDh != null) {
                         f.this.dismiss();
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinBannedPostActivityConfig(f.this.mActivity, String.valueOf(f.this.aES.aJK.aSP), String.valueOf(f.this.aES.aJK.live_id), Long.toString(f.this.aES.mLiveInfo.group_id))));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinBannedPostActivityConfig(f.this.mActivity, String.valueOf(f.this.aDh.aHZ.aRe), String.valueOf(f.this.aDh.aHZ.live_id), Long.toString(f.this.aDh.mLiveInfo.group_id))));
                     }
                 } catch (Exception e) {
                 }
             }
         });
-        this.nZF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.6
+        this.obi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                f.this.cju();
+                f.this.ciN();
             }
         });
-        this.nZL.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
-        this.nZL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.7
+        this.obp.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
+        this.obp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                f.this.dXY();
+                f.this.dXX();
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(f.this.mActivity);
-                } else if (f.this.aES != null && f.this.aES.aJK != null) {
+                } else if (f.this.aDh != null && f.this.aDh.aHZ != null) {
                     if (f.this.isFollowed) {
                         com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g gVar = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g(f.this.mActivity);
                         gVar.show();
                         gVar.setText("确认取消收藏本房间吗");
-                        gVar.Vn("算了");
-                        gVar.bT("确认", a.c.sdk_color_ff1e66);
+                        gVar.UY("算了");
+                        gVar.bS("确认", a.c.sdk_color_ff1e66);
                         gVar.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.7.1
                             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                             public void onCancel() {
@@ -210,26 +210,26 @@ public class f extends Dialog {
 
                             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                             public void onConfirm() {
-                                f.this.nTv.w(f.this.aES.aJK.aSP, f.this.aES.aJK.live_id, 0);
+                                f.this.nUY.w(f.this.aDh.aHZ.aRe, f.this.aDh.aHZ.live_id, 0);
                             }
                         });
                     } else {
-                        f.this.nTv.w(f.this.aES.aJK.aSP, f.this.aES.aJK.live_id, 1);
+                        f.this.nUY.w(f.this.aDh.aHZ.aRe, f.this.aDh.aHZ.live_id, 1);
                     }
-                    f.this.nTv.a(new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.7.2
+                    f.this.nUY.a(new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.7.2
                         @Override // com.baidu.tieba.yuyinala.liveroom.roomcard.h.a
                         public void a(AlaGetCollectRoomHttpResponseMessage alaGetCollectRoomHttpResponseMessage) {
                             if (f.this.isFollowed) {
                                 f.this.isFollowed = false;
-                                f.this.yU(false);
-                                MessageManager.getInstance().dispatchResponsedMessage(new YuyinFollowRoomMessage(new FollowRoom(false, f.this.aES.aJK.live_id)));
+                                f.this.zb(false);
+                                MessageManager.getInstance().dispatchResponsedMessage(new YuyinFollowRoomMessage(new FollowRoom(false, f.this.aDh.aHZ.live_id)));
                                 return;
                             }
-                            f.this.dXZ();
+                            f.this.dXY();
                             f.this.isFollowed = true;
-                            f.this.yU(true);
+                            f.this.zb(true);
                             BdUtilHelper.showToast(f.this.mActivity, "收藏成功，将收到房间的开播提醒", 3000);
-                            MessageManager.getInstance().dispatchResponsedMessage(new YuyinFollowRoomMessage(new FollowRoom(true, f.this.aES.aJK.live_id)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new YuyinFollowRoomMessage(new FollowRoom(true, f.this.aDh.aHZ.live_id)));
                         }
 
                         @Override // com.baidu.tieba.yuyinala.liveroom.roomcard.h.a
@@ -245,45 +245,45 @@ public class f extends Dialog {
                 }
             }
         });
-        this.nZB.setColor(this.mActivity.getResources().getColor(a.c.sdk_white_alpha100), this.mActivity.getResources().getColor(a.c.sdk_white_alpha0));
-        this.nZB.setNeedAlphaShade(true);
-        this.nZC.setDividerWidth(BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds0));
-        this.nZO = new d(this.mActivity);
-        this.nZC.setAdapter((ListAdapter) this.nZO);
-        this.nZC.setSelector(this.mActivity.getResources().getDrawable(a.e.sdk_transparent_bg));
-        this.nZC.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.8
+        this.obe.setColor(this.mActivity.getResources().getColor(a.c.sdk_white_alpha100), this.mActivity.getResources().getColor(a.c.sdk_white_alpha0));
+        this.obe.setNeedAlphaShade(true);
+        this.obf.setDividerWidth(BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds0));
+        this.obs = new d(this.mActivity);
+        this.obf.setAdapter((ListAdapter) this.obs);
+        this.obf.setSelector(this.mActivity.getResources().getDrawable(a.e.sdk_transparent_bg));
+        this.obf.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.8
             @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
             public void a(AdapterView<?> adapterView, View view, int i, long j) {
-                List<e.a> dYr;
+                List<e.a> dYq;
                 e.a aVar;
-                if (f.this.nZO != null && (dYr = f.this.nZO.dYr()) != null && dYr.size() > 0 && (aVar = dYr.get(i)) != null && !aVar.nZA) {
+                if (f.this.obs != null && (dYq = f.this.obs.dYq()) != null && dYq.size() > 0 && (aVar = dYq.get(i)) != null && !aVar.obd) {
                     f.this.dismiss();
                     f.this.a(aVar);
                 }
             }
         });
-        this.nZC.setColor(this.mActivity.getResources().getColor(a.c.sdk_white_alpha100), this.mActivity.getResources().getColor(a.c.sdk_white_alpha0));
-        this.nZC.setNeedAlphaShade(true);
-        this.nZE.setShowOval(true);
-        this.nZE.setStrokeColorResId(a.c.sdk_white_alpha100);
-        this.nZE.setAutoChangeStyle(false);
-        this.nZE.setStrokeWith(BdUtilHelper.dip2px(this.mActivity, 2.0f));
-        this.nZD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.9
+        this.obf.setColor(this.mActivity.getResources().getColor(a.c.sdk_white_alpha100), this.mActivity.getResources().getColor(a.c.sdk_white_alpha0));
+        this.obf.setNeedAlphaShade(true);
+        this.obh.setShowOval(true);
+        this.obh.setStrokeColorResId(a.c.sdk_white_alpha100);
+        this.obh.setAutoChangeStyle(false);
+        this.obh.setStrokeWith(BdUtilHelper.dip2px(this.mActivity, 2.0f));
+        this.obg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.aES != null && f.this.aES.aJK != null) {
+                if (f.this.aDh != null && f.this.aDh.aHZ != null) {
                     new com.baidu.tieba.yuyinala.liveroom.rename.c(f.this.mActivity, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.9.1
                         @Override // com.baidu.tieba.yuyinala.liveroom.rename.c.a
                         public void call(String str) {
-                            f.this.nZH.setText(str);
-                            f.this.nZj.room_name = str;
+                            f.this.obl.setText(str);
+                            f.this.oaM.room_name = str;
                         }
-                    }).X(f.this.aES);
+                    }).X(f.this.aDh);
                 }
             }
         });
-        this.nZB.setDividerWidth(BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds0));
-        this.bPK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.10
+        this.obe.setDividerWidth(BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds0));
+        this.bOa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.10
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 f.this.dismiss();
@@ -292,11 +292,11 @@ public class f extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dXY() {
+    public void dXX() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aES.aJK.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aDh.aHZ.croom_id);
             jSONObject.put("loc", "roominfo");
         } catch (Exception e) {
             BdLog.e(e);
@@ -305,11 +305,11 @@ public class f extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dXZ() {
+    public void dXY() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aES.aJK.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aDh.aHZ.croom_id);
             jSONObject.put("loc", "roominfo");
         } catch (Exception e) {
             BdLog.e(e);
@@ -318,22 +318,22 @@ public class f extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cju() {
+    public void ciN() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(getContext());
             return;
         }
         dismiss();
-        if (this.aES != null && this.aES.aJK != null) {
+        if (this.aDh != null && this.aDh.aHZ != null) {
             z zVar = new z(getContext());
-            zVar.ai(this.aES.aJK.live_id, this.aES.aJK.aSP);
+            zVar.ah(this.aDh.aHZ.live_id, this.aDh.aHZ.aRe);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, zVar));
         }
     }
 
-    private void Vs(String str) {
-        this.nZP.request(str);
-        this.nZP.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.11
+    private void Vd(String str) {
+        this.obt.request(str);
+        this.obt.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.11
             @Override // com.baidu.tieba.yuyinala.liveroom.roomcard.g.a
             public void b(AlaGetRoomCardInfoHttpResponseMessage alaGetRoomCardInfoHttpResponseMessage) {
                 f.this.a(alaGetRoomCardInfoHttpResponseMessage);
@@ -347,85 +347,85 @@ public class f extends Dialog {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaGetRoomCardInfoHttpResponseMessage alaGetRoomCardInfoHttpResponseMessage) {
-        if (alaGetRoomCardInfoHttpResponseMessage != null && alaGetRoomCardInfoHttpResponseMessage.dYp() != null) {
-            this.nZj = alaGetRoomCardInfoHttpResponseMessage.dYp();
-            this.nZH.setText(this.nZj.room_name);
-            if (!TextUtils.isEmpty(this.nZj.nZx)) {
-                this.nZE.startLoad(this.nZj.nZx, 12, false, false);
+        if (alaGetRoomCardInfoHttpResponseMessage != null && alaGetRoomCardInfoHttpResponseMessage.dYo() != null) {
+            this.oaM = alaGetRoomCardInfoHttpResponseMessage.dYo();
+            this.obl.setText(this.oaM.room_name);
+            if (!TextUtils.isEmpty(this.oaM.oba)) {
+                this.obh.startLoad(this.oaM.oba, 12, false, false);
             }
-            this.iTB.setText("粉丝：" + StringHelper.formatYuyinValue(this.nZj.nZv));
-            this.nZI.setText("房间ID：" + this.nZj.nZw);
-            if (this.nZj.nZu == null || this.nZj.nZu.size() == 0) {
-                this.nZJ.setText("管理员：0人");
+            this.iUn.setText("粉丝：" + StringHelper.formatYuyinValue(this.oaM.oaY));
+            this.obm.setText("房间ID：" + this.oaM.oaZ);
+            if (this.oaM.oaX == null || this.oaM.oaX.size() == 0) {
+                this.obn.setText("管理员：0人");
             } else {
-                this.nZJ.setText("管理员：" + this.nZj.nZu.size() + "人");
+                this.obn.setText("管理员：" + this.oaM.oaX.size() + "人");
             }
-            if (this.nZj.nZq == 1) {
-                this.nZG.setVisibility(0);
+            if (this.oaM.oaT == 1) {
+                this.obk.setVisibility(0);
             } else {
-                this.nZG.setVisibility(8);
+                this.obk.setVisibility(8);
             }
-            if (this.nZj != null && this.nZj.nZp == 1) {
-                this.nZQ.setVisibility(0);
+            if (this.oaM != null && this.oaM.oaS == 1) {
+                this.obu.setVisibility(0);
             } else {
-                this.nZQ.setVisibility(8);
+                this.obu.setVisibility(8);
             }
-            if (this.nZj.nZu != null && this.nZj.nZu.size() > 0) {
-                this.nZN.gk(this.nZj.nZu);
-                this.nZN.notifyDataSetChanged();
+            if (this.oaM.oaX != null && this.oaM.oaX.size() > 0) {
+                this.obr.gk(this.oaM.oaX);
+                this.obr.notifyDataSetChanged();
             }
-            if (this.nZj.nZt == null || this.nZj.nZt.size() == 0) {
-                this.nZK.setText("主持：0人");
+            if (this.oaM.oaW == null || this.oaM.oaW.size() == 0) {
+                this.obo.setText("主持：0人");
                 ArrayList arrayList = new ArrayList();
                 e.a aVar = new e.a();
-                aVar.nZA = true;
-                aVar.nZy = 3;
+                aVar.obd = true;
+                aVar.obb = 3;
                 arrayList.add(aVar);
-                this.nZO.gk(arrayList);
-                this.nZO.notifyDataSetChanged();
+                this.obs.gk(arrayList);
+                this.obs.notifyDataSetChanged();
             } else {
-                this.nZK.setText("主持：" + this.nZj.nZt.size() + "人");
+                this.obo.setText("主持：" + this.oaM.oaW.size() + "人");
             }
-            if (this.nZj.nZt != null && this.nZj.nZt.size() > 0) {
-                this.nZO.gk(this.nZj.nZt);
-                this.nZO.notifyDataSetChanged();
+            if (this.oaM.oaW != null && this.oaM.oaW.size() > 0) {
+                this.obs.gk(this.oaM.oaW);
+                this.obs.notifyDataSetChanged();
             }
-            this.isFollowed = this.nZj.nZs == 1;
-            this.nZr = this.nZj.nZr;
-            yU(this.nZj.nZs == 1);
-            if (this.nZj.nZp == 1) {
-                this.nZD.setVisibility(0);
+            this.isFollowed = this.oaM.oaV == 1;
+            this.oaU = this.oaM.oaU;
+            zb(this.oaM.oaV == 1);
+            if (this.oaM.oaS == 1) {
+                this.obg.setVisibility(0);
             } else {
-                this.nZD.setVisibility(8);
+                this.obg.setVisibility(8);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yU(boolean z) {
+    public void zb(boolean z) {
         if (z) {
-            this.nZL.setText("已收藏");
-            this.nZL.setBackgroundResource(a.e.yuyin_ala_room_card_uncollect_bg);
-            this.nZL.setTextColor(getContext().getResources().getColor(a.c.sdk_color_858585));
-            this.nZL.setVisibility(0);
-            this.nZM.setVisibility(0);
-            this.nZM.setText(this.nZr);
+            this.obp.setText("已收藏");
+            this.obp.setBackgroundResource(a.e.yuyin_ala_room_card_uncollect_bg);
+            this.obp.setTextColor(getContext().getResources().getColor(a.c.sdk_color_858585));
+            this.obp.setVisibility(0);
+            this.obq.setVisibility(0);
+            this.obq.setText(this.oaU);
             return;
         }
-        this.nZL.setText("收藏本房间");
-        this.nZL.setBackgroundResource(a.e.yuyin_ala_room_card_collect_bg);
-        this.nZL.setTextColor(getContext().getResources().getColor(a.c.sdk_white_alpha100));
-        this.nZL.setVisibility(0);
-        this.nZM.setVisibility(0);
-        this.nZM.setText(this.nZr);
+        this.obp.setText("收藏本房间");
+        this.obp.setBackgroundResource(a.e.yuyin_ala_room_card_collect_bg);
+        this.obp.setTextColor(getContext().getResources().getColor(a.c.sdk_white_alpha100));
+        this.obp.setVisibility(0);
+        this.obq.setVisibility(0);
+        this.obq.setText(this.oaU);
     }
 
     public void Z(w wVar) {
-        this.aES = wVar;
+        this.aDh = wVar;
         try {
             show();
-            if (this.aES != null && this.aES.aJK != null) {
-                Vs(this.aES.aJK.aSP);
+            if (this.aDh != null && this.aDh.aHZ != null) {
+                Vd(this.aDh.aHZ.aRe);
             }
         } catch (Throwable th) {
         }
@@ -449,19 +449,19 @@ public class f extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cif() {
+    public void chy() {
         AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.mActivity, "{\"maxImagesAllowed\":1,\"isOriginalImg\":false}", true, true);
         albumActivityConfig.setRequestCode(RequestResponseCode.REQUEST_CAMERA);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
     }
 
-    public void HX(final String str) {
-        if (this.nZe != null && this.aES != null && this.aES.aJK != null) {
-            this.nZe.f(this.aES.aJK.aSP, 2, this.aES.aJK.live_id, str);
-            this.nZe.a(new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.2
+    public void Hy(final String str) {
+        if (this.oaH != null && this.aDh != null && this.aDh.aHZ != null) {
+            this.oaH.f(this.aDh.aHZ.aRe, 2, this.aDh.aHZ.live_id, str);
+            this.oaH.a(new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.f.2
                 @Override // com.baidu.tieba.yuyinala.liveroom.rename.e.a
                 public void a(AlaGetRoomNameRenameHttpResponseMessage alaGetRoomNameRenameHttpResponseMessage) {
-                    l.a(f.this.nZE, str, true, false);
+                    l.a(f.this.obh, str, true, false);
                     MessageManager.getInstance().dispatchResponsedMessage(new YuyinModifyRoomMessage(new ModifyRoomCover(str)));
                 }
 
@@ -475,7 +475,7 @@ public class f extends Dialog {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(e.a aVar) {
         if (aVar != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.mActivity, ExtraParamsManager.getDecryptUserId(aVar.user_uk) + "", aVar.user_name, aVar.nZz, 0, 0, null, null, 0L, 0L, 0L, 0, "", this.aES.aJK.live_id, false, "", null, aVar.user_name, "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.mActivity, ExtraParamsManager.getDecryptUserId(aVar.user_uk) + "", aVar.user_name, aVar.obc, 0, 0, null, null, 0L, 0L, 0L, 0, "", this.aDh.aHZ.live_id, false, "", null, aVar.user_name, "")));
         }
     }
 }

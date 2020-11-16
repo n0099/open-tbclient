@@ -4,7 +4,7 @@ import android.app.Application;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class PassBiometricConfiguration {
     public static final String TARGET_TPL = "pp";
 
@@ -16,7 +16,7 @@ public class PassBiometricConfiguration {
     public boolean showPmnRationaleDialog;
     public final String tpl;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */

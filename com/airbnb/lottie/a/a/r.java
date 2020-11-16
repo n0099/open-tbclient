@@ -4,7 +4,7 @@ import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class r implements b, a.InterfaceC0011a {
     private final ShapeTrimPath.Type DI;
     private final com.airbnb.lottie.a.b.a<?, Float> DJ;

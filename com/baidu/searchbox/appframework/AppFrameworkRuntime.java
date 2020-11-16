@@ -1,5 +1,5 @@
 package com.baidu.searchbox.appframework;
-/* loaded from: classes20.dex */
+/* loaded from: classes19.dex */
 public class AppFrameworkRuntime {
     public static final AppFrameworkIOC DUMMY_IOC = new AppFrameworkIOC() { // from class: com.baidu.searchbox.appframework.AppFrameworkRuntime.1
         @Override // com.baidu.searchbox.appframework.AppFrameworkIOC

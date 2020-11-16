@@ -5,66 +5,66 @@ import android.util.Log;
 import com.baidu.swan.apps.ag.a.c;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c.a duA;
-    private HashMap<String, c.a> duB = new HashMap<>();
-    private c.a duz;
+    private c.a dsR;
+    private c.a dsS;
+    private HashMap<String, c.a> dsT = new HashMap<>();
 
-    public void sp(String str) {
+    public void sk(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 throw new RuntimeException("appId can not be empty");
             }
             return;
         }
-        gE(true);
+        gH(true);
         ac(str, true);
     }
 
-    public ArrayList<String> gE(boolean z) {
-        if (this.duA != null && this.duA.data != null && this.duA.data.size() > 0) {
+    public ArrayList<String> gH(boolean z) {
+        if (this.dsS != null && this.dsS.data != null && this.dsS.data.size() > 0) {
             if (DEBUG) {
-                Log.e("SwanAppWebSafe", "read webActions from cache: token=" + this.duA.token + ", data=" + this.duA.data);
+                Log.e("SwanAppWebSafe", "read webActions from cache: token=" + this.dsS.token + ", data=" + this.dsS.data);
             }
-            return this.duA.data;
+            return this.dsS.data;
         }
-        if (this.duA != null) {
-            this.duA.token = "";
-            this.duA.data.clear();
+        if (this.dsS != null) {
+            this.dsS.token = "";
+            this.dsS.data.clear();
         } else {
-            this.duA = new c.a();
+            this.dsS = new c.a();
         }
-        c.a(z, this.duA);
-        return this.duA.data;
+        c.a(z, this.dsS);
+        return this.dsS.data;
     }
 
-    public ArrayList<String> aIx() {
+    public ArrayList<String> aHP() {
         c.a aVar = new c.a();
         c.a(aVar);
         return aVar.data;
     }
 
     public ArrayList<String> ac(String str, boolean z) {
-        if (this.duz != null && this.duz.data != null && this.duz.data.size() > 0) {
+        if (this.dsR != null && this.dsR.data != null && this.dsR.data.size() > 0) {
             if (DEBUG) {
-                Log.e("SwanAppWebSafe", "read webdomains from cache: token=" + this.duz.token + ", data=" + this.duz.data);
+                Log.e("SwanAppWebSafe", "read webdomains from cache: token=" + this.dsR.token + ", data=" + this.dsR.data);
             }
-            return this.duz.data;
+            return this.dsR.data;
         }
-        if (this.duz != null) {
-            this.duz.token = "";
-            this.duz.data.clear();
+        if (this.dsR != null) {
+            this.dsR.token = "";
+            this.dsR.data.clear();
         } else {
-            this.duz = new c.a();
+            this.dsR = new c.a();
         }
-        c.a(z, str, this.duz);
-        return this.duz.data;
+        c.a(z, str, this.dsR);
+        return this.dsR.data;
     }
 
     public c.a n(String str, String str2, boolean z) {
-        c.a aVar = this.duB.get(str2);
+        c.a aVar = this.dsT.get(str2);
         if (aVar != null && aVar.data != null && aVar.data.size() > 0) {
             if (DEBUG) {
                 Log.e("SwanAppWebSafe", "read serverDomains from cache: data= " + aVar.data);
@@ -77,20 +77,20 @@ public class a {
                 aVar = new c.a();
             }
             c.a(z, str, str2, aVar);
-            this.duB.put(str2, aVar);
+            this.dsT.put(str2, aVar);
         }
         return aVar;
     }
 
     public void release() {
-        if (this.duz != null) {
-            this.duz.data.clear();
+        if (this.dsR != null) {
+            this.dsR.data.clear();
         }
-        if (this.duA != null) {
-            this.duA.data.clear();
+        if (this.dsS != null) {
+            this.dsS.data.clear();
         }
-        this.duz = null;
-        this.duA = null;
+        this.dsR = null;
+        this.dsS = null;
         if (DEBUG) {
             Log.d("SwanAppWebSafe", "release cache done");
         }

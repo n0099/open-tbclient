@@ -11,7 +11,7 @@ import okhttp3.Response;
 import okhttp3.internal.Internal;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.http.HttpHeaders;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class CacheStrategy {
     @Nullable
     public final Response cacheResponse;
@@ -49,7 +49,7 @@ public final class CacheStrategy {
         return (response.cacheControl().noStore() || request.cacheControl().noStore()) ? false : true;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class Factory {
         private int ageSeconds;
         final Response cacheResponse;

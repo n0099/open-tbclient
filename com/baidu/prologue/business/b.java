@@ -9,26 +9,26 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class b {
-    private static final b chu = new b();
-    private final int chp;
-    private final int chq;
-    private int chr;
-    private int chs;
-    private final int cht;
-    private final com.baidu.prologue.a.b.a cho = com.baidu.prologue.a.b.a.che.get();
-    private final boolean DEBUG = this.cho.abT();
+    private static final b cfJ = new b();
+    private final int cfE;
+    private final int cfF;
+    private int cfG;
+    private int cfH;
+    private final int cfI;
+    private final com.baidu.prologue.a.b.a cfD = com.baidu.prologue.a.b.a.cft.get();
+    private final boolean DEBUG = this.cfD.abk();
 
     private b() {
-        DisplayMetrics displayMetrics = this.cho.abJ().getResources().getDisplayMetrics();
-        this.chq = displayMetrics.heightPixels;
-        this.chp = displayMetrics.widthPixels;
-        this.cht = displayMetrics.densityDpi;
+        DisplayMetrics displayMetrics = this.cfD.aba().getResources().getDisplayMetrics();
+        this.cfF = displayMetrics.heightPixels;
+        this.cfE = displayMetrics.widthPixels;
+        this.cfI = displayMetrics.densityDpi;
     }
 
-    public static b aci() {
-        return chu;
+    public static b abz() {
+        return cfJ;
     }
 
     public String a(@NonNull View view, @NonNull int[] iArr) {
@@ -37,24 +37,24 @@ public class b {
         int i = iArr2[1];
         int height = i + view.getHeight();
         Point am = am(view);
-        int i2 = this.chp;
-        int i3 = this.chq;
+        int i2 = this.cfE;
+        int i3 = this.cfF;
         if (am != null) {
             i2 = am.x;
             i3 = am.y;
-            this.chr = am.x;
-            this.chs = am.y;
+            this.cfG = am.x;
+            this.cfH = am.y;
         }
         String[] strArr = new String[9];
         strArr[0] = "v2";
-        strArr[1] = this.cho.abV() ? "1" : "0";
+        strArr[1] = this.cfD.abm() ? "1" : "0";
         strArr[2] = String.valueOf(iArr[0]);
         strArr[3] = String.valueOf(iArr[1]);
         strArr[4] = String.valueOf(i);
         strArr[5] = String.valueOf(height);
         strArr[6] = String.valueOf(i2);
         strArr[7] = String.valueOf(i3);
-        strArr[8] = String.valueOf(this.cht);
+        strArr[8] = String.valueOf(this.cfI);
         String join = TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, strArr);
         if (this.DEBUG) {
             Log.d("ClickInfoProvider", "createHotPictureParams info:" + join);
@@ -65,8 +65,8 @@ public class b {
         return join;
     }
 
-    public int[] acj() {
-        return this.chr != 0 ? new int[]{this.chr, this.chs, this.cht} : new int[]{this.chp, this.chq, this.cht};
+    public int[] abA() {
+        return this.cfG != 0 ? new int[]{this.cfG, this.cfH, this.cfI} : new int[]{this.cfE, this.cfF, this.cfI};
     }
 
     private Point am(@NonNull View view) {

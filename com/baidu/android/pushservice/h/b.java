@@ -25,15 +25,15 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
     private static b b;
 
     /* renamed from: a  reason: collision with root package name */
-    private OkHttpClient f1135a = a();
+    private OkHttpClient f1138a = a();
     private Context c;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public class a implements Interceptor {
         public a() {
         }
@@ -100,9 +100,9 @@ public class b {
     public String[] a(byte[] bArr) {
         try {
             a.c a2 = a.c.a(bArr);
-            if (this.f1135a.pingIntervalMillis() != a2.i()) {
-                this.f1135a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS);
-                this.f1135a = this.f1135a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS).build();
+            if (this.f1138a.pingIntervalMillis() != a2.i()) {
+                this.f1138a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS);
+                this.f1138a = this.f1138a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS).build();
             }
             return new String[]{String.valueOf(a2.d()), a2.f()};
         } catch (InvalidProtocolBufferException e) {
@@ -122,10 +122,10 @@ public class b {
 
     public void a(Map<String, String> map, byte[] bArr, String str, final c cVar) {
         Request a2 = a(bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 1000.0d)));
-        if (this.f1135a == null) {
-            this.f1135a = a();
+        if (this.f1138a == null) {
+            this.f1138a = a();
         }
-        this.f1135a.newCall(a2).enqueue(new Callback() { // from class: com.baidu.android.pushservice.h.b.1
+        this.f1138a.newCall(a2).enqueue(new Callback() { // from class: com.baidu.android.pushservice.h.b.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 String str2 = "Request error :" + iOException.toString();

@@ -6,15 +6,15 @@ import tbclient.ClassForumInfo;
 import tbclient.GetVerticalForumList.DataRes;
 import tbclient.Page;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class c {
-    public List<a> liu;
+    public List<a> liL;
     private Page page;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (dataRes.class_foruminfo != null) {
-                this.liu = new ArrayList();
+                this.liL = new ArrayList();
                 for (ClassForumInfo classForumInfo : dataRes.class_foruminfo) {
                     a aVar = new a();
                     aVar.class_id = classForumInfo.class_id;
@@ -24,7 +24,7 @@ public class c {
                         arrayList.add(new d(recommendForumInfo, false));
                     }
                     aVar.forum_info = arrayList;
-                    this.liu.add(aVar);
+                    this.liL.add(aVar);
                 }
             }
             if (dataRes.page != null) {

@@ -12,18 +12,18 @@ import android.util.DisplayMetrics;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes19.dex */
 class n implements j {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes19.dex */
     private static class a {
-        private static a axR;
+        private static a awg;
         private static HashMap<String, Integer> b = new HashMap<>();
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.helios.a.a.n$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0139a {
+        /* loaded from: classes19.dex */
+        public static class C0137a {
 
             /* renamed from: a  reason: collision with root package name */
             private String f1785a;
@@ -34,7 +34,7 @@ class n implements j {
             private int f;
             private String g;
 
-            public C0139a(Context context) {
+            public C0137a(Context context) {
                 c(context);
             }
 
@@ -118,20 +118,20 @@ class n implements j {
             b.put("CMWAP", 41);
             b.put("UNIWAP", 42);
             b.put("CTWAP", 43);
-            axR = new a();
+            awg = new a();
         }
 
         private a() {
         }
 
-        public static a Aw() {
-            return axR;
+        public static a zN() {
+            return awg;
         }
 
         public String a(Context context) {
-            C0139a c0139a = new C0139a(context);
-            String g = c0139a.g();
-            int e = c0139a.e();
+            C0137a c0137a = new C0137a(context);
+            String g = c0137a.g();
+            int e = c0137a.e();
             if (TextUtils.isEmpty(g)) {
                 return ((Object) 5) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + e;
             }
@@ -143,17 +143,13 @@ class n implements j {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes19.dex */
     private static class b {
-        private static b axS = new b();
+        private static b awh = new b();
         private String b;
         private DisplayMetrics c;
 
         private b() {
-        }
-
-        public static b Ax() {
-            return axS;
         }
 
         private String b(Context context) {
@@ -213,6 +209,10 @@ class n implements j {
             }
         }
 
+        public static b zO() {
+            return awh;
+        }
+
         public String a(Context context) {
             synchronized (b.class) {
                 if (TextUtils.isEmpty(this.b)) {
@@ -223,9 +223,9 @@ class n implements j {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes19.dex */
     private static class c {
-        private static c axT = new c();
+        private static c awi = new c();
 
         /* renamed from: a  reason: collision with root package name */
         private String f1786a;
@@ -235,10 +235,6 @@ class n implements j {
 
         private c() {
             c();
-        }
-
-        public static c Ay() {
-            return axT;
         }
 
         private void c() {
@@ -270,6 +266,10 @@ class n implements j {
             return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.b;
         }
 
+        public static c zP() {
+            return awi;
+        }
+
         public String b() {
             return this.d;
         }
@@ -277,12 +277,12 @@ class n implements j {
 
     @Override // com.baidu.helios.a.a.j
     public String a() {
-        return c.Ay().b();
+        return c.zP().b();
     }
 
     @Override // com.baidu.helios.a.a.j
     public String a(Context context) {
-        return b.Ax().a(context);
+        return b.zO().a(context);
     }
 
     @Override // com.baidu.helios.a.a.j
@@ -297,11 +297,11 @@ class n implements j {
 
     @Override // com.baidu.helios.a.a.j
     public String c(Context context) {
-        return com.baidu.helios.b.aj(context).zY();
+        return com.baidu.helios.b.aj(context).zp();
     }
 
     @Override // com.baidu.helios.a.a.j
     public String d(Context context) {
-        return a.Aw().a(context);
+        return a.zN().a(context);
     }
 }

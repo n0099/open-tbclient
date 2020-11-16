@@ -15,20 +15,20 @@ import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
 /* loaded from: classes4.dex */
 public class b {
-    private static volatile b ovo;
+    private static volatile b owS;
 
     /* loaded from: classes4.dex */
     public interface a {
         void a(View view, int i, ChatMsg chatMsg);
     }
 
-    public static synchronized b gw(Context context) {
+    public static synchronized b gu(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (ovo == null) {
-                ovo = new b();
+            if (owS == null) {
+                owS = new b();
             }
-            bVar = ovo;
+            bVar = owS;
         }
         return bVar;
     }
@@ -73,7 +73,7 @@ public class b {
         }
         if (r != null) {
             r.b(context, a(context, chatMsg));
-            r.ovv = (ImageView) r.getConvertView().findViewById(a.f.bd_im_headview_vip);
+            r.owZ = (ImageView) r.getConvertView().findViewById(a.f.bd_im_headview_vip);
         }
         return r;
     }
@@ -136,7 +136,7 @@ public class b {
         }
         if (l != null) {
             l.b(context, a(context, chatMsg));
-            l.ovv = (ImageView) l.getConvertView().findViewById(a.f.bd_im_headview_vip);
+            l.owZ = (ImageView) l.getConvertView().findViewById(a.f.bd_im_headview_vip);
         }
         return l;
     }
@@ -175,7 +175,7 @@ public class b {
 
     private d c(Context context, LayoutInflater layoutInflater, ChatMsg chatMsg, View view) {
         new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
-        switch (r1.eim()) {
+        switch (r1.eik()) {
             case VIDEOSHARE:
                 return r.m(context, layoutInflater, chatMsg, view);
             case PRIVATEINVITE:
@@ -187,7 +187,7 @@ public class b {
 
     private e d(Context context, LayoutInflater layoutInflater, ChatMsg chatMsg, View view) {
         new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
-        switch (r1.eim()) {
+        switch (r1.eik()) {
             case VIDEOSHARE:
                 return x.s(context, layoutInflater, chatMsg, view);
             case PRIVATEINVITE:

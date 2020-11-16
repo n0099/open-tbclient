@@ -12,13 +12,13 @@ import tv.chushou.zues.utils.e;
 /* loaded from: classes6.dex */
 public class a {
     private Activity d;
-    private b puZ;
-    private c pvm;
-    private InterfaceC1003a pvn;
+    private b pwD;
+    private c pwQ;
+    private InterfaceC1006a pwR;
 
     /* renamed from: com.kascend.chushou.player.ui.h5.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1003a {
+    public interface InterfaceC1006a {
         void b(long j);
 
         void b(com.kascend.chushou.player.ui.h5.c.a aVar);
@@ -27,80 +27,80 @@ public class a {
     public a(Activity activity) {
         this.d = activity;
         try {
-            this.pvn = (InterfaceC1003a) activity;
+            this.pwR = (InterfaceC1006a) activity;
         } catch (Exception e) {
-            this.pvn = null;
+            this.pwR = null;
         }
     }
 
     public void a() {
         d();
-        this.pvm = null;
+        this.pwQ = null;
     }
 
     public void b() {
         d();
         this.d = null;
-        this.pvn = null;
+        this.pwR = null;
     }
 
     public void a(c cVar) {
-        if (this.pvm != null && this.pvm.p != null && !this.pvm.p.equals(cVar.p)) {
-            c cVar2 = this.pvm;
+        if (this.pwQ != null && this.pwQ.p != null && !this.pwQ.p.equals(cVar.p)) {
+            c cVar2 = this.pwQ;
             a((com.kascend.chushou.player.ui.h5.c.a) null);
             a(cVar2, true);
         }
-        this.pvm = cVar;
+        this.pwQ = cVar;
         e.d("VoteController", "投票开始计时，剩下时间：" + cVar.e);
         e();
     }
 
     public c evT() {
-        return this.pvm;
+        return this.pwQ;
     }
 
-    public H5Positon QI(int i) {
-        if (this.pvm == null) {
+    public H5Positon Rl(int i) {
+        if (this.pwQ == null) {
             return null;
         }
         if (i == 1) {
-            return this.pvm.pvh;
+            return this.pwQ.pwL;
         }
-        return this.pvm.pvi;
+        return this.pwQ.pwM;
     }
 
     private void d() {
-        if (this.puZ != null) {
-            this.puZ.dispose();
-            this.puZ = null;
+        if (this.pwD != null) {
+            this.pwD.dispose();
+            this.pwD = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.pvm != null) {
+        if (this.pwQ != null) {
             d();
-            if (this.pvm.e == 0) {
-                a(this.pvm, false);
+            if (this.pwQ.e == 0) {
+                a(this.pwQ, false);
                 return;
             }
-            final long j = this.pvm.e;
-            this.puZ = g.a(1L, j, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.eBg()).b(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.h5.d.a.3
+            final long j = this.pwQ.e;
+            this.pwD = g.a(1L, j, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.eBh()).b(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.h5.d.a.3
                 @Override // io.reactivex.c.a
                 public void run() throws Exception {
                     e.d("VoteController", "投票计时结束");
                     a.this.a((com.kascend.chushou.player.ui.h5.c.a) null);
-                    a.this.a(a.this.pvm, false);
+                    a.this.a(a.this.pwQ, false);
                 }
-            }).b(io.reactivex.a.b.a.eAB()).a(io.reactivex.a.b.a.eAB()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.h5.d.a.1
+            }).b(io.reactivex.a.b.a.eAC()).a(io.reactivex.a.b.a.eAC()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.h5.d.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // io.reactivex.c.g
                 /* renamed from: a */
                 public void accept(Long l) throws Exception {
-                    a.this.pvm.e = j - l.longValue();
-                    e.d("VoteController", "投票计时：" + a.this.pvm.e);
-                    if (a.this.pvn != null) {
-                        a.this.pvn.b(a.this.pvm.e);
+                    a.this.pwQ.e = j - l.longValue();
+                    e.d("VoteController", "投票计时：" + a.this.pwQ.e);
+                    if (a.this.pwR != null) {
+                        a.this.pwR.b(a.this.pwQ.e);
                     }
                 }
             }, new io.reactivex.c.g<Throwable>() { // from class: com.kascend.chushou.player.ui.h5.d.a.2
@@ -124,27 +124,27 @@ public class a {
             @Override // com.kascend.chushou.c.b
             public void a(String str, JSONObject jSONObject) {
                 if (!a.this.f()) {
-                    ParserRet eX = com.kascend.chushou.c.e.eX(jSONObject);
-                    if (eX.mRc == 0 && eX.mData != null) {
-                        com.kascend.chushou.player.ui.h5.c.a aVar = (com.kascend.chushou.player.ui.h5.c.a) eX.mData;
+                    ParserRet eS = com.kascend.chushou.c.e.eS(jSONObject);
+                    if (eS.mRc == 0 && eS.mData != null) {
+                        com.kascend.chushou.player.ui.h5.c.a aVar = (com.kascend.chushou.player.ui.h5.c.a) eS.mData;
                         if (z) {
                             a.this.a(aVar);
                             return;
                         }
-                        long longValue = ((Long) eX.mData1).longValue();
+                        long longValue = ((Long) eS.mData1).longValue();
                         e.d("VoteController", "投票计时查询剩下：" + longValue);
                         if (longValue <= 0) {
                             a.this.a(aVar);
                             return;
-                        } else if (a.this.pvm != null) {
-                            a.this.pvm.e = longValue;
+                        } else if (a.this.pwQ != null) {
+                            a.this.pwQ.e = longValue;
                             a.this.e();
                             return;
                         } else {
                             return;
                         }
                     }
-                    a(eX.mRc, eX.mMessage);
+                    a(eS.mRc, eS.mMessage);
                 }
             }
 
@@ -164,12 +164,12 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.kascend.chushou.player.ui.h5.c.a aVar) {
-        if (this.pvn != null) {
+        if (this.pwR != null) {
             d();
             if (aVar != null) {
-                this.pvm = null;
-                this.pvn.b(0L);
-                this.pvn.b(aVar);
+                this.pwQ = null;
+                this.pwR.b(0L);
+                this.pwR.b(aVar);
             }
         }
     }

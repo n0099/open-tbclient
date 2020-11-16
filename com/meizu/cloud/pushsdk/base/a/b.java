@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.base.a;
 
 import com.meizu.cloud.pushsdk.base.h;
 import java.lang.reflect.Constructor;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */

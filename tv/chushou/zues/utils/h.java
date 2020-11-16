@@ -17,20 +17,20 @@ import tv.chushou.basis.rxjava.RxExecutor;
 import tv.chushou.basis.rxjava.thread.EventThread;
 /* loaded from: classes6.dex */
 public class h {
-    private static volatile Resources qmt;
-    private static volatile File qnc;
-    private static tv.chushou.zues.toolkit.a.b.a<Drawable> qnd;
-    private static final Field qne;
+    private static volatile Resources qnW;
+    private static volatile File qoF;
+    private static tv.chushou.zues.toolkit.a.b.a<Drawable> qoG;
+    private static final Field qoH;
     private static volatile Application sApplication;
 
     public static void a(Context context, File file, Resources resources) {
         sApplication = (Application) context;
-        qnc = file;
-        qmt = resources;
+        qoF = file;
+        qnW = resources;
     }
 
     @SuppressLint({"PrivateApi"})
-    public static Application eHo() {
+    public static Application eHp() {
         if (sApplication != null) {
             return sApplication;
         }
@@ -45,8 +45,8 @@ public class h {
         return sApplication;
     }
 
-    public static Resources eHR() {
-        return qmt;
+    public static Resources eHS() {
+        return qnW;
     }
 
     public static boolean isEmpty(String str) {
@@ -72,7 +72,7 @@ public class h {
         }
     }
 
-    public static int cd(String str, int i) {
+    public static int cc(String str, int i) {
         if (!isEmpty(str)) {
             try {
                 return Integer.parseInt(str);
@@ -116,17 +116,17 @@ public class h {
         }
     }
 
-    public static void eHS() {
-        if (qnd != null) {
-            qnd.clear();
-            qnd = null;
+    public static void eHT() {
+        if (qoG != null) {
+            qoG.clear();
+            qoG = null;
         }
     }
 
     @Nullable
-    public static Drawable aaE(String str) {
-        if (qnd != null) {
-            return qnd.get(str);
+    public static Drawable aap(String str) {
+        if (qoG != null) {
+            return qoG.get(str);
         }
         return null;
     }
@@ -139,11 +139,11 @@ public class h {
                 if (obj instanceof Drawable) {
                     bitmapDrawable = (Drawable) obj;
                 } else if (obj instanceof Bitmap) {
-                    bitmapDrawable = new BitmapDrawable(eHR(), (Bitmap) obj);
+                    bitmapDrawable = new BitmapDrawable(eHS(), (Bitmap) obj);
                 }
                 if (bitmapDrawable != null) {
-                    if (qnd == null) {
-                        qnd = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: tv.chushou.zues.utils.h.1
+                    if (qoG == null) {
+                        qoG = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: tv.chushou.zues.utils.h.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // tv.chushou.zues.toolkit.a.b.b
                             /* renamed from: b */
@@ -152,7 +152,7 @@ public class h {
                             }
                         });
                     }
-                    qnd.put(str, bitmapDrawable);
+                    qoG.put(str, bitmapDrawable);
                 }
             } catch (Exception e) {
             }
@@ -160,82 +160,82 @@ public class h {
         return bitmapDrawable;
     }
 
-    public static String aaF(String str) {
+    public static String aaq(String str) {
         if (isEmpty(str)) {
             return "";
         }
-        File file = qnc;
+        File file = qoF;
         if (file == null) {
-            file = eHo().getCacheDir();
+            file = eHp().getCacheDir();
         }
         return file.getAbsolutePath() + File.separator + tv.chushou.a.a.d.b.encrypt(str);
     }
 
     @Nullable
-    public static Drawable aaG(final String str) {
+    public static Drawable aar(final String str) {
         if (isEmpty(str)) {
             return null;
         }
-        String aaI = aaI(str);
-        if (isEmpty(aaI)) {
+        String aat = aat(str);
+        if (isEmpty(aat)) {
             RxExecutor.post(null, EventThread.IO, new Runnable() { // from class: tv.chushou.zues.utils.h.2
                 @Override // java.lang.Runnable
                 public void run() {
                     Bitmap C = tv.chushou.zues.widget.fresco.a.C(str, 0, 0);
                     if (C != null) {
                         h.Q(str, C);
-                        c.a(C, new File(h.aaF(str)), Bitmap.CompressFormat.PNG, 75);
+                        c.a(C, new File(h.aaq(str)), Bitmap.CompressFormat.PNG, 75);
                     }
                 }
             });
             return null;
         }
-        Drawable aaE = aaE(str);
-        if (aaE == null) {
+        Drawable aap = aap(str);
+        if (aap == null) {
             try {
-                Bitmap decodeFile = BitmapFactory.decodeFile(aaI);
+                Bitmap decodeFile = BitmapFactory.decodeFile(aat);
                 if (decodeFile != null) {
                     return Q(str, decodeFile);
                 }
-                return aaE;
+                return aap;
             } catch (Exception e) {
-                return aaE;
+                return aap;
             }
         }
-        return aaE;
+        return aap;
     }
 
-    public static void aaH(String str) {
+    public static void aas(String str) {
         Bitmap decodeFile;
         if (!isEmpty(str)) {
-            String aaI = aaI(str);
-            if (isEmpty(aaI)) {
+            String aat = aat(str);
+            if (isEmpty(aat)) {
                 Bitmap C = tv.chushou.zues.widget.fresco.a.C(str, 0, 0);
                 if (C != null) {
                     Q(str, C);
-                    c.a(C, new File(aaF(str)), Bitmap.CompressFormat.PNG, 75);
+                    c.a(C, new File(aaq(str)), Bitmap.CompressFormat.PNG, 75);
                     return;
                 }
                 return;
             }
-            File file = new File(aaI);
-            if (file.exists() && file.isFile() && (decodeFile = BitmapFactory.decodeFile(aaI)) != null) {
+            File file = new File(aat);
+            if (file.exists() && file.isFile() && (decodeFile = BitmapFactory.decodeFile(aat)) != null) {
                 Q(str, decodeFile);
             }
         }
     }
 
-    private static String aaI(String str) {
+    private static String aat(String str) {
         if (isEmpty(str)) {
             return "";
         }
-        String aaF = aaF(str);
-        File file = new File(aaF);
+        String aaq = aaq(str);
+        File file = new File(aaq);
         if (!file.isFile() || !file.exists()) {
             e.d("Utils", "image( " + str + " ): not exists");
             return "";
         }
-        return aaF;
+        return aaq;
     }
 
     static {
@@ -248,12 +248,12 @@ public class h {
             } catch (Exception e2) {
                 e = e2;
                 e.printStackTrace();
-                qne = field;
+                qoH = field;
             }
         } catch (Exception e3) {
             field = null;
             e = e3;
         }
-        qne = field;
+        qoH = field;
     }
 }

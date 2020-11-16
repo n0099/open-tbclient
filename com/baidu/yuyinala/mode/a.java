@@ -8,37 +8,37 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static a otL;
+    private static a ovp;
     private TbPageContext mPageContext;
-    private b otM;
+    private b ovq;
 
-    public static a eeI() {
-        if (otL == null) {
+    public static a eeG() {
+        if (ovp == null) {
             synchronized (a.class) {
-                if (otL == null) {
-                    otL = new a();
+                if (ovp == null) {
+                    ovp = new a();
                 }
             }
         }
-        return otL;
+        return ovp;
     }
 
     public void b(TbPageContext tbPageContext, w wVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.otM = null;
+            this.ovq = null;
         }
         AlaAudioModeDialogData alaAudioModeDialogData = new AlaAudioModeDialogData();
-        alaAudioModeDialogData.setModeList(Xn(wVar == null ? "" : wVar.aJJ));
-        if (this.otM == null) {
-            this.otM = new b(tbPageContext, wVar, alaAudioModeDialogData);
+        alaAudioModeDialogData.setModeList(WY(wVar == null ? "" : wVar.aHY));
+        if (this.ovq == null) {
+            this.ovq = new b(tbPageContext, wVar, alaAudioModeDialogData);
         } else {
-            this.otM.a(wVar, alaAudioModeDialogData);
+            this.ovq.a(wVar, alaAudioModeDialogData);
         }
-        this.otM.show();
+        this.ovq.show();
     }
 
-    private List<com.baidu.yuyinala.mode.b.a> Xn(String str) {
+    private List<com.baidu.yuyinala.mode.b.a> WY(String str) {
         try {
             JSONArray optJSONArray = new JSONObject(str).optJSONArray("mode_list");
             int length = optJSONArray.length();
@@ -56,9 +56,9 @@ public class a {
         }
     }
 
-    public void Hv() {
-        if (this.otM != null && this.otM.isShowing()) {
-            this.otM.dismiss();
+    public void GM() {
+        if (this.ovq != null && this.ovq.isShowing()) {
+            this.ovq.dismiss();
         }
     }
 }

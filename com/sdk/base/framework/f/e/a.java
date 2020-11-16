@@ -9,7 +9,7 @@ import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.f.h.c;
 import com.sdk.base.module.manager.SDKManager;
 import java.net.HttpURLConnection;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

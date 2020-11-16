@@ -1,23 +1,23 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public class p extends d {
-    protected int eHi;
+    protected int eFA;
     protected long mLastTime;
-    protected float pWx;
+    protected float pYa;
     protected float x = 0.0f;
     protected float y = -1.0f;
-    protected float[] pWm = null;
+    protected float[] pXP = null;
 
     public p(g gVar) {
-        this.pVT = gVar;
+        this.pXw = gVar;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public void a(m mVar, float f, float f2) {
-        if (this.pVs != null) {
-            long j = this.pVs.pWi;
-            long eDo = j - eDo();
-            if (eDo > 0 && eDo < this.pVT.value) {
+        if (this.pWV != null) {
+            long j = this.pWV.pXL;
+            long eDp = j - eDp();
+            if (eDp > 0 && eDp < this.pXw.value) {
                 this.x = b(mVar, j);
                 if (!isShown()) {
                     this.y = f2;
@@ -32,44 +32,44 @@ public class p extends d {
     }
 
     protected float b(m mVar, long j) {
-        long eDo = j - eDo();
-        return eDo >= this.pVT.value ? -this.pVR : mVar.getWidth() - (((float) eDo) * this.pWx);
+        long eDp = j - eDp();
+        return eDp >= this.pXw.value ? -this.pXu : mVar.getWidth() - (((float) eDp) * this.pYa);
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public float[] a(m mVar, long j) {
-        if (!eDc()) {
+        if (!eDd()) {
             return null;
         }
         float b = b(mVar, j);
-        if (this.pWm == null) {
-            this.pWm = new float[4];
+        if (this.pXP == null) {
+            this.pXP = new float[4];
         }
-        this.pWm[0] = b;
-        this.pWm[1] = this.y;
-        this.pWm[2] = b + this.pVR;
-        this.pWm[3] = this.y + this.pVS;
-        return this.pWm;
-    }
-
-    @Override // master.flame.danmaku.danmaku.model.d
-    public float eDj() {
-        return this.x;
+        this.pXP[0] = b;
+        this.pXP[1] = this.y;
+        this.pXP[2] = b + this.pXu;
+        this.pXP[3] = this.y + this.pXv;
+        return this.pXP;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public float eDk() {
-        return this.y;
+        return this.x;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public float eDl() {
-        return this.x + this.pVR;
+        return this.y;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public float eDm() {
-        return this.y + this.pVS;
+        return this.x + this.pXu;
+    }
+
+    @Override // master.flame.danmaku.danmaku.model.d
+    public float eDn() {
+        return this.y + this.pXv;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
@@ -80,7 +80,7 @@ public class p extends d {
     @Override // master.flame.danmaku.danmaku.model.d
     public void a(m mVar, boolean z) {
         super.a(mVar, z);
-        this.eHi = (int) (mVar.getWidth() + this.pVR);
-        this.pWx = this.eHi / ((float) this.pVT.value);
+        this.eFA = (int) (mVar.getWidth() + this.pXu);
+        this.pYa = this.eFA / ((float) this.pXw.value);
     }
 }

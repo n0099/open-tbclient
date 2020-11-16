@@ -1,7 +1,7 @@
 package com.baidu.webkit.internal.brotli;
 
 import com.baidu.webkit.internal.brotli.DecoderJNI;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 final /* synthetic */ class a {
 
     /* renamed from: a  reason: collision with root package name */

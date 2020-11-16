@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class k extends aa {
     public k(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/file/save");
@@ -17,7 +17,7 @@ public class k extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (context == null || callbackHandler == null || eVar == null || eVar.aHF() == null) {
+        if (context == null || callbackHandler == null || eVar == null || eVar.aGX() == null) {
             com.baidu.swan.apps.console.c.e("saveFile", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -28,36 +28,36 @@ public class k extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        String cz = com.baidu.swan.apps.storage.b.cz(optParamsAsJo.optString("tempFilePath"), eVar.getAppId());
+        String cy = com.baidu.swan.apps.storage.b.cy(optParamsAsJo.optString("tempFilePath"), eVar.getAppId());
         if (DEBUG) {
             Log.d("SaveFileAction", "——> handle: tempFileUrl " + optParamsAsJo.optString("tempFilePath"));
-            Log.d("SaveFileAction", "——> handle: tempFilePath " + cz);
+            Log.d("SaveFileAction", "——> handle: tempFilePath " + cy);
         }
-        if (TextUtils.isEmpty(cz)) {
+        if (TextUtils.isEmpty(cy)) {
             com.baidu.swan.apps.console.c.e("saveFile", "temp file path is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        int tz = eVar.aHF().tz(cz);
+        int tu = eVar.aGX().tu(cy);
         if (DEBUG) {
-            Log.d("SaveFileAction", "——> handle: statusCode " + tz);
+            Log.d("SaveFileAction", "——> handle: statusCode " + tu);
         }
-        if (tz > 2000) {
-            com.baidu.swan.apps.console.c.e("saveFile", "file path status code : " + tz);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(tz, com.baidu.swan.apps.scheme.f.getErrMessage(tz)));
+        if (tu > 2000) {
+            com.baidu.swan.apps.console.c.e("saveFile", "file path status code : " + tu);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(tu, com.baidu.swan.apps.scheme.f.getErrMessage(tu)));
             return false;
         }
-        String tA = eVar.aHF().tA(cz);
-        if (TextUtils.isEmpty(tA)) {
+        String tv2 = eVar.aGX().tv(cy);
+        if (TextUtils.isEmpty(tv2)) {
             com.baidu.swan.apps.console.c.e("saveFile", "save file path is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, com.baidu.swan.apps.scheme.f.getErrMessage(2003)));
             return false;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("savedFilePath", com.baidu.swan.apps.storage.b.cC(tA, com.baidu.swan.apps.runtime.e.aHw()));
+            jSONObject.put("savedFilePath", com.baidu.swan.apps.storage.b.cB(tv2, com.baidu.swan.apps.runtime.e.aGO()));
             if (DEBUG) {
-                Log.d("SaveFileAction", "——> handle: saveFilePath saveFilePath " + tA + " update saveFilePath " + jSONObject.get("savedFilePath"));
+                Log.d("SaveFileAction", "——> handle: saveFilePath saveFilePath " + tv2 + " update saveFilePath " + jSONObject.get("savedFilePath"));
             }
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
             return true;

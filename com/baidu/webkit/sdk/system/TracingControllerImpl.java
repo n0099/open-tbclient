@@ -8,7 +8,7 @@ import com.baidu.webkit.sdk.TracingConfig;
 import com.baidu.webkit.sdk.TracingController;
 import java.io.OutputStream;
 import java.util.concurrent.Executor;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class TracingControllerImpl extends TracingController {
     @Override // com.baidu.webkit.sdk.TracingController
     public boolean isTracing() {

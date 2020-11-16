@@ -2,9 +2,9 @@ package com.baidu.tieba.homepage.personalize.view;
 
 import android.content.Context;
 import com.baidu.card.h;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class c extends h {
-    private f jGT;
+    private d jHS;
 
     public c(Context context) {
         super(context);
@@ -12,24 +12,24 @@ public class c extends h {
 
     @Override // com.baidu.card.h, com.baidu.card.at
     protected com.baidu.tieba.play.operableVideoView.a tH() {
-        this.jGT = new f(this.mContext, this.aiw);
-        this.jGT.setStageType("2001");
-        return this.jGT;
+        this.jHS = new d(this.mContext, this.aiB);
+        this.jHS.setStageType("2001");
+        return this.jHS;
     }
 
     @Override // com.baidu.card.at
     public void onPause() {
         super.onPause();
-        if (this.jGT != null) {
-            this.jGT.onPause();
+        if (this.jHS != null) {
+            this.jHS.onPause();
         }
     }
 
     @Override // com.baidu.card.at
     public void onResume() {
         super.onResume();
-        if (this.jGT != null) {
-            this.jGT.onResume();
+        if (this.jHS != null) {
+            this.jHS.onResume();
         }
     }
 }

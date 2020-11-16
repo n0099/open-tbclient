@@ -1,9 +1,9 @@
 package tv.chushou.common.player;
 /* loaded from: classes6.dex */
 public interface b {
-    void Qy(int i);
+    void Rb(int i);
 
-    void Qz(int i);
+    void Rc(int i);
 
     void euA();
 

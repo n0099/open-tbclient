@@ -22,7 +22,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public abstract class AppCompatDelegate {
     public static final int FEATURE_ACTION_MODE_OVERLAY = 10;
     public static final int FEATURE_SUPPORT_ACTION_BAR = 108;
@@ -37,13 +37,13 @@ public abstract class AppCompatDelegate {
     private static boolean sCompatVectorFromResourcesEnabled = false;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     @interface ApplyableNightMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public @interface NightMode {
     }
 

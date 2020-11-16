@@ -1,7 +1,7 @@
 package com.baidu.searchbox.skin.ioc;
 
 import com.baidu.searchbox.skin.callback.NightModeChangeListener;
-/* loaded from: classes14.dex */
+/* loaded from: classes18.dex */
 public interface INightContext {
     void forceSyncNightModeState(boolean z);
 

@@ -9,13 +9,13 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadForumEnterButtonContainer extends RelativeLayout {
-    private final int eWN;
-    private ThreadForumEnterButton eWO;
-    private ThreadForumEnterButton eWP;
-    private ThreadForumEnterButton eWQ;
-    private View eWR;
-    private int eWS;
-    private int eWT;
+    private final int eVU;
+    private ThreadForumEnterButton eVV;
+    private ThreadForumEnterButton eVW;
+    private ThreadForumEnterButton eVX;
+    private View eVY;
+    private int eVZ;
+    private int eWa;
 
     public ThreadForumEnterButtonContainer(Context context) {
         this(context, null);
@@ -27,53 +27,53 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
 
     public ThreadForumEnterButtonContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eWN = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds22);
+        this.eVU = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds22);
         LayoutInflater.from(context).inflate(R.layout.thread_forum_enter_button_container_layout, this);
-        this.eWO = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
-        this.eWP = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
-        this.eWQ = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
-        this.eWR = findViewById(R.id.bottom_placeholder);
-        this.eWS = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.eWN) / 2;
-        this.eWT = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.eWN * 2)) / 3;
+        this.eVV = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
+        this.eVW = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
+        this.eVX = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
+        this.eVY = findViewById(R.id.bottom_placeholder);
+        this.eVZ = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.eVU) / 2;
+        this.eWa = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.eVU * 2)) / 3;
     }
 
     public void setBottomPlaceHolderVisibility(boolean z) {
-        this.eWR.setVisibility(z ? 0 : 8);
+        this.eVY.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType() {
-        if (this.eWO != null) {
-            this.eWO.onChangeSkinType();
+        if (this.eVV != null) {
+            this.eVV.onChangeSkinType();
         }
-        if (this.eWP != null) {
-            this.eWP.onChangeSkinType();
+        if (this.eVW != null) {
+            this.eVW.onChangeSkinType();
         }
-        if (this.eWQ != null) {
-            this.eWQ.onChangeSkinType();
+        if (this.eVX != null) {
+            this.eVX.onChangeSkinType();
         }
     }
 
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
-        if (this.eWO != null) {
-            this.eWO.setAfterClickListener(onClickListener);
+        if (this.eVV != null) {
+            this.eVV.setAfterClickListener(onClickListener);
         }
-        if (this.eWP != null) {
-            this.eWP.setAfterClickListener(onClickListener);
+        if (this.eVW != null) {
+            this.eVW.setAfterClickListener(onClickListener);
         }
-        if (this.eWQ != null) {
-            this.eWQ.setAfterClickListener(onClickListener);
+        if (this.eVX != null) {
+            this.eVX.setAfterClickListener(onClickListener);
         }
     }
 
     public void setFrom(int i) {
-        if (this.eWO != null) {
-            this.eWO.setFrom(i);
+        if (this.eVV != null) {
+            this.eVV.setFrom(i);
         }
-        if (this.eWP != null) {
-            this.eWP.setFrom(i);
+        if (this.eVW != null) {
+            this.eVW.setFrom(i);
         }
-        if (this.eWQ != null) {
-            this.eWQ.setFrom(i);
+        if (this.eVX != null) {
+            this.eVX.setFrom(i);
         }
     }
 }

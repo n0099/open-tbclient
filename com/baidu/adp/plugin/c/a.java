@@ -15,22 +15,22 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a Tg = null;
-    private HashMap<String, ArrayList<Message<?>>> Tf = null;
+    private static volatile a Th = null;
+    private HashMap<String, ArrayList<Message<?>>> Tg = null;
 
     public static a pJ() {
-        if (Tg == null) {
+        if (Th == null) {
             synchronized (a.class) {
-                if (Tg == null) {
-                    Tg = new a();
+                if (Th == null) {
+                    Th = new a();
                 }
             }
         }
-        return Tg;
+        return Th;
     }
 
     public void init() {
-        this.Tf = new HashMap<>();
+        this.Tg = new HashMap<>();
         pL();
         pK();
     }
@@ -44,13 +44,13 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.Te == 0 && a.this.Tf.size() > 0 && (arrayList = (ArrayList) a.this.Tf.get(aVar.Td)) != null && arrayList.size() > 0) {
+                    if (aVar.Tf == 0 && a.this.Tg.size() > 0 && (arrayList = (ArrayList) a.this.Tg.get(aVar.Te)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.Tf.remove(aVar.Td);
+                    a.this.Tg.remove(aVar.Te);
                 }
             }
         });
@@ -63,17 +63,17 @@ public class a {
                 if (message == null) {
                     return false;
                 }
-                String aF = c.qv().aF(message.getCmd());
-                if (TextUtils.isEmpty(aF) || c.qv().cN(aF)) {
+                String aG = c.qv().aG(message.getCmd());
+                if (TextUtils.isEmpty(aG) || c.qv().cP(aG)) {
                     return false;
                 }
-                if (!PluginCenter.getInstance().hasInstance(aF)) {
-                    a.this.a(aF, message);
-                    return PluginCenter.getInstance().launch(aF).isSucc;
-                } else if (PluginCenter.getInstance().isLoaded(aF)) {
+                if (!PluginCenter.getInstance().hasInstance(aG)) {
+                    a.this.a(aG, message);
+                    return PluginCenter.getInstance().launch(aG).isSucc;
+                } else if (PluginCenter.getInstance().isLoaded(aG)) {
                     return false;
                 } else {
-                    a.this.a(aF, message);
+                    a.this.a(aG, message);
                     return true;
                 }
             }
@@ -83,10 +83,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.Tf.get(str);
+            ArrayList<Message<?>> arrayList = this.Tg.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.Tf.put(str, arrayList);
+                this.Tg.put(str, arrayList);
             }
             arrayList.add(message);
         }

@@ -1,7 +1,7 @@
 package com.vivo.push.util;
 
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 final class f implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */

@@ -5,8 +5,8 @@ import com.baidu.tieba.recommendlist.data.d;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaRecommendLiveResponseMessage extends JsonHttpResponsedMessage {
-    public d mCn;
-    public d mCo;
+    public d mCL;
+    public d mCM;
 
     public AlaRecommendLiveResponseMessage() {
         super(1021193);
@@ -19,15 +19,15 @@ public class AlaRecommendLiveResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("follow");
             if (optJSONObject2 != null) {
-                this.mCn = new d();
-                this.mCn.type = 0;
-                this.mCn.parserJson(optJSONObject2);
+                this.mCL = new d();
+                this.mCL.type = 0;
+                this.mCL.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("recommend");
             if (optJSONObject3 != null) {
-                this.mCo = new d();
-                this.mCo.type = 1;
-                this.mCo.parserJson(optJSONObject3);
+                this.mCM = new d();
+                this.mCM.type = 1;
+                this.mCM.parserJson(optJSONObject3);
             }
         }
     }

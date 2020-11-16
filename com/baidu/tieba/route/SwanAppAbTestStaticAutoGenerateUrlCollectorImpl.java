@@ -4,7 +4,7 @@ import com.baidu.adp.framework.a.d;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public final class SwanAppAbTestStaticAutoGenerateUrlCollectorImpl implements d {
     @Override // com.baidu.adp.framework.a.d
     public Map<String, ArrayList<String>> getConfigRouterMap() {
@@ -23,6 +23,7 @@ public final class SwanAppAbTestStaticAutoGenerateUrlCollectorImpl implements d 
         hashMap.put("2921377", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic");
         hashMap.put("2921410", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic");
         hashMap.put("3001000", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic");
+        hashMap.put("2921512", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic");
         return hashMap;
     }
 }

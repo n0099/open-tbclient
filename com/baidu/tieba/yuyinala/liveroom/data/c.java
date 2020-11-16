@@ -3,11 +3,11 @@ package com.baidu.tieba.yuyinala.liveroom.data;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    public String aJm;
+    public String aHB;
     public String appUrl;
-    public String hgL;
-    public String hgM;
-    public String hgN;
+    public String hgs;
+    public String hgt;
+    public String hgu;
     public int needToast;
     public String packageName;
     public String portrait;
@@ -21,11 +21,11 @@ public class c {
             if (optJSONObject != null) {
                 this.packageName = optJSONObject.optString("package_name", "");
                 this.appUrl = optJSONObject.optString("app_url", "");
-                this.hgL = optJSONObject.optString("app_deeplink_url", "");
-                this.hgM = optJSONObject.optString("app_backup_deeplink_url", "");
-                this.hgN = optJSONObject.optString("app_clipboard_url", "");
+                this.hgs = optJSONObject.optString("app_deeplink_url", "");
+                this.hgt = optJSONObject.optString("app_backup_deeplink_url", "");
+                this.hgu = optJSONObject.optString("app_clipboard_url", "");
             }
-            this.aJm = jSONObject.optString("toast_text", "");
+            this.aHB = jSONObject.optString("toast_text", "");
             this.subappType = jSONObject.optString("subapp_type", "");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("user_info");
             if (optJSONObject2 != null) {

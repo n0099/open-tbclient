@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDraweeControllerBuilder<BUILDER, REQUEST, IMAGE, INFO>, REQUEST, IMAGE, INFO> implements com.facebook.drawee.d.d {
-    private static final c<Object> oNZ = new b<Object>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.1
+    private static final c<Object> oPD = new b<Object>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.1
         @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
         public void a(String str, @Nullable Object obj, @Nullable Animatable animatable) {
             if (animatable != null) {
@@ -21,33 +21,33 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
             }
         }
     };
-    private static final NullPointerException oOa = new NullPointerException("No image request was specified!");
-    private static final AtomicLong oOh = new AtomicLong();
+    private static final NullPointerException oPE = new NullPointerException("No image request was specified!");
+    private static final AtomicLong oPL = new AtomicLong();
     private final Context mContext;
     @Nullable
-    private j<com.facebook.datasource.b<IMAGE>> oML;
-    private final Set<c> oMT;
-    private boolean oNE;
+    private Object oOE;
     @Nullable
-    private c<? super INFO> oNL;
+    private j<com.facebook.datasource.b<IMAGE>> oOp;
+    private final Set<c> oOx;
     @Nullable
-    private d oNM;
-    private boolean oNS;
-    private String oNT;
+    private REQUEST oPF;
     @Nullable
-    private Object oNa;
+    private REQUEST oPG;
     @Nullable
-    private REQUEST oOb;
+    private REQUEST[] oPH;
+    private boolean oPI;
+    private boolean oPJ;
     @Nullable
-    private REQUEST oOc;
+    private com.facebook.drawee.d.a oPK;
+    private boolean oPi;
     @Nullable
-    private REQUEST[] oOd;
-    private boolean oOe;
-    private boolean oOf;
+    private c<? super INFO> oPp;
     @Nullable
-    private com.facebook.drawee.d.a oOg;
+    private d oPq;
+    private boolean oPw;
+    private String oPx;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum CacheLevel {
         FULL_FETCH,
         DISK_CACHE,
@@ -57,154 +57,154 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     protected abstract com.facebook.datasource.b<IMAGE> a(com.facebook.drawee.d.a aVar, String str, REQUEST request, Object obj, CacheLevel cacheLevel);
 
     @ReturnsOwnership
-    protected abstract a ele();
+    protected abstract a elc();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public AbstractDraweeControllerBuilder(Context context, Set<c> set) {
         this.mContext = context;
-        this.oMT = set;
+        this.oOx = set;
         init();
     }
 
     private void init() {
-        this.oNa = null;
-        this.oOb = null;
-        this.oOc = null;
-        this.oOd = null;
-        this.oOe = true;
-        this.oNL = null;
-        this.oNM = null;
-        this.oNE = false;
-        this.oOf = false;
-        this.oOg = null;
-        this.oNT = null;
+        this.oOE = null;
+        this.oPF = null;
+        this.oPG = null;
+        this.oPH = null;
+        this.oPI = true;
+        this.oPp = null;
+        this.oPq = null;
+        this.oPi = false;
+        this.oPJ = false;
+        this.oPK = null;
+        this.oPx = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.d.d
-    /* renamed from: bm */
-    public BUILDER bp(Object obj) {
-        this.oNa = obj;
-        return elI();
+    /* renamed from: bn */
+    public BUILDER bq(Object obj) {
+        this.oOE = obj;
+        return elG();
     }
 
     @Nullable
-    public Object elz() {
-        return this.oNa;
-    }
-
-    public BUILDER bn(REQUEST request) {
-        this.oOb = request;
-        return elI();
-    }
-
-    @Nullable
-    public REQUEST elA() {
-        return this.oOb;
+    public Object elx() {
+        return this.oOE;
     }
 
     public BUILDER bo(REQUEST request) {
-        this.oOc = request;
-        return elI();
+        this.oPF = request;
+        return elG();
     }
 
-    public BUILDER Ae(boolean z) {
-        this.oNE = z;
-        return elI();
+    @Nullable
+    public REQUEST ely() {
+        return this.oPF;
     }
 
-    public boolean elB() {
-        return this.oNS;
+    public BUILDER bp(REQUEST request) {
+        this.oPG = request;
+        return elG();
     }
 
-    public BUILDER Af(boolean z) {
-        this.oOf = z;
-        return elI();
+    public BUILDER Al(boolean z) {
+        this.oPi = z;
+        return elG();
+    }
+
+    public boolean elz() {
+        return this.oPw;
+    }
+
+    public BUILDER Am(boolean z) {
+        this.oPJ = z;
+        return elG();
     }
 
     public BUILDER c(c<? super INFO> cVar) {
-        this.oNL = cVar;
-        return elI();
+        this.oPp = cVar;
+        return elG();
     }
 
     @Nullable
-    public d elC() {
-        return this.oNM;
+    public d elA() {
+        return this.oPq;
     }
 
     @Nullable
-    public String elD() {
-        return this.oNT;
+    public String elB() {
+        return this.oPx;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.d.d
     /* renamed from: b */
     public BUILDER c(@Nullable com.facebook.drawee.d.a aVar) {
-        this.oOg = aVar;
-        return elI();
+        this.oPK = aVar;
+        return elG();
     }
 
     @Nullable
-    public com.facebook.drawee.d.a elE() {
-        return this.oOg;
+    public com.facebook.drawee.d.a elC() {
+        return this.oPK;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.d.d
-    /* renamed from: elF */
-    public a elJ() {
+    /* renamed from: elD */
+    public a elH() {
         validate();
-        if (this.oOb == null && this.oOd == null && this.oOc != null) {
-            this.oOb = this.oOc;
-            this.oOc = null;
+        if (this.oPF == null && this.oPH == null && this.oPG != null) {
+            this.oPF = this.oPG;
+            this.oPG = null;
         }
-        return elG();
+        return elE();
     }
 
     protected void validate() {
         boolean z = false;
-        g.d(this.oOd == null || this.oOb == null, "Cannot specify both ImageRequest and FirstAvailableImageRequests!");
-        if (this.oML == null || (this.oOd == null && this.oOb == null && this.oOc == null)) {
+        g.d(this.oPH == null || this.oPF == null, "Cannot specify both ImageRequest and FirstAvailableImageRequests!");
+        if (this.oOp == null || (this.oPH == null && this.oPF == null && this.oPG == null)) {
             z = true;
         }
         g.d(z, "Cannot specify DataSourceSupplier with other ImageRequests! Use one or the other.");
     }
 
-    protected a elG() {
-        a ele = ele();
-        ele.Ad(elB());
-        ele.Yi(elD());
-        ele.a(elC());
-        b(ele);
-        a(ele);
-        return ele;
+    protected a elE() {
+        a elc = elc();
+        elc.Ak(elz());
+        elc.XT(elB());
+        elc.a(elA());
+        b(elc);
+        a(elc);
+        return elc;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static String elH() {
-        return String.valueOf(oOh.getAndIncrement());
+    public static String elF() {
+        return String.valueOf(oPL.getAndIncrement());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j<com.facebook.datasource.b<IMAGE>> a(com.facebook.drawee.d.a aVar, String str) {
-        if (this.oML != null) {
-            return this.oML;
+        if (this.oOp != null) {
+            return this.oOp;
         }
         j<com.facebook.datasource.b<IMAGE>> jVar = null;
-        if (this.oOb != null) {
-            jVar = a(aVar, str, this.oOb);
-        } else if (this.oOd != null) {
-            jVar = a(aVar, str, this.oOd, this.oOe);
+        if (this.oPF != null) {
+            jVar = a(aVar, str, this.oPF);
+        } else if (this.oPH != null) {
+            jVar = a(aVar, str, this.oPH, this.oPI);
         }
-        if (jVar != null && this.oOc != null) {
+        if (jVar != null && this.oPG != null) {
             ArrayList arrayList = new ArrayList(2);
             arrayList.add(jVar);
-            arrayList.add(a(aVar, str, this.oOc));
+            arrayList.add(a(aVar, str, this.oPG));
             jVar = f.x(arrayList, false);
         }
         if (jVar == null) {
-            return com.facebook.datasource.c.A(oOa);
+            return com.facebook.datasource.c.A(oPE);
         }
         return jVar;
     }
@@ -227,51 +227,51 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     }
 
     protected j<com.facebook.datasource.b<IMAGE>> a(final com.facebook.drawee.d.a aVar, final String str, final REQUEST request, final CacheLevel cacheLevel) {
-        final Object elz = elz();
+        final Object elx = elx();
         return new j<com.facebook.datasource.b<IMAGE>>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.facebook.drawee.controller.AbstractDraweeControllerBuilder */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.facebook.common.internal.j
-            /* renamed from: ekH */
+            /* renamed from: ekF */
             public com.facebook.datasource.b<IMAGE> get() {
-                return AbstractDraweeControllerBuilder.this.a(aVar, str, request, elz, cacheLevel);
+                return AbstractDraweeControllerBuilder.this.a(aVar, str, request, elx, cacheLevel);
             }
 
             public String toString() {
-                return com.facebook.common.internal.f.aZ(this).F("request", request.toString()).toString();
+                return com.facebook.common.internal.f.ba(this).F("request", request.toString()).toString();
             }
         };
     }
 
     protected void a(a aVar) {
-        if (this.oMT != null) {
-            for (c cVar : this.oMT) {
+        if (this.oOx != null) {
+            for (c cVar : this.oOx) {
                 aVar.a(cVar);
             }
         }
-        if (this.oNL != null) {
-            aVar.a(this.oNL);
+        if (this.oPp != null) {
+            aVar.a(this.oPp);
         }
-        if (this.oOf) {
-            aVar.a(oNZ);
+        if (this.oPJ) {
+            aVar.a(oPD);
         }
     }
 
     protected void b(a aVar) {
-        if (this.oNE) {
-            aVar.els().Ac(this.oNE);
+        if (this.oPi) {
+            aVar.elq().Aj(this.oPi);
             c(aVar);
         }
     }
 
     protected void c(a aVar) {
-        if (aVar.elt() == null) {
-            aVar.a(com.facebook.drawee.c.a.gY(this.mContext));
+        if (aVar.elr() == null) {
+            aVar.a(com.facebook.drawee.c.a.gW(this.mContext));
         }
     }
 
-    protected final BUILDER elI() {
+    protected final BUILDER elG() {
         return this;
     }
 }

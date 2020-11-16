@@ -81,11 +81,11 @@ public class PluginCenter {
             } else if (findPluginSetting.versionCode < PluginPackageManager.pS()) {
                 bVar.reason = "launch_lowversion";
                 bVar.isSucc = false;
-                com.baidu.adp.plugin.b.a.pD().E("plugincenter_launch_lowversion", str);
+                com.baidu.adp.plugin.b.a.pD().D("plugincenter_launch_lowversion", str);
                 com.baidu.adp.plugin.b.a.pD().f("plugin_load", "plugincenter_load_lowversion", str, findPluginSetting.apkPath + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.versionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.forbidden + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.tempVersionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.installStatus);
-                com.baidu.adp.plugin.packageManager.pluginSettings.c.qv().cP(str);
+                com.baidu.adp.plugin.packageManager.pluginSettings.c.qv().cR(str);
                 if (z) {
-                    com.baidu.adp.plugin.packageManager.status.a.qB().cR(str);
+                    com.baidu.adp.plugin.packageManager.status.a.qB().cT(str);
                 }
             } else if (this.mPluginsMap.containsKey(str)) {
                 bVar.isSucc = false;
@@ -163,7 +163,7 @@ public class PluginCenter {
     }
 
     public boolean isEnable(String str) {
-        return isLoaded(str) && !com.baidu.adp.plugin.packageManager.pluginSettings.c.qv().cN(str);
+        return isLoaded(str) && !com.baidu.adp.plugin.packageManager.pluginSettings.c.qv().cP(str);
     }
 
     public int getHostResourcesId(Context context, String str, String str2, String str3) {
@@ -241,7 +241,7 @@ public class PluginCenter {
     }
 
     public <P> P getMotuClassInstance() {
-        if (PluginPackageManager.pT().isFeatureForbidden("com.baidu.tbadk.motu_gallery") || PluginPackageManager.pT().cD(NAME_MOTUSDK)) {
+        if (PluginPackageManager.pT().isFeatureForbidden("com.baidu.tbadk.motu_gallery") || PluginPackageManager.pT().cF(NAME_MOTUSDK)) {
             return null;
         }
         try {
@@ -328,7 +328,7 @@ public class PluginCenter {
                             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                             sb.append(initWithBroadcast.reason);
                             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                            sb.append(initWithBroadcast.RK);
+                            sb.append(initWithBroadcast.RL);
                         }
                     }
                 }
@@ -366,7 +366,7 @@ public class PluginCenter {
                                     com.baidu.adp.plugin.b.a.pD().log("plugin_load_retry_succ");
                                 }
                             } else if (PluginPackageManager.pT().isMainProcess()) {
-                                com.baidu.adp.plugin.b.a.pD().i("plugin_loaded_failed", key, bVar.reason, bVar.RK);
+                                com.baidu.adp.plugin.b.a.pD().i("plugin_loaded_failed", key, bVar.reason, bVar.RL);
                             }
                         }
                     }
@@ -408,13 +408,13 @@ public class PluginCenter {
                                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                     sb.append(bVar.reason);
                                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                                    sb.append(bVar.RK);
+                                    sb.append(bVar.RL);
                                 } else {
                                     sb.append("-ret==null");
                                 }
                             }
                             if (j > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
-                                com.baidu.adp.plugin.packageManager.status.a.qB().cR(value.getPackageName());
+                                com.baidu.adp.plugin.packageManager.status.a.qB().cT(value.getPackageName());
                             }
                         }
                     }

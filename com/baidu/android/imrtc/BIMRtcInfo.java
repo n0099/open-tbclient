@@ -7,7 +7,7 @@ import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcConstants;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class BIMRtcInfo implements Parcelable {
     public static final Parcelable.Creator<BIMRtcInfo> CREATOR = new Parcelable.Creator<BIMRtcInfo>() { // from class: com.baidu.android.imrtc.BIMRtcInfo.1
         /* JADX DEBUG: Method merged with bridge method */

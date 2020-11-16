@@ -29,22 +29,18 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public class CyberCfgManager {
     @Keep
     public static final String KEY_ACCURATE_SEEK_ENABLE = "accurate_seek_enable";
     @Keep
     public static final String KEY_INT_DECODE_MODE = "decode_mode";
     @Keep
-    public static final String KEY_INT_ENABLE_BSO = "enable_bso";
-    @Keep
     public static final String KEY_INT_ENABLE_CRASHPAD = "enable_crashpad";
     @Keep
     public static final String KEY_INT_ENABLE_FILE_CACHE = "enable_file_cache";
     @Keep
     public static final String KEY_INT_ENABLE_HW_DECODE = "enable_hw_decode";
-    @Keep
-    public static final String KEY_INT_ENABLE_MEDIACODEC_OMX_GOOGLE_HEVC = "mediacodec_enable_omx_google_hevc";
     @Keep
     public static final String KEY_INT_ENABLE_MEDIACODEC_REUSE = "enable_mediacodec_reuse";
     @Keep
@@ -82,7 +78,7 @@ public class CyberCfgManager {
     private static int j = 86400000;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<String> f1374a = new ArrayList<>();
+    public static ArrayList<String> f1377a = new ArrayList<>();
     private static ArrayList<String> m = new ArrayList<>();
     private static ArrayList<String> n = new ArrayList<>();
     private static ArrayList<String> o = new ArrayList<>();
@@ -91,10 +87,10 @@ public class CyberCfgManager {
     private static ArrayList<String> r = new ArrayList<>();
 
     static {
-        f1374a.add("hwH60");
-        f1374a.add("hwp7");
-        f1374a.add("sp8830ec");
-        f1374a.add("Hisense M30T");
+        f1377a.add("hwH60");
+        f1377a.add("hwp7");
+        f1377a.add("sp8830ec");
+        f1377a.add("Hisense M30T");
         m.add("GT-I9500");
         m.add("GT-I9268");
         m.add("GT-I8268");
@@ -143,6 +139,7 @@ public class CyberCfgManager {
         m.add("MHA-AL00");
         m.add("Redmi 3S");
         m.add("Redmi 3X");
+        r.add("EML-TL00");
         r.add("HMA-AL00");
         r.add("ELE-AL00");
         r.add("ELE-TL00");
@@ -202,8 +199,8 @@ public class CyberCfgManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         this.d.clear();
-        d();
         c();
+        d();
         e();
         f();
         synchronized (this) {
@@ -452,7 +449,7 @@ public class CyberCfgManager {
     }
 
     private boolean n() {
-        if (Build.VERSION.SDK_INT >= 16 && !CfgItemParser.a(f1374a, m)) {
+        if (Build.VERSION.SDK_INT >= 16 && !CfgItemParser.a(f1377a, m)) {
             String a2 = a(this.d, "black_devices_for_hw", "");
             if (TextUtils.isEmpty(a2)) {
                 return false;

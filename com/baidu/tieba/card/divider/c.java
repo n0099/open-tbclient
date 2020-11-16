@@ -7,24 +7,24 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class c extends com.baidu.tieba.card.b<b> {
     private int dividerHeight;
-    private View fQl;
-    private int icz;
+    private View fPU;
+    private int idp;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.icz = R.color.cp_bg_line_c;
+        this.idp = R.color.CAM_X0204;
         this.dividerHeight = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
         getView().setOnClickListener(this);
-        this.fQl = getView().findViewById(R.id.card_divider);
+        this.fPU = getView().findViewById(R.id.card_divider);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundColor(this.fQl, this.icz);
+            ap.setBackgroundColor(this.fPU, this.idp);
         }
         this.mSkinType = i;
     }
@@ -38,19 +38,19 @@ public class c extends com.baidu.tieba.card.b<b> {
     @Override // com.baidu.tieba.card.b
     public void a(b bVar) {
         if (bVar != null) {
-            this.fQl.setVisibility(0);
-            this.icz = bVar.icz;
+            this.fPU.setVisibility(0);
+            this.idp = bVar.idp;
             this.dividerHeight = bVar.dividerHeight;
-            coX();
+            coy();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void coX() {
-        ViewGroup.LayoutParams layoutParams = this.fQl.getLayoutParams();
+    private void coy() {
+        ViewGroup.LayoutParams layoutParams = this.fPU.getLayoutParams();
         if (layoutParams != null && layoutParams.height != this.dividerHeight) {
             layoutParams.height = this.dividerHeight;
-            this.fQl.setLayoutParams(layoutParams);
+            this.fPU.setLayoutParams(layoutParams);
         }
     }
 

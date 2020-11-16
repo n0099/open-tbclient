@@ -7,7 +7,7 @@ import android.graphics.Rect;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class LoadingBar extends TextView {
     private static final int MAX_PROGRESS = 100;
     private Handler mHander;

@@ -3,35 +3,35 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private boolean fcd = false;
+    private boolean fbl = false;
 
-    public boolean bul() {
-        return this.fcd;
+    public boolean btB() {
+        return this.fbl;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("zan_or_cai_smallflow");
-                dp(optJSONObject);
-                dq(optJSONObject);
+                dj(optJSONObject);
+                dk(optJSONObject);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void dp(JSONObject jSONObject) {
+    private void dj(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.fcd = true;
+            this.fbl = true;
         }
     }
 
-    public void dq(JSONObject jSONObject) {
+    public void dk(JSONObject jSONObject) {
         if (jSONObject != null) {
-            com.baidu.tbadk.core.sharedPref.b.bqh().putString("praise_abtest_switch_json", jSONObject.toString());
+            com.baidu.tbadk.core.sharedPref.b.bpu().putString("praise_abtest_switch_json", jSONObject.toString());
         } else {
-            com.baidu.tbadk.core.sharedPref.b.bqh().putString("praise_abtest_switch_json", "");
+            com.baidu.tbadk.core.sharedPref.b.bpu().putString("praise_abtest_switch_json", "");
         }
     }
 }

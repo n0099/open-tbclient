@@ -15,7 +15,7 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static boolean DEBUG = b.DEBUG;
 
@@ -30,12 +30,12 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, final SwanAppActionBar swanAppActionBar, String str) {
-        final JSONObject V = com.baidu.swan.apps.t.a.axk().V(context, str);
-        if (V != null && swanAppActionBar != null) {
+        final JSONObject S = com.baidu.swan.apps.t.a.awC().S(context, str);
+        if (S != null && swanAppActionBar != null) {
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.x.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.a(swanAppActionBar, a.bo(V));
+                    a.a(swanAppActionBar, a.bi(S));
                 }
             });
         }
@@ -61,10 +61,10 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, final h hVar, String str) {
-        JSONObject V = com.baidu.swan.apps.t.a.axk().V(context, str);
-        if (V != null && hVar != null) {
-            bo(V);
-            final JSONArray optJSONArray = V.optJSONArray("un_read_list");
+        JSONObject S = com.baidu.swan.apps.t.a.awC().S(context, str);
+        if (S != null && hVar != null) {
+            bi(S);
+            final JSONArray optJSONArray = S.optJSONArray("un_read_list");
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.x.a.4
                 @Override // java.lang.Runnable
                 public void run() {
@@ -73,34 +73,34 @@ public class a {
                         for (int i = 0; i < length; i++) {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                             if (optJSONObject != null) {
-                                hVar.cI(optJSONObject);
-                                a.bp(optJSONObject);
+                                hVar.cC(optJSONObject);
+                                a.bj(optJSONObject);
                             }
                         }
-                        hVar.bar();
+                        hVar.aZK();
                     }
                 }
             });
         }
     }
 
-    public static boolean fI(boolean z) {
-        if (e.aHv() == null) {
+    public static boolean fL(boolean z) {
+        if (e.aGN() == null) {
             return false;
         }
-        e aHv = e.aHv();
-        PMSAppInfo ayT = e.aHv().aHy().ayT();
-        if (aHv.aHN() || ayT == null || TextUtils.isEmpty(ayT.paNumber)) {
+        e aGN = e.aGN();
+        PMSAppInfo ayl = e.aGN().aGQ().ayl();
+        if (aGN.aHf() || ayl == null || TextUtils.isEmpty(ayl.paNumber)) {
             return false;
         }
         if (z) {
             return true;
         }
-        return aHv.aHM().b("key_unread_counts_message", (Integer) 0).intValue() <= 0;
+        return aGN.aHe().b("key_unread_counts_message", (Integer) 0).intValue() <= 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int bo(JSONObject jSONObject) {
+    public static int bi(JSONObject jSONObject) {
         if (jSONObject == null) {
             return 0;
         }
@@ -116,7 +116,7 @@ public class a {
             if (optInt == 7) {
                 i += optJSONObject.optInt("pa_unread_sums");
             }
-            if (ak.aNb() && (optInt == 27 || optInt == 17)) {
+            if (ak.aMt() && (optInt == 27 || optInt == 17)) {
                 i += optJSONObject.optInt("pa_unread_sums");
             }
         }
@@ -129,20 +129,20 @@ public class a {
                 }
             }
         }
-        if (e.aHv() != null) {
-            e.aHv().aHM().a("key_unread_counts_message", Integer.valueOf(i));
+        if (e.aGN() != null) {
+            e.aGN().aHe().a("key_unread_counts_message", Integer.valueOf(i));
             return i;
         }
         return i;
     }
 
-    public static void aBX() {
-        if (e.aHv() != null) {
-            e.aHv().aHM().a("key_unread_counts_message", (Integer) 0);
+    public static void aBp() {
+        if (e.aGN() != null) {
+            e.aGN().aHe().a("key_unread_counts_message", (Integer) 0);
         }
     }
 
-    public static void bp(JSONObject jSONObject) {
+    public static void bj(JSONObject jSONObject) {
         if (jSONObject != null && Long.valueOf(jSONObject.optLong("pa_unread_sums")).longValue() > 0) {
             String str = "";
             switch (jSONObject.optInt("pa_type")) {

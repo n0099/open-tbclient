@@ -4,7 +4,7 @@ import android.support.media.ExifInterface;
 import android.text.format.Time;
 import android.util.Log;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */

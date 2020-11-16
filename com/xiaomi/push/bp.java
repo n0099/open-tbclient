@@ -6,40 +6,40 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.xiaomi.push.ai;
 import com.xiaomi.push.cb;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class bp {
 
     /* renamed from: a  reason: collision with root package name */
     private static volatile bp f4819a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f134a;
+    private Context f137a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ce f136a;
+    private ce f139a;
 
     /* renamed from: a  reason: collision with other field name */
-    private cf f137a;
+    private cf f140a;
     private String e;
     private String f;
 
     /* renamed from: a  reason: collision with other field name */
-    private final String f138a = "push_stat_sp";
+    private final String f141a = "push_stat_sp";
 
     /* renamed from: b  reason: collision with other field name */
-    private final String f139b = "upload_time";
+    private final String f142b = "upload_time";
 
     /* renamed from: c  reason: collision with other field name */
-    private final String f140c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
+    private final String f143c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
     private final String d = "check_time";
 
     /* renamed from: a  reason: collision with other field name */
-    private ai.a f135a = new bq(this);
+    private ai.a f138a = new bq(this);
     private ai.a b = new br(this);
     private ai.a c = new bs(this);
 
     private bp(Context context) {
-        this.f134a = context;
+        this.f137a = context;
     }
 
     public static bp a(Context context) {
@@ -54,48 +54,48 @@ public class bp {
     }
 
     private boolean a() {
-        return com.xiaomi.push.service.ak.a(this.f134a).a(hr.StatDataSwitch.a(), true);
+        return com.xiaomi.push.service.ak.a(this.f137a).a(hr.StatDataSwitch.a(), true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
-        SharedPreferences.Editor edit = this.f134a.getSharedPreferences("push_stat_sp", 0).edit();
+        SharedPreferences.Editor edit = this.f137a.getSharedPreferences("push_stat_sp", 0).edit();
         edit.putLong(str, System.currentTimeMillis());
         r.a(edit);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String c() {
-        return this.f134a.getDatabasePath(bt.f142a).getAbsolutePath();
+        return this.f137a.getDatabasePath(bt.f145a).getAbsolutePath();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m175a() {
+    public String m178a() {
         return this.e;
     }
 
     public void a(cb.a aVar) {
-        cb.a(this.f134a).a(aVar);
+        cb.a(this.f137a).a(aVar);
     }
 
     public void a(hq hqVar) {
         if (a() && com.xiaomi.push.service.bi.a(hqVar.e())) {
-            a(by.a(this.f134a, c(), hqVar));
+            a(by.a(this.f137a, c(), hqVar));
         }
     }
 
     public void a(String str) {
         if (a() && !TextUtils.isEmpty(str)) {
-            a(cg.a(this.f134a, str));
+            a(cg.a(this.f137a, str));
         }
     }
 
     public void a(String str, String str2, Boolean bool) {
-        if (this.f136a != null) {
+        if (this.f139a != null) {
             if (bool.booleanValue()) {
-                this.f136a.a(this.f134a, str2, str);
+                this.f139a.a(this.f137a, str2, str);
             } else {
-                this.f136a.b(this.f134a, str2, str);
+                this.f139a.b(this.f137a, str2, str);
             }
         }
     }

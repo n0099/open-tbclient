@@ -29,7 +29,7 @@ import java.net.HttpURLConnection;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
     private static final String LOGTAG = "WebViewSystemFactoryProvider";
     private static WebViewSystemFactoryProvider mInstance;

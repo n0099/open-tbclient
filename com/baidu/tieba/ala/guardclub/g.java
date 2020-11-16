@@ -6,36 +6,36 @@ import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.e;
 /* loaded from: classes4.dex */
 public class g {
-    private com.baidu.tieba.ala.guardclub.view.d gGl;
-    private e.a gGn = new e.a() { // from class: com.baidu.tieba.ala.guardclub.g.1
+    private com.baidu.tieba.ala.guardclub.view.d gFS;
+    private e.a gFU = new e.a() { // from class: com.baidu.tieba.ala.guardclub.g.1
     };
-    private BdUniqueId bou = BdUniqueId.gen();
-    private com.baidu.tieba.ala.guardclub.model.e gGm = new com.baidu.tieba.ala.guardclub.model.e(this.bou, this.gGn);
+    private BdUniqueId bmJ = BdUniqueId.gen();
+    private com.baidu.tieba.ala.guardclub.model.e gFT = new com.baidu.tieba.ala.guardclub.model.e(this.bmJ, this.gFU);
 
     public g(BaseActivity baseActivity, String str, BdUniqueId bdUniqueId) {
-        this.gGl = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
-        this.gGl.setOtherParams(str);
-        this.gGm.a(this.gGl);
-        this.gGl.f(this.gGm);
+        this.gFS = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
+        this.gFS.setOtherParams(str);
+        this.gFT.a(this.gFS);
+        this.gFS.f(this.gFT);
     }
 
     public View getView() {
-        return this.gGl.getView();
+        return this.gFS.getView();
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.gGl != null) {
-            this.gGl.notifyDataSetInvalidated();
+        if (this.gFS != null) {
+            this.gFS.notifyDataSetInvalidated();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aYg() {
-        if (this.gGm != null) {
-            this.gGm.onDestory();
+    public void aXy() {
+        if (this.gFT != null) {
+            this.gFT.onDestory();
         }
-        if (this.gGl != null) {
-            this.gGl.bTf();
+        if (this.gFS != null) {
+            this.gFS.bSy();
         }
     }
 }

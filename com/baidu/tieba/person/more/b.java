@@ -13,46 +13,46 @@ import com.baidu.tieba.person.PersonMoreItemData;
 import com.baidu.tieba.personCenter.c.h;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 public class b {
-    private c lUQ;
-    private List<q> lUR;
-    private PersonMoreData lUS;
+    private c lVi;
+    private List<q> lVj;
+    private PersonMoreData lVk;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, Bundle bundle, ab<h> abVar) {
         this.mPageContext = tbPageContext;
-        this.lUQ = new c(tbPageContext);
-        this.lUQ.c(abVar);
+        this.lVi = new c(tbPageContext);
+        this.lVi.c(abVar);
         if (bundle != null && (OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            this.lUS = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+            this.lVk = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
         }
     }
 
     public void initView() {
         this.mPageContext.getPageActivity().setContentView(R.layout.person_center_more_layout);
-        this.lUQ.al(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
-        dtr();
-        this.lUQ.setData(this.lUR);
+        this.lVi.al(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
+        dsR();
+        this.lVi.setData(this.lVj);
     }
 
     public void onChangeSkinType() {
-        if (this.lUQ != null) {
-            this.lUQ.onChangeSkinType();
+        if (this.lVi != null) {
+            this.lVi.onChangeSkinType();
         }
     }
 
-    private void dtr() {
-        this.lUR = new ArrayList();
-        if (this.lUS != null && !y.isEmpty(this.lUS.mUrlMaps)) {
-            for (PersonMoreItemData personMoreItemData : this.lUS.mUrlMaps) {
+    private void dsR() {
+        this.lVj = new ArrayList();
+        if (this.lVk != null && !y.isEmpty(this.lVk.mUrlMaps)) {
+            for (PersonMoreItemData personMoreItemData : this.lVk.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
                     h hVar = new h();
                     hVar.title = personMoreItemData.mName;
                     hVar.type = 36;
-                    hVar.aIk = personMoreItemData.mUrl;
+                    hVar.aGz = personMoreItemData.mUrl;
                     hVar.itemId = personMoreItemData.mId;
-                    this.lUR.add(hVar);
+                    this.lVj.add(hVar);
                 }
             }
         }

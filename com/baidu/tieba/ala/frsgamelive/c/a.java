@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.a> {
-    private TextView gDJ;
-    private TextView gDK;
+    private TextView gDq;
+    private TextView gDr;
     private int mSkinType;
     private TbPageContext mTbPageContext;
 
@@ -19,16 +19,16 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
         this.mSkinType = 3;
         this.mTbPageContext = tbPageContext;
         View view = getView();
-        this.gDJ = (TextView) view.findViewById(R.id.frs_game_live_recommand1);
-        this.gDK = (TextView) view.findViewById(R.id.frs_game_live_recommand2);
+        this.gDq = (TextView) view.findViewById(R.id.frs_game_live_recommand1);
+        this.gDr = (TextView) view.findViewById(R.id.frs_game_live_recommand2);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setViewTextColor(this.gDJ, (int) R.color.cp_cont_d);
-            ap.setViewTextColor(this.gDK, (int) R.color.cp_cont_d);
+            ap.setViewTextColor(this.gDq, R.color.CAM_X0109);
+            ap.setViewTextColor(this.gDr, R.color.CAM_X0109);
             this.mSkinType = i;
         }
     }
@@ -51,11 +51,11 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     /* renamed from: com.baidu.tieba.ala.frsgamelive.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public static class C0643a extends af.a {
-        public a gDL;
+        public a gDs;
 
         public C0643a(a aVar) {
             super(aVar.getView());
-            this.gDL = aVar;
+            this.gDs = aVar;
         }
     }
 }

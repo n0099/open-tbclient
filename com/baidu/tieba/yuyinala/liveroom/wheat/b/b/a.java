@@ -10,40 +10,40 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void VD(String str) {
-        if (o.dZA().dYS()) {
-            dZa();
-        } else if (o.dZA().dZD()) {
-            dZa();
-        } else if (o.dZA().iV(str)) {
-            e.dZk().h(this.mPageContext);
-        } else {
+    public void Vo(String str) {
+        if (o.dZz().dYR()) {
             dYZ();
+        } else if (o.dZz().dZC()) {
+            dYZ();
+        } else if (o.dZz().iP(str)) {
+            e.dZj().h(this.mPageContext);
+        } else {
+            dYY();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void VE(String str) {
-        if (dYU()) {
-            dZb();
-        } else if (dYV()) {
-            if (o.dZA().dYS()) {
-                if (o.dZA().iV(str)) {
-                    if (o.dZA().iX(str)) {
-                        dZa();
+    public void Vp(String str) {
+        if (dYT()) {
+            dZa();
+        } else if (dYU()) {
+            if (o.dZz().dYR()) {
+                if (o.dZz().iP(str)) {
+                    if (o.dZz().iR(str)) {
+                        dYZ();
                         return;
                     } else {
-                        dZc();
+                        dZb();
                         return;
                     }
                 }
+                dYY();
+            } else if (o.dZz().iR(str)) {
                 dYZ();
-            } else if (o.dZA().iX(str)) {
-                dZa();
-            } else if (o.dZA().VQ(str)) {
-                dZc();
+            } else if (o.dZz().VB(str)) {
+                dZb();
             } else {
-                dYZ();
+                dYY();
             }
         }
     }

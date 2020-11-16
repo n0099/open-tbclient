@@ -11,13 +11,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static volatile int cjE = 0;
+    private static volatile int chS = 0;
     private static volatile String sProcessName;
 
-    public static int adf() {
-        int i = cjE;
+    public static int acw() {
+        int i = chS;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = e.getAppContext().getPackageName();
@@ -26,13 +26,13 @@ public class a {
             } else {
                 i |= 4;
             }
-            cjE = i;
+            chS = i;
         }
         return i;
     }
 
-    public static boolean adg() {
-        return (adf() & 2) != 0;
+    public static boolean acx() {
+        return (acw() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -42,7 +42,7 @@ public class a {
                 str = sProcessName;
                 if (str == null) {
                     Context appContext = e.getAppContext();
-                    str = adi();
+                    str = acz();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -53,7 +53,7 @@ public class a {
         return str;
     }
 
-    public static int adh() {
+    public static int acy() {
         Context appContext = e.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -87,7 +87,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String adi() {
+    private static String acz() {
         BufferedReader bufferedReader;
         Exception exc;
         String str;

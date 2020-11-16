@@ -1,7 +1,7 @@
 package com.vivo.push.model;
 
 import android.text.TextUtils;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */

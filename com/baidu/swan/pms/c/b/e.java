@@ -4,25 +4,25 @@ import android.support.annotation.Nullable;
 import com.baidu.swan.pms.a.g;
 import com.baidu.swan.pms.node.f;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     @Nullable
-    private g eiv;
+    private g egO;
     @Nullable
-    private g eiw;
+    private g egP;
 
     public e(g gVar, com.baidu.swan.pms.c.d.g gVar2, @Nullable g gVar3, @Nullable g gVar4) {
         super(gVar, gVar2);
-        this.eiv = gVar3;
-        this.eiw = gVar4;
+        this.egO = gVar3;
+        this.egP = gVar4;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
-    /* renamed from: cP */
-    public com.baidu.swan.pms.c.c.e cK(JSONObject jSONObject) {
-        return com.baidu.swan.pms.utils.e.cX(jSONObject);
+    /* renamed from: cJ */
+    public com.baidu.swan.pms.c.c.e cE(JSONObject jSONObject) {
+        return com.baidu.swan.pms.utils.e.cR(jSONObject);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,9 +30,9 @@ public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a ak(com.baidu.swan.pms.c.c.e eVar) {
-        this.ehR.aqm();
-        com.baidu.swan.pms.g.a.k(this.cTb.getCategory(), eVar.maxAge);
-        f.b(eVar.data, (this.ehR == this.eiv || this.ehR == this.eiw) ? null : this.ehR, this.eiv, this.eiw);
+        this.egj.apE();
+        com.baidu.swan.pms.g.a.k(this.cRr.getCategory(), eVar.maxAge);
+        f.b(eVar.data, (this.egj == this.egO || this.egj == this.egP) ? null : this.egj, this.egO, this.egP);
         return null;
     }
 
@@ -45,7 +45,7 @@ public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String bbw() {
+    protected String baP() {
         return "updatecore";
     }
 }

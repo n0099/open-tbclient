@@ -6,7 +6,7 @@ import kotlin.collections.ae;
 import kotlin.collections.ap;
 import kotlin.collections.z;
 @kotlin.h
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class i {
     public static final kotlin.collections.m ay(byte[] bArr) {
         q.n(bArr, com.baidu.fsg.base.statistics.b.j);
@@ -23,7 +23,7 @@ public final class i {
         return new k(sArr);
     }
 
-    public static final ad u(int[] iArr) {
+    public static final ad x(int[] iArr) {
         q.n(iArr, com.baidu.fsg.base.statistics.b.j);
         return new f(iArr);
     }
@@ -33,7 +33,7 @@ public final class i {
         return new j(jArr);
     }
 
-    public static final ab B(float[] fArr) {
+    public static final ab D(float[] fArr) {
         q.n(fArr, com.baidu.fsg.base.statistics.b.j);
         return new e(fArr);
     }

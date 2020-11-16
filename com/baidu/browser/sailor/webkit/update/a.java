@@ -24,21 +24,21 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class a {
-    private static a afy = null;
+    private static a afD = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f1290a;
+    protected String f1293a;
     protected String b;
     protected String c;
     boolean d;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.browser.sailor.webkit.update.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class C0095a extends BdNetTask implements INetListener {
-        protected ByteArrayOutputStream afz;
+        protected ByteArrayOutputStream afE;
 
         public C0095a(Context context, String str) {
             setUrl(a.a(str, context));
@@ -51,16 +51,16 @@ public class a {
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
-            this.afz.reset();
+            this.afE.reset();
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
-            if (this.afz == null) {
-                this.afz = new ByteArrayOutputStream();
+            if (this.afE == null) {
+                this.afE = new ByteArrayOutputStream();
             }
             if (i > 0) {
-                this.afz.write(bArr, 0, i);
+                this.afE.write(bArr, 0, i);
             }
         }
 
@@ -83,9 +83,9 @@ public class a {
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
-            if (this.afz != null) {
+            if (this.afE != null) {
                 try {
-                    String byteArrayOutputStream = this.afz.toString("utf-8");
+                    String byteArrayOutputStream = this.afE.toString("utf-8");
                     Log.d(EngineManager.LOG_TAG, "received data = " + byteArrayOutputStream);
                     if (byteArrayOutputStream.length() > 0) {
                         JSONObject jSONObject = new JSONObject(byteArrayOutputStream);
@@ -95,7 +95,7 @@ public class a {
                                 a.this.b = jSONObject2.getString("version");
                             }
                             if (jSONObject2.has("link")) {
-                                a.this.f1290a = jSONObject2.getString("link");
+                                a.this.f1293a = jSONObject2.getString("link");
                             }
                             if (jSONObject2.has("md5")) {
                                 a.this.c = jSONObject2.getString("md5");
@@ -123,15 +123,15 @@ public class a {
         }
 
         public void release() {
-            if (this.afz != null) {
+            if (this.afE != null) {
                 try {
-                    this.afz.reset();
-                    this.afz.close();
+                    this.afE.reset();
+                    this.afE.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            this.afz = null;
+            this.afE = null;
         }
     }
 
@@ -324,14 +324,14 @@ public class a {
     }
 
     public static a ty() {
-        if (afy == null) {
+        if (afD == null) {
             synchronized (a.class) {
-                if (afy == null) {
-                    afy = new a();
+                if (afD == null) {
+                    afD = new a();
                 }
             }
         }
-        return afy;
+        return afD;
     }
 
     public final void a(Context context) {
@@ -345,7 +345,7 @@ public class a {
             String zeusVersionName = WebKitFactory.getZeusVersionName();
             if (WebKitFactory.getCurEngine() == 1) {
                 if (a(zeusVersionName, this.b)) {
-                    BdZeusDownloadHelper.T(BdSailor.getInstance().getAppContext()).a(this.f1290a, this.c);
+                    BdZeusDownloadHelper.T(BdSailor.getInstance().getAppContext()).a(this.f1293a, this.c);
                     return;
                 }
                 return;
@@ -367,7 +367,7 @@ public class a {
             BdSailorPlatform.getStatic().b("download-webkit-start", String.valueOf(System.currentTimeMillis()));
             BdSailorPlatform.getStatic().a();
             Log.i(EngineManager.LOG_TAG, "start download zeus");
-            BdZeusDownloadHelper.T(BdSailor.getInstance().getAppContext()).a(this.f1290a, this.c);
+            BdZeusDownloadHelper.T(BdSailor.getInstance().getAppContext()).a(this.f1293a, this.c);
         }
     }
 }

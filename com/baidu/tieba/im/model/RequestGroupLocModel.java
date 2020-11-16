@@ -4,7 +4,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tieba.im.message.RequestQueryGroupLocMessage;
 import com.baidu.tieba.im.message.ResponseRequestGroupLocMessage;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class RequestGroupLocModel extends BdBaseModel {
     private long groupId;
     private String lat;

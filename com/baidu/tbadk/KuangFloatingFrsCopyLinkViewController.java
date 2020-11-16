@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.v.c;
+import com.baidu.tieba.w.c;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class KuangFloatingFrsCopyLinkViewController {
@@ -108,7 +108,7 @@ public class KuangFloatingFrsCopyLinkViewController {
                     if (KuangFloatingFrsCopyLinkViewController.this.topActivity != null && (m = a.lg().m(KuangFloatingFrsCopyLinkViewController.this.topActivity)) != -1 && m < a.lg().getSize() && (size = a.lg().getSize() - m) >= 0) {
                         a.lg().Y(size);
                     }
-                    TiebaStatic.log(new aq("c13881").w("uid", TbadkCoreApplication.getCurrentAccountId()));
+                    TiebaStatic.log(new ar("c13881").w("uid", TbadkCoreApplication.getCurrentAccountId()));
                     KuangFloatingFrsCopyLinkViewController.this.hideFloatingView(false);
                 }
             });
@@ -126,15 +126,15 @@ public class KuangFloatingFrsCopyLinkViewController {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void changeSkin() {
-        ap.setViewTextColor(this.floatingViewTitle, R.color.cp_cont_a);
+        ap.setViewTextColor(this.floatingViewTitle, R.color.CAM_X0101);
         ap.setImageResource(this.floatingViewIcon, R.drawable.pic_float_return_broadcast32);
-        SvgManager.brn().a(this.floatingViewArrow, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
-        com.baidu.tbadk.core.util.e.a.brO().pk(R.color.cp_link_tip_d).pj(0).ps(211).ad(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).af(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bk(this.floatingViewMain);
+        SvgManager.bqB().a(this.floatingViewArrow, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        com.baidu.tbadk.core.util.e.a.brc().pG(R.color.CAM_X0305).pF(0).pP(211).ae(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).ag(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bn(this.floatingViewMain);
     }
 
     public void showFloatingView(boolean z) {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = c.Kv(2002);
+        layoutParams.type = c.KY(2002);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;

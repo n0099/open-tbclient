@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/checkSession");
@@ -39,18 +39,18 @@ public class b extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             com.baidu.swan.games.v.c.h(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
             return false;
-        } else if (!eVar.aHH().isLogin(context)) {
+        } else if (!eVar.aGZ().isLogin(context)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in");
             com.baidu.swan.games.v.c.h(callbackHandler, unitedSchemeEntity.result.toString());
             return true;
         } else {
-            com.baidu.swan.apps.runtime.d.aHq().aHs().agf().ahW().W((Activity) context, appKey).A(new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.b.1
+            com.baidu.swan.apps.runtime.d.aGI().aGK().afx().aho().T((Activity) context, appKey).A(new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
                 public void M(com.baidu.swan.apps.setting.oauth.h<JSONObject> hVar) {
                     JSONObject wrapCallbackParams;
-                    if (hVar.isOk() && com.baidu.swan.apps.api.module.a.a.aJ(hVar.mData)) {
+                    if (hVar.isOk() && com.baidu.swan.apps.api.module.a.a.aD(hVar.mData)) {
                         JSONObject optJSONObject = hVar.mData.optJSONObject("data");
                         if (optJSONObject.optBoolean("result")) {
                             wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
@@ -63,7 +63,7 @@ public class b extends aa {
                     }
                     callbackHandler.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());
                 }
-            }).aJl();
+            }).aID();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

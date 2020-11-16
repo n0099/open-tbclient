@@ -4,9 +4,9 @@ import com.baidu.live.tbadk.core.atomdata.GuardClubInfoActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ba {
-    public String aOD;
-    public String aOE;
-    public long aOF;
+    public String aMS;
+    public String aMT;
+    public long aMU;
     public String mNickName;
     public String mPortrait;
 
@@ -14,9 +14,9 @@ public class ba {
         if (jSONObject != null) {
             this.mNickName = jSONObject.optString("nickname");
             this.mPortrait = jSONObject.optString("mvp_user_portrait");
-            this.aOD = jSONObject.optString("anchor_nickname");
-            this.aOE = jSONObject.optString(GuardClubInfoActivityConfig.ANCHOR_PORTRAIT);
-            this.aOF = jSONObject.optLong("win_score");
+            this.aMS = jSONObject.optString("anchor_nickname");
+            this.aMT = jSONObject.optString(GuardClubInfoActivityConfig.ANCHOR_PORTRAIT);
+            this.aMU = jSONObject.optLong("win_score");
         }
     }
 }

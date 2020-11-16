@@ -1,5 +1,5 @@
 package com.baidu.pass.biometrics.face;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */

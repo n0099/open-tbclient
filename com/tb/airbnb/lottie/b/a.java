@@ -9,18 +9,18 @@ import android.view.View;
 import com.tb.airbnb.lottie.model.h;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class a {
     private final AssetManager assetManager;
     @Nullable
-    private com.tb.airbnb.lottie.b pJd;
-    private final h<String> pJc = new h<>();
+    private com.tb.airbnb.lottie.b pKG;
+    private final h<String> pKF = new h<>();
     private final Map<h<String>, Typeface> En = new HashMap();
     private final Map<String, Typeface> Eo = new HashMap();
     private String Eq = ".ttf";
 
     public a(Drawable.Callback callback, @Nullable com.tb.airbnb.lottie.b bVar) {
-        this.pJd = bVar;
+        this.pKG = bVar;
         if (!(callback instanceof View)) {
             Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
             this.assetManager = null;
@@ -30,15 +30,15 @@ public class a {
     }
 
     public void a(@Nullable com.tb.airbnb.lottie.b bVar) {
-        this.pJd = bVar;
+        this.pKG = bVar;
     }
 
     public Typeface q(String str, String str2) {
-        this.pJc.set(str, str2);
-        Typeface typeface = this.En.get(this.pJc);
+        this.pKF.set(str, str2);
+        Typeface typeface = this.En.get(this.pKF);
         if (typeface == null) {
             Typeface a2 = a(bi(str), str2);
-            this.En.put(this.pJc, a2);
+            this.En.put(this.pKF, a2);
             return a2;
         }
         return typeface;
@@ -49,10 +49,10 @@ public class a {
         Typeface typeface = this.Eo.get(str);
         if (typeface == null) {
             typeface = null;
-            if (this.pJd != null) {
-                typeface = this.pJd.aZ(str);
+            if (this.pKG != null) {
+                typeface = this.pKG.aZ(str);
             }
-            if (this.pJd != null && typeface == null && (ba = this.pJd.ba(str)) != null) {
+            if (this.pKG != null && typeface == null && (ba = this.pKG.ba(str)) != null) {
                 typeface = Typeface.createFromAsset(this.assetManager, ba);
             }
             if (typeface == null) {

@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.widget.TextView;
 import com.baidu.pass.biometrics.face.liveness.view.XfordView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class d implements ValueAnimator.AnimatorUpdateListener {
 
     /* renamed from: a  reason: collision with root package name */

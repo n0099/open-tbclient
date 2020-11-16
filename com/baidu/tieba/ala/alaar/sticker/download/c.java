@@ -41,7 +41,7 @@ public class c {
         private CharSequence mName;
         private String mUri;
 
-        public a FX(String str) {
+        public a Fy(String str) {
             this.mUri = str;
             return this;
         }
@@ -51,12 +51,12 @@ public class c {
             return this;
         }
 
-        public a q(CharSequence charSequence) {
+        public a r(CharSequence charSequence) {
             this.mName = charSequence;
             return this;
         }
 
-        public c bNt() {
+        public c bMM() {
             return new c(this.mUri, this.mFolder, this.mName, this.mDescription);
         }
     }

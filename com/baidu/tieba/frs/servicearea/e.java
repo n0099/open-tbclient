@@ -1,18 +1,17 @@
 package com.baidu.tieba.frs.servicearea;
 
 import android.content.Context;
-import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.tbadkCore.aa;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class e {
-    public static void a(Context context, aa aaVar, View view) {
+    public static void a(Context context, aa aaVar) {
         if (aaVar != null) {
             TbPageContext<BaseFragmentActivity> tbPageContext = null;
             if (context instanceof BaseActivity) {
@@ -21,17 +20,10 @@ public class e {
                 tbPageContext = ((BaseFragmentActivity) context).getPageContext();
             }
             if (tbPageContext != null) {
-                if (aaVar.mVX != null) {
-                    com.baidu.tieba.aiapps.a.b(aaVar.mVX.id, aaVar.mVX.link, "1191003700000000", aaVar.mVX.esj);
+                if (aaVar.mWQ != null) {
+                    com.baidu.tieba.aiapps.a.b(aaVar.mWQ.id, aaVar.mWQ.link, "1191003700000000", aaVar.mWQ.eqD);
                 } else {
-                    be.brr().b(tbPageContext, new String[]{aaVar.link});
-                }
-                if (aaVar.bfM) {
-                    if (view != null) {
-                        view.setVisibility(8);
-                    }
-                    aaVar.bfM = false;
-                    com.baidu.tbadk.core.sharedPref.b.bqh().putString("frs_service_version_" + aaVar.forumName + aaVar.name, aaVar.version);
+                    bf.bqF().b(tbPageContext, new String[]{aaVar.link});
                 }
             }
         }
@@ -39,25 +31,25 @@ public class e {
 
     public static void b(aa aaVar) {
         if (aaVar != null) {
-            aq aqVar = new aq("c13627");
-            aqVar.dR("fid", aaVar.forumId);
-            aqVar.al("obj_type", aaVar.mVX == null ? 1 : 2);
-            aqVar.al("obj_locate", aaVar.index);
-            aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.dR("obj_name", aaVar.name);
-            TiebaStatic.log(aqVar);
+            ar arVar = new ar("c13627");
+            arVar.dR("fid", aaVar.forumId);
+            arVar.ak("obj_type", aaVar.mWQ == null ? 1 : 2);
+            arVar.ak("obj_locate", aaVar.index);
+            arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            arVar.dR("obj_name", aaVar.name);
+            TiebaStatic.log(arVar);
         }
     }
 
     public static void c(aa aaVar) {
         if (aaVar != null) {
-            aq aqVar = new aq("c13626");
-            aqVar.dR("fid", aaVar.forumId);
-            aqVar.al("obj_type", aaVar.mVX == null ? 1 : 2);
-            aqVar.al("obj_locate", aaVar.index);
-            aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.dR("obj_name", aaVar.name);
-            TiebaStatic.log(aqVar);
+            ar arVar = new ar("c13626");
+            arVar.dR("fid", aaVar.forumId);
+            arVar.ak("obj_type", aaVar.mWQ == null ? 1 : 2);
+            arVar.ak("obj_locate", aaVar.index);
+            arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            arVar.dR("obj_name", aaVar.name);
+            TiebaStatic.log(arVar);
         }
     }
 }

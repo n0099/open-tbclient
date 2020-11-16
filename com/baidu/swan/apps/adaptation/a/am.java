@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface am {
-    String ahK();
+    String ahc();
 
     String getHostName();
 
-    String vb();
+    String va();
 }

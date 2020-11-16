@@ -32,16 +32,16 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.tb.airbnb.lottie.LottieAnimationView;
 /* loaded from: classes4.dex */
 public class WheatItemView extends SafeFrameLayout {
-    private w bqS;
-    private BaseWheatLayout.a ohy;
-    private PublishLoverView oiq;
-    private AlaWheatInfoData oir;
-    private View ois;
-    private a oit;
+    private w bph;
+    private PublishLoverView ojT;
+    private AlaWheatInfoData ojU;
+    private View ojV;
+    private a ojW;
+    private BaseWheatLayout.a ojb;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void We(String str);
+        void VP(String str);
     }
 
     public WheatItemView(@NonNull Context context) {
@@ -55,20 +55,20 @@ public class WheatItemView extends SafeFrameLayout {
     public WheatItemView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(getContext()).inflate(a.g.yuyinala_liveroom_wheat_item_layout, this);
-        this.oiq = (PublishLoverView) findViewById(a.f.view_pubish_lover);
-        this.ois = findViewById(a.f.view_choose_lover);
-        this.ois.setVisibility(8);
-        this.oiq.setVisibility(4);
-        this.oiq.setOnPublishClickListener(new PublishLoverView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatItemView.1
+        this.ojT = (PublishLoverView) findViewById(a.f.view_pubish_lover);
+        this.ojV = findViewById(a.f.view_choose_lover);
+        this.ojV.setVisibility(8);
+        this.ojT.setVisibility(4);
+        this.ojT.setOnPublishClickListener(new PublishLoverView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatItemView.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.PublishLoverView.a
             public void onClick() {
                 b bVar = new b(WheatItemView.this.getContext());
-                bVar.h(g.Xm(), WheatItemView.this.oir.uk, g.am(WheatItemView.this.bqS), g.al(WheatItemView.this.bqS));
+                bVar.h(g.WD(), WheatItemView.this.ojU.uk, g.am(WheatItemView.this.bph), g.al(WheatItemView.this.bph));
                 bVar.a(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatItemView.1.1
                     @Override // com.baidu.tieba.yuyinala.liveroom.publishlover.b.a
                     public void a(PublishLoverHttpResponseMessage publishLoverHttpResponseMessage) {
                         BdUtilHelper.showToast(WheatItemView.this.getContext(), "操作成功");
-                        WheatItemView.this.oiq.eaA();
+                        WheatItemView.this.ojT.eaz();
                     }
 
                     @Override // com.baidu.tieba.yuyinala.liveroom.publishlover.b.a
@@ -99,10 +99,10 @@ public class WheatItemView extends SafeFrameLayout {
         LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(a.f.speeding_lottieAnimationView);
         textView.setText("");
         textView2.setText("");
-        this.oir = alaWheatInfoData;
-        this.bqS = wVar;
+        this.ojU = alaWheatInfoData;
+        this.bph = wVar;
         a(z, wVar);
-        if (this.oir == null) {
+        if (this.ojU == null) {
             relativeLayout3.setVisibility(8);
             if (lottieAnimationView.getVisibility() == 0) {
                 lottieAnimationView.cancelAnimation();
@@ -115,7 +115,7 @@ public class WheatItemView extends SafeFrameLayout {
             headImageView.setAutoChangeStyle(false);
             headImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             headImageView.setImageResource(a.e.yuyin_sdk_wheat_empty_wheat);
-            if (eaK()) {
+            if (eaJ()) {
                 headImageView.setBackgroundResource(a.e.yuyin_sdk_wheat_dating_bg_2);
             } else {
                 headImageView.setBackgroundResource(a.e.yuyin_sdk_connection_wheat_empty);
@@ -123,13 +123,13 @@ public class WheatItemView extends SafeFrameLayout {
             if (z) {
                 textView.setText(getContext().getResources().getString(a.h.yuyin_ala_connection_wheat_host_wheat_text));
             } else if (isResultsStage()) {
-                AlaWheatInfoData alaWheatInfoData2 = (AlaWheatInfoData) ListUtils.getItem(this.bqS.aJP.getAnchorWheatBackupLists(), i);
+                AlaWheatInfoData alaWheatInfoData2 = (AlaWheatInfoData) ListUtils.getItem(this.bph.aIe.getAnchorWheatBackupLists(), i);
                 if (alaWheatInfoData2 != null && alaWheatInfoData2.status == 1) {
                     headImageView.setImageResource(a.e.yuyin_sdk_unconnect_wheat);
                 }
                 textView.setText((i + 1) + getContext().getResources().getString(a.h.yuyin_ala_connection_wheat_num_text));
             } else if (isSweetStage()) {
-                AlaWheatInfoData alaWheatInfoData3 = (AlaWheatInfoData) ListUtils.getItem(this.bqS.aJP.getAnchorWheatBackupLists(), i);
+                AlaWheatInfoData alaWheatInfoData3 = (AlaWheatInfoData) ListUtils.getItem(this.bph.aIe.getAnchorWheatBackupLists(), i);
                 if (alaWheatInfoData3 != null && alaWheatInfoData3.status == 1) {
                     headImageView.setImageResource(a.e.yuyin_sdk_unconnect_wheat);
                 }
@@ -161,7 +161,7 @@ public class WheatItemView extends SafeFrameLayout {
             headImageView.setDrawBorder(false);
             headImageView.setAutoChangeStyle(false);
             headImageView.setDefaultResource(a.e.yuyin_sdk_wheat_empty_wheat);
-            if (eaK()) {
+            if (eaJ()) {
                 headImageView.setDefaultBgResource(a.e.yuyin_sdk_wheat_dating_bg_2);
             } else {
                 headImageView.setDefaultBgResource(a.e.yuyin_sdk_connection_wheat_empty);
@@ -223,9 +223,9 @@ public class WheatItemView extends SafeFrameLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                if (WheatItemView.this.ohy != null) {
-                    if (WheatItemView.this.bqS != null && WheatItemView.this.bqS.aKc) {
-                        WheatItemView.this.ohy.a(alaWheatInfoData, z, intValue);
+                if (WheatItemView.this.ojb != null) {
+                    if (WheatItemView.this.bph != null && WheatItemView.this.bph.aIr) {
+                        WheatItemView.this.ojb.a(alaWheatInfoData, z, intValue);
                     } else {
                         BdUtilHelper.showToast(WheatItemView.this.getContext(), "正在获取数据，请稍等");
                     }
@@ -234,7 +234,7 @@ public class WheatItemView extends SafeFrameLayout {
         });
         alaEmoticonView.setEmoticonListener(new AlaEmoticonView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatItemView.3
             @Override // com.baidu.live.tieba.view.AlaEmoticonView.a
-            public void Tv() {
+            public void SM() {
                 int i2;
                 if (!(alaEmoticonView.getTag() instanceof String) || StringUtils.isNull((String) alaEmoticonView.getTag(), true)) {
                     i2 = 0;
@@ -254,75 +254,75 @@ public class WheatItemView extends SafeFrameLayout {
         postInvalidate();
     }
 
-    private boolean eaK() {
-        return (this.bqS == null || this.bqS.aJP == null || this.bqS.aJP.getRoomMode() != 1) ? false : true;
+    private boolean eaJ() {
+        return (this.bph == null || this.bph.aIe == null || this.bph.aIe.getRoomMode() != 1) ? false : true;
     }
 
     private boolean isResultsStage() {
-        return (this.bqS == null || this.bqS.aJP == null || !this.bqS.aJP.isResultsStage()) ? false : true;
+        return (this.bph == null || this.bph.aIe == null || !this.bph.aIe.isResultsStage()) ? false : true;
     }
 
     private boolean isSweetStage() {
-        return (this.bqS == null || this.bqS.aJP == null || !this.bqS.aJP.isSweetStage()) ? false : true;
+        return (this.bph == null || this.bph.aIe == null || !this.bph.aIe.isSweetStage()) ? false : true;
     }
 
     private void a(boolean z, w wVar) {
-        this.oiq.setVisibility(4);
-        if (this.oir != null && this.bqS != null) {
+        this.ojT.setVisibility(4);
+        if (this.ojU != null && this.bph != null) {
             int aj = g.aj(wVar);
             int ak = g.ak(wVar);
-            boolean eau = g.eau();
+            boolean eat = g.eat();
             if (!z && aj == 1) {
                 switch (ak) {
                     case 2:
-                        if (eau) {
-                            if (this.oir.select != 0) {
-                                c(this.oir.sex != 2, "选" + this.oir.select, false);
-                                this.oiq.setVisibility(0);
+                        if (eat) {
+                            if (this.ojU.select != 0) {
+                                c(this.ojU.sex != 2, "选" + this.ojU.select, false);
+                                this.ojT.setVisibility(0);
                                 return;
                             }
                             return;
                         } else if (isSelf()) {
-                            if (this.oir.select == 0) {
-                                if (this.bqS != null && !TextUtils.isEmpty(this.bqS.aKa)) {
-                                    if (this.oit != null) {
-                                        this.oit.We(this.bqS.aKa);
+                            if (this.ojU.select == 0) {
+                                if (this.bph != null && !TextUtils.isEmpty(this.bph.aIp)) {
+                                    if (this.ojW != null) {
+                                        this.ojW.VP(this.bph.aIp);
                                     }
-                                    this.bqS.aKa = "";
+                                    this.bph.aIp = "";
                                     return;
                                 }
                                 return;
                             }
-                            c(this.oir.sex != 2, "选" + this.oir.select, false);
-                            this.oiq.setVisibility(0);
+                            c(this.ojU.sex != 2, "选" + this.ojU.select, false);
+                            this.ojT.setVisibility(0);
                             return;
-                        } else if (this.oir.select != 0) {
-                            zn(this.oir.sex != 2);
-                            this.oiq.setVisibility(0);
+                        } else if (this.ojU.select != 0) {
+                            zu(this.ojU.sex != 2);
+                            this.ojT.setVisibility(0);
                             return;
                         } else {
                             return;
                         }
                     case 3:
-                        if (this.oir.select == 0) {
-                            this.oiq.setVisibility(0);
-                            eaz();
+                        if (this.ojU.select == 0) {
+                            this.ojT.setVisibility(0);
+                            eay();
                             return;
-                        } else if (eau) {
-                            this.oiq.setVisibility(0);
-                            c(this.oir.sex != 2, "选" + this.oir.select, this.oir.publish == 0);
+                        } else if (eat) {
+                            this.ojT.setVisibility(0);
+                            c(this.ojU.sex != 2, "选" + this.ojU.select, this.ojU.publish == 0);
                             return;
                         } else if (isSelf()) {
-                            c(this.oir.sex != 2, "选" + this.oir.select, false);
-                            this.oiq.setVisibility(0);
+                            c(this.ojU.sex != 2, "选" + this.ojU.select, false);
+                            this.ojT.setVisibility(0);
                             return;
-                        } else if (this.oir.publish == 1) {
-                            c(this.oir.sex != 2, "选" + this.oir.select, false);
-                            this.oiq.setVisibility(0);
+                        } else if (this.ojU.publish == 1) {
+                            c(this.ojU.sex != 2, "选" + this.ojU.select, false);
+                            this.ojT.setVisibility(0);
                             return;
-                        } else if (this.oir.publish == 0) {
-                            zn(this.oir.sex != 2);
-                            this.oiq.setVisibility(0);
+                        } else if (this.ojU.publish == 0) {
+                            zu(this.ojU.sex != 2);
+                            this.ojT.setVisibility(0);
                             return;
                         } else {
                             return;
@@ -335,57 +335,57 @@ public class WheatItemView extends SafeFrameLayout {
     }
 
     private boolean isSelf() {
-        return this.oir.uk.equals(g.Xm());
+        return this.ojU.uk.equals(g.WD());
     }
 
     public void a(SimpleDraweeView simpleDraweeView, String str) {
-        simpleDraweeView.setController(c.ekS().bn(ImageRequest.Yr(str)).Af(true).c(simpleDraweeView.getController()).elJ());
+        simpleDraweeView.setController(c.ekQ().bo(ImageRequest.Yc(str)).Am(true).c(simpleDraweeView.getController()).elH());
     }
 
-    public void zn(boolean z) {
-        if (this.oiq != null) {
-            this.oiq.setVisibility(0);
-            this.oiq.zn(z);
+    public void zu(boolean z) {
+        if (this.ojT != null) {
+            this.ojT.setVisibility(0);
+            this.ojT.zu(z);
         }
     }
 
     public void c(boolean z, String str, boolean z2) {
-        if (this.oiq != null) {
-            this.oiq.setVisibility(0);
-            this.oiq.c(z, str, z2);
+        if (this.ojT != null) {
+            this.ojT.setVisibility(0);
+            this.ojT.c(z, str, z2);
         }
     }
 
-    public void eaz() {
-        if (this.oiq != null) {
-            this.oiq.setVisibility(0);
-            this.oiq.eaz();
+    public void eay() {
+        if (this.ojT != null) {
+            this.ojT.setVisibility(0);
+            this.ojT.eay();
         }
     }
 
     public AlaWheatInfoData getAlaWheatInfoData() {
-        return this.oir;
+        return this.ojU;
     }
 
     public void setOnItemClickListener(BaseWheatLayout.a aVar) {
-        this.ohy = aVar;
+        this.ojb = aVar;
     }
 
     public void setChooseLoverBgView(boolean z) {
-        if (this.ois != null) {
-            this.ois.setVisibility(z ? 0 : 8);
+        if (this.ojV != null) {
+            this.ojV.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void eaL() {
-        if (this.oiq != null) {
-            this.oiq.dS(this.oiq);
-            c(this.oir.sex != 2, "选" + this.oir.select, false);
-            this.oiq.setVisibility(0);
+    public void eaK() {
+        if (this.ojT != null) {
+            this.ojT.dZ(this.ojT);
+            c(this.ojU.sex != 2, "选" + this.ojU.select, false);
+            this.ojT.setVisibility(0);
         }
     }
 
     public void setDialogLister(a aVar) {
-        this.oit = aVar;
+        this.ojW = aVar;
     }
 }

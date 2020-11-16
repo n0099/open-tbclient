@@ -4,21 +4,21 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final io.reactivex.c.c<? super T, ? super U, ? extends R> combiner;
-    final org.a.b<? extends U> pNj;
+    final org.a.b<? extends U> pOM;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(bVar, this.combiner);
         bVar.onSubscribe(withLatestFromSubscriber);
-        this.pNj.subscribe(new a(withLatestFromSubscriber));
-        this.pMK.a((j) withLatestFromSubscriber);
+        this.pOM.subscribe(new a(withLatestFromSubscriber));
+        this.pOn.a((j) withLatestFromSubscriber);
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class WithLatestFromSubscriber<T, U, R> extends AtomicReference<U> implements io.reactivex.internal.a.a<T>, org.a.d {
         private static final long serialVersionUID = -312246233408980075L;
         final org.a.c<? super R> actual;
@@ -94,29 +94,29 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     final class a implements j<U> {
-        private final WithLatestFromSubscriber<T, U, R> pNK;
+        private final WithLatestFromSubscriber<T, U, R> pPn;
 
         a(WithLatestFromSubscriber<T, U, R> withLatestFromSubscriber) {
-            this.pNK = withLatestFromSubscriber;
+            this.pPn = withLatestFromSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (this.pNK.setOther(dVar)) {
+            if (this.pPn.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(U u) {
-            this.pNK.lazySet(u);
+            this.pPn.lazySet(u);
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.pNK.otherError(th);
+            this.pPn.otherError(th);
         }
 
         @Override // org.a.c

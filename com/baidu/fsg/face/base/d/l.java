@@ -5,7 +5,7 @@ import android.os.Looper;
 import android.os.Message;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class l implements c {
 
     /* renamed from: a  reason: collision with root package name */
@@ -15,7 +15,7 @@ public class l implements c {
     private ExecutorService c;
     private Handler e;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */

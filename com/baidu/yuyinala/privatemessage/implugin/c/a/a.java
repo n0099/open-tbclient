@@ -15,12 +15,12 @@ import java.net.URL;
 public class a extends AsyncTask<String, Integer, Integer> {
     private String mFilePath;
     private String mUrl;
-    private b oxu;
-    private int oxv = 0;
+    private b oyY;
+    private int oyZ = 0;
 
     public a(Context context, String str, String str2, b bVar) {
         this.mUrl = str;
-        this.oxu = bVar;
+        this.oyY = bVar;
         this.mFilePath = str2;
     }
 
@@ -30,7 +30,7 @@ public class a extends AsyncTask<String, Integer, Integer> {
     /* JADX WARN: Removed duplicated region for block: B:81:0x0210 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:83:0x020b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // android.os.AsyncTask
-    /* renamed from: V */
+    /* renamed from: W */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -177,10 +177,10 @@ public class a extends AsyncTask<String, Integer, Integer> {
             try {
                 if (numArr.length > 0) {
                     Integer num = numArr[0];
-                    if (num.intValue() > this.oxv) {
-                        this.oxv = num.intValue();
-                        if (this.oxu != null) {
-                            this.oxu.onProgress(this.oxv);
+                    if (num.intValue() > this.oyZ) {
+                        this.oyZ = num.intValue();
+                        if (this.oyY != null) {
+                            this.oyY.onProgress(this.oyZ);
                         }
                     }
                 }
@@ -203,8 +203,8 @@ public class a extends AsyncTask<String, Integer, Integer> {
 
     private void notifyFailed(int i) {
         try {
-            if (this.oxu != null) {
-                this.oxu.onFailed(i);
+            if (this.oyY != null) {
+                this.oyY.onFailed(i);
             }
         } catch (Exception e) {
             c.e("AsyncDownloadTask", "notifyFailed:" + e.getMessage());
@@ -213,8 +213,8 @@ public class a extends AsyncTask<String, Integer, Integer> {
 
     private void notifyFinished() {
         try {
-            if (this.oxu != null) {
-                this.oxu.Xu(this.mFilePath);
+            if (this.oyY != null) {
+                this.oyY.Xf(this.mFilePath);
             }
             if (c.isDebugMode()) {
                 c.d("AsyncDownloadTask", "donwLoad finshed sucess:" + System.currentTimeMillis());

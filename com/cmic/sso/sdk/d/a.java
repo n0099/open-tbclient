@@ -7,13 +7,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends g {
-    public static CopyOnWriteArrayList<Throwable> oJl = new CopyOnWriteArrayList<>();
+    public static CopyOnWriteArrayList<Throwable> oKP = new CopyOnWriteArrayList<>();
     private String A;
     private String B;
     private String C;
-    private JSONArray oJk;
+    private JSONArray oKO;
     private String b = null;
     private String c = null;
     private String d = null;
@@ -93,7 +93,7 @@ public class a extends g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(JSONArray jSONArray) {
-        this.oJk = jSONArray;
+        this.oKO = jSONArray;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -161,7 +161,7 @@ public class a extends g {
         this.B = str;
     }
 
-    public void WW(String str) {
+    public void WH(String str) {
         this.C = str;
     }
 
@@ -184,7 +184,7 @@ public class a extends g {
             jSONObject.put("interfaceCode", this.m);
             jSONObject.put("interfaceElasped", this.n);
             jSONObject.put("loginType", this.o);
-            jSONObject.put("exceptionStackTrace", this.oJk);
+            jSONObject.put("exceptionStackTrace", this.oKO);
             jSONObject.put("operatorType", this.q);
             jSONObject.put("networkType", this.r);
             jSONObject.put("networkClass", this.s);

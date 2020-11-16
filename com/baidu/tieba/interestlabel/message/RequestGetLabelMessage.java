@@ -7,7 +7,7 @@ import com.baidu.tieba.interestlabel.b.b;
 import tbclient.CommonReq;
 import tbclient.GetTagList.DataReq;
 import tbclient.GetTagList.GetTagListReqIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public class RequestGetLabelMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */

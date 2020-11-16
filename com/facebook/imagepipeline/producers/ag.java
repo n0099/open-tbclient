@@ -11,67 +11,67 @@ import java.util.Map;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class ag implements aj<com.facebook.imagepipeline.g.e> {
-    private final com.facebook.common.memory.a oLv;
-    private final com.facebook.common.memory.g oTv;
-    private final com.facebook.imagepipeline.c.f oVd;
-    private final com.facebook.imagepipeline.c.e oWg;
-    private final aj<com.facebook.imagepipeline.g.e> oYc;
+    private final com.facebook.common.memory.a oMZ;
+    private final com.facebook.common.memory.g oUY;
+    private final com.facebook.imagepipeline.c.f oWG;
+    private final com.facebook.imagepipeline.c.e oXJ;
+    private final aj<com.facebook.imagepipeline.g.e> oZF;
 
     public ag(com.facebook.imagepipeline.c.e eVar, com.facebook.imagepipeline.c.f fVar, com.facebook.common.memory.g gVar, com.facebook.common.memory.a aVar, aj<com.facebook.imagepipeline.g.e> ajVar) {
-        this.oWg = eVar;
-        this.oVd = fVar;
-        this.oTv = gVar;
-        this.oLv = aVar;
-        this.oYc = ajVar;
+        this.oXJ = eVar;
+        this.oWG = fVar;
+        this.oUY = gVar;
+        this.oMZ = aVar;
+        this.oZF = ajVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        ImageRequest eqV = akVar.eqV();
-        if (!eqV.eoq()) {
-            this.oYc.c(kVar, akVar);
+        ImageRequest eqT = akVar.eqT();
+        if (!eqT.eoo()) {
+            this.oZF.c(kVar, akVar);
             return;
         }
-        akVar.eqW().gZ(akVar.getId(), "PartialDiskCacheProducer");
-        com.facebook.cache.common.b a2 = this.oVd.a(eqV, n(eqV), akVar.elz());
+        akVar.eqU().gZ(akVar.getId(), "PartialDiskCacheProducer");
+        com.facebook.cache.common.b a2 = this.oWG.a(eqT, n(eqT), akVar.elx());
         AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-        this.oWg.a(a2, atomicBoolean).a(a(kVar, akVar, a2));
+        this.oXJ.a(a2, atomicBoolean).a(a(kVar, akVar, a2));
         a(atomicBoolean, akVar);
     }
 
     private bolts.f<com.facebook.imagepipeline.g.e, Void> a(final k<com.facebook.imagepipeline.g.e> kVar, final ak akVar, final com.facebook.cache.common.b bVar) {
         final String id = akVar.getId();
-        final am eqW = akVar.eqW();
+        final am eqU = akVar.eqU();
         return new bolts.f<com.facebook.imagepipeline.g.e, Void>() { // from class: com.facebook.imagepipeline.producers.ag.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // bolts.f
             /* renamed from: b */
             public Void a(bolts.g<com.facebook.imagepipeline.g.e> gVar) throws Exception {
                 if (ag.d(gVar)) {
-                    eqW.b(id, "PartialDiskCacheProducer", null);
-                    kVar.ejZ();
+                    eqU.b(id, "PartialDiskCacheProducer", null);
+                    kVar.ejX();
                 } else if (gVar.il()) {
-                    eqW.a(id, "PartialDiskCacheProducer", gVar.im(), (Map<String, String>) null);
+                    eqU.a(id, "PartialDiskCacheProducer", gVar.im(), (Map<String, String>) null);
                     ag.this.a(kVar, akVar, bVar, (com.facebook.imagepipeline.g.e) null);
                 } else {
                     com.facebook.imagepipeline.g.e result = gVar.getResult();
                     if (result != null) {
-                        eqW.a(id, "PartialDiskCacheProducer", ag.a(eqW, id, true, result.getSize()));
-                        com.facebook.imagepipeline.common.a Pf = com.facebook.imagepipeline.common.a.Pf(result.getSize() - 1);
-                        result.b(Pf);
+                        eqU.a(id, "PartialDiskCacheProducer", ag.a(eqU, id, true, result.getSize()));
+                        com.facebook.imagepipeline.common.a PI = com.facebook.imagepipeline.common.a.PI(result.getSize() - 1);
+                        result.b(PI);
                         int size = result.getSize();
-                        ImageRequest eqV = akVar.eqV();
-                        if (Pf.a(eqV.epZ())) {
-                            eqW.H(id, "PartialDiskCacheProducer", true);
+                        ImageRequest eqT = akVar.eqT();
+                        if (PI.a(eqT.epX())) {
+                            eqU.I(id, "PartialDiskCacheProducer", true);
                             kVar.h(result, 9);
                         } else {
                             kVar.h(result, 8);
-                            ag.this.a(kVar, new ap(ImageRequestBuilder.o(eqV).d(com.facebook.imagepipeline.common.a.Pe(size - 1)).erY(), akVar), bVar, result);
+                            ag.this.a(kVar, new ap(ImageRequestBuilder.o(eqT).d(com.facebook.imagepipeline.common.a.PH(size - 1)).erW(), akVar), bVar, result);
                         }
                     } else {
-                        eqW.a(id, "PartialDiskCacheProducer", ag.a(eqW, id, false, 0));
+                        eqU.a(id, "PartialDiskCacheProducer", ag.a(eqU, id, false, 0));
                         ag.this.a(kVar, akVar, bVar, result);
                     }
                 }
@@ -82,7 +82,7 @@ public class ag implements aj<com.facebook.imagepipeline.g.e> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(k<com.facebook.imagepipeline.g.e> kVar, ak akVar, com.facebook.cache.common.b bVar, @Nullable com.facebook.imagepipeline.g.e eVar) {
-        this.oYc.c(new a(kVar, this.oWg, bVar, this.oTv, this.oLv, eVar), akVar);
+        this.oZF.c(new a(kVar, this.oXJ, bVar, this.oUY, this.oMZ, eVar), akVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -92,7 +92,7 @@ public class ag implements aj<com.facebook.imagepipeline.g.e> {
 
     @Nullable
     static Map<String, String> a(am amVar, String str, boolean z, int i) {
-        if (!amVar.Ym(str)) {
+        if (!amVar.XX(str)) {
             return null;
         }
         if (z) {
@@ -104,69 +104,69 @@ public class ag implements aj<com.facebook.imagepipeline.g.e> {
     private void a(final AtomicBoolean atomicBoolean, ak akVar) {
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.ag.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void enm() {
+            public void enk() {
                 atomicBoolean.set(true);
             }
         });
     }
 
     private static Uri n(ImageRequest imageRequest) {
-        return imageRequest.erN().buildUpon().appendQueryParameter("fresco_partial", "true").build();
+        return imageRequest.erL().buildUpon().appendQueryParameter("fresco_partial", "true").build();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes15.dex */
     public static class a extends n<com.facebook.imagepipeline.g.e, com.facebook.imagepipeline.g.e> {
-        private final com.facebook.common.memory.a oLv;
-        private final com.facebook.common.memory.g oTv;
-        private final com.facebook.imagepipeline.c.e oWg;
-        private final com.facebook.cache.common.b oZt;
+        private final com.facebook.common.memory.a oMZ;
+        private final com.facebook.common.memory.g oUY;
+        private final com.facebook.imagepipeline.c.e oXJ;
+        private final com.facebook.cache.common.b paY;
         @Nullable
-        private final com.facebook.imagepipeline.g.e oZu;
+        private final com.facebook.imagepipeline.g.e paZ;
 
         private a(k<com.facebook.imagepipeline.g.e> kVar, com.facebook.imagepipeline.c.e eVar, com.facebook.cache.common.b bVar, com.facebook.common.memory.g gVar, com.facebook.common.memory.a aVar, @Nullable com.facebook.imagepipeline.g.e eVar2) {
             super(kVar);
-            this.oWg = eVar;
-            this.oZt = bVar;
-            this.oTv = gVar;
-            this.oLv = aVar;
-            this.oZu = eVar2;
+            this.oXJ = eVar;
+            this.paY = bVar;
+            this.oUY = gVar;
+            this.oMZ = aVar;
+            this.paZ = eVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void g(com.facebook.imagepipeline.g.e eVar, int i) {
-            if (!PJ(i)) {
-                if (this.oZu != null && eVar.epZ() != null) {
+            if (!Qm(i)) {
+                if (this.paZ != null && eVar.epX() != null) {
                     try {
-                        a(a(this.oZu, eVar));
+                        a(a(this.paZ, eVar));
                     } catch (IOException e) {
                         com.facebook.common.c.a.e("PartialDiskCacheProducer", "Error while merging image data", e);
-                        erh().E(e);
+                        erf().E(e);
                     } finally {
                         eVar.close();
-                        this.oZu.close();
+                        this.paZ.close();
                     }
-                    this.oWg.n(this.oZt);
-                } else if (dZ(i, 8) && PI(i) && eVar.epY() != com.facebook.c.c.oSA) {
-                    this.oWg.a(this.oZt, eVar);
-                    erh().h(eVar, i);
+                    this.oXJ.n(this.paY);
+                } else if (ea(i, 8) && Ql(i) && eVar.epW() != com.facebook.c.c.oUd) {
+                    this.oXJ.a(this.paY, eVar);
+                    erf().h(eVar, i);
                 } else {
-                    erh().h(eVar, i);
+                    erf().h(eVar, i);
                 }
             }
         }
 
         private com.facebook.common.memory.i a(com.facebook.imagepipeline.g.e eVar, com.facebook.imagepipeline.g.e eVar2) throws IOException {
-            com.facebook.common.memory.i Os = this.oTv.Os(eVar2.getSize() + eVar2.epZ().from);
-            c(eVar.getInputStream(), Os, eVar2.epZ().from);
-            c(eVar2.getInputStream(), Os, eVar2.getSize());
-            return Os;
+            com.facebook.common.memory.i OV = this.oUY.OV(eVar2.getSize() + eVar2.epX().from);
+            c(eVar.getInputStream(), OV, eVar2.epX().from);
+            c(eVar2.getInputStream(), OV, eVar2.getSize());
+            return OV;
         }
 
         private void c(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
-            byte[] bArr = this.oLv.get(16384);
+            byte[] bArr = this.oMZ.get(16384);
             int i2 = i;
             while (i2 > 0) {
                 try {
@@ -178,7 +178,7 @@ public class ag implements aj<com.facebook.imagepipeline.g.e> {
                         i2 -= read;
                     }
                 } finally {
-                    this.oLv.release(bArr);
+                    this.oMZ.release(bArr);
                 }
             }
             if (i2 > 0) {
@@ -188,7 +188,7 @@ public class ag implements aj<com.facebook.imagepipeline.g.e> {
 
         private void a(com.facebook.common.memory.i iVar) {
             com.facebook.imagepipeline.g.e eVar;
-            com.facebook.common.references.a e = com.facebook.common.references.a.e(iVar.ekm());
+            com.facebook.common.references.a e = com.facebook.common.references.a.e(iVar.ekk());
             try {
                 eVar = new com.facebook.imagepipeline.g.e(e);
             } catch (Throwable th) {
@@ -196,8 +196,8 @@ public class ag implements aj<com.facebook.imagepipeline.g.e> {
                 eVar = null;
             }
             try {
-                eVar.eqa();
-                erh().h(eVar, 1);
+                eVar.epY();
+                erf().h(eVar, 1);
                 com.facebook.imagepipeline.g.e.e(eVar);
                 com.facebook.common.references.a.c(e);
             } catch (Throwable th2) {

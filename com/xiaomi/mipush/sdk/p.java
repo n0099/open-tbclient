@@ -5,7 +5,7 @@ import com.xiaomi.push.eq;
 import com.xiaomi.push.hr;
 import com.xiaomi.push.service.ak;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public final class p extends ak.a {
 
     /* renamed from: a  reason: collision with root package name */

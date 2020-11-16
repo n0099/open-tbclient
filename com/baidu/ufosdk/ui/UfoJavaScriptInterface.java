@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.webkit.WebView;
 import org.apache.http.HttpHost;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class UfoJavaScriptInterface {
     public static void clickOnAndroid(WebView webView, String str) {
         if (com.baidu.ufosdk.f.h.a()) {

@@ -4,11 +4,11 @@ import com.baidu.live.data.az;
 import com.baidu.live.data.bd;
 /* loaded from: classes4.dex */
 public interface d {
-    void Dr();
+    void CI();
 
     void a(az azVar, bd bdVar, bd bdVar2);
 
-    void bZt();
+    void bYM();
 
-    void bZu();
+    void bYN();
 }

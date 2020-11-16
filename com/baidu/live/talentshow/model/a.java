@@ -19,7 +19,7 @@ public class a extends HttpMessage {
         addParam("im_uk", j);
     }
 
-    public void it(String str) {
+    public void in(String str) {
         addParam("subapp_type", str);
     }
 

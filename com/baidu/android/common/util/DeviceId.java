@@ -8,11 +8,11 @@ import com.baidu.cesium.e.a;
 import com.baidu.cesium.f;
 import com.baidu.cesium.g;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public final class DeviceId {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f992a = "DeviceId";
+    private static final String f995a = "DeviceId";
     private static final boolean b = false;
     private static g.a d;
     private static volatile DeviceId g;
@@ -81,9 +81,9 @@ public final class DeviceId {
     }
 
     private g.a b(String str) {
-        e dr = this.f.dr(str);
-        if (dr != null) {
-            return this.e.b(dr);
+        e dt = this.f.dt(str);
+        if (dt != null) {
+            return this.e.b(dt);
         }
         return null;
     }
@@ -115,23 +115,23 @@ public final class DeviceId {
         if (aVar == null) {
             throw new NullPointerException("cuidV270Info should not be null");
         }
-        e uA = aVar.uA();
+        e uz = aVar.uz();
         this.e.a(aVar, true, false);
-        this.f.a(uA);
+        this.f.a(uz);
         this.e.a(aVar);
     }
 
     private g.a d() {
-        return this.e.uu();
+        return this.e.ut();
     }
 
     private g.a e() {
-        e dp;
+        e dr;
         File file = new File(this.c.getFilesDir(), "libcuid.so");
-        if (!file.exists() || (dp = e.dp(com.baidu.cesium.f.c.a(file))) == null) {
+        if (!file.exists() || (dr = e.dr(com.baidu.cesium.f.c.a(file))) == null) {
             return null;
         }
-        return this.e.b(dp);
+        return this.e.b(dr);
     }
 
     public static String getCUID(Context context) {

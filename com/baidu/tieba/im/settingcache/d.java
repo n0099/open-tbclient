@@ -6,19 +6,19 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.util.ac;
 import com.baidu.tbadk.util.ad;
-import com.baidu.tbadk.util.ae;
 import com.baidu.tbadk.util.m;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class d extends a {
-    private static d kpc = new d();
+    private static d kpM = new d();
 
     private d() {
     }
 
-    public static d cVg() {
-        return kpc;
+    public static d cUM() {
+        return kpM;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,8 +30,8 @@ public class d extends a {
             return null;
         }
         String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-        synchronized (this.koV) {
-            ChatSetting chatSetting = this.koV.get(str3);
+        synchronized (this.kpF) {
+            ChatSetting chatSetting = this.kpF.get(str3);
             officialSettingItemData = (chatSetting == null || !(chatSetting instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) chatSetting;
         }
         if (officialSettingItemData == null) {
@@ -44,7 +44,7 @@ public class d extends a {
         return officialSettingItemData;
     }
 
-    public void cQT() {
+    public void cQz() {
         super.y(OfficialSettingItemData.class);
     }
 
@@ -58,8 +58,8 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> cVd() {
-        return com.baidu.tbadk.core.c.a.boX().Bm("tb.im_official_chat_setting");
+    protected l<String> cUJ() {
+        return com.baidu.tbadk.core.c.a.bob().AH("tb.im_official_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -74,13 +74,13 @@ public class d extends a {
                 }
                 return;
             }
-            l<String> cVd = cVd();
+            l<String> cUJ = cUJ();
             String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.koV) {
-                this.koV.put(str, officialSettingItemData);
+            synchronized (this.kpF) {
+                this.kpF.put(str, officialSettingItemData);
             }
-            cVd.setForever(str, jsonStrWithObject);
+            cUJ.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -97,15 +97,15 @@ public class d extends a {
                 return;
             }
             final String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
-            synchronized (this.koV) {
-                this.koV.put(str, officialSettingItemData);
+            synchronized (this.kpF) {
+                this.kpF.put(str, officialSettingItemData);
             }
-            ae.b(new ad<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
+            ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tbadk.util.ad
-                /* renamed from: bJS */
+                @Override // com.baidu.tbadk.util.ac
+                /* renamed from: bJl */
                 public Void doInBackground() {
-                    d.this.cVd().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
+                    d.this.cUJ().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
                     return null;
                 }
             }, mVar);

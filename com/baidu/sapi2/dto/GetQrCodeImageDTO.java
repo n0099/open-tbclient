@@ -1,7 +1,7 @@
 package com.baidu.sapi2.dto;
 
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class GetQrCodeImageDTO implements NoProguard {
     public static final String LP_TYPE_APP = "app";
     public static final String LP_TYPE_PC = "pc";

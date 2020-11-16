@@ -19,10 +19,10 @@ import com.baidu.swan.apps.res.widget.a.a;
 import com.baidu.swan.apps.res.widget.a.b;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes24.dex */
 public class BdContextMenuView extends FrameLayout implements a.b {
     private static final boolean DEBUG = b.DEBUG;
-    private a fXG;
+    private a fXn;
     private Context mContext;
     public boolean mLayoutInCenter;
     private ListView mListView;
@@ -62,7 +62,7 @@ public class BdContextMenuView extends FrameLayout implements a.b {
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.aiapps.apps.widget.BdContextMenuView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                BdContextMenuView.this.fXG.onItemClicked(i);
+                BdContextMenuView.this.fXn.onItemClicked(i);
             }
         });
     }
@@ -71,14 +71,14 @@ public class BdContextMenuView extends FrameLayout implements a.b {
         this.mLayoutInCenter = z;
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes24.dex */
     private class a extends BaseAdapter {
-        final /* synthetic */ BdContextMenuView fXH;
+        final /* synthetic */ BdContextMenuView fXo;
         private Context mContext;
         private List<com.baidu.swan.apps.res.widget.a.b> mDataList;
 
         /* renamed from: com.baidu.tieba.aiapps.apps.widget.BdContextMenuView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes25.dex */
+        /* loaded from: classes24.dex */
         public class C0620a {
             public ImageView mListIcon;
             public TextView mListName;
@@ -134,7 +134,7 @@ public class BdContextMenuView extends FrameLayout implements a.b {
                 layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_item_icon_left_margin));
                 c0620a.mListName.setLayoutParams(layoutParams);
             }
-            if (this.fXH.mLayoutInCenter) {
+            if (this.fXo.mLayoutInCenter) {
                 ((LinearLayout) view2).setGravity(17);
                 layoutParams.width = -2;
                 if (bVar.getIcon() != null) {
@@ -150,9 +150,9 @@ public class BdContextMenuView extends FrameLayout implements a.b {
 
         public void onItemClicked(int i) {
             com.baidu.swan.apps.res.widget.a.b bVar = this.mDataList.get(i);
-            b.a aHi = bVar.aHi();
-            if (aHi != null) {
-                aHi.b(bVar);
+            b.a aGA = bVar.aGA();
+            if (aGA != null) {
+                aGA.b(bVar);
             }
         }
 

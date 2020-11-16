@@ -15,7 +15,7 @@ import com.baidu.tbadk.BdToken.f;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.passaccount.a;
@@ -27,11 +27,11 @@ import com.tencent.mm.sdk.modelmsg.ShowMessageFromWX;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
     private NavigationBar mNavigationBar;
-    private IWXAPI nQY;
-    private Intent nQZ;
+    private IWXAPI nSB;
+    private Intent nSC;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -42,13 +42,13 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getResources().getString(R.string.login));
         try {
-            this.nQY = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
+            this.nSB = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.nQZ = getIntent();
-        if (this.nQZ != null && this.nQY != null) {
-            this.nQY.handleIntent(getIntent(), this);
+        this.nSC = getIntent();
+        if (this.nSC != null && this.nSB != null) {
+            this.nSB.handleIntent(getIntent(), this);
         }
     }
 
@@ -56,9 +56,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        this.nQZ = intent;
-        if (this.nQZ != null && this.nQY != null) {
-            this.nQY.handleIntent(intent, this);
+        this.nSC = intent;
+        if (this.nSC != null && this.nSB != null) {
+            this.nSB.handleIntent(intent, this);
         }
     }
 
@@ -97,8 +97,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             int type = baseResp.getType();
             if (1 == type) {
                 a aVar = new a();
-                aVar.ljl = this;
-                aVar.ljm = baseResp;
+                aVar.ljC = this;
+                aVar.ljD = baseResp;
                 MessageManager.getInstance().runTask(2921351, null, aVar);
                 closeActivity();
             } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {
@@ -146,10 +146,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                         }
                     }
                 }
-                if (str.startsWith(f.eru) && f.p(Uri.parse(str))) {
+                if (str.startsWith(f.epM) && f.p(Uri.parse(str))) {
                     UtilHelper.dealOneScheme(getPageContext().getPageActivity(), str);
                 } else {
-                    be.brr().b(getPageContext(), new String[]{str});
+                    bf.bqF().b(getPageContext(), new String[]{str});
                 }
             } finally {
                 closeActivity();

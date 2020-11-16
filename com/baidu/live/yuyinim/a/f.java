@@ -9,21 +9,21 @@ import com.baidu.live.sdk.a;
 public class f extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     public f(Context context) {
-        super(context, com.baidu.live.im.a.bhk);
+        super(context, com.baidu.live.im.a.bfy);
     }
 
     @Override // com.baidu.live.yuyinim.a.b
-    protected void Mb() {
-        if (Mc()) {
-            Md();
+    protected void Ls() {
+        if (Lt()) {
+            Lu();
         } else {
-            Me();
+            Lv();
         }
     }
 
     @Override // com.baidu.live.yuyinim.a.b
     protected int getColor() {
-        if (Mc()) {
+        if (Lt()) {
             return -1;
         }
         return this.mContext.getResources().getColor(a.c.sdk_common_color_10034);
@@ -34,7 +34,7 @@ public class f extends b {
         boolean z;
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         if (aVar instanceof com.baidu.live.im.a) {
-            z = !"0".equals(aVar.Mo().userId) && ((com.baidu.live.im.a) aVar).KY().equals(aVar.Mo().userId);
+            z = !"0".equals(aVar.LF().userId) && ((com.baidu.live.im.a) aVar).Kp().equals(aVar.LF().userId);
         } else {
             z = false;
         }
@@ -44,9 +44,9 @@ public class f extends b {
             spannableStringBuilder2.setSpan(bVar, 0, 1, 33);
             spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
         }
-        a(spannableStringBuilder, aVar.Mo(), aVar2, z, true, true);
+        a(spannableStringBuilder, aVar.LF(), aVar2, z, true, true);
         if (z) {
-            bY(false);
+            ca(false);
         }
         String content = aVar.getContent();
         SpannableString valueOf = SpannableString.valueOf(content);

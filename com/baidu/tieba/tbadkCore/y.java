@@ -16,7 +16,7 @@ public class y {
         }
     }
 
-    public static boolean ax(Activity activity) {
+    public static boolean aw(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static a d;
 
@@ -24,13 +24,13 @@ public final class a {
     int f3600a = 5;
     String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
     public SQLiteDatabase c;
-    private C0357a e;
+    private C0355a e;
     private Context f;
 
     private a(Context context) {
         b.a();
         this.f = context.getApplicationContext();
-        this.e = new C0357a(context.getApplicationContext());
+        this.e = new C0355a(context.getApplicationContext());
         try {
             this.c = this.e.getWritableDatabase();
         } catch (Throwable th) {
@@ -52,9 +52,9 @@ public final class a {
     }
 
     /* renamed from: com.baidu.sofire.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    private class C0357a extends SQLiteOpenHelper {
-        public C0357a(Context context) {
+    /* loaded from: classes9.dex */
+    private class C0355a extends SQLiteOpenHelper {
+        public C0355a(Context context) {
             super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.f3600a);
             new StringBuilder().append(a.this.f3600a);
             b.a();

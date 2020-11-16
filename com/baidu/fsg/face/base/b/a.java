@@ -10,18 +10,18 @@ import com.baidu.fsg.face.base.d.g;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
     private Context f1566a;
-    private C0127a b;
+    private C0118a b;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [66=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(Context context, int i, Bundle bundle) {
         this.f1566a = context;
-        this.b = new C0127a();
+        this.b = new C0118a();
         b.a a2 = b.a(i);
         c a3 = b.a(context).a(context.getApplicationContext(), a2.f1569a);
         this.b.j = a2.f1569a;
@@ -87,8 +87,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.fsg.face.base.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes17.dex */
-    public class C0127a {
+    /* loaded from: classes16.dex */
+    public class C0118a {
         private static final String b = "load_so_zip_version";
         private static final String c = "load_so_modle_name";
         private static final String d = "load_default_so";
@@ -104,7 +104,7 @@ public class a {
         private String n;
         private String o;
 
-        private C0127a() {
+        private C0118a() {
             this.l = false;
             this.m = true;
         }

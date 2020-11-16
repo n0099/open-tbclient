@@ -4,46 +4,46 @@ import android.os.Handler;
 import android.util.Log;
 /* loaded from: classes4.dex */
 public class b {
-    private static int htr = 0;
-    private static volatile b oaf = null;
+    private static int hsY = 0;
+    private static volatile b obJ = null;
     private long currLiveId;
     private long duration;
     private Handler handler = new Handler();
-    Runnable htt = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.task.b.1
+    Runnable hta = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.task.b.1
         @Override // java.lang.Runnable
         public void run() {
-            Log.i("TaskHelper", "@@ reportRunnable haokan=" + b.htr + ", currLiveId=" + b.this.currLiveId + ", duration=" + b.this.duration);
-            b.this.atR();
+            Log.i("TaskHelper", "@@ reportRunnable haokan=" + b.hsY + ", currLiveId=" + b.this.currLiveId + ", duration=" + b.this.duration);
+            b.this.atj();
             b.this.stopRecord();
         }
     };
     private long now;
 
-    public static b dYu() {
-        if (oaf == null) {
+    public static b dYt() {
+        if (obJ == null) {
             synchronized (b.class) {
-                if (oaf == null) {
-                    oaf = new b();
+                if (obJ == null) {
+                    obJ = new b();
                 }
             }
         }
-        return oaf;
+        return obJ;
     }
 
     public void fb(long j) {
-        Log.i("TaskHelper", "@@ startRecord watchCount=" + htr + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
-        if (chr()) {
+        Log.i("TaskHelper", "@@ startRecord watchCount=" + hsY + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
+        if (cgK()) {
             this.currLiveId = j;
             this.duration = 0L;
             this.now = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.htt);
-            this.handler.postDelayed(this.htt, 60000 - this.duration);
+            this.handler.removeCallbacks(this.hta);
+            this.handler.postDelayed(this.hta, 60000 - this.duration);
         }
     }
 
     public void pauseRecord() {
-        Log.i("TaskHelper", "@@ pauseRecord watchCount=" + htr + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
-        this.handler.removeCallbacks(this.htt);
+        Log.i("TaskHelper", "@@ pauseRecord watchCount=" + hsY + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
+        this.handler.removeCallbacks(this.hta);
         this.duration = System.currentTimeMillis() - this.now;
         if (this.duration < 0) {
             this.duration = 0L;
@@ -51,28 +51,28 @@ public class b {
     }
 
     public void fc(long j) {
-        Log.i("TaskHelper", "@@ resumeRecord watchCount=" + htr + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
+        Log.i("TaskHelper", "@@ resumeRecord watchCount=" + hsY + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
         if (this.currLiveId == 0 || this.currLiveId != j) {
             stopRecord();
             return;
         }
         this.now = System.currentTimeMillis();
-        this.handler.removeCallbacks(this.htt);
-        this.handler.postDelayed(this.htt, 60000 - this.duration);
+        this.handler.removeCallbacks(this.hta);
+        this.handler.postDelayed(this.hta, 60000 - this.duration);
     }
 
     public void stopRecord() {
-        Log.i("TaskHelper", "@@ stopRecord watchCount=" + htr + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
+        Log.i("TaskHelper", "@@ stopRecord watchCount=" + hsY + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
         this.duration = 0L;
         this.currLiveId = 0L;
-        this.handler.removeCallbacks(this.htt);
+        this.handler.removeCallbacks(this.hta);
     }
 
-    private boolean chr() {
-        return htr < 30;
+    private boolean cgK() {
+        return hsY < 30;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void atR() {
+    public void atj() {
     }
 }

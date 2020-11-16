@@ -39,7 +39,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class SubsamplingScaleImageView extends View {
     public static final int EASE_IN_OUT_QUAD = 2;
     public static final int EASE_OUT_QUAD = 1;
@@ -128,7 +128,7 @@ public class SubsamplingScaleImageView extends View {
     private static final List<Integer> VALID_PAN_LIMITS = Arrays.asList(1, 2, 3);
     private static final List<Integer> VALID_SCALE_TYPES = Arrays.asList(2, 1, 3);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public interface OnImageEventListener {
         void onImageLoadError(Exception exc);
 
@@ -1112,7 +1112,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public static class TilesInitTask extends BdAsyncTask<Void, Void, int[]> {
         private final WeakReference<Context> contextRef;
         private ImageRegionDecoder decoder;
@@ -1200,7 +1200,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public static class TileLoadTask extends BdAsyncTask<Void, Void, Bitmap> {
         private final WeakReference<ImageRegionDecoder> decoderRef;
         private Exception exception;
@@ -1283,7 +1283,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public static class BitmapLoadTask extends BdAsyncTask<Void, Void, Integer> {
         private Bitmap bitmap;
         private final WeakReference<Context> contextRef;
@@ -1409,7 +1409,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public static class Tile {
         private Bitmap bitmap;
         private Rect fileSRect;
@@ -1428,7 +1428,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public static class Anim {
         private long duration;
         private int easing;
@@ -1455,7 +1455,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public static class ScaleAndTranslate {
         private float scale;
         private PointF vTranslate;
@@ -1906,7 +1906,7 @@ public class SubsamplingScaleImageView extends View {
         return null;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public final class AnimationBuilder {
         private long duration;
         private int easing;
@@ -2030,7 +2030,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public static class DefaultOnImageEventListener implements OnImageEventListener {
         @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
         public void onReady() {

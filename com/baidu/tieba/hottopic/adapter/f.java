@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.data.g, com.baidu.tieba.hottopic.a.c> {
     public int mSkinType;
 
@@ -21,7 +21,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bO */
+    /* renamed from: bK */
     public com.baidu.tieba.hottopic.a.c c(ViewGroup viewGroup) {
         return new com.baidu.tieba.hottopic.a.c(LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_interval, viewGroup, false));
     }
@@ -40,24 +40,24 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(com.baidu.tieba.hottopic.a.c cVar, View view) {
         if (cVar != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (cVar.ajq != this.mSkinType) {
-                cVar.ajq = this.mSkinType;
-                ap.setBackgroundColor(cVar.getView(), R.color.cp_bg_line_d);
-                ap.setBackgroundColor(cVar.jQG, R.color.cp_bg_line_c);
-                ap.setViewTextColor(cVar.jQH, R.color.cp_cont_c, 1);
+            if (cVar.ajv != this.mSkinType) {
+                cVar.ajv = this.mSkinType;
+                ap.setBackgroundColor(cVar.getView(), R.color.CAM_X0201);
+                ap.setBackgroundColor(cVar.jRq, R.color.CAM_X0204);
+                ap.setViewTextColor(cVar.jRr, R.color.CAM_X0108, 1);
             }
         }
     }
 
     private void a(com.baidu.tieba.hottopic.a.c cVar, com.baidu.tieba.hottopic.data.g gVar) {
-        if (cVar == null || gVar == null || StringUtils.isNull(gVar.jPc)) {
+        if (cVar == null || gVar == null || StringUtils.isNull(gVar.jPM)) {
             if (cVar != null) {
-                cVar.jQH.setVisibility(8);
+                cVar.jRr.setVisibility(8);
                 return;
             }
             return;
         }
-        cVar.jQH.setVisibility(0);
-        cVar.jQH.setText(gVar.jPc);
+        cVar.jRr.setVisibility(0);
+        cVar.jRr.setText(gVar.jPM);
     }
 }

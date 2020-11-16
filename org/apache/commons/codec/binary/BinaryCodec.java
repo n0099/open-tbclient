@@ -5,7 +5,7 @@ import org.apache.commons.codec.BinaryEncoder;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
     public BinaryCodec() {
         throw new RuntimeException("Stub!");

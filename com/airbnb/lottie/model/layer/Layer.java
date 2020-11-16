@@ -7,7 +7,7 @@ import com.airbnb.lottie.model.a.l;
 import com.airbnb.lottie.model.content.Mask;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class Layer {
     private final float Bo;
     private final List<Mask> DV;
@@ -35,7 +35,7 @@ public class Layer {
     private final com.airbnb.lottie.e composition;
     private final List<com.airbnb.lottie.model.content.b> shapes;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes16.dex */
     public enum LayerType {
         PreComp,
         Solid,
@@ -46,7 +46,7 @@ public class Layer {
         Unknown
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes16.dex */
     public enum MatteType {
         None,
         Add,

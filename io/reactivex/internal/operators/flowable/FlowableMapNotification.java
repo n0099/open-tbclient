@@ -5,7 +5,7 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscribers.SinglePostCompleteSubscriber;
 import io.reactivex.j;
 import java.util.concurrent.Callable;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class FlowableMapNotification<T, R> extends a<T, R> {
     final Callable<? extends R> onCompleteSupplier;
     final h<? super Throwable, ? extends R> onErrorMapper;
@@ -13,10 +13,10 @@ public final class FlowableMapNotification<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.pMK.a((j) new MapNotificationSubscriber(cVar, this.onNextMapper, this.onErrorMapper, this.onCompleteSupplier));
+        this.pOn.a((j) new MapNotificationSubscriber(cVar, this.onNextMapper, this.onErrorMapper, this.onCompleteSupplier));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class MapNotificationSubscriber<T, R> extends SinglePostCompleteSubscriber<T, R> {
         private static final long serialVersionUID = 2757120512858778108L;
         final Callable<? extends R> onCompleteSupplier;

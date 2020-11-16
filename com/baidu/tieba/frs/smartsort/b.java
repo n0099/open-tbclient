@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.card.data.CardHListViewData;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b {
     public static boolean b(FrsRequestData frsRequestData) {
         return frsRequestData != null && frsRequestData.getLoadType() == 1;

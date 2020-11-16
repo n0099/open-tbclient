@@ -17,13 +17,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.regex.Pattern;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class q {
     public static String xs = "";
     public static String name = "";
     public static String value = "";
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     class a implements FileFilter {
         a() {
         }

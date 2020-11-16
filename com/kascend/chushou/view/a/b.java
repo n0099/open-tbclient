@@ -7,10 +7,10 @@ public class b<T> implements a<T> {
 
     /* renamed from: a  reason: collision with root package name */
     private long f4224a = 0;
-    private a<T> pju;
+    private a<T> pkY;
 
     public b(a<T> aVar) {
-        this.pju = aVar;
+        this.pkY = aVar;
     }
 
     @Override // com.kascend.chushou.view.a.a
@@ -18,8 +18,8 @@ public class b<T> implements a<T> {
         long uptimeMillis = SystemClock.uptimeMillis();
         if (uptimeMillis - this.f4224a > 500) {
             this.f4224a = uptimeMillis;
-            if (this.pju != null) {
-                this.pju.b(view, t);
+            if (this.pkY != null) {
+                this.pkY.b(view, t);
             }
         }
     }

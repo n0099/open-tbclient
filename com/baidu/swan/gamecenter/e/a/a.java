@@ -5,7 +5,7 @@ import com.baidu.swan.apps.ap.y;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.runtime.e;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class a extends com.baidu.swan.gamecenter.c.a {
     public static final boolean DEBUG = b.DEBUG;
 
@@ -15,10 +15,10 @@ public class a extends com.baidu.swan.gamecenter.c.a {
 
     @Override // com.baidu.swan.gamecenter.c.a
     public com.baidu.swan.apps.api.c.b b(JSONObject jSONObject, com.baidu.swan.apps.o.b bVar) {
-        e aHv = e.aHv();
-        if (aHv != null && aHv.aHo() != null) {
-            y.cD(aHv.aHo());
-            bVar.aE(null);
+        e aGN = e.aGN();
+        if (aGN != null && aGN.aGG() != null) {
+            y.cD(aGN.aGG());
+            bVar.ay(null);
         } else if (DEBUG) {
             Log.d("StartPermissionsPage", "swan or activity is null");
         }

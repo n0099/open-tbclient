@@ -2,7 +2,7 @@ package com.baidu.ar.databasic;
 
 import com.baidu.ar.libloader.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class AlgoHandleAdapter {
     static {
         b.as("ardatabasic2");

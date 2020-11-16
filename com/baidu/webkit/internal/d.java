@@ -7,7 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
@@ -16,7 +16,7 @@ public final class d {
     private int c;
     private byte[] d;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     static class a extends GZIPOutputStream {
         public a(OutputStream outputStream) throws IOException {
             super(outputStream);

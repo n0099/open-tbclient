@@ -8,19 +8,19 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class k {
     public static SSLSocketFactory getSSLSocketFactory() {
         try {
             SSLContext sSLContext = SSLContext.getInstance("TLS");
-            sSLContext.init(null, add(), new SecureRandom());
+            sSLContext.init(null, acu(), new SecureRandom());
             return sSLContext.getSocketFactory();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static TrustManager[] add() {
+    private static TrustManager[] acu() {
         return new TrustManager[]{new X509TrustManager() { // from class: com.baidu.prologue.service.network.k.1
             @Override // javax.net.ssl.X509TrustManager
             public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) {

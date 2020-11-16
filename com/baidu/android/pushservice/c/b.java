@@ -2,11 +2,11 @@ package com.baidu.android.pushservice.c;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f1039a = 0;
+    public long f1042a = 0;
     public long b = 0;
     public String c = "";
     public String d = "";
@@ -19,8 +19,8 @@ public class b {
 
     public JSONObject a() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        if (this.f1039a > -1) {
-            jSONObject.put("push_priority", this.f1039a);
+        if (this.f1042a > -1) {
+            jSONObject.put("push_priority", this.f1042a);
         }
         if (this.b > -1) {
             jSONObject.put("push_version", this.b);

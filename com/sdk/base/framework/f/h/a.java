@@ -7,7 +7,7 @@ import android.os.Build;
 import java.net.InetAddress;
 import java.net.URL;
 import java.util.ArrayList;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

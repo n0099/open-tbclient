@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.ForumMenu.DataReq;
 import tbclient.ForumMenu.ForumMenuReqIdl;
-/* loaded from: classes26.dex */
+/* loaded from: classes25.dex */
 public class RequestOfficialBarMenuMessage extends TbSocketMessage {
     private String forum_id;
     private long timestamp;

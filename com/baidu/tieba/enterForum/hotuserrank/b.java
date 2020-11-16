@@ -8,74 +8,74 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.hotuserrank.c;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private TbPageContext eIc;
-    private c.a ilI;
-    private TextView ilJ;
-    private TextView ilK;
-    private String ilL;
-    private int ilM;
+    private TbPageContext eGu;
+    private String imA;
+    private int imB;
+    private c.a imx;
+    private TextView imy;
+    private TextView imz;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.hotuserrank.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(b.this.ilL)) {
-                b.this.eIc.showToast(R.string.load_error_retry);
+            if (TextUtils.isEmpty(b.this.imA)) {
+                b.this.eGu.showToast(R.string.load_error_retry);
                 return;
             }
-            be.brr().b(b.this.eIc, new String[]{b.this.ilL});
-            if (b.this.ilM != 0) {
-                if (b.this.ilM != 2) {
-                    if (b.this.ilM == 1) {
-                        aq aqVar = new aq("c13669");
-                        aqVar.al("obj_locate", 2);
-                        TiebaStatic.log(aqVar);
+            bf.bqF().b(b.this.eGu, new String[]{b.this.imA});
+            if (b.this.imB != 0) {
+                if (b.this.imB != 2) {
+                    if (b.this.imB == 1) {
+                        ar arVar = new ar("c13669");
+                        arVar.ak("obj_locate", 2);
+                        TiebaStatic.log(arVar);
                         return;
                     }
                     return;
                 }
-                aq aqVar2 = new aq("c13658");
-                aqVar2.w("uid", TbadkCoreApplication.getCurrentAccountId());
-                aqVar2.al("obj_locate", 2);
-                TiebaStatic.log(aqVar2);
+                ar arVar2 = new ar("c13658");
+                arVar2.w("uid", TbadkCoreApplication.getCurrentAccountId());
+                arVar2.ak("obj_locate", 2);
+                TiebaStatic.log(arVar2);
             }
         }
     };
     private View mRootView;
 
     public b(TbPageContext tbPageContext, View view) {
-        this.eIc = tbPageContext;
+        this.eGu = tbPageContext;
         this.mRootView = view;
-        this.ilI = new c.a(view.findViewById(R.id.user_view));
-        this.ilI.xP(1);
-        this.ilJ = (TextView) view.findViewById(R.id.get_influence);
-        this.ilK = (TextView) view.findViewById(R.id.rank_num);
-        this.ilK.setTextSize(0, l.getDimens(this.eIc.getPageActivity(), R.dimen.tbfontsize46));
-        this.ilJ.setOnClickListener(this.mOnClickListener);
+        this.imx = new c.a(view.findViewById(R.id.user_view));
+        this.imx.yn(1);
+        this.imy = (TextView) view.findViewById(R.id.get_influence);
+        this.imz = (TextView) view.findViewById(R.id.rank_num);
+        this.imz.setTextSize(0, l.getDimens(this.eGu.getPageActivity(), R.dimen.tbfontsize46));
+        this.imy.setOnClickListener(this.mOnClickListener);
     }
 
     public void b(com.baidu.tieba.enterForum.hotuserrank.a.c cVar) {
-        if (cVar != null && cVar.imn != null && cVar.imn.imj != null && !cVar.imn.imj.isMask && TbadkCoreApplication.isLogin()) {
+        if (cVar != null && cVar.inb != null && cVar.inb.imX != null && !cVar.inb.imX.isMask && TbadkCoreApplication.isLogin()) {
             this.mRootView.setVisibility(0);
-            this.ilI.a(cVar.imn);
-            this.ilI.csp();
-            this.ilL = cVar.imo;
+            this.imx.a(cVar.inb);
+            this.imx.crS();
+            this.imA = cVar.inc;
             return;
         }
         this.mRootView.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.ilI.onChangeSkinType(i);
-        ap.setBackgroundColor(this.ilI.itemView, R.color.cp_bg_line_h);
-        ap.setViewTextColor(this.ilJ, R.color.cp_link_tip_a);
+        this.imx.onChangeSkinType(i);
+        ap.setBackgroundColor(this.imx.itemView, R.color.CAM_X0207);
+        ap.setViewTextColor(this.imy, R.color.CAM_X0302);
     }
 
-    public void xO(int i) {
-        this.ilM = i;
+    public void ym(int i) {
+        this.imB = i;
     }
 }

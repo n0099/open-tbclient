@@ -3,14 +3,14 @@ package com.baidu.live.message;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes4.dex */
 public class YuyinFollowRoomMessage extends CustomResponsedMessage<FollowRoom> {
-    private FollowRoom boo;
+    private FollowRoom bmD;
 
     public YuyinFollowRoomMessage(FollowRoom followRoom) {
         super(2501028);
-        this.boo = followRoom;
+        this.bmD = followRoom;
     }
 
-    public FollowRoom On() {
-        return this.boo;
+    public FollowRoom NE() {
+        return this.bmD;
     }
 }

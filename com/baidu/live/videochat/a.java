@@ -8,9 +8,9 @@ public interface a {
 
     void B(int i, String str);
 
-    void UT();
+    void Uk();
 
-    void UU();
+    void Ul();
 
     void a(long j, View view, View view2);
 
@@ -24,9 +24,9 @@ public interface a {
 
     void b(boolean z, int i, String str);
 
-    void cX(boolean z);
+    void cZ(boolean z);
 
-    void cY(boolean z);
+    void da(boolean z);
 
     void z(int i, String str);
 }

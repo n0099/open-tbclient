@@ -5,7 +5,7 @@ import java.util.List;
 import tbclient.Item;
 /* loaded from: classes.dex */
 public class TbRichTextEvaluateItemInfo extends OrmObject {
-    private String fIE;
+    private String fIi;
     private double mIconSize;
     private String mIconUrl;
     private double mScore;
@@ -17,7 +17,7 @@ public class TbRichTextEvaluateItemInfo extends OrmObject {
     }
 
     public TbRichTextEvaluateItemInfo(Item item) {
-        this.fIE = String.valueOf(item.item_id.intValue());
+        this.fIi = String.valueOf(item.item_id.intValue());
         this.mIconUrl = item.icon_url;
         this.mTitle = item.item_name;
         this.mTags = item.tags;
@@ -38,7 +38,7 @@ public class TbRichTextEvaluateItemInfo extends OrmObject {
         return this.mTags;
     }
 
-    public double bFZ() {
+    public double bFs() {
         return this.mScore;
     }
 
@@ -50,7 +50,7 @@ public class TbRichTextEvaluateItemInfo extends OrmObject {
         return this.mIconSize;
     }
 
-    public String bGa() {
-        return this.fIE;
+    public String bFt() {
+        return this.fIi;
     }
 }

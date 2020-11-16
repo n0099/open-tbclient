@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class Slot implements Parcelable {
     public static final Parcelable.Creator<Slot> CREATOR = new Parcelable.Creator<Slot>() { // from class: com.baidu.swan.ubc.Slot.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -18,7 +18,7 @@ public class Slot implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: no */
+        /* renamed from: nk */
         public Slot[] newArray(int i) {
             return new Slot[i];
         }
@@ -67,15 +67,15 @@ public class Slot implements Parcelable {
         }
     }
 
-    public void dg(JSONObject jSONObject) {
+    public void da(JSONObject jSONObject) {
         this.mOption = jSONObject;
     }
 
-    public boolean bdX() {
+    public boolean bdq() {
         return this.mStart > 0;
     }
 
-    public boolean bdY() {
+    public boolean bdr() {
         return this.mEnd > 0;
     }
 
@@ -84,7 +84,7 @@ public class Slot implements Parcelable {
         this.mEnd = 0L;
     }
 
-    public JSONObject bdZ() {
+    public JSONObject bds() {
         JSONObject jSONObject;
         JSONException e;
         if (TextUtils.isEmpty(this.mCategory) || this.mDuration <= 0.0f) {

@@ -6,7 +6,7 @@ import android.support.annotation.VisibleForTesting;
 import android.support.v4.util.LruCache;
 import com.baidu.android.common.logging.Log;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class g {
     private static final g EL = new g();
     private final LruCache<String, com.airbnb.lottie.e> EM = new LruCache<>(Log.FILE_LIMETE);

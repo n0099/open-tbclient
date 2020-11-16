@@ -1,5 +1,5 @@
 package com.baidu.mario.gldraw2d.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d implements Cloneable {
     private int mHeight;
     private int mWidth;
@@ -29,12 +29,12 @@ public class d implements Cloneable {
         return this.mHeight;
     }
 
-    public boolean YD() {
+    public boolean XU() {
         return this.mId != -1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: YE */
+    /* renamed from: XV */
     public d clone() {
         try {
             return (d) super.clone();

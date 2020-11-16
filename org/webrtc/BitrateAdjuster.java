@@ -1,5 +1,5 @@
 package org.webrtc;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 interface BitrateAdjuster {
     int getAdjustedBitrateBps();
 

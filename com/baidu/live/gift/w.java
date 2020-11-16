@@ -5,29 +5,29 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class w {
-    private Set<String> aWw;
+    private Set<String> aUL;
 
-    public static w Ha() {
-        return a.aWx;
+    public static w Gr() {
+        return a.aUM;
     }
 
-    public boolean gQ(String str) {
-        if (TextUtils.isEmpty(str) || this.aWw == null || this.aWw.isEmpty()) {
+    public boolean gK(String str) {
+        if (TextUtils.isEmpty(str) || this.aUL == null || this.aUL.isEmpty()) {
             return false;
         }
-        return this.aWw.contains(str);
+        return this.aUL.contains(str);
     }
 
-    public void gR(String str) {
-        if (this.aWw == null) {
-            this.aWw = new HashSet();
+    public void gL(String str) {
+        if (this.aUL == null) {
+            this.aUL = new HashSet();
         }
-        this.aWw.add(str);
+        this.aUL.add(str);
     }
 
     public void release() {
-        if (this.aWw != null) {
-            this.aWw.clear();
+        if (this.aUL != null) {
+            this.aUL.clear();
         }
     }
 
@@ -36,6 +36,6 @@ public class w {
 
     /* loaded from: classes4.dex */
     private static class a {
-        private static w aWx = new w();
+        private static w aUM = new w();
     }
 }

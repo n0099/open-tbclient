@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.utils;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class ChannelUtils {
 
     /* renamed from: a  reason: collision with root package name */

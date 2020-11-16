@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class ai {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -147,7 +147,7 @@ public final class ai {
         return str;
     }
 
-    public static String uu(String str) {
+    public static String up(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith(File.separator)) {
                 str = str.substring(1);
@@ -160,8 +160,8 @@ public final class ai {
         return str;
     }
 
-    public static String uv(String str) {
-        return uu(delAllParamsFromUrl(str));
+    public static String uq(String str) {
+        return up(delAllParamsFromUrl(str));
     }
 
     public static String getParams(String str) {
@@ -319,7 +319,7 @@ public final class ai {
         return z;
     }
 
-    public static String cI(String str, String str2) {
+    public static String cH(String str, String str2) {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("errcode", str);

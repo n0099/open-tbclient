@@ -4,27 +4,27 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.CRC32;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public final String cEZ;
-    public final Map<String, String> cFa = new HashMap();
+    public final String cDp;
+    public final Map<String, String> cDq = new HashMap();
     public final long delta;
     public final long serverTime;
 
-    public static b alj() {
+    public static b akB() {
         return new b(0L);
     }
 
     private b(long j) {
         this.delta = TimeUnit.MILLISECONDS.toSeconds(j);
         this.serverTime = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.cEZ = Long.toHexString(mp(this.serverTime + "#" + this.delta));
-        this.cFa.put("timestamp", Long.toString(this.serverTime));
-        this.cFa.put("delta", Long.toString(this.delta));
-        this.cFa.put("rasign", this.cEZ);
+        this.cDp = Long.toHexString(mj(this.serverTime + "#" + this.delta));
+        this.cDq.put("timestamp", Long.toString(this.serverTime));
+        this.cDq.put("delta", Long.toString(this.delta));
+        this.cDq.put("rasign", this.cDp);
     }
 
-    private long mp(String str) {
+    private long mj(String str) {
         CRC32 crc32 = new CRC32();
         crc32.reset();
         crc32.update(str.getBytes());
@@ -32,14 +32,14 @@ public class b {
     }
 
     public String toString() {
-        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.cEZ;
+        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.cDp;
     }
 
     public String bu(long j) {
-        return Long.toHexString(mp(j + "#smartapp_formid"));
+        return Long.toHexString(mj(j + "#smartapp_formid"));
     }
 
     public String bv(long j) {
-        return Long.toHexString(mp(j + "#payid"));
+        return Long.toHexString(mj(j + "#payid"));
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.IMConnection;
 import com.tencent.connect.common.Constants;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class ae implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */

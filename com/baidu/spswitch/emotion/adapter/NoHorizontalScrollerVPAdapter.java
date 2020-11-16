@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes6.dex */
 public class NoHorizontalScrollerVPAdapter extends FragmentPagerAdapter {
     private List<Fragment> mDatas;
 

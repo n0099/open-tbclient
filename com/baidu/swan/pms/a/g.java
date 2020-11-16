@@ -8,41 +8,41 @@ import com.baidu.swan.pms.model.i;
 import java.util.Map;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public abstract class g implements d {
-    public c<com.baidu.swan.pms.model.f> aqr() {
+    public c<com.baidu.swan.pms.model.f> apJ() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.g> aqo() {
+    public c<com.baidu.swan.pms.model.g> apG() {
         return null;
     }
 
-    public c<i> atJ() {
+    public c<i> atb() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.d> aqs() {
+    public c<com.baidu.swan.pms.model.d> apK() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.b> aqt() {
+    public c<com.baidu.swan.pms.model.b> apL() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.h> aEr() {
+    public c<com.baidu.swan.pms.model.h> aDJ() {
         return null;
     }
 
-    public a<a.C0558a> aqn() {
+    public a<a.C0556a> apF() {
         return null;
     }
 
-    public f aqu() {
+    public f apM() {
         return null;
     }
 
-    public com.baidu.swan.pms.node.d.c og(String str) {
+    public com.baidu.swan.pms.node.d.c nZ(String str) {
         return null;
     }
 
@@ -51,50 +51,50 @@ public abstract class g implements d {
     public Bundle a(@NonNull Bundle bundle, Set<String> set) {
         Bundle bundle2 = new Bundle();
         if (set.contains("event_performance_ubc")) {
-            br(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+            bq(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
             set.remove("event_performance_ubc");
         }
         return bundle2;
     }
 
-    public void ans() {
+    public void amK() {
     }
 
     public void P(String str, int i) {
     }
 
-    public void aqm() {
+    public void apE() {
     }
 
     public void b(com.baidu.swan.pms.model.a aVar) {
     }
 
-    public void anq() {
+    public void amI() {
     }
 
     public void a(com.baidu.swan.pms.utils.f fVar) {
     }
 
     @Override // com.baidu.swan.pms.a.d
-    public void aqh() {
+    public void apz() {
     }
 
     @Override // com.baidu.swan.pms.a.d
-    public void br(@Nullable String str, @Nullable String str2) {
+    public void bq(@Nullable String str, @Nullable String str2) {
     }
 
     public void b(String str, String str2, JSONObject jSONObject) {
     }
 
-    public Map<String, String> bbe() {
+    public Map<String, String> bax() {
         return null;
     }
 
-    public Map<String, String> bbf() {
+    public Map<String, String> bay() {
         return null;
     }
 
-    public Map<String, String> bbg() {
+    public Map<String, String> baz() {
         return null;
     }
 }

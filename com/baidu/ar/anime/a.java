@@ -7,7 +7,7 @@ import com.baidu.ar.arplay.core.engine.pixel.PixelType;
 import com.baidu.ar.d.j;
 import com.baidu.ar.d.l;
 import io.flutter.plugin.platform.PlatformPlugin;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class a extends j {
     private static final String TAG = a.class.getSimpleName();
     private int cf = 720;
@@ -16,7 +16,7 @@ public class a extends j {
     private InterfaceC0071a ci = null;
 
     /* renamed from: com.baidu.ar.anime.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public interface InterfaceC0071a {
         void b(FramePixels framePixels);
     }

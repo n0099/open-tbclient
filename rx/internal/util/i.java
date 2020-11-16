@@ -6,37 +6,37 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import rx.k;
-/* loaded from: classes16.dex */
+/* loaded from: classes14.dex */
 public final class i implements k {
-    private volatile boolean qdO;
-    private List<k> qiU;
+    private volatile boolean qfr;
+    private List<k> qkx;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.qiU = new LinkedList(Arrays.asList(kVarArr));
+        this.qkx = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.qiU = new LinkedList();
-        this.qiU.add(kVar);
+        this.qkx = new LinkedList();
+        this.qkx.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.qdO;
+        return this.qfr;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.qdO) {
+            if (!this.qfr) {
                 synchronized (this) {
-                    if (!this.qdO) {
-                        List list = this.qiU;
+                    if (!this.qfr) {
+                        List list = this.qkx;
                         if (list == null) {
                             list = new LinkedList();
-                            this.qiU = list;
+                            this.qkx = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.qdO) {
+        if (!this.qfr) {
             synchronized (this) {
-                List<k> list = this.qiU;
-                if (!this.qdO && list != null) {
+                List<k> list = this.qkx;
+                if (!this.qfr && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.qdO) {
+        if (!this.qfr) {
             synchronized (this) {
-                if (!this.qdO) {
-                    this.qdO = true;
-                    List<k> list = this.qiU;
-                    this.qiU = null;
+                if (!this.qfr) {
+                    this.qfr = true;
+                    List<k> list = this.qkx;
+                    this.qkx = null;
                     v(list);
                 }
             }

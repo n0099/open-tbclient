@@ -79,7 +79,7 @@ import javax.security.cert.CertificateException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class c {
     private static final String b = "c";
     private static final int c = 6;
@@ -89,7 +89,7 @@ public final class c {
     private SapiConfiguration f3420a = SapiAccountManager.getInstance().getSapiConfiguration();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class a extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -159,7 +159,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class b extends HttpHandlerWrap {
         b(Looper looper) {
             super(looper);
@@ -178,15 +178,15 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.c$c  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C0333c extends HttpHandlerWrap {
+    /* loaded from: classes15.dex */
+    public class C0331c extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
         final /* synthetic */ SapiCallback f3423a;
         final /* synthetic */ CheckUserFaceIdResult b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        C0333c(Looper looper, SapiCallback sapiCallback, CheckUserFaceIdResult checkUserFaceIdResult) {
+        C0331c(Looper looper, SapiCallback sapiCallback, CheckUserFaceIdResult checkUserFaceIdResult) {
             super(looper);
             this.f3423a = sapiCallback;
             this.b = checkUserFaceIdResult;
@@ -236,7 +236,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class d extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -295,7 +295,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class e extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -357,7 +357,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class g extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -410,7 +410,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class h extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -470,14 +470,14 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class i implements com.baidu.sapi2.callback.a.a {
 
         /* renamed from: a  reason: collision with root package name */
         final /* synthetic */ OneKeyLoginCallback f3429a;
         final /* synthetic */ com.baidu.sapi2.callback.a.b b;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes15.dex */
         class a extends HttpHandlerWrap {
             a(Looper looper) {
                 super(looper);
@@ -575,7 +575,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class j extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -617,7 +617,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class k extends GetUserInfoCallback {
 
         /* renamed from: a  reason: collision with root package name */
@@ -677,7 +677,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class l extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -718,7 +718,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class m extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -765,7 +765,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class n extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -800,7 +800,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class o extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -873,7 +873,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class p extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -947,7 +947,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class q extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -1051,7 +1051,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class r extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -1112,7 +1112,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class s extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
@@ -1140,7 +1140,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class t extends GetUserInfoCallback {
 
         /* renamed from: a  reason: collision with root package name */
@@ -1344,7 +1344,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class f extends AsyncTask<String, Void, Long> {
 
         /* renamed from: a  reason: collision with root package name */
@@ -1741,7 +1741,7 @@ public final class c {
         if (map != null && !map.isEmpty()) {
             a2.putAll(map);
         }
-        new HttpClientWrap().post(com.baidu.sapi2.utils.e.C, a2, null, w(), new C0333c(Looper.getMainLooper(), sapiCallback, new CheckUserFaceIdResult()));
+        new HttpClientWrap().post(com.baidu.sapi2.utils.e.C, a2, null, w(), new C0331c(Looper.getMainLooper(), sapiCallback, new CheckUserFaceIdResult()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

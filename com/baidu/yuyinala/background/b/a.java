@@ -6,16 +6,16 @@ public class a {
     private boolean isLoading;
     private String mId;
     private String mName;
-    private String otf;
-    private String otg;
-    private boolean oth;
+    private String ouJ;
+    private String ouK;
+    private boolean ouL;
 
     public void parse(JSONObject jSONObject) {
         this.mId = jSONObject.optString("id");
         this.mName = jSONObject.optString("name");
-        this.otf = jSONObject.optString("thumbnail_url");
-        this.otg = jSONObject.optString("original_url");
-        this.oth = jSONObject.optInt("is_chosen", 0) == 1;
+        this.ouJ = jSONObject.optString("thumbnail_url");
+        this.ouK = jSONObject.optString("original_url");
+        this.ouL = jSONObject.optInt("is_chosen", 0) == 1;
     }
 
     public String getName() {
@@ -23,19 +23,19 @@ public class a {
     }
 
     public String getThumbnailUrl() {
-        return this.otf;
+        return this.ouJ;
     }
 
     public String getOriginalUrl() {
-        return this.otg;
+        return this.ouK;
     }
 
-    public boolean eeA() {
-        return this.oth;
+    public boolean eey() {
+        return this.ouL;
     }
 
-    public void zF(boolean z) {
-        this.oth = z;
+    public void zM(boolean z) {
+        this.ouL = z;
     }
 
     public boolean isLoading() {

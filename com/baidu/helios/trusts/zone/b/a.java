@@ -22,11 +22,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    private static final byte[] azw = {77, 73, 78, 71};
+    private static final byte[] axL = {77, 73, 78, 71};
     private String D;
     private int F;
-    private Set<String> azx;
-    private Context azy;
+    private Set<String> axM;
+    private Context axN;
     public String o;
     private long t;
     private boolean u;
@@ -49,12 +49,12 @@ public class a {
             }
             byte[] decode = Base64.decode(string.getBytes("utf-8"), 1);
             for (int i = 0; i < decode.length; i++) {
-                decode[i] = (byte) (decode[i] ^ azw[i % azw.length]);
+                decode[i] = (byte) (decode[i] ^ axL[i % axL.length]);
             }
             JSONObject jSONObject = new JSONObject(new String(decode));
-            if (s(jSONObject)) {
-                this.azx = new HashSet();
-                if (!a(this.D, this.azy, jSONObject, this.azx)) {
+            if (m(jSONObject)) {
+                this.axM = new HashSet();
+                if (!a(this.D, this.axN, jSONObject, this.axM)) {
                     this.F |= 4;
                 } else if (!Arrays.equals(g.b(Base64.decode(string2, 0), aVar), f.sha256(decode))) {
                     this.F |= 8;
@@ -105,7 +105,7 @@ public class a {
         return strArr;
     }
 
-    private boolean s(JSONObject jSONObject) {
+    private boolean m(JSONObject jSONObject) {
         e eVar = new e();
         eVar.R(jSONObject.optLong("flags"));
         String optString = jSONObject.optString("package", "");
@@ -144,15 +144,15 @@ public class a {
         return true;
     }
 
-    public Set<String> AV() {
-        return this.azx;
+    public Set<String> Am() {
+        return this.axM;
     }
 
     public void a(com.baidu.helios.common.a.b.a aVar, boolean z) {
         PackageInfo packageInfo;
         ActivityInfo[] activityInfoArr;
         ActivityInfo activityInfo;
-        PackageManager packageManager = this.azy.getPackageManager();
+        PackageManager packageManager = this.axN.getPackageManager();
         try {
             packageInfo = packageManager.getPackageInfo(this.D, 2);
         } catch (PackageManager.NameNotFoundException e) {
@@ -180,7 +180,7 @@ public class a {
 
     public void a(String str, Context context) {
         this.D = str;
-        this.azy = context;
+        this.axN = context;
     }
 
     public boolean a() {

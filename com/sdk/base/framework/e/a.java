@@ -3,7 +3,7 @@ package com.sdk.base.framework.e;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import java.io.OutputStream;
 import java.io.PushbackInputStream;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public final class a extends d {
 
     /* renamed from: a  reason: collision with root package name */

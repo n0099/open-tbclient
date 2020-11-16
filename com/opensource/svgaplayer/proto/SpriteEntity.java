@@ -10,14 +10,14 @@ import com.squareup.wire2.internal.a;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     public static final ProtoAdapter<SpriteEntity> ADAPTER = new ProtoAdapter_SpriteEntity();
     public static final String DEFAULT_IMAGEKEY = "";
     private static final long serialVersionUID = 0;
-    @WireField(eys = "com.opensource.svgaplayer.proto.FrameEntity#ADAPTER", eyt = WireField.Label.REPEATED, tag = 2)
+    @WireField(eyt = "com.opensource.svgaplayer.proto.FrameEntity#ADAPTER", eyu = WireField.Label.REPEATED, tag = 2)
     public final List<FrameEntity> frames;
-    @WireField(eys = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+    @WireField(eyt = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String imageKey;
 
     public SpriteEntity(String str, List<FrameEntity> list) {
@@ -75,9 +75,9 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         return sb.replace(0, 2, "SpriteEntity{").append('}').toString();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public static final class Builder extends Message.a<SpriteEntity, Builder> {
-        public List<FrameEntity> frames = a.eyv();
+        public List<FrameEntity> frames = a.eyw();
         public String imageKey;
 
         public Builder imageKey(String str) {
@@ -99,7 +99,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     private static final class ProtoAdapter_SpriteEntity extends ProtoAdapter<SpriteEntity> {
         ProtoAdapter_SpriteEntity() {
             super(FieldEncoding.LENGTH_DELIMITED, SpriteEntity.class);
@@ -126,11 +126,11 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public SpriteEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long eyk = cVar.eyk();
+            long eyl = cVar.eyl();
             while (true) {
-                int eyl = cVar.eyl();
-                if (eyl != -1) {
-                    switch (eyl) {
+                int eym = cVar.eym();
+                if (eym != -1) {
+                    switch (eym) {
                         case 1:
                             builder.imageKey(ProtoAdapter.STRING.decode(cVar));
                             break;
@@ -138,12 +138,12 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                             builder.frames.add(FrameEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding eym = cVar.eym();
-                            builder.addUnknownField(eyl, eym, eym.rawProtoAdapter().decode(cVar));
+                            FieldEncoding eyn = cVar.eyn();
+                            builder.addUnknownField(eym, eyn, eyn.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.ib(eyk);
+                    cVar.ie(eyl);
                     return builder.build();
                 }
             }

@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.regex.Pattern;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class CheckUtils {
 
     /* renamed from: a  reason: collision with root package name */

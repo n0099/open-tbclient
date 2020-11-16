@@ -5,12 +5,12 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.util.Log;
 import com.baidu.swan.apps.b;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class a {
     private Context mContext;
     private static final String TAG = a.class.getSimpleName();
     private static final boolean DEBUG = b.DEBUG;
-    private static SharedPreferences dJW = null;
+    private static SharedPreferences dIo = null;
 
     private a(Context context) {
         this.mContext = null;
@@ -22,10 +22,10 @@ public class a {
     }
 
     private static SharedPreferences dx(Context context) {
-        if (dJW == null) {
-            dJW = context.getSharedPreferences("downgradefile", 0);
+        if (dIo == null) {
+            dIo = context.getSharedPreferences("downgradefile", 0);
         }
-        return dJW;
+        return dIo;
     }
 
     private int dy(Context context) {
@@ -56,14 +56,14 @@ public class a {
         edit.apply();
     }
 
-    public void aOV() {
+    public void aOn() {
         int dz = dz(this.mContext);
         int dy = dy(this.mContext);
         if (DEBUG) {
             Log.d(TAG, "处理升级逻辑：newVersionCode=" + dz + " /oldVersionCode=" + dy);
         }
         if (dy == 0) {
-            lG(dz);
+            lC(dz);
             n(this.mContext, dz);
             o(this.mContext, dy);
         } else if (dz > dy) {
@@ -75,23 +75,23 @@ public class a {
             n(this.mContext, dz);
             o(this.mContext, dy);
         } else {
-            aOW();
+            aOo();
         }
     }
 
     private void at(int i, int i2) {
         com.baidu.swan.apps.ao.a.at(i2, i);
-        com.baidu.swan.d.a.bfj();
+        com.baidu.swan.d.a.beC();
     }
 
     private void av(int i, int i2) {
     }
 
-    private void lG(int i) {
+    private void lC(int i) {
         com.baidu.swan.apps.ao.a.at(0, i);
     }
 
-    private void aOW() {
+    private void aOo() {
         if (DEBUG) {
             Log.d(TAG, "新旧版本一样:" + dy(this.mContext));
         }

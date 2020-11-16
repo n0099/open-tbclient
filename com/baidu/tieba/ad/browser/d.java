@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.NewAdTbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes21.dex */
+/* loaded from: classes20.dex */
 public class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String parseWebViewUrl(String str, String str2) {
@@ -45,15 +45,15 @@ public class d {
     }
 
     public static void startWebActivity(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        biR();
+        bil();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
-                int bHu = com.baidu.tieba.a.bHt().bHu();
+                int bGN = com.baidu.tieba.a.bGM().bGN();
                 Uri parse = Uri.parse(appendVersionCode);
                 String queryParameter = parse.getQueryParameter(LegoListActivityConfig.AD_ID);
                 boolean equals = "1".equals(parse.getQueryParameter(LegoListActivityConfig.DOWNLOAD_MIDDLE_KEY));
-                if (bHu == 1 || equals) {
+                if (bGN == 1 || equals) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewAdTbWebViewActivityConfig(context, str, appendVersionCode, z, z2, z3, queryParameter)));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AdTbWebViewActivityConfig(context, str, appendVersionCode, z, z2, z3)));
@@ -79,7 +79,7 @@ public class d {
     }
 
     public static String appendCuidParam(String str) {
-        if (!at.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!au.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -105,13 +105,13 @@ public class d {
     }
 
     public static String appendVersionCode(String str) {
-        return (at.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
+        return (au.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x00c4 -> B:33:0x001c). Please submit an issue!!! */
     public static void initCookie(Context context) {
         CookieManager cookieManager;
-        a.b AB = com.baidu.tbadk.core.a.a.bjI().AB(TbadkCoreApplication.getCurrentBduss());
+        a.b zW = com.baidu.tbadk.core.a.a.biM().zW(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
@@ -120,7 +120,7 @@ public class d {
             cookieManager = null;
         }
         if (cookieManager != null) {
-            if (AB != null) {
+            if (zW != null) {
                 cookieManager.setAcceptCookie(true);
                 cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; c3_aid=" + TbadkCoreApplication.getInst().getCuidGalaxy3() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
@@ -155,7 +155,7 @@ public class d {
         }
     }
 
-    private static void biR() {
+    private static void bil() {
         new aj("open_webview", true).start();
     }
 }

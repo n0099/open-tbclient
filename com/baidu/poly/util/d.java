@@ -3,30 +3,30 @@ package com.baidu.poly.util;
 import android.util.Log;
 /* loaded from: classes6.dex */
 public class d {
-    private static String cdC = null;
-    private static String cdD = null;
-    private static int cdE = 0;
-    public static boolean cdF = true;
+    private static String cbP = null;
+    private static String cbQ = null;
+    private static int cbR = 0;
+    public static boolean cbS = true;
 
     private static void a(StackTraceElement[] stackTraceElementArr) {
-        cdC = stackTraceElementArr[1].getFileName();
-        cdD = stackTraceElementArr[1].getMethodName();
-        cdE = stackTraceElementArr[1].getLineNumber();
+        cbP = stackTraceElementArr[1].getFileName();
+        cbQ = stackTraceElementArr[1].getMethodName();
+        cbR = stackTraceElementArr[1].getLineNumber();
     }
 
-    private static String dW(String str) {
-        return Thread.currentThread().getName() + "[" + cdC + ":" + cdD + ":" + cdE + "]" + str;
+    private static String dY(String str) {
+        return Thread.currentThread().getName() + "[" + cbP + ":" + cbQ + ":" + cbR + "]" + str;
     }
 
     public static void info(String str) {
-        if (!cdF) {
+        if (!cbS) {
             return;
         }
         Log.i("CashierSdk", str);
     }
 
     public static void a(Object... objArr) {
-        if (cdF) {
+        if (cbS) {
             a(new Throwable().getStackTrace());
             Log.e("CashierSdk", l(objArr));
         }
@@ -42,11 +42,11 @@ public class d {
                 sb.append(obj.toString());
             }
         }
-        return dW(sb.toString());
+        return dY(sb.toString());
     }
 
     public static void a(String str, Throwable th) {
-        if (cdF) {
+        if (cbS) {
             a(new Throwable().getStackTrace());
             Log.e("CashierSdk", l(str), th);
         }

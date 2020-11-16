@@ -10,15 +10,15 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.util.af;
+import com.baidu.tbadk.util.ae;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    private Activity bNY;
-    private TextView eIk;
-    private int eIl;
-    private View.OnClickListener eIm;
-    private View ebT;
+    private Activity bMo;
+    private TextView eGC;
+    private int eGD;
+    private View.OnClickListener eGE;
+    private View eal;
     private Drawable mBackgroundDrawable;
     private ViewGroup mContainer;
     private int mCornerRadius;
@@ -39,75 +39,75 @@ public class f implements View.OnClickListener {
 
     private f(Activity activity) {
         if (activity != null) {
-            this.bNY = activity;
-            this.mHeight = com.baidu.adp.lib.util.l.getDimens(this.bNY, R.dimen.tbds114);
+            this.bMo = activity;
+            this.mHeight = com.baidu.adp.lib.util.l.getDimens(this.bMo, R.dimen.tbds114);
             this.mCornerRadius = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds84);
-            this.eIl = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds44);
+            this.eGD = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds44);
             this.offsetY = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds222);
             this.offsetX = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds29);
             View inflate = LayoutInflater.from(activity).inflate(R.layout.text_toast_layout, (ViewGroup) null);
             this.mContainer = (ViewGroup) inflate.findViewById(R.id.layout_container);
-            this.ebT = inflate.findViewById(R.id.background);
-            this.eIk = (TextView) inflate.findViewById(R.id.toast_tv);
+            this.eal = inflate.findViewById(R.id.background);
+            this.eGC = (TextView) inflate.findViewById(R.id.toast_tv);
             this.mRootView = inflate;
-            this.ebT.setBackgroundDrawable(bpl());
-            this.eIk.setMaxLines(1);
-            this.eIk.setGravity(17);
-            this.eIk.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbfontsize40));
-            this.eIk.setTextColor(this.bNY.getResources().getColor(R.color.cp_cont_a));
-            this.eIk.setPadding(this.eIl, 0, this.eIl, 0);
-            this.mWindowManager = (WindowManager) this.bNY.getSystemService("window");
+            this.eal.setBackgroundDrawable(bop());
+            this.eGC.setMaxLines(1);
+            this.eGC.setGravity(17);
+            this.eGC.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbfontsize40));
+            this.eGC.setTextColor(this.bMo.getResources().getColor(R.color.CAM_X0101));
+            this.eGC.setPadding(this.eGD, 0, this.eGD, 0);
+            this.mWindowManager = (WindowManager) this.bMo.getSystemService("window");
             this.mLayoutParams = new WindowManager.LayoutParams();
-            this.mLayoutParams.width = com.baidu.adp.lib.util.l.getEquipmentWidth(this.bNY) - (this.offsetX * 2);
+            this.mLayoutParams.width = com.baidu.adp.lib.util.l.getEquipmentWidth(this.bMo) - (this.offsetX * 2);
             this.mLayoutParams.height = this.mHeight;
             this.mLayoutParams.type = 1000;
             this.mLayoutParams.format = -3;
             this.mLayoutParams.windowAnimations = R.style.ToastAnimation;
             this.mLayoutParams.flags = 262152;
             this.mLayoutParams.gravity = 81;
-            this.mLayoutParams.y = bpj();
+            this.mLayoutParams.y = bon();
             this.mLayoutParams.alpha = this.alpha;
         }
     }
 
-    private int bpj() {
-        return this.offsetY + UtilHelper.getNavigationBarHeight(this.bNY);
+    private int bon() {
+        return this.offsetY + UtilHelper.getNavigationBarHeight(this.bMo);
     }
 
-    private GradientDrawable bpk() {
-        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{com.baidu.tieba.lego.card.d.b.fv("#FF722B"), com.baidu.tieba.lego.card.d.b.fv("#FF2b5D")});
+    private GradientDrawable boo() {
+        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{com.baidu.tieba.lego.card.d.b.sa("#FF722B"), com.baidu.tieba.lego.card.d.b.sa("#FF2b5D")});
         gradientDrawable.setCornerRadius(this.mCornerRadius);
         return gradientDrawable;
     }
 
-    private Drawable bpl() {
+    private Drawable bop() {
         if (this.mBackgroundDrawable == null) {
-            this.mBackgroundDrawable = bpk();
+            this.mBackgroundDrawable = boo();
         }
         return this.mBackgroundDrawable;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.eIm = onClickListener;
+        this.eGE = onClickListener;
     }
 
     public static f c(Activity activity, String str) {
-        return new f(activity).Br(str);
+        return new f(activity).AM(str);
     }
 
-    private f Br(String str) {
-        if (this.bNY != null && !TextUtils.isEmpty(str)) {
-            String interceptString = af.interceptString(str, 34);
-            int textWidth = com.baidu.adp.lib.util.l.getTextWidth(this.eIk.getPaint(), interceptString);
+    private f AM(String str) {
+        if (this.bMo != null && !TextUtils.isEmpty(str)) {
+            String interceptString = ae.interceptString(str, 34);
+            int textWidth = com.baidu.adp.lib.util.l.getTextWidth(this.eGC.getPaint(), interceptString);
             ViewGroup.LayoutParams layoutParams = this.mContainer.getLayoutParams();
-            layoutParams.width = textWidth + (this.eIl * 2);
+            layoutParams.width = textWidth + (this.eGD * 2);
             this.mContainer.setLayoutParams(layoutParams);
-            this.eIk.setText(interceptString);
+            this.eGC.setText(interceptString);
         }
         return this;
     }
 
-    public f bpm() {
+    public f boq() {
         com.baidu.adp.lib.f.e.mY().removeCallbacks(this.mHideRunnable);
         if (this.mRootView != null && this.mRootView.getWindowToken() != null) {
             this.mWindowManager.removeView(this.mRootView);
@@ -124,7 +124,7 @@ public class f implements View.OnClickListener {
         }
     }
 
-    public f oI(int i) {
+    public f oE(int i) {
         if (i > 0) {
             this.duration = i * 1000;
         }
@@ -138,8 +138,8 @@ public class f implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eIm != null) {
-            this.eIm.onClick(view);
+        if (this.eGE != null) {
+            this.eGE.onClick(view);
         }
         hide();
     }

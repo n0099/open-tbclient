@@ -11,7 +11,7 @@ import com.vivo.push.PushClient;
 import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.util.p;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
@@ -36,7 +36,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes11.dex */
     static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */

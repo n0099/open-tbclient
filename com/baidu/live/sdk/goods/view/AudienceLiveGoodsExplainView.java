@@ -17,17 +17,17 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.util.ScreenHelper;
 /* loaded from: classes4.dex */
 public class AudienceLiveGoodsExplainView extends PendantChildView {
-    private com.baidu.live.sdk.goods.a.a bsD;
-    private a btA;
-    private float btr;
-    private float bts;
-    private float btt;
-    private float btu;
-    private BdRoundedImageView btv;
-    private TextView btw;
-    private TextView btx;
-    private View bty;
-    private FrameLayout btz;
+    private com.baidu.live.sdk.goods.a.a bqS;
+    private float brF;
+    private float brG;
+    private float brH;
+    private float brI;
+    private BdRoundedImageView brJ;
+    private TextView brK;
+    private TextView brL;
+    private View brM;
+    private FrameLayout brN;
+    private a brO;
     private Activity mActivity;
 
     /* loaded from: classes4.dex */
@@ -38,31 +38,31 @@ public class AudienceLiveGoodsExplainView extends PendantChildView {
     public AudienceLiveGoodsExplainView(Activity activity) {
         super(activity);
         this.mActivity = activity;
-        this.btr = this.mActivity.getResources().getDimension(a.d.sdk_ds20);
-        this.btt = this.mActivity.getResources().getDimension(a.d.sdk_ds196);
-        PN();
+        this.brF = this.mActivity.getResources().getDimension(a.d.sdk_ds20);
+        this.brH = this.mActivity.getResources().getDimension(a.d.sdk_ds196);
+        Pe();
     }
 
     public void setOnCloseBtnClickListener(a aVar) {
-        this.btA = aVar;
+        this.brO = aVar;
     }
 
     public void f(com.baidu.live.sdk.goods.a.a aVar) {
         if (aVar != null) {
-            this.bsD = aVar;
-            this.btx.setText(this.bsD.title);
-            this.btw.setText(this.bsD.price);
-            ImageLoaderManager.getInstance().buildImageLoader().loadImage(this.bsD.imageUrl, new IImageLoaderListener() { // from class: com.baidu.live.sdk.goods.view.AudienceLiveGoodsExplainView.1
+            this.bqS = aVar;
+            this.brL.setText(this.bqS.title);
+            this.brK.setText(this.bqS.price);
+            ImageLoaderManager.getInstance().buildImageLoader().loadImage(this.bqS.imageUrl, new IImageLoaderListener() { // from class: com.baidu.live.sdk.goods.view.AudienceLiveGoodsExplainView.1
                 @Override // com.baidu.live.adp.lib.image.loader.interfaces.IImageLoaderListener
                 public void onLoadComplete(String str, Bitmap bitmap) {
-                    AudienceLiveGoodsExplainView.this.btv.setImageBitmap(bitmap);
+                    AudienceLiveGoodsExplainView.this.brJ.setImageBitmap(bitmap);
                 }
             });
-            this.bty.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.view.AudienceLiveGoodsExplainView.2
+            this.brM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.view.AudienceLiveGoodsExplainView.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (AudienceLiveGoodsExplainView.this.btA != null) {
-                        AudienceLiveGoodsExplainView.this.btA.a(view, AudienceLiveGoodsExplainView.this.bsD);
+                    if (AudienceLiveGoodsExplainView.this.brO != null) {
+                        AudienceLiveGoodsExplainView.this.brO.a(view, AudienceLiveGoodsExplainView.this.bqS);
                     }
                 }
             });
@@ -77,32 +77,32 @@ public class AudienceLiveGoodsExplainView extends PendantChildView {
             int realScreenWidth = ScreenHelper.getRealScreenWidth(this.mActivity);
             int realScreenHeight = ScreenHelper.getRealScreenHeight(this.mActivity);
             if (realScreenWidth > realScreenHeight) {
-                this.bts = realScreenHeight * 0.3f;
+                this.brG = realScreenHeight * 0.3f;
             } else {
-                this.bts = realScreenWidth * 0.3f;
+                this.brG = realScreenWidth * 0.3f;
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.rightMargin = (int) this.btr;
-            layoutParams.leftMargin = (int) this.btr;
-            if (this.bts < (this.btr * 2.0f) + this.btt) {
-                this.btu = this.bts - (this.btr * 2.0f);
+            layoutParams.rightMargin = (int) this.brF;
+            layoutParams.leftMargin = (int) this.brF;
+            if (this.brG < (this.brF * 2.0f) + this.brH) {
+                this.brI = this.brG - (this.brF * 2.0f);
             } else {
-                this.btu = this.btt;
+                this.brI = this.brH;
             }
-            ViewGroup.LayoutParams layoutParams2 = this.btz.getLayoutParams();
-            layoutParams2.width = (int) this.btu;
-            layoutParams2.height = (int) this.btu;
+            ViewGroup.LayoutParams layoutParams2 = this.brN.getLayoutParams();
+            layoutParams2.width = (int) this.brI;
+            layoutParams2.height = (int) this.brI;
             pendantParentView.a(this, layoutParams);
         }
     }
 
-    private void PN() {
+    private void Pe() {
         this.mActivity.getLayoutInflater().inflate(a.g.ala_sdk_goods_explain, this);
-        this.btv = (BdRoundedImageView) findViewById(a.f.conver_imageView);
-        this.bty = findViewById(a.f.iv_goods_explain_close);
-        this.btx = (TextView) findViewById(a.f.tv_goods_title);
-        this.btw = (TextView) findViewById(a.f.price_textView);
-        this.btz = (FrameLayout) findViewById(a.f.fl_iv_container);
+        this.brJ = (BdRoundedImageView) findViewById(a.f.conver_imageView);
+        this.brM = findViewById(a.f.iv_goods_explain_close);
+        this.brL = (TextView) findViewById(a.f.tv_goods_title);
+        this.brK = (TextView) findViewById(a.f.price_textView);
+        this.brN = (FrameLayout) findViewById(a.f.fl_iv_container);
     }
 
     @Override // com.baidu.live.pendantview.PendantChildView

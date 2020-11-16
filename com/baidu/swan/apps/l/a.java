@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     public void a(d.c cVar, String str, final d.b bVar) {
         final File file = new File(str);
@@ -29,10 +29,10 @@ public class a {
                 a.this.a(bVar, 1, 0);
             }
         });
-        aVar.ehl = false;
-        aVar.ehm = false;
-        aVar.ehn = false;
-        com.baidu.swan.a.c.a.baK().a(aVar);
+        aVar.efD = false;
+        aVar.efE = false;
+        aVar.efF = false;
+        com.baidu.swan.a.c.a.bad().a(aVar);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [117=4] */
@@ -139,7 +139,7 @@ public class a {
                     runnable = new Runnable() { // from class: com.baidu.swan.apps.l.a.4
                         @Override // java.lang.Runnable
                         public void run() {
-                            bVar.fa(i2);
+                            bVar.eW(i2);
                         }
                     };
                     break;

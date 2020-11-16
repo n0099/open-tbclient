@@ -1,16 +1,16 @@
 package com.baidu.swan.apps.r.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public int cXA;
-    public long cXB;
-    public byte[] cXC = new byte[48];
-    public int cXy;
-    public int cXz;
+    public int cVO;
+    public int cVP;
+    public int cVQ;
+    public long cVR;
+    public byte[] cVS = new byte[48];
     public int versionCode;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        public int cXD;
+        public int cVT;
         public int offset;
         public String path;
         public int size;

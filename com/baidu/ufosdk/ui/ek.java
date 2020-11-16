@@ -1,6 +1,6 @@
 package com.baidu.ufosdk.ui;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class ek implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

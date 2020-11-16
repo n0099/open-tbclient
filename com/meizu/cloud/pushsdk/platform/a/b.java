@@ -8,7 +8,7 @@ import com.meizu.cloud.pushsdk.platform.b.f;
 import com.meizu.cloud.pushsdk.platform.b.g;
 import java.io.File;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */

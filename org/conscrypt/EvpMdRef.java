@@ -3,7 +3,7 @@ package org.conscrypt;
 import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 import org.apache.commons.codec.digest4util.MessageDigestAlgorithms;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 final class EvpMdRef {
     static final String MGF1_ALGORITHM_NAME = "MGF1";
     static final String MGF1_OID = "1.2.840.113549.1.1.8";
@@ -94,7 +94,7 @@ final class EvpMdRef {
         throw new IllegalArgumentException("Unknown EVP_MD reference");
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     static final class MD5 {
         static final String JCA_NAME = "MD5";
         static final String OID = "1.2.840.113549.2.5";
@@ -105,7 +105,7 @@ final class EvpMdRef {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     static final class SHA1 {
         static final String JCA_NAME = "SHA-1";
         static final String OID = "1.3.14.3.2.26";
@@ -116,7 +116,7 @@ final class EvpMdRef {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     static final class SHA224 {
         static final String JCA_NAME = "SHA-224";
         static final String OID = "2.16.840.1.101.3.4.2.4";
@@ -127,7 +127,7 @@ final class EvpMdRef {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     static final class SHA256 {
         static final String JCA_NAME = "SHA-256";
         static final String OID = "2.16.840.1.101.3.4.2.1";
@@ -138,7 +138,7 @@ final class EvpMdRef {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     static final class SHA384 {
         static final String JCA_NAME = "SHA-384";
         static final String OID = "2.16.840.1.101.3.4.2.2";
@@ -149,7 +149,7 @@ final class EvpMdRef {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     static final class SHA512 {
         static final String JCA_NAME = "SHA-512";
         static final String OID = "2.16.840.1.101.3.4.2.3";

@@ -11,16 +11,16 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class ObservableRetryWhen<T> extends a<T, T> {
-    final h<? super q<Throwable>, ? extends t<?>> pNw;
+    final h<? super q<Throwable>, ? extends t<?>> pOZ;
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        io.reactivex.subjects.b<T> eBm = PublishSubject.eBl().eBm();
+        io.reactivex.subjects.b<T> eBn = PublishSubject.eBm().eBn();
         try {
-            t tVar = (t) io.reactivex.internal.functions.a.l(this.pNw.apply(eBm), "The handler returned a null ObservableSource");
-            RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(uVar, eBm, this.source);
+            t tVar = (t) io.reactivex.internal.functions.a.l(this.pOZ.apply(eBn), "The handler returned a null ObservableSource");
+            RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(uVar, eBn, this.source);
             uVar.onSubscribe(repeatWhenObserver);
             tVar.subscribe(repeatWhenObserver.inner);
             repeatWhenObserver.subscribeNext();
@@ -30,7 +30,7 @@ public final class ObservableRetryWhen<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class RepeatWhenObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 802743776666017014L;
         volatile boolean active;
@@ -109,7 +109,7 @@ public final class ObservableRetryWhen<T> extends a<T, T> {
             }
         }
 
-        /* loaded from: classes17.dex */
+        /* loaded from: classes5.dex */
         final class InnerRepeatObserver extends AtomicReference<io.reactivex.disposables.b> implements u<Object> {
             private static final long serialVersionUID = 3254781284376480842L;
 

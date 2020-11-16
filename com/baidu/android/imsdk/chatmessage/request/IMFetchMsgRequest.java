@@ -29,7 +29,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class IMFetchMsgRequest extends BaseHttpRequest {
     private static final String TAG = "IMFetchMsgRequest";
     private Long mAppid;

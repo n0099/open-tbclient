@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class AdapterHelper implements OpReorderer.Callback {
     private static final boolean DEBUG = false;
     static final int POSITION_TYPE_INVISIBLE = 0;
@@ -24,7 +24,7 @@ public class AdapterHelper implements OpReorderer.Callback {
     private Pools.Pool<UpdateOp> mUpdateOpPool;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes8.dex */
     public interface Callback {
         RecyclerView.ViewHolder findViewHolder(int i);
 
@@ -587,7 +587,7 @@ public class AdapterHelper implements OpReorderer.Callback {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes8.dex */
     public static class UpdateOp {
         static final int ADD = 1;
         static final int MOVE = 8;

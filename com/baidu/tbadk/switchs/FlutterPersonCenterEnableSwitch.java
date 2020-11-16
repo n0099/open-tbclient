@@ -4,7 +4,7 @@ import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.featureSwitch.a;
 /* loaded from: classes.dex */
 public class FlutterPersonCenterEnableSwitch extends a {
-    public static final String KEY = "flutter_person_center_enable_android_118";
+    public static final String KEY = "flutter_person_center_enable_android_12";
     public static final int TYPE_CLOSE = 0;
     public static final int TYPE_OPEN = 1;
 

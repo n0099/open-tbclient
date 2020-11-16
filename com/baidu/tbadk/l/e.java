@@ -4,39 +4,39 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.y;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private static e fuC;
-    private List<String> fuA = Eh(com.baidu.tbadk.core.sharedPref.b.bqh().getString("key_need_add_source_stat_list", ""));
-    private List<String> fuB = Eh("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
+    private static e ftM;
+    private List<String> ftK = DG(com.baidu.tbadk.core.sharedPref.b.bpu().getString("key_need_add_source_stat_list", ""));
+    private List<String> ftL = DG("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
 
-    public static e bCc() {
-        if (fuC == null) {
+    public static e bBs() {
+        if (ftM == null) {
             synchronized (e.class) {
-                if (fuC == null) {
-                    fuC = new e();
+                if (ftM == null) {
+                    ftM = new e();
                 }
             }
         }
-        return fuC;
+        return ftM;
     }
 
-    public void Eg(String str) {
-        this.fuA = Eh(str);
+    public void DF(String str) {
+        this.ftK = DG(str);
         if (str == null) {
             str = "";
         }
-        com.baidu.tbadk.core.sharedPref.b.bqh().putString("key_need_add_source_stat_list", str);
+        com.baidu.tbadk.core.sharedPref.b.bpu().putString("key_need_add_source_stat_list", str);
     }
 
-    private List<String> Eh(String str) {
-        if (at.isEmpty(str)) {
+    private List<String> DG(String str) {
+        if (au.isEmpty(str)) {
             return null;
         }
         return q(str.split(Constants.ACCEPT_TIME_SEPARATOR_SP));
@@ -55,11 +55,11 @@ public class e {
         return arrayList;
     }
 
-    public boolean Ei(String str) {
-        if (y.isEmpty(this.fuB) || at.isEmpty(str)) {
+    public boolean DH(String str) {
+        if (y.isEmpty(this.ftL) || au.isEmpty(str)) {
             return false;
         }
-        for (String str2 : this.fuB) {
+        for (String str2 : this.ftL) {
             if (str.equals(str2)) {
                 return true;
             }
@@ -67,11 +67,11 @@ public class e {
         return false;
     }
 
-    public boolean Ej(String str) {
-        if (y.isEmpty(this.fuA) || at.isEmpty(str)) {
+    public boolean DI(String str) {
+        if (y.isEmpty(this.ftK) || au.isEmpty(str)) {
             return false;
         }
-        for (String str2 : this.fuA) {
+        for (String str2 : this.ftK) {
             if (str.equals(str2)) {
                 return true;
             }
@@ -79,52 +79,52 @@ public class e {
         return false;
     }
 
-    public void c(aq aqVar) {
-        if (aqVar != null && !aqVar.BS("page_source")) {
-            if (Ej(aqVar.getKey()) || Ei(aqVar.getKey())) {
-                d(aqVar);
+    public void c(ar arVar) {
+        if (arVar != null && !arVar.Br("page_source")) {
+            if (DI(arVar.getKey()) || DH(arVar.getKey())) {
+                d(arVar);
             }
         }
     }
 
-    private void d(aq aqVar) {
+    private void d(ar arVar) {
         Activity currentActivity;
         b er;
-        if (aqVar != null && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (er = c.er(currentActivity)) != null) {
+        if (arVar != null && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (er = c.er(currentActivity)) != null) {
             String currentPageKey = er.getCurrentPageKey();
-            if (!TextUtils.isEmpty(currentPageKey) && !aqVar.BS("page_key")) {
-                aqVar.dR("page_key", currentPageKey);
+            if (!TextUtils.isEmpty(currentPageKey) && !arVar.Br("page_key")) {
+                arVar.dR("page_key", currentPageKey);
             }
-            String b = d.b(er.bBY(), currentPageKey, 6);
-            if (!TextUtils.isEmpty(b) && !aqVar.BS("page_source")) {
-                aqVar.dR("page_source", b);
+            String b = d.b(er.bBo(), currentPageKey, 6);
+            if (!TextUtils.isEmpty(b) && !arVar.Br("page_source")) {
+                arVar.dR("page_source", b);
             }
-            c.printLog(aqVar.toString());
+            c.printLog(arVar.toString());
         }
     }
 
-    public static void a(Context context, aq aqVar, com.baidu.tbadk.m.d dVar) {
-        if (dVar != null && aqVar != null && !TextUtils.isEmpty(aqVar.getKey())) {
+    public static void a(Context context, ar arVar, com.baidu.tbadk.m.d dVar) {
+        if (dVar != null && arVar != null && !TextUtils.isEmpty(arVar.getKey())) {
             b tbPageExtra = dVar.getTbPageExtra();
             if (tbPageExtra == null || tbPageExtra.isDirtyData()) {
                 tbPageExtra = c.er(context);
             }
             if (tbPageExtra != null && !tbPageExtra.isDirtyData()) {
-                a(aqVar, tbPageExtra);
+                a(arVar, tbPageExtra);
             }
-            c.printLog(aqVar.toString());
+            c.printLog(arVar.toString());
         }
     }
 
-    public static void a(aq aqVar, b bVar) {
-        if (aqVar != null && bVar != null && !TextUtils.isEmpty(aqVar.getKey())) {
+    public static void a(ar arVar, b bVar) {
+        if (arVar != null && bVar != null && !TextUtils.isEmpty(arVar.getKey())) {
             String currentPageKey = bVar.getCurrentPageKey();
-            if (!TextUtils.isEmpty(currentPageKey) && !aqVar.BS("page_key")) {
-                aqVar.dR("page_key", currentPageKey);
+            if (!TextUtils.isEmpty(currentPageKey) && !arVar.Br("page_key")) {
+                arVar.dR("page_key", currentPageKey);
             }
-            String b = d.b(bVar.bBY(), currentPageKey, 6);
-            if (!TextUtils.isEmpty(b) && !aqVar.BS("page_source")) {
-                aqVar.dR("page_source", b);
+            String b = d.b(bVar.bBo(), currentPageKey, 6);
+            if (!TextUtils.isEmpty(b) && !arVar.Br("page_source")) {
+                arVar.dR("page_source", b);
             }
         }
     }

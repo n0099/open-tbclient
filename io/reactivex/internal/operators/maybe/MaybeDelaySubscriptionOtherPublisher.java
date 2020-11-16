@@ -7,23 +7,23 @@ import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends io.reactivex.internal.operators.maybe.a<T, T> {
-    final org.a.b<U> pNj;
+    final org.a.b<U> pOM;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
-        this.pNj.subscribe(new a(mVar, this.source));
+        this.pOM.subscribe(new a(mVar, this.source));
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     static final class a<T> implements io.reactivex.disposables.b, j<Object> {
-        final DelayMaybeObserver<T> pNV;
+        final DelayMaybeObserver<T> pPy;
         d s;
         o<T> source;
 
         a(m<? super T> mVar, o<T> oVar) {
-            this.pNV = new DelayMaybeObserver<>(mVar);
+            this.pPy = new DelayMaybeObserver<>(mVar);
             this.source = oVar;
         }
 
@@ -31,7 +31,7 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends io.reactiv
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
-                this.pNV.actual.onSubscribe(this);
+                this.pPy.actual.onSubscribe(this);
                 dVar.request(Long.MAX_VALUE);
             }
         }
@@ -49,7 +49,7 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends io.reactiv
         public void onError(Throwable th) {
             if (this.s != SubscriptionHelper.CANCELLED) {
                 this.s = SubscriptionHelper.CANCELLED;
-                this.pNV.actual.onError(th);
+                this.pPy.actual.onError(th);
                 return;
             }
             io.reactivex.e.a.onError(th);
@@ -66,24 +66,24 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends io.reactiv
         void subscribeNext() {
             o<T> oVar = this.source;
             this.source = null;
-            oVar.a(this.pNV);
+            oVar.a(this.pPy);
         }
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return DisposableHelper.isDisposed(this.pNV.get());
+            return DisposableHelper.isDisposed(this.pPy.get());
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
             this.s.cancel();
             this.s = SubscriptionHelper.CANCELLED;
-            DisposableHelper.dispose(this.pNV);
+            DisposableHelper.dispose(this.pPy);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class DelayMaybeObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements m<T> {
         private static final long serialVersionUID = 706635022205076709L;
         final m<? super T> actual;

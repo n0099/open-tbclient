@@ -4,90 +4,90 @@ import android.text.TextUtils;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bnU;
-    private int dAb;
-    private String dAc;
-    private String dAd;
-    private long dAe;
-    private long dAf;
+    private String bmj;
+    private int dyu;
+    private String dyv;
+    private String dyw;
+    private long dyx;
+    private long dyy;
     private int mErrCode;
     private String mMsg;
     private String mRequestUrl;
 
     public c(String str, int i) {
         this.mRequestUrl = str;
-        this.dAb = i;
-        this.bnU = "0";
+        this.dyu = i;
+        this.bmj = "0";
     }
 
     public c(int i, String str, String str2, int i2) {
         this.mErrCode = i;
         this.mRequestUrl = str;
         this.mMsg = str2;
-        this.dAb = i2;
-        this.bnU = "1";
+        this.dyu = i2;
+        this.bmj = "1";
     }
 
     public c(int i, String str, String str2, int i2, long j, long j2) {
         this.mErrCode = i;
         this.mRequestUrl = str;
         this.mMsg = str2;
-        this.dAb = i2;
-        this.dAe = j;
-        this.dAf = j2;
+        this.dyu = i2;
+        this.dyx = j;
+        this.dyy = j2;
         if (i == 200 && j2 - j >= 5000) {
-            this.bnU = "2";
+            this.bmj = "2";
         } else {
-            this.bnU = "1";
+            this.bmj = "1";
         }
     }
 
-    public void tg(String str) {
-        this.dAc = str;
+    public void tb(String str) {
+        this.dyv = str;
     }
 
     public String getRequestUrl() {
         return this.mRequestUrl;
     }
 
-    public String aKu() {
-        return this.bnU;
+    public String aJM() {
+        return this.bmj;
     }
 
-    public void th(String str) {
-        this.dAd = str;
+    public void tc(String str) {
+        this.dyw = str;
     }
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.dAh == null) {
-            this.dAh = new JSONObject();
+        if (this.dyA == null) {
+            this.dyA = new JSONObject();
         }
         try {
-            if (TextUtils.equals(this.bnU, "1") || TextUtils.equals(this.bnU, "2")) {
-                this.dAh.put("errorno", this.mErrCode);
+            if (TextUtils.equals(this.bmj, "1") || TextUtils.equals(this.bmj, "2")) {
+                this.dyA.put("errorno", this.mErrCode);
             }
-            this.mRequestUrl = com.baidu.swan.apps.statistic.g.ta(this.mRequestUrl);
-            this.dAh.put("url", this.mRequestUrl);
-            this.dAh.put("netStatus", this.dAb);
+            this.mRequestUrl = com.baidu.swan.apps.statistic.g.sV(this.mRequestUrl);
+            this.dyA.put("url", this.mRequestUrl);
+            this.dyA.put("netStatus", this.dyu);
             if (!TextUtils.isEmpty(this.mMsg)) {
-                this.dAh.put("msg", this.mMsg);
+                this.dyA.put("msg", this.mMsg);
             }
-            if (!TextUtils.isEmpty(this.dAc)) {
-                this.dAh.put("pagetype", this.dAc);
+            if (!TextUtils.isEmpty(this.dyv)) {
+                this.dyA.put("pagetype", this.dyv);
             }
-            if (!TextUtils.isEmpty(this.dAd)) {
-                this.dAh.put("curpage", this.dAd);
+            if (!TextUtils.isEmpty(this.dyw)) {
+                this.dyA.put("curpage", this.dyw);
             }
-            if (!TextUtils.isEmpty(this.bnU)) {
-                this.dAh.put("requesttype", this.bnU);
+            if (!TextUtils.isEmpty(this.bmj)) {
+                this.dyA.put("requesttype", this.bmj);
             }
-            if (this.dAf - this.dAe > 0) {
-                this.dAh.put("startTime", this.dAe);
-                this.dAh.put("endTime", this.dAf);
+            if (this.dyy - this.dyx > 0) {
+                this.dyA.put("startTime", this.dyx);
+                this.dyA.put("endTime", this.dyy);
             }
         } catch (JSONException e) {
             if (DEBUG) {

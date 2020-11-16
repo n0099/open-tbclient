@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import org.webrtc.EglBase;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class DefaultVideoEncoderFactory implements VideoEncoderFactory {
     private final VideoEncoderFactory hardwareVideoEncoderFactory;
     private final VideoEncoderFactory softwareVideoEncoderFactory = new SoftwareVideoEncoderFactory();

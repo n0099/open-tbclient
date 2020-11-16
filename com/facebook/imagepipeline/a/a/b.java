@@ -23,16 +23,16 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class b extends c<a> {
     private Context mContext;
-    private volatile Call.Factory oTj;
-    private volatile Executor oTk;
+    private volatile Call.Factory oUM;
+    private volatile Executor oUN;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public static class a extends t {
-        public long oTq;
-        public long oTr;
+        public long oUT;
+        public long oUU;
         public long responseTime;
 
         public a(k<e> kVar, ak akVar) {
@@ -45,8 +45,8 @@ public class b extends c<a> {
     }
 
     public b(Call.Factory factory, Executor executor) {
-        this.oTj = factory;
-        this.oTk = executor;
+        this.oUM = factory;
+        this.oUN = executor;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,23 +59,23 @@ public class b extends c<a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.af
     public void a(a aVar, af.a aVar2) {
-        aVar.oTq = SystemClock.elapsedRealtime();
+        aVar.oUT = SystemClock.elapsedRealtime();
         Uri uri = aVar.getUri();
-        enl();
+        enj();
         try {
             Request.Builder builder = new Request.Builder().cacheControl(new CacheControl.Builder().noStore().build()).url(uri.toString()).get();
-            com.facebook.imagepipeline.common.a epZ = aVar.eri().eqV().epZ();
-            if (epZ != null) {
-                builder.addHeader(Headers.RANGE, epZ.enK());
+            com.facebook.imagepipeline.common.a epX = aVar.erg().eqT().epX();
+            if (epX != null) {
+                builder.addHeader(Headers.RANGE, epX.enI());
             }
-            Map<String, String> erm = aVar.erm();
-            if (erm == null) {
+            Map<String, String> erk = aVar.erk();
+            if (erk == null) {
                 builder.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36");
             } else {
-                if (!erm.containsKey("User-Agent")) {
+                if (!erk.containsKey("User-Agent")) {
                     builder.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36");
                 }
-                for (Map.Entry<String, String> entry : erm.entrySet()) {
+                for (Map.Entry<String, String> entry : erk.entrySet()) {
                     builder.addHeader(entry.getKey(), entry.getValue());
                 }
             }
@@ -89,7 +89,7 @@ public class b extends c<a> {
     @Override // com.facebook.imagepipeline.producers.c, com.facebook.imagepipeline.producers.af
     /* renamed from: a */
     public void b(a aVar, int i) {
-        aVar.oTr = SystemClock.elapsedRealtime();
+        aVar.oUU = SystemClock.elapsedRealtime();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -97,20 +97,20 @@ public class b extends c<a> {
     /* renamed from: b */
     public Map<String, String> a(a aVar, int i) {
         HashMap hashMap = new HashMap(4);
-        hashMap.put("queue_time", Long.toString(aVar.responseTime - aVar.oTq));
-        hashMap.put("fetch_time", Long.toString(aVar.oTr - aVar.responseTime));
-        hashMap.put("total_time", Long.toString(aVar.oTr - aVar.oTq));
+        hashMap.put("queue_time", Long.toString(aVar.responseTime - aVar.oUT));
+        hashMap.put("fetch_time", Long.toString(aVar.oUU - aVar.responseTime));
+        hashMap.put("total_time", Long.toString(aVar.oUU - aVar.oUT));
         hashMap.put("image_size", Integer.toString(i));
         return hashMap;
     }
 
     protected void a(final a aVar, final af.a aVar2, Request request) {
-        final Call newCall = this.oTj.newCall(request);
-        aVar.eri().a(new com.facebook.imagepipeline.producers.e() { // from class: com.facebook.imagepipeline.a.a.b.1
+        final Call newCall = this.oUM.newCall(request);
+        aVar.erg().a(new com.facebook.imagepipeline.producers.e() { // from class: com.facebook.imagepipeline.a.a.b.1
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void enm() {
+            public void enk() {
                 if (Looper.myLooper() == Looper.getMainLooper()) {
-                    b.this.oTk.execute(new Runnable() { // from class: com.facebook.imagepipeline.a.a.b.1.1
+                    b.this.oUN.execute(new Runnable() { // from class: com.facebook.imagepipeline.a.a.b.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             newCall.cancel();
@@ -131,10 +131,10 @@ public class b extends c<a> {
                         b.this.a(call, new IOException("Unexpected HTTP code " + response), aVar2);
                         return;
                     }
-                    com.facebook.imagepipeline.common.a Yl = com.facebook.imagepipeline.common.a.Yl(response.header(Headers.CONTENT_RANGE));
-                    if (Yl != null && (Yl.from != 0 || Yl.to != Integer.MAX_VALUE)) {
-                        aVar.c(Yl);
-                        aVar.PK(8);
+                    com.facebook.imagepipeline.common.a XW = com.facebook.imagepipeline.common.a.XW(response.header(Headers.CONTENT_RANGE));
+                    if (XW != null && (XW.from != 0 || XW.to != Integer.MAX_VALUE)) {
+                        aVar.c(XW);
+                        aVar.Qn(8);
                     }
                     long contentLength = body.contentLength();
                     aVar2.f(body.byteStream(), (int) (contentLength >= 0 ? contentLength : 0L));
@@ -155,19 +155,19 @@ public class b extends c<a> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Call call, Exception exc, af.a aVar) {
         if (call.isCanceled()) {
-            aVar.ejZ();
+            aVar.ejX();
         } else {
             aVar.E(exc);
         }
     }
 
-    private void enl() {
-        if (this.oTk == null) {
+    private void enj() {
+        if (this.oUN == null) {
             synchronized (this) {
-                if (this.oTk == null) {
+                if (this.oUN == null) {
                     OkHttpClient okHttpClient = HttpManager.newHttpManager(this.mContext).getOkHttpClient();
-                    this.oTj = okHttpClient;
-                    this.oTk = okHttpClient.dispatcher().executorService();
+                    this.oUM = okHttpClient;
+                    this.oUN = okHttpClient.dispatcher().executorService();
                 }
             }
         }

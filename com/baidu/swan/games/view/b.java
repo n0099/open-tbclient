@@ -5,44 +5,44 @@ import com.baidu.swan.apps.core.d.f;
 import com.baidu.swan.apps.core.d.j;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private ArrayList<a> eaq = new ArrayList<>();
+    private ArrayList<a> dYI = new ArrayList<>();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void ajE();
+        void aiW();
 
-        void hx(int i);
+        void ht(int i);
     }
 
     public synchronized void a(a aVar) {
-        if (!this.eaq.contains(aVar)) {
-            this.eaq.add(aVar);
+        if (!this.dYI.contains(aVar)) {
+            this.dYI.add(aVar);
         }
     }
 
-    public synchronized void mm(int i) {
-        Iterator<a> it = this.eaq.iterator();
+    public synchronized void mi(int i) {
+        Iterator<a> it = this.dYI.iterator();
         while (it.hasNext()) {
-            it.next().hx(i);
+            it.next().ht(i);
         }
     }
 
-    public synchronized void ajE() {
-        Iterator<a> it = this.eaq.iterator();
+    public synchronized void aiW() {
+        Iterator<a> it = this.dYI.iterator();
         while (it.hasNext()) {
-            it.next().ajE();
+            it.next().aiW();
         }
-        this.eaq.clear();
+        this.dYI.clear();
     }
 
     @Nullable
-    public static b aYa() {
+    public static b aXs() {
         j jVar;
-        f afM = com.baidu.swan.apps.v.f.azO().afM();
-        if (afM != null && (jVar = (j) afM.q(j.class)) != null) {
-            return jVar.apA();
+        f afe = com.baidu.swan.apps.v.f.azg().afe();
+        if (afe != null && (jVar = (j) afe.q(j.class)) != null) {
+            return jVar.aoR();
         }
         return null;
     }

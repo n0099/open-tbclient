@@ -1,5 +1,5 @@
 package com.baidu.pass.ecommerce.b;
-/* loaded from: classes17.dex */
+/* loaded from: classes10.dex */
 public interface a {
     void onCall(com.baidu.pass.ecommerce.c.a aVar);
 }

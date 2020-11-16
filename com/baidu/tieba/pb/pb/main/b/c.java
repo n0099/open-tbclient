@@ -14,59 +14,59 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbPostShareDialogConfig;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.pb.data.m;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public class c {
-    public a lGr = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
+    public a lGI = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
         @Override // com.baidu.tieba.pb.pb.main.b.c.a
-        public void a(f fVar, bw bwVar, PostData postData, com.baidu.tbadk.widget.richText.a aVar) {
+        public void a(f fVar, bx bxVar, PostData postData, com.baidu.tbadk.widget.richText.a aVar) {
             String shareImageUrl;
             String tid;
             String str;
-            if ((fVar != null || bwVar != null) && postData != null && c.this.mPageContext != null) {
+            if ((fVar != null || bxVar != null) && postData != null && c.this.mPageContext != null) {
                 if (fVar == null) {
-                    shareImageUrl = c.this.getShareImageUrl(bwVar);
+                    shareImageUrl = c.this.getShareImageUrl(bxVar);
                 } else {
-                    shareImageUrl = fVar.s(c.this.mPageContext.getPageActivity(), false)[0];
+                    shareImageUrl = fVar.r(c.this.mPageContext.getPageActivity(), false)[0];
                     if (!StringUtils.isNull(shareImageUrl) && shareImageUrl.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
                         shareImageUrl = shareImageUrl.substring(TbConfig.URL_IMAGE_PREFIX.length());
                     }
-                    bwVar = fVar.dik();
-                    if (bwVar == null) {
+                    bxVar = fVar.dhH();
+                    if (bxVar == null) {
                         return;
                     }
                 }
                 m mVar = new m();
-                mVar.setContent(bwVar.getAbstract());
+                mVar.setContent(bxVar.getAbstract());
                 if (!StringUtils.isNull(shareImageUrl)) {
-                    mVar.Pt(shareImageUrl);
+                    mVar.OP(shareImageUrl);
                 }
-                mVar.setThreadType(bwVar.getThreadType());
+                mVar.setThreadType(bxVar.getThreadType());
                 mVar.b(aVar);
                 mVar.g(postData);
-                String title = bwVar.getTitle();
+                String title = bxVar.getTitle();
                 if (StringUtils.isNull(title)) {
-                    title = bwVar.getAbstract();
+                    title = bxVar.getAbstract();
                 }
                 mVar.setContent(title);
-                if (bwVar.blk()) {
-                    tid = bwVar.getBaijiahaoData().oriUgcTid;
-                    str = "?share=9105&fr=dshare&dtype=" + bwVar.getBaijiahaoData().oriUgcType + "&dvid=" + bwVar.getBaijiahaoData().oriUgcVid + "&nid=" + bwVar.getBaijiahaoData().oriUgcNid;
+                if (bxVar.bkm()) {
+                    tid = bxVar.getBaijiahaoData().oriUgcTid;
+                    str = "?share=9105&fr=dshare&dtype=" + bxVar.getBaijiahaoData().oriUgcType + "&dvid=" + bxVar.getBaijiahaoData().oriUgcVid + "&nid=" + bxVar.getBaijiahaoData().oriUgcNid;
                 } else {
-                    tid = bwVar.getTid();
+                    tid = bxVar.getTid();
                     str = "?share=9105&fr=share";
                 }
-                mVar.E(c.this.Qa("http://tieba.baidu.com/p/" + tid + (str + "&post_id=" + postData.getId() + "&share_from=comment&post_sort=1")));
+                mVar.E(c.this.Pw("http://tieba.baidu.com/p/" + tid + (str + "&post_id=" + postData.getId() + "&share_from=comment&post_sort=1")));
                 ShareItem shareItem = new ShareItem();
                 shareItem.shareType = 1;
-                shareItem.fgN = true;
+                shareItem.ffV = true;
                 shareItem.extData = tid;
                 shareItem.pid = postData.getId();
                 Bundle bundle = new Bundle();
@@ -78,25 +78,25 @@ public class c {
                 pbPostShareDialogConfig.setIsCopyLink(false);
                 pbPostShareDialogConfig.setHideMode(pbPostShareDialogConfig.hideMode | 32);
                 c.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, pbPostShareDialogConfig));
-                aq aqVar = new aq(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
-                aqVar.dR("tid", tid);
-                aqVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-                if (bwVar.boo() != null) {
-                    aqVar.dR("fid", bwVar.boo().forumId);
+                ar arVar = new ar(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
+                arVar.dR("tid", tid);
+                arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+                if (bxVar.bns() != null) {
+                    arVar.dR("fid", bxVar.bns().forumId);
                 }
-                if (bwVar.bod() != null) {
-                    aqVar.dR("post_id", postData.getId());
+                if (bxVar.bnh() != null) {
+                    arVar.dR("post_id", postData.getId());
                 }
-                aqVar.al("obj_locate", 21);
-                TiebaStatic.log(aqVar);
+                arVar.ak("obj_locate", 21);
+                TiebaStatic.log(arVar);
             }
         }
     };
     private TbPageContext mPageContext;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes21.dex */
     public interface a {
-        void a(f fVar, bw bwVar, PostData postData, com.baidu.tbadk.widget.richText.a aVar);
+        void a(f fVar, bx bxVar, PostData postData, com.baidu.tbadk.widget.richText.a aVar);
     }
 
     public c(TbPageContext tbPageContext) {
@@ -104,7 +104,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap Qa(String str) {
+    public Bitmap Pw(String str) {
         CustomResponsedMessage runTask;
         if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
             return null;
@@ -113,26 +113,26 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String getShareImageUrl(bw bwVar) {
+    public String getShareImageUrl(bx bxVar) {
         String str;
-        if (bwVar == null) {
+        if (bxVar == null) {
             return null;
         }
-        if (bwVar.bmU() != null && !TextUtils.isEmpty(bwVar.bmU().cover)) {
-            return bwVar.bmU().cover;
+        if (bxVar.blW() != null && !TextUtils.isEmpty(bxVar.blW().cover)) {
+            return bxVar.blW().cover;
         }
-        if (bwVar.bmJ() == null) {
+        if (bxVar.blL() == null) {
             return null;
         }
-        ArrayList<MediaData> bmJ = bwVar.bmJ();
-        int size = bmJ.size();
+        ArrayList<MediaData> blL = bxVar.blL();
+        int size = blL.size();
         int i = 0;
         while (true) {
             if (i >= size) {
                 str = null;
                 break;
             }
-            MediaData mediaData = bmJ.get(i);
+            MediaData mediaData = blL.get(i);
             if (mediaData != null && (mediaData.getType() == 3 || mediaData.getType() == 5)) {
                 if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
                     str = mediaData.getThumbnails_url();
@@ -144,8 +144,8 @@ public class c {
             }
             i++;
         }
-        if (str == null && bwVar.bmS() != null && !TextUtils.isEmpty(bwVar.bmS().thumbnail_url)) {
-            return bwVar.bmS().thumbnail_url;
+        if (str == null && bxVar.blU() != null && !TextUtils.isEmpty(bxVar.blU().thumbnail_url)) {
+            return bxVar.blU().thumbnail_url;
         }
         return str;
     }

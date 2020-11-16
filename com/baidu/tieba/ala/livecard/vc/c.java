@@ -1,10 +1,10 @@
 package com.baidu.tieba.ala.livecard.vc;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.bx;
 /* loaded from: classes4.dex */
 public interface c {
-    void c(View view, bw bwVar);
+    void c(View view, bx bxVar);
 
-    void d(View view, bw bwVar);
+    void d(View view, bx bxVar);
 }

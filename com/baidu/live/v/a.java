@@ -5,13 +5,13 @@ import com.baidu.live.data.w;
 import com.baidu.live.liveroom.g.d;
 /* loaded from: classes4.dex */
 public interface a {
+    void CD();
+
     void D(int i, int i2);
 
-    void Dm();
+    d OB();
 
-    d Pk();
-
-    com.baidu.live.liveroom.g.b Pl();
+    com.baidu.live.liveroom.g.b OC();
 
     void a(ViewGroup viewGroup, ViewGroup viewGroup2);
 

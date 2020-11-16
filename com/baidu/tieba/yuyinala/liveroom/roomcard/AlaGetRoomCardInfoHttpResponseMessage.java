@@ -9,10 +9,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetRoomCardInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    private e nZj;
+    private e oaM;
 
-    public e dYp() {
-        return this.nZj;
+    public e dYo() {
+        return this.oaM;
     }
 
     public AlaGetRoomCardInfoHttpResponseMessage() {
@@ -25,43 +25,43 @@ public class AlaGetRoomCardInfoHttpResponseMessage extends JsonHttpResponsedMess
         JSONArray optJSONArray2;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031019) {
-            if (this.nZj == null) {
-                this.nZj = new e();
+            if (this.oaM == null) {
+                this.oaM = new e();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.nZj.nZp = optJSONObject.optInt("room_editor_show");
-                this.nZj.nZq = optJSONObject.optInt("room_ban_show");
-                this.nZj.nZr = optJSONObject.optString("room_unfollow_copywriting");
-                this.nZj.nZs = optJSONObject.optInt("room_follow_status");
-                this.nZj.nZv = optJSONObject.optInt("room_fans");
-                this.nZj.nZw = optJSONObject.optInt(UbcStatConstant.KEY_CUSTOM_ROOM_ID);
-                this.nZj.nZx = optJSONObject.optString("room_cover");
-                this.nZj.room_name = optJSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
+                this.oaM.oaS = optJSONObject.optInt("room_editor_show");
+                this.oaM.oaT = optJSONObject.optInt("room_ban_show");
+                this.oaM.oaU = optJSONObject.optString("room_unfollow_copywriting");
+                this.oaM.oaV = optJSONObject.optInt("room_follow_status");
+                this.oaM.oaY = optJSONObject.optInt("room_fans");
+                this.oaM.oaZ = optJSONObject.optInt(UbcStatConstant.KEY_CUSTOM_ROOM_ID);
+                this.oaM.oba = optJSONObject.optString("room_cover");
+                this.oaM.room_name = optJSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
                 if (optJSONObject.has("room_host") && (optJSONArray2 = optJSONObject.optJSONArray("room_host")) != null && optJSONArray2.length() > 0) {
-                    this.nZj.nZt = new ArrayList<>();
+                    this.oaM.oaW = new ArrayList<>();
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         JSONObject jSONObject2 = (JSONObject) optJSONArray2.get(i2);
                         e.a aVar = new e.a();
-                        aVar.nZz = jSONObject2.optString("user_cover");
-                        aVar.nZy = jSONObject2.optInt("user_Identity");
+                        aVar.obc = jSONObject2.optString("user_cover");
+                        aVar.obb = jSONObject2.optInt("user_Identity");
                         aVar.user_name = jSONObject2.optString("user_name");
                         aVar.user_uk = jSONObject2.optString("user_uk");
-                        aVar.nZA = false;
-                        this.nZj.nZt.add(aVar);
+                        aVar.obd = false;
+                        this.oaM.oaW.add(aVar);
                     }
                 }
                 if (optJSONObject.has("room_manage") && (optJSONArray = optJSONObject.optJSONArray("room_manage")) != null && optJSONArray.length() > 0) {
-                    this.nZj.nZu = new ArrayList<>();
+                    this.oaM.oaX = new ArrayList<>();
                     for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                         JSONObject jSONObject3 = (JSONObject) optJSONArray.get(i3);
                         e.a aVar2 = new e.a();
-                        aVar2.nZz = jSONObject3.optString("user_cover");
-                        aVar2.nZy = jSONObject3.optInt("user_Identity");
+                        aVar2.obc = jSONObject3.optString("user_cover");
+                        aVar2.obb = jSONObject3.optInt("user_Identity");
                         aVar2.user_name = jSONObject3.optString("user_name");
                         aVar2.user_uk = jSONObject3.optString("user_uk");
-                        aVar2.nZA = false;
-                        this.nZj.nZu.add(aVar2);
+                        aVar2.obd = false;
+                        this.oaM.oaX.add(aVar2);
                     }
                 }
             }

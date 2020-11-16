@@ -2,7 +2,7 @@ package com.baidu.minivideo.plugin.capture.listener;
 
 import com.baidu.minivideo.plugin.capture.bean.VideoDraftBean;
 import java.util.ArrayList;
-/* loaded from: classes17.dex */
+/* loaded from: classes19.dex */
 public class DBUpdateCallbackAdapter implements DBUpdateCallback {
     @Override // com.baidu.minivideo.plugin.capture.listener.DBUpdateCallback
     public void onAddResult() {

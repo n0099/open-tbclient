@@ -3,7 +3,7 @@ package com.xiaomi.clientreport.manager;
 import com.xiaomi.push.ai;
 import java.util.concurrent.ExecutorService;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class d extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
@@ -16,7 +16,7 @@ public class d extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo166a() {
+    public int mo169a() {
         return 100888;
     }
 
@@ -26,7 +26,7 @@ public class d extends ai.a {
         ExecutorService executorService;
         a2 = this.f4723a.a();
         if (a2 > 0) {
-            executorService = this.f4723a.f17a;
+            executorService = this.f4723a.f20a;
             executorService.execute(new e(this));
         }
     }

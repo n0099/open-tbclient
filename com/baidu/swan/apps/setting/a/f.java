@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class f extends aa {
     public f(j jVar) {
         super(jVar, "/swanAPI/getUserInfo");
@@ -34,25 +34,25 @@ public class f extends aa {
             com.baidu.swan.games.v.c.g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
             return false;
         }
-        Activity aHo = context instanceof Activity ? (Activity) context : eVar.aHo();
-        if (aHo == null) {
+        Activity aGG = context instanceof Activity ? (Activity) context : eVar.aGG();
+        if (aGG == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             com.baidu.swan.games.v.c.g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity").toString());
             return false;
         }
-        final String ro = com.baidu.swan.apps.ac.g.b.ro(optParamsAsJo.optString("__plugin__", null));
-        com.baidu.swan.apps.a.b aHH = eVar.aHH();
-        final boolean bV = com.baidu.swan.apps.setting.oauth.c.bV(optParamsAsJo);
-        if (aHH.isLogin(context) || !bV) {
-            a(bV, callbackHandler, optString, aHo, ro, "snsapi_userinfo");
+        final String ri = com.baidu.swan.apps.ac.g.b.ri(optParamsAsJo.optString("__plugin__", null));
+        com.baidu.swan.apps.a.b aGZ = eVar.aGZ();
+        final boolean bP = com.baidu.swan.apps.setting.oauth.c.bP(optParamsAsJo);
+        if (aGZ.isLogin(context) || !bP) {
+            a(bP, callbackHandler, optString, aGG, ri, "snsapi_userinfo");
         } else {
-            final Activity activity = aHo;
-            aHH.a(aHo, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.a.f.1
+            final Activity activity = aGG;
+            aGZ.a(aGG, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.a.f.1
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     switch (i) {
                         case 0:
-                            f.this.a(bV, callbackHandler, optString, activity, ro, "snsapi_userinfo");
+                            f.this.a(bP, callbackHandler, optString, activity, ri, "snsapi_userinfo");
                             return;
                         default:
                             callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
@@ -73,10 +73,10 @@ public class f extends aa {
             /* renamed from: a */
             public void M(com.baidu.swan.apps.setting.b.a aVar) {
                 com.baidu.swan.apps.console.c.d("OpenData", "onOpenDataCallback:: ", aVar);
-                if (!aVar.aJO()) {
+                if (!aVar.aJg()) {
                     com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, str);
                 } else {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aVar.dyh, 0).toString());
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aVar.dwA, 0).toString());
                 }
             }
         });

@@ -4,12 +4,12 @@ import android.util.Log;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private HashMap<com.baidu.swan.pms.model.e, Set<b>> cMJ;
+    private HashMap<com.baidu.swan.pms.model.e, Set<b>> cKZ;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(PMSDownloadType pMSDownloadType);
 
@@ -17,21 +17,21 @@ public class c {
     }
 
     private c() {
-        this.cMJ = new HashMap<>();
+        this.cKZ = new HashMap<>();
     }
 
     public synchronized void a(com.baidu.swan.pms.model.e eVar, PMSDownloadType pMSDownloadType) {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + eVar + " : " + pMSDownloadType);
         }
-        Set<b> set = this.cMJ.get(eVar);
+        Set<b> set = this.cKZ.get(eVar);
         if (set != null) {
             for (b bVar : set) {
                 if (bVar != null) {
                     bVar.a(pMSDownloadType);
                 }
             }
-            this.cMJ.remove(eVar);
+            this.cKZ.remove(eVar);
         }
     }
 
@@ -39,14 +39,14 @@ public class c {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadError:" + eVar + " : " + pMSDownloadType);
         }
-        Set<b> set = this.cMJ.get(eVar);
+        Set<b> set = this.cKZ.get(eVar);
         if (set != null) {
             for (b bVar : set) {
                 if (bVar != null) {
                     bVar.a(pMSDownloadType, aVar);
                 }
             }
-            this.cMJ.remove(eVar);
+            this.cKZ.remove(eVar);
         }
     }
 
@@ -55,23 +55,23 @@ public class c {
             Log.i("PMSDownloadRepeatSync", "registerResultListener:" + eVar);
         }
         if (eVar != null && bVar != null) {
-            Set<b> set = this.cMJ.get(eVar);
+            Set<b> set = this.cKZ.get(eVar);
             if (set != null) {
                 set.add(bVar);
             } else {
                 HashSet hashSet = new HashSet();
                 hashSet.add(bVar);
-                this.cMJ.put(eVar, hashSet);
+                this.cKZ.put(eVar, hashSet);
             }
         }
     }
 
-    public static c aqj() {
-        return a.cMK;
+    public static c apB() {
+        return a.cLa;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     private static class a {
-        private static c cMK = new c();
+        private static c cLa = new c();
     }
 }

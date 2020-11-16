@@ -10,13 +10,13 @@ import com.baidu.live.gift.v;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class b {
-    private AlaSmallGiftView bfi;
-    private c bfj;
-    private a bfk;
-    private int bfl;
-    private AlaSmallGiftView.a bco = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.smallgift.b.1
+    private AlaSmallGiftView bdu;
+    private c bdv;
+    private a bdw;
+    private int bdx;
+    private AlaSmallGiftView.a baD = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.smallgift.b.1
         @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-        public void IR() {
+        public void Ii() {
             b.this.mHandler.sendEmptyMessage(2);
         }
 
@@ -24,17 +24,17 @@ public class b {
         public void T(View view) {
             view.setVisibility(4);
             view.clearAnimation();
-            if (b.this.bfk != null) {
-                b.this.bfk.u(b.this.bfj);
+            if (b.this.bdw != null) {
+                b.this.bdw.u(b.this.bdv);
             }
-            b.this.bfj = null;
-            if (b.this.bfk != null) {
-                b.this.bfk.JV();
+            b.this.bdv = null;
+            if (b.this.bdw != null) {
+                b.this.bdw.Jm();
             }
         }
 
         @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-        public void IS() {
+        public void Ij() {
             b.this.mHandler.sendEmptyMessageDelayed(2, 240L);
         }
     };
@@ -43,25 +43,25 @@ public class b {
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    b.this.Kc();
+                    b.this.Jt();
                     return false;
                 case 2:
-                    b.this.Km();
+                    b.this.JD();
                     return false;
                 case 3:
-                    b.this.Kd();
+                    b.this.Ju();
                     return false;
                 default:
                     return false;
             }
         }
     });
-    private Runnable bfm = new Runnable() { // from class: com.baidu.live.gift.smallgift.b.3
+    private Runnable bdy = new Runnable() { // from class: com.baidu.live.gift.smallgift.b.3
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.bfj != null) {
-                if (System.currentTimeMillis() - b.this.bfj.IA() < b.this.bfl || b.this.bfj.bbj < b.this.bfj.bbi) {
-                    b.this.mHandler.postDelayed(b.this.bfm, 1000L);
+            if (b.this.bdv != null) {
+                if (System.currentTimeMillis() - b.this.bdv.HR() < b.this.bdx || b.this.bdv.aZx < b.this.bdv.aZw) {
+                    b.this.mHandler.postDelayed(b.this.bdy, 1000L);
                     return;
                 }
                 b.this.mHandler.removeMessages(2);
@@ -73,7 +73,7 @@ public class b {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void JV();
+        void Jm();
 
         void u(c cVar);
 
@@ -81,147 +81,147 @@ public class b {
     }
 
     public b(AlaSmallGiftView alaSmallGiftView) {
-        this.bfi = alaSmallGiftView;
-        this.bfi.setSmallAnimCallBack(this.bco);
+        this.bdu = alaSmallGiftView;
+        this.bdu.setSmallAnimCallBack(this.baD);
     }
 
     public boolean isReady() {
-        return this.bfj == null;
+        return this.bdv == null;
     }
 
-    public boolean Kj() {
-        if (this.bfj == null || StringUtils.isNull(this.bfj.userId)) {
+    public boolean JA() {
+        if (this.bdv == null || StringUtils.isNull(this.bdv.userId)) {
             return false;
         }
-        return this.bfj.userId.equals(TbadkCoreApplication.getCurrentAccount());
+        return this.bdv.userId.equals(TbadkCoreApplication.getCurrentAccount());
     }
 
     public boolean w(c cVar) {
-        return (cVar == null || this.bfj == null || cVar.priority <= this.bfj.priority) ? false : true;
+        return (cVar == null || this.bdv == null || cVar.priority <= this.bdv.priority) ? false : true;
     }
 
     public boolean x(c cVar) {
-        if (this.bfi == null || this.bfi.getVisibility() == 0 || this.bfj != null || cVar == null || StringUtils.isNull(cVar.userId) || StringUtils.isNull(cVar.giftId)) {
+        if (this.bdu == null || this.bdu.getVisibility() == 0 || this.bdv != null || cVar == null || StringUtils.isNull(cVar.userId) || StringUtils.isNull(cVar.giftId)) {
             return false;
         }
-        this.bfj = cVar;
-        Kk();
+        this.bdv = cVar;
+        JB();
         this.mHandler.sendEmptyMessage(1);
-        this.mHandler.postDelayed(this.bfm, 1000L);
+        this.mHandler.postDelayed(this.bdy, 1000L);
         return true;
     }
 
     public void y(c cVar) {
-        Kl();
-        if (this.bfk != null) {
-            this.bfk.v(this.bfj);
-            this.bfj = null;
+        JC();
+        if (this.bdw != null) {
+            this.bdw.v(this.bdv);
+            this.bdv = null;
         }
-        this.bfj = cVar;
-        Kk();
-        this.bfi.setVisibility(0);
-        this.bfi.setTag(this.bfj.IC());
-        this.bfi.setData(this.bfj, false);
-        this.mHandler.postDelayed(this.bfm, 1000L);
+        this.bdv = cVar;
+        JB();
+        this.bdu.setVisibility(0);
+        this.bdu.setTag(this.bdv.HT());
+        this.bdu.setData(this.bdv, false);
+        this.mHandler.postDelayed(this.bdy, 1000L);
         this.mHandler.sendEmptyMessage(2);
     }
 
-    private void Kk() {
-        this.bfl = this.bfj.bbi > 10 ? 6000 : 3000;
+    private void JB() {
+        this.bdx = this.bdv.aZw > 10 ? 6000 : 3000;
     }
 
-    public void GC() {
-        if (this.bfj != null) {
-            Kl();
-            this.bfi.setVisibility(4);
-            v.g(this.bfj);
-            if (this.bfk != null) {
-                this.bfk.v(this.bfj);
-                this.bfj = null;
+    public void FT() {
+        if (this.bdv != null) {
+            JC();
+            this.bdu.setVisibility(4);
+            v.g(this.bdv);
+            if (this.bdw != null) {
+                this.bdw.v(this.bdv);
+                this.bdv = null;
             }
         }
     }
 
-    public void GD() {
-        if (this.bfk != null) {
-            this.bfk.JV();
+    public void FU() {
+        if (this.bdw != null) {
+            this.bdw.Jm();
         }
     }
 
     public void onDestroy() {
-        Kl();
-        if (this.bfi != null) {
-            this.bfi.onDestroy();
+        JC();
+        if (this.bdu != null) {
+            this.bdu.onDestroy();
         }
     }
 
-    private void Kl() {
-        this.mHandler.removeCallbacks(this.bfm);
+    private void JC() {
+        this.mHandler.removeCallbacks(this.bdy);
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
         this.mHandler.removeMessages(3);
     }
 
     public boolean z(c cVar) {
-        if (this.bfj == null || StringUtils.isNull(this.bfj.userId) || StringUtils.isNull(this.bfj.giftId) || !com.baidu.live.gift.smallgift.a.c(this.bfj, cVar)) {
+        if (this.bdv == null || StringUtils.isNull(this.bdv.userId) || StringUtils.isNull(this.bdv.giftId) || !com.baidu.live.gift.smallgift.a.c(this.bdv, cVar)) {
             return false;
         }
-        com.baidu.live.gift.smallgift.a.d(this.bfj, cVar);
+        com.baidu.live.gift.smallgift.a.d(this.bdv, cVar);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kc() {
-        if (this.bfj != null) {
-            this.bfi.setVisibility(0);
-            this.bfi.setTag(this.bfj.IC());
-            this.bfi.setData(this.bfj, false);
-            this.bfi.Kc();
-            Km();
+    public void Jt() {
+        if (this.bdv != null) {
+            this.bdu.setVisibility(0);
+            this.bdu.setTag(this.bdv.HT());
+            this.bdu.setData(this.bdv, false);
+            this.bdu.Jt();
+            JD();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kd() {
-        if (this.bfj != null) {
-            v.g(this.bfj);
+    public void Ju() {
+        if (this.bdv != null) {
+            v.g(this.bdv);
         }
-        this.bfi.Kd();
+        this.bdu.Ju();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Km() {
+    public void JD() {
         long j;
-        if (this.bfi.getVisibility() == 0) {
-            this.bfi.clearAnimation();
-            if (this.bfj != null) {
-                if (this.bfj.bbj >= this.bfj.bbi) {
+        if (this.bdu.getVisibility() == 0) {
+            this.bdu.clearAnimation();
+            if (this.bdv != null) {
+                if (this.bdv.aZx >= this.bdv.aZw) {
                     this.mHandler.sendEmptyMessageDelayed(2, 240L);
                     return;
                 }
-                this.bfj.as(System.currentTimeMillis());
-                boolean z = this.bfj.bbi > 10;
-                c cVar = this.bfj;
+                this.bdv.as(System.currentTimeMillis());
+                boolean z = this.bdv.aZw > 10;
+                c cVar = this.bdv;
                 if (z) {
-                    j = this.bfj.bbi;
+                    j = this.bdv.aZw;
                 } else {
-                    c cVar2 = this.bfj;
-                    j = cVar2.bbj + 1;
-                    cVar2.bbj = j;
+                    c cVar2 = this.bdv;
+                    j = cVar2.aZx + 1;
+                    cVar2.aZx = j;
                 }
-                cVar.bbj = j;
-                this.bfi.f(this.bfj.bbi, this.bfj.bbj);
+                cVar.aZx = j;
+                this.bdu.f(this.bdv.aZw, this.bdv.aZx);
             }
         }
     }
 
-    public void HJ() {
-        if (this.bfj != null && this.bfj.bbi == this.bfj.bbj) {
-            this.mHandler.postDelayed(this.bfm, 1000L);
+    public void Ha() {
+        if (this.bdv != null && this.bdv.aZw == this.bdv.aZx) {
+            this.mHandler.postDelayed(this.bdy, 1000L);
         }
     }
 
     public void a(a aVar) {
-        this.bfk = aVar;
+        this.bdw = aVar;
     }
 }

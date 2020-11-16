@@ -1,15 +1,15 @@
 package com.baidu.tieba.video.meida;
-/* loaded from: classes23.dex */
+/* loaded from: classes22.dex */
 public abstract class d {
     int channelCount;
-    String nry;
+    String nsF;
     int sampleRate;
 
-    public abstract void Ub(String str);
+    public abstract void TM(String str);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
-        this.nry = str;
+        this.nsF = str;
     }
 
     public void setSampleRate(int i) {
@@ -20,7 +20,7 @@ public abstract class d {
         this.channelCount = i;
     }
 
-    public static d Uc(String str) {
+    public static d TN(String str) {
         return new a(str);
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.swan.pms;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class PMSConstants {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static String aA(int i, String str) {
             switch (i) {
@@ -43,7 +43,7 @@ public class PMSConstants {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public enum PayProtected {
         NO_PAY_PROTECTED(0),
         PAY_PROTECTED(1);
@@ -55,7 +55,7 @@ public class PMSConstants {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public enum CustomerService {
         NO_CUSTOMER_SERVICE(0),
         CUSTOMER_SERVICE(1);
@@ -67,7 +67,7 @@ public class PMSConstants {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public enum CloudSwitch {
         NO_DISPLAY(0),
         DISPLAY(1);
@@ -79,7 +79,7 @@ public class PMSConstants {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
         public static int getVersion() {
             return 1;

@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.al;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 final class gw extends al.b {
 
     /* renamed from: a  reason: collision with root package name */

@@ -7,20 +7,20 @@ public interface h {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void eCL();
-
         void eCM();
 
         void eCN();
+
+        void eCO();
 
         void h(master.flame.danmaku.danmaku.model.d dVar);
 
         void i(master.flame.danmaku.danmaku.model.d dVar);
     }
 
-    void AV(boolean z);
+    void Bc(boolean z);
 
-    void Ry(int i);
+    void Sb(int i);
 
     a.b a(master.flame.danmaku.danmaku.model.b bVar);
 
@@ -28,15 +28,15 @@ public interface h {
 
     void a(master.flame.danmaku.danmaku.model.d dVar);
 
-    void eCQ();
-
     void eCR();
 
     void eCS();
 
-    l ik(long j);
+    void eCT();
 
-    void il(long j);
+    l in(long j);
+
+    void io(long j);
 
     void k(long j, long j2, long j3);
 

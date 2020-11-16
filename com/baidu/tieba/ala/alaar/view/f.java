@@ -13,12 +13,12 @@ import java.io.File;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, T, a> {
-    private int gfV;
+    private int gfC;
     private Context mContext;
 
     public f(Context context) {
         super(context, null);
-        this.gfV = 0;
+        this.gfC = 0;
         this.mContext = context;
     }
 
@@ -32,7 +32,7 @@ public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: tL */
+    /* renamed from: uj */
     public T getItem(int i) {
         return (T) ((List) this.mData).get(i);
     }
@@ -44,8 +44,8 @@ public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ala.alaar.view.h
-    /* renamed from: tM */
-    public T tN(int i) {
+    /* renamed from: uk */
+    public T ul(int i) {
         return (T) ((List) this.mData).get(i);
     }
 
@@ -56,24 +56,24 @@ public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, 
         return new a(new BeautyItemView(viewGroup.getContext()), null);
     }
 
-    public void tI(int i) {
-        this.gfV = i;
+    public void ug(int i) {
+        this.gfC = i;
     }
 
     /* loaded from: classes4.dex */
     public class a extends b<T> {
-        private ObjectAnimator gfu;
-        private BeautyItemView ggv;
+        private ObjectAnimator gfb;
+        private BeautyItemView ggc;
 
         public a(View view, b.a aVar) {
             super(view, aVar);
-            this.ggv = (BeautyItemView) view;
-            com.facebook.drawee.generic.a hierarchy = this.ggv.ggd.getHierarchy();
+            this.ggc = (BeautyItemView) view;
+            com.facebook.drawee.generic.a hierarchy = this.ggc.gfK.getHierarchy();
             if (hierarchy == null) {
-                this.ggv.ggd.setHierarchy(new com.facebook.drawee.generic.b(this.ggv.getResources()).OL(300).OM(a.e.filter_beauty_item_bg).ems());
+                this.ggc.gfK.setHierarchy(new com.facebook.drawee.generic.b(this.ggc.getResources()).Po(300).Pp(a.e.filter_beauty_item_bg).emq());
                 return;
             }
-            hierarchy.OJ(a.e.filter_beauty_item_bg);
+            hierarchy.Pm(a.e.filter_beauty_item_bg);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,82 +81,82 @@ public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, 
         /* renamed from: a */
         public void j(int i, T t) {
             String str;
-            c.a bME = ((com.baidu.tieba.ala.alaar.makeup.c) this.item).bME();
-            if (bME == null) {
+            c.a bLX = ((com.baidu.tieba.ala.alaar.makeup.c) this.item).bLX();
+            if (bLX == null) {
                 str = null;
             } else {
-                str = bME.bMP();
+                str = bLX.bMi();
             }
             if (TextUtils.isEmpty(str)) {
                 str = ((com.baidu.tieba.ala.alaar.makeup.c) this.item).getIcon();
             }
             if (!TextUtils.isEmpty(str) && !"null".equals(str)) {
                 if (str.charAt(0) == File.separatorChar) {
-                    this.ggv.ggd.setImageURI("file://" + str);
+                    this.ggc.gfK.setImageURI("file://" + str);
                 } else {
-                    this.ggv.ggd.setImageURI(str);
+                    this.ggc.gfK.setImageURI(str);
                 }
             }
-            this.ggv.setItemText(((com.baidu.tieba.ala.alaar.makeup.c) this.item).name);
-            if (i == 0 && f.this.gfV != 0) {
-                this.ggv.setPadding(f.this.gfV, 0, 0, 0);
+            this.ggc.setItemText(((com.baidu.tieba.ala.alaar.makeup.c) this.item).name);
+            if (i == 0 && f.this.gfC != 0) {
+                this.ggc.setPadding(f.this.gfC, 0, 0, 0);
             } else {
-                this.ggv.setPadding(0, 0, 0, 0);
+                this.ggc.setPadding(0, 0, 0, 0);
             }
-            lu(false);
+            lv(false);
             b(t);
         }
 
         private void b(T t) {
             if (t == this.item) {
                 if (t.isLoaded()) {
-                    this.ggv.gft.setVisibility(4);
-                    bOe();
+                    this.ggc.gfa.setVisibility(4);
+                    bNx();
                 } else if (t.isLoading()) {
-                    this.ggv.gft.setVisibility(0);
-                    bOd();
+                    this.ggc.gfa.setVisibility(0);
+                    bNw();
                 } else {
-                    this.ggv.gft.setVisibility(0);
-                    this.ggv.gft.setRotation(0.0f);
-                    this.ggv.gft.setImageResource(a.e.sticker_unload);
-                    bOe();
+                    this.ggc.gfa.setVisibility(0);
+                    this.ggc.gfa.setRotation(0.0f);
+                    this.ggc.gfa.setImageResource(a.e.sticker_unload);
+                    bNx();
                 }
             }
         }
 
         @Override // com.baidu.tieba.ala.alaar.view.b
-        public boolean tJ(int i) {
+        public boolean uh(int i) {
             boolean z = i == this.position;
             if (com.baidu.tieba.ala.alaar.makeup.h.isDebug()) {
                 com.baidu.tieba.ala.alaar.makeup.h.d("MK_VIEW", "setCurrentPosition vHolder=" + this.position + "==" + i + " = " + z);
             }
-            return lu(z) | super.tJ(i);
+            return lv(z) | super.uh(i);
         }
 
-        public boolean lu(boolean z) {
+        public boolean lv(boolean z) {
             if (z) {
-                this.ggv.setSelectedBackground();
+                this.ggc.setSelectedBackground();
                 return false;
             }
-            this.ggv.setUnselectedBackground();
+            this.ggc.setUnselectedBackground();
             return false;
         }
 
-        public void bOd() {
-            if (this.gfu == null) {
-                this.gfu = ObjectAnimator.ofFloat(this.ggv.gft, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, 359.0f);
-                this.gfu.setRepeatCount(-1);
-                this.gfu.setDuration(1000L);
+        public void bNw() {
+            if (this.gfb == null) {
+                this.gfb = ObjectAnimator.ofFloat(this.ggc.gfa, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, 359.0f);
+                this.gfb.setRepeatCount(-1);
+                this.gfb.setDuration(1000L);
             }
-            if (!this.gfu.isRunning()) {
-                this.ggv.gft.setImageResource(a.e.sticker_loading);
-                this.gfu.start();
+            if (!this.gfb.isRunning()) {
+                this.ggc.gfa.setImageResource(a.e.sticker_loading);
+                this.gfb.start();
             }
         }
 
-        public void bOe() {
-            if (this.gfu != null && this.gfu.isRunning()) {
-                this.gfu.cancel();
+        public void bNx() {
+            if (this.gfb != null && this.gfb.isRunning()) {
+                this.gfb.cancel();
             }
         }
     }

@@ -6,15 +6,15 @@ import android.content.Context;
 import android.os.Build;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 final class a {
-    private static final a oro = new a();
+    private static final a osR = new a();
     private boolean ac;
-    private final Set<InterfaceC0930a> orp = new LinkedHashSet();
+    private final Set<InterfaceC0933a> osS = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0930a {
+    /* loaded from: classes17.dex */
+    public interface InterfaceC0933a {
         void T();
 
         void U();
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a edD() {
-        return oro;
+    public static a edC() {
+        return osR;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0930a> edE() {
-        return this.orp;
+    public final Set<InterfaceC0933a> edD() {
+        return this.osS;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0930a interfaceC0930a) {
-        synchronized (this.orp) {
-            this.orp.add(interfaceC0930a);
+    public final void a(InterfaceC0933a interfaceC0933a) {
+        synchronized (this.osS) {
+            this.osS.add(interfaceC0933a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.orp) {
-            this.orp.clear();
+        synchronized (this.osS) {
+            this.osS.clear();
         }
     }
 

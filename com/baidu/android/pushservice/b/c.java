@@ -8,11 +8,11 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1015a;
+    private String f1018a;
     private String b;
     private int c;
     private ArrayList<e> d;
@@ -22,11 +22,11 @@ public class c {
     private a h;
     private int i = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1016a;
+        public int f1019a;
         public int b;
 
         public a() {
@@ -34,7 +34,7 @@ public class c {
     }
 
     public c(Context context, String str) {
-        this.f1015a = str;
+        this.f1018a = str;
         a(context, str);
     }
 
@@ -136,7 +136,7 @@ public class c {
 
     public void a(int i, int i2) {
         this.h = new a();
-        this.h.f1016a = i;
+        this.h.f1019a = i;
         this.h.b = i2;
     }
 
@@ -193,6 +193,6 @@ public class c {
     }
 
     public String toString() {
-        return this.f1015a;
+        return this.f1018a;
     }
 }

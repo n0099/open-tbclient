@@ -13,34 +13,34 @@ import java.util.Collection;
 import java.util.concurrent.Executor;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes12.dex */
 public abstract class TurbonetEngine {
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes12.dex */
     public enum AppState {
         APP_STATE_BACKGROUND,
         APP_STATE_FOREGROUND
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes12.dex */
     public enum QUICConnectStatus {
         UNKNOWN,
         REACHABLE,
         UNREACHABLE
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes12.dex */
     public interface RequestFinishedListener {
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes12.dex */
     public enum TCPNetworkQualityStatus {
         UNKNOWN,
         WEAK,
         NORMAL
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes12.dex */
     public static final class UrlRequestInfo {
     }
 
@@ -50,79 +50,79 @@ public abstract class TurbonetEngine {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void a(String str, String str2, int i, int i2, long j, long j2, long j3, long j4);
 
-    public abstract boolean ebO();
+    public abstract boolean ebN();
 
     abstract boolean isEnabled();
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes12.dex */
     public static class Builder {
-        private String emE;
+        private String ekX;
         private String mAppName;
         private final Context mContext;
         private String mUserAgent;
-        private boolean omy;
-        private boolean ona;
-        private int ooA;
-        private long ooB;
-        private JSONObject ooC;
-        private String ooD;
-        private String oot;
-        private String oov;
-        private LibraryLoader oow;
-        private String oox;
-        private boolean ooy;
-        private boolean ooz;
+        private boolean ooE;
+        private boolean ooc;
+        private String opX;
+        private String opZ;
+        private LibraryLoader oqa;
+        private String oqb;
+        private boolean oqc;
+        private boolean oqd;
+        private int oqe;
+        private long oqf;
+        private JSONObject oqg;
+        private String oqh;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes17.dex */
+        /* loaded from: classes12.dex */
         public @interface HttpCacheSetting {
         }
 
-        /* loaded from: classes17.dex */
+        /* loaded from: classes12.dex */
         public static abstract class LibraryLoader {
             public abstract void loadLibrary(String str);
         }
 
         public Builder(Context context) {
             this.mContext = context;
-            Wr("turbonet");
-            this.ooC = new JSONObject();
-            zy(false);
+            Wc("turbonet");
+            this.oqg = new JSONObject();
+            zF(false);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void ecm() {
-            if (this.oow == null) {
-                if (this.oox.equals("turbonet")) {
-                    System.loadLibrary(this.oox);
+        public void ecl() {
+            if (this.oqa == null) {
+                if (this.oqb.equals("turbonet")) {
+                    System.loadLibrary(this.oqb);
                     return;
                 } else {
-                    System.load(this.oox);
+                    System.load(this.oqb);
                     return;
                 }
             }
-            this.oow.loadLibrary(this.oox);
+            this.oqa.loadLibrary(this.oqb);
         }
 
-        public Builder Wr(String str) {
-            this.oox = str;
+        public Builder Wc(String str) {
+            this.oqb = str;
             return this;
         }
 
         private void e(String str, String str2, Object obj) {
             try {
-                JSONObject optJSONObject = this.ooC.optJSONObject(str);
+                JSONObject optJSONObject = this.oqg.optJSONObject(str);
                 if (optJSONObject == null) {
                     optJSONObject = new JSONObject();
                 }
                 optJSONObject.put(str2, obj);
-                this.ooC.put(str, optJSONObject);
+                this.oqg.put(str, optJSONObject);
             } catch (JSONException e) {
                 throw new IllegalStateException("JSON expcetion:", e);
             }
         }
 
-        public Builder Ws(String str) {
+        public Builder Wd(String str) {
             e(SchemeCollecter.CLASSIFY_BASE, "user_agent", str);
             this.mUserAgent = str;
             return this;
@@ -133,91 +133,91 @@ public abstract class TurbonetEngine {
             return this.mUserAgent;
         }
 
-        public Builder zy(boolean z) {
+        public Builder zF(boolean z) {
             e(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
-            this.ooy = z;
+            this.oqc = z;
             return this;
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public boolean ecm() {
+            return this.oqc;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public boolean ecn() {
-            return this.ooy;
+            return this.oqd;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean eco() {
-            return this.ooz;
-        }
-
-        public Builder Wt(String str) {
+        public Builder We(String str) {
             if (!new File(str).isDirectory()) {
                 throw new IllegalArgumentException("Storage path must be set to existing directory");
             }
-            this.oot = str;
+            this.opX = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String eci() {
-            return this.oot;
+        public String ech() {
+            return this.opX;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public boolean cacheDisabled() {
-            return this.omy;
+            return this.ooc;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public long ecp() {
-            return this.ooB;
+        public long eco() {
+            return this.oqf;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public int ecq() {
-            return this.ooA;
+        public int ecp() {
+            return this.oqe;
         }
 
         public String getAppPackageName() {
-            return this.emE;
+            return this.ekX;
         }
 
-        public Builder I(boolean z, String str) {
+        public Builder J(boolean z, String str) {
             e("nq", "network_quality_enabled", Boolean.valueOf(z));
             e("nq", "watched_groups", str);
-            this.ona = z;
+            this.ooE = z;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean ecr() {
-            return this.ona;
+        public boolean ecq() {
+            return this.ooE;
         }
 
-        public Builder Wu(String str) {
+        public Builder Wf(String str) {
             e("app", "cuid", str);
-            this.oov = str;
+            this.opZ = str;
             return this;
         }
 
-        public Builder Wv(String str) {
+        public Builder Wg(String str) {
             e("app", "app_name", str);
             this.mAppName = str;
             return this;
         }
 
-        public Builder Ww(String str) {
-            this.ooD = str;
+        public Builder Wh(String str) {
+            this.oqh = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String ecs() {
-            return this.ooD;
+        public String ecr() {
+            return this.oqh;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String ect() {
-            return this.ooC.toString();
+        public String ecs() {
+            return this.oqg.toString();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -225,7 +225,7 @@ public abstract class TurbonetEngine {
             return this.mContext;
         }
 
-        public TurbonetEngine ecu() {
+        public TurbonetEngine ect() {
             String str = "";
             if (Environment.getExternalStorageState().equals("mounted")) {
                 str = Environment.getExternalStorageDirectory().getPath();
@@ -234,7 +234,7 @@ public abstract class TurbonetEngine {
             }
             e(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
             if (getUserAgent() == null) {
-                Ws(c.gm(this.mContext));
+                Wd(c.gl(this.mContext));
             }
             return TurbonetEngine.a(this);
         }
@@ -255,26 +255,26 @@ public abstract class TurbonetEngine {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes12.dex */
     public static final class UrlRequestMetrics {
         @Nullable
-        private final Long omS;
+        private final Long oow;
         @Nullable
-        private final Long omT;
+        private final Long oox;
         @Nullable
-        private final Long ooE;
+        private final Long oqi;
         @Nullable
-        private final Long ooF;
+        private final Long oqj;
 
         public UrlRequestMetrics(@Nullable Long l, @Nullable Long l2, @Nullable Long l3, @Nullable Long l4) {
-            this.omS = l;
-            this.omT = l2;
-            this.ooE = l3;
-            this.ooF = l4;
+            this.oow = l;
+            this.oox = l2;
+            this.oqi = l3;
+            this.oqj = l4;
         }
     }
 
-    public long ebv() {
+    public long ebu() {
         return 0L;
     }
 }

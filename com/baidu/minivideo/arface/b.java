@@ -10,88 +10,88 @@ import com.baidu.minivideo.arface.utils.f;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class b {
-    private static c bZI;
-    private static com.baidu.minivideo.arface.utils.c bZJ;
-    private static f.a bZK;
-    private static a bZL;
-    private static JSONObject bZN;
-    private static JSONObject bZO;
+    private static c bXX;
+    private static com.baidu.minivideo.arface.utils.c bXY;
+    private static f.a bXZ;
+    private static a bYa;
+    private static JSONObject bYc;
+    private static JSONObject bYd;
     private static Context mAppContext;
     private static boolean sDebug;
-    public static final String bZF = Environment.getExternalStorageDirectory() + "/baidu/quanminvideo";
-    public static final String bZG = bZF + "/dataAR";
-    public static final String bZH = bZG + "/dlModels/";
-    private static File bZM = null;
+    public static final String bXU = Environment.getExternalStorageDirectory() + "/baidu/quanminvideo";
+    public static final String bXV = bXU + "/dataAR";
+    public static final String bXW = bXV + "/dlModels/";
+    private static File bYb = null;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface a {
         void onResult(boolean z, String str);
     }
 
-    public static File aaa() {
-        if (bZM == null) {
-            bZM = new File(com.baidu.minivideo.arface.a.aK(mAppContext));
+    public static File Zr() {
+        if (bYb == null) {
+            bYb = new File(com.baidu.minivideo.arface.a.aK(mAppContext));
         }
-        return bZM;
+        return bYb;
     }
 
     public static void a(Context context, String str, String str2, String str3, c cVar) {
         if (isDebug()) {
             d("sdk init with appId:" + str + ", apikey:" + str2 + ", secretKey:" + str3);
         }
-        bZI = cVar;
+        bXX = cVar;
         DuMixARConfig.setAppId(str);
         DuMixARConfig.setAPIKey(str2);
         DuMixARConfig.setSecretKey(str3);
     }
 
     public static void a(Context context, a aVar) {
-        bZL = aVar;
-        if (!c.bZR) {
-            bZJ = com.baidu.minivideo.arface.utils.d.aao();
+        bYa = aVar;
+        if (!c.bYg) {
+            bXY = com.baidu.minivideo.arface.utils.d.ZF();
         } else {
             com.baidu.minivideo.arface.utils.a aM = com.baidu.minivideo.arface.utils.a.aM(context);
-            aab();
-            aM.a("file:///android_asset/arsource/", new File(c.aah()), false);
-            bZJ = aM;
+            Zs();
+            aM.a("file:///android_asset/arsource/", new File(c.Zy()), false);
+            bXY = aM;
         }
-        bZJ.start(aL(context));
+        bXY.start(aL(context));
     }
 
     private static f.a aL(Context context) {
-        if (bZK != null) {
-            return bZK;
+        if (bXZ != null) {
+            return bXZ;
         }
-        bZK = new f.a() { // from class: com.baidu.minivideo.arface.b.1
+        bXZ = new f.a() { // from class: com.baidu.minivideo.arface.b.1
             @Override // com.baidu.minivideo.arface.utils.f.a
             public void a(int i, f fVar) {
-                if (b.bZJ == fVar) {
+                if (b.bXY == fVar) {
                     if (b.isDebug()) {
                         StringBuilder append = new StringBuilder().append(i).append(" loadFaceAssets with: ").append(i == 2).append(", (");
-                        b.aab();
-                        b.d(append.append(c.aah()).toString());
+                        b.Zs();
+                        b.d(append.append(c.Zy()).toString());
                     }
                     if (i == 2) {
-                        if (b.bZL != null) {
-                            b.bZL.onResult(true, b.G(fVar instanceof com.baidu.minivideo.arface.utils.d ? "soloaderChecker" : "assetsCopy", true));
-                            a unused = b.bZL = null;
+                        if (b.bYa != null) {
+                            b.bYa.onResult(true, b.G(fVar instanceof com.baidu.minivideo.arface.utils.d ? "soloaderChecker" : "assetsCopy", true));
+                            a unused = b.bYa = null;
                         }
-                    } else if (i == 3 && b.bZL != null) {
-                        b.bZL.onResult(false, b.G(fVar instanceof com.baidu.minivideo.arface.utils.d ? "soloaderChecker" : "assetsCopy", false));
-                        a unused2 = b.bZL = null;
+                    } else if (i == 3 && b.bYa != null) {
+                        b.bYa.onResult(false, b.G(fVar instanceof com.baidu.minivideo.arface.utils.d ? "soloaderChecker" : "assetsCopy", false));
+                        a unused2 = b.bYa = null;
                     }
                 }
             }
         };
-        return bZK;
+        return bXZ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static String G(String str, boolean z) {
-        aab();
-        File file = new File(c.aaj());
+        Zs();
+        File file = new File(c.ZA());
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("loc", str);
@@ -109,8 +109,8 @@ public final class b {
         Log.e("DuAr_DuController", "ar->" + str);
     }
 
-    public static c aab() {
-        return bZI;
+    public static c Zs() {
+        return bXX;
     }
 
     public static int getVersion() {
@@ -122,21 +122,21 @@ public final class b {
     }
 
     public static DefaultParams b(EGLContext eGLContext) {
-        c cVar = bZI;
-        String aai = c.aai();
+        c cVar = bXX;
+        String Zz = c.Zz();
         if (isDebug()) {
-            d("getDuMixDefaultParams EGLContext: " + eGLContext + ", modelPath: " + aai);
+            d("getDuMixDefaultParams EGLContext: " + eGLContext + ", modelPath: " + Zz);
         }
         DefaultParams defaultParams = new DefaultParams();
-        defaultParams.setFaceAlgoModelPath(aai);
+        defaultParams.setFaceAlgoModelPath(Zz);
         if (eGLContext != null) {
             defaultParams.setUseTextureIO(true);
             defaultParams.setShareContext(eGLContext);
         }
-        if (bZN != null && bZN.length() > 0) {
-            defaultParams.setGradingConfig(bZN);
+        if (bYc != null && bYc.length() > 0) {
+            defaultParams.setGradingConfig(bYc);
             if (isDebug()) {
-                d("getDuMixDefaultParams  " + bZN.toString());
+                d("getDuMixDefaultParams  " + bYc.toString());
             }
         }
         return defaultParams;
@@ -148,34 +148,34 @@ public final class b {
                 d("sdk setGradingConfig:" + jSONObject);
             }
             if (jSONObject != null && jSONObject.length() != 0) {
-                bZN = jSONObject;
+                bYc = jSONObject;
             }
         }
     }
 
-    public static synchronized void ap(JSONObject jSONObject) {
+    public static synchronized void aj(JSONObject jSONObject) {
         synchronized (b.class) {
             if (isDebug()) {
                 d("sdk setQualityConfig:" + jSONObject);
             }
             if (jSONObject != null && jSONObject.length() != 0) {
-                bZO = jSONObject;
+                bYd = jSONObject;
             }
         }
     }
 
-    public static synchronized com.baidu.minivideo.arface.bean.b aac() {
-        com.baidu.minivideo.arface.bean.b aq;
+    public static synchronized com.baidu.minivideo.arface.bean.b Zt() {
+        com.baidu.minivideo.arface.bean.b ak;
         synchronized (b.class) {
-            aq = (bZO == null || bZO.length() <= 0) ? null : com.baidu.minivideo.arface.bean.b.aq(bZO);
+            ak = (bYd == null || bYd.length() <= 0) ? null : com.baidu.minivideo.arface.bean.b.ak(bYd);
         }
-        return aq;
+        return ak;
     }
 
-    public static synchronized JSONObject aad() {
+    public static synchronized JSONObject Zu() {
         JSONObject jSONObject;
         synchronized (b.class) {
-            jSONObject = bZO;
+            jSONObject = bYd;
         }
         return jSONObject;
     }

@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class LongCodec implements ObjectDeserializer, ObjectSerializer {
     public static LongCodec instance = new LongCodec();
 

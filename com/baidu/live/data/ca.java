@@ -6,12 +6,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ca {
-    private as aQH;
-    private as aQI;
-    private as aQJ;
-    private as aQK;
+    private as aOW;
+    private as aOX;
+    private as aOY;
+    private as aOZ;
 
-    public static ca gt(String str) {
+    public static ca gm(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -32,17 +32,17 @@ public class ca {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            if (caVar.aQH != null) {
-                jSONObject.put("change_mode", caVar.aQH.toJson());
+            if (caVar.aOW != null) {
+                jSONObject.put("change_mode", caVar.aOW.toJson());
             }
-            if (caVar.aQI != null) {
-                jSONObject.put("match_success", caVar.aQI.toJson());
+            if (caVar.aOX != null) {
+                jSONObject.put("match_success", caVar.aOX.toJson());
             }
-            if (caVar.aQJ != null) {
-                jSONObject.put(SdkStaticKeys.RANK_TYPE_CHARM, caVar.aQJ.toJson());
+            if (caVar.aOY != null) {
+                jSONObject.put(SdkStaticKeys.RANK_TYPE_CHARM, caVar.aOY.toJson());
             }
-            if (caVar.aQK != null) {
-                jSONObject.put("red_package_rain", caVar.aQK.toJson());
+            if (caVar.aOZ != null) {
+                jSONObject.put("red_package_rain", caVar.aOZ.toJson());
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -52,30 +52,30 @@ public class ca {
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aQH = new as();
-            this.aQH.parse(jSONObject.optJSONObject("change_mode"));
-            this.aQI = new as();
-            this.aQI.parse(jSONObject.optJSONObject("match_success"));
-            this.aQJ = new as();
-            this.aQJ.parse(jSONObject.optJSONObject(SdkStaticKeys.RANK_TYPE_CHARM));
-            this.aQK = new as();
-            this.aQK.parse(jSONObject.optJSONObject("red_package_rain"));
+            this.aOW = new as();
+            this.aOW.parse(jSONObject.optJSONObject("change_mode"));
+            this.aOX = new as();
+            this.aOX.parse(jSONObject.optJSONObject("match_success"));
+            this.aOY = new as();
+            this.aOY.parse(jSONObject.optJSONObject(SdkStaticKeys.RANK_TYPE_CHARM));
+            this.aOZ = new as();
+            this.aOZ.parse(jSONObject.optJSONObject("red_package_rain"));
         }
     }
 
-    public as ES() {
-        return this.aQH;
+    public as Ej() {
+        return this.aOW;
     }
 
-    public as ET() {
-        return this.aQI;
+    public as Ek() {
+        return this.aOX;
     }
 
-    public as EU() {
-        return this.aQJ;
+    public as El() {
+        return this.aOY;
     }
 
-    public as EV() {
-        return this.aQK;
+    public as Em() {
+        return this.aOZ;
     }
 }

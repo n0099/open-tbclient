@@ -1,5 +1,5 @@
 package com.xiaomi.push.service;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public abstract class at {
 
     /* renamed from: a  reason: collision with root package name */

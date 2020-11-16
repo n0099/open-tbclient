@@ -16,7 +16,7 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Qx */
+        /* renamed from: Ra */
         public ParcelableSparseIntArray[] newArray(int i) {
             return new ParcelableSparseIntArray[i];
         }

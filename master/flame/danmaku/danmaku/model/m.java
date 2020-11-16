@@ -1,7 +1,7 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public interface m {
-    void Bb(boolean z);
+    void Bi(boolean z);
 
     void a(float f, int i, float f2);
 
@@ -9,19 +9,19 @@ public interface m {
 
     void b(d dVar, boolean z);
 
-    void bw(float f);
+    void bE(float f);
 
     void c(d dVar, boolean z);
 
-    float eDA();
-
-    int eDB();
+    float eDB();
 
     int eDC();
 
     int eDD();
 
     int eDE();
+
+    int eDF();
 
     float getDensity();
 

@@ -2,7 +2,7 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public final class ab implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

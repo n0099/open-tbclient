@@ -15,12 +15,12 @@ import com.baidu.live.tbadk.core.view.BdGridView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b implements View.OnClickListener {
-    private boolean bGj;
-    private TextView bGr;
-    private BdGridView bGu;
-    private long bnV;
-    private long fYr;
-    private com.baidu.tieba.ala.adapter.b hKO;
+    private TextView bEG;
+    private BdGridView bEJ;
+    private boolean bEy;
+    private long bmk;
+    private long fXY;
+    private com.baidu.tieba.ala.adapter.b hKv;
     private boolean mIsHost;
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -35,21 +35,21 @@ public class b implements View.OnClickListener {
 
     private void initView() {
         this.mView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_activity_choose_feedback_reason_layout, (ViewGroup) null);
-        this.bGu = (BdGridView) this.mView.findViewById(a.f.id_feedback_gridview);
-        this.bGr = (TextView) this.mView.findViewById(a.f.id_feenback_confirm_btn);
-        this.bGr.setEnabled(false);
-        this.bGr.setOnClickListener(this);
-        this.hKO = new com.baidu.tieba.ala.adapter.b(this.mPageContext);
-        this.bGu.setAdapter((ListAdapter) this.hKO);
-        this.bGu.setOnItemClickListener(new a());
+        this.bEJ = (BdGridView) this.mView.findViewById(a.f.id_feedback_gridview);
+        this.bEG = (TextView) this.mView.findViewById(a.f.id_feenback_confirm_btn);
+        this.bEG.setEnabled(false);
+        this.bEG.setOnClickListener(this);
+        this.hKv = new com.baidu.tieba.ala.adapter.b(this.mPageContext);
+        this.bEJ.setAdapter((ListAdapter) this.hKv);
+        this.bEJ.setOnItemClickListener(new a());
     }
 
     public void b(long j, long j2, long j3, boolean z, boolean z2) {
-        this.bnV = j;
-        this.fYr = j2;
+        this.bmk = j;
+        this.fXY = j2;
         this.mUserId = j3;
         this.mIsHost = z;
-        this.bGj = z2;
+        this.bEy = z2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -69,20 +69,20 @@ public class b implements View.OnClickListener {
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             com.baidu.tieba.ala.data.b item = ((com.baidu.tieba.ala.adapter.b) adapterView.getAdapter()).getItem(i);
             if (item != null) {
-                if (item.Uu() != 0) {
-                    if (b.this.hKO.Us() == i) {
-                        b.this.hKO.ge(-1);
-                        b.this.hKO.notifyDataSetChanged();
-                        b.this.bGr.setEnabled(false);
+                if (item.TL() != 0) {
+                    if (b.this.hKv.TJ() == i) {
+                        b.this.hKv.ga(-1);
+                        b.this.hKv.notifyDataSetChanged();
+                        b.this.bEG.setEnabled(false);
                         return;
                     }
-                    b.this.hKO.ge(i);
-                    b.this.hKO.notifyDataSetChanged();
-                    b.this.bGr.setEnabled(true);
+                    b.this.hKv.ga(i);
+                    b.this.hKv.notifyDataSetChanged();
+                    b.this.bEG.setEnabled(true);
                     return;
                 }
                 com.baidu.live.b.h hVar = new com.baidu.live.b.h(b.this.mPageContext.getPageActivity());
-                hVar.a(b.this.bnV, b.this.fYr, b.this.mUserId, b.this.mIsHost);
+                hVar.a(b.this.bmk, b.this.fXY, b.this.mUserId, b.this.mIsHost);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hVar));
                 b.this.mPageContext.getPageActivity().finish();
             }
@@ -97,13 +97,13 @@ public class b implements View.OnClickListener {
     }
 
     public void setData(List<com.baidu.tieba.ala.data.b> list) {
-        this.hKO.setData(list);
+        this.hKv.setData(list);
     }
 
-    public com.baidu.tieba.ala.data.b clv() {
-        if (this.hKO == null || this.hKO.Us() < 0) {
+    public com.baidu.tieba.ala.data.b ckO() {
+        if (this.hKv == null || this.hKv.TJ() < 0) {
             return null;
         }
-        return this.hKO.getItem(this.hKO.Us());
+        return this.hKv.getItem(this.hKv.TJ());
     }
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private int bFT = -1;
+    private int bEi = -1;
     private List<com.baidu.tieba.ala.data.b> mDataList;
     private TbPageContext mTbPageContext;
 
@@ -27,7 +27,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: tz */
+    /* renamed from: tX */
     public com.baidu.tieba.ala.data.b getItem(int i) {
         return (com.baidu.tieba.ala.data.b) ListUtils.getItem(this.mDataList, i);
     }
@@ -43,7 +43,7 @@ public class b extends BaseAdapter {
         if (view == null) {
             a aVar2 = new a();
             view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.ala_choose_feedback_reason_item_layout, viewGroup, false);
-            aVar2.bFU = (TextView) view.findViewById(a.f.id_feedback_content);
+            aVar2.bEj = (TextView) view.findViewById(a.f.id_feedback_content);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -51,12 +51,12 @@ public class b extends BaseAdapter {
         }
         com.baidu.tieba.ala.data.b item = getItem(i);
         if (item != null) {
-            aVar.bFU.setText(item.Ut());
+            aVar.bEj.setText(item.TK());
         }
-        if (i == this.bFT) {
-            aVar.bFU.setSelected(true);
+        if (i == this.bEi) {
+            aVar.bEj.setSelected(true);
         } else {
-            aVar.bFU.setSelected(false);
+            aVar.bEj.setSelected(false);
         }
         return view;
     }
@@ -73,17 +73,17 @@ public class b extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public int Us() {
-        return this.bFT;
+    public int TJ() {
+        return this.bEi;
     }
 
-    public void ge(int i) {
-        this.bFT = i;
+    public void ga(int i) {
+        this.bEi = i;
     }
 
     /* loaded from: classes4.dex */
     private class a {
-        public TextView bFU;
+        public TextView bEj;
 
         private a() {
         }

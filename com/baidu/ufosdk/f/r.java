@@ -12,7 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes22.dex */
+/* loaded from: classes21.dex */
 public final class r {
     public static void a(Context context, Window window) {
         if (Build.VERSION.SDK_INT < 23 || context == null || window == null) {

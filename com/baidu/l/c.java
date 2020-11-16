@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes16.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private static volatile c cbr;
+    private static volatile c bZG;
 
-    public static synchronized c aaN() {
+    public static synchronized c aae() {
         c cVar;
         synchronized (c.class) {
-            if (cbr == null) {
+            if (bZG == null) {
                 synchronized (c.class) {
-                    if (cbr == null) {
-                        cbr = new c();
+                    if (bZG == null) {
+                        bZG = new c();
                     }
                 }
             }
-            cVar = cbr;
+            cVar = bZG;
         }
         return cVar;
     }
@@ -31,7 +31,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.aaM().e(activity, str, aVar);
+        b.aad().e(activity, str, aVar);
         return true;
     }
 
@@ -39,7 +39,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.aaM().f(activity, str, aVar);
+        b.aad().f(activity, str, aVar);
         return true;
     }
 
@@ -47,7 +47,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.aaM().b(context, jSONObject, aVar);
+        b.aad().b(context, jSONObject, aVar);
         return true;
     }
 
@@ -55,7 +55,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.aaM().g(context, jSONObject);
+        b.aad().g(context, jSONObject);
         return true;
     }
 
@@ -63,7 +63,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.aaM().b(activity, jSONObject, aVar);
+        b.aad().b(activity, jSONObject, aVar);
         return true;
     }
 }

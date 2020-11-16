@@ -1,30 +1,31 @@
 package com.baidu.tieba.forumsearch.b;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
 import tbclient.FrsTabInfo;
 import tbclient.SearchPostForum.SearchForum;
-/* loaded from: classes24.dex */
-public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId iFC = BdUniqueId.gen();
-    private boolean iFA;
-    private List<FrsTabInfo> iFB;
-    private String iFd;
-    private String iFx;
-    private String iFy;
-    private String iFz;
+/* loaded from: classes23.dex */
+public class b extends BaseCardInfo {
+    public static final BdUniqueId iGq = BdUniqueId.gen();
+    private String iFR;
+    private String iGl;
+    private String iGm;
+    private String iGn;
+    private boolean iGo;
+    private List<FrsTabInfo> iGp;
     private String mAvatar;
     private long mForumId;
     private String mForumName;
     private String mIntro;
 
     public b(String str) {
-        this.iFd = str;
+        this.iFR = str;
     }
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iFC;
+        return iGq;
     }
 
     public void a(SearchForum searchForum) {
@@ -32,12 +33,12 @@ public class b extends com.baidu.tieba.card.data.b {
             this.mForumId = searchForum.forum_id.longValue();
             this.mForumName = searchForum.forum_name;
             this.mAvatar = searchForum.avatar;
-            this.iFx = searchForum.post_num;
-            this.iFy = searchForum.concern_num;
-            this.iFz = searchForum.slogan;
+            this.iGl = searchForum.post_num;
+            this.iGm = searchForum.concern_num;
+            this.iGn = searchForum.slogan;
             this.mIntro = searchForum.intro;
-            this.iFA = searchForum.has_concerned.intValue() != 0;
-            this.iFB = searchForum.tab_info;
+            this.iGo = searchForum.has_concerned.intValue() != 0;
+            this.iGp = searchForum.tab_info;
         }
     }
 
@@ -45,12 +46,12 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.mAvatar;
     }
 
-    public String cwZ() {
-        return this.iFy;
+    public String cwB() {
+        return this.iGm;
     }
 
-    public String cxa() {
-        return this.iFx;
+    public String cwC() {
+        return this.iGl;
     }
 
     public String getForumName() {
@@ -61,11 +62,11 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.mForumId;
     }
 
-    public String cxb() {
-        return this.iFd;
+    public String cwD() {
+        return this.iFR;
     }
 
-    public List<FrsTabInfo> cxc() {
-        return this.iFB;
+    public List<FrsTabInfo> cwE() {
+        return this.iGp;
     }
 }

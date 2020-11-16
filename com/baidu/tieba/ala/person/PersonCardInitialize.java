@@ -22,7 +22,7 @@ public class PersonCardInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaPersonCardActivityConfig.class, PersonCardActivity.class);
         registerTask();
-        cjh();
+        ciA();
     }
 
     private static void registerTask() {
@@ -34,11 +34,11 @@ public class PersonCardInitialize {
                     a aVar = new a(data.pageContext.getPageActivity());
                     aVar.a(new a.InterfaceC0692a() { // from class: com.baidu.tieba.ala.person.PersonCardInitialize.1.1
                         @Override // com.baidu.tieba.ala.person.a.InterfaceC0692a
-                        public void cji() {
+                        public void ciB() {
                             final e eVar = new e(data.pageContext);
                             eVar.a(new e.a() { // from class: com.baidu.tieba.ala.person.PersonCardInitialize.1.1.1
                                 @Override // com.baidu.live.personmanager.e.a
-                                public void OL() {
+                                public void Oc() {
                                     data.pageContext.showToast(a.h.ala_person_report_online_success);
                                     eVar.a((e.a) null);
                                 }
@@ -49,7 +49,7 @@ public class PersonCardInitialize {
                                     eVar.a((e.a) null);
                                 }
                             });
-                            eVar.aF(data.userId, null);
+                            eVar.aE(data.userId, null);
                         }
                     });
                     aVar.show();
@@ -65,15 +65,15 @@ public class PersonCardInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void cjh() {
+    private static void ciA() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913040) { // from class: com.baidu.tieba.ala.person.PersonCardInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.live.liveroom.d.a)) {
                     com.baidu.live.liveroom.d.a aVar = (com.baidu.live.liveroom.d.a) customResponsedMessage.getData();
-                    if (aVar.bnv != null && aVar.bnv.context != null) {
-                        aVar.a((com.baidu.live.liveroom.d.e) new com.baidu.tieba.ala.person.b.a((TbPageContext) IScrollableHelper.getBbPageContext(aVar.bnv.context)));
+                    if (aVar.blK != null && aVar.blK.context != null) {
+                        aVar.a((com.baidu.live.liveroom.d.e) new com.baidu.tieba.ala.person.b.a((TbPageContext) IScrollableHelper.getBbPageContext(aVar.blK.context)));
                     }
                 }
             }

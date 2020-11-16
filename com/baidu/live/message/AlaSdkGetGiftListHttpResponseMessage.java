@@ -12,10 +12,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<h> aZp;
-    private ArrayList<j> aZq;
-    private ArrayList<com.baidu.live.gift.h> bdT;
-    private y boc;
+    private ArrayList<h> aXE;
+    private ArrayList<j> aXF;
+    private ArrayList<com.baidu.live.gift.h> bci;
+    private y bmr;
     private String scene_from;
 
     public AlaSdkGetGiftListHttpResponseMessage() {
@@ -35,32 +35,32 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
         if (optJSONObject != null) {
             long optLong = optJSONObject.optLong("sleep_time_span");
             if (!z) {
-                com.baidu.live.d AZ = com.baidu.live.d.AZ();
-                AZ.putLong("ala_sdk_get_gift_list_req_time", (optLong * 1000) + System.currentTimeMillis());
+                com.baidu.live.d Aq = com.baidu.live.d.Aq();
+                Aq.putLong("ala_sdk_get_gift_list_req_time", (optLong * 1000) + System.currentTimeMillis());
             }
             this.scene_from = optJSONObject.optString("scene_from");
             if (m(optJSONObject.optJSONArray("list"))) {
                 k(optJSONObject.optJSONArray("num_info"));
-                aA(this.scene_from, jSONObject.toString());
-                Q(optJSONObject.optJSONObject("contact_conf"));
+                az(this.scene_from, jSONObject.toString());
+                K(optJSONObject.optJSONObject("contact_conf"));
             }
         }
     }
 
-    private void Q(JSONObject jSONObject) {
+    private void K(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.boc = new y();
-            this.boc.iconUrl = jSONObject.optString("button_url");
-            this.boc.aKd = jSONObject.optString("dialog_content");
-            this.boc.dialogTitle = jSONObject.optString("dialog_title");
-            this.boc.aKe = jSONObject.optString("dialog_content_copy");
+            this.bmr = new y();
+            this.bmr.iconUrl = jSONObject.optString("button_url");
+            this.bmr.aIs = jSONObject.optString("dialog_content");
+            this.bmr.dialogTitle = jSONObject.optString("dialog_title");
+            this.bmr.aIt = jSONObject.optString("dialog_content_copy");
         }
     }
 
     private boolean m(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.bdT = new ArrayList<>();
-            this.aZp = new ArrayList<>();
+            this.bci = new ArrayList<>();
+            this.aXE = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("category_id");
@@ -76,8 +76,8 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
                     hVar.setCategoryId(optInt);
                     hVar.setCategoryName(optString);
                     hVar.k(arrayList);
-                    hVar.bn(z);
-                    this.aZp.add(hVar);
+                    hVar.bp(z);
+                    this.aXE.add(hVar);
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("gift_list");
                 if (optJSONArray2 != null) {
@@ -88,7 +88,7 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
                             com.baidu.live.gift.g gVar = new com.baidu.live.gift.g();
                             gVar.parseJson(optJSONObject2);
                             gVar.setSceneFrom(this.scene_from);
-                            gVar.H(optJSONObject2.optJSONObject("long_press"));
+                            gVar.B(optJSONObject2.optJSONObject("long_press"));
                             arrayList2.add(gVar);
                         }
                     }
@@ -96,56 +96,56 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
                     hVar2.setCategoryId(optInt);
                     hVar2.setCategoryName(optString);
                     hVar2.F(arrayList2);
-                    hVar2.bn(z);
-                    this.bdT.add(hVar2);
+                    hVar2.bp(z);
+                    this.bci.add(hVar2);
                 }
             }
         }
-        return (this.bdT == null || this.bdT.isEmpty()) ? false : true;
+        return (this.bci == null || this.bci.isEmpty()) ? false : true;
     }
 
     private void k(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.aZq = new ArrayList<>();
+            this.aXF = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     j jVar = new j();
                     jVar.parser(optJSONObject);
-                    this.aZq.add(jVar);
+                    this.aXF.add(jVar);
                 }
             }
         }
     }
 
-    private void aA(String str, String str2) {
+    private void az(String str, String str2) {
         if (str2 != null) {
-            aa.hd(str2);
-            ah.hd(str2);
+            aa.gX(str2);
+            ah.gX(str2);
         }
     }
 
-    public ArrayList<com.baidu.live.gift.h> Jp() {
-        return this.bdT;
+    public ArrayList<com.baidu.live.gift.h> IG() {
+        return this.bci;
     }
 
     public ArrayList<h> getCategoryList() {
-        return this.aZp;
+        return this.aXE;
     }
 
-    public ArrayList<j> Jq() {
-        return this.aZq;
+    public ArrayList<j> IH() {
+        return this.aXF;
     }
 
     public String getSceneFrom() {
         return this.scene_from;
     }
 
-    public String Jr() {
-        return getOrginalMessage() instanceof f ? ((f) getOrginalMessage()).Jr() : "";
+    public String II() {
+        return getOrginalMessage() instanceof f ? ((f) getOrginalMessage()).II() : "";
     }
 
-    public y Of() {
-        return this.boc;
+    public y Nw() {
+        return this.bmr;
     }
 }

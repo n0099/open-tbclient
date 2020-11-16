@@ -11,7 +11,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class AlaAudioSession {
     private static final String TAG = AlaAudioSession.class.getSimpleName();
     private Context mContext;

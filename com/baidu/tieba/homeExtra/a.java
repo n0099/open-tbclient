@@ -5,17 +5,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.homepage.framework.c;
-/* loaded from: classes24.dex */
+/* loaded from: classes23.dex */
 class a extends CustomMessageTask {
     public a() {
-        super(CmdConfigCustom.CMD_RECOMMEND_FRS_INIT_CONTROL_MODEL, new C0739a());
+        super(CmdConfigCustom.CMD_RECOMMEND_FRS_INIT_CONTROL_MODEL, new C0742a());
         setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
     }
 
     /* renamed from: com.baidu.tieba.homeExtra.a$a  reason: collision with other inner class name */
-    /* loaded from: classes24.dex */
-    private static class C0739a implements CustomMessageTask.CustomRunnable<c> {
-        private C0739a() {
+    /* loaded from: classes23.dex */
+    private static class C0742a implements CustomMessageTask.CustomRunnable<c> {
+        private C0742a() {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -23,8 +23,8 @@ class a extends CustomMessageTask {
             com.baidu.tieba.lego.model.a b;
             if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof c)) {
                 c data = customMessage.getData();
-                if (data.cJl() == null && (b = com.baidu.tieba.lego.d.b.das().b(data.cJk(), data.getUniqueId())) != null) {
-                    b.a(new b(data.cJm()));
+                if (data.cIQ() == null && (b = com.baidu.tieba.lego.d.b.cZP().b(data.cIP(), data.getUniqueId())) != null) {
+                    b.a(new b(data.cIR()));
                     data.a(b);
                 }
             }

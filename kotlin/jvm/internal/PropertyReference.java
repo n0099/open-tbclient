@@ -1,5 +1,5 @@
 package kotlin.jvm.internal;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class PropertyReference extends CallableReference implements kotlin.reflect.j {
     public PropertyReference() {
     }

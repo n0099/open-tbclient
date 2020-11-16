@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class Log implements INoProGuard {
     private static boolean sDebugApk;
     public static String LOG_TAG = "ZeusLog";

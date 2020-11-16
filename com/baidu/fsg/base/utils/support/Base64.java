@@ -21,7 +21,7 @@ import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class Base64 {
     public static final int DECODE = 0;
     public static final int DONT_GUNZIP = 4;
@@ -938,7 +938,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public static class InputStream extends FilterInputStream {
 
         /* renamed from: a  reason: collision with root package name */
@@ -1056,7 +1056,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public static class OutputStream extends FilterOutputStream {
 
         /* renamed from: a  reason: collision with root package name */

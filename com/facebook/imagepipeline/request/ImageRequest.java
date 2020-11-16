@@ -10,168 +10,168 @@ import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class ImageRequest {
-    private File gtR;
+    private File gty;
     public String mTag;
     @Nullable
-    private final com.facebook.imagepipeline.common.d oTD;
-    private final e oTE;
-    private final com.facebook.imagepipeline.common.b oTF;
+    private final com.facebook.imagepipeline.common.d oVg;
+    private final e oVh;
+    private final com.facebook.imagepipeline.common.b oVi;
     @Nullable
-    private final com.facebook.imagepipeline.h.c oUX;
-    private final boolean oVG;
+    private final com.facebook.imagepipeline.h.c oWA;
+    private final boolean oXj;
     @Nullable
-    private final com.facebook.imagepipeline.common.a oWW;
-    private final boolean oYG;
-    private final RequestLevel oYf;
-    @Nullable
-    private final b oZy;
-    private final CacheChoice pah;
-    private final Uri pai;
-    private final int paj;
+    private final com.facebook.imagepipeline.common.a oYz;
+    private final RequestLevel oZI;
     private final boolean pak;
-    private final Priority pal;
-    private final boolean pam;
-    private final Map<String, String> pan;
-    public String pao;
+    private final CacheChoice pbL;
+    private final Uri pbM;
+    private final int pbN;
+    private final boolean pbO;
+    private final Priority pbP;
+    private final boolean pbQ;
+    private final Map<String, String> pbR;
+    public String pbS;
+    @Nullable
+    private final b pbd;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes15.dex */
     public enum CacheChoice {
         SMALL,
         DEFAULT
     }
 
-    public static ImageRequest ab(@Nullable Uri uri) {
+    public static ImageRequest ac(@Nullable Uri uri) {
         if (uri == null) {
             return null;
         }
-        return ImageRequestBuilder.ad(uri).erY();
+        return ImageRequestBuilder.ae(uri).erW();
     }
 
-    public static ImageRequest Yr(@Nullable String str) {
+    public static ImageRequest Yc(@Nullable String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
-        return ab(Uri.parse(str));
+        return ac(Uri.parse(str));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ImageRequest(ImageRequestBuilder imageRequestBuilder) {
-        this.pah = imageRequestBuilder.erM();
-        this.pai = imageRequestBuilder.erN();
-        this.paj = ac(this.pai);
-        this.oVG = imageRequestBuilder.eoH();
-        this.pak = imageRequestBuilder.erW();
-        this.oTF = imageRequestBuilder.erR();
-        this.oTD = imageRequestBuilder.erP();
-        this.oTE = imageRequestBuilder.erQ() == null ? e.enV() : imageRequestBuilder.erQ();
-        this.oWW = imageRequestBuilder.epZ();
-        this.pal = imageRequestBuilder.erX();
-        this.oYf = imageRequestBuilder.eqX();
-        this.pam = imageRequestBuilder.eoq();
-        this.oYG = imageRequestBuilder.erU();
-        this.oZy = imageRequestBuilder.erV();
-        this.oUX = imageRequestBuilder.ekY();
-        this.pan = imageRequestBuilder.erm();
+        this.pbL = imageRequestBuilder.erK();
+        this.pbM = imageRequestBuilder.erL();
+        this.pbN = ad(this.pbM);
+        this.oXj = imageRequestBuilder.eoF();
+        this.pbO = imageRequestBuilder.erU();
+        this.oVi = imageRequestBuilder.erP();
+        this.oVg = imageRequestBuilder.erN();
+        this.oVh = imageRequestBuilder.erO() == null ? e.enT() : imageRequestBuilder.erO();
+        this.oYz = imageRequestBuilder.epX();
+        this.pbP = imageRequestBuilder.erV();
+        this.oZI = imageRequestBuilder.eqV();
+        this.pbQ = imageRequestBuilder.eoo();
+        this.pak = imageRequestBuilder.erS();
+        this.pbd = imageRequestBuilder.erT();
+        this.oWA = imageRequestBuilder.ekW();
+        this.pbR = imageRequestBuilder.erk();
         this.mTag = imageRequestBuilder.getTag();
-        this.pao = imageRequestBuilder.getLogTag();
+        this.pbS = imageRequestBuilder.getLogTag();
     }
 
-    public Map<String, String> erm() {
-        return this.pan;
+    public Map<String, String> erk() {
+        return this.pbR;
     }
 
-    public CacheChoice erM() {
-        return this.pah;
+    public CacheChoice erK() {
+        return this.pbL;
     }
 
-    public Uri erN() {
-        return this.pai;
+    public Uri erL() {
+        return this.pbM;
     }
 
-    public int erO() {
-        return this.paj;
+    public int erM() {
+        return this.pbN;
     }
 
     public int getPreferredWidth() {
-        if (this.oTD != null) {
-            return this.oTD.width;
+        if (this.oVg != null) {
+            return this.oVg.width;
         }
         return 2048;
     }
 
     public int getPreferredHeight() {
-        if (this.oTD != null) {
-            return this.oTD.height;
+        if (this.oVg != null) {
+            return this.oVg.height;
         }
         return 2048;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.d erP() {
-        return this.oTD;
+    public com.facebook.imagepipeline.common.d erN() {
+        return this.oVg;
     }
 
-    public e erQ() {
-        return this.oTE;
+    public e erO() {
+        return this.oVh;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a epZ() {
-        return this.oWW;
+    public com.facebook.imagepipeline.common.a epX() {
+        return this.oYz;
     }
 
-    public com.facebook.imagepipeline.common.b erR() {
-        return this.oTF;
+    public com.facebook.imagepipeline.common.b erP() {
+        return this.oVi;
+    }
+
+    public boolean erQ() {
+        return this.oXj;
+    }
+
+    public boolean erR() {
+        return this.pbO;
+    }
+
+    public Priority eqX() {
+        return this.pbP;
+    }
+
+    public RequestLevel eqV() {
+        return this.oZI;
+    }
+
+    public boolean eoo() {
+        return this.pbQ;
     }
 
     public boolean erS() {
-        return this.oVG;
-    }
-
-    public boolean erT() {
         return this.pak;
     }
 
-    public Priority eqZ() {
-        return this.pal;
-    }
-
-    public RequestLevel eqX() {
-        return this.oYf;
-    }
-
-    public boolean eoq() {
-        return this.pam;
-    }
-
-    public boolean erU() {
-        return this.oYG;
-    }
-
-    public synchronized File bQw() {
-        if (this.gtR == null) {
-            this.gtR = new File(this.pai.getPath());
+    public synchronized File bPP() {
+        if (this.gty == null) {
+            this.gty = new File(this.pbM.getPath());
         }
-        return this.gtR;
+        return this.gty;
     }
 
     @Nullable
-    public b erV() {
-        return this.oZy;
+    public b erT() {
+        return this.pbd;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.h.c ekY() {
-        return this.oUX;
+    public com.facebook.imagepipeline.h.c ekW() {
+        return this.oWA;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof ImageRequest) {
             ImageRequest imageRequest = (ImageRequest) obj;
-            if (f.equal(this.pai, imageRequest.pai) && f.equal(this.pah, imageRequest.pah) && f.equal(this.gtR, imageRequest.gtR) && f.equal(this.oWW, imageRequest.oWW) && f.equal(this.oTF, imageRequest.oTF) && f.equal(this.oTD, imageRequest.oTD) && f.equal(this.oTE, imageRequest.oTE)) {
-                return f.equal(this.oZy != null ? this.oZy.eqU() : null, imageRequest.oZy != null ? imageRequest.oZy.eqU() : null);
+            if (f.equal(this.pbM, imageRequest.pbM) && f.equal(this.pbL, imageRequest.pbL) && f.equal(this.gty, imageRequest.gty) && f.equal(this.oYz, imageRequest.oYz) && f.equal(this.oVi, imageRequest.oVi) && f.equal(this.oVg, imageRequest.oVg) && f.equal(this.oVh, imageRequest.oVh)) {
+                return f.equal(this.pbd != null ? this.pbd.eqS() : null, imageRequest.pbd != null ? imageRequest.pbd.eqS() : null);
             }
             return false;
         }
@@ -179,14 +179,14 @@ public class ImageRequest {
     }
 
     public int hashCode() {
-        return f.M(this.pah, this.pai, this.gtR, this.oWW, this.oTF, this.oTD, this.oTE, this.oZy != null ? this.oZy.eqU() : null);
+        return f.M(this.pbL, this.pbM, this.gty, this.oYz, this.oVi, this.oVg, this.oVh, this.pbd != null ? this.pbd.eqS() : null);
     }
 
     public String toString() {
-        return f.aZ(this).F(DownloadDataConstants.Columns.COLUMN_URI, this.pai).F("cacheChoice", this.pah).F("decodeOptions", this.oTF).F("postprocessor", this.oZy).F("priority", this.pal).F("resizeOptions", this.oTD).F("rotationOptions", this.oTE).F("bytesRange", this.oWW).toString();
+        return f.ba(this).F(DownloadDataConstants.Columns.COLUMN_URI, this.pbM).F("cacheChoice", this.pbL).F("decodeOptions", this.oVi).F("postprocessor", this.pbd).F("priority", this.pbP).F("resizeOptions", this.oVg).F("rotationOptions", this.oVh).F("bytesRange", this.oYz).toString();
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes15.dex */
     public enum RequestLevel {
         FULL_FETCH(1),
         DISK_CACHE(2),
@@ -208,31 +208,31 @@ public class ImageRequest {
         }
     }
 
-    private static int ac(Uri uri) {
+    private static int ad(Uri uri) {
         if (uri == null) {
             return -1;
         }
-        if (com.facebook.common.util.d.K(uri)) {
+        if (com.facebook.common.util.d.L(uri)) {
             return 0;
         }
         if (com.facebook.common.util.d.isLocalFileUri(uri)) {
-            if (com.facebook.common.d.a.XZ(com.facebook.common.d.a.Ya(uri.getPath()))) {
+            if (com.facebook.common.d.a.XK(com.facebook.common.d.a.XL(uri.getPath()))) {
                 return 2;
             }
             return 3;
         } else if (com.facebook.common.util.d.isLocalContentUri(uri)) {
             return 4;
         } else {
-            if (com.facebook.common.util.d.N(uri)) {
+            if (com.facebook.common.util.d.O(uri)) {
                 return 5;
             }
-            if (com.facebook.common.util.d.O(uri)) {
+            if (com.facebook.common.util.d.P(uri)) {
                 return 6;
             }
-            if (com.facebook.common.util.d.Q(uri)) {
+            if (com.facebook.common.util.d.R(uri)) {
                 return 7;
             }
-            return com.facebook.common.util.d.P(uri) ? 8 : -1;
+            return com.facebook.common.util.d.Q(uri) ? 8 : -1;
         }
     }
 }

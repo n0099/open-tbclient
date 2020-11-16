@@ -2,7 +2,7 @@ package com.tb.airbnb.lottie;
 
 import android.graphics.ColorFilter;
 import android.graphics.PointF;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public interface k {
     public static final Integer BV = 1;
     public static final Integer BW = 2;
@@ -12,7 +12,7 @@ public interface k {
     public static final PointF Ca = new PointF();
     public static final PointF Cb = new PointF();
     public static final PointF Cc = new PointF();
-    public static final com.tb.airbnb.lottie.e.d pId = new com.tb.airbnb.lottie.e.d();
+    public static final com.tb.airbnb.lottie.e.d pJG = new com.tb.airbnb.lottie.e.d();
     public static final Float Ce = Float.valueOf(1.0f);
     public static final Float Cf = Float.valueOf(2.0f);
     public static final Float Cg = Float.valueOf(3.0f);

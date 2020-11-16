@@ -5,21 +5,21 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
-    public int dWP;
-    public String dWQ;
-    public String dWM = "";
+    public int dVh;
+    public String dVi;
+    public String dVe = "";
     public int maxLength = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public boolean dWN = false;
-    public boolean dWO = false;
+    public boolean dVf = false;
+    public boolean dVg = false;
 
     public boolean h(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.dWM = cVar.optString("defaultValue");
+            this.dVe = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.dWN = cVar.optBoolean("multiple");
-            this.dWO = cVar.optBoolean("confirmHold");
+            this.dVf = cVar.optBoolean("multiple");
+            this.dVg = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -56,28 +56,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.dWP = 6;
-                    this.dWQ = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.dVh = 6;
+                    this.dVi = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
                 case 1:
-                    this.dWP = 5;
-                    this.dWQ = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.dVh = 5;
+                    this.dVi = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.dWP = 3;
-                    this.dWQ = "search";
+                    this.dVh = 3;
+                    this.dVi = "search";
                     return true;
                 case 3:
-                    this.dWP = 2;
-                    this.dWQ = "go";
+                    this.dVh = 2;
+                    this.dVi = "go";
                     return true;
                 case 4:
-                    this.dWP = 4;
-                    this.dWQ = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
+                    this.dVh = 4;
+                    this.dVi = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
                     return true;
                 default:
-                    this.dWP = 6;
-                    this.dWQ = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.dVh = 6;
+                    this.dVi = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
             }
         } catch (Exception e) {

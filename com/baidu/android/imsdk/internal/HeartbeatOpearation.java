@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.internal;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 interface HeartbeatOpearation {
     void cancelHearbeat();
 

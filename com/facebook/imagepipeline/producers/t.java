@@ -3,66 +3,66 @@ package com.facebook.imagepipeline.producers;
 import android.net.Uri;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class t {
-    private final k<com.facebook.imagepipeline.g.e> oYA;
-    private final ak oYH;
-    private long oYI = 0;
-    private int oYJ;
+    private final k<com.facebook.imagepipeline.g.e> pae;
+    private final ak pal;
+    private long pam = 0;
+    private int pan;
     @Nullable
-    private com.facebook.imagepipeline.common.a oYK;
+    private com.facebook.imagepipeline.common.a pao;
 
     public t(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.oYA = kVar;
-        this.oYH = akVar;
+        this.pae = kVar;
+        this.pal = akVar;
     }
 
-    public k<com.facebook.imagepipeline.g.e> erh() {
-        return this.oYA;
+    public k<com.facebook.imagepipeline.g.e> erf() {
+        return this.pae;
     }
 
-    public ak eri() {
-        return this.oYH;
+    public ak erg() {
+        return this.pal;
     }
 
     public String getId() {
-        return this.oYH.getId();
+        return this.pal.getId();
     }
 
-    public am eqW() {
-        return this.oYH.eqW();
+    public am eqU() {
+        return this.pal.eqU();
     }
 
     public Uri getUri() {
-        return this.oYH.eqV().erN();
+        return this.pal.eqT().erL();
     }
 
-    public long erj() {
-        return this.oYI;
+    public long erh() {
+        return this.pam;
     }
 
-    public void hP(long j) {
-        this.oYI = j;
+    public void hS(long j) {
+        this.pam = j;
     }
 
-    public int erk() {
-        return this.oYJ;
+    public int eri() {
+        return this.pan;
     }
 
-    public void PK(int i) {
-        this.oYJ = i;
+    public void Qn(int i) {
+        this.pan = i;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a erl() {
-        return this.oYK;
+    public com.facebook.imagepipeline.common.a erj() {
+        return this.pao;
     }
 
     public void c(com.facebook.imagepipeline.common.a aVar) {
-        this.oYK = aVar;
+        this.pao = aVar;
     }
 
-    public Map<String, String> erm() {
-        return this.oYH.eqV().erm();
+    public Map<String, String> erk() {
+        return this.pal.eqT().erk();
     }
 }

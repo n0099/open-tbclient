@@ -7,17 +7,17 @@ import com.baidu.swan.apps.v.f;
 import com.baidu.swan.pms.c.e;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(com.baidu.swan.apps.af.a aVar);
     }
 
     public static void a(final a aVar) {
-        com.baidu.swan.a.c.a.baK().getRequest().url(e.processUrl(com.baidu.swan.apps.t.a.awM().ahy())).addUrlParam("appkey", d.aHq().getAppId()).addUrlParam("swan_core_ver", com.baidu.swan.apps.swancore.b.a(f.azO().azq(), d.aHq().afE())).addUrlParam("swan_game_ver", com.baidu.swan.apps.swancore.b.kF(1)).addUrlParam("uid", com.baidu.swan.apps.t.a.awF().bq(com.baidu.swan.apps.t.a.awA())).cookieManager(com.baidu.swan.config.c.aOO().axR()).build().executeAsync(new ResponseCallback<com.baidu.swan.apps.af.a>() { // from class: com.baidu.swan.apps.af.b.1
+        com.baidu.swan.a.c.a.bad().getRequest().url(e.processUrl(com.baidu.swan.apps.t.a.awe().agQ())).addUrlParam("appkey", d.aGI().getAppId()).addUrlParam("swan_core_ver", com.baidu.swan.apps.swancore.b.a(f.azg().ayI(), d.aGI().aeW())).addUrlParam("swan_game_ver", com.baidu.swan.apps.swancore.b.kB(1)).addUrlParam("uid", com.baidu.swan.apps.t.a.avX().bq(com.baidu.swan.apps.t.a.avS())).cookieManager(com.baidu.swan.config.c.aOg().axj()).build().executeAsync(new ResponseCallback<com.baidu.swan.apps.af.a>() { // from class: com.baidu.swan.apps.af.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: b */
@@ -29,7 +29,7 @@ public class b {
                 if (b.DEBUG) {
                     Log.d("SwanAppRelatedSwanHelper", "parseResponse: RelateSwanData" + optJSONObject.toString());
                 }
-                return com.baidu.swan.apps.af.a.bx(optJSONObject);
+                return com.baidu.swan.apps.af.a.br(optJSONObject);
             }
 
             /* JADX DEBUG: Method merged with bridge method */

@@ -1,7 +1,7 @@
 package io.flutter.plugins;
 
-import com.baidu.c.a;
-import com.baidu.e.c;
+import com.baidu.d.a;
+import com.baidu.f.c;
 import com.baidu.network_service_plugin.b;
 import com.baidu.performance_monitor.PerformanceMonitorPlugin;
 import com.example.crash_report_plugin.CrashReportPlugin;
@@ -17,7 +17,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.plugins.shim.ShimPluginRegistry;
 import io.flutter.plugins.pathprovider.PathProviderPlugin;
 import io.flutter.plugins.webviewflutter.WebViewFlutterPlugin;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public final class GeneratedPluginRegistrant {
     public static void registerWith(FlutterEngine flutterEngine) {
         ShimPluginRegistry shimPluginRegistry = new ShimPluginRegistry(flutterEngine);

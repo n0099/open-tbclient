@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 @Descriptor(tags = {4})
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DecoderConfigDescriptor extends BaseDescriptor {
     private static Logger log = Logger.getLogger(DecoderConfigDescriptor.class.getName());
     AudioSpecificConfig audioSpecificInfo;

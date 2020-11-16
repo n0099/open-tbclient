@@ -3,7 +3,7 @@ package io.flutter.plugins.webviewflutter;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.PluginRegistry;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class WebViewFlutterPlugin implements FlutterPlugin {
     private FlutterCookieManager flutterCookieManager;
 
