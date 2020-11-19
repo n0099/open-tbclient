@@ -400,6 +400,13 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         }
     }
 
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.ufosdk.screencapedt.g.onClick(android.view.View):void] */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ ImageView m(ScreenCapEditActivity screenCapEditActivity) {
+        return screenCapEditActivity.e;
+    }
+
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getKeyCode() == 4 && keyEvent.getAction() == 0 && keyEvent.getRepeatCount() == 0) {

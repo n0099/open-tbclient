@@ -8,8 +8,9 @@ import java.util.zip.GZIPOutputStream;
 /* loaded from: classes17.dex */
 public class m {
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes17.dex */
-    private static class a extends GZIPOutputStream {
+    public static class a extends GZIPOutputStream {
         public a(OutputStream outputStream) throws IOException {
             super(outputStream);
         }
