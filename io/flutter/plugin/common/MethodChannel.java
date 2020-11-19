@@ -89,9 +89,8 @@ public final class MethodChannel {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
-    public final class IncomingMethodCallHandler implements BinaryMessenger.BinaryMessageHandler {
+    private final class IncomingMethodCallHandler implements BinaryMessenger.BinaryMessageHandler {
         private final MethodCallHandler handler;
 
         IncomingMethodCallHandler(MethodCallHandler methodCallHandler) {

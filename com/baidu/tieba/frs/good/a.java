@@ -156,7 +156,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         });
         if (!d.bhw()) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-            this.iKK.setPadding(dimenPixelSize, this.iKK.getTop(), dimenPixelSize, this.iKK.getBottom());
+            this.iKK.setPadding(dimenPixelSize, this.iKK.getPaddingTop(), dimenPixelSize, this.iKK.getPaddingBottom());
         }
         this.giV = new PbListView(this.jcs.getPageContext().getPageActivity());
         this.giV.createView();

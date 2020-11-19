@@ -187,7 +187,7 @@ public class g {
         });
         if (!com.baidu.tbadk.a.d.bhw()) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-            this.iKK.setPadding(dimenPixelSize, this.iKK.getTop(), dimenPixelSize, this.iKK.getBottom());
+            this.iKK.setPadding(dimenPixelSize, this.iKK.getPaddingTop(), dimenPixelSize, this.iKK.getPaddingBottom());
         }
         this.giV = new PbListView(this.jeD.getPageContext().getPageActivity());
         this.giV.createView();

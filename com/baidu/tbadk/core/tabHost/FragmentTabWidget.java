@@ -97,7 +97,6 @@ public class FragmentTabWidget extends LinearLayout {
         this.tabItemPaddingBottom = getResources().getDimensionPixelSize(R.dimen.ds10);
         setWillNotDraw(false);
         this.mBackgroundColorResId = R.color.common_color_10274;
-        setLayerType(1, null);
     }
 
     public void setCurrentTab(int i, boolean z, boolean z2) {
